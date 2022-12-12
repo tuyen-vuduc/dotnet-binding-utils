@@ -133,7 +133,7 @@ public static class ArtifactScanner
     {
         var externalArtifactFolderPath = System.IO.Path.Combine(
                 basePath,
-                "metadata", "platforms", "android",
+                "metadata", "android",
                 xgroupId, xartifactId
             );
 
