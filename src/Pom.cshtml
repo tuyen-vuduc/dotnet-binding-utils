@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+@using System.Linq
+@using System.IO
+@using System.Xml.Linq
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>tech.tuyen_vuduc.bindings</groupId>
+  <artifactId>@(Model.ArtifactId)</artifactId>
+  <version>1.0.0</version>
+  <packaging>aar</packaging>
+  <name>Xamarin.Android Binding Library for Mapbox SDK - @(Model.Key)</name>
+  <description>Xamarin.Android Binding Library for Mapbox SDK - @(Model.Key)</description>
+  <url>https://github.com/NAXAM/mapbox-android-binding</url>
+  <inceptionYear>2022</inceptionYear>
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>https://github.com/NAXAM/mapbox-android-binding/blob/master/LICENSE</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <name>tuyen-vuduc</name>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:https://github.com/NAXAM/mapbox-android-binding.git</connection>
+    <url>https://github.com/NAXAM/mapbox-android-binding/</url>
+  </scm>
+  <dependencies>
+      <dependency>
+        <groupId>@(@Model.ArtifactConfig.GroupId)</groupId>
+        <artifactId>@(@Model.ArtifactConfig.ArtifactId)</artifactId>
+        <version>@(@Model.ArtifactConfig.Version)</version>
+        <scope>compile</scope>
+      </dependency>
+  </dependencies>
+</project>

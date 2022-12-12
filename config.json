@@ -1,0 +1,20 @@
+{
+	"slnFile" : "generated/bindings.sln",
+	"debug": { "DumpModels" : true },
+	"additionalProjects": [
+	],
+	"templates" : [
+		{
+			"templateFile": "source/Targets.cshtml",
+			"outputFileRule" : "generated/{nugetid}/{nugetid}.targets"
+		},
+		{
+			"templateFile": "source/Project.cshtml",
+			"outputFileRule" : "generated/{nugetid}/{nugetid}.csproj"
+		},
+		{
+			"templateFile": "source/Pom.cshtml",
+			"outputFileRule" : "generated/{nugetid}/pom.xml"
+		}
+	]
+}
