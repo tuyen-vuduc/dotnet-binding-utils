@@ -10,34 +10,33 @@
 
     <PackageId>Dependencies.Gradle</PackageId>
     <Title>Xamarin Build-time Gradle Support for Android</Title>
-    <PackageVersion>0.1.0</PackageVersion>
+    <PackageVersion>7.6.0</PackageVersion>
     <Authors>Microsoft</Authors>
     <Owners>Microsoft</Owners>
     <PackageProjectUrl>https://github.com/tuyen-vuduc/xamarin-android-build-gradle</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/tuyen-vuduc/xamarin-android-build-gradle/blob/main/LICENSE</PackageLicenseUrl>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Description>Support for resolving Android dependencies using Gradle when building MSBuild projects</Description>
+    <PackageIcon>tv-ico.png</PackageIcon>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Description>To resolve Android dependencies using Gradle when building an Andriod app project</Description>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
     <RepositoryUrl>https://github.com/tuyen-vuduc/xamarin-android-build-gradle.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
-
   <ItemGroup>
-    <None Remove="Models\" />
-    <None Remove="Core\" />
+      <None Include="../../assets/tv-ico.png" Pack="true" PackagePath="" CopyToOutputDirectory="PreserveNewest" />
+      <None Include="../../LICENSE" Pack="true" PackagePath="" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
   <ItemGroup>
     <!-- build -->
     <None Include="Dependencies.Gradle.targets" Pack="True" PackagePath="build\Dependencies.Gradle.targets" CopyToOutputDirectory="PreserveNewest" />
     <None Include="Dependencies.Gradle.props" Pack="True" PackagePath="build\Dependencies.Gradle.props" CopyToOutputDirectory="PreserveNewest" />
     <None Include="Dependencies.Gradle.assets.zip" Pack="True" PackagePath="build\Dependencies.Gradle.assets.zip" CopyToOutputDirectory="PreserveNewest" />
-    <None Include="$(TargetPath)" Pack="True" PackagePath="build\Dependencies.Gradle.dll" />
-
-    <!-- buildTransitive: we _could_ import targets, but this is more work for me to write -->
-    <None Include="Dependencies.Gradle.targets" Pack="True" PackagePath="buildTransitive\Dependencies.Gradle.targets" />
-    <None Include="Dependencies.Gradle.props" Pack="True" PackagePath="buildTransitive\Dependencies.Gradle.props" />
-    <None Include="Dependencies.Gradle.assets.zip" Pack="True" PackagePath="buildTransitive\Dependencies.Gradle.assets.zip" />
-    <None Include="$(TargetPath)" Pack="True" PackagePath="buildTransitive\Dependencies.Gradle.dll" />
+    <None Include="$(TargetPath)" Pack="True" PackagePath="build\Dependencies.Gradle.dll" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="Dependencies.Gradle.targets" Pack="True" PackagePath="buildTransitive\Dependencies.Gradle.targets" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="Dependencies.Gradle.props" Pack="True" PackagePath="buildTransitive\Dependencies.Gradle.props" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="Dependencies.Gradle.assets.zip" Pack="True" PackagePath="buildTransitive\Dependencies.Gradle.assets.zip" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="$(TargetPath)" Pack="True" PackagePath="buildTransitive\Dependencies.Gradle.dll" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="$(TargetPath)" Pack="True" PackagePath="buildTransitive\Dependencies.Gradle.dll" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Build.Framework" Version="17.4.0" PrivateAssets="all" />

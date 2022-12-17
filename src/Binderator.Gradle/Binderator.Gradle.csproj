@@ -12,19 +12,23 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <PackageVersion>2.3.4</PackageVersion>
+        <PackageVersion>7.6.0</PackageVersion>
         <PackageId>Binderator.Gradle</PackageId>
         <Title>Binderator.Gradle</Title>
         <PackageDescription>An util to make use of gradle to resolve native dependcies of the binding libraries</PackageDescription>
         <PackageProjectUrl>https://github.com/tuyen-vuduc/dotnet-binding-utils</PackageProjectUrl>
-        <PackageIconUrl>https://raw.githubusercontent.com/tuyen-vuduc/dotnet-binding-utils/main/assets/tv-ico.png</PackageIconUrl>
-        <PackageLicenseUrl>https://raw.githubusercontent.com/tuyen-vuduc/dotnet-binding-utils/main/LICENSE</PackageLicenseUrl>
+        <PackageIcon>tv-ico.png</PackageIcon>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <PackageTags>dotnet, gradle, tuyen-vuduc, .net-android, xamarin-android, xamarin.android</PackageTags>
         <Authors>tuyen</Authors>
         <Owners>tuyen</Owners>
         <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     </PropertyGroup>
+    <ItemGroup>
+        <None Include="../../assets/tv-ico.png" Pack="true" PackagePath=""/>
+        <None Include="../../LICENSE" Pack="true" PackagePath=""/>
+    </ItemGroup>
     <ItemGroup>
         <PackageReference Include="RazorLight" Version="2.3.0" />
         <PackageReference Include="NuGet.Versioning" Version="6.4.0" />

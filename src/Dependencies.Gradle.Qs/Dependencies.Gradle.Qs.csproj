@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net7.0-android</TargetFramework>
+    <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
+    <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationId>com.companyname.Dependencies.Gradle.Qs</ApplicationId>
+    <ApplicationVersion>1</ApplicationVersion>
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <GradleImplementation Include="com.braintreepayments.api:three-d-secure:4.15.0" />
+    <GradleRepository Include="https://cardinalcommerceprod.jfrog.io/artifactory/android">
+      <Repository>
+      maven {
+        url 'https://cardinalcommerceprod.jfrog.io/artifactory/android'
+        credentials {
+            username 'braintree_team_sdk'
+            password 'AKCp8jQcoDy2hxSWhDAUQKXLDPDx6NYRkqrgFLRc3qDrayg6rrCbJpsKKyMwaykVL8FWusJpp'
+        }
+      }
+      </Repository>
+    </GradleRepository>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Dependencies.Gradle" Version="7.6.0" />
+  </ItemGroup>
+</Project>

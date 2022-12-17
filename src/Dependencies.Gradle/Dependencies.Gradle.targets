@@ -25,7 +25,7 @@
 		/>
 	
 	<Target Name="_GradleSyncCore"
-			Condition="'@(GradleSyncImplementation)'!=''">
+			Condition="'@(GradleImplementation)'!=''">
 		<GradleSync
 			TempDir="$(GradleSyncTempDir)"
 			GradleAssetsPath="$(GradleSyncAssetsPath)"
@@ -42,10 +42,10 @@
 	</Target>
 
 	<Target Name="_CleanGdlMerge">
-		<RemoveDir Directories="$(GradleSyncTempDir)" Condition="Exists ('$(GradleSyncTempDir)XbdMerge')" />
+		<RemoveDir Directories="$(GradleSyncTempDir)" Condition="Exists ('$(GradleSyncTempDir)')" />
 	</Target>
 	<Target Name="_GradleSyncTarget"
-			Condition="'$(_GradleSyncMasterDependsOnTargets)'!=''"
+			Condition=" '$(_GradleSyncMasterDependsOnTargets)' != '' "
 			BeforeTargets="$(_GradleSyncMasterBeforeTargets)"
 			DependsOnTargets="$(_GradleSyncMasterDependsOnTargets)" />
 </Project>
