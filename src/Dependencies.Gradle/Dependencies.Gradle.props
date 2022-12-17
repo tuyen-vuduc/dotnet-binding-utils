@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<GradleSyncTempDir>$(MSBuildProjectDirectory)\obj\xgradle</GradleSyncTempDir>
+		<GradleSyncAssetsPath>$(MSBuildThisFileDirectory)Dependencies.Gradle.assets.zip</GradleSyncAssetsPath>
+	</PropertyGroup>
+</Project>

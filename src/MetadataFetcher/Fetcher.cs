@@ -1,7 +1,9 @@
 using System.Text.Json;
 
 public static class Fetcher 
-{    
+{
+    public static string BasePath = ".";
+
     public static async Task FetchAsync(
         string packageId, 
         string groupId, 
@@ -47,7 +49,7 @@ public static class Fetcher
             var latestVersion = vg.Last();
 
             var folderPath = Path
-                .Combine("metadata", platform, groupId, artifactId)
+                .Combine(BasePath, "metadata", platform, groupId, artifactId)
                 .ToLower();
 
             if (!Directory.Exists(folderPath)) {

@@ -21,4 +21,7 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MetadataFetcher\MetadataFetcher.csproj" />
+  </ItemGroup>
 </Project>

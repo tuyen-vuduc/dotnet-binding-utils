@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<UsingTask TaskName="Dependencies.Gradle.GradleSync" AssemblyFile="Dependencies.Gradle.dll" />
+	
+	<PropertyGroup Condition="'$(TargetFrameworkIdentifier)'=='MonoAndroid' or '$(TargetPlatformIdentifier)'=='android'">
+		<_GradleSyncIsAndroid>true</_GradleSyncIsAndroid>
+		<_GradleSyncMasterBeforeTargets>_ResolveLibraryProjectImports</_GradleSyncMasterBeforeTargets>
+		<_GradleSyncMasterDependsOnTargets>_GradleSync;</_GradleSyncMasterDependsOnTargets>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(_GradleSyncIsAndroid)'==''">
+		<_GradleSyncIsAndroid>false</_GradleSyncIsAndroid>
+	</PropertyGroup>
+	
+	<PropertyGroup>
+		<CleanDependsOn>
+			$(CleanDependsOn);
+			_CleanGdlMerge;
+		</CleanDependsOn>
+	</PropertyGroup>
+
+	<Target
+			Name="_GradleSync"
+			DependsOnTargets="_GradleSyncCore;"
+		/>
+	
+	<Target Name="_GradleSyncCore"
+			Condition="'@(GradleSyncImplementation)'!=''">
+		<GradleSync
+			TempDir="$(GradleSyncTempDir)"
+			GradleAssetsPath="$(GradleSyncAssetsPath)"
+			Repositories="@(GradleRepository)"
+			Implementations="@(GradleImplementation)"
+			GradleProperties="@(GradleProperty)"
+			User7ZipPath="$(GradleSyncUser7ZipPath)"
+			VsInstallRoot="$(VsInstallRoot)"
+			IsAndroid="$(_GradleSyncIsAndroid)"
+			AndroidSdkPath="$(AndroidSdkDirectory)"
+			AndroidMinSdkVersion="$(AndroidMinSdkVersion)"
+			AndroidTargetSdkVersion="$(AndroidTargetSdkVersion)"
+			/>
+	</Target>
+
+	<Target Name="_CleanGdlMerge">
+		<RemoveDir Directories="$(GradleSyncTempDir)" Condition="Exists ('$(GradleSyncTempDir)XbdMerge')" />
+	</Target>
+	<Target Name="_GradleSyncTarget"
+			Condition="'$(_GradleSyncMasterDependsOnTargets)'!=''"
+			BeforeTargets="$(_GradleSyncMasterBeforeTargets)"
+			DependsOnTargets="$(_GradleSyncMasterDependsOnTargets)" />
+</Project>

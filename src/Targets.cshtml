@@ -18,6 +18,6 @@
       Condition=" '$(OS)' != 'Unix' and Exists('$(UserProfile)/@(Model.LibRelativePath)') " 
       Include="$(UserProfile)/@(Model.LibRelativePath)" 
       Bind="false" Pack="false" Visible="false" />
-    <GradleDependencyResolverImplementation Condition=" $(@(conditionName)) == 'true' " Include="@(Model.GradleImplenetation)" />
+    <GradleSyncImplementation Condition=" $(@(conditionName)) == 'true' " Include="@(Model.GradleImplenetation)" />
   </ItemGroup>
 </Project>
