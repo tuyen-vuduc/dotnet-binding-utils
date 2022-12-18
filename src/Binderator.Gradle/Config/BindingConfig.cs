@@ -7,41 +7,36 @@ namespace Binderator.Gradle;
 
 public class BindingConfig
 {
-	[JsonProperty("basePath")]
 	public string BasePath { get; set; } = null;
 	
-    [JsonProperty("generatedDir")]
     public string GeneratedDir { get; set; }
 
-	[JsonProperty("templates")]
 	public List<TemplateConfig> Templates { get; set; } = new List<TemplateConfig>();
 
-	[JsonProperty("NugetVersionSuffix")]
 	public string NugetVersionSuffix { get; set; } = null;
 
-	[JsonProperty("slnFile")]
 	public string SolutionFile { get; set; } = null;
 
-	public List<ArtifactModel> MavenArtifacts { get; set; } = new List<ArtifactModel>();
-
-	[JsonProperty("debug")]
 	public BindingConfigDebug Debug { get; set; } = new BindingConfigDebug();
 
-	[JsonProperty("additionalProjects")]
 	public List<string> AdditionalProjects { get; set; } = new List<string>();
 
 	/// True to consider 'Runtime' dependencies from a POM file, False to ignore them.
-	[JsonProperty("strictRuntimeDependencies")]
 	public bool StrictRuntimeDependencies { get; set; }
 
-	[JsonProperty("excludedRuntimeDependencies")]
 	public string ExcludedRuntimeDependencies { get; set; }
 
-	[JsonProperty("metadata")]
 	public Dictionary<string, string> Metadata { get; set; } = new Dictionary<string, string>();
 
-	[JsonProperty("templateSets")]
 	public List<TemplateSetModel> TemplateSets { get; set; } = new List<TemplateSetModel>();
+
+	public List<ArtifactModel> Artifacts { get; set; }
+
+	public string[] Targets { get; set; }
+	public string[] Tags { get; set; }
+	public string ProjectUrl { get; set; }
+	public string IconPath { get; set; }
+	public string LicensePath { get; set; }
 
 	public TemplateSetModel GetTemplateSet(string name)
 	{

@@ -1,0 +1,40 @@
+{
+	"slnFile" : "generated/androidx.appcompat-bindings.sln",
+	"metadataPath": "../..",
+	"debug": { "dumpModels" : true },
+	"additionalProjects": [
+	],
+	"targets": [
+		"MonoAndroid12.0",
+		"net6.0-android31.0"
+	],
+	"projectUrl": "https://github.com/tuyen-vuduc/dotnet-binding-utils",
+	"licensePath": "../../LICENSE",
+	"iconPath": "../../assets/tv-icon.png",
+	"tags": [ "android" ],
+	"templates" : [
+		{
+			"templateFile": "../../src/Targets.cshtml",
+			"outputFileRule" : "generated/{nugetid}/{nugetid}.targets"
+		},
+		{
+			"templateFile": "../../src/Project.cshtml",
+			"outputFileRule" : "generated/{nugetid}/{nugetid}.csproj"
+		},
+		{
+			"templateFile": "../../src/Pom.cshtml",
+			"outputFileRule" : "generated/{nugetid}/pom.xml"
+		}
+	],
+	"artifacts": [
+		{
+			"groupId": "androidx.appcompat",
+			"groupName": "AndroidX Components",
+			"artifactId": "appcompat",
+			"artifactName": "AppCompat",
+			"version": "1.7.0-alpha01",
+			"nugetPackageId": "Xamarin.AndroidX.AppCompat",
+			"tags": [ "androidx.appcompat", "appcompat" ]
+		}
+	]
+}

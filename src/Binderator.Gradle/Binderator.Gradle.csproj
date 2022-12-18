@@ -26,11 +26,12 @@
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     </PropertyGroup>
     <ItemGroup>
-        <None Include="../../assets/tv-ico.png" Pack="true" PackagePath=""/>
-        <None Include="../../LICENSE" Pack="true" PackagePath=""/>
+        <None Include="../../assets/tv-ico.png" Pack="true" PackagePath="" CopyToOutputDirectory="PreserveNewest" Visible="False" />
+        <None Include="../../LICENSE" Pack="true" PackagePath="" CopyToOutputDirectory="PreserveNewest" Visible="False" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="RazorLight" Version="2.3.0" />
         <PackageReference Include="NuGet.Versioning" Version="6.4.0" />
+        <PackageReference Include="System.Text.Json" Version="7.0.1" />
     </ItemGroup>
 </Project>

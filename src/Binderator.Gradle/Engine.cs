@@ -28,7 +28,7 @@ public class Engine
         if (!string.IsNullOrEmpty(basePath))
             config.BasePath = basePath;
 
-        config.MavenArtifacts = artifacts;
+        config.Artifacts = artifacts;
 
         return BinderateAsync(config)
             .ContinueWith(t => config);
@@ -89,7 +89,7 @@ public class Engine
         var projectModels = new List<BindingProjectModel>();
         var exceptions = new List<Exception>();
 
-        foreach (var mavenArtifact in config.MavenArtifacts)
+        foreach (var mavenArtifact in config.Artifacts)
         {
             if (mavenArtifact.DependencyOnly)
                 continue;
@@ -115,8 +115,8 @@ public class Engine
                 if (!ShouldIncludeDependency(config, mavenArtifact, mavenDep, exceptions))
                     continue;
 
-                var parentArtifact = config.MavenArtifacts
-                                        .First(x => x.NugetPackageId == mavenDep.NugetPackageId);
+                var parentArtifact = config.Artifacts
+                                        .First(x => x.NugetPackageId == mavenDep.Key);
 
                 projectModel.NuGetDependencies.Add(parentArtifact);
             }
@@ -130,13 +130,13 @@ public class Engine
         return projectModels;
     }
 
-    static bool ShouldIncludeDependency(BindingConfig config, ArtifactModel artifact, (string NugetPackageId, string scope) dependency, List<Exception> exceptions)
+    static bool ShouldIncludeDependency(BindingConfig config, ArtifactModel artifact, KeyValuePair<string, string> dependency, List<Exception> exceptions)
     {
         // We always care about 'compile' scoped dependencies
-        if (string.Equals(dependency.scope, "compile", StringComparison.OrdinalIgnoreCase))
+        if (string.Equals(dependency.Value, "compile", StringComparison.OrdinalIgnoreCase))
             return true;
 
-        if (string.Equals(dependency.scope, "runtime", StringComparison.OrdinalIgnoreCase))
+        if (string.Equals(dependency.Value, "runtime", StringComparison.OrdinalIgnoreCase))
             return true;
 
         // TODO need to check other cases: runtime, etc.

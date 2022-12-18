@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
-
-namespace Binderator.Gradle;
+﻿namespace Binderator.Gradle;
 
 public class ArtifactModel : IEquatable<ArtifactModel>
 {
     public string GroupId { get; set; }
 
     public string ArtifactId { get; set; }
-    public string Version { get; set; }
+    public SemanticVersion Version { get; set; }
     public string Packaging { get; set; }
     public string NugetPackageId { get; set; }
-    public string NugetVersion { get; set; }
+    public NuGetVersion NugetVersion { get; set; }
     public bool DependencyOnly { get; set; } = false;
 
     public string[] Files { get; set; }
@@ -41,7 +37,7 @@ public class ArtifactModel : IEquatable<ArtifactModel>
         "proguard.txt"
     ) : string.Empty;
 
-    public (string NugetPackageId, string Scope)[] ParentArtifacts { get; set; }
+    public KeyValuePair<string, string>[] ParentArtifacts { get; set; }
 
     public bool Equals(ArtifactModel other)
     {

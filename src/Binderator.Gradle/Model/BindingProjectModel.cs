@@ -19,10 +19,7 @@ public class BindingProjectModel
 
     public string NugetVersionSuffix { get; set; }
 
-	public string NugetVersion =>
-		string.IsNullOrWhiteSpace(NugetVersionSuffix)
-			? ArtifactConfig.NugetVersion
-            : ArtifactConfig.NugetVersion + NugetVersionSuffix;
+	public NuGetVersion NugetVersion => ArtifactConfig.NugetVersion;
 
 	public List<ArtifactModel> NuGetDependencies { get; set; } = new List<ArtifactModel>();
 

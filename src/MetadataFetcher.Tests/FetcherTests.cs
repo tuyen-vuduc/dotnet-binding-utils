@@ -11,6 +11,8 @@ public class FetcherTests
     }
 
     [Theory]
+    [InlineData("Xamarin.AndroidX.AppCompat.AppCompatResources", "androidx.appcompat", "appcompat-resources")] 
+    [InlineData("Xamarin.AndroidX.ResourceInspection.Annotation", "androidx.resourceinspection", "resourceinspection-annotation")] 
     [InlineData("Xamarin.AndroidX.VectorDrawable.Animated", "androidx.vectordrawable", "vectordrawable-animated")] 
     [InlineData("Xamarin.AndroidX.VectorDrawable", "androidx.vectordrawable", "vectordrawable")] 
     [InlineData("Xamarin.AndroidX.ResourceInspection.Annotation", "androidx.lifecycle", "resourceinspection-annotation")]

@@ -9,8 +9,24 @@ using System.Security.Cryptography;
 
 namespace Binderator.Gradle;
 
-internal static class Util
+public static class Util
 {
+    public readonly static JsonSerializerOptions JsonOptions = new JsonSerializerOptions
+    {
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+        Converters =
+            {
+                new NuGetVersionJsonValueConverter(),
+                new SemanticVersionJsonValueConverter(),
+            }
+    };
+
+    public static T Deserialize<T>(this Stream stream)
+        => JsonSerializer.Deserialize<T>(stream, JsonOptions);
+
+    public static string Serialize<T>(this T obj)
+        => JsonSerializer.Serialize(obj, JsonOptions);
+
     internal static string HashMd5(Stream value)
     {
         using (var md5 = MD5.Create())

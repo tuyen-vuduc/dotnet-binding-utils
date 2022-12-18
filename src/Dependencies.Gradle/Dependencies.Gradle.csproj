@@ -23,8 +23,8 @@
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
   <ItemGroup>
-      <None Include="../../assets/tv-ico.png" Pack="true" PackagePath="" CopyToOutputDirectory="PreserveNewest" />
-      <None Include="../../LICENSE" Pack="true" PackagePath="" CopyToOutputDirectory="PreserveNewest" />
+      <None Include="../../assets/tv-ico.png" Pack="true" PackagePath="" CopyToOutputDirectory="PreserveNewest" Visible="False" />
+      <None Include="../../LICENSE" Pack="true" PackagePath="" CopyToOutputDirectory="PreserveNewest" Visible="False" />
   </ItemGroup>
   <ItemGroup>
     <!-- build -->

@@ -26,7 +26,7 @@ using System.Runtime.InteropServices;
 
 namespace Xamarin.Build.Download
 {
-	public static class Platform
+	internal static class Platform
 	{
 		static Platform ()
 		{
