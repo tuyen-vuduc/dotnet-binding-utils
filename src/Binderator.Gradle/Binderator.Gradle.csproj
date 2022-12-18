@@ -10,7 +10,6 @@
         <AssemblyName>Binderator.Gradle</AssemblyName>
         <LangVersion>latestmajor</LangVersion>
     </PropertyGroup>
-
     <PropertyGroup>
         <PackageVersion>7.6.0</PackageVersion>
         <PackageId>Binderator.Gradle</PackageId>

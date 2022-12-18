@@ -27,6 +27,7 @@
 		}
 	],
 	"groupName": "AndroidX Components",
+	"nugetRevision": 0,
 	"artifacts": [
 		{
 			"groupId": "androidx.appcompat",

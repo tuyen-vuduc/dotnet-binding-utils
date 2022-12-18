@@ -12,7 +12,11 @@ public class ArtifactModel : IEquatable<ArtifactModel>
     public string NugetPackageId { get; set; }
     public NuGetVersion NugetVersion { get; set; }
     public bool DependencyOnly { get; set; } = false;
-    public int NugetRevision { get; set; }
+    public int? NugetRevision { get; set; }
+
+    public string ProjectUrl { get; set; }
+    public string IconPath { get; set; }
+    public string LicensePath { get; set; }
 
     public string[] Files { get; set; }
 

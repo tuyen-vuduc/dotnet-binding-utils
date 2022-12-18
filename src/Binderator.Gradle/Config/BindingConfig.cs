@@ -39,6 +39,7 @@ public class BindingConfig
 	public string IconPath { get; set; }
 	public string LicensePath { get; set; }
     public string GroupName { get; set; }
+    public int NugetRevision { get; set; }
 
     public TemplateSetModel GetTemplateSet(string name)
 	{

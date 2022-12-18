@@ -10,11 +10,6 @@
     <AssemblyName>@(Model.Artifact.NugetPackageId)</AssemblyName>
     <RootNamespace>@(Model.Artifact.NugetPackageId)</RootNamespace>
   </PropertyGroup>
-  @{
-      string project_url = "https://github.com/tuyen-vuduc/dotnet-binding-utils";
-      string license_url = "https://github.com/tuyen-vuduc/dotnet-binding-utils/blob/main/LICENSE";
-      string icon_url = "https://avatars.githubusercontent.com/u/600935";
-  }
   <PropertyGroup>
     <PackageId>@(Model.Artifact.NugetPackageId)</PackageId>
     <Title>@(Model.GroupName) - @(Model.ArtifactName)</Title>
@@ -30,9 +25,9 @@
     <InformationalVersion>@(Model.Artifact.NugetVersion)</InformationalVersion>
     <AssemblyVersion>@(Model.Artifact.NugetVersion)</AssemblyVersion>
     <Copyright>© tuyen-vuduc. All rights reserved.</Copyright>
-    <PackageProjectUrl>@(project_url)</PackageProjectUrl>
-    <PackageLicenseUrl>@(license_url)</PackageLicenseUrl>
-    <PackageIconUrl>@(icon_url)</PackageIconUrl>
+    <PackageProjectUrl>@(Model.Config.ProjectUrl)</PackageProjectUrl>
+    <PackageLicense>@(Model.Config.LicensePath)</PackageLicense>
+    <PackageIcon>@(Model.Config.IconPath)</PackageIcon>
     <PackageVersion>@(Model.Artifact.NugetVersion)</PackageVersion>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <!-- Include symbol files (*.pdb) in the built .nupkg -->
