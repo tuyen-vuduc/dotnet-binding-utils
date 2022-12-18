@@ -31,20 +31,15 @@
     <None Include="Dependencies.Gradle.targets" Pack="True" PackagePath="build\Dependencies.Gradle.targets" CopyToOutputDirectory="PreserveNewest" />
     <None Include="Dependencies.Gradle.props" Pack="True" PackagePath="build\Dependencies.Gradle.props" CopyToOutputDirectory="PreserveNewest" />
     <None Include="Dependencies.Gradle.assets.zip" Pack="True" PackagePath="build\Dependencies.Gradle.assets.zip" CopyToOutputDirectory="PreserveNewest" />
-    <None Include="$(TargetPath)" Pack="True" PackagePath="build\Dependencies.Gradle.dll" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="$(TargetPath)" Pack="True" PackagePath="build\Dependencies.Gradle.dll"  />
     <None Include="Dependencies.Gradle.targets" Pack="True" PackagePath="buildTransitive\Dependencies.Gradle.targets" CopyToOutputDirectory="PreserveNewest" />
     <None Include="Dependencies.Gradle.props" Pack="True" PackagePath="buildTransitive\Dependencies.Gradle.props" CopyToOutputDirectory="PreserveNewest" />
     <None Include="Dependencies.Gradle.assets.zip" Pack="True" PackagePath="buildTransitive\Dependencies.Gradle.assets.zip" CopyToOutputDirectory="PreserveNewest" />
-    <None Include="$(TargetPath)" Pack="True" PackagePath="buildTransitive\Dependencies.Gradle.dll" CopyToOutputDirectory="PreserveNewest" />
-    <None Include="$(TargetPath)" Pack="True" PackagePath="buildTransitive\Dependencies.Gradle.dll" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="$(TargetPath)" Pack="True" PackagePath="buildTransitive\Dependencies.Gradle.dll" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Build.Framework" Version="17.4.0" PrivateAssets="all" />
     <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.4.0" PrivateAssets="all" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Core\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
