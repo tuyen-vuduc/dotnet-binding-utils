@@ -13,10 +13,24 @@
   <ItemGroup>
     <PackageReference Include="Cake.Frosting" Version="3.0.0" />
     <PackageReference Include="Dependencies.Gradle" Version="7.6.0" />
-    <PackageReference Include="Binderator.Gradle" Version="7.6.0" />
   </ItemGroup>
   <ItemGroup>
-    <GradleImplementation Include="androidx.appcompat:appcompat:1.7.0-alpha01"></GradleImplementation>
+    <GradleImplementation Include="org.jfrog.cardinalcommerce.gradle:cardinalmobilesdk:2.2.6-1"></GradleImplementation>
+    <GradleImplementation Include="androidx.appcompat:appcompat:1.2.0"></GradleImplementation>
+    <GradleRepository Include="https://api.mapbox.com/downloads/v2/releases/maven">
+      <Repository>
+      maven {
+          url 'https://cardinalcommerceprod.jfrog.io/artifactory/android'
+          credentials {
+              username 'braintree_team_sdk'
+              password 'AKCp8jQcoDy2hxSWhDAUQKXLDPDx6NYRkqrgFLRc3qDrayg6rrCbJpsKKyMwaykVL8FWusJpp'
+          }
+      }
+      </Repository>
+    </GradleRepository>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Binderator.Gradle\Binderator.Gradle.csproj" />
   </ItemGroup>
   <Target Name="_GradleDependencyResolverTrigger" DependsOnTargets="_GradleSync" BeforeTargets="CoreCompile" />
 </Project>

@@ -24,6 +24,7 @@ public static class ArtifactScanner
         string groupName = default,
         string artifactName = default,
         string[] tags = default,
+        int nugetRevision = default,
         List<string> missingArtifacts = default)
     {
         List<ArtifactModel> artifacts = new();
@@ -74,7 +75,7 @@ public static class ArtifactScanner
             ArtifactId = artifactId,
             ArtifactName = artifactName,
             Version = version,
-            NugetVersion = new NuGetVersion(version.ToNormalizedString()),
+            NugetVersion = version.ToNuGetVersion(nugetRevision),
             NugetPackageId = CreateNugetId(groupId, artifactId),
             Files = files.Select(x => x.Replace(homeFolderPath, string.Empty).Trim('/')).ToArray(),
             Packaging = packaging,
@@ -127,6 +128,7 @@ public static class ArtifactScanner
                     xartifactId,
                     artifactVersion,
                     log,
+                    nugetRevision: nugetRevision,
                     missingArtifacts: missingArtifacts);
 
                 if (parentArtifacts.Count == 0) continue;
@@ -201,7 +203,7 @@ public static class ArtifactScanner
             return GetNugetVersion(externalArtifactFolderPath, artifactVersionModel.FallbackVersion);
         }
 
-        return new NuGetVersion(xversion.ToNormalizedString());
+        return xversion.ToNuGetVersion();
     }
 
     private static ArtifactVersionModel ReadArtifactVersionModel(string externalArtifactVersionPath)

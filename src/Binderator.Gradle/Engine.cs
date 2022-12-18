@@ -44,10 +44,11 @@ public class Engine
         var slnProjModels = new Dictionary<string, BindingProjectModel>();
         var models = BuildProjectModels(config);
 
-        var json = Newtonsoft.Json.JsonConvert.SerializeObject(models);
+        if (config.Debug.DumpModels) {
+            var json = Newtonsoft.Json.JsonConvert.SerializeObject(models);
 
-        if (config.Debug.DumpModels)
-            File.WriteAllText(Path.Combine(config.BasePath, "models.json"), json);
+            File.WriteAllText(Path.Combine(config.BasePath, "projects.g.json"), json);
+        }
 
         var engine = new RazorLightEngineBuilder()
             .UseMemoryCachingProvider()

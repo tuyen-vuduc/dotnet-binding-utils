@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "metadata", "metadata", "{11
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "qs", "qs", "{42E9BCB0-E43E-43F9-9B4B-B044A9DFCC99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Build", "qs\androidx.appcompat\build\Build.csproj", "{512B1F51-F9E4-4222-BC82-3BDB8B180AAE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Build", "qs\cardinalmobilesdk\build\Build.csproj", "{512B1F51-F9E4-4222-BC82-3BDB8B180AAE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
