@@ -15,14 +15,14 @@ public static class Extensions
 		{
 			// NuGetVersion doesn't allow to use a number as a release label.
 			// Here we assume
-			//   - this kind of release label is always smaller than 1000
+			//   - this kind of release label is always smaller than 90
 			//   - our revsion for NuGet package is always smaller than 100
 			// Then when reading the convention, we will understand
-			//   - which part is the native release label
-			//   - which part is the nuget revision
+			//   - which part is the native release label: (wrapped/100) - 10
+			//   - which part is the nuget revision: (wrapped%100)
 			// NOTE: We can't simply use semantic release label as the release label of the nuget package.
 			// If we do so, Nuget will consider that package is a pre-release version
-			revision = (intValue + 1000) * 100 + nugetRevision;
+			revision = (intValue + 10) * 100 + nugetRevision;
 			releaseLabel = string.Empty;
 		}
 

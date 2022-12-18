@@ -1,4 +1,5 @@
-﻿[TaskName("init")]
+﻿namespace DotnetBindings.Cake;
+
 public sealed class InitializeTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)

@@ -1,4 +1,5 @@
-﻿[TaskName("nuget")]
+﻿namespace DotnetBindings.Cake;
+
 [IsDependentOn(typeof(BinderateTask))]
 public sealed class NugetTask : FrostingTask<BuildContext>
 {

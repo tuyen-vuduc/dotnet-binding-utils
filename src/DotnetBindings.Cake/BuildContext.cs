@@ -1,4 +1,6 @@
-﻿public class BuildContext : FrostingContext
+﻿namespace DotnetBindings.Cake;
+
+public class BuildContext : FrostingContext
 {
     public string BasePath { get; set; }
     public string GeneratedSlnPath { get; set; }

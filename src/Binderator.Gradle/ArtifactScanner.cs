@@ -54,20 +54,6 @@ public static class ArtifactScanner
             SearchOption.AllDirectories
         );
 
-        var artifactPomFileName = $"{artifactId}-{version}.pom";
-        var pomFilePath = files.FirstOrDefault(x => x.EndsWith(artifactPomFileName));
-
-        if (pomFilePath == null) return artifacts;
-
-        var xmlDocument = new XmlDocument();
-        xmlDocument.Load(pomFilePath);
-
-        // Add the namespace.  
-        XmlNamespaceManager nsmgr = new XmlNamespaceManager(xmlDocument.NameTable);
-        nsmgr.AddNamespace("mvn", "http://maven.apache.org/POM/4.0.0");
-
-        var packaging = xmlDocument.DocumentElement.SelectSingleNode("descendant::mvn:packaging", nsmgr)?.InnerText;
-
         var artifact = new ArtifactModel
         {
             GroupId = groupId,
@@ -77,10 +63,39 @@ public static class ArtifactScanner
             Version = version,
             NugetVersion = version.ToNuGetVersion(nugetRevision),
             NugetPackageId = CreateNugetId(groupId, artifactId),
-            Files = files.Select(x => x.Replace(homeFolderPath, string.Empty).Trim('/')).ToArray(),
-            Packaging = packaging,
+            Files = files
+                .Where(x => !x.Contains("/_aar/"))
+                .Select(x => x.Replace(homeFolderPath, string.Empty).Trim('/'))
+                .ToArray(),
             Tags = tags,
         };
+
+        var artifactPomFileName = $"{artifactId}-{version}.pom";
+        var pomFilePath = files.FirstOrDefault(x => x.EndsWith(artifactPomFileName));
+
+        if (pomFilePath == null)
+        {
+            var libFilePath = files.FirstOrDefault(x =>
+                x.EndsWith($"{artifactId}-{version}.aar") ||
+                x.EndsWith($"{artifactId}-{version}.jar")
+            );
+
+            if (!string.IsNullOrWhiteSpace(libFilePath))
+            {
+                artifacts.Add(artifact);
+            }
+
+            return artifacts;
+        }
+
+        var xmlDocument = new XmlDocument();
+        xmlDocument.Load(pomFilePath);
+
+        // Add the namespace.  
+        XmlNamespaceManager nsmgr = new XmlNamespaceManager(xmlDocument.NameTable);
+        nsmgr.AddNamespace("mvn", "http://maven.apache.org/POM/4.0.0");
+
+        artifact.Packaging = xmlDocument.DocumentElement.SelectSingleNode("descendant::mvn:packaging", nsmgr)?.InnerText;
         artifacts.Add(artifact);
 
         var dependencies = xmlDocument.DocumentElement.SelectNodes("mvn:dependencies/mvn:dependency", nsmgr);

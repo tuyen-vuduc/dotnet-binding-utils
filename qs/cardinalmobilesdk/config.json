@@ -32,7 +32,7 @@
 			"groupId": "org.jfrog.cardinalcommerce.gradle",
 			"artifactId": "cardinalmobilesdk",
 			"artifactName": "Android",
-			"version": "2.2.6-1",
+			"version": "2.2.7-2",
 			"nugetRevision": 12,
 			"tags": [ "cardinalcommerce" ]
 		}

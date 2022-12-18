@@ -1,4 +1,4 @@
-global using System;
+﻿global using System;
 global using System.Collections.Generic;
 global using System.IO;
 global using System.Linq;
@@ -21,5 +21,3 @@ global using Cake.Frosting;
 
 global using Binderator.Gradle;
 global using Xamarin.Build.Download;
-
-global using DotnetBindings.Cake;

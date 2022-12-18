@@ -19,7 +19,7 @@ public class ArtifactModel : IEquatable<ArtifactModel>
     public string Key => $"{GroupId}:{ArtifactId}";
     public string GradleImplementation => $"{GroupId}:{ArtifactId}:{Version}";
 
-    public bool IsAAR => Packaging == "aar";
+    public bool IsAAR => Packaging == "aar" || Files?.Any(x => x.EndsWith(ArtifactWithVersion + ".aar")) == true;
     public string ArtifactWithVersion => $"{ArtifactId}-{Version}";
 
     public string LibRelativePath => IsAAR

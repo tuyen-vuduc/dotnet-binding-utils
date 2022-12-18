@@ -1,4 +1,5 @@
-﻿[TaskName("binderate")]
+﻿namespace DotnetBindings.Cake;
+
 [IsDependentOn(typeof(InitializeTask))]
 public sealed class BinderateTask : AsyncFrostingTask<BuildContext>
 {

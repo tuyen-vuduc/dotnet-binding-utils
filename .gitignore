@@ -10,7 +10,7 @@ TestResults/
 .vs/
 tools/
 *.nupkg
-artifacts.g.json
+*.g.json
 
 # globs
 Makefile.in

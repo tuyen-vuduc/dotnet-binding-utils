@@ -15,7 +15,7 @@
     <PackageReference Include="Dependencies.Gradle" Version="7.6.0" />
   </ItemGroup>
   <ItemGroup>
-    <GradleImplementation Include="org.jfrog.cardinalcommerce.gradle:cardinalmobilesdk:2.2.6-1"></GradleImplementation>
+    <GradleImplementation Include="org.jfrog.cardinalcommerce.gradle:cardinalmobilesdk:2.2.7-2"></GradleImplementation>
     <GradleImplementation Include="androidx.appcompat:appcompat:1.2.0"></GradleImplementation>
     <GradleRepository Include="https://api.mapbox.com/downloads/v2/releases/maven">
       <Repository>
@@ -31,6 +31,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Binderator.Gradle\Binderator.Gradle.csproj" />
+    <ProjectReference Include="..\..\..\src\DotnetBindings.Cake\DotnetBindings.Cake.csproj" />
   </ItemGroup>
   <Target Name="_GradleDependencyResolverTrigger" DependsOnTargets="_GradleSync" BeforeTargets="CoreCompile" />
 </Project>
