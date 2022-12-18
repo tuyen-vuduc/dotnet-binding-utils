@@ -12,7 +12,18 @@ public sealed class InitializeTask : FrostingTask<BuildContext>
             return;
         }
 
-        var artifacts = Scan(new List<ArtifactModel>(configs.Artifacts), context);
+        configs.BasePath = context.BasePath;
+        context.Configs = configs;
+
+        context.GeneratedSlnPath = System.IO.Path.Combine(
+            context.BasePath,
+            configs.SolutionFile
+        );
+
+        var artifacts = configs.Artifacts = Scan(
+            new List<ArtifactModel>(configs.Artifacts),
+            context
+        );
 
         if (configs.Debug.DumpModels)
         {
@@ -80,7 +91,10 @@ public sealed class InitializeTask : FrostingTask<BuildContext>
                         context.Log.Information(log);
                     else if (log.Contains("EXISTS"))
                         context.Log.Information(log);
-                }
+                },
+                artifact.GroupName,
+                artifact.ArtifactName,
+                artifact.Tags
             );
             allArtifacts.AddRange(scannedItems);
 

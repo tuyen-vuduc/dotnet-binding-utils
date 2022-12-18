@@ -30,9 +30,9 @@ public class TemplateConfig
 	{
 		var p = OutputFileRule
 				 .Replace("{generated}", config.GeneratedDir)
-				 .Replace("{groupid}", model.ArtifactConfig.GroupId)
-				 .Replace("{artifactid}", model.ArtifactConfig.ArtifactId)
-				 .Replace("{nugetid}", model.ArtifactConfig.NugetPackageId);
+				 .Replace("{groupid}", model.Artifact.GroupId)
+				 .Replace("{artifactid}", model.Artifact.ArtifactId)
+				 .Replace("{nugetid}", model.Artifact.NugetPackageId);
 
 		return System.IO.Path.Combine(config.BasePath, p);
 	}

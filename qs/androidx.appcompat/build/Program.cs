@@ -9,7 +9,7 @@ public static class Program
 }
 
 [TaskName("Default")]
-[IsDependentOn(typeof(InitializeTask))]
+[IsDependentOn(typeof(BinderateTask))]
 public class DefaultTask : FrostingTask
 {
 }

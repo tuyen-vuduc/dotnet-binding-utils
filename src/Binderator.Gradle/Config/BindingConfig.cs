@@ -32,13 +32,15 @@ public class BindingConfig
 
 	public List<ArtifactModel> Artifacts { get; set; }
 
-	public string[] Targets { get; set; }
+    public string[] TargetFrameworks { get; set; }
 	public string[] Tags { get; set; }
+
 	public string ProjectUrl { get; set; }
 	public string IconPath { get; set; }
 	public string LicensePath { get; set; }
+    public string GroupName { get; set; }
 
-	public TemplateSetModel GetTemplateSet(string name)
+    public TemplateSetModel GetTemplateSet(string name)
 	{
 		// If an artifact doesn't specify a template set, first try using the original
 		// single template list if it exists.  If not, look for a template set called "default".

@@ -1,10 +1,10 @@
 {
-	"slnFile" : "generated/androidx.appcompat-bindings.sln",
+	"solutionFile" : "generated/androidx.appcompat-bindings.sln",
 	"metadataPath": "../..",
 	"debug": { "dumpModels" : true },
 	"additionalProjects": [
 	],
-	"targets": [
+	"targetFrameworks": [
 		"MonoAndroid12.0",
 		"net6.0-android31.0"
 	],
@@ -26,6 +26,7 @@
 			"outputFileRule" : "generated/{nugetid}/pom.xml"
 		}
 	],
+	"groupName": "AndroidX Components",
 	"artifacts": [
 		{
 			"groupId": "androidx.appcompat",

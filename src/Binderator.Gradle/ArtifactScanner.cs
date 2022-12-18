@@ -11,7 +11,7 @@ public static class ArtifactScanner
         string version,
         Action<string> log)
     {
-        return Scan(new (), metadataBasePath, groupId, artifactId, NuGetVersion.Parse(version), log, new ());
+        return Scan(new (), metadataBasePath, groupId, artifactId, NuGetVersion.Parse(version), log, missingArtifacts: new ());
     }
 
     public static List<ArtifactModel> Scan(
@@ -21,7 +21,10 @@ public static class ArtifactScanner
         string artifactId,
         SemanticVersion version,
         Action<string> log,
-        List<string> missingArtifacts = null)
+        string groupName = default,
+        string artifactName = default,
+        string[] tags = default,
+        List<string> missingArtifacts = default)
     {
         List<ArtifactModel> artifacts = new();
         missingArtifacts ??= new();
@@ -67,12 +70,15 @@ public static class ArtifactScanner
         var artifact = new ArtifactModel
         {
             GroupId = groupId,
+            GroupName = groupName,
             ArtifactId = artifactId,
+            ArtifactName = artifactName,
             Version = version,
             NugetVersion = new NuGetVersion(version.ToNormalizedString()),
             NugetPackageId = CreateNugetId(groupId, artifactId),
             Files = files.Select(x => x.Replace(homeFolderPath, string.Empty).Trim('/')).ToArray(),
             Packaging = packaging,
+            Tags = tags,
         };
         artifacts.Add(artifact);
 
@@ -121,7 +127,7 @@ public static class ArtifactScanner
                     xartifactId,
                     artifactVersion,
                     log,
-                    missingArtifacts);
+                    missingArtifacts: missingArtifacts);
 
                 if (parentArtifacts.Count == 0) continue;
 

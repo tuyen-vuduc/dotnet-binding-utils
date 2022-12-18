@@ -4,6 +4,7 @@
     public string GeneratedSlnPath { get; set; }
 
     public List<ArtifactModel> Artifacts { get; set; }
+    public BindingConfig Configs { get; set; }
 
     public BuildContext(ICakeContext context)
         : base(context)

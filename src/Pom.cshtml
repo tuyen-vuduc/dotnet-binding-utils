@@ -6,11 +6,11 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>tech.tuyen_vuduc.bindings</groupId>
-  <artifactId>@(Model.ArtifactId)</artifactId>
+  <artifactId>@(Model.Artifact.ArtifactId)</artifactId>
   <version>1.0.0</version>
   <packaging>aar</packaging>
-  <name>Xamarin.Android Binding Library for Mapbox SDK - @(Model.Key)</name>
-  <description>Xamarin.Android Binding Library for Mapbox SDK - @(Model.Key)</description>
+  <name>Xamarin.Android Binding Library for Mapbox SDK - @(Model.Artifact.GradleImplementation)</name>
+  <description>Xamarin.Android Binding Library for Mapbox SDK - @(Model.Artifact.GradleImplementation)</description>
   <url>https://github.com/NAXAM/mapbox-android-binding</url>
   <inceptionYear>2022</inceptionYear>
   <licenses>
@@ -31,9 +31,9 @@
   </scm>
   <dependencies>
       <dependency>
-        <groupId>@(@Model.ArtifactConfig.GroupId)</groupId>
-        <artifactId>@(@Model.ArtifactConfig.ArtifactId)</artifactId>
-        <version>@(@Model.ArtifactConfig.Version)</version>
+        <groupId>@(@Model.Artifact.GroupId)</groupId>
+        <artifactId>@(@Model.Artifact.ArtifactId)</artifactId>
+        <version>@(@Model.Artifact.Version)</version>
         <scope>compile</scope>
       </dependency>
   </dependencies>

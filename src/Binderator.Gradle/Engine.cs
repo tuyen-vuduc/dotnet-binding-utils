@@ -89,16 +89,15 @@ public class Engine
         var projectModels = new List<BindingProjectModel>();
         var exceptions = new List<Exception>();
 
-        foreach (var mavenArtifact in config.Artifacts)
+        foreach (var artifact in config.Artifacts)
         {
-            if (mavenArtifact.DependencyOnly)
+            if (artifact.DependencyOnly)
                 continue;
 
             var projectModel = new BindingProjectModel
             {
-                NugetVersionSuffix = config.NugetVersionSuffix,
                 Config = config,
-                ArtifactConfig = mavenArtifact,
+                Artifact = artifact,
             };
             projectModels.Add(projectModel);
 
@@ -110,9 +109,9 @@ public class Engine
             //var proguardFile = Path.Combine(artifactExtractDir, "proguard.txt");
 
             // Gather maven dependencies to try and map out nuget dependencies
-            foreach (var mavenDep in mavenArtifact.ParentArtifacts)
+            foreach (var mavenDep in artifact.ParentArtifacts)
             {
-                if (!ShouldIncludeDependency(config, mavenArtifact, mavenDep, exceptions))
+                if (!ShouldIncludeDependency(config, artifact, mavenDep, exceptions))
                     continue;
 
                 var parentArtifact = config.Artifacts

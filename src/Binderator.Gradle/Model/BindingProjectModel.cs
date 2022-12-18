@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text.RegularExpressions;
 
 namespace Binderator.Gradle;
@@ -8,18 +9,28 @@ public class BindingProjectModel
 {
 	public string Id { get; private set; } = Guid.NewGuid().ToString().ToUpperInvariant();
 
-    public ArtifactModel ArtifactConfig { get; set; }
+    public ArtifactModel Artifact { get; set; }
 
-    public string Key => ArtifactConfig?.Key;
-    public string GradleImplenetation => ArtifactConfig.GradleImplenetation;
+    public string GroupName => string.IsNullOrWhiteSpace(Artifact.GroupName)
+        ? string.IsNullOrWhiteSpace(Config.GroupName)
+        ? Artifact.GroupId
+        : Config.GroupName
+        : Artifact.GroupName;
 
-    public string LibRelativePath => ArtifactConfig.LibRelativePath;
-    public string NugetPackageId => ArtifactConfig.NugetPackageId;
-    public string ArtifactId => ArtifactConfig.ArtifactId;
+    public string ArtifactName => string.IsNullOrWhiteSpace(Artifact.ArtifactName)
+        ? Artifact.ArtifactId
+        : Artifact.ArtifactName;
 
-    public string NugetVersionSuffix { get; set; }
+    public string Tags => string.Join(
+        ",",
+        new List<string>(
+            Artifact.Tags ?? new string[0]
+        ).Union(
+            Config.Tags ?? new string[0]
+        )
+    );
 
-	public NuGetVersion NugetVersion => ArtifactConfig.NugetVersion;
+    public string TargetFrameworks => string.Join(";", Config.TargetFrameworks);
 
 	public List<ArtifactModel> NuGetDependencies { get; set; } = new List<ArtifactModel>();
 

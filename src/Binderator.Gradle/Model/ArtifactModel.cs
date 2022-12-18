@@ -1,4 +1,6 @@
-﻿namespace Binderator.Gradle;
+﻿using System.Text.Json.Serialization;
+
+namespace Binderator.Gradle;
 
 public class ArtifactModel : IEquatable<ArtifactModel>
 {
@@ -14,7 +16,7 @@ public class ArtifactModel : IEquatable<ArtifactModel>
     public string[] Files { get; set; }
 
     public string Key => $"{GroupId}:{ArtifactId}";
-    public string GradleImplenetation => $"{GroupId}:{ArtifactId}:{Version}";
+    public string GradleImplementation => $"{GroupId}:{ArtifactId}:{Version}";
 
     public bool IsAAR => Packaging == "aar";
     public string ArtifactWithVersion => $"{ArtifactId}-{Version}";
@@ -38,6 +40,9 @@ public class ArtifactModel : IEquatable<ArtifactModel>
     ) : string.Empty;
 
     public KeyValuePair<string, string>[] ParentArtifacts { get; set; }
+    public string GroupName { get; set; }
+    public string ArtifactName { get; set; }
+    public string[] Tags { get; set; }
 
     public bool Equals(ArtifactModel other)
     {

@@ -1,47 +1,39 @@
 @using System
 @using System.Linq
 @using System.Collections.Generic
-
 @{
-  var targetFrameworkMoniker = "MonoAndroid12.0";
-  var dotnetFrameworkMoniker = "net6.0-android31.0";
 }
-
 <Project Sdk="Xamarin.Legacy.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>@(targetFrameworkMoniker);@(dotnetFrameworkMoniker)</TargetFrameworks>
+    <TargetFrameworks>@(Model.TargetFrameworks)</TargetFrameworks>
     <IsBindingProject>true</IsBindingProject>
-    <AssemblyName>@(Model.NugetPackageId)</AssemblyName>
-    <RootNamespace>@(Model.NugetPackageId)</RootNamespace>
+    <AssemblyName>@(Model.Artifact.NugetPackageId)</AssemblyName>
+    <RootNamespace>@(Model.Artifact.NugetPackageId)</RootNamespace>
   </PropertyGroup>
-
   @{
-      string key = Model.Key;
-      
       string project_url = "https://github.com/tuyen-vuduc/dotnet-binding-utils";
       string license_url = "https://github.com/tuyen-vuduc/dotnet-binding-utils/blob/main/LICENSE";
       string icon_url = "https://avatars.githubusercontent.com/u/600935";
   }
-
   <PropertyGroup>
-    <PackageId>@(Model.ArtifactConfig.NugetPackageId)</PackageId>
-    <Title>Mapbox Android SDK -  @(key)</Title>
-    <Summary>Xamarin.Android Bindings for Mapbox SDK - artifact=@(key)</Summary>
+    <PackageId>@(Model.Artifact.NugetPackageId)</PackageId>
+    <Title>@(Model.GroupName) - @(Model.ArtifactName)</Title>
+    <Summary>C# bindings for @(Model.Artifact.GradleImplementation)</Summary>
     <Description>
-        Xamarin.Android Bindings for Mapbox SDK - artifact=@(key)
+        C# bindings for @(Model.Artifact.GradleImplementation)
     </Description>
-    <PackageTags> xamarin, Xamarin.Android, mapbox, @(key)</PackageTags>
+    <PackageTags> xamarin, @(Model.Tags), @(Model.Artifact.GroupId), @(Model.Artifact.ArtifactId)</PackageTags>
     <Authors>tuyen</Authors>
     <Owners>tuyen</Owners>
     <Company>N/A</Company>
-    <FileVersion>@(Model.NugetVersion + "-" + DateTimeOffset.Now.ToUnixTimeSeconds())</FileVersion>
-    <InformationalVersion>@(Model.NugetVersion)</InformationalVersion>
-    <AssemblyVersion>@(Model.NugetVersion)</AssemblyVersion>
+    <FileVersion>@(Model.Artifact.NugetVersion + "-" + DateTimeOffset.Now.ToUnixTimeSeconds())</FileVersion>
+    <InformationalVersion>@(Model.Artifact.NugetVersion)</InformationalVersion>
+    <AssemblyVersion>@(Model.Artifact.NugetVersion)</AssemblyVersion>
     <Copyright>© tuyen-vuduc. All rights reserved.</Copyright>
     <PackageProjectUrl>@(project_url)</PackageProjectUrl>
     <PackageLicenseUrl>@(license_url)</PackageLicenseUrl>
     <PackageIconUrl>@(icon_url)</PackageIconUrl>
-    <PackageVersion>@(Model.NugetVersion)</PackageVersion>
+    <PackageVersion>@(Model.Artifact.NugetVersion)</PackageVersion>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <!-- Include symbol files (*.pdb) in the built .nupkg -->
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
@@ -103,10 +95,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="@(Model.ArtifactConfig.NugetPackageId).targets" Pack="True" PackagePath="build\@(targetFrameworkMoniker)" />
-    <None Include="@(Model.ArtifactConfig.NugetPackageId).targets" Pack="True" PackagePath="build\@(dotnetFrameworkMoniker)" />
-    <None Include="@(Model.ArtifactConfig.NugetPackageId).targets" Pack="True" PackagePath="buildTransitive\@(targetFrameworkMoniker)" />
-    <None Include="@(Model.ArtifactConfig.NugetPackageId).targets" Pack="True" PackagePath="buildTransitive\@(dotnetFrameworkMoniker)" />    
+  @foreach(var targetFrameworkMoniker in Model.Config.TargetFrameworks) {
+    <None Include="@(Model.Artifact.NugetPackageId).targets" Pack="True" PackagePath="build\@(targetFrameworkMoniker)" />
+    <None Include="@(Model.Artifact.NugetPackageId).targets" Pack="True" PackagePath="buildTransitive\@(targetFrameworkMoniker)" />
+  }    
   </ItemGroup>
 
   <ItemGroup>
@@ -116,27 +108,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\source\AssemblyInfo.cs" />
-    <Compile Include="..\..\source\@(Model.ArtifactConfig.GroupId)\@(Model.ArtifactConfig.ArtifactId)\Additions\*.cs">
+    <Compile Include="..\..\source\@(Model.Artifact.GroupId)\@(Model.Artifact.ArtifactId)\Additions\*.cs">
         <Link>Additions/%(RecursiveDir)/%(Filename)%(Extension)</Link>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <TransformFile Include="..\..\source\@(Model.ArtifactConfig.GroupId)\@(Model.ArtifactConfig.ArtifactId)\Transforms\*.xml">
+    <TransformFile Include="..\..\source\@(Model.Artifact.GroupId)\@(Model.Artifact.ArtifactId)\Transforms\*.xml">
         <Link>Transforms/%(RecursiveDir)/%(Filename)%(Extension)</Link>
     </TransformFile>
   </ItemGroup>
   @* <ItemGroup>
-  @if (!string.IsNullOrEmpty(Model.ArtifactConfig.SourcesJarRelativeFilePath)) {
+  @if (!string.IsNullOrEmpty(Model.Artifact.SourcesJarRelativeFilePath)) {
     <JavaSourceJar
-          Include="$(UserHome)/@(Model.ArtifactConfig.SourcesJarRelativeFilePath)"
-          Condition="Exists('$(UserHome)/@(Model.ArtifactConfig.SourcesJarRelativeFilePath)')"
+          Include="$(UserHome)/@(Model.Artifact.SourcesJarRelativeFilePath)"
+          Condition="Exists('$(UserHome)/@(Model.Artifact.SourcesJarRelativeFilePath)')"
           />
   }
-  @if (!string.IsNullOrEmpty(Model.ArtifactConfig.JavadocJarRelativeFilePath)) {
+  @if (!string.IsNullOrEmpty(Model.Artifact.JavadocJarRelativeFilePath)) {
     <JavaDocJar
-          Include="$(UserHome)/@(Model.ArtifactConfig.JavadocJarRelativeFilePath)"
-          Condition="Exists('$(UserHome)/@(Model.ArtifactConfig.JavadocJarRelativeFilePath)')"
+          Include="$(UserHome)/@(Model.Artifact.JavadocJarRelativeFilePath)"
+          Condition="Exists('$(UserHome)/@(Model.Artifact.JavadocJarRelativeFilePath)')"
           />
   }
   </ItemGroup> *@
@@ -147,25 +139,25 @@
   var homeFolderPath = System.Environment.GetFolderPath(homeFolder);  
   var proguardFilePath = System.IO.Path.Combine(
     homeFolderPath,
-    Model.ArtifactConfig.ProguardFileRelativePath
+    Model.Artifact.ProguardFileRelativePath
   );
 }
   <ItemGroup>
-@if (!string.IsNullOrEmpty(Model.ArtifactConfig.ProguardFileRelativePath)
+@if (!string.IsNullOrEmpty(Model.Artifact.ProguardFileRelativePath)
   && System.IO.File.Exists(proguardFilePath)) {
     <None Include="@(proguardFilePath)" Pack="True" PackagePath="proguard" />
   }  
   </ItemGroup>
   <ItemGroup>
-      @if (Model.ArtifactConfig.IsAAR) {
-    <InputJar Include="$(UserHome)/@(Model.ArtifactConfig.LibFolderPath)/_aar/classes.jar" />
+      @if (Model.Artifact.IsAAR) {
+    <InputJar Include="$(UserHome)/@(Model.Artifact.LibFolderPath)/_aar/classes.jar" />
     <!-- For those artifacts with lib/ folder -->
     <InputJar
-      Condition="Exists('$(UserHome)/@(Model.ArtifactConfig.LibFolderPath)/_aar/libs/')"
-      Include="$(UserHome)/@(Model.ArtifactConfig.LibFolderPath)/_aar/libs/*.jar"
+      Condition="Exists('$(UserHome)/@(Model.Artifact.LibFolderPath)/_aar/libs/')"
+      Include="$(UserHome)/@(Model.Artifact.LibFolderPath)/_aar/libs/*.jar"
       />
       } else {
-    <InputJar Include="$(UserHome)/@(Model.ArtifactConfig.LibRelativePath)" />
+    <InputJar Include="$(UserHome)/@(Model.Artifact.LibRelativePath)" />
       }
   </ItemGroup>
   <ItemGroup>

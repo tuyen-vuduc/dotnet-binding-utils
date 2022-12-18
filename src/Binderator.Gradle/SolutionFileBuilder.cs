@@ -51,7 +51,7 @@ public static class SolutionFileBuilder
         // Add all of the generated projects
         foreach (var p in projects)
         {
-            var prjName = p.Value.ArtifactConfig.NugetPackageId;
+            var prjName = p.Value.Artifact.NugetPackageId;
             var prjKey = GetRelativePath(slnFileInfo.FullName, p.Key).Replace("/", "\\");
             var prjGuid = "{" + p.Value.Id + "}";
 
