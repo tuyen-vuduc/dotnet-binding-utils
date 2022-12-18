@@ -11,6 +11,13 @@ public class FetcherTests
     }
 
     [Theory]
+    [InlineData("Xamarin.AndroidX.VectorDrawable.Animated", "androidx.vectordrawable", "vectordrawable-animated")] 
+    [InlineData("Xamarin.AndroidX.VectorDrawable", "androidx.vectordrawable", "vectordrawable")] 
+    [InlineData("Xamarin.AndroidX.ResourceInspection.Annotation", "androidx.lifecycle", "resourceinspection-annotation")]
+    [InlineData("Xamarin.AndroidX.Lifecycle.Process", "androidx.lifecycle", "lifecycle-process")]
+    [InlineData("Xamarin.AndroidX.Emoji2", "androidx.emoji2", "emoji2")] 
+    [InlineData("Xamarin.AndroidX.Emoji2.ViewsHelper", "androidx.emoji2", "emoji2-views-helper")]
+    [InlineData("Xamarin.AndroidX.Collection", "androidx.collection", "collection")]
     [InlineData("Xamarin.AndroidX.Activity", "androidx.activity", "activity")]
     [InlineData("Xamarin.AndroidX.Annotation", "androidx.annotation", "annotation")]
     [InlineData("Xamarin.AndroidX.AppCompat", "androidx.appcompat", "appcompat")]
