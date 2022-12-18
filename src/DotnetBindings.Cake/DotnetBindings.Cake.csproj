@@ -12,4 +12,10 @@
   <ItemGroup>
     <ProjectReference Include="..\Binderator.Gradle\Binderator.Gradle.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="binding-default.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="**/*" />
+  </ItemGroup>
 </Project>

@@ -1,4 +1,6 @@
-﻿namespace DotnetBindings.Cake;
+﻿using System;
+
+namespace DotnetBindings.Cake;
 
 public sealed class InitializeTask : FrostingTask<BuildContext>
 {
@@ -38,6 +40,28 @@ public sealed class InitializeTask : FrostingTask<BuildContext>
             File.WriteAllText(configPath, json);
         }
 
+        UnzipAar(context, artifacts);
+
+        context.Artifacts = artifacts;
+    }
+
+    private void UnzipAar(BuildContext context, List<ArtifactModel> artifacts)
+    {
+        const string bindingDefaultFile = "binding-default.zip";
+        if (!File.Exists(bindingDefaultFile)) {
+            using(var stream = GetType()
+                                .Assembly
+                                .GetManifestResourceStream(
+                                    $"DotnetBindings.Cake.{bindingDefaultFile}"
+                                ))
+            {
+                using (var writer = File.OpenWrite(bindingDefaultFile))
+                {
+                    stream!.CopyTo(writer);
+                }
+            }
+        }
+
         var sourceFolderPath = System.IO.Path.Combine(
             context.BasePath,
             "source"
@@ -58,16 +82,14 @@ public sealed class InitializeTask : FrostingTask<BuildContext>
             if (Directory.Exists(artifactFolderPath)) continue;
 
             var bindingDefaultZipFilePath = System.IO.Path.Combine(
-                context.BasePath,
-                "binding-default.zip"
+                ".",
+                bindingDefaultFile
             );
             context.Unzip(
                 bindingDefaultZipFilePath,
                 artifactFolderPath
             );
         }
-
-        context.Artifacts = artifacts;
     }
 
     private List<ArtifactModel> Scan(List<ArtifactModel> artifacts, BuildContext context)

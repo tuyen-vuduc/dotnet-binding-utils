@@ -13,10 +13,13 @@
   <ItemGroup>
     <PackageReference Include="Cake.Frosting" Version="3.0.0" />
     <PackageReference Include="Dependencies.Gradle" Version="7.6.0" />
-    <PackageReference Include="Binderator.Gradle" Version="7.6.0" />
   </ItemGroup>
   <ItemGroup>
     <GradleImplementation Include="androidx.appcompat:appcompat:1.7.0-alpha01"></GradleImplementation>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Binderator.Gradle\Binderator.Gradle.csproj" />
+    <ProjectReference Include="..\..\..\src\DotnetBindings.Cake\DotnetBindings.Cake.csproj" />
   </ItemGroup>
   <Target Name="_GradleDependencyResolverTrigger" DependsOnTargets="_GradleSync" BeforeTargets="CoreCompile" />
 </Project>
