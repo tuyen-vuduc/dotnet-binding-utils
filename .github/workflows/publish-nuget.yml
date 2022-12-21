@@ -41,8 +41,6 @@ jobs:
     #   run: |
     #     dotnet nuget push ./nugets/*.nupkg --api-key "$NUGET_PUSH_API_KEY" --source https://api.nuget.org/v3/index.json --skip-duplicate
 
-    runs-on: macos-latest
-    steps:
     - name: Publish NuGet and symbols
       id: nuget-push
       uses: edumserrano/nuget-push@v1.2.0
