@@ -113,6 +113,10 @@ equals to
 MAPBOX_DOWNLOADS_TOKEN=YOUR_MAPBOX_DOWNLOADS_TOKEN
 ```
 
+**NOTE** ATM, we have to
+- Use the same SDK folder with Android Studio
+- Run an Android project at least one
+
 ### Binderators.Gradle
 
 **WHY**
