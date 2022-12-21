@@ -23,6 +23,7 @@ jobs:
     - name: Setup Java 11
       uses: actions/setup-java@v3
       with:
+        distribution: 'microsoft'
         java-version: '11'
 
     - name: Install android workload
@@ -40,7 +41,6 @@ jobs:
     #   run: |
     #     dotnet nuget push ./nugets/*.nupkg --api-key "$NUGET_PUSH_API_KEY" --source https://api.nuget.org/v3/index.json --skip-duplicate
 
-  publish:
     runs-on: macos-latest
     steps:
     - name: Publish NuGet and symbols
