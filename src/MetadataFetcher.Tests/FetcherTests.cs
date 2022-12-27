@@ -11,6 +11,10 @@ public class FetcherTests
     }
 
     [Theory]
+    [InlineData("Xamarin.AndroidX.CursorAdapter", "androidx.cursoradapter", "cursoradapter")] 
+    [InlineData("Xamarin.AndroidX.Work.Runtime", "androidx.work", "work-runtime")] 
+    [InlineData("Xamarin.AndroidX.Work.Work.Runtime.Ktx", "androidx.work", "work-runtime-ktx")] 
+    [InlineData("Xamarin.AndroidX.CustomView", "androidx.customview", "customview")] 
     [InlineData("Xamarin.Jetbrains.Annotations", "org.jetbrains", "annotations")] 
     [InlineData("Xamarin.Google.ZXing.Core", "com.google.zxing", "core")] 
     [InlineData("Xamarin.AndroidX.ViewPager", "androidx.viewpager", "viewpager")] 
