@@ -1,0 +1,40 @@
+{
+	"solutionFile" : "generated/izettle-bindings.sln",
+	"metadataPath": "../..",
+	"debug": { "dumpModels" : true },
+	"additionalProjects": [
+	],
+	"targetFrameworks": [
+		"MonoAndroid12.0",
+		"net6.0-android31.0"
+	],
+	"projectUrl": "https://github.com/tuyen-vuduc/dotnet-binding-utils",
+	"licensePath": "../../LICENSE",
+	"iconPath": "../../assets/tv-icon.png",
+	"tags": [ "android" ],
+	"templates" : [
+		{
+			"templateFile": "../../src/Targets.cshtml",
+			"outputFileRule" : "generated/{nugetid}/{nugetid}.targets"
+		},
+		{
+			"templateFile": "../../src/Project.cshtml",
+			"outputFileRule" : "generated/{nugetid}/{nugetid}.csproj"
+		},
+		{
+			"templateFile": "../../src/Pom.cshtml",
+			"outputFileRule" : "generated/{nugetid}/pom.xml"
+		}
+	],
+	"groupName": "iZettle SDK",
+	"artifacts": [
+		{
+			"groupId": "com.izettle.payments",
+			"artifactId": "android-sdk-ui",
+			"artifactName": "Android SDK UI",
+			"version": "1.34.3",
+			"nugetRevision": 0,
+			"tags": [ "zettle", "izettle" ]
+		}
+	]
+}

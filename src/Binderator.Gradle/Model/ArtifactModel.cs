@@ -27,8 +27,8 @@ public class ArtifactModel : IEquatable<ArtifactModel>
     public string ArtifactWithVersion => $"{ArtifactId}-{Version}";
 
     public string LibRelativePath => IsAAR
-        ? Files?.First(x => x.EndsWith(ArtifactWithVersion + ".aar"))
-        : Files?.First(x => x.EndsWith(ArtifactWithVersion + ".jar"));
+        ? Files?.FirstOrDefault(x => x.EndsWith(ArtifactWithVersion + ".aar"))
+        : Files?.FirstOrDefault(x => x.EndsWith(ArtifactWithVersion + ".jar"));
 
     public string SourcesJarRelativeFilePath => Files?.FirstOrDefault(x => x.EndsWith("-sources.jar"));
     public string JavadocJarRelativeFilePath => Files?.FirstOrDefault(x => x.EndsWith("-javadoc.jar"));

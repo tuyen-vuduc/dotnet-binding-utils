@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Binderator.Gradle;
 
@@ -29,16 +31,20 @@ public static class ArtifactScanner
     {
         List<ArtifactModel> artifacts = new();
         missingArtifacts ??= new();
+
         var homeFolder = Platform.IsWindows
                     ? Environment.SpecialFolder.LocalApplicationData
                     : Environment.SpecialFolder.Personal;
         var homeFolderPath = Environment.GetFolderPath(homeFolder);
-        var artifactVersionFolderPath = Path.Combine(
+
+        var (artifactVersionFolderPath, artifactFiles) = GetArtifactFiles(
             homeFolderPath,
-            $".gradle/caches/modules-2/files-2.1/{groupId}/{artifactId}/{version}"
+            groupId,
+            artifactId,
+            version
         );
 
-        if (!Directory.Exists(artifactVersionFolderPath))
+        if (artifactFiles.Length == 0)
         {
             log?.Invoke(
                 $"ARTIFACT FOLDER MISSING >> {groupId}:{artifactId}-{version} << {artifactVersionFolderPath}"
@@ -47,12 +53,6 @@ public static class ArtifactScanner
 
             return artifacts;
         }
-
-        var files = Directory.GetFiles(
-            artifactVersionFolderPath,
-            "*.*",
-            SearchOption.AllDirectories
-        );
 
         var artifact = new ArtifactModel
         {
@@ -63,19 +63,16 @@ public static class ArtifactScanner
             Version = version,
             NugetVersion = version.ToNuGetVersion(nugetRevision),
             NugetPackageId = CreateNugetId(groupId, artifactId),
-            Files = files
-                .Where(x => !x.Contains("/_aar/"))
-                .Select(x => x.Replace(homeFolderPath, string.Empty).Trim('/'))
-                .ToArray(),
+            Files = artifactFiles,
             Tags = tags,
         };
 
         var artifactPomFileName = $"{artifactId}-{version}.pom";
-        var pomFilePath = files.FirstOrDefault(x => x.EndsWith(artifactPomFileName));
+        var pomFilePath = artifactFiles.FirstOrDefault(x => x.EndsWith(artifactPomFileName));
 
         if (pomFilePath == null)
         {
-            var libFilePath = files.FirstOrDefault(x =>
+            var libFilePath = artifactFiles.FirstOrDefault(x =>
                 x.EndsWith($"{artifactId}-{version}.aar") ||
                 x.EndsWith($"{artifactId}-{version}.jar")
             );
@@ -89,7 +86,12 @@ public static class ArtifactScanner
         }
 
         var xmlDocument = new XmlDocument();
-        xmlDocument.Load(pomFilePath);
+        xmlDocument.Load(
+            Path.Combine(
+                homeFolderPath,
+                pomFilePath
+            )
+        );
 
         // Add the namespace.  
         XmlNamespaceManager nsmgr = new XmlNamespaceManager(xmlDocument.NameTable);
@@ -103,19 +105,25 @@ public static class ArtifactScanner
         var parentArtifactIds = new List<KeyValuePair<string, string>>();
         foreach (XmlNode dependency in dependencies)
         {
-            var scope = dependency.SelectSingleNode("descendant::mvn:scope", nsmgr).InnerText;
-            if (scope == "test") continue;            
+            var scope = dependency.SelectSingleNode("descendant::mvn:scope", nsmgr)?.InnerText;
+            if (string.IsNullOrEmpty(scope) || scope == "test") continue;            
 
             var xgroupId = dependency.SelectSingleNode("descendant::mvn:groupId", nsmgr).InnerText;
             var xartifactId = dependency.SelectSingleNode("descendant::mvn:artifactId", nsmgr).InnerText;
+
+            // TODO Why artifact adds junit as a compile dependency?
+            if (xartifactId == "junit") continue;
+
             var existingArtifact = existingArtifacts.FirstOrDefault(
                 x => x.GroupId == xgroupId && x.ArtifactId == xartifactId
             );
 
-            var xversion = dependency.SelectSingleNode("descendant::mvn:version", nsmgr)?.InnerText;
+            var xversion = dependency.SelectSingleNode("descendant::mvn:version", nsmgr)?.InnerText?.Trim('[', ']');
 
-            // TODO Handle strict version
-            var artifactVersion = SemanticVersion.Parse(xversion.Trim('[', ']'));
+            // TODO Handle version range
+            var artifactVersion = SemanticVersion.TryParse(xversion, out var semanticVersion)
+                ? semanticVersion
+                : NuGetVersion.Parse(xversion);
 
             if (existingArtifact != null && artifactVersion != existingArtifact.Version)
             {
@@ -126,6 +134,13 @@ public static class ArtifactScanner
 
                 if (existingArtifact.Version < artifactVersion)
                 {
+                    var (_, xartifactFiles) = GetArtifactFiles(
+                        homeFolderPath,
+                        xgroupId,
+                        xartifactId,
+                        artifactVersion
+                    );
+                    existingArtifact.Files = xartifactFiles;
                     existingArtifact.Version = artifactVersion;
                 }
 
@@ -168,6 +183,37 @@ public static class ArtifactScanner
         artifact.ParentArtifacts = parentArtifactIds.ToArray();
 
         return artifacts;
+    }
+
+    private static (string, string[]) GetArtifactFiles(
+        string homeFolderPath,
+        string groupId,
+        string artifactId,
+        SemanticVersion version)
+    {
+        var artifactVersionFolderPath = Path.Combine(
+            homeFolderPath,
+            $".gradle/caches/modules-2/files-2.1/{groupId}/{artifactId}/{version}"
+        );
+
+        if (!Directory.Exists(artifactVersionFolderPath))
+        {
+            return (artifactVersionFolderPath, Array.Empty<string>());
+        }
+
+        var files = Directory.GetFiles(
+            artifactVersionFolderPath,
+            "*.*",
+            SearchOption.AllDirectories
+        );
+
+        return (
+            artifactVersionFolderPath,
+            files
+                .Where(x => !x.Contains("/_aar/"))
+                .Select(x => x.Replace(homeFolderPath, string.Empty).Trim('/'))
+                .ToArray()
+        );
     }
 
     private static ArtifactModel FindExternalArtifact(string basePath, string xgroupId, string xartifactId, SemanticVersion xversion)

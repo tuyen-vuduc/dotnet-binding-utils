@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "qs", "qs", "{42E9BCB0-E43E-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetBindings.Cake", "src\DotnetBindings.Cake\DotnetBindings.Cake.csproj", "{95670EEE-39E4-42C4-BF73-B28109EC962D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Build", "qs\izettle\build\Build.csproj", "{9A81BDCC-998C-4897-AC90-7CF22E905859}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A81BDCC-998C-4897-AC90-7CF22E905859}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A81BDCC-998C-4897-AC90-7CF22E905859}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A81BDCC-998C-4897-AC90-7CF22E905859}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A81BDCC-998C-4897-AC90-7CF22E905859}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{01F8FB17-A885-4C0D-8853-D351186DAC7A} = {98336720-D8F2-434C-9316-2E9F0D62560B}

@@ -8,4 +8,4 @@ using System.Runtime.CompilerServices;
 [assembly:LinkerSafe]
 
 [System.AttributeUsage(System.AttributeTargets.Assembly)]
-class LinkerSafeAttribute : Attribute { }
+class LinkerSafeAttribute : System.Attribute { }

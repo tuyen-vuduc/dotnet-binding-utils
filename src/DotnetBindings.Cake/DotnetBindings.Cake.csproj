@@ -30,9 +30,6 @@
     <ProjectReference Include="..\Binderator.Gradle\Binderator.Gradle.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="binding-default.zip" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="**/*" />
+    <EmbeddedResource Include="binding-default.zip" />
   </ItemGroup>
 </Project>

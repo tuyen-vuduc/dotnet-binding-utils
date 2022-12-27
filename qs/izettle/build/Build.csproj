@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+    <IsPackable>false</IsPackable>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AndroidSdkDirectory Condition=" '$(OS)' == 'Unix' ">$(Home)/Library/Android/sdk</AndroidSdkDirectory>
+    <AndroidSdkDirectory Condition=" '$(OS)' != 'Unix' ">$(UserProfile)/Library/Android/sdk</AndroidSdkDirectory>
+  </PropertyGroup>  
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Cake.Frosting" Version="3.0.0" />
+    <PackageReference Include="Dependencies.Gradle" Version="7.6.0" />
+    <!-- <PackageReference Include="Binderator.Gradle" Version="7.6.0" />
+    <PackageReference Include="DotnetBindings.Cake" Version="0.1.0" /> -->
+  </ItemGroup>
+  <ItemGroup>
+    <GradleImplementation Include="com.izettle.payments:android-sdk-ui:1.34.3"></GradleImplementation>
+    <GradleRepository Include="https://maven.pkg.github.com/iZettle/sdk-android">
+      <Repository>
+      maven {
+            url = uri("https://maven.pkg.github.com/iZettle/sdk-android")
+            credentials(HttpHeaderCredentials) {
+              name "Authorization"
+               value "Bearer " + GITHUB_PACKAGES_READ_TOKEN
+            }
+            authentication {
+              header(HttpHeaderAuthentication)
+            }
+      }
+      </Repository>
+    </GradleRepository>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Binderator.Gradle\Binderator.Gradle.csproj" />
+    <ProjectReference Include="..\..\..\src\DotnetBindings.Cake\DotnetBindings.Cake.csproj" />
+  </ItemGroup>
+  <Target Name="_GradleDependencyResolverTrigger" DependsOnTargets="_GradleSync" BeforeTargets="CoreCompile" />
+</Project>
