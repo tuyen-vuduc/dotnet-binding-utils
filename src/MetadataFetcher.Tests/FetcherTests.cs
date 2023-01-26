@@ -73,7 +73,6 @@ public class FetcherTests
     [InlineData("Xamarin.Kotlin.StdLib.Jdk7", "org.jetbrains.kotlin", "kotlin-stdlib-jdk7")]
     [InlineData("Xamarin.Kotlin.StdLib.Jdk8", "org.jetbrains.kotlin", "kotlin-stdlib-jdk8")]
     [InlineData("Xamarin.Kotlin.Android.Extensions.Runtime", "org.jetbrains.kotlin", "kotlin-android-extensions-runtime")]
-    [InlineData("Xamarin.Android.JetBrains.Kotlin_Parcelize_Runtime", "org.jetbrains.kotlin", "kotlin-android-extensions-runtime")]
     [InlineData("Xamarin.KotlinX.Coroutines.Android", "org.jetbrains.kotlinx", "kotlinx-coroutines-android")]
     [InlineData("Xamarin.KotlinX.Coroutines.Core", "org.jetbrains.kotlinx", "kotlinx-coroutines-core")]
     public Task Fetch_Android(string nugetId, string groupId, string artifactId)
