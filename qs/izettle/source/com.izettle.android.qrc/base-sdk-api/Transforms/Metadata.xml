@@ -1,3 +1,21 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+	<attr path="//field[@name='Companion']" name="managedName">CompanionField</attr>
+	<attr path="//field[@name='toolbar']" name="managedName">ToolbarField</attr>
+	<attr path="//field[@name='qrCodeView']" name="managedName">QRCodeViewField</attr>
+	<attr path="//field[@name='CREATOR']" name="managedName">CREATOR_FIELD</attr>
+	<attr path="//class[implements[@name='android.os.Parcelable.Creator']]/method[@name='createFromParcel' and count(parameter)=1 and parameter[1][@type='android.os.Parcel']]" name="managedName">DoCreateFromParcel</attr>
+	<attr path="//class[implements[@name='android.os.Parcelable.Creator']]/method[@name='newArray' and count(parameter)=1 and parameter[1][@type='int']]" name="managedName">CreateArray</attr>
+	<attr path="/api/package[@name='com.izettle.android.qrc.ui.activation']/class[@name='QrcActivationViewModelBase']/method[@name='getState' and count(parameter)=0]" name="managedReturn">AndroidX.Lifecycle.LiveData</attr>
+	<attr path="/api/package[@name='com.izettle.android.qrc.model']/class[@name='QrcReferences']/method[@name='entrySet' and count(parameter)=0]" name="managedName">GetEntrySet</attr>
+	<attr path="/api/package[@name='com.izettle.android.qrc.model']/class[@name='QrcReferences']/method[@name='keySet' and count(parameter)=0]" name="managedName">GetKeySet</attr>
+	<attr path="/api/package[@name='com.izettle.android.qrc.model']/class[@name='QrcReferences']/method[@name='values' and count(parameter)=0]" name="managedName">StringValues</attr>
+	<attr path="/api/package[@name='com.izettle.android.qrc.model']/class[@name='QrcReferences']/method[@name='entrySet' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.izettle.android.qrc.model']/class[@name='QrcReferences']/method[@name='keySet' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.izettle.android.qrc.model']/class[@name='QrcReferences']/method[@name='values' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.izettle.android.qrc.model']/class[@name='QrcReferences']/method[@name='getSize' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.izettle.android.qrc.model']/class[@name='QrcReferences']/method[@name='getValues' and count(parameter)=0]" name="managedName">Values</attr>
+
+	<attr path="/api/package[@name='com.izettle.android.qrc.model']/class[@name='QrcReferences']/method[@name='remove' and count(parameter)=1 and parameter[1][@type='java.lang.Object']]" name="return">java.lang.Object</attr>
+	<attr path="/api/package[@name='com.izettle.android.qrc.model']/class[@name='QrcReferences']/method[@name='get' and count(parameter)=1 and parameter[1][@type='java.lang.Object']]" name="managedName">GetString</attr>
 </metadata>

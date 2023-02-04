@@ -223,6 +223,98 @@ b) Run the test
 sh fetch.sh
 ```
 
+## NOTES
+
+1) Add metadata for `due to duplicate`
+
+```js
+// Use browser inspector to execute
+var x = `FILTERED_ERRORS`;
+console.log(
+    x
+    .split('\n')
+    .filter(item => item.indexOf('Xamarin.Android.Bindings.Core.targets') == -1)
+    .filter(item => item.indexOf('net6.0') == -1)
+    .map(item => /'([^']+)'.+/.exec(item)[1])
+    .map(item => /.(\w+)$/.exec(item)[1])
+    .map(item => item[0].toLowerCase() + item.substring(1))
+    .map(item => `<attr path="//field[@name='${item}']" name="managedName">${item}</attr>`)
+    .join('\n')
+)
+```
+
+2) Add metadata for `cannot change access modifiers when overriding`
+
+```js
+// Use browser inspector to execute
+var x = `FILTERED_ERRORS`;
+console.log(
+    x
+    .split('\n')
+    .filter(item => item.indexOf('Xamarin.Android.Bindings.Core.targets') == -1)
+    .filter(item => item.indexOf('net6.0') == -1)
+    .map(item => /'([^']+)'.+/.exec(item)[1])
+    .map(item => /(\w+).(\w+)\((.+)*\)/.exec(item))
+    .map(item => Array.prototype.slice.call(item, 1, item.length))
+    .map(item => `<attr path="//class[@name='${item[0]}']/method[@name='${item[1][0].toLowerCase() + item[1].substring(1)}' and count(parameter)=${(item[2] ? item[2].split(',').length : 0)}]" name="visibility">protected</attr>`)
+    .join('\n')
+)
+```
+
+3) Add metadata for `return type must be 'Object' to match overridden member`
+
+```js
+// Use browser inspector to execute
+var x = `FILTERED_ERRORS`;
+console.log(
+    x
+    .split('\n')
+    .filter(item => item.indexOf('Xamarin.Android.Bindings.Core.targets') == -1)
+    .filter(item => item.indexOf('net6.0') == -1)
+    .map(item => /'([^']+)'.+/.exec(item)[1])
+    .map(item => /(\w+).(\w+)\((.+)*\)/.exec(item))
+    .map(item => Array.prototype.slice.call(item, 1, item.length))
+    .map(item => `<attr path="//class[@name='${item[0]}']/method[@name='${item[1][0].toLowerCase() + item[1].substring(1)}' and count(parameter)=${(item[2] ? item[2].split(',').length : 0)}]" name="managedReturn">Java.Lang.Object</attr>`)
+    .join('\n')
+)
+```
+
+4) Add metadata for `type must be 'ICollection<string>' to match overridden member`
+
+```js
+// Use browser inspector to execute
+var x = `FILTERED_ERRORS`;
+console.log(
+    x
+    .split('\n')
+    .filter(item => item.indexOf('Xamarin.Android.Bindings.Core.targets') == -1)
+    .filter(item => item.indexOf('net6.0') == -1)
+    .map(item => /'([^']+)'.+/.exec(item)[1])
+    .map(item => /(\w+).(\w+)/.exec(item))
+    .map(item => Array.prototype.slice.call(item, 1, item.length))
+    .map(item => `<attr path="//class[@name='${item[0]}']/method[@name='get${item[1]}']" name="managedReturn">System.Collections.Generic.ICollection&lt;string&gt;</attr>`)
+    .join('\n')
+)
+```
+
+5) Add metadata for `it does not have the matching return type of 'ICollection<string>'`
+
+```js
+// Use browser inspector to execute
+var x = `FILTERED_ERRORS`;
+console.log(
+    x
+    .split('\n')
+    .filter(item => item.indexOf('Xamarin.Android.Bindings.Core.targets') == -1)
+    .filter(item => item.indexOf('net6.0') == -1)
+    .map(item => /\. '([^']+)'.+/.exec(item)[1])
+    .map(item => /(\w+).(\w+)/.exec(item))
+    .map(item => Array.prototype.slice.call(item, 1, item.length))
+    .map(item => `<attr path="//class[@name='${item[0]}']/method[@name='get${item[1]}']" name="managedReturn">System.Collections.Generic.ICollection&lt;string&gt;</attr>`)
+    .join('\n')
+)
+```
+
 # Maintainer
 This project is maintained by [tuyen-vuduc](https://github.com/tuyen-vuduc) in his spare time and/or when requested.<br>
 
