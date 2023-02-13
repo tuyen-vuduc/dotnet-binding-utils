@@ -74,12 +74,11 @@ public static class Fetcher
                 folderPath,
                 artifactVersion + ".json"
             );
-            if (!File.Exists(artifactVersionPath)) {
-                var artifactVersionMetadataInJson = JsonSerializer.Serialize(new {
-                    revision = latestVersion.Revision,
-                });
-                File.WriteAllText(artifactVersionPath, artifactVersionMetadataInJson);
-            }
+            var artifactVersionMetadataInJson = JsonSerializer.Serialize(new
+            {
+                revision = latestVersion.Revision,
+            });
+            File.WriteAllText(artifactVersionPath, artifactVersionMetadataInJson);
         }
     }
 }
