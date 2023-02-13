@@ -1,0 +1,21 @@
+# Dependency tree
+
+- com.izettle.android.qrc:base-sdk-api:1.34.3
+- com.izettle.android.qrc:paypal-qrc-sdk:1.34.3
+- com.izettle.android.qrc:venmo-qrc-sdk:1.34.3
+- com.izettle.android.sdk:core:1.34.3
+- com.izettle.android.tipping:ui:1.34.3
+- com.izettle.android.tipping:core:1.34.3
+- com.izettle.payments:android-analytics:1.34.3
+- com.izettle.payments:android-bluetooth:1.34.3
+- com.izettle.payments:android-core:1.34.3
+- com.izettle.payments:android-payment:1.34.3
+- com.izettle.payments:android-peripherals:1.34.3
+- com.izettle.payments:android-readers:1.34.3
+- com.izettle.payments:android-readers-core:1.34.3
+- com.izettle.payments:android-sdk:1.34.3
+- com.izettle.payments:android-sdk-ui:1.34.3
+- com.izettle.payments:android-view-models:1.34.3
+- com.madgag.spongycastle:core:
+- com.madgag.spongycastle:prov:
+- org.jetbrains.kotlin:kotlin-parcelize-runtime:

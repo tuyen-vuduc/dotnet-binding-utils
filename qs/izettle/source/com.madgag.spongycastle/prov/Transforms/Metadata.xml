@@ -1,20 +1,19 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-	<attr path="//field[@name='modulus']" name="managedName">modulus</attr>
-	<attr path="//field[@name='privateExponent']" name="managedName">privateExponent</attr>
-	<attr path="//field[@name='modulus']" name="managedName">modulus</attr>
-	<attr path="//field[@name='privateExponent']" name="managedName">privateExponent</attr>
-	<attr path="//field[@name='children']" name="managedName">children</attr>
-	<attr path="//field[@name='depth']" name="managedName">depth</attr>
-	<attr path="//field[@name='expectedPolicies']" name="managedName">expectedPolicies</attr>
-	<attr path="//field[@name='parent']" name="managedName">parent</attr>
-	<attr path="//field[@name='policyQualifiers']" name="managedName">policyQualifiers</attr>
-	<attr path="//field[@name='validPolicy']" name="managedName">validPolicy</attr>
-	<attr path="//field[@name='certPath']" name="managedName">certPath</attr>
-	<attr path="//field[@name='policyTree']" name="managedName">policyTree</attr>
-	<attr path="//field[@name='subjectPublicKey']" name="managedName">subjectPublicKey</attr>
-	<attr path="//field[@name='trustAnchor']" name="managedName">trustAnchor</attr>
-	<attr path="/api/package[@name='org.spongycastle.jcajce.provider.asymmetric.dh']/class[@name='IESCipher']/method[@name='engineInit' and count(parameter)=3 and parameter[1][@type='int'] and parameter[2][@type='java.security.Key'] and parameter[3][@type='java.security.SecureRandom']]" name="visibility">protected</attr>
+	<attr path="//field[@name='modulus']" name="managedName">modulusField</attr>
+	<attr path="//field[@name='privateExponent']" name="managedName">privateExponentField</attr>
+	<attr path="//field[@name='modulus']" name="managedName">modulusField</attr>
+	<attr path="//field[@name='privateExponent']" name="managedName">privateExponentField</attr>
+	<attr path="//field[@name='children']" name="managedName">childrenField</attr>
+	<attr path="//field[@name='depth']" name="managedName">depthField</attr>
+	<attr path="//field[@name='expectedPolicies']" name="managedName">expectedPoliciesField</attr>
+	<attr path="//field[@name='parent']" name="managedName">parentField</attr>
+	<attr path="//field[@name='policyQualifiers']" name="managedName">policyQualifiersField</attr>
+	<attr path="//field[@name='validPolicy']" name="managedName">validPolicyField</attr>
+	<attr path="//field[@name='certPath']" name="managedName">certPathField</attr>
+	<attr path="//field[@name='policyTree']" name="managedName">policyTreeField</attr>
+	<attr path="//field[@name='subjectPublicKey']" name="managedName">subjectPublicKeyField</attr>
+	<attr path="//field[@name='trustAnchor']" name="managedName">trustAnchorField</attr>
 	<attr path="//class[@name='IESCipher']/method[@name='engineDoFinal' and count(parameter)=3]" name="visibility">protected</attr>
 	<attr path="//class[@name='IESCipher']/method[@name='engineDoFinal' and count(parameter)=5]" name="visibility">protected</attr>
 	<attr path="//class[@name='IESCipher']/method[@name='engineGetBlockSize' and count(parameter)=0]" name="visibility">protected</attr>
@@ -23,7 +22,6 @@
 	<attr path="//class[@name='IESCipher']/method[@name='engineGetParameters' and count(parameter)=0]" name="visibility">protected</attr>
 	<attr path="//class[@name='IESCipher']/method[@name='engineInit' and count(parameter)=4]" name="visibility">protected</attr>
 	<attr path="//class[@name='IESCipher']/method[@name='engineInit' and count(parameter)=3]" name="visibility">protected</attr>
-	<attr path="//class[@name='IESCipher']/method[@name='engineInit' and count(parameter)=4]" name="visibility">protected</attr>
 	<attr path="//class[@name='IESCipher']/method[@name='engineSetMode' and count(parameter)=1]" name="visibility">protected</attr>
 	<attr path="//class[@name='IESCipher']/method[@name='engineSetPadding' and count(parameter)=1]" name="visibility">protected</attr>
 	<attr path="//class[@name='IESCipher']/method[@name='engineUpdate' and count(parameter)=3]" name="visibility">protected</attr>
@@ -52,19 +50,6 @@
 	<attr path="//class[@name='XMSSMTKeyFactorySpi']/method[@name='engineGeneratePublic' and count(parameter)=1]" name="visibility">protected</attr>
 	<attr path="//class[@name='XMSSMTKeyFactorySpi']/method[@name='engineGetKeySpec' and count(parameter)=2]" name="visibility">protected</attr>
 	<attr path="//class[@name='XMSSMTKeyFactorySpi']/method[@name='engineTranslateKey' and count(parameter)=1]" name="visibility">protected</attr>
-	<attr path="//class[@name='IESCipher']/method[@name='engineDoFinal' and count(parameter)=3]" name="visibility">protected</attr>
-	<attr path="//class[@name='IESCipher']/method[@name='engineDoFinal' and count(parameter)=5]" name="visibility">protected</attr>
-	<attr path="//class[@name='IESCipher']/method[@name='engineGetBlockSize' and count(parameter)=0]" name="visibility">protected</attr>
-	<attr path="//class[@name='IESCipher']/method[@name='engineGetIV' and count(parameter)=0]" name="visibility">protected</attr>
-	<attr path="//class[@name='IESCipher']/method[@name='engineGetOutputSize' and count(parameter)=1]" name="visibility">protected</attr>
-	<attr path="//class[@name='IESCipher']/method[@name='engineGetParameters' and count(parameter)=0]" name="visibility">protected</attr>
-	<attr path="//class[@name='IESCipher']/method[@name='engineInit' and count(parameter)=4]" name="visibility">protected</attr>
-	<attr path="//class[@name='IESCipher']/method[@name='engineInit' and count(parameter)=3]" name="visibility">protected</attr>
-	<attr path="//class[@name='IESCipher']/method[@name='engineInit' and count(parameter)=4]" name="visibility">protected</attr>
-	<attr path="//class[@name='IESCipher']/method[@name='engineSetMode' and count(parameter)=1]" name="visibility">protected</attr>
-	<attr path="//class[@name='IESCipher']/method[@name='engineSetPadding' and count(parameter)=1]" name="visibility">protected</attr>
-	<attr path="//class[@name='IESCipher']/method[@name='engineUpdate' and count(parameter)=3]" name="visibility">protected</attr>
-	<attr path="//class[@name='IESCipher']/method[@name='engineUpdate' and count(parameter)=5]" name="visibility">protected</attr>
 	<attr path="//class[@name='KeyFactorySpi']/method[@name='engineGeneratePublic' and count(parameter)=1]" name="visibility">protected</attr>
 	<attr path="//class[@name='RainbowKeyFactorySpi']/method[@name='engineGetKeySpec' and count(parameter)=2]" name="managedReturn">Java.Lang.Object</attr>
 	<attr path="//class[@name='AlgorithmParametersSpi']/method[@name='engineGetParameterSpec' and count(parameter)=1]" name="managedReturn">Java.Lang.Object</attr>
@@ -74,36 +59,60 @@
 	<attr path="//class[@name='McElieceKeyFactorySpi']/method[@name='engineGetKeySpec' and count(parameter)=2]" name="managedReturn">Java.Lang.Object</attr>
 	<attr path="//class[@name='XMSSKeyFactorySpi']/method[@name='engineGetKeySpec' and count(parameter)=2]" name="managedReturn">Java.Lang.Object</attr>
 	<attr path="//class[@name='XMSSMTKeyFactorySpi']/method[@name='engineGetKeySpec' and count(parameter)=2]" name="managedReturn">Java.Lang.Object</attr>
-	<attr path="//class[@name='CertStoreCollectionSpi']/method[@name='engineGetCRLs' and count(parameter)=1]" name="managedReturn">System.Collections.Generic.ICollection&lt;Java.Security.Cert.CRL&gt;</attr>
-	<attr path="//class[@name='CertStoreCollectionSpi']/method[@name='engineGetCertificates' and count(parameter)=1]" name="managedReturn">System.Collections.Generic.ICollection&lt;Java.Security.Cert.Certificate&gt;</attr>
 	<attr path="//class[@name='AlgorithmParametersSpi']/method[@name='engineGetParameterSpec' and count(parameter)=1]" name="managedReturn">Java.Lang.Object</attr>
-	<attr path="//class[@name='MultiCertStoreSpi']/method[@name='engineGetCRLs' and count(parameter)=1]" name="managedReturn">System.Collections.Generic.ICollection&lt;Java.Security.Cert.CRL&gt;</attr>
-	<attr path="//class[@name='MultiCertStoreSpi']/method[@name='engineGetCertificates' and count(parameter)=1]" name="managedReturn">System.Collections.Generic.ICollection&lt;Java.Security.Cert.Certificate&gt;</attr>
-	<attr path="//class[@name='X509LDAPCertStoreSpi']/method[@name='engineGetCRLs' and count(parameter)=1]" name="managedReturn">System.Collections.Generic.ICollection&lt;Java.Security.Cert.CRL&gt;</attr>
-	<attr path="//class[@name='X509LDAPCertStoreSpi']/method[@name='engineGetCertificates' and count(parameter)=1]" name="managedReturn">System.Collections.Generic.ICollection&lt;Java.Security.Cert.Certificate&gt;</attr>
 	<attr path="//class[@name='BaseKeyFactorySpi']/method[@name='engineGetKeySpec' and count(parameter)=2]" name="managedReturn">Java.Lang.Object</attr>
 	<attr path="//class[@name='AlgorithmParametersSpi']/method[@name='engineGetParameterSpec' and count(parameter)=1]" name="managedReturn">Java.Lang.Object</attr>
 	<attr path="//class[@name='AlgorithmParametersSpi']/method[@name='engineGetParameterSpec' and count(parameter)=1]" name="managedReturn">Java.Lang.Object</attr>
 	<attr path="//class[@name='AlgorithmParametersSpi']/method[@name='engineGetParameterSpec' and count(parameter)=1]" name="managedReturn">Java.Lang.Object</attr>
-	<attr path="//class[@name='CertificateFactory']/method[@name='engineGenerateCRLs' and count(parameter)=1]" name="managedReturn">System.Collections.Generic.ICollection&lt;Java.Security.Cert.CRL&gt;</attr>
-	<attr path="//class[@name='CertificateFactory']/method[@name='engineGenerateCertificates' and count(parameter)=1]" name="managedReturn">System.Collections.Generic.ICollection&lt;Java.Security.Cert.Certificate&gt;</attr>
 	<attr path="//class[@name='KeyFactory']/method[@name='engineGetKeySpec' and count(parameter)=2]" name="managedReturn">Java.Lang.Object</attr>
 	<attr path="//class[@name='BaseAlgorithmParameters']/method[@name='engineGetParameterSpec' and count(parameter)=1]" name="managedReturn">Java.Lang.Object</attr>
 	<attr path="/api/package[@name='org.spongycastle.pqc.jcajce.provider']/class[@name='Rainbow']" name="managedName">RainbowClass</attr>
 	<attr path="/api/package[@name='org.spongycastle.jcajce.provider.asymmetric']/class[@name='DH']" name="managedName">DHClass</attr>
 	<attr path="/api/package[@name='org.spongycastle.jcajce.provider.asymmetric']/class[@name='EC']" name="managedName">ECClass</attr>
 	<attr path="/api/package[@name='org.spongycastle.jcajce.provider.asymmetric']/class[@name='X509']" name="managedName">X509Class</attr>
-	<attr path="//class[@name='X509CRLEntryObject']/method[@name='getCriticalExtensionOIDs']" name="managedReturn">System.Collections.Generic.ICollection&lt;string&gt;</attr>
-	<attr path="//class[@name='X509CRLEntryObject']/method[@name='getNonCriticalExtensionOIDs']" name="managedReturn">System.Collections.Generic.ICollection&lt;string&gt;</attr>
-	<attr path="//class[@name='X509CertificateObject']/method[@name='getCriticalExtensionOIDs']" name="managedReturn">System.Collections.Generic.ICollection&lt;string&gt;</attr>
-	<attr path="//class[@name='X509CertificateObject']/method[@name='getNonCriticalExtensionOIDs']" name="managedReturn">System.Collections.Generic.ICollection&lt;string&gt;</attr>
-	<attr path="//class[@name='X509CRLObject']/method[@name='getCriticalExtensionOIDs']" name="managedReturn">System.Collections.Generic.ICollection&lt;string&gt;</attr>
-	<attr path="//class[@name='X509CRLObject']/method[@name='getNonCriticalExtensionOIDs']" name="managedReturn">System.Collections.Generic.ICollection&lt;string&gt;</attr>
-	<attr path="//class[@name='X509V2AttributeCertificate']/method[@name='getCriticalExtensionOIDs']" name="managedReturn">System.Collections.Generic.ICollection&lt;string&gt;</attr>
-	<attr path="//class[@name='X509V2AttributeCertificate']/method[@name='getNonCriticalExtensionOIDs']" name="managedReturn">System.Collections.Generic.ICollection&lt;string&gt;</attr>
-	<attr path="//class[@name='PKIXPolicyNode']/method[@name='getExpectedPolicies']" name="managedReturn">System.Collections.Generic.ICollection&lt;string&gt;</attr>
-	<attr path="//class[@name='PKIXPolicyNode']/method[@name='getPolicyQualifiers']" name="managedReturn">System.Collections.Generic.ICollection&lt;Java.Security.Cert.PolicyQualifierInfo&gt;</attr>
-	<attr path="//class[@name='X509CRLObject']/method[@name='getRevokedCertificates']" name="managedReturn">System.Collections.Generic.ICollection&lt;Java.Security.Cert.X509CRLEntry&gt;</attr>
-	<attr path="//class[@name='PKIXCertPath']/method[@name='getCertificates']" name="managedReturn">System.Collections.Generic.IList&lt;Java.Security.Cert.Certificate&gt;</attr>
 	<attr path="/api/package[@name='org.spongycastle.jcajce.provider.keystore']/class[@name='BC']" name="managedName">BCClass</attr>
+	<remove-node path="/api/package[@name='org.spongycastle.pqc.jcajce.provider.util']/class[@name='AsymmetricHybridCipher']/method[@name='doFinal' and count(parameter)=3 and parameter[1][@type='byte[]'] and parameter[2][@type='int'] and parameter[3][@type='int']]" />
+	<remove-node path="/api/package[@name='org.spongycastle.pqc.jcajce.provider.util']/class[@name='AsymmetricHybridCipher']/method[@name='update' and count(parameter)=3 and parameter[1][@type='byte[]'] and parameter[2][@type='int'] and parameter[3][@type='int']]" />
+	
+
+	<attr path="//class[@name='MultiCertStoreSpi']/method[@name='engineGetCRLs' and count(parameter)=1]" name="return">java.util.Collection&lt;java.security.cert.CRL&gt;</attr>
+	<attr path="//class[@name='MultiCertStoreSpi']/method[@name='engineGetCertificates' and count(parameter)=1]" name="return">java.util.Collection&lt;java.security.cert.Certificate&gt;</attr>
+	<attr path="//class[@name='X509LDAPCertStoreSpi']/method[@name='engineGetCRLs' and count(parameter)=1]" name="return">java.util.Collection&lt;java.security.cert.CRL&gt;</attr>
+	<attr path="//class[@name='X509LDAPCertStoreSpi']/method[@name='engineGetCertificates' and count(parameter)=1]" name="return">java.util.Collection&lt;java.security.cert.Certificate&gt;</attr>
+	<attr path="//class[@name='CertStoreCollectionSpi']/method[@name='engineGetCRLs' and count(parameter)=1]" name="return">java.util.Collection&lt;java.security.cert.CRL&gt;</attr>
+	<attr path="//class[@name='CertStoreCollectionSpi']/method[@name='engineGetCertificates' and count(parameter)=1]" name="return">java.util.Collection&lt;java.security.cert.Certificate&gt;</attr>
+	<attr path="//class[@name='CertificateFactory']/method[@name='engineGenerateCRLs' and count(parameter)=1]" name="return">java.util.Collection&lt;java.security.cert.CRL&gt;</attr>
+	<attr path="//class[@name='CertificateFactory']/method[@name='engineGenerateCertificates' and count(parameter)=1]" name="return">java.util.Collection&lt;java.security.cert.Certificate&gt;</attr>
+	<attr path="//class[@name='X509CRLEntryObject']/method[@name='getCriticalExtensionOIDs']" name="return">java.util.Collection&lt;java.lang.String&gt;</attr>
+	<attr path="//class[@name='X509CRLEntryObject']/method[@name='getCriticalExtensionOIDs']" name="jni-return">Ljava/util/Collection&lt;Ljava/lang/String;&gt;;</attr>
+	<attr path="//class[@name='X509CRLEntryObject']/method[@name='getCriticalExtensionOIDs']" name="jni-signature">(Ljava/lang/String;)Ljava/util/Collection;</attr>
+	<attr path="//class[@name='X509CRLEntryObject']/method[@name='getNonCriticalExtensionOIDs']" name="return">java.util.Collection&lt;java.lang.String&gt;</attr>
+	<attr path="//class[@name='X509CRLEntryObject']/method[@name='getNonCriticalExtensionOIDs']" name="jni-return">Ljava/util/Collection&lt;Ljava/lang/String;&gt;;</attr>
+	<attr path="//class[@name='X509CRLEntryObject']/method[@name='getNonCriticalExtensionOIDs']" name="jni-signature">(Ljava/lang/String;)Ljava/util/Collection;</attr>
+	<attr path="//class[@name='X509CertificateObject']/method[@name='getCriticalExtensionOIDs']" name="return">java.util.Collection&lt;java.lang.String&gt;</attr>
+	<attr path="//class[@name='X509CertificateObject']/method[@name='getCriticalExtensionOIDs']" name="jni-return">Ljava/util/Collection&lt;Ljava/lang/String;&gt;;</attr>
+	<attr path="//class[@name='X509CertificateObject']/method[@name='getCriticalExtensionOIDs']" name="jni-signature">(Ljava/lang/String;)Ljava/util/Collection;</attr>
+	<attr path="//class[@name='X509CertificateObject']/method[@name='getNonCriticalExtensionOIDs']" name="return">java.util.Collection&lt;java.lang.String&gt;</attr>
+	<attr path="//class[@name='X509CertificateObject']/method[@name='getNonCriticalExtensionOIDs']" name="jni-return">Ljava/util/Collection&lt;Ljava/lang/String;&gt;;</attr>
+	<attr path="//class[@name='X509CertificateObject']/method[@name='getNonCriticalExtensionOIDs']" name="jni-signature">(Ljava/lang/String;)Ljava/util/Collection;</attr>
+	<attr path="//class[@name='X509CRLObject']/method[@name='getCriticalExtensionOIDs']" name="return">java.util.Collection&lt;java.lang.String&gt;</attr>
+	<attr path="//class[@name='X509CRLObject']/method[@name='getCriticalExtensionOIDs']" name="jni-return">Ljava/util/Collection&lt;Ljava/lang/String;&gt;;</attr>
+	<attr path="//class[@name='X509CRLObject']/method[@name='getCriticalExtensionOIDs']" name="jni-signature">(Ljava/lang/String;)Ljava/util/Collection;</attr>
+	<attr path="//class[@name='X509CRLObject']/method[@name='getNonCriticalExtensionOIDs']" name="return">java.util.Collection&lt;java.lang.String&gt;</attr>
+	<attr path="//class[@name='X509CRLObject']/method[@name='getNonCriticalExtensionOIDs']" name="jni-return">Ljava/util/Collection&lt;Ljava/lang/String;&gt;;</attr>
+	<attr path="//class[@name='X509CRLObject']/method[@name='getNonCriticalExtensionOIDs']" name="jni-signature">(Ljava/lang/String;)Ljava/util/Collection;</attr>
+	<attr path="//class[@name='X509V2AttributeCertificate']/method[@name='getCriticalExtensionOIDs']" name="return">java.util.Collection&lt;java.lang.String&gt;</attr>
+	<attr path="//class[@name='X509V2AttributeCertificate']/method[@name='getCriticalExtensionOIDs']" name="jni-return">Ljava/util/Collection&lt;Ljava/lang/String;&gt;;</attr>
+	<attr path="//class[@name='X509V2AttributeCertificate']/method[@name='getCriticalExtensionOIDs']" name="jni-signature">(Ljava/lang/String;)Ljava/util/Collection;</attr>
+	<attr path="//class[@name='X509V2AttributeCertificate']/method[@name='getNonCriticalExtensionOIDs']" name="return">java.util.Collection&lt;java.lang.String&gt;</attr>
+	<attr path="//class[@name='X509V2AttributeCertificate']/method[@name='getNonCriticalExtensionOIDs']" name="jni-return">Ljava/util/Collection&lt;Ljava/lang/String;&gt;;</attr>
+	<attr path="//class[@name='X509V2AttributeCertificate']/method[@name='getNonCriticalExtensionOIDs']" name="jni-signature">(Ljava/lang/String;)Ljava/util/Collection;</attr>
+	<attr path="//class[@name='PKIXPolicyNode']/method[@name='getExpectedPolicies']" name="return">java.util.Collection&lt;java.lang.String&gt;</attr>
+	<attr path="//class[@name='PKIXPolicyNode']/method[@name='getPolicyQualifiers']" name="return">java.util.Collection&lt;java.security.cert.PolicyQualifierInfo&gt;</attr>
+	<attr path="//class[@name='X509CRLObject']/method[@name='getRevokedCertificates']" name="return">java.util.Collection&lt;java.security.cert.X509CRLEntry&gt;</attr>
+	<attr path="//class[@name='PKIXCertPath']/method[@name='getCertificates']" name="return">java.util.List&lt;java.security.cert.Certificate&gt;</attr>
+	<add-node path="/api/package[@name='org.spongycastle.x509']/interface[@name='X509AttributeCertificate']">
+		<method abstract="true" deprecated="not deprecated" final="false" name="getCriticalExtensionOIDs" jni-signature="(Ljava/lang/String;)Ljava/util/Collection;" bridge="false" native="false" return="java.util.Collection&lt;java.lang.String&gt;" jni-return="Ljava/util/Collection&lt;Ljava/lang/String;&gt;;" static="false" synchronized="false" synthetic="false" visibility="public" />
+		<method abstract="true" deprecated="not deprecated" final="false" name="getNonCriticalExtensionOIDs" jni-signature="(Ljava/lang/String;)Ljava/util/Collection;" bridge="false" native="false" return="java.util.Collection&lt;java.lang.String&gt;" jni-return="Ljava/util/Collection&lt;Ljava/lang/String;&gt;;" static="false" synchronized="false" synthetic="false" visibility="public" />
+    </add-node>
 </metadata>

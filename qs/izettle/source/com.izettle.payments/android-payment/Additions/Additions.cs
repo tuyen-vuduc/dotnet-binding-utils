@@ -207,3 +207,57 @@ namespace Com.Izettle.Payments.Android.Payment.Refunds
         }
     }
 }
+
+namespace Com.Izettle.Payments.Android.Payment
+{
+    partial interface ITransactionAnalyticsReporter
+    {
+        partial class Companion
+        {
+            public unsafe global::Java.Lang.Object Invoke(global::Java.Lang.Object obj)
+             => (global::Java.Lang.Object)Invoke(obj as global::Com.Izettle.Payments.Android.Analytics.IAnalytics);
+        }
+    }
+}
+
+namespace Com.Izettle.Payments.Android.Payment.Configuration
+{
+    partial interface IPaymentConfigurationAnalyticsReporter
+    {
+        partial class Companion
+        {
+            public unsafe global::Java.Lang.Object Invoke(global::Java.Lang.Object obj)
+             => (global::Java.Lang.Object)Invoke(obj as global::Com.Izettle.Payments.Android.Analytics.IAnalytics);
+        }
+    }
+}
+
+namespace Com.Izettle.Payments.Android.Payment.Vendors.Datecs
+{
+    partial interface ITransactionPaymentMessagesManager
+    {
+        partial class Companion
+        {
+            public unsafe global::Java.Lang.Object Invoke(global::Java.Lang.Object obj)
+             => (global::Java.Lang.Object)Invoke(obj as global::Com.Izettle.Android.Commons.Thread.IEventsLoop);
+        }
+    }
+
+    partial interface IDatecsLedLightsManager
+    {
+        partial class Companion
+        {
+            public unsafe global::Java.Lang.Object Invoke(global::Java.Lang.Object obj1, global::Java.Lang.Object obj2)
+             => (global::Java.Lang.Object)Invoke(obj1 as global::Kotlin.Jvm.Functions.IFunction1, obj2 as global::Com.Izettle.Android.Commons.Thread.IEventsLoop);
+        }
+    }
+
+    partial interface ISystemUiLocker
+    {
+        partial class Companion
+        {
+            public unsafe global::Java.Lang.Object Invoke(global::Java.Lang.Object obj1, global::Java.Lang.Object obj2)
+             => (global::Java.Lang.Object)Invoke(obj1 as global::Com.Izettle.Payments.Android.Payment.Vendors.Datecs.ISystemUi, obj2 as global::Com.Izettle.Android.Commons.Thread.IEventsLoop);
+        }
+    }
+}

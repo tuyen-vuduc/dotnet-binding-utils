@@ -1,3 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+	<attr path="//field[@name='Companion']" name="managedName">CompanionField</attr>
+	<attr path="//field[@name='Factory']" name="managedName">FactoryField</attr>
+	<attr path="//field[@name='CREATOR']" name="managedName">CREATOR_FIELD</attr>
+	<attr path="//class[implements[@name='android.os.Parcelable.Creator']]/method[@name='createFromParcel' and count(parameter)=1 and parameter[1][@type='android.os.Parcel']]" name="managedName">DoCreateFromParcel</attr>
+	<attr path="//class[implements[@name='android.os.Parcelable.Creator']]/method[@name='newArray' and count(parameter)=1 and parameter[1][@type='int']]" name="managedName">CreateArray</attr>
+	<attr path="//class[implements[@name='com.izettle.payments.android.models.ViewModel']]/method[@name='getState' and count(parameter)=0]" name="propertyName">MutableState</attr>
+	<attr path="//class[implements[@name='kotlin.jvm.functions.Function0']]/method[@name='invoke' and count(parameter)=0]" name="managedName">DoInvoke</attr>
 </metadata>

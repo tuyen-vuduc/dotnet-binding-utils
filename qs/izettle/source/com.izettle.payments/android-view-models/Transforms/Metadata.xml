@@ -1,3 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+	<attr path="//field[@name='Companion']" name="managedName">CompanionField</attr>
+	<attr path="//field[@name='INSTANCE']" name="managedName">INSTANCE</attr>
+	<attr path="/api/package[@name='com.izettle.payments.android.models']/interface[@name='ViewModel']/method[@name='getState' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="//class[implements[@name='com.izettle.payments.android.models.ViewModel']]/method[@name='getState' and count(parameter)=0]" name="propertyName">MutableState</attr>
+	<attr path="/api/package[@name='com.izettle.payments.android.models.view']/class[@name='SignatureView']/method[@name='setOnContentChangedListener' and count(parameter)=1 and parameter[1][@type='kotlin.jvm.functions.Function1&lt;? super java.lang.Boolean, kotlin.Unit&gt;']]" name="managedName">ContentChangedFunc</attr>
 </metadata>
