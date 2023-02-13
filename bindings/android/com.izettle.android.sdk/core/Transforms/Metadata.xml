@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+	<remove-node path="/api/package[starts-with(@name,'lib.android.paypal.com.')]" />
+	<attr path="//field[@name='Companion']" name="managedName">CompanionField</attr>
+	<attr path="//field[@name='cancelBtnView']" name="managedName">cancelBtnViewField</attr>
+	<attr path="//field[@name='optionsView']" name="managedName">optionsViewField</attr>
+	<attr path="//field[@name='titleView']" name="managedName">titleViewField</attr>
+	<attr path="//field[@name='viewPager']" name="managedName">viewPagerField</attr>
+	<attr path="//field[@name='Static']" name="managedName">StaticField</attr>
+	<attr path="//field[@name='CREATOR']" name="managedName">CREATOR_FIELD</attr>
+	<attr path="//class[implements[@name='android.os.Parcelable.Creator']]/method[@name='createFromParcel' and count(parameter)=1 and parameter[1][@type='android.os.Parcel']]" name="managedName">DoCreateFromParcel</attr>
+	<attr path="//class[implements[@name='android.os.Parcelable.Creator']]/method[@name='newArray' and count(parameter)=1 and parameter[1][@type='int']]" name="managedName">CreateArray</attr>
+	<attr path="//class[implements[@name='com.izettle.android.net.RequestBody.Builder']]/method[@name='build' and count(parameter)=0]" name="managedName">DoBuild</attr>	
+	<attr path="//class[implements[@name='android.widget.Checkable']]/method[@name='setChecked' and count(parameter)=1]" name="visibility">public</attr>
+	<attr path="//class[@extends='java.util.HashMap']/method[@name='entrySet' and count(parameter)=0]" name="managedName">GetEntrySet</attr>
+	<attr path="//class[@extends='java.util.HashMap']/method[@name='keySet' and count(parameter)=0]" name="managedName">GetKeySet</attr>
+	<attr path="//class[@extends='java.util.HashMap']/method[@name='values' and count(parameter)=0]" name="managedName">GetValues</attr>
+	<attr path="//class[@extends='java.util.HashMap']/method[@name='getSize' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="//class[@extends='java.util.HashMap']/method[@name='getValues' and count(parameter)=0]" name="propertyName"></attr>
+	<remove-node path="/api/package[@name='com.izettle.android.net']/class[@name='MultiPartBody.Builder']/implements[@name='com.izettle.android.net.RequestBody.Builder']" />
+	<attr path="/api/package[@name='com.izettle.ui.components.datepicker']/class[@name='OttoDatePickerComponent']/method[@name='setRangeDateClickerListener' and count(parameter)=1 and parameter[1][@type='kotlin.jvm.functions.Function1&lt;? super com.izettle.ui.components.datepicker.OttoDatePickerComponent, kotlin.Unit&gt;']]" name="managedName">SetRangeDateClickerListener1</attr>
+	<attr path="/api/package[@name='com.izettle.ui.components.datepicker']/class[@name='OttoDatePickerComponent']/method[@name='setSingleDateClickerListener' and count(parameter)=1 and parameter[1][@type='kotlin.jvm.functions.Function1&lt;? super com.izettle.ui.components.datepicker.OttoDatePickerComponent, kotlin.Unit&gt;']]" name="managedName">SetSingleDateClickerListener1</attr>
+</metadata>

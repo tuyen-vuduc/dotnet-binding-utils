@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+	<attr path="//field[@name='Companion']" name="managedName">CompanionField</attr>
+	<attr path="//field[@name='Instance']" name="managedName">InstanceField</attr>
+	<attr path="//field[@name='CREATOR']" name="managedName">CREATOR_FIELD</attr>
+	<attr path="//class[implements[@name='android.os.Parcelable.Creator']]/method[@name='createFromParcel' and count(parameter)=1 and parameter[1][@type='android.os.Parcel']]" name="managedName">DoCreateFromParcel</attr>
+	<attr path="//class[implements[@name='android.os.Parcelable.Creator']]/method[@name='newArray' and count(parameter)=1 and parameter[1][@type='int']]" name="managedName">CreateArray</attr>
+</metadata>
