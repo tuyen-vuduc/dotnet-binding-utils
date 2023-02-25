@@ -264,7 +264,7 @@ public static class ArtifactScanner
             return GetNugetVersion(externalArtifactFolderPath, artifactVersionModel.FallbackVersion);
         }
 
-        return xversion.ToNuGetVersion();
+        return artifactVersionModel.NugetVersion ?? xversion.ToNuGetVersion();
     }
 
     private static ArtifactVersionModel ReadArtifactVersionModel(string externalArtifactVersionPath)

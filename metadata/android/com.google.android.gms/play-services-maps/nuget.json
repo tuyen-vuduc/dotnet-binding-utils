@@ -1,0 +1,16 @@
+{
+  "PackageId": "Xamarin.GooglePlayServices.Maps",
+  "VersionMappings": [
+    {
+      "Prefix": "1",
+      "Method": "Prefix",
+      "FromVersion": "117.0.0-preview01"
+    },
+    {
+      "Prefix": "1",
+      "Method": "CombinedToMinor",
+      "FromVersion": "32.5.0",
+      "ToVersion": "72.0.0"
+    }
+  ]
+}
