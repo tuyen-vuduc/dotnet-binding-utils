@@ -18,16 +18,16 @@
         C# bindings for @(Model.Artifact.GradleImplementation)
     </Description>
     <PackageTags> xamarin, @(Model.Tags), @(Model.Artifact.GroupId), @(Model.Artifact.ArtifactId)</PackageTags>
-    <Authors>tuyen</Authors>
-    <Owners>tuyen</Owners>
+    <Authors>tuyen-vuduc</Authors>
+    <Owners>tuyen-vuduc</Owners>
     <Company>N/A</Company>
     <FileVersion>@(Model.Artifact.NugetVersion + "-" + DateTimeOffset.Now.ToUnixTimeSeconds())</FileVersion>
     <InformationalVersion>@(Model.Artifact.NugetVersion)</InformationalVersion>
     <AssemblyVersion>@(Model.Artifact.NugetVersion)</AssemblyVersion>
     <Copyright>© tuyen-vuduc. All rights reserved.</Copyright>
     <PackageProjectUrl>@(Model.Config.ProjectUrl)</PackageProjectUrl>
-    <PackageLicense>@(Model.Config.LicensePath)</PackageLicense>
-    <PackageIcon>@(Model.Config.IconPath)</PackageIcon>
+    <PackageLicense>LICENSE</PackageLicense>
+    <PackageIcon>tv-ico.png</PackageIcon>
     <PackageVersion>@(Model.Artifact.NugetVersion)</PackageVersion>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <!-- Include symbol files (*.pdb) in the built .nupkg -->
@@ -94,6 +94,8 @@
     <None Include="@(Model.Artifact.NugetPackageId).targets" Pack="True" PackagePath="build\@(targetFrameworkMoniker)" />
     <None Include="@(Model.Artifact.NugetPackageId).targets" Pack="True" PackagePath="buildTransitive\@(targetFrameworkMoniker)" />
   }    
+    <None Include="../../../../assets/tv-ico.png" Pack="True" PackagePath="tv-ico.png" />
+    <None Include="../../../../LICENSE" Pack="True" PackagePath="LICENSE" />
   </ItemGroup>
 
   <ItemGroup>

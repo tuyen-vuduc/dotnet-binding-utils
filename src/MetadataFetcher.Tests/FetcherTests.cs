@@ -11,6 +11,7 @@ public class FetcherTests
     }
 
     [Theory]
+    [InlineData("Org.Jfrog.Cardinalcommerce.Gradle.Cardinalmobilesdk", "org.jfrog.cardinalcommerce.gradle", "cardinalmobilesdk")]
     [InlineData("Xamarin.AndroidX.CursorAdapter", "androidx.cursoradapter", "cursoradapter")] 
     [InlineData("Xamarin.AndroidX.Work.Runtime", "androidx.work", "work-runtime")] 
     [InlineData("Xamarin.AndroidX.Work.Work.Runtime.Ktx", "androidx.work", "work-runtime-ktx")] 
