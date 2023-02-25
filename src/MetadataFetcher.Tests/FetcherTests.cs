@@ -11,6 +11,14 @@ public class FetcherTests
     }
 
     [Theory]
+    [InlineData("Xamarin.GooglePlayServices.Base", "com.google.android.gms", "play-services-base")] 
+    [InlineData("Xamarin.GooglePlayServices.Basement", "com.google.android.gms", "play-services-basement")] 
+    [InlineData("Xamarin.GooglePlayServices.Identity", "com.google.android.gms", "play-services-identity")] 
+    [InlineData("Xamarin.GooglePlayServices.Maps", "com.google.android.gms", "play-services-maps")] 
+    [InlineData("Xamarin.GooglePlayServices.Tasks", "com.google.android.gms", "play-services-tasks")] 
+    [InlineData("Xamarin.GooglePlayServices.Wallet", "com.google.android.gms", "play-services-wallet")] 
+    [InlineData("Xamarin.Android.Google.Android.Flexbox", "com.google.android.flexbox", "flexbox")] 
+    [InlineData("Xamarin.AndroidX.CardView", "androidx.cardview", "cardview")] 
     [InlineData("Org.Jfrog.Cardinalcommerce.Gradle.Cardinalmobilesdk", "org.jfrog.cardinalcommerce.gradle", "cardinalmobilesdk")]
     [InlineData("Xamarin.AndroidX.CursorAdapter", "androidx.cursoradapter", "cursoradapter")] 
     [InlineData("Xamarin.AndroidX.Work.Runtime", "androidx.work", "work-runtime")] 
