@@ -1,16 +1,16 @@
 {
-  "PackageId": "Xamarin.GooglePlayServices.Tasks",
-  "VersionMappings": [
-    {
-      "Prefix": "1",
-      "Method": "Prefix",
-      "FromVersion": "117.0.0-preview01"
-    },
-    {
-      "Prefix": "1",
-      "Method": "CombinedToMinor",
-      "FromVersion": "32.5.0",
-      "ToVersion": "72.0.0"
-    }
-  ]
+  "packageId": "Xamarin.GooglePlayServices.Tasks",
+  "versionMappings": [
+      {
+          "prefix": "1",
+          "method": "Prefix",
+          "fromVersion": "117.0.0-preview01"
+      },
+      {
+          "prefix": "1",
+          "method": "CombinedToMinor",
+          "fromVersion": "32.5.0",
+          "toVersion": "72.0.0"
+      }
+  ] 
 }

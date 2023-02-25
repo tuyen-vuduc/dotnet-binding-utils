@@ -63,7 +63,9 @@ public class ArtifactModel : IEquatable<ArtifactModel>
 
     public override int GetHashCode()
     {
-        return $"{GroupId}:{ArtifactId}-{Version}.{Packaging}".GetHashCode();
+        return ToString().GetHashCode();
     }
+
+    public override string ToString() => $"{GroupId}:{ArtifactId}-{Version}.{Packaging}";
 }
 
