@@ -176,6 +176,7 @@ public static class ArtifactScanner
                         $"EXTERNAL ARTIFACT >> {xgroupId}:{xartifactId}-{xversion} << {parentArtifact.Version}"
                     );
                 }
+
                 artifacts.Add(parentArtifact);
                 parentArtifactIds.Add(new KeyValuePair<string, string>(parentArtifact.NugetPackageId, scope));
             }
@@ -264,7 +265,7 @@ public static class ArtifactScanner
             return GetNugetVersion(externalArtifactFolderPath, artifactVersionModel.FallbackVersion);
         }
 
-        return artifactVersionModel.NugetVersion ?? xversion.ToNuGetVersion();
+        return artifactVersionModel.NugetVersion ?? xversion.ToNuGetVersion(artifactVersionModel.Revision);
     }
 
     private static ArtifactVersionModel ReadArtifactVersionModel(string externalArtifactVersionPath)

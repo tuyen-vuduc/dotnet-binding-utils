@@ -32,7 +32,9 @@ public class BindingConfig
 
 	public List<ArtifactModel> Artifacts { get; set; }
 
-    public string[] TargetFrameworks { get; set; }
+	public Dictionary<string, NuGetVersion> FixedDepedencies { get; set; }
+
+	public string[] TargetFrameworks { get; set; }
 	public string[] Tags { get; set; }
 
 	public string ProjectUrl { get; set; }

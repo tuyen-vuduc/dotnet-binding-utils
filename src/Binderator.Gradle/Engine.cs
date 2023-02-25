@@ -21,8 +21,16 @@ public class Engine
 {
     public static Task<BindingConfig> BinderateAsync(string configFile, string basePath, List<ArtifactModel> artifacts)
     {
-        var config = Newtonsoft.Json.JsonConvert.DeserializeObject<BindingConfig>(
-            File.ReadAllText(configFile)
+        var config = JsonSerializer.Deserialize<BindingConfig>(
+            File.ReadAllText(configFile),
+            new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true,
+                Converters =
+                {
+                    new NuGetVersionJsonValueConverter(),
+                }
+            }
         );
 
         if (!string.IsNullOrEmpty(basePath))
@@ -117,6 +125,14 @@ public class Engine
 
                 var parentArtifact = config.Artifacts
                                         .First(x => x.NugetPackageId == mavenDep.Key);
+
+                var fixedParentVersion = config.FixedDepedencies?
+                                    .FirstOrDefault(x => x.Key == mavenDep.Key)
+                                    .Value;
+                if (fixedParentVersion != null && fixedParentVersion > parentArtifact.NugetVersion)
+                {
+                    parentArtifact.NugetVersion = fixedParentVersion;
+                }
 
                 projectModel.NuGetDependencies.Add(parentArtifact);
             }

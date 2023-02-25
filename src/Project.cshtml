@@ -167,7 +167,7 @@
   <ItemGroup>
     @foreach (var dep in @Model.NuGetDependencies) {
       if (dep.DependencyOnly) {
-      <PackageReference Include="@(dep.NugetPackageId)" Version="@(dep.NugetVersion)" PrivateAssets="none" />
+      <PackageReference Include="@(dep.NugetPackageId)" Version="@(dep.NugetVersion.ToNormalizedString())" PrivateAssets="none" />
       }
     }
   </ItemGroup>
