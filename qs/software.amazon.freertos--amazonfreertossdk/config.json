@@ -1,5 +1,5 @@
 {
-	"solutionFile" : "generated/androidx.appcompat-bindings.sln",
+	"solutionFile" : "generated/amazonfreertossdk-bindings.sln",
 	"metadataPath": "../..",
 	"debug": { "dumpModels" : true },
 	"additionalProjects": [
@@ -9,8 +9,8 @@
 		"net6.0-android31.0"
 	],
 	"projectUrl": "https://github.com/tuyen-vuduc/dotnet-binding-utils",
-	"licensePath": "../../LICENSE",
-	"iconPath": "../../assets/tv-icon.png",
+	"licensePath": "LICENSE",
+	"iconPath": "tv-icon.png",
 	"tags": [ "android" ],
 	"templates" : [
 		{
