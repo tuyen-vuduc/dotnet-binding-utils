@@ -1,3 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+	<attr
+		path="//field[@name='Companion']"
+		name="managedName">CompanionField</attr>
+	<attr
+		path="//field[@name='internalSettings2']"
+		name="managedName">_internalSettings2</attr>
+	<attr
+		path="//field[@name='internalSettings']"
+		name="managedName">_internalSettings</attr>
 </metadata>

@@ -1,3 +1,59 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+	<attr
+		path="//field[@name='Companion']"
+		name="managedName">CompanionField</attr>
+	<attr
+		path="/api/package[@name='com.mapbox.maps.extension.style.atmosphere.generated']/class[@name='Atmosphere']/method[starts-with(@name, 'get') and count(parameter)=0]"
+		name="propertyName"></attr>
+	<attr
+		path="/api/package[@name='com.mapbox.maps.extension.style']/class[@name='StyleExtensionImpl']/method[starts-with(@name, 'get') and count(parameter)=0]"
+		name="propertyName"></attr>
+	<attr
+		path="/api/package[@name='com.mapbox.maps.extension.style']/interface[@name='StyleContract.StyleExtension']/method[starts-with(@name, 'get') and count(parameter)=0]"
+		name="propertyName"></attr>
+	<attr
+		path="/api/package[@name='com.mapbox.maps.extension.style.light.generated']/class[@name='Light']/method[starts-with(@name, 'get') and count(parameter)=0]"
+		name="propertyName"></attr>
+	<attr
+		path="/api/package[starts-with(@name, 'com.mapbox.maps.extension.style.layers')]/class[substring(@name, string-length(@name) - string-length('Layer') + 1)]/method[starts-with(@name, 'get') and count(parameter)=0]"
+		name="propertyName"></attr>
+	<attr
+		path="/api/package[@name='com.mapbox.maps.extension.style.sources']/class[@name='TileSet']/method[starts-with(@name, 'get') and count(parameter)=0]"
+		name="propertyName"></attr>
+	<attr
+		path="/api/package[@name='com.mapbox.maps.extension.style.types']/class[@name='Formatted']/method[starts-with(@name, 'get') and count(parameter)=0]"
+		name="propertyName"></attr>
+	<attr
+		path="/api/package[@name='com.mapbox.maps.extension.style.terrain.generated']/class[@name='Terrain']/method[starts-with(@name, 'get') and count(parameter)=0]"
+		name="propertyName"></attr>
+	<attr
+		path="/api/package[@name='com.mapbox.maps.extension.style.layers.generated']/class[substring(@name, string-length(@name) - string-length('Layer') + 1)]/method[@name='maxZoom' and count(parameter)=1]"
+		name="managedName">SetMaxZoom</attr>
+	<attr
+		path="/api/package[@name='com.mapbox.maps.extension.style.layers.generated']/class[substring(@name, string-length(@name) - string-length('Layer') + 1)]/method[@name='minZoom' and count(parameter)=1]"
+		name="managedName">SetMinZoom</attr>
+	<attr
+		path="/api/package[@name='com.mapbox.maps.extension.style.layers.generated']/class[substring(@name, string-length(@name) - string-length('Layer') + 1)]/method[@name='visibility' and count(parameter)=1]"
+		name="managedName">SetVisibility</attr>
+	<attr
+		path="/api/package[@name='com.mapbox.maps.extension.style.layers.generated']/interface[substring(@name, string-length(@name) - string-length('Dsl') + 1)]/method[@name='visibility' and count(parameter)=1]"
+		name="managedName">SetVisibility</attr>
+	<attr
+		path="/api/package[@name='com.mapbox.maps.extension.style.layers.generated']/interface[substring(@name, string-length(@name) - string-length('Dsl') + 1)]/method[@name='maxZoom' and count(parameter)=1]"
+		name="managedName">SetMaxZoom</attr>
+	<attr
+		path="/api/package[@name='com.mapbox.maps.extension.style.layers.generated']/interface[substring(@name, string-length(@name) - string-length('Dsl') + 1)]/method[@name='minZoom' and count(parameter)=1]"
+		name="managedName">SetMinZoom</attr>
+	<remove-node
+		path="/api/package[@name='com.mapbox.maps.extension.style.sources']/class[@name='TileSet']/method[@name='entrySet' and count(parameter)=0]"
+		/>
+	<remove-node
+		path="/api/package[@name='com.mapbox.maps.extension.style.sources']/class[@name='TileSet']/method[@name='keySet' and count(parameter)=0]"
+		/>
+	<remove-node
+		path="/api/package[@name='com.mapbox.maps.extension.style.sources']/class[@name='TileSet']/method[@name='values' and count(parameter)=0]"
+		/>
+	<remove-node
+		path="/api/package[@name='com.mapbox.maps.extension.style.layers.properties']/class[@name='PropertyValue']/method[@name='getValue' and count(parameter)=0]" />
 </metadata>

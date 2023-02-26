@@ -36,5 +36,10 @@
 			"nugetRevision": 0,
 			"tags": [ "mapbox", "mapbox-android" ]
 		}
-	]
+	],
+	"fixedDepedencies": {
+		"Xamarin.AndroidX.Annotation": "1.5.0.2",
+		"Xamarin.Kotlin.StdLib.Jdk7": "1.5.31.4",
+		"Xamarin.AndroidX.Lifecycle.Runtime": "2.4.1.1"
+	}
 }
