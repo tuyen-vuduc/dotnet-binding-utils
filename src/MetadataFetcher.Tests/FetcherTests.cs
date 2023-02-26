@@ -11,6 +11,20 @@ public class FetcherTests
     }
 
     [Theory]
+    [InlineData("Xamarin.Android.Support.Animated.Vector.Drawable", "com.android.support", "animated-vector-drawable")] 
+    [InlineData("Xamarin.Android.Support.v7.AppCompat", "com.android.support", "appcompat-v7")] 
+    [InlineData("Xamarin.Android.Support.Annotations", "com.android.support", "support-annotations")] 
+    [InlineData("Xamarin.Android.Support.Compat", "com.android.support", "support-compat")] 
+    [InlineData("Xamarin.Android.Support.Core.UI", "com.android.support", "support-core-ui")] 
+    [InlineData("Xamarin.Android.Support.Core.Utils", "com.android.support", "support-core-utils")] 
+    [InlineData("Xamarin.Android.Support.Fragment", "com.android.support", "support-fragment")] 
+    [InlineData("Xamarin.Android.Support.Media.Compat", "com.android.support", "support-media-compat")] 
+    [InlineData("Xamarin.Android.Support.V4", "com.android.support", "support-v4")] 
+    [InlineData("Xamarin.Android.Support.Vector.Drawable", "com.android.support", "support-vector-drawable")] 
+
+    [InlineData("Xamarin.Android.Arch.Lifecycle.Common", "android.arch.lifecycle", "common")] 
+    [InlineData("Xamarin.Android.Arch.Lifecycle.Runtime", "android.arch.lifecycle", "runtime")] 
+    [InlineData("Xamarin.AndroidX.Arch.Core.Common", "android.arch.core", "common")] 
     [InlineData("Xamarin.GooglePlayServices.Base", "com.google.android.gms", "play-services-base")] 
     [InlineData("Xamarin.GooglePlayServices.Basement", "com.google.android.gms", "play-services-basement")] 
     [InlineData("Xamarin.GooglePlayServices.Identity", "com.google.android.gms", "play-services-identity")] 

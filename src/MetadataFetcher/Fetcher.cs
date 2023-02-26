@@ -71,7 +71,12 @@ public static class Fetcher
             };
             if (!File.Exists(nugetMetadataPath))
             {
-                var nugetMetadataInJSON = JsonSerializer.Serialize(nugetInfo);
+                var nugetMetadataInJSON = JsonSerializer.Serialize(
+                    nugetInfo,
+                    new JsonSerializerOptions {
+                        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                        IgnoreNullValues = true,
+                    });
                 File.WriteAllText(nugetMetadataPath, nugetMetadataInJSON);
             }
             else
@@ -134,6 +139,9 @@ public static class Fetcher
             {
                 revision = latestVersion.Revision,
                 nugetVersion = nugetVersion,
+            }, new JsonSerializerOptions {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                IgnoreNullValues = true,
             });
             File.WriteAllText(artifactVersionPath, artifactVersionMetadataInJson);
         }

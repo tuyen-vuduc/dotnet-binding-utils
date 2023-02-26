@@ -14,6 +14,7 @@ public static class Util
     public readonly static JsonSerializerOptions JsonOptions = new JsonSerializerOptions
     {
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+        IgnoreNullValues = true,
         Converters =
             {
                 new NuGetVersionJsonValueConverter(),
