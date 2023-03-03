@@ -1,3 +1,4 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+    <attr path="//class[@extends='co.nstant.in.cbor.decoder.AbstractDecoder']/method[@name='decode' and count(parameter)=1 and parameter[1][@type='int']]" name="managedName">DecodeX</attr>
 </metadata>
