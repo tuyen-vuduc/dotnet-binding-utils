@@ -1,0 +1,4935 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Darwin",
+        "printedName": "Darwin",
+        "declKind": "Import",
+        "moduleName": "Half"
+      },
+      {
+        "kind": "Function",
+        "name": "acos",
+        "printedName": "acos(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half4acosyA2AVACF",
+        "mangledName": "$s4Half4acosyA2AVACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "acosh",
+        "printedName": "acosh(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half5acoshyA2AVACF",
+        "mangledName": "$s4Half5acoshyA2AVACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "asin",
+        "printedName": "asin(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half4asinyA2AVACF",
+        "mangledName": "$s4Half4asinyA2AVACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "asinh",
+        "printedName": "asinh(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half5asinhyA2AVACF",
+        "mangledName": "$s4Half5asinhyA2AVACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "atan",
+        "printedName": "atan(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half4atanyA2AVACF",
+        "mangledName": "$s4Half4atanyA2AVACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "atanh",
+        "printedName": "atanh(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half5atanhyA2AVACF",
+        "mangledName": "$s4Half5atanhyA2AVACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "cbrt",
+        "printedName": "cbrt(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half4cbrtyA2AVACF",
+        "mangledName": "$s4Half4cbrtyA2AVACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "cos",
+        "printedName": "cos(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half3cosyA2AVACF",
+        "mangledName": "$s4Half3cosyA2AVACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "cosh",
+        "printedName": "cosh(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half4coshyA2AVACF",
+        "mangledName": "$s4Half4coshyA2AVACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "erf",
+        "printedName": "erf(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half3erfyA2AVACF",
+        "mangledName": "$s4Half3erfyA2AVACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "erfc",
+        "printedName": "erfc(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half4erfcyA2AVACF",
+        "mangledName": "$s4Half4erfcyA2AVACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "exp",
+        "printedName": "exp(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half3expyA2AVACF",
+        "mangledName": "$s4Half3expyA2AVACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "exp2",
+        "printedName": "exp2(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half4exp2yA2AVACF",
+        "mangledName": "$s4Half4exp2yA2AVACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "expm1",
+        "printedName": "expm1(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half5expm1yA2AVACF",
+        "mangledName": "$s4Half5expm1yA2AVACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "log",
+        "printedName": "log(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half3logyA2AVACF",
+        "mangledName": "$s4Half3logyA2AVACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "log10",
+        "printedName": "log10(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half5log10yA2AVACF",
+        "mangledName": "$s4Half5log10yA2AVACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "log1p",
+        "printedName": "log1p(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half5log1pyA2AVACF",
+        "mangledName": "$s4Half5log1pyA2AVACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "log2",
+        "printedName": "log2(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half4log2yA2AVACF",
+        "mangledName": "$s4Half4log2yA2AVACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "logb",
+        "printedName": "logb(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half4logbyA2AVACF",
+        "mangledName": "$s4Half4logbyA2AVACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "nearbyint",
+        "printedName": "nearbyint(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half9nearbyintyA2AVACF",
+        "mangledName": "$s4Half9nearbyintyA2AVACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "rint",
+        "printedName": "rint(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half4rintyA2AVACF",
+        "mangledName": "$s4Half4rintyA2AVACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "sin",
+        "printedName": "sin(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half3sinyA2AVACF",
+        "mangledName": "$s4Half3sinyA2AVACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "sinh",
+        "printedName": "sinh(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half4sinhyA2AVACF",
+        "mangledName": "$s4Half4sinhyA2AVACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "tan",
+        "printedName": "tan(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half3tanyA2AVACF",
+        "mangledName": "$s4Half3tanyA2AVACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "tanh",
+        "printedName": "tanh(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half4tanhyA2AVACF",
+        "mangledName": "$s4Half4tanhyA2AVACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "tgamma",
+        "printedName": "tgamma(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half6tgammayA2AVACF",
+        "mangledName": "$s4Half6tgammayA2AVACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "atan2",
+        "printedName": "atan2(_:_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half5atan2yA2AVAC_ACtF",
+        "mangledName": "$s4Half5atan2yA2AVAC_ACtF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "copysign",
+        "printedName": "copysign(_:_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half8copysignyA2AVAC_ACtF",
+        "mangledName": "$s4Half8copysignyA2AVAC_ACtF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "fdim",
+        "printedName": "fdim(_:_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half4fdimyA2AVAC_ACtF",
+        "mangledName": "$s4Half4fdimyA2AVAC_ACtF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "fmax",
+        "printedName": "fmax(_:_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half4fmaxyA2AVAC_ACtF",
+        "mangledName": "$s4Half4fmaxyA2AVAC_ACtF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "fmin",
+        "printedName": "fmin(_:_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half4fminyA2AVAC_ACtF",
+        "mangledName": "$s4Half4fminyA2AVAC_ACtF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "hypot",
+        "printedName": "hypot(_:_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half5hypotyA2AVAC_ACtF",
+        "mangledName": "$s4Half5hypotyA2AVAC_ACtF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "nextafter",
+        "printedName": "nextafter(_:_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half9nextafteryA2AVAC_ACtF",
+        "mangledName": "$s4Half9nextafteryA2AVAC_ACtF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "pow",
+        "printedName": "pow(_:_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half3powyA2AVAC_ACtF",
+        "mangledName": "$s4Half3powyA2AVAC_ACtF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "lgamma",
+        "printedName": "lgamma(_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Tuple",
+            "printedName": "(Half.Half, Swift.Int)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ]
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half6lgammayA2AV_SitACF",
+        "mangledName": "$s4Half6lgammayA2AV_SitACF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "remquo",
+        "printedName": "remquo(_:_:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Tuple",
+            "printedName": "(Half.Half, Swift.Int)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ]
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Half",
+            "printedName": "Half.Half",
+            "usr": "s:4HalfAAV"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:4Half6remquoyA2AV_SitAC_ACtF",
+        "mangledName": "$s4Half6remquoyA2AV_SitAC_ACtF",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Transparent",
+          "RawDocComment"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Import",
+        "name": "CoreGraphics.CGBase",
+        "printedName": "CoreGraphics.CGBase",
+        "declKind": "Import",
+        "moduleName": "Half"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "Half",
+        "printedName": "Half",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "_value",
+            "printedName": "_value",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "half_t",
+                "printedName": "Half.half_t",
+                "usr": "c:@UA@half_t"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV6_valueSo6half_tavp",
+            "mangledName": "$s4HalfAAV6_valueSo6half_tavp",
+            "moduleName": "Half",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "fixedbinaryorder": 0,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "half_t",
+                    "printedName": "Half.half_t",
+                    "usr": "c:@UA@half_t"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV6_valueSo6half_tavg",
+                "mangledName": "$s4HalfAAV6_valueSo6half_tavg",
+                "moduleName": "Half",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "half_t",
+                    "printedName": "Half.half_t",
+                    "usr": "c:@UA@half_t"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV6_valueSo6half_tavs",
+                "mangledName": "$s4HalfAAV6_valueSo6half_tavs",
+                "moduleName": "Half",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV6_valueSo6half_tavM",
+                "mangledName": "$s4HalfAAV6_valueSo6half_tavM",
+                "moduleName": "Half",
+                "implicit": true,
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:4HalfAAVABycfc",
+            "mangledName": "$s4HalfAAVABycfc",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Transparent",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "half_t",
+                "printedName": "Half.half_t",
+                "usr": "c:@UA@half_t"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:4HalfAAVyABSo6half_tacfc",
+            "mangledName": "$s4HalfAAVyABSo6half_tacfc",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Transparent"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "bitPattern",
+            "printedName": "bitPattern",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UInt16",
+                "printedName": "Swift.UInt16",
+                "usr": "s:s6UInt16V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV10bitPatterns6UInt16Vvp",
+            "mangledName": "$s4HalfAAV10bitPatterns6UInt16Vvp",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt16",
+                    "printedName": "Swift.UInt16",
+                    "usr": "s:s6UInt16V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV10bitPatterns6UInt16Vvg",
+                "mangledName": "$s4HalfAAV10bitPatterns6UInt16Vvg",
+                "moduleName": "Half",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(bitPattern:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UInt16",
+                "printedName": "Swift.UInt16",
+                "usr": "s:s6UInt16V"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:4HalfAAV10bitPatternABs6UInt16V_tcfc",
+            "mangledName": "$s4HalfAAV10bitPatternABs6UInt16V_tcfc",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(nan:signaling:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UInt16",
+                "printedName": "Swift.UInt16",
+                "usr": "s:s6UInt16V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:4HalfAAV3nan9signalingABs6UInt16V_Sbtcfc",
+            "mangledName": "$s4HalfAAV3nan9signalingABs6UInt16V_Sbtcfc",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "description",
+            "printedName": "description",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV11descriptionSSvp",
+            "mangledName": "$s4HalfAAV11descriptionSSvp",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV11descriptionSSvg",
+                "mangledName": "$s4HalfAAV11descriptionSSvg",
+                "moduleName": "Half",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "debugDescription",
+            "printedName": "debugDescription",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV16debugDescriptionSSvp",
+            "mangledName": "$s4HalfAAV16debugDescriptionSSvp",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV16debugDescriptionSSvg",
+                "mangledName": "$s4HalfAAV16debugDescriptionSSvg",
+                "moduleName": "Half",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "write",
+            "printedName": "write(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0",
+                "paramValueOwnership": "InOut"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4HalfAAV5write2toyxz_ts16TextOutputStreamRzlF",
+            "mangledName": "$s4HalfAAV5write2toyxz_ts16TextOutputStreamRzlF",
+            "moduleName": "Half",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.TextOutputStream>",
+            "sugared_genericSig": "<Target where Target : Swift.TextOutputStream>",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "significandMask",
+            "printedName": "significandMask",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UInt16",
+                "printedName": "Swift.UInt16",
+                "usr": "s:s6UInt16V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV15significandMasks6UInt16VvpZ",
+            "mangledName": "$s4HalfAAV15significandMasks6UInt16VvpZ",
+            "moduleName": "Half",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "Inline",
+              "Inlinable"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt16",
+                    "printedName": "Swift.UInt16",
+                    "usr": "s:s6UInt16V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV15significandMasks6UInt16VvgZ",
+                "mangledName": "$s4HalfAAV15significandMasks6UInt16VvgZ",
+                "moduleName": "Half",
+                "static": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "infinityExponent",
+            "printedName": "infinityExponent",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UInt",
+                "printedName": "Swift.UInt",
+                "usr": "s:Su"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV16infinityExponentSuvpZ",
+            "mangledName": "$s4HalfAAV16infinityExponentSuvpZ",
+            "moduleName": "Half",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "Inline",
+              "Inlinable"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt",
+                    "printedName": "Swift.UInt",
+                    "usr": "s:Su"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV16infinityExponentSuvgZ",
+                "mangledName": "$s4HalfAAV16infinityExponentSuvgZ",
+                "moduleName": "Half",
+                "static": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "exponentBias",
+            "printedName": "exponentBias",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UInt",
+                "printedName": "Swift.UInt",
+                "usr": "s:Su"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV12exponentBiasSuvpZ",
+            "mangledName": "$s4HalfAAV12exponentBiasSuvpZ",
+            "moduleName": "Half",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "Inline",
+              "Inlinable"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt",
+                    "printedName": "Swift.UInt",
+                    "usr": "s:Su"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV12exponentBiasSuvgZ",
+                "mangledName": "$s4HalfAAV12exponentBiasSuvgZ",
+                "moduleName": "Half",
+                "static": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "quietNaNMask",
+            "printedName": "quietNaNMask",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UInt16",
+                "printedName": "Swift.UInt16",
+                "usr": "s:s6UInt16V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV12quietNaNMasks6UInt16VvpZ",
+            "mangledName": "$s4HalfAAV12quietNaNMasks6UInt16VvpZ",
+            "moduleName": "Half",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "Inline",
+              "Inlinable"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt16",
+                    "printedName": "Swift.UInt16",
+                    "usr": "s:s6UInt16V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV12quietNaNMasks6UInt16VvgZ",
+                "mangledName": "$s4HalfAAV12quietNaNMasks6UInt16VvgZ",
+                "moduleName": "Half",
+                "static": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "exponentBitCount",
+            "printedName": "exponentBitCount",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV16exponentBitCountSivpZ",
+            "mangledName": "$s4HalfAAV16exponentBitCountSivpZ",
+            "moduleName": "Half",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV16exponentBitCountSivgZ",
+                "mangledName": "$s4HalfAAV16exponentBitCountSivgZ",
+                "moduleName": "Half",
+                "static": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "significandBitCount",
+            "printedName": "significandBitCount",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV19significandBitCountSivpZ",
+            "mangledName": "$s4HalfAAV19significandBitCountSivpZ",
+            "moduleName": "Half",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV19significandBitCountSivgZ",
+                "mangledName": "$s4HalfAAV19significandBitCountSivgZ",
+                "moduleName": "Half",
+                "static": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "exponentBitPattern",
+            "printedName": "exponentBitPattern",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UInt",
+                "printedName": "Swift.UInt",
+                "usr": "s:Su"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV18exponentBitPatternSuvp",
+            "mangledName": "$s4HalfAAV18exponentBitPatternSuvp",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt",
+                    "printedName": "Swift.UInt",
+                    "usr": "s:Su"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV18exponentBitPatternSuvg",
+                "mangledName": "$s4HalfAAV18exponentBitPatternSuvg",
+                "moduleName": "Half",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "significandBitPattern",
+            "printedName": "significandBitPattern",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UInt16",
+                "printedName": "Swift.UInt16",
+                "usr": "s:s6UInt16V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV21significandBitPatterns6UInt16Vvp",
+            "mangledName": "$s4HalfAAV21significandBitPatterns6UInt16Vvp",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt16",
+                    "printedName": "Swift.UInt16",
+                    "usr": "s:s6UInt16V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV21significandBitPatterns6UInt16Vvg",
+                "mangledName": "$s4HalfAAV21significandBitPatterns6UInt16Vvg",
+                "moduleName": "Half",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(sign:exponentBitPattern:significandBitPattern:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FloatingPointSign",
+                "printedName": "Swift.FloatingPointSign",
+                "usr": "s:s17FloatingPointSignO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UInt",
+                "printedName": "Swift.UInt",
+                "usr": "s:Su"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UInt16",
+                "printedName": "Swift.UInt16",
+                "usr": "s:s6UInt16V"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:4HalfAAV4sign18exponentBitPattern011significanddE0ABs17FloatingPointSignO_Sus6UInt16Vtcfc",
+            "mangledName": "$s4HalfAAV4sign18exponentBitPattern011significanddE0ABs17FloatingPointSignO_Sus6UInt16Vtcfc",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Float",
+                "printedName": "Swift.Float",
+                "usr": "s:Sf"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:4HalfAAVyABSfcfc",
+            "mangledName": "$s4HalfAAVyABSfcfc",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inline",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "usr": "s:Sd"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:4HalfAAVyABSdcfc",
+            "mangledName": "$s4HalfAAVyABSdcfc",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inline",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "usr": "s:14CoreFoundation7CGFloatV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:4HalfAAVyAB14CoreFoundation7CGFloatVcfc",
+            "mangledName": "$s4HalfAAVyAB12CoreGraphics7CGFloatVcfc",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inline",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Float16",
+                "printedName": "Swift.Float16",
+                "usr": "s:s7Float16V"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:4HalfAAVyABs7Float16Vcfc",
+            "mangledName": "$s4HalfAAVyABs7Float16Vcfc",
+            "moduleName": "Half",
+            "intro_Macosx": "11.0",
+            "intro_iOS": "14.0",
+            "intro_tvOS": "14.0",
+            "intro_watchOS": "7.0",
+            "declAttributes": [
+              "AccessControl",
+              "Inline",
+              "Inlinable",
+              "Available",
+              "Available",
+              "Available",
+              "Available",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:4HalfAAVyABxcSBRzlufc",
+            "mangledName": "$s4HalfAAVyABxcSBRzlufc",
+            "moduleName": "Half",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.BinaryFloatingPoint>",
+            "sugared_genericSig": "<Source where Source : Swift.BinaryFloatingPoint>",
+            "declAttributes": [
+              "AccessControl",
+              "Inline",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(exactly:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Half.Half?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Half",
+                    "printedName": "Half.Half",
+                    "usr": "s:4HalfAAV"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:4HalfAAV7exactlyABSgx_tcSBRzlufc",
+            "mangledName": "$s4HalfAAV7exactlyABSgx_tcSBRzlufc",
+            "moduleName": "Half",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.BinaryFloatingPoint>",
+            "sugared_genericSig": "<Source where Source : Swift.BinaryFloatingPoint>",
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "binade",
+            "printedName": "binade",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV6binadeABvp",
+            "mangledName": "$s4HalfAAV6binadeABvp",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Half",
+                    "printedName": "Half.Half",
+                    "usr": "s:4HalfAAV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV6binadeABvg",
+                "mangledName": "$s4HalfAAV6binadeABvg",
+                "moduleName": "Half",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "significandWidth",
+            "printedName": "significandWidth",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV16significandWidthSivp",
+            "mangledName": "$s4HalfAAV16significandWidthSivp",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV16significandWidthSivg",
+                "mangledName": "$s4HalfAAV16significandWidthSivg",
+                "moduleName": "Half",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(floatLiteral:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Float",
+                "printedName": "Swift.Float",
+                "usr": "s:Sf"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:4HalfAAV12floatLiteralABSf_tcfc",
+            "mangledName": "$s4HalfAAV12floatLiteralABSf_tcfc",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Transparent",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(sign:exponent:significand:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FloatingPointSign",
+                "printedName": "Swift.FloatingPointSign",
+                "usr": "s:s17FloatingPointSignO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:4HalfAAV4sign8exponent11significandABs17FloatingPointSignO_SiABtcfc",
+            "mangledName": "$s4HalfAAV4sign8exponent11significandABs17FloatingPointSignO_SiABtcfc",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:4HalfAAVyABSicfc",
+            "mangledName": "$s4HalfAAVyABSicfc",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Transparent",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:4HalfAAVyABxcSzRzlufc",
+            "mangledName": "$s4HalfAAVyABxcSzRzlufc",
+            "moduleName": "Half",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.BinaryInteger>",
+            "sugared_genericSig": "<Source where Source : Swift.BinaryInteger>",
+            "declAttributes": [
+              "AccessControl",
+              "Inline",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "exponent",
+            "printedName": "exponent",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV8exponentSivp",
+            "mangledName": "$s4HalfAAV8exponentSivp",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV8exponentSivg",
+                "mangledName": "$s4HalfAAV8exponentSivg",
+                "moduleName": "Half",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isCanonical",
+            "printedName": "isCanonical",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV11isCanonicalSbvp",
+            "mangledName": "$s4HalfAAV11isCanonicalSbvp",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV11isCanonicalSbvg",
+                "mangledName": "$s4HalfAAV11isCanonicalSbvg",
+                "moduleName": "Half",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isFinite",
+            "printedName": "isFinite",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV8isFiniteSbvp",
+            "mangledName": "$s4HalfAAV8isFiniteSbvp",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inline",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV8isFiniteSbvg",
+                "mangledName": "$s4HalfAAV8isFiniteSbvg",
+                "moduleName": "Half",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isInfinite",
+            "printedName": "isInfinite",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV10isInfiniteSbvp",
+            "mangledName": "$s4HalfAAV10isInfiniteSbvp",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inline",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV10isInfiniteSbvg",
+                "mangledName": "$s4HalfAAV10isInfiniteSbvg",
+                "moduleName": "Half",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isNaN",
+            "printedName": "isNaN",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV5isNaNSbvp",
+            "mangledName": "$s4HalfAAV5isNaNSbvp",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inline",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV5isNaNSbvg",
+                "mangledName": "$s4HalfAAV5isNaNSbvg",
+                "moduleName": "Half",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isNormal",
+            "printedName": "isNormal",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV8isNormalSbvp",
+            "mangledName": "$s4HalfAAV8isNormalSbvp",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inline",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV8isNormalSbvg",
+                "mangledName": "$s4HalfAAV8isNormalSbvg",
+                "moduleName": "Half",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isSignalingNaN",
+            "printedName": "isSignalingNaN",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV14isSignalingNaNSbvp",
+            "mangledName": "$s4HalfAAV14isSignalingNaNSbvp",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inline",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV14isSignalingNaNSbvg",
+                "mangledName": "$s4HalfAAV14isSignalingNaNSbvg",
+                "moduleName": "Half",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isSubnormal",
+            "printedName": "isSubnormal",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV11isSubnormalSbvp",
+            "mangledName": "$s4HalfAAV11isSubnormalSbvp",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inline",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV11isSubnormalSbvg",
+                "mangledName": "$s4HalfAAV11isSubnormalSbvg",
+                "moduleName": "Half",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isZero",
+            "printedName": "isZero",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV6isZeroSbvp",
+            "mangledName": "$s4HalfAAV6isZeroSbvp",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inline",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV6isZeroSbvg",
+                "mangledName": "$s4HalfAAV6isZeroSbvg",
+                "moduleName": "Half",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "nextUp",
+            "printedName": "nextUp",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV6nextUpABvp",
+            "mangledName": "$s4HalfAAV6nextUpABvp",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Half",
+                    "printedName": "Half.Half",
+                    "usr": "s:4HalfAAV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV6nextUpABvg",
+                "mangledName": "$s4HalfAAV6nextUpABvg",
+                "moduleName": "Half",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "sign",
+            "printedName": "sign",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "FloatingPointSign",
+                "printedName": "Swift.FloatingPointSign",
+                "usr": "s:s17FloatingPointSignO"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV4signs17FloatingPointSignOvp",
+            "mangledName": "$s4HalfAAV4signs17FloatingPointSignOvp",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "FloatingPointSign",
+                    "printedName": "Swift.FloatingPointSign",
+                    "usr": "s:s17FloatingPointSignO"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV4signs17FloatingPointSignOvg",
+                "mangledName": "$s4HalfAAV4signs17FloatingPointSignOvg",
+                "moduleName": "Half",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "significand",
+            "printedName": "significand",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV11significandABvp",
+            "mangledName": "$s4HalfAAV11significandABvp",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Half",
+                    "printedName": "Half.Half",
+                    "usr": "s:4HalfAAV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV11significandABvg",
+                "mangledName": "$s4HalfAAV11significandABvg",
+                "moduleName": "Half",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "ulp",
+            "printedName": "ulp",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV3ulpABvp",
+            "mangledName": "$s4HalfAAV3ulpABvp",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Half",
+                    "printedName": "Half.Half",
+                    "usr": "s:4HalfAAV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV3ulpABvg",
+                "mangledName": "$s4HalfAAV3ulpABvg",
+                "moduleName": "Half",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "greatestFiniteMagnitude",
+            "printedName": "greatestFiniteMagnitude",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV23greatestFiniteMagnitudeABvpZ",
+            "mangledName": "$s4HalfAAV23greatestFiniteMagnitudeABvpZ",
+            "moduleName": "Half",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Half",
+                    "printedName": "Half.Half",
+                    "usr": "s:4HalfAAV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV23greatestFiniteMagnitudeABvgZ",
+                "mangledName": "$s4HalfAAV23greatestFiniteMagnitudeABvgZ",
+                "moduleName": "Half",
+                "static": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "infinity",
+            "printedName": "infinity",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV8infinityABvpZ",
+            "mangledName": "$s4HalfAAV8infinityABvpZ",
+            "moduleName": "Half",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Half",
+                    "printedName": "Half.Half",
+                    "usr": "s:4HalfAAV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV8infinityABvgZ",
+                "mangledName": "$s4HalfAAV8infinityABvgZ",
+                "moduleName": "Half",
+                "static": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "leastNonzeroMagnitude",
+            "printedName": "leastNonzeroMagnitude",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV21leastNonzeroMagnitudeABvpZ",
+            "mangledName": "$s4HalfAAV21leastNonzeroMagnitudeABvpZ",
+            "moduleName": "Half",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Half",
+                    "printedName": "Half.Half",
+                    "usr": "s:4HalfAAV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV21leastNonzeroMagnitudeABvgZ",
+                "mangledName": "$s4HalfAAV21leastNonzeroMagnitudeABvgZ",
+                "moduleName": "Half",
+                "static": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "leastNormalMagnitude",
+            "printedName": "leastNormalMagnitude",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV20leastNormalMagnitudeABvpZ",
+            "mangledName": "$s4HalfAAV20leastNormalMagnitudeABvpZ",
+            "moduleName": "Half",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Half",
+                    "printedName": "Half.Half",
+                    "usr": "s:4HalfAAV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV20leastNormalMagnitudeABvgZ",
+                "mangledName": "$s4HalfAAV20leastNormalMagnitudeABvgZ",
+                "moduleName": "Half",
+                "static": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "nan",
+            "printedName": "nan",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV3nanABvpZ",
+            "mangledName": "$s4HalfAAV3nanABvpZ",
+            "moduleName": "Half",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Half",
+                    "printedName": "Half.Half",
+                    "usr": "s:4HalfAAV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV3nanABvgZ",
+                "mangledName": "$s4HalfAAV3nanABvgZ",
+                "moduleName": "Half",
+                "static": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "pi",
+            "printedName": "pi",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV2piABvpZ",
+            "mangledName": "$s4HalfAAV2piABvpZ",
+            "moduleName": "Half",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Half",
+                    "printedName": "Half.Half",
+                    "usr": "s:4HalfAAV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV2piABvgZ",
+                "mangledName": "$s4HalfAAV2piABvgZ",
+                "moduleName": "Half",
+                "static": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "signalingNaN",
+            "printedName": "signalingNaN",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV12signalingNaNABvpZ",
+            "mangledName": "$s4HalfAAV12signalingNaNABvpZ",
+            "moduleName": "Half",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Half",
+                    "printedName": "Half.Half",
+                    "usr": "s:4HalfAAV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV12signalingNaNABvgZ",
+                "mangledName": "$s4HalfAAV12signalingNaNABvgZ",
+                "moduleName": "Half",
+                "static": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "ulpOfOne",
+            "printedName": "ulpOfOne",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV8ulpOfOneABvpZ",
+            "mangledName": "$s4HalfAAV8ulpOfOneABvpZ",
+            "moduleName": "Half",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Half",
+                    "printedName": "Half.Half",
+                    "usr": "s:4HalfAAV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV8ulpOfOneABvgZ",
+                "mangledName": "$s4HalfAAV8ulpOfOneABvgZ",
+                "moduleName": "Half",
+                "static": true,
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "addProduct",
+            "printedName": "addProduct(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4HalfAAV10addProductyyAB_ABtF",
+            "mangledName": "$s4HalfAAV10addProductyyAB_ABtF",
+            "moduleName": "Half",
+            "declAttributes": [
+              "Mutating",
+              "AccessControl",
+              "Transparent",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "Mutating"
+          },
+          {
+            "kind": "Function",
+            "name": "formRemainder",
+            "printedName": "formRemainder(dividingBy:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4HalfAAV13formRemainder10dividingByyAB_tF",
+            "mangledName": "$s4HalfAAV13formRemainder10dividingByyAB_tF",
+            "moduleName": "Half",
+            "declAttributes": [
+              "Mutating",
+              "AccessControl",
+              "Inline",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "Mutating"
+          },
+          {
+            "kind": "Function",
+            "name": "formSquareRoot",
+            "printedName": "formSquareRoot()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4HalfAAV14formSquareRootyyF",
+            "mangledName": "$s4HalfAAV14formSquareRootyyF",
+            "moduleName": "Half",
+            "declAttributes": [
+              "Mutating",
+              "AccessControl",
+              "Transparent",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "Mutating"
+          },
+          {
+            "kind": "Function",
+            "name": "formTruncatingRemainder",
+            "printedName": "formTruncatingRemainder(dividingBy:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4HalfAAV23formTruncatingRemainder10dividingByyAB_tF",
+            "mangledName": "$s4HalfAAV23formTruncatingRemainder10dividingByyAB_tF",
+            "moduleName": "Half",
+            "declAttributes": [
+              "Mutating",
+              "AccessControl",
+              "Inline",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "Mutating"
+          },
+          {
+            "kind": "Function",
+            "name": "isEqual",
+            "printedName": "isEqual(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4HalfAAV7isEqual2toSbAB_tF",
+            "mangledName": "$s4HalfAAV7isEqual2toSbAB_tF",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Transparent",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "isLess",
+            "printedName": "isLess(than:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4HalfAAV6isLess4thanSbAB_tF",
+            "mangledName": "$s4HalfAAV6isLess4thanSbAB_tF",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Transparent",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "isLessThanOrEqualTo",
+            "printedName": "isLessThanOrEqualTo(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4HalfAAV19isLessThanOrEqualToySbABF",
+            "mangledName": "$s4HalfAAV19isLessThanOrEqualToySbABF",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Transparent",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "round",
+            "printedName": "round(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "FloatingPointRoundingRule",
+                "printedName": "Swift.FloatingPointRoundingRule",
+                "usr": "s:s25FloatingPointRoundingRuleO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4HalfAAV5roundyys25FloatingPointRoundingRuleOF",
+            "mangledName": "$s4HalfAAV5roundyys25FloatingPointRoundingRuleOF",
+            "moduleName": "Half",
+            "declAttributes": [
+              "Mutating",
+              "AccessControl",
+              "Transparent",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "Mutating"
+          },
+          {
+            "kind": "Function",
+            "name": "\/",
+            "printedName": "\/(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4HalfAAV1doiyA2B_ABtFZ",
+            "mangledName": "$s4HalfAAV1doiyA2B_ABtFZ",
+            "moduleName": "Half",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "Transparent",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "\/=",
+            "printedName": "\/=(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "paramValueOwnership": "InOut",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4HalfAAV2deoiyyABz_ABtFZ",
+            "mangledName": "$s4HalfAAV2deoiyyABz_ABtFZ",
+            "moduleName": "Half",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "Transparent",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV9hashValueSivp",
+            "mangledName": "$s4HalfAAV9hashValueSivp",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV9hashValueSivg",
+                "mangledName": "$s4HalfAAV9hashValueSivg",
+                "moduleName": "Half",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4HalfAAV4hash4intoys6HasherVz_tF",
+            "mangledName": "$s4HalfAAV4hash4intoys6HasherVz_tF",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "distance",
+            "printedName": "distance(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4HalfAAV8distance2toA2B_tF",
+            "mangledName": "$s4HalfAAV8distance2toA2B_tF",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Transparent",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "advanced",
+            "printedName": "advanced(by:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4HalfAAV8advanced2byA2B_tF",
+            "mangledName": "$s4HalfAAV8advanced2byA2B_tF",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Transparent",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "negate",
+            "printedName": "negate()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4HalfAAV6negateyyF",
+            "mangledName": "$s4HalfAAV6negateyyF",
+            "moduleName": "Half",
+            "declAttributes": [
+              "Mutating",
+              "AccessControl",
+              "Transparent",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "Mutating"
+          },
+          {
+            "kind": "Function",
+            "name": "-",
+            "printedName": "-(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4HalfAAV1sopyA2BFZ",
+            "mangledName": "$s4HalfAAV1sopyA2BFZ",
+            "moduleName": "Half",
+            "static": true,
+            "declAttributes": [
+              "Prefix",
+              "AccessControl",
+              "Transparent",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "magnitude",
+            "printedName": "magnitude",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV9magnitudeABvp",
+            "mangledName": "$s4HalfAAV9magnitudeABvp",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Inline",
+              "Inlinable"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Half",
+                    "printedName": "Half.Half",
+                    "usr": "s:4HalfAAV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV9magnitudeABvg",
+                "mangledName": "$s4HalfAAV9magnitudeABvg",
+                "moduleName": "Half",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(exactly:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Half.Half?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Half",
+                    "printedName": "Half.Half",
+                    "usr": "s:4HalfAAV"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:4HalfAAV7exactlyABSgx_tcSzRzlufc",
+            "mangledName": "$s4HalfAAV7exactlyABSgx_tcSzRzlufc",
+            "moduleName": "Half",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.BinaryInteger>",
+            "sugared_genericSig": "<Source where Source : Swift.BinaryInteger>",
+            "declAttributes": [
+              "AccessControl",
+              "Inline",
+              "Inlinable",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "*",
+            "printedName": "*(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4HalfAAV1moiyA2B_ABtFZ",
+            "mangledName": "$s4HalfAAV1moiyA2B_ABtFZ",
+            "moduleName": "Half",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "Transparent",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "*=",
+            "printedName": "*=(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "paramValueOwnership": "InOut",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4HalfAAV2meoiyyABz_ABtFZ",
+            "mangledName": "$s4HalfAAV2meoiyyABz_ABtFZ",
+            "moduleName": "Half",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "Transparent",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(integerLiteral:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int64",
+                "printedName": "Swift.Int64",
+                "usr": "s:s5Int64V"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:4HalfAAV14integerLiteralABs5Int64V_tcfc",
+            "mangledName": "$s4HalfAAV14integerLiteralABs5Int64V_tcfc",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Transparent",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "+",
+            "printedName": "+(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4HalfAAV1poiyA2B_ABtFZ",
+            "mangledName": "$s4HalfAAV1poiyA2B_ABtFZ",
+            "moduleName": "Half",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "Transparent",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "+=",
+            "printedName": "+=(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "paramValueOwnership": "InOut",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4HalfAAV2peoiyyABz_ABtFZ",
+            "mangledName": "$s4HalfAAV2peoiyyABz_ABtFZ",
+            "moduleName": "Half",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "Transparent",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "-",
+            "printedName": "-(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4HalfAAV1soiyA2B_ABtFZ",
+            "mangledName": "$s4HalfAAV1soiyA2B_ABtFZ",
+            "moduleName": "Half",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "Transparent",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "-=",
+            "printedName": "-=(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "paramValueOwnership": "InOut",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4HalfAAV2seoiyyABz_ABtFZ",
+            "mangledName": "$s4HalfAAV2seoiyyABz_ABtFZ",
+            "moduleName": "Half",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "Transparent",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "customMirror",
+            "printedName": "customMirror",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Mirror",
+                "printedName": "Swift.Mirror",
+                "usr": "s:s6MirrorV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV12customMirrors0C0Vvp",
+            "mangledName": "$s4HalfAAV12customMirrors0C0Vvp",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Transparent",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Mirror",
+                    "printedName": "Swift.Mirror",
+                    "usr": "s:s6MirrorV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV12customMirrors0C0Vvg",
+                "mangledName": "$s4HalfAAV12customMirrors0C0Vvg",
+                "moduleName": "Half",
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "playgroundDescription",
+            "printedName": "playgroundDescription",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ProtocolComposition",
+                "printedName": "Any"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4HalfAAV21playgroundDescriptionypvp",
+            "mangledName": "$s4HalfAAV21playgroundDescriptionypvp",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Transparent",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4HalfAAV21playgroundDescriptionypvg",
+                "mangledName": "$s4HalfAAV21playgroundDescriptionypvg",
+                "moduleName": "Half",
+                "declAttributes": [
+                  "Transparent"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Half",
+                "printedName": "Half.Half",
+                "usr": "s:4HalfAAV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:4HalfAAV4fromABs7Decoder_p_tKcfc",
+            "mangledName": "$s4HalfAAV4fromABs7Decoder_p_tKcfc",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Transparent",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:4HalfAAV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s4HalfAAV6encode2toys7Encoder_p_tKF",
+            "moduleName": "Half",
+            "declAttributes": [
+              "AccessControl",
+              "Transparent",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:4HalfAAV",
+        "mangledName": "$s4HalfAAV",
+        "moduleName": "Half",
+        "declAttributes": [
+          "AccessControl",
+          "Frozen",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "TextOutputStreamable",
+            "printedName": "TextOutputStreamable",
+            "usr": "s:s20TextOutputStreamableP",
+            "mangledName": "$ss20TextOutputStreamableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "BinaryFloatingPoint",
+            "printedName": "BinaryFloatingPoint",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawSignificand",
+                "printedName": "RawSignificand",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt16",
+                    "printedName": "Swift.UInt16",
+                    "usr": "s:s6UInt16V"
+                  }
+                ]
+              },
+              {
+                "kind": "TypeWitness",
+                "name": "RawExponent",
+                "printedName": "RawExponent",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt",
+                    "printedName": "Swift.UInt",
+                    "usr": "s:Su"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SB",
+            "mangledName": "$sSB"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByFloatLiteral",
+            "printedName": "ExpressibleByFloatLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "FloatLiteralType",
+                "printedName": "FloatLiteralType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Float",
+                    "printedName": "Swift.Float",
+                    "usr": "s:Sf"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s25ExpressibleByFloatLiteralP",
+            "mangledName": "$ss25ExpressibleByFloatLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "FloatingPoint",
+            "printedName": "FloatingPoint",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Exponent",
+                "printedName": "Exponent",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SF",
+            "mangledName": "$sSF"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Strideable",
+            "printedName": "Strideable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Stride",
+                "printedName": "Stride",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Half",
+                    "printedName": "Half.Half",
+                    "usr": "s:4HalfAAV"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:Sx",
+            "mangledName": "$sSx"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Comparable",
+            "printedName": "Comparable",
+            "usr": "s:SL",
+            "mangledName": "$sSL"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SignedNumeric",
+            "printedName": "SignedNumeric",
+            "usr": "s:s13SignedNumericP",
+            "mangledName": "$ss13SignedNumericP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Numeric",
+            "printedName": "Numeric",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "Magnitude",
+                "printedName": "Magnitude",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Half",
+                    "printedName": "Half.Half",
+                    "usr": "s:4HalfAAV"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:Sj",
+            "mangledName": "$sSj"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByIntegerLiteral",
+            "printedName": "ExpressibleByIntegerLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "IntegerLiteralType",
+                "printedName": "IntegerLiteralType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int64",
+                    "printedName": "Swift.Int64",
+                    "usr": "s:s5Int64V"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s27ExpressibleByIntegerLiteralP",
+            "mangledName": "$ss27ExpressibleByIntegerLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "AdditiveArithmetic",
+            "printedName": "AdditiveArithmetic",
+            "usr": "s:s18AdditiveArithmeticP",
+            "mangledName": "$ss18AdditiveArithmeticP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomReflectable",
+            "printedName": "CustomReflectable",
+            "usr": "s:s17CustomReflectableP",
+            "mangledName": "$ss17CustomReflectableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomPlaygroundDisplayConvertible",
+            "printedName": "CustomPlaygroundDisplayConvertible",
+            "usr": "s:s34CustomPlaygroundDisplayConvertibleP",
+            "mangledName": "$ss34CustomPlaygroundDisplayConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CoreGraphics.CGBase",
+        "printedName": "CoreGraphics.CGBase",
+        "declKind": "Import",
+        "moduleName": "Half"
+      },
+      {
+        "kind": "Import",
+        "name": "CoreGraphics.CGBase",
+        "printedName": "CoreGraphics.CGBase",
+        "declKind": "Import",
+        "moduleName": "Half"
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2849,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "StringLiteral",
+      "offset": 2853,
+      "length": 31,
+      "value": "\"NaN payload is not encodable.\""
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2979,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2983,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4923,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4959,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 5065,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 5096,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 5219,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 5323,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 5358,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6627,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 7247,
+      "length": 2,
+      "value": "10"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 9954,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 9958,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "FloatLiteral",
+      "offset": 18698,
+      "length": 6,
+      "value": "0x1p10"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19905,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19921,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 20178,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 20206,
+      "length": 2,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 23245,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 23423,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 23774,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 23800,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 23842,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 24175,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 25267,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 26892,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "BooleanLiteral",
+      "offset": 28446,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 29240,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 30233,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 30662,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 31093,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 31740,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 31770,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 32306,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 32336,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 33038,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 33341,
+      "length": 2,
+      "value": "15"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 33346,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 36022,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 37696,
+      "length": 6,
+      "value": "0x7BFF"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 38130,
+      "length": 6,
+      "value": "0x7C00"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 38699,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 38725,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 39454,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 39480,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 41837,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "BooleanLiteral",
+      "offset": 41851,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half.swift",
+      "kind": "IntegerLiteral",
+      "offset": 54465,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half+Coding.swift",
+      "kind": "StringLiteral",
+      "offset": 1120,
+      "length": 59,
+      "value": "\"Parsed number \""
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half+Coding.swift",
+      "kind": "StringLiteral",
+      "offset": 1143,
+      "length": 4,
+      "value": "\" does not fit in \""
+    },
+    {
+      "filePath": "\/Volumes\/ws\/bindings\/dotnet-binding-utils\/qs\/ios\/AmazonFreeRTOS\/Pods\/Half\/Sources\/Half\/Half+Coding.swift",
+      "kind": "StringLiteral",
+      "offset": 1177,
+      "length": 1,
+      "value": "\".\""
+    }
+  ]
+}

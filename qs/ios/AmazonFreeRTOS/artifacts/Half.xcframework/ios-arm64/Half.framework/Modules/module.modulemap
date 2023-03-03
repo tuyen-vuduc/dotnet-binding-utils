@@ -1,0 +1,11 @@
+framework module Half {
+  umbrella header "Half-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module Half.Swift {
+  header "Half-Swift.h"
+  requires objc
+}

@@ -1,0 +1,188 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios9.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name CBORCoding
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+@_exported import CBORCoding
+import Combine
+import Foundation
+import Half
+import Swift
+import _Concurrency
+import _StringProcessing
+public enum CBOR {
+  public struct Undefined {
+  }
+  public struct NegativeUInt64 : Swift.RawRepresentable {
+    public static let max: CBORCoding.CBOR.NegativeUInt64
+    public static let min: CBORCoding.CBOR.NegativeUInt64
+    public var rawValue: Swift.UInt64
+    public init(rawValue: Swift.UInt64)
+    public typealias RawValue = Swift.UInt64
+  }
+  public struct SimpleValue : Swift.RawRepresentable {
+    public var rawValue: Swift.UInt8
+    public init(rawValue: Swift.UInt8)
+    public typealias RawValue = Swift.UInt8
+  }
+  public struct Bignum {
+    public var isPositive: Swift.Bool
+    public var content: Foundation.Data
+    public init(isPositive: Swift.Bool, content: Foundation.Data)
+  }
+  public struct DecimalFraction<I1, I2> where I1 : Swift.FixedWidthInteger, I2 : Swift.FixedWidthInteger {
+    public var exponent: I1
+    public var mantissa: I2
+    public init(exponent: I1, mantissa: I2)
+  }
+  public struct Bigfloat<I1, I2> where I1 : Swift.FixedWidthInteger, I2 : Swift.FixedWidthInteger {
+    public var exponent: I1
+    public var mantissa: I2
+    public init(exponent: I1, mantissa: I2)
+  }
+  public struct IndefiniteLengthArray<Element> {
+    public var array: [Element]
+    public init(wrapping array: [Element] = [])
+  }
+  public struct IndefiniteLengthMap<Key, Value> where Key : Swift.Hashable {
+    public var map: [Key : Value]
+    public init(wrapping map: [Key : Value] = [:])
+  }
+  public struct IndefiniteLengthData {
+    public var chunks: [Foundation.Data]
+    public init(wrapping chunks: [Foundation.Data] = [])
+    public init(wrapping data: Foundation.Data = Data(), chunkSize: Swift.Int = 128)
+  }
+  public struct IndefiniteLengthString {
+    public var chunks: [Foundation.Data]
+    @inline(__always) public var stringValue: Swift.String? {
+      get
+    }
+    public init(wrapping chunks: [Swift.String] = [])
+    public init(wrapping string: Swift.String = "", chunkSize: Swift.Int = 128)
+    public func stringValue(as encoding: Swift.String.Encoding) -> Swift.String?
+  }
+  public struct CBOREncoded {
+    public let encodedData: Foundation.Data
+    public init(encodedData: Foundation.Data)
+  }
+}
+extension CBORCoding.CBOR.Undefined : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+extension CBORCoding.CBOR.NegativeUInt64 : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+extension CBORCoding.CBOR.SimpleValue : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+extension CBORCoding.CBOR.Bignum : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+extension CBORCoding.CBOR.DecimalFraction : Swift.Encodable where I1 : Swift.Encodable, I2 : Swift.Encodable {
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension CBORCoding.CBOR.DecimalFraction : Swift.Decodable where I1 : Swift.Decodable, I2 : Swift.Decodable {
+  public init(from decoder: Swift.Decoder) throws
+}
+extension CBORCoding.CBOR.Bigfloat : Swift.Encodable where I1 : Swift.Encodable, I2 : Swift.Encodable {
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension CBORCoding.CBOR.Bigfloat : Swift.Decodable where I1 : Swift.Decodable, I2 : Swift.Decodable {
+  public init(from decoder: Swift.Decoder) throws
+}
+extension CBORCoding.CBOR.IndefiniteLengthArray : Swift.Encodable where Element : Swift.Encodable {
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension CBORCoding.CBOR.IndefiniteLengthArray : Swift.Decodable where Element : Swift.Decodable {
+  public init(from decoder: Swift.Decoder) throws
+}
+extension CBORCoding.CBOR.IndefiniteLengthMap : Swift.Encodable where Key : Swift.Encodable, Value : Swift.Encodable {
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension CBORCoding.CBOR.IndefiniteLengthMap : Swift.Decodable where Key : Swift.Decodable, Value : Swift.Decodable {
+  public init(from decoder: Swift.Decoder) throws
+}
+extension CBORCoding.CBOR.IndefiniteLengthData : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+extension CBORCoding.CBOR.IndefiniteLengthString : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+extension CBORCoding.CBOR.CBOREncoded : Swift.Encodable {
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension CBORCoding.CBOR.NegativeUInt64 : Swift.Equatable {
+  public static func == (lhs: CBORCoding.CBOR.NegativeUInt64, rhs: CBORCoding.CBOR.NegativeUInt64) -> Swift.Bool
+}
+extension CBORCoding.CBOR.SimpleValue : Swift.Equatable {
+  public static func == (lhs: CBORCoding.CBOR.SimpleValue, rhs: CBORCoding.CBOR.SimpleValue) -> Swift.Bool
+}
+extension CBORCoding.CBOR.Bignum : Swift.Equatable {
+  public static func == (lhs: CBORCoding.CBOR.Bignum, rhs: CBORCoding.CBOR.Bignum) -> Swift.Bool
+}
+extension CBORCoding.CBOR.DecimalFraction : Swift.Equatable {
+  public static func == (lhs: CBORCoding.CBOR.DecimalFraction<I1, I2>, rhs: CBORCoding.CBOR.DecimalFraction<I1, I2>) -> Swift.Bool
+}
+extension CBORCoding.CBOR.Bigfloat : Swift.Equatable {
+  public static func == (lhs: CBORCoding.CBOR.Bigfloat<I1, I2>, rhs: CBORCoding.CBOR.Bigfloat<I1, I2>) -> Swift.Bool
+}
+extension CBORCoding.CBOR.IndefiniteLengthArray : Swift.Equatable where Element : Swift.Equatable {
+  public static func == (lhs: CBORCoding.CBOR.IndefiniteLengthArray<Element>, rhs: CBORCoding.CBOR.IndefiniteLengthArray<Element>) -> Swift.Bool
+}
+extension CBORCoding.CBOR.IndefiniteLengthMap : Swift.Equatable where Value : Swift.Equatable {
+  public static func == (lhs: CBORCoding.CBOR.IndefiniteLengthMap<Key, Value>, rhs: CBORCoding.CBOR.IndefiniteLengthMap<Key, Value>) -> Swift.Bool
+}
+extension CBORCoding.CBOR.IndefiniteLengthData : Swift.Equatable {
+  public static func == (lhs: CBORCoding.CBOR.IndefiniteLengthData, rhs: CBORCoding.CBOR.IndefiniteLengthData) -> Swift.Bool
+}
+extension CBORCoding.CBOR.IndefiniteLengthString : Swift.Equatable {
+  public static func == (lhs: CBORCoding.CBOR.IndefiniteLengthString, rhs: CBORCoding.CBOR.IndefiniteLengthString) -> Swift.Bool
+}
+open class CBORDecoder {
+  open var userInfo: [Swift.CodingUserInfoKey : Any]
+  public init(userInfo: [Swift.CodingUserInfoKey : Any] = [:])
+  open func decode<T>(_ type: T.Type = T.self, from data: Foundation.Data) throws -> T where T : Swift.Decodable
+  @objc deinit
+}
+@available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+extension CBORCoding.CBORDecoder : Combine.TopLevelDecoder {
+  public typealias Input = Foundation.Data
+}
+open class CBOREncoder {
+  public enum DateEncodingStrategy {
+    case rfc3339
+    case secondsSince1970
+    public static func == (a: CBORCoding.CBOREncoder.DateEncodingStrategy, b: CBORCoding.CBOREncoder.DateEncodingStrategy) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  open var dateEncodingStrategy: CBORCoding.CBOREncoder.DateEncodingStrategy
+  open var includeCBORTag: Swift.Bool
+  open var keySorter: ((Any, Any) -> Swift.Bool)?
+  open var userInfo: [Swift.CodingUserInfoKey : Any]
+  public init(dateEncodingStrategy: CBORCoding.CBOREncoder.DateEncodingStrategy = .secondsSince1970, includeCBORTag: Swift.Bool = false, keySorter: ((Any, Any) -> Swift.Bool)? = nil, userInfo: [Swift.CodingUserInfoKey : Any] = [:])
+  open func encode<T>(_ value: T) throws -> Foundation.Data where T : Swift.Encodable
+  @objc deinit
+}
+public protocol CBOREncoderProtocol : Swift.Encoder {
+  func indefiniteLengthContainerContext<R>(includingSubcontainers: Swift.Bool, _ block: () throws -> R) rethrows -> R
+  func definiteLengthContainerContext<R>(includingSubcontainers: Swift.Bool, _ block: () throws -> R) rethrows -> R
+}
+extension CBORCoding.CBOREncoderProtocol {
+  public func indefiniteLengthContainerContext<R>(includingSubcontainers flag: Swift.Bool = false, _ block: () throws -> R) rethrows -> R
+  public func definiteLengthContainerContext<R>(includingSubcontainers flag: Swift.Bool = false, _ block: () throws -> R) rethrows -> R
+}
+@available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+extension CBORCoding.CBOREncoder : Combine.TopLevelEncoder {
+  public typealias Output = Foundation.Data
+}
+extension CBORCoding.CBOREncoder.DateEncodingStrategy : Swift.Equatable {}
+extension CBORCoding.CBOREncoder.DateEncodingStrategy : Swift.Hashable {}

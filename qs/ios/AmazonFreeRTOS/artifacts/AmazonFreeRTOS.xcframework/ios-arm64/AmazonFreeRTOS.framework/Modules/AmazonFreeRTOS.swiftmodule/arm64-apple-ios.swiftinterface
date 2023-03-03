@@ -1,0 +1,334 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AmazonFreeRTOS
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AWSIoT
+@_exported import AmazonFreeRTOS
+import CBORCoding
+import CoreBluetooth
+import Swift
+import _Concurrency
+import _StringProcessing
+import os.log
+import os
+public enum AmazonFreeRTOS {
+}
+public enum AmazonFreeRTOSGattService {
+}
+public enum AmazonFreeRTOSGattCharacteristic {
+}
+@objc public class AmazonFreeRTOSDevice : ObjectiveC.NSObject {
+  public var peripheral: CoreBluetooth.CBPeripheral
+  public var advertisementData: [Swift.String : Any]?
+  public var RSSI: Foundation.NSNumber?
+  public var reconnect: Swift.Bool
+  public var certificateId: Swift.String?
+  public var credentialsProvider: AWSCore.AWSCredentialsProvider?
+  public var afrVersion: Swift.String?
+  public var brokerEndpoint: Swift.String?
+  public var mtu: Swift.Int?
+  public var afrPlatform: Swift.String?
+  public var afrDevId: Swift.String?
+  public var savedNetworks: [AmazonFreeRTOS.ListNetworkResp]
+  public var scanedNetworks: [AmazonFreeRTOS.ListNetworkResp]
+  public init(peripheral: CoreBluetooth.CBPeripheral)
+  @objc deinit
+}
+extension AmazonFreeRTOS.AmazonFreeRTOSDevice {
+  public func connect(reconnect: Swift.Bool, certificateId: Swift.String? = nil, credentialsProvider: AWSCore.AWSCredentialsProvider? = nil)
+  public func disconnect()
+}
+extension AmazonFreeRTOS.AmazonFreeRTOSDevice {
+  public func getAfrVersion()
+  public func getBrokerEndpoint()
+  public func getMtu()
+  public func getAfrPlatform()
+  public func getAfrDevId()
+}
+extension AmazonFreeRTOS.AmazonFreeRTOSDevice {
+  public func listNetwork(_ listNetworkReq: AmazonFreeRTOS.ListNetworkReq)
+  public func saveNetwork(_ saveNetworkReq: AmazonFreeRTOS.SaveNetworkReq)
+  public func editNetwork(_ editNetworkReq: AmazonFreeRTOS.EditNetworkReq)
+  public func deleteNetwork(_ deleteNetworkReq: AmazonFreeRTOS.DeleteNetworkReq)
+}
+public enum MqttMessageType : Swift.Int, Swift.Codable {
+  case connect
+  case connack
+  case publish
+  case puback
+  case pubrec
+  case pubrel
+  case pubcomp
+  case subscribe
+  case suback
+  case unsubscribe
+  case unsuback
+  case pingreq
+  case pingresp
+  case disconnnect
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum NetworkMessageType : Swift.Int, Swift.Codable {
+  case listNetworkReq
+  case listNetworkResp
+  case saveNetworkReq
+  case saveNetworkResp
+  case editNetworkReq
+  case editNetworkResp
+  case deleteNetworkReq
+  case deleteNetworkResp
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum NetworkSecurityType : Swift.Int, Swift.Codable {
+  case open
+  case wep
+  case wpa
+  case wpa2
+  case wpa2Ent
+  case notSupported
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum NetworkOpStatus : Swift.Int, Swift.Codable {
+  case success
+  case failure
+  case timeout
+  case notSupported
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public enum CborKey : Swift.String {
+  case brokerEndpoint
+  case bssid
+  case cleanSession
+  case clientID
+  case connected
+  case hidden
+  case index
+  case maxNetworks
+  case msgID
+  case newIndex
+  case payload
+  case proxyState
+  case psk
+  case qoS
+  case qoSs
+  case rssi
+  case security
+  case ssid
+  case status
+  case timeout
+  case topic
+  case topics
+  case type
+  case connect
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers public class AmazonFreeRTOSManager : ObjectiveC.NSObject {
+  public static let shared: AmazonFreeRTOS.AmazonFreeRTOSManager
+  public var isDebug: Swift.Bool
+  public var debugMessages: Swift.String
+  public var advertisingServiceUUIDs: [CoreBluetooth.CBUUID]
+  public var devices: [Foundation.UUID : AmazonFreeRTOS.AmazonFreeRTOSDevice]
+  public var central: CoreBluetooth.CBCentralManager?
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension AmazonFreeRTOS.AmazonFreeRTOSManager {
+  public func startScanForDevices()
+  public func stopScanForDevices()
+  public func rescanForDevices()
+}
+extension AmazonFreeRTOS.AmazonFreeRTOSManager : CoreBluetooth.CBCentralManagerDelegate {
+  @objc dynamic public func centralManagerDidUpdateState(_ central: CoreBluetooth.CBCentralManager)
+  @objc dynamic public func centralManager(_: CoreBluetooth.CBCentralManager, didDiscover peripheral: CoreBluetooth.CBPeripheral, advertisementData: [Swift.String : Any], rssi RSSI: Foundation.NSNumber)
+  @objc dynamic public func centralManager(_: CoreBluetooth.CBCentralManager, didConnect peripheral: CoreBluetooth.CBPeripheral)
+  @objc dynamic public func centralManager(_ central: CoreBluetooth.CBCentralManager, didDisconnectPeripheral peripheral: CoreBluetooth.CBPeripheral, error: Swift.Error?)
+  @objc dynamic public func centralManager(_: CoreBluetooth.CBCentralManager, didFailToConnect peripheral: CoreBluetooth.CBPeripheral, error: Swift.Error?)
+}
+extension AmazonFreeRTOS.AmazonFreeRTOSManager : CoreBluetooth.CBPeripheralDelegate {
+  @objc dynamic public func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didDiscoverServices error: Swift.Error?)
+  @objc dynamic public func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didDiscoverCharacteristicsFor service: CoreBluetooth.CBService, error: Swift.Error?)
+  @objc dynamic public func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didUpdateValueFor characteristic: CoreBluetooth.CBCharacteristic, error: Swift.Error?)
+  @objc dynamic public func peripheral(_ peripheral: CoreBluetooth.CBPeripheral, didWriteValueFor characteristic: CoreBluetooth.CBCharacteristic, error: Swift.Error?)
+}
+extension AmazonFreeRTOS.AmazonFreeRTOSManager {
+  public func didUpdateValueForAfrVersion(peripheral: CoreBluetooth.CBPeripheral, characteristic: CoreBluetooth.CBCharacteristic)
+  public func didUpdateValueForBrokerEndpoint(peripheral: CoreBluetooth.CBPeripheral, characteristic: CoreBluetooth.CBCharacteristic)
+  public func didUpdateValueForMtu(peripheral: CoreBluetooth.CBPeripheral, characteristic: CoreBluetooth.CBCharacteristic)
+  public func didUpdateValueForAfrPlatform(peripheral: CoreBluetooth.CBPeripheral, characteristic: CoreBluetooth.CBCharacteristic)
+  public func didUpdateValueForAfrDevId(peripheral: CoreBluetooth.CBPeripheral, characteristic: CoreBluetooth.CBCharacteristic)
+}
+extension CoreBluetooth.CBPeripheral {
+  public func serviceOf(uuid: CoreBluetooth.CBUUID) -> CoreBluetooth.CBService?
+}
+extension CoreBluetooth.CBService {
+  public func characteristicOf(uuid: CoreBluetooth.CBUUID) -> CoreBluetooth.CBCharacteristic?
+}
+public struct Connack : Swift.Encodable {
+  public var status: Swift.Int
+  public init(status: Swift.Int)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct Connect : Swift.Decodable {
+  public var clientID: Swift.String
+  public var brokerEndpoint: Swift.String
+  public var cleanSession: Swift.Bool
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct DeleteNetworkReq : Swift.Encodable {
+  public var index: Swift.Int
+  public init(index: Swift.Int)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct DeleteNetworkResp : Swift.Decodable {
+  public var status: AmazonFreeRTOS.NetworkOpStatus
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct Disconnect : Swift.Decodable {
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EditNetworkReq : Swift.Encodable {
+  public var index: Swift.Int
+  public var newIndex: Swift.Int
+  public init(index: Swift.Int, newIndex: Swift.Int)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct EditNetworkResp : Swift.Decodable {
+  public var status: AmazonFreeRTOS.NetworkOpStatus
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct ListNetworkReq : Swift.Encodable {
+  public var maxNetworks: Swift.Int
+  public var timeout: Swift.Int
+  public init(maxNetworks: Swift.Int, timeout: Swift.Int)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct ListNetworkResp : Swift.Decodable {
+  public var index: Swift.Int
+  public var status: AmazonFreeRTOS.NetworkOpStatus
+  public var ssid: Swift.String
+  public var bssid: Foundation.Data
+  public var rssi: Swift.Int
+  public var security: AmazonFreeRTOS.NetworkSecurityType
+  public var hidden: Swift.Bool
+  public var connected: Swift.Bool
+  public var last: Swift.Bool?
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct MqttMessage : Swift.Decodable {
+  public var type: AmazonFreeRTOS.MqttMessageType
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct NetworkMessage : Swift.Decodable {
+  public var type: AmazonFreeRTOS.NetworkMessageType
+  public init(from decoder: Swift.Decoder) throws
+}
+extension Foundation.NSNotification.Name {
+  public static let afrCentralManagerDidUpdateState: Foundation.NSNotification.Name
+  public static let afrCentralManagerDidDiscoverDevice: Foundation.NSNotification.Name
+  public static let afrCentralManagerDidConnectDevice: Foundation.NSNotification.Name
+  public static let afrCentralManagerDidDisconnectDevice: Foundation.NSNotification.Name
+  public static let afrCentralManagerDidFailToConnectDevice: Foundation.NSNotification.Name
+  public static let afrPeripheralDidDiscoverServices: Foundation.NSNotification.Name
+  public static let afrPeripheralDidDiscoverCharacteristics: Foundation.NSNotification.Name
+  public static let afrDeviceInfoAfrVersion: Foundation.NSNotification.Name
+  public static let afrDeviceInfoBrokerEndpoint: Foundation.NSNotification.Name
+  public static let afrDeviceInfoMtu: Foundation.NSNotification.Name
+  public static let afrDeviceInfoAfrPlatform: Foundation.NSNotification.Name
+  public static let afrDeviceInfoAfrDevId: Foundation.NSNotification.Name
+  public static let afrDidListNetwork: Foundation.NSNotification.Name
+  public static let afrDidSaveNetwork: Foundation.NSNotification.Name
+  public static let afrDidEditNetwork: Foundation.NSNotification.Name
+  public static let afrDidDeleteNetwork: Foundation.NSNotification.Name
+}
+public struct Pingreq : Swift.Decodable {
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct Pingresp : Swift.Encodable {
+  public init()
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct Puback : Swift.Encodable {
+  public var msgID: Swift.Int
+  public init(msgID: Swift.Int)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct Publish : Swift.Codable {
+  public var topic: Swift.String
+  public var msgID: Swift.Int
+  public var qoS: Swift.Int
+  public var payload: Foundation.Data
+  public init(topic: Swift.String, msgID: Swift.Int, qoS: Swift.Int, payload: Foundation.Data)
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct SaveNetworkReq : Swift.Encodable {
+  public var index: Swift.Int
+  public var ssid: Swift.String
+  public var bssid: Foundation.Data
+  public var psk: Swift.String
+  public var security: AmazonFreeRTOS.NetworkSecurityType
+  public var connect: Swift.Bool
+  public init(index: Swift.Int, ssid: Swift.String, bssid: Foundation.Data, psk: Swift.String, security: AmazonFreeRTOS.NetworkSecurityType, connect: Swift.Bool)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct SaveNetworkResp : Swift.Decodable {
+  public var status: AmazonFreeRTOS.NetworkOpStatus
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct Suback : Swift.Encodable {
+  public var msgID: Swift.Int
+  public var status: Swift.Int
+  public init(msgID: Swift.Int, status: Swift.Int)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct Subscribe : Swift.Decodable {
+  public var topics: [Swift.String]
+  public var msgID: Swift.Int
+  public var qoSs: [Swift.Int]
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct Unsuback : Swift.Encodable {
+  public var msgID: Swift.Int
+  public init(msgID: Swift.Int)
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct Unsubscribe : Swift.Decodable {
+  public var topics: [Swift.String]
+  public var msgID: Swift.Int
+  public init(from decoder: Swift.Decoder) throws
+}
+extension AmazonFreeRTOS.MqttMessageType : Swift.Equatable {}
+extension AmazonFreeRTOS.MqttMessageType : Swift.Hashable {}
+extension AmazonFreeRTOS.MqttMessageType : Swift.RawRepresentable {}
+extension AmazonFreeRTOS.NetworkMessageType : Swift.Equatable {}
+extension AmazonFreeRTOS.NetworkMessageType : Swift.Hashable {}
+extension AmazonFreeRTOS.NetworkMessageType : Swift.RawRepresentable {}
+extension AmazonFreeRTOS.NetworkSecurityType : Swift.Equatable {}
+extension AmazonFreeRTOS.NetworkSecurityType : Swift.Hashable {}
+extension AmazonFreeRTOS.NetworkSecurityType : Swift.RawRepresentable {}
+extension AmazonFreeRTOS.NetworkOpStatus : Swift.Equatable {}
+extension AmazonFreeRTOS.NetworkOpStatus : Swift.Hashable {}
+extension AmazonFreeRTOS.NetworkOpStatus : Swift.RawRepresentable {}
+extension AmazonFreeRTOS.CborKey : Swift.Equatable {}
+extension AmazonFreeRTOS.CborKey : Swift.Hashable {}
+extension AmazonFreeRTOS.CborKey : Swift.RawRepresentable {}

@@ -1,0 +1,11 @@
+framework module CBORCoding {
+  umbrella header "CBORCoding-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module CBORCoding.Swift {
+  header "CBORCoding-Swift.h"
+  requires objc
+}

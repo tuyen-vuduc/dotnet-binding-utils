@@ -6,3 +6,5 @@ build
 Pods
 xcodebuild.log
 InternalTest
+env.txt
+devices.txt
