@@ -1,6 +1,0 @@
-using ObjCRuntime;
-
-namespace Half
-{
-	
-}

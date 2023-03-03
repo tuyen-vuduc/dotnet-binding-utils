@@ -9,18 +9,17 @@ using UIKit;
 
 namespace AWSCore
 {
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
-	partial interface Constants
-	{
-		// extern double AWSCoreVersionNumber __attribute__((deprecated("Use AWSiOSSDKVersion instead.")));
-		[Field ("AWSCoreVersionNumber", "__Internal")]
-		double AWSCoreVersionNumber { get; }
+	//[Static]
+	//partial interface Constants
+	//{
+	//	// extern double AWSCoreVersionNumber __attribute__((deprecated("Use AWSiOSSDKVersion instead.")));
+	//	[Field ("AWSCoreVersionNumber", "__Internal")]
+	//	double AWSCoreVersionNumber { get; }
 
-		// extern const unsigned char[] AWSCoreVersionString __attribute__((deprecated("Use AWSiOSSDKVersion instead.")));
-		[Field ("AWSCoreVersionString", "__Internal")]
-		byte[] AWSCoreVersionString { get; }
-	}
+	//	// extern const unsigned char[] AWSCoreVersionString __attribute__((deprecated("Use AWSiOSSDKVersion instead.")));
+	//	[Field ("AWSCoreVersionString", "__Internal")]
+	//	byte[] AWSCoreVersionString { get; }
+	//}
 
 	// @interface AWSDDLog : NSObject
 	[BaseType (typeof(NSObject))]
@@ -40,92 +39,92 @@ namespace AWSCore
 		[Export ("loggingQueue", ArgumentSemantic.Strong)]
 		DispatchQueue LoggingQueue { get; }
 
-		// +(void)log:(BOOL)asynchronous level:(AWSDDLogLevel)level flag:(AWSDDLogFlag)flag context:(NSInteger)context file:(const char * _Nonnull)file function:(const char * _Nonnull)function line:(NSUInteger)line tag:(id _Nullable)tag format:(NSString * _Nonnull)format, ... __attribute__((format(NSString, 9, 10)));
-		[Static, Internal]
-		[Export ("log:level:flag:context:file:function:line:tag:format:", IsVariadic = true)]
-		unsafe void Log (bool asynchronous, AWSDDLogLevel level, AWSDDLogFlag flag, nint context, sbyte* file, sbyte* function, nuint line, [NullAllowed] NSObject tag, string format, IntPtr varArgs);
+		//// +(void)log:(BOOL)asynchronous level:(AWSDDLogLevel)level flag:(AWSDDLogFlag)flag context:(NSInteger)context file:(const char * _Nonnull)file function:(const char * _Nonnull)function line:(NSUInteger)line tag:(id _Nullable)tag format:(NSString * _Nonnull)format, ... __attribute__((format(NSString, 9, 10)));
+		//[Static, Internal]
+		//[Export ("log:level:flag:context:file:function:line:tag:format:", IsVariadic = true)]
+		//unsafe void Log (bool asynchronous, AWSDDLogLevel level, AWSDDLogFlag flag, nint context, sbyte* file, sbyte* function, nuint line, [NullAllowed] NSObject tag, string format, IntPtr varArgs);
 
 		// -(void)log:(BOOL)asynchronous level:(AWSDDLogLevel)level flag:(AWSDDLogFlag)flag context:(NSInteger)context file:(const char * _Nonnull)file function:(const char * _Nonnull)function line:(NSUInteger)line tag:(id _Nullable)tag format:(NSString * _Nonnull)format, ... __attribute__((format(NSString, 9, 10)));
 		[Internal]
 		[Export ("log:level:flag:context:file:function:line:tag:format:", IsVariadic = true)]
 		unsafe void Log (bool asynchronous, AWSDDLogLevel level, AWSDDLogFlag flag, nint context, sbyte* file, sbyte* function, nuint line, [NullAllowed] NSObject tag, string format, IntPtr varArgs);
 
-		// +(void)log:(BOOL)asynchronous level:(AWSDDLogLevel)level flag:(AWSDDLogFlag)flag context:(NSInteger)context file:(const char * _Nonnull)file function:(const char * _Nonnull)function line:(NSUInteger)line tag:(id _Nullable)tag format:(NSString * _Nonnull)format args:(va_list)argList __attribute__((swift_name("log(asynchronous:level:flag:context:file:function:line:tag:format:arguments:)")));
-		[Static]
-		[Export ("log:level:flag:context:file:function:line:tag:format:args:")]
-		unsafe void Log (bool asynchronous, AWSDDLogLevel level, AWSDDLogFlag flag, nint context, sbyte* file, sbyte* function, nuint line, [NullAllowed] NSObject tag, string format, sbyte* argList);
+		//// +(void)log:(BOOL)asynchronous level:(AWSDDLogLevel)level flag:(AWSDDLogFlag)flag context:(NSInteger)context file:(const char * _Nonnull)file function:(const char * _Nonnull)function line:(NSUInteger)line tag:(id _Nullable)tag format:(NSString * _Nonnull)format args:(va_list)argList __attribute__((swift_name("log(asynchronous:level:flag:context:file:function:line:tag:format:arguments:)")));
+		//[Static]
+		//[Export ("log:level:flag:context:file:function:line:tag:format:args:")]
+		//unsafe void Log (bool asynchronous, AWSDDLogLevel level, AWSDDLogFlag flag, nint context, sbyte* file, sbyte* function, nuint line, [NullAllowed] NSObject tag, string format, sbyte* argList);
 
 		// -(void)log:(BOOL)asynchronous level:(AWSDDLogLevel)level flag:(AWSDDLogFlag)flag context:(NSInteger)context file:(const char * _Nonnull)file function:(const char * _Nonnull)function line:(NSUInteger)line tag:(id _Nullable)tag format:(NSString * _Nonnull)format args:(va_list)argList __attribute__((swift_name("log(asynchronous:level:flag:context:file:function:line:tag:format:arguments:)")));
 		[Export ("log:level:flag:context:file:function:line:tag:format:args:")]
 		unsafe void Log (bool asynchronous, AWSDDLogLevel level, AWSDDLogFlag flag, nint context, sbyte* file, sbyte* function, nuint line, [NullAllowed] NSObject tag, string format, sbyte* argList);
 
-		// +(void)log:(BOOL)asynchronous message:(AWSDDLogMessage * _Nonnull)logMessage __attribute__((swift_name("log(asynchronous:message:)")));
-		[Static]
-		[Export ("log:message:")]
-		void Log (bool asynchronous, AWSDDLogMessage logMessage);
+		//// +(void)log:(BOOL)asynchronous message:(AWSDDLogMessage * _Nonnull)logMessage __attribute__((swift_name("log(asynchronous:message:)")));
+		//[Static]
+		//[Export ("log:message:")]
+		//void Log (bool asynchronous, AWSDDLogMessage logMessage);
 
 		// -(void)log:(BOOL)asynchronous message:(AWSDDLogMessage * _Nonnull)logMessage __attribute__((swift_name("log(asynchronous:message:)")));
 		[Export ("log:message:")]
 		void Log (bool asynchronous, AWSDDLogMessage logMessage);
 
-		// +(void)flushLog;
-		[Static]
-		[Export ("flushLog")]
-		void FlushLog ();
+		//// +(void)flushLog;
+		//[Static]
+		//[Export ("flushLog")]
+		//void FlushLog ();
 
 		// -(void)flushLog;
 		[Export ("flushLog")]
 		void FlushLog ();
 
-		// +(void)addLogger:(id<AWSDDLogger> _Nonnull)logger;
-		[Static]
-		[Export ("addLogger:")]
-		void AddLogger (AWSDDLogger logger);
+		//// +(void)addLogger:(id<AWSDDLogger> _Nonnull)logger;
+		//[Static]
+		//[Export ("addLogger:")]
+		//void AddLogger (IAWSDDLogger logger);
 
 		// -(void)addLogger:(id<AWSDDLogger> _Nonnull)logger;
 		[Export ("addLogger:")]
-		void AddLogger (AWSDDLogger logger);
+		void AddLogger (IAWSDDLogger logger);
 
-		// +(void)addLogger:(id<AWSDDLogger> _Nonnull)logger withLevel:(AWSDDLogLevel)level;
-		[Static]
-		[Export ("addLogger:withLevel:")]
-		void AddLogger (AWSDDLogger logger, AWSDDLogLevel level);
+		//// +(void)addLogger:(id<AWSDDLogger> _Nonnull)logger withLevel:(AWSDDLogLevel)level;
+		//[Static]
+		//[Export ("addLogger:withLevel:")]
+		//void AddLogger (IAWSDDLogger logger, AWSDDLogLevel level);
 
 		// -(void)addLogger:(id<AWSDDLogger> _Nonnull)logger withLevel:(AWSDDLogLevel)level;
 		[Export ("addLogger:withLevel:")]
-		void AddLogger (AWSDDLogger logger, AWSDDLogLevel level);
+		void AddLogger (IAWSDDLogger logger, AWSDDLogLevel level);
 
-		// +(void)removeLogger:(id<AWSDDLogger> _Nonnull)logger;
-		[Static]
-		[Export ("removeLogger:")]
-		void RemoveLogger (AWSDDLogger logger);
+		//// +(void)removeLogger:(id<AWSDDLogger> _Nonnull)logger;
+		//[Static]
+		//[Export ("removeLogger:")]
+		//void RemoveLogger (IAWSDDLogger logger);
 
 		// -(void)removeLogger:(id<AWSDDLogger> _Nonnull)logger;
 		[Export ("removeLogger:")]
-		void RemoveLogger (AWSDDLogger logger);
+		void RemoveLogger (IAWSDDLogger logger);
 
-		// +(void)removeAllLoggers;
-		[Static]
-		[Export ("removeAllLoggers")]
-		void RemoveAllLoggers ();
+		//// +(void)removeAllLoggers;
+		//[Static]
+		//[Export ("removeAllLoggers")]
+		//void RemoveAllLoggers ();
 
 		// -(void)removeAllLoggers;
 		[Export ("removeAllLoggers")]
 		void RemoveAllLoggers ();
 
-		// @property (readonly, copy, nonatomic, class) NSArray<id<AWSDDLogger>> * _Nonnull allLoggers;
-		[Static]
-		[Export ("allLoggers", ArgumentSemantic.Copy)]
-		AWSDDLogger[] AllLoggers { get; }
+		//// @property (readonly, copy, nonatomic, class) NSArray<id<AWSDDLogger>> * _Nonnull allLoggers;
+		//[Static]
+		//[Export ("allLoggers", ArgumentSemantic.Copy)]
+		//IAWSDDLogger[] AllLoggers { get; }
 
 		// @property (readonly, copy, nonatomic) NSArray<id<AWSDDLogger>> * _Nonnull allLoggers;
 		[Export ("allLoggers", ArgumentSemantic.Copy)]
-		AWSDDLogger[] AllLoggers { get; }
+		IAWSDDLogger[] AllLoggers { get; }
 
-		// @property (readonly, copy, nonatomic, class) NSArray<AWSDDLoggerInformation *> * _Nonnull allLoggersWithLevel;
-		[Static]
-		[Export ("allLoggersWithLevel", ArgumentSemantic.Copy)]
-		AWSDDLoggerInformation[] AllLoggersWithLevel { get; }
+		//// @property (readonly, copy, nonatomic, class) NSArray<AWSDDLoggerInformation *> * _Nonnull allLoggersWithLevel;
+		//[Static]
+		//[Export ("allLoggersWithLevel", ArgumentSemantic.Copy)]
+		//AWSDDLoggerInformation[] AllLoggersWithLevel { get; }
 
 		// @property (readonly, copy, nonatomic) NSArray<AWSDDLoggerInformation *> * _Nonnull allLoggersWithLevel;
 		[Export ("allLoggersWithLevel", ArgumentSemantic.Copy)]
@@ -151,10 +150,10 @@ namespace AWSCore
 		[Export ("levelForClassWithName:")]
 		AWSDDLogLevel LevelForClassWithName (string aClassName);
 
-		// +(void)setLevel:(AWSDDLogLevel)level forClass:(Class _Nonnull)aClass;
-		[Static]
-		[Export ("setLevel:forClass:")]
-		void SetLevel (AWSDDLogLevel level, Class aClass);
+		//// +(void)setLevel:(AWSDDLogLevel)level forClass:(Class _Nonnull)aClass;
+		//[Static]
+		//[Export ("setLevel:forClass:")]
+		//void SetLevel (AWSDDLogLevel level, Class aClass);
 
 		// +(void)setLevel:(AWSDDLogLevel)level forClassWithName:(NSString * _Nonnull)aClassName;
 		[Static]
@@ -171,7 +170,10 @@ namespace AWSCore
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol]
+*/
+	partial interface IAWSDDLogger { }
+
+    [Protocol]
 	[BaseType (typeof(NSObject))]
 	interface AWSDDLogger
 	{
@@ -219,7 +221,8 @@ namespace AWSCore
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol]
+*/
+	[Protocol]
 	[BaseType (typeof(NSObject))]
 	interface AWSDDLogFormatter
 	{
@@ -231,15 +234,15 @@ namespace AWSCore
 
 		// @optional -(void)didAddToLogger:(id<AWSDDLogger> _Nonnull)logger;
 		[Export ("didAddToLogger:")]
-		void DidAddToLogger (AWSDDLogger logger);
+		void DidAddToLogger (IAWSDDLogger logger);
 
 		// @optional -(void)didAddToLogger:(id<AWSDDLogger> _Nonnull)logger inQueue:(dispatch_queue_t _Nonnull)queue;
 		[Export ("didAddToLogger:inQueue:")]
-		void DidAddToLogger (AWSDDLogger logger, DispatchQueue queue);
+		void DidAddToLogger (IAWSDDLogger logger, DispatchQueue queue);
 
 		// @optional -(void)willRemoveFromLogger:(id<AWSDDLogger> _Nonnull)logger;
 		[Export ("willRemoveFromLogger:")]
-		void WillRemoveFromLogger (AWSDDLogger logger);
+		void WillRemoveFromLogger (IAWSDDLogger logger);
 	}
 
 	// @protocol AWSDDRegisteredDynamicLogging
@@ -267,7 +270,7 @@ namespace AWSCore
 		// -(instancetype _Nonnull)initWithMessage:(NSString * _Nonnull)message level:(AWSDDLogLevel)level flag:(AWSDDLogFlag)flag context:(NSInteger)context file:(NSString * _Nonnull)file function:(NSString * _Nullable)function line:(NSUInteger)line tag:(id _Nullable)tag options:(AWSDDLogMessageOptions)options timestamp:(NSDate * _Nullable)timestamp __attribute__((objc_designated_initializer));
 		[Export ("initWithMessage:level:flag:context:file:function:line:tag:options:timestamp:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (string message, AWSDDLogLevel level, AWSDDLogFlag flag, nint context, string file, [NullAllowed] string function, nuint line, [NullAllowed] NSObject tag, AWSDDLogMessageOptions options, [NullAllowed] NSDate timestamp);
+		IntPtr Constructor (string message, AWSDDLogLevel level, AWSDDLogFlag flag, nint context, string file, [NullAllowed] string function, nuint line, [NullAllowed] NSObject tag, AWSDDLogMessageOptions options, [NullAllowed] NSDate timestamp);
 
 		// @property (readonly, nonatomic) NSString * _Nonnull message;
 		[Export ("message")]
@@ -353,7 +356,7 @@ namespace AWSCore
 	{
 		// @property (readonly, nonatomic) id<AWSDDLogger> _Nonnull logger;
 		[Export ("logger")]
-		AWSDDLogger Logger { get; }
+		IAWSDDLogger Logger { get; }
 
 		// @property (readonly, nonatomic) AWSDDLogLevel level;
 		[Export ("level")]
@@ -362,11 +365,10 @@ namespace AWSCore
 		// +(AWSDDLoggerInformation * _Nonnull)informationWithLogger:(id<AWSDDLogger> _Nonnull)logger andLevel:(AWSDDLogLevel)level;
 		[Static]
 		[Export ("informationWithLogger:andLevel:")]
-		AWSDDLoggerInformation InformationWithLogger (AWSDDLogger logger, AWSDDLogLevel level);
+		AWSDDLoggerInformation InformationWithLogger (IAWSDDLogger logger, AWSDDLogLevel level);
 	}
 
 	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern const char *const kAWSDDASLKeyAWSDDLog;
@@ -462,8 +464,6 @@ namespace AWSCore
 		void ClearAllColors ();
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern const unsigned long long kAWSDDDefaultLogMaxFileSize;
@@ -543,9 +543,8 @@ namespace AWSCore
 
 		// @required -(NSString *)createNewLogFile;
 		[Abstract]
-		[Export ("createNewLogFile")]
-		[Verify (MethodToProperty)]
-		string CreateNewLogFile { get; }
+		[Export("createNewLogFile")]
+		string CreateNewLogFile();
 
 		// @optional -(void)didArchiveLogFile:(NSString *)logFilePath __attribute__((swift_name("didArchiveLogFile(atPath:)")));
 		[Export ("didArchiveLogFile:")]
@@ -558,16 +557,16 @@ namespace AWSCore
 
 	// @interface AWSDDLogFileManagerDefault : NSObject <AWSDDLogFileManager>
 	[BaseType (typeof(NSObject))]
-	interface AWSDDLogFileManagerDefault : IAWSDDLogFileManager
+	interface AWSDDLogFileManagerDefault : AWSDDLogFileManager
 	{
 		// -(instancetype)initWithLogsDirectory:(NSString *)logsDirectory __attribute__((objc_designated_initializer));
 		[Export ("initWithLogsDirectory:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (string logsDirectory);
+		IntPtr Constructor (string logsDirectory);
 
 		// -(instancetype)initWithLogsDirectory:(NSString *)logsDirectory defaultFileProtectionLevel:(NSString *)fileProtectionLevel;
 		[Export ("initWithLogsDirectory:defaultFileProtectionLevel:")]
-		NativeHandle Constructor (string logsDirectory, string fileProtectionLevel);
+		IntPtr Constructor (string logsDirectory, string fileProtectionLevel);
 
 		// @property (readonly, copy) NSString * newLogFileName;
 		[Export ("newLogFileName")]
@@ -580,22 +579,22 @@ namespace AWSCore
 
 	// @interface AWSDDLogFileFormatterDefault : NSObject <AWSDDLogFormatter>
 	[BaseType (typeof(NSObject))]
-	interface AWSDDLogFileFormatterDefault : IAWSDDLogFormatter
+	interface AWSDDLogFileFormatterDefault : AWSDDLogFormatter
 	{
 		// -(instancetype)initWithDateFormatter:(NSDateFormatter *)dateFormatter __attribute__((objc_designated_initializer));
 		[Export ("initWithDateFormatter:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (NSDateFormatter dateFormatter);
+		IntPtr Constructor (NSDateFormatter dateFormatter);
 	}
 
 	// @interface AWSDDFileLogger : AWSDDAbstractLogger <AWSDDLogger>
 	[BaseType (typeof(AWSDDAbstractLogger))]
-	interface AWSDDFileLogger : IAWSDDLogger
+	interface AWSDDFileLogger : AWSDDLogger
 	{
 		// -(instancetype)initWithLogFileManager:(id<AWSDDLogFileManager>)logFileManager __attribute__((objc_designated_initializer));
 		[Export ("initWithLogFileManager:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (AWSDDLogFileManager logFileManager);
+		IntPtr Constructor (AWSDDLogFileManager logFileManager);
 
 		// -(void)willLogMessage __attribute__((objc_requires_super));
 		[Export ("willLogMessage")]
@@ -682,7 +681,7 @@ namespace AWSCore
 		bool IsArchived { get; set; }
 
 		// +(instancetype)logFileWithPath:(NSString *)filePath __attribute__((availability(swift, unavailable)));
-		[Unavailable (PlatformName.Swift)]
+		//[Unavailable (PlatformName.Swift)]
 		[Static]
 		[Export ("logFileWithPath:")]
 		AWSDDLogFileInfo LogFileWithPath (string filePath);
@@ -690,7 +689,7 @@ namespace AWSCore
 		// -(instancetype)initWithFilePath:(NSString *)filePath __attribute__((objc_designated_initializer));
 		[Export ("initWithFilePath:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (string filePath);
+		IntPtr Constructor (string filePath);
 
 		// -(void)reset;
 		[Export ("reset")]
@@ -724,7 +723,7 @@ namespace AWSCore
 	// @interface AWSDDOSLogger : AWSDDAbstractLogger <AWSDDLogger>
 	[Watch (3,0), TV (10,0), Mac (10,12), iOS (10,0)]
 	[BaseType (typeof(AWSDDAbstractLogger))]
-	interface AWSDDOSLogger : IAWSDDLogger
+	interface AWSDDOSLogger : AWSDDLogger
 	{
 		// @property (readonly, strong, class) AWSDDOSLogger * sharedInstance;
 		[Static]
@@ -732,18 +731,16 @@ namespace AWSCore
 		AWSDDOSLogger SharedInstance { get; }
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
-	partial interface Constants
-	{
-		// extern double AWSMantleVersionNumber;
-		[Field ("AWSMantleVersionNumber", "__Internal")]
-		double AWSMantleVersionNumber { get; }
+	//partial interface Constants
+	//{
+	//	// extern double AWSMantleVersionNumber;
+	//	[Field ("AWSMantleVersionNumber", "__Internal")]
+	//	double AWSMantleVersionNumber { get; }
 
-		// extern const unsigned char[] AWSMantleVersionString;
-		[Field ("AWSMantleVersionString", "__Internal")]
-		byte[] AWSMantleVersionString { get; }
-	}
+	//	// extern const unsigned char[] AWSMantleVersionString;
+	//	[Field ("AWSMantleVersionString", "__Internal")]
+	//	byte[] AWSMantleVersionString { get; }
+	//}
 
 	// @protocol AWSMTLJSONSerializing
 	/*
@@ -754,13 +751,16 @@ namespace AWSCore
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol]
+*/
+	partial interface IAWSMTLJSONSerializing { }
+
+    [Protocol]
+	[BaseType(typeof(NSObject))]
 	interface AWSMTLJSONSerializing
 	{
 		// @required +(NSDictionary *)JSONKeyPathsByPropertyKey;
 		[Static, Abstract]
 		[Export ("JSONKeyPathsByPropertyKey")]
-		[Verify (MethodToProperty)]
 		NSDictionary JSONKeyPathsByPropertyKey { get; }
 
 		// @optional +(NSValueTransformer *)JSONTransformerForKey:(NSString *)key;
@@ -774,8 +774,6 @@ namespace AWSCore
 		Class ClassForParsingJSONDictionary (NSDictionary JSONDictionary);
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const AWSMTLJSONAdapterErrorDomain;
@@ -811,8 +809,7 @@ namespace AWSCore
 		// +(NSArray *)modelsOfClass:(Class)modelClass fromJSONArray:(NSArray *)JSONArray error:(NSError **)error;
 		[Static]
 		[Export ("modelsOfClass:fromJSONArray:error:")]
-		[Verify (StronglyTypedNSArray), Verify (StronglyTypedNSArray)]
-		NSObject[] ModelsOfClass (Class modelClass, NSObject[] JSONArray, out NSError error);
+		NSObject[] ModelsOfClass (Class modelClass, NSArray JSONArray, out NSError error);
 
 		// +(NSDictionary *)JSONDictionaryFromModel:(AWSMTLModel<AWSMTLJSONSerializing> *)model;
 		[Static]
@@ -822,20 +819,18 @@ namespace AWSCore
 		// +(NSArray *)JSONArrayFromModels:(NSArray *)models;
 		[Static]
 		[Export ("JSONArrayFromModels:")]
-		[Verify (StronglyTypedNSArray), Verify (StronglyTypedNSArray)]
-		NSObject[] JSONArrayFromModels (NSObject[] models);
+		NSObject[] JSONArrayFromModels (NSArray models);
 
 		// -(id)initWithJSONDictionary:(NSDictionary *)JSONDictionary modelClass:(Class)modelClass error:(NSError **)error;
 		[Export ("initWithJSONDictionary:modelClass:error:")]
-		NativeHandle Constructor (NSDictionary JSONDictionary, Class modelClass, out NSError error);
+		IntPtr Constructor (NSDictionary JSONDictionary, Class modelClass, out NSError error);
 
 		// -(id)initWithModel:(AWSMTLModel<AWSMTLJSONSerializing> *)model;
 		[Export ("initWithModel:")]
-		NativeHandle Constructor (AWSMTLJSONSerializing model);
+		IntPtr Constructor (AWSMTLJSONSerializing model);
 
 		// -(NSDictionary *)JSONDictionary;
 		[Export ("JSONDictionary")]
-		[Verify (MethodToProperty)]
 		NSDictionary JSONDictionary { get; }
 
 		// -(NSString *)JSONKeyPathForPropertyKey:(NSString *)key;
@@ -855,7 +850,7 @@ namespace AWSCore
 
 		// -(id)initWithJSONDictionary:(NSDictionary *)JSONDictionary modelClass:(Class)modelClass __attribute__((deprecated("Replaced by -initWithJSONDictionary:modelClass:error:")));
 		[Export ("initWithJSONDictionary:modelClass:")]
-		NativeHandle Constructor (NSDictionary JSONDictionary, Class modelClass);
+		IntPtr Constructor (NSDictionary JSONDictionary, Class modelClass);
 	}
 
 	// @protocol AWSMTLManagedObjectSerializing
@@ -867,25 +862,23 @@ namespace AWSCore
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol]
+*/
+	[Protocol]
 	interface AWSMTLManagedObjectSerializing
 	{
 		// @required +(NSString *)managedObjectEntityName;
 		[Static, Abstract]
 		[Export ("managedObjectEntityName")]
-		[Verify (MethodToProperty)]
 		string ManagedObjectEntityName { get; }
 
 		// @required +(NSDictionary *)managedObjectKeysByPropertyKey;
 		[Static, Abstract]
 		[Export ("managedObjectKeysByPropertyKey")]
-		[Verify (MethodToProperty)]
 		NSDictionary ManagedObjectKeysByPropertyKey { get; }
 
 		// @optional +(NSSet *)propertyKeysForManagedObjectUniquing;
 		[Static]
 		[Export ("propertyKeysForManagedObjectUniquing")]
-		[Verify (MethodToProperty)]
 		NSSet PropertyKeysForManagedObjectUniquing { get; }
 
 		// @optional +(NSValueTransformer *)entityAttributeTransformerForKey:(NSString *)key;
@@ -896,7 +889,6 @@ namespace AWSCore
 		// @optional +(NSDictionary *)relationshipModelClassesByPropertyKey;
 		[Static]
 		[Export ("relationshipModelClassesByPropertyKey")]
-		[Verify (MethodToProperty)]
 		NSDictionary RelationshipModelClassesByPropertyKey { get; }
 
 		// @optional +(Class)classForDeserializingManagedObject:(NSManagedObject *)managedObject;
@@ -913,8 +905,6 @@ namespace AWSCore
 		void MergeValuesForKeysFromManagedObject (NSManagedObject managedObject);
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const AWSMTLManagedObjectAdapterErrorDomain;
@@ -976,12 +966,11 @@ namespace AWSCore
 
 		// -(instancetype)initWithDictionary:(NSDictionary *)dictionaryValue error:(NSError **)error;
 		[Export ("initWithDictionary:error:")]
-		NativeHandle Constructor (NSDictionary dictionaryValue, out NSError error);
+		IntPtr Constructor (NSDictionary dictionaryValue, out NSError error);
 
 		// +(NSSet *)propertyKeys;
 		[Static]
 		[Export ("propertyKeys")]
-		[Verify (MethodToProperty)]
 		NSSet PropertyKeys { get; }
 
 		// @property (readonly, copy, nonatomic) NSDictionary * dictionaryValue;
@@ -1002,7 +991,6 @@ namespace AWSCore
 
 		// -(NSString *)description;
 		[Export ("description")]
-		[Verify (MethodToProperty)]
 		string Description { get; }
 	}
 
@@ -1028,7 +1016,7 @@ namespace AWSCore
 
 		// -(instancetype)initWithDictionary:(NSDictionary *)dictionaryValue __attribute__((deprecated("Replaced by -initWithDictionary:error:")));
 		[Export ("initWithDictionary:")]
-		NativeHandle Constructor (NSDictionary dictionaryValue);
+		IntPtr Constructor (NSDictionary dictionaryValue);
 
 		// +(instancetype)modelWithExternalRepresentation:(NSDictionary *)externalRepresentation __attribute__((deprecated("Replaced by -[MTLJSONAdapter initWithJSONDictionary:modelClass:]")));
 		[Static]
@@ -1037,20 +1025,19 @@ namespace AWSCore
 
 		// -(instancetype)initWithExternalRepresentation:(NSDictionary *)externalRepresentation __attribute__((deprecated("Replaced by -[MTLJSONAdapter initWithJSONDictionary:modelClass:]")));
 		[Export ("initWithExternalRepresentation:")]
-		NativeHandle Constructor (NSDictionary externalRepresentation);
+		IntPtr Constructor (NSDictionary externalRepresentation);
 
 		// @property (readonly, copy, nonatomic) NSDictionary * externalRepresentation __attribute__((deprecated("Replaced by MTLJSONAdapter.JSONDictionary")));
 		[Export ("externalRepresentation", ArgumentSemantic.Copy)]
-		NSDictionary ExternalRepresentation { get; }
+		NSDictionary ExternalRepresentation();
 
-		// +(NSDictionary *)externalRepresentationKeyPathsByPropertyKey __attribute__((deprecated("Replaced by +JSONKeyPathsByPropertyKey in <MTLJSONSerializing>")));
-		[Static]
+        // +(NSDictionary *)externalRepresentationKeyPathsByPropertyKey __attribute__((deprecated("Replaced by +JSONKeyPathsByPropertyKey in <MTLJSONSerializing>")));
+        [Static]
 		[Export ("externalRepresentationKeyPathsByPropertyKey")]
-		[Verify (MethodToProperty)]
-		NSDictionary ExternalRepresentationKeyPathsByPropertyKey { get; }
+		NSDictionary ExternalRepresentationKeyPathsByPropertyKey();
 
-		// +(NSValueTransformer *)transformerForKey:(NSString *)key __attribute__((deprecated("Replaced by +JSONTransformerForKey: in <MTLJSONSerializing>")));
-		[Static]
+        // +(NSValueTransformer *)transformerForKey:(NSString *)key __attribute__((deprecated("Replaced by +JSONTransformerForKey: in <MTLJSONSerializing>")));
+        [Static]
 		[Export ("transformerForKey:")]
 		NSValueTransformer TransformerForKey (string key);
 
@@ -1067,7 +1054,7 @@ namespace AWSCore
 	{
 		// -(id)initWithCoder:(NSCoder *)coder;
 		[Export ("initWithCoder:")]
-		NativeHandle Constructor (NSCoder coder);
+		IntPtr Constructor (NSCoder coder);
 
 		// -(void)encodeWithCoder:(NSCoder *)coder;
 		[Export ("encodeWithCoder:")]
@@ -1076,25 +1063,22 @@ namespace AWSCore
 		// +(NSDictionary *)encodingBehaviorsByPropertyKey;
 		[Static]
 		[Export ("encodingBehaviorsByPropertyKey")]
-		[Verify (MethodToProperty)]
-		NSDictionary EncodingBehaviorsByPropertyKey { get; }
+		NSDictionary EncodingBehaviorsByPropertyKey();
 
-		// +(NSDictionary *)allowedSecureCodingClassesByPropertyKey;
-		[Static]
+        // +(NSDictionary *)allowedSecureCodingClassesByPropertyKey;
+        [Static]
 		[Export ("allowedSecureCodingClassesByPropertyKey")]
-		[Verify (MethodToProperty)]
-		NSDictionary AllowedSecureCodingClassesByPropertyKey { get; }
+		NSDictionary AllowedSecureCodingClassesByPropertyKey();
 
-		// -(id)decodeValueForKey:(NSString *)key withCoder:(NSCoder *)coder modelVersion:(NSUInteger)modelVersion;
-		[Export ("decodeValueForKey:withCoder:modelVersion:")]
+        // -(id)decodeValueForKey:(NSString *)key withCoder:(NSCoder *)coder modelVersion:(NSUInteger)modelVersion;
+        [Export ("decodeValueForKey:withCoder:modelVersion:")]
 		NSObject DecodeValueForKey (string key, NSCoder coder, nuint modelVersion);
 
 		// +(NSUInteger)modelVersion;
 		[Static]
 		[Export ("modelVersion")]
-		[Verify (MethodToProperty)]
-		nuint ModelVersion { get; }
-	}
+		nuint ModelVersion();
+    }
 
 	// @interface OldArchiveSupport (AWSMTLModel)
 	[Category]
@@ -1137,23 +1121,20 @@ namespace AWSCore
 	{
 		// @property (readonly, nonatomic, strong) id awsmtl_firstObject;
 		[Export ("awsmtl_firstObject", ArgumentSemantic.Strong)]
-		NSObject Awsmtl_firstObject { get; }
+		NSObject Awsmtl_firstObject();
 
-		// -(NSArray *)awsmtl_arrayByRemovingObject:(id)object;
-		[Export ("awsmtl_arrayByRemovingObject:")]
-		[Verify (StronglyTypedNSArray)]
-		NSObject[] Awsmtl_arrayByRemovingObject (NSObject @object);
+        // -(NSArray *)awsmtl_arrayByRemovingObject:(id)object;
+        [Export ("awsmtl_arrayByRemovingObject:")]
+        NSArray Awsmtl_arrayByRemovingObject (NSObject @object);
 
 		// -(NSArray *)awsmtl_arrayByRemovingFirstObject;
 		[Export ("awsmtl_arrayByRemovingFirstObject")]
-		[Verify (MethodToProperty), Verify (StronglyTypedNSArray)]
-		NSObject[] Awsmtl_arrayByRemovingFirstObject { get; }
+        NSArray Awsmtl_arrayByRemovingFirstObject();
 
-		// -(NSArray *)awsmtl_arrayByRemovingLastObject;
-		[Export ("awsmtl_arrayByRemovingLastObject")]
-		[Verify (MethodToProperty), Verify (StronglyTypedNSArray)]
-		NSObject[] Awsmtl_arrayByRemovingLastObject { get; }
-	}
+        // -(NSArray *)awsmtl_arrayByRemovingLastObject;
+        [Export ("awsmtl_arrayByRemovingLastObject")]
+        NSArray Awsmtl_arrayByRemovingLastObject();
+    }
 
 	// @interface AWSMTLManipulationAdditions (NSDictionary)
 	[Category]
@@ -1176,12 +1157,9 @@ namespace AWSCore
 	{
 		// -(NSValueTransformer *)awsmtl_invertedTransformer;
 		[Export ("awsmtl_invertedTransformer")]
-		[Verify (MethodToProperty)]
-		NSValueTransformer Awsmtl_invertedTransformer { get; }
-	}
+		NSValueTransformer Awsmtl_invertedTransformer();
+    }
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const AWSMTLURLValueTransformerName;
@@ -1237,7 +1215,7 @@ namespace AWSCore
 
 	// @interface AWSModel : AWSMTLModel <AWSMTLJSONSerializing, NSSecureCoding>
 	[BaseType (typeof(AWSMTLModel))]
-	interface AWSModel : IAWSMTLJSONSerializing, INSSecureCoding
+	interface AWSModel : AWSMTLJSONSerializing, INSSecureCoding
 	{
 	}
 
@@ -1258,14 +1236,12 @@ namespace AWSCore
 		// +(NSArray *)mapMTLArrayFromJSONArray:(NSArray *)JSONArray withModelClass:(Class)modelClass;
 		[Static]
 		[Export ("mapMTLArrayFromJSONArray:withModelClass:")]
-		[Verify (StronglyTypedNSArray), Verify (StronglyTypedNSArray)]
-		NSObject[] MapMTLArrayFromJSONArray (NSObject[] JSONArray, Class modelClass);
+        NSArray MapMTLArrayFromJSONArray (NSArray JSONArray, Class modelClass);
 
 		// +(NSArray *)JSONArrayFromMapMTLArray:(NSArray *)mapMTLArray;
 		[Static]
 		[Export ("JSONArrayFromMapMTLArray:")]
-		[Verify (StronglyTypedNSArray), Verify (StronglyTypedNSArray)]
-		NSObject[] JSONArrayFromMapMTLArray (NSObject[] mapMTLArray);
+        NSArray JSONArrayFromMapMTLArray (NSArray mapMTLArray);
 
 		// +(NSDictionary *)mapMTLDictionaryFromJSONDictionary:(NSDictionary *)JSONDictionary withModelClass:(Class)modelClass;
 		[Static]
@@ -1278,8 +1254,6 @@ namespace AWSCore
 		NSDictionary JSONDictionaryFromMapMTLDictionary (NSDictionary mapMTLDictionary);
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const AWSNetworkingErrorDomain;
@@ -1287,8 +1261,6 @@ namespace AWSCore
 		NSString AWSNetworkingErrorDomain { get; }
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const AWSResponseObjectErrorUserInfoKey;
@@ -1319,7 +1291,7 @@ namespace AWSCore
 	{
 		// -(instancetype)initWithConfiguration:(AWSNetworkingConfiguration *)configuration;
 		[Export ("initWithConfiguration:")]
-		NativeHandle Constructor (AWSNetworkingConfiguration configuration);
+		IntPtr Constructor (AWSNetworkingConfiguration configuration);
 
 		// -(AWSTask *)sendRequest:(AWSNetworkingRequest *)request;
 		[Export ("sendRequest:")]
@@ -1339,7 +1311,7 @@ namespace AWSCore
 	[BaseType (typeof(NSObject))]
 	interface AWSURLRequestSerializer
 	{
-		// @required -(AWSTask *)validateRequest:(NSURLRequest *)request;
+		// @required -(AWSTask *)validateRequest:(NSUrlRequest *)request;
 		[Abstract]
 		[Export ("validateRequest:")]
 		AWSTask ValidateRequest (NSUrlRequest request);
@@ -1359,9 +1331,12 @@ namespace AWSCore
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol]
-	[BaseType (typeof(NSObject))]
-	interface AWSNetworkingRequestInterceptor
+*/
+	partial interface IAWSNetworkingRequestInterceptorProtocol { }
+
+    [Protocol()]
+	[BaseType (typeof(NSObject), Name = "AWSNetworkingRequestInterceptor")]
+	interface AWSNetworkingRequestInterceptorProtocol
 	{
 		// @required -(AWSTask *)interceptRequest:(NSMutableURLRequest *)request;
 		[Abstract]
@@ -1382,7 +1357,7 @@ namespace AWSCore
 	[BaseType (typeof(NSObject))]
 	interface AWSNetworkingHTTPResponseInterceptor
 	{
-		// @required -(AWSTask *)interceptResponse:(NSHTTPURLResponse *)response data:(id)data originalRequest:(NSURLRequest *)originalRequest currentRequest:(NSURLRequest *)currentRequest;
+		// @required -(AWSTask *)interceptResponse:(NSHTTPURLResponse *)response data:(id)data originalRequest:(NSUrlRequest *)originalRequest currentRequest:(NSUrlRequest *)currentRequest;
 		[Abstract]
 		[Export ("interceptResponse:data:originalRequest:currentRequest:")]
 		AWSTask Data (NSHttpUrlResponse response, NSObject data, NSUrlRequest originalRequest, NSUrlRequest currentRequest);
@@ -1401,12 +1376,12 @@ namespace AWSCore
 	[BaseType (typeof(NSObject))]
 	interface AWSHTTPURLResponseSerializer
 	{
-		// @required -(BOOL)validateResponse:(NSHTTPURLResponse *)response fromRequest:(NSURLRequest *)request data:(id)data error:(NSError **)error;
+		// @required -(BOOL)validateResponse:(NSHTTPURLResponse *)response fromRequest:(NSUrlRequest *)request data:(id)data error:(NSError **)error;
 		[Abstract]
 		[Export ("validateResponse:fromRequest:data:error:")]
 		bool ValidateResponse (NSHttpUrlResponse response, NSUrlRequest request, NSObject data, out NSError error);
 
-		// @required -(id)responseObjectForResponse:(NSHTTPURLResponse *)response originalRequest:(NSURLRequest *)originalRequest currentRequest:(NSURLRequest *)currentRequest data:(id)data error:(NSError **)error;
+		// @required -(id)responseObjectForResponse:(NSHTTPURLResponse *)response originalRequest:(NSUrlRequest *)originalRequest currentRequest:(NSUrlRequest *)currentRequest data:(id)data error:(NSError **)error;
 		[Abstract]
 		[Export ("responseObjectForResponse:originalRequest:currentRequest:data:error:")]
 		NSObject ResponseObjectForResponse (NSHttpUrlResponse response, NSUrlRequest originalRequest, NSUrlRequest currentRequest, NSObject data, out NSError error);
@@ -1421,9 +1396,12 @@ namespace AWSCore
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol]
-	[BaseType (typeof(NSObject))]
-	interface AWSURLRequestRetryHandler
+*/
+	partial interface IAWSURLRequestRetryHandlerProtocol { }
+
+    [Protocol]
+	[BaseType (typeof(NSObject), Name = "AWSURLRequestRetryHandler")]
+    interface AWSURLRequestRetryHandlerProtocol
 	{
 		// @required @property (assign, nonatomic) uint32_t maxRetryCount;
 		[Abstract]
@@ -1449,11 +1427,11 @@ namespace AWSCore
 	[BaseType (typeof(NSObject))]
 	interface AWSNetworkingConfiguration : INSCopying
 	{
-		// @property (readonly, nonatomic) NSURL * URL;
+		// @property (readonly, nonatomic) NSUrl * URL;
 		[Export ("URL")]
 		NSUrl URL { get; }
 
-		// @property (nonatomic, strong) NSURL * baseURL;
+		// @property (nonatomic, strong) NSUrl * baseURL;
 		[Export ("baseURL", ArgumentSemantic.Strong)]
 		NSUrl BaseURL { get; set; }
 
@@ -1483,7 +1461,7 @@ namespace AWSCore
 
 		// @property (nonatomic, strong) NSArray<id<AWSNetworkingRequestInterceptor>> * requestInterceptors;
 		[Export ("requestInterceptors", ArgumentSemantic.Strong)]
-		AWSNetworkingRequestInterceptor[] RequestInterceptors { get; set; }
+        IAWSNetworkingRequestInterceptorProtocol[] RequestInterceptors { get; set; }
 
 		// @property (nonatomic, strong) id<AWSHTTPURLResponseSerializer> responseSerializer;
 		[Export ("responseSerializer", ArgumentSemantic.Strong)]
@@ -1495,7 +1473,7 @@ namespace AWSCore
 
 		// @property (nonatomic, strong) id<AWSURLRequestRetryHandler> retryHandler;
 		[Export ("retryHandler", ArgumentSemantic.Strong)]
-		AWSURLRequestRetryHandler RetryHandler { get; set; }
+		IAWSURLRequestRetryHandlerProtocol RetryHandler { get; set; }
 
 		// @property (assign, nonatomic) uint32_t maxRetryCount;
 		[Export ("maxRetryCount")]
@@ -1518,11 +1496,11 @@ namespace AWSCore
 		[Export ("parameters", ArgumentSemantic.Strong)]
 		NSDictionary Parameters { get; set; }
 
-		// @property (nonatomic, strong) NSURL * uploadingFileURL;
+		// @property (nonatomic, strong) NSUrl * uploadingFileURL;
 		[Export ("uploadingFileURL", ArgumentSemantic.Strong)]
 		NSUrl UploadingFileURL { get; set; }
 
-		// @property (nonatomic, strong) NSURL * downloadingFileURL;
+		// @property (nonatomic, strong) NSUrl * downloadingFileURL;
 		[Export ("downloadingFileURL", ArgumentSemantic.Strong)]
 		NSUrl DownloadingFileURL { get; set; }
 
@@ -1538,7 +1516,7 @@ namespace AWSCore
 		[Export ("downloadProgress", ArgumentSemantic.Copy)]
 		AWSNetworkingDownloadProgressBlock DownloadProgress { get; set; }
 
-		// @property (readonly, nonatomic, strong) NSURLSessionTask * task;
+		// @property (readonly, nonatomic, strong) NSUrlSessionTask * task;
 		[Export ("task", ArgumentSemantic.Strong)]
 		NSUrlSessionTask Task { get; }
 
@@ -1575,36 +1553,32 @@ namespace AWSCore
 		[Export ("cancelled")]
 		bool Cancelled { [Bind ("isCancelled")] get; }
 
-		// @property (nonatomic, strong) NSURL * downloadingFileURL;
+		// @property (nonatomic, strong) NSUrl * downloadingFileURL;
 		[Export ("downloadingFileURL", ArgumentSemantic.Strong)]
 		NSUrl DownloadingFileURL { get; set; }
 
 		// -(AWSTask *)cancel;
 		[Export ("cancel")]
-		[Verify (MethodToProperty)]
-		AWSTask Cancel { get; }
+		AWSTask Cancel();
 
-		// -(AWSTask *)pause;
-		[Export ("pause")]
-		[Verify (MethodToProperty)]
-		AWSTask Pause { get; }
+        // -(AWSTask *)pause;
+        [Export("pause")]
+		AWSTask Pause();
 	}
 
 	// @interface AWSNetworkingRequestInterceptor : NSObject <AWSNetworkingRequestInterceptor>
 	[BaseType (typeof(NSObject))]
-	interface AWSNetworkingRequestInterceptor : IAWSNetworkingRequestInterceptor
-	{
+	interface AWSNetworkingRequestInterceptor : AWSNetworkingRequestInterceptorProtocol
+    {
 		// @property (readonly, nonatomic) NSString * userAgent;
 		[Export ("userAgent")]
 		string UserAgent { get; }
 
 		// -(instancetype)initWithUserAgent:(NSString *)userAgent;
 		[Export ("initWithUserAgent:")]
-		NativeHandle Constructor (string userAgent);
+		IntPtr Constructor (string userAgent);
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const _Nonnull AWSCognitoIdentityIdChangedNotification;
@@ -1661,7 +1635,8 @@ namespace AWSCore
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol]
+*/
+	[Protocol]
 	[BaseType (typeof(NSObject))]
 	interface AWSIdentityProvider
 	{
@@ -1673,8 +1648,7 @@ namespace AWSCore
 		// @required -(AWSTask<NSString *> * _Nonnull)token;
 		[Abstract]
 		[Export ("token")]
-		[Verify (MethodToProperty)]
-		AWSTask<NSString> Token { get; }
+		AWSTask Token { get; }
 	}
 
 	// @protocol AWSIdentityProviderManager <NSObject>
@@ -1686,15 +1660,17 @@ namespace AWSCore
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol]
+*/
+	partial interface IAWSIdentityProviderManager { }
+
+    [Protocol]
 	[BaseType (typeof(NSObject))]
 	interface AWSIdentityProviderManager
 	{
 		// @required -(AWSTask<NSDictionary<NSString *,NSString *> *> * _Nonnull)logins;
 		[Abstract]
 		[Export ("logins")]
-		[Verify (MethodToProperty)]
-		AWSTask<NSDictionary<NSString, NSString>> Logins { get; }
+		AWSTask Logins { get; }
 
 		// @optional @property (readonly, nonatomic) NSString * _Nonnull customRoleArn;
 		[Export ("customRoleArn")]
@@ -1710,8 +1686,10 @@ namespace AWSCore
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol]
-	interface AWSCognitoCredentialsProviderHelper : IAWSIdentityProvider, IAWSIdentityProviderManager
+*/
+	[Protocol]
+	[BaseType(typeof(NSObject), Name = "AWSCognitoCredentialsProviderHelper")]
+	interface AWSCognitoCredentialsProviderHelperProtocol : AWSIdentityProvider, AWSIdentityProviderManager
 	{
 		// @required @property (readonly, nonatomic, strong) NSString * _Nonnull identityPoolId;
 		[Abstract]
@@ -1726,18 +1704,16 @@ namespace AWSCore
 		// @required @property (readonly, nonatomic, strong) id<AWSIdentityProviderManager> _Nullable identityProviderManager;
 		[Abstract]
 		[NullAllowed, Export ("identityProviderManager", ArgumentSemantic.Strong)]
-		AWSIdentityProviderManager IdentityProviderManager { get; }
+		IAWSIdentityProviderManager IdentityProviderManager { get; }
 
 		// @required -(AWSTask<NSString *> * _Nonnull)getIdentityId;
 		[Abstract]
-		[Export ("getIdentityId")]
-		[Verify (MethodToProperty)]
-		AWSTask<NSString> IdentityId { get; }
+		[Export("getIdentityId")]
+		AWSTask GetIdentityId();
 
 		// @required -(BOOL)isAuthenticated;
 		[Abstract]
 		[Export ("isAuthenticated")]
-		[Verify (MethodToProperty)]
 		bool IsAuthenticated { get; }
 
 		// @required -(void)clear;
@@ -1748,7 +1724,7 @@ namespace AWSCore
 
 	// @interface AWSAbstractCognitoCredentialsProviderHelper : NSObject <AWSCognitoCredentialsProviderHelper>
 	[BaseType (typeof(NSObject))]
-	interface AWSAbstractCognitoCredentialsProviderHelper : IAWSCognitoCredentialsProviderHelper
+	interface AWSAbstractCognitoCredentialsProviderHelper : AWSCognitoCredentialsProviderHelper
 	{
 		// @property (readonly, nonatomic, strong) NSString * _Nonnull identityPoolId;
 		[Export ("identityPoolId", ArgumentSemantic.Strong)]
@@ -1773,15 +1749,13 @@ namespace AWSCore
 
 		// -(instancetype _Nonnull)initWithRegionType:(AWSRegionType)regionType identityPoolId:(NSString * _Nonnull)identityPoolId useEnhancedFlow:(BOOL)useEnhancedFlow identityProviderManager:(id<AWSIdentityProviderManager> _Nullable)identityProviderManager;
 		[Export ("initWithRegionType:identityPoolId:useEnhancedFlow:identityProviderManager:")]
-		NativeHandle Constructor (AWSRegionType regionType, string identityPoolId, bool useEnhancedFlow, [NullAllowed] AWSIdentityProviderManager identityProviderManager);
+		IntPtr Constructor (AWSRegionType regionType, string identityPoolId, bool useEnhancedFlow, [NullAllowed] AWSIdentityProviderManager identityProviderManager);
 
 		// -(instancetype _Nonnull)initWithRegionType:(AWSRegionType)regionType identityPoolId:(NSString * _Nonnull)identityPoolId useEnhancedFlow:(BOOL)useEnhancedFlow identityProviderManager:(id<AWSIdentityProviderManager> _Nullable)identityProviderManager identityPoolConfiguration:(AWSServiceConfiguration * _Nonnull)configuration;
 		[Export ("initWithRegionType:identityPoolId:useEnhancedFlow:identityProviderManager:identityPoolConfiguration:")]
-		NativeHandle Constructor (AWSRegionType regionType, string identityPoolId, bool useEnhancedFlow, [NullAllowed] AWSIdentityProviderManager identityProviderManager, AWSServiceConfiguration configuration);
+		IntPtr Constructor (AWSRegionType regionType, string identityPoolId, bool useEnhancedFlow, [NullAllowed] AWSIdentityProviderManager identityProviderManager, AWSServiceConfiguration configuration);
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const _Nonnull AWSCognitoCredentialsProviderErrorDomain;
@@ -1811,7 +1785,7 @@ namespace AWSCore
 
 		// -(instancetype _Nonnull)initWithAccessKey:(NSString * _Nonnull)accessKey secretKey:(NSString * _Nonnull)secretKey sessionKey:(NSString * _Nullable)sessionKey expiration:(NSDate * _Nullable)expiration;
 		[Export ("initWithAccessKey:secretKey:sessionKey:expiration:")]
-		NativeHandle Constructor (string accessKey, string secretKey, [NullAllowed] string sessionKey, [NullAllowed] NSDate expiration);
+		IntPtr Constructor (string accessKey, string secretKey, [NullAllowed] string sessionKey, [NullAllowed] NSDate expiration);
 	}
 
 	// @protocol AWSCredentialsProvider <NSObject>
@@ -1823,15 +1797,17 @@ namespace AWSCore
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol]
+*/
+	partial interface IAWSCredentialsProvider { }
+
+    [Protocol]
 	[BaseType (typeof(NSObject))]
 	interface AWSCredentialsProvider
 	{
 		// @required -(AWSTask<AWSCredentials *> * _Nonnull)credentials;
 		[Abstract]
 		[Export ("credentials")]
-		[Verify (MethodToProperty)]
-		AWSTask<AWSCredentials> Credentials { get; }
+		AWSTask Credentials { get; }
 
 		// @required -(void)invalidateCachedTemporaryCredentials;
 		[Abstract]
@@ -1841,11 +1817,11 @@ namespace AWSCore
 
 	// @interface AWSStaticCredentialsProvider : NSObject <AWSCredentialsProvider>
 	[BaseType (typeof(NSObject))]
-	interface AWSStaticCredentialsProvider : IAWSCredentialsProvider
+	interface AWSStaticCredentialsProvider : AWSCredentialsProvider
 	{
 		// -(instancetype _Nonnull)initWithAccessKey:(NSString * _Nonnull)accessKey secretKey:(NSString * _Nonnull)secretKey;
 		[Export ("initWithAccessKey:secretKey:")]
-		NativeHandle Constructor (string accessKey, string secretKey);
+		IntPtr Constructor (string accessKey, string secretKey);
 	}
 
 	// @interface AWSBasicSessionCredentialsProvider : NSObject <AWSCredentialsProvider>
@@ -1854,7 +1830,7 @@ namespace AWSCore
 	{
 		// -(instancetype _Nonnull)initWithAccessKey:(NSString * _Nonnull)accessKey secretKey:(NSString * _Nonnull)secretKey sessionToken:(NSString * _Nonnull)sessionToken;
 		[Export ("initWithAccessKey:secretKey:sessionToken:")]
-		NativeHandle Constructor (string accessKey, string secretKey, string sessionToken);
+		IntPtr Constructor (string accessKey, string secretKey, string sessionToken);
 	}
 
 	// @interface AWSAnonymousCredentialsProvider : NSObject <AWSCredentialsProvider>
@@ -1885,7 +1861,7 @@ namespace AWSCore
 
 		// -(instancetype _Nonnull)initWithRegionType:(AWSRegionType)regionType providerId:(NSString * _Nullable)providerId roleArn:(NSString * _Nonnull)roleArn roleSessionName:(NSString * _Nonnull)roleSessionName webIdentityToken:(NSString * _Nonnull)webIdentityToken;
 		[Export ("initWithRegionType:providerId:roleArn:roleSessionName:webIdentityToken:")]
-		NativeHandle Constructor (AWSRegionType regionType, [NullAllowed] string providerId, string roleArn, string roleSessionName, string webIdentityToken);
+		IntPtr Constructor (AWSRegionType regionType, [NullAllowed] string providerId, string roleArn, string roleSessionName, string webIdentityToken);
 	}
 
 	// @interface AWSCognitoCredentialsProvider : NSObject <AWSCredentialsProvider>
@@ -1906,32 +1882,31 @@ namespace AWSCore
 
 		// -(instancetype _Nonnull)initWithRegionType:(AWSRegionType)regionType identityPoolId:(NSString * _Nonnull)identityPoolId;
 		[Export ("initWithRegionType:identityPoolId:")]
-		NativeHandle Constructor (AWSRegionType regionType, string identityPoolId);
+		IntPtr Constructor (AWSRegionType regionType, string identityPoolId);
 
 		// -(instancetype _Nonnull)initWithRegionType:(AWSRegionType)regionType identityPoolId:(NSString * _Nonnull)identityPoolId identityPoolConfiguration:(AWSServiceConfiguration * _Nonnull)configuration;
 		[Export ("initWithRegionType:identityPoolId:identityPoolConfiguration:")]
-		NativeHandle Constructor (AWSRegionType regionType, string identityPoolId, AWSServiceConfiguration configuration);
+		IntPtr Constructor (AWSRegionType regionType, string identityPoolId, AWSServiceConfiguration configuration);
 
 		// -(instancetype _Nonnull)initWithRegionType:(AWSRegionType)regionType identityPoolId:(NSString * _Nonnull)identityPoolId identityProviderManager:(id<AWSIdentityProviderManager> _Nullable)identityProviderManager;
 		[Export ("initWithRegionType:identityPoolId:identityProviderManager:")]
-		NativeHandle Constructor (AWSRegionType regionType, string identityPoolId, [NullAllowed] AWSIdentityProviderManager identityProviderManager);
+		IntPtr Constructor (AWSRegionType regionType, string identityPoolId, [NullAllowed] AWSIdentityProviderManager identityProviderManager);
 
 		// -(instancetype _Nonnull)initWithRegionType:(AWSRegionType)regionType identityProvider:(id<AWSCognitoCredentialsProviderHelper> _Nonnull)identityProvider;
 		[Export ("initWithRegionType:identityProvider:")]
-		NativeHandle Constructor (AWSRegionType regionType, AWSCognitoCredentialsProviderHelper identityProvider);
+		IntPtr Constructor (AWSRegionType regionType, AWSCognitoCredentialsProviderHelper identityProvider);
 
 		// -(instancetype _Nonnull)initWithRegionType:(AWSRegionType)regionType unauthRoleArn:(NSString * _Nullable)unauthRoleArn authRoleArn:(NSString * _Nullable)authRoleArn identityProvider:(id<AWSCognitoCredentialsProviderHelper> _Nonnull)identityProvider;
 		[Export ("initWithRegionType:unauthRoleArn:authRoleArn:identityProvider:")]
-		NativeHandle Constructor (AWSRegionType regionType, [NullAllowed] string unauthRoleArn, [NullAllowed] string authRoleArn, AWSCognitoCredentialsProviderHelper identityProvider);
+		IntPtr Constructor (AWSRegionType regionType, [NullAllowed] string unauthRoleArn, [NullAllowed] string authRoleArn, AWSCognitoCredentialsProviderHelper identityProvider);
 
 		// -(instancetype _Nonnull)initWithRegionType:(AWSRegionType)regionType identityPoolId:(NSString * _Nonnull)identityPoolId unauthRoleArn:(NSString * _Nullable)unauthRoleArn authRoleArn:(NSString * _Nullable)authRoleArn identityProviderManager:(id<AWSIdentityProviderManager> _Nullable)identityProviderManager;
 		[Export ("initWithRegionType:identityPoolId:unauthRoleArn:authRoleArn:identityProviderManager:")]
-		NativeHandle Constructor (AWSRegionType regionType, string identityPoolId, [NullAllowed] string unauthRoleArn, [NullAllowed] string authRoleArn, [NullAllowed] AWSIdentityProviderManager identityProviderManager);
+		IntPtr Constructor (AWSRegionType regionType, string identityPoolId, [NullAllowed] string unauthRoleArn, [NullAllowed] string authRoleArn, [NullAllowed] AWSIdentityProviderManager identityProviderManager);
 
 		// -(AWSTask<NSString *> * _Nonnull)getIdentityId;
-		[Export ("getIdentityId")]
-		[Verify (MethodToProperty)]
-		AWSTask<NSString> IdentityId { get; }
+		[Export("getIdentityId")]
+		AWSTask GetIdentityId();
 
 		// -(void)clearKeychain;
 		[Export ("clearKeychain")]
@@ -1946,8 +1921,6 @@ namespace AWSCore
 		void SetIdentityProviderManagerOnce (AWSIdentityProviderManager identityProviderManager);
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const AWSiOSSDKVersion;
@@ -1966,7 +1939,6 @@ namespace AWSCore
 		// +(NSDictionary<NSString *,NSNumber *> *)errorCodeDictionary;
 		[Static]
 		[Export ("errorCodeDictionary")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSNumber> ErrorCodeDictionary { get; }
 	}
 
@@ -1994,7 +1966,7 @@ namespace AWSCore
 
 		// @property (readonly, nonatomic, strong) id<AWSCredentialsProvider> credentialsProvider;
 		[Export ("credentialsProvider", ArgumentSemantic.Strong)]
-		AWSCredentialsProvider CredentialsProvider { get; }
+		IAWSCredentialsProvider CredentialsProvider { get; }
 
 		// @property (readonly, nonatomic, strong) AWSEndpoint * endpoint;
 		[Export ("endpoint", ArgumentSemantic.Strong)]
@@ -2011,7 +1983,6 @@ namespace AWSCore
 		// +(NSString *)baseUserAgent;
 		[Static]
 		[Export ("baseUserAgent")]
-		[Verify (MethodToProperty)]
 		string BaseUserAgent { get; }
 
 		// +(void)addGlobalUserAgentProductToken:(NSString *)productToken;
@@ -2021,19 +1992,19 @@ namespace AWSCore
 
 		// -(instancetype)initWithRegion:(AWSRegionType)regionType credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider;
 		[Export ("initWithRegion:credentialsProvider:")]
-		NativeHandle Constructor (AWSRegionType regionType, AWSCredentialsProvider credentialsProvider);
+		IntPtr Constructor (AWSRegionType regionType, IAWSCredentialsProvider credentialsProvider);
 
 		// -(instancetype)initWithRegion:(AWSRegionType)regionType serviceType:(AWSServiceType)serviceType credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider localTestingEnabled:(BOOL)localTestingEnabled;
 		[Export ("initWithRegion:serviceType:credentialsProvider:localTestingEnabled:")]
-		NativeHandle Constructor (AWSRegionType regionType, AWSServiceType serviceType, AWSCredentialsProvider credentialsProvider, bool localTestingEnabled);
+		IntPtr Constructor (AWSRegionType regionType, AWSServiceType serviceType, IAWSCredentialsProvider credentialsProvider, bool localTestingEnabled);
 
 		// -(instancetype)initWithRegion:(AWSRegionType)regionType endpoint:(AWSEndpoint *)endpoint credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider;
 		[Export ("initWithRegion:endpoint:credentialsProvider:")]
-		NativeHandle Constructor (AWSRegionType regionType, AWSEndpoint endpoint, AWSCredentialsProvider credentialsProvider);
+		IntPtr Constructor (AWSRegionType regionType, AWSEndpoint endpoint, IAWSCredentialsProvider credentialsProvider);
 
 		// -(instancetype)initWithRegion:(AWSRegionType)regionType endpoint:(AWSEndpoint *)endpoint credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider localTestingEnabled:(BOOL)localTestingEnabled;
 		[Export ("initWithRegion:endpoint:credentialsProvider:localTestingEnabled:")]
-		NativeHandle Constructor (AWSRegionType regionType, AWSEndpoint endpoint, AWSCredentialsProvider credentialsProvider, bool localTestingEnabled);
+		IntPtr Constructor (AWSRegionType regionType, AWSEndpoint endpoint, IAWSCredentialsProvider credentialsProvider, bool localTestingEnabled);
 
 		// -(void)addUserAgentProductToken:(NSString *)productToken;
 		[Export ("addUserAgentProductToken:")]
@@ -2064,7 +2035,7 @@ namespace AWSCore
 		[Export ("signingName")]
 		string SigningName { get; }
 
-		// @property (readonly, nonatomic) NSURL * URL;
+		// @property (readonly, nonatomic) NSUrl * URL;
 		[Export ("URL")]
 		NSUrl URL { get; }
 
@@ -2087,41 +2058,39 @@ namespace AWSCore
 
 		// -(instancetype)initWithRegion:(AWSRegionType)regionType service:(AWSServiceType)serviceType useUnsafeURL:(BOOL)useUnsafeURL;
 		[Export ("initWithRegion:service:useUnsafeURL:")]
-		NativeHandle Constructor (AWSRegionType regionType, AWSServiceType serviceType, bool useUnsafeURL);
+		IntPtr Constructor (AWSRegionType regionType, AWSServiceType serviceType, bool useUnsafeURL);
 
-		// -(instancetype)initWithRegion:(AWSRegionType)regionType service:(AWSServiceType)serviceType URL:(NSURL *)URL;
+		// -(instancetype)initWithRegion:(AWSRegionType)regionType service:(AWSServiceType)serviceType URL:(NSUrl *)URL;
 		[Export ("initWithRegion:service:URL:")]
-		NativeHandle Constructor (AWSRegionType regionType, AWSServiceType serviceType, NSUrl URL);
+		IntPtr Constructor (AWSRegionType regionType, AWSServiceType serviceType, NSUrl URL);
 
-		// -(instancetype)initWithRegion:(AWSRegionType)regionType serviceName:(NSString *)serviceName URL:(NSURL *)URL;
+		// -(instancetype)initWithRegion:(AWSRegionType)regionType serviceName:(NSString *)serviceName URL:(NSUrl *)URL;
 		[Export ("initWithRegion:serviceName:URL:")]
-		NativeHandle Constructor (AWSRegionType regionType, string serviceName, NSUrl URL);
+		IntPtr Constructor (AWSRegionType regionType, string serviceName, NSUrl URL);
 
-		// -(instancetype)initWithURL:(NSURL *)URL;
+		// -(instancetype)initWithURL:(NSUrl *)URL;
 		[Export ("initWithURL:")]
-		NativeHandle Constructor (NSUrl URL);
+		IntPtr Constructor (NSUrl URL);
 
 		// -(instancetype)initWithURLString:(NSString *)URLString;
 		[Export ("initWithURLString:")]
-		NativeHandle Constructor (string URLString);
+		IntPtr Constructor (string URLString);
 
-		// -(instancetype)initLocalEndpointWithRegion:(AWSRegionType)regionType service:(AWSServiceType)serviceType useUnsafeURL:(BOOL)useUnsafeURL;
-		[Export ("initLocalEndpointWithRegion:service:useUnsafeURL:")]
-		NativeHandle Constructor (AWSRegionType regionType, AWSServiceType serviceType, bool useUnsafeURL);
+		//// -(instancetype)initLocalEndpointWithRegion:(AWSRegionType)regionType service:(AWSServiceType)serviceType useUnsafeURL:(BOOL)useUnsafeURL;
+		//[Export ("initLocalEndpointWithRegion:service:useUnsafeURL:")]
+		//IntPtr Constructor (AWSRegionType regionType, AWSServiceType serviceType, bool useUnsafeURL);
 	}
 
 	// @interface AWSNetworkingHelpers : NSObject
 	[BaseType (typeof(NSObject))]
 	interface AWSNetworkingHelpers
 	{
-		// +(NSArray<NSURLQueryItem *> * _Nonnull)queryItemsFromDictionary:(NSDictionary<NSString *,id> * _Nonnull)requestParameters;
+		// +(NSArray<NSUrlQueryItem *> * _Nonnull)queryItemsFromDictionary:(NSDictionary<NSString *,id> * _Nonnull)requestParameters;
 		[Static]
 		[Export ("queryItemsFromDictionary:")]
 		NSUrlQueryItem[] QueryItemsFromDictionary (NSDictionary<NSString, NSObject> requestParameters);
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const AWSDateRFC822DateFormat1;
@@ -2157,11 +2126,10 @@ namespace AWSCore
 		// +(NSDate *)aws_clockSkewFixedDate;
 		[Static]
 		[Export ("aws_clockSkewFixedDate")]
-		[Verify (MethodToProperty)]
-		NSDate Aws_clockSkewFixedDate { get; }
+		NSDate Aws_clockSkewFixedDate();
 
-		// +(NSDate *)aws_dateFromString:(NSString *)string;
-		[Static]
+        // +(NSDate *)aws_dateFromString:(NSString *)string;
+        [Static]
 		[Export ("aws_dateFromString:")]
 		NSDate Aws_dateFromString (string @string);
 
@@ -2182,7 +2150,6 @@ namespace AWSCore
 		// +(NSTimeInterval)aws_getRuntimeClockSkew;
 		[Static]
 		[Export ("aws_getRuntimeClockSkew")]
-		[Verify (MethodToProperty)]
 		double Aws_getRuntimeClockSkew { get; }
 	}
 
@@ -2193,11 +2160,10 @@ namespace AWSCore
 	{
 		// -(NSDictionary *)aws_removeNullValues;
 		[Export ("aws_removeNullValues")]
-		[Verify (MethodToProperty)]
-		NSDictionary Aws_removeNullValues { get; }
+		NSDictionary Aws_removeNullValues();
 
-		// -(id)aws_objectForCaseInsensitiveKey:(id)aKey;
-		[Export ("aws_objectForCaseInsensitiveKey:")]
+        // -(id)aws_objectForCaseInsensitiveKey:(id)aKey;
+        [Export ("aws_objectForCaseInsensitiveKey:")]
 		NSObject Aws_objectForCaseInsensitiveKey (NSObject aKey);
 	}
 
@@ -2209,7 +2175,7 @@ namespace AWSCore
 		// +(NSData *)aws_dataWithJSONObject:(id)obj options:(NSJSONWritingOptions)opt error:(NSError **)error;
 		[Static]
 		[Export ("aws_dataWithJSONObject:options:error:")]
-		NSData Aws_dataWithJSONObject (NSObject obj, NSJSONWritingOptions opt, out NSError error);
+		NSData Aws_dataWithJSONObject (NSObject obj, NSJsonNWritingOptions opt, out NSError error);
 	}
 
 	// @interface AWS (NSNumber)
@@ -2229,9 +2195,8 @@ namespace AWSCore
 	interface NSObject_AWS
 	{
 		// -(NSDictionary *)aws_properties;
-		[Export ("aws_properties")]
-		[Verify (MethodToProperty)]
-		NSDictionary Aws_properties { get; }
+		[Export("aws_properties")]
+		NSDictionary Aws_properties();
 
 		// -(void)aws_copyPropertiesFromObject:(NSObject *)object;
 		[Export ("aws_copyPropertiesFromObject:")]
@@ -2250,41 +2215,35 @@ namespace AWSCore
 
 		// -(BOOL)aws_isBase64Data;
 		[Export ("aws_isBase64Data")]
-		[Verify (MethodToProperty)]
-		bool Aws_isBase64Data { get; }
+		bool Aws_isBase64Data();
 
-		// -(NSString *)aws_stringWithURLEncoding;
-		[Export ("aws_stringWithURLEncoding")]
-		[Verify (MethodToProperty)]
-		string Aws_stringWithURLEncoding { get; }
+        // -(NSString *)aws_stringWithURLEncoding;
+        [Export ("aws_stringWithURLEncoding")]
+		string Aws_stringWithURLEncoding();
 
-		// -(NSString *)aws_stringWithURLEncodingPath;
-		[Export ("aws_stringWithURLEncodingPath")]
-		[Verify (MethodToProperty)]
-		string Aws_stringWithURLEncodingPath { get; }
+        // -(NSString *)aws_stringWithURLEncodingPath;
+        [Export ("aws_stringWithURLEncodingPath")]
+		string Aws_stringWithURLEncodingPath();
 
-		// -(NSString *)aws_stringWithURLEncodingPathWithoutPriorDecoding;
-		[Export ("aws_stringWithURLEncodingPathWithoutPriorDecoding")]
-		[Verify (MethodToProperty)]
-		string Aws_stringWithURLEncodingPathWithoutPriorDecoding { get; }
+        // -(NSString *)aws_stringWithURLEncodingPathWithoutPriorDecoding;
+        [Export ("aws_stringWithURLEncodingPathWithoutPriorDecoding")]
+		string Aws_stringWithURLEncodingPathWithoutPriorDecoding();
 
-		// -(BOOL)aws_isVirtualHostedStyleCompliant;
-		[Export ("aws_isVirtualHostedStyleCompliant")]
-		[Verify (MethodToProperty)]
-		bool Aws_isVirtualHostedStyleCompliant { get; }
+        // -(BOOL)aws_isVirtualHostedStyleCompliant;
+        [Export ("aws_isVirtualHostedStyleCompliant")]
+		bool Aws_isVirtualHostedStyleCompliant();
 
-		// -(AWSRegionType)aws_regionTypeValue;
-		[Export ("aws_regionTypeValue")]
-		[Verify (MethodToProperty)]
-		AWSRegionType Aws_regionTypeValue { get; }
-	}
+        // -(AWSRegionType)aws_regionTypeValue;
+        [Export ("aws_regionTypeValue")]
+		AWSRegionType Aws_regionTypeValue();
+    }
 
 	// @interface AWS (NSFileManager)
 	[Category]
 	[BaseType (typeof(NSFileManager))]
 	interface NSFileManager_AWS
 	{
-		// -(BOOL)aws_atomicallyCopyItemAtURL:(NSURL *)sourceURL toURL:(NSURL *)destinationURL backupItemName:(NSString *)backupItemName error:(NSError **)outError;
+		// -(BOOL)aws_atomicallyCopyItemAtURL:(NSUrl *)sourceURL toURL:(NSUrl *)destinationURL backupItemName:(NSString *)backupItemName error:(NSError **)outError;
 		[Export ("aws_atomicallyCopyItemAtURL:toURL:backupItemName:error:")]
 		bool Aws_atomicallyCopyItemAtURL (NSUrl sourceURL, NSUrl destinationURL, string backupItemName, out NSError outError);
 	}
@@ -2308,8 +2267,6 @@ namespace AWSCore
 		void Log (AWSLogLevel logLevel, string fmt, IntPtr varArgs);
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const AWSClientContextVersion;
@@ -2383,17 +2340,14 @@ namespace AWSCore
 
 		// -(NSDictionary *)dictionaryRepresentation;
 		[Export ("dictionaryRepresentation")]
-		[Verify (MethodToProperty)]
 		NSDictionary DictionaryRepresentation { get; }
 
 		// -(NSString *)JSONString;
 		[Export ("JSONString")]
-		[Verify (MethodToProperty)]
 		string JSONString { get; }
 
 		// -(NSString *)base64EncodedJSONString;
 		[Export ("base64EncodedJSONString")]
-		[Verify (MethodToProperty)]
 		string Base64EncodedJSONString { get; }
 
 		// -(void)setDetails:(id)details forService:(NSString *)service;
@@ -2413,7 +2367,7 @@ namespace AWSCore
 		[Export ("allValues", ArgumentSemantic.Copy)]
 		NSObject[] AllValues { get; }
 
-		// @property (readonly, nonatomic, strong) NSUUID * instanceKey;
+		// @property (readonly, nonatomic, strong) NSUuid * instanceKey;
 		[Export ("instanceKey", ArgumentSemantic.Strong)]
 		NSUuid InstanceKey { get; }
 
@@ -2445,10 +2399,10 @@ namespace AWSCore
 		[Export ("mutateWithBlock:")]
 		void MutateWithBlock (Action<NSMutableDictionary> block);
 
-		// +(void)mutateSyncedDictionaries:(NSArray<AWSSynchronizedMutableDictionary *> *)dictionaries withBlock:(void (^)(NSUUID *, NSMutableDictionary *))block;
+		// +(void)mutateSyncedDictionaries:(NSArray<AWSSynchronizedMutableDictionary *> *)dictionaries withBlock:(void (^)(NSUuid *, NSMutableDictionary *))block;
 		[Static]
 		[Export ("mutateSyncedDictionaries:withBlock:")]
-		void MutateSyncedDictionaries (AWSSynchronizedMutableDictionary[] dictionaries, Action<NSUUID, NSMutableDictionary> block);
+		void MutateSyncedDictionaries (AWSSynchronizedMutableDictionary[] dictionaries, Action<NSUuid, NSMutableDictionary> block);
 
 		// -(BOOL)isEqualToAWSSynchronizedMutableDictionary:(AWSSynchronizedMutableDictionary *)other;
 		[Export ("isEqualToAWSSynchronizedMutableDictionary:")]
@@ -2462,7 +2416,6 @@ namespace AWSCore
 		// +(AWSXMLDictionaryParser *)sharedInstance;
 		[Static]
 		[Export ("sharedInstance")]
-		[Verify (MethodToProperty)]
 		AWSXMLDictionaryParser SharedInstance { get; }
 
 		// @property (assign, nonatomic) BOOL collapseTextNodes;
@@ -2499,7 +2452,7 @@ namespace AWSCore
 
 		// -(NSDictionary *)dictionaryWithParser:(NSXMLParser *)parser;
 		[Export ("dictionaryWithParser:")]
-		NSDictionary DictionaryWithParser (NSXMLParser parser);
+		NSDictionary DictionaryWithParser (NSXmlParser parser);
 
 		// -(NSDictionary *)dictionaryWithData:(NSData *)data;
 		[Export ("dictionaryWithData:")]
@@ -2522,7 +2475,7 @@ namespace AWSCore
 		// +(NSDictionary *)awsxml_dictionaryWithXMLParser:(NSXMLParser *)parser;
 		[Static]
 		[Export ("awsxml_dictionaryWithXMLParser:")]
-		NSDictionary Awsxml_dictionaryWithXMLParser (NSXMLParser parser);
+		NSDictionary Awsxml_dictionaryWithXMLParser (NSXmlParser parser);
 
 		// +(NSDictionary *)awsxml_dictionaryWithXMLData:(NSData *)data;
 		[Static]
@@ -2541,42 +2494,34 @@ namespace AWSCore
 
 		// -(NSDictionary *)awsxml_attributes;
 		[Export ("awsxml_attributes")]
-		[Verify (MethodToProperty)]
-		NSDictionary Awsxml_attributes { get; }
+		NSDictionary Awsxml_attributes();
 
-		// -(NSDictionary *)awsxml_childNodes;
-		[Export ("awsxml_childNodes")]
-		[Verify (MethodToProperty)]
-		NSDictionary Awsxml_childNodes { get; }
+        // -(NSDictionary *)awsxml_childNodes;
+        [Export ("awsxml_childNodes")]
+		NSDictionary Awsxml_childNodes();
 
-		// -(NSArray *)awsxml_comments;
-		[Export ("awsxml_comments")]
-		[Verify (MethodToProperty), Verify (StronglyTypedNSArray)]
-		NSObject[] Awsxml_comments { get; }
+        // -(NSArray *)awsxml_comments;
+        [Export ("awsxml_comments")]
+        NSArray Awsxml_comments();
 
-		// -(NSString *)awsxml_nodeName;
-		[Export ("awsxml_nodeName")]
-		[Verify (MethodToProperty)]
-		string Awsxml_nodeName { get; }
+        // -(NSString *)awsxml_nodeName;
+        [Export ("awsxml_nodeName")]
+		string Awsxml_nodeName();
 
-		// -(NSString *)awsxml_innerText;
-		[Export ("awsxml_innerText")]
-		[Verify (MethodToProperty)]
-		string Awsxml_innerText { get; }
+        // -(NSString *)awsxml_innerText;
+        [Export ("awsxml_innerText")]
+		string Awsxml_innerText();
 
-		// -(NSString *)awsxml_innerXML;
-		[Export ("awsxml_innerXML")]
-		[Verify (MethodToProperty)]
-		string Awsxml_innerXML { get; }
+        // -(NSString *)awsxml_innerXML;
+        [Export ("awsxml_innerXML")]
+		string Awsxml_innerXML();
 
-		// -(NSString *)awsxml_XMLString;
-		[Export ("awsxml_XMLString")]
-		[Verify (MethodToProperty)]
-		string Awsxml_XMLString { get; }
+        // -(NSString *)awsxml_XMLString;
+        [Export ("awsxml_XMLString")]
+		string Awsxml_XMLString();
 
-		// -(NSArray *)awsxml_arrayValueForKeyPath:(NSString *)keyPath;
-		[Export ("awsxml_arrayValueForKeyPath:")]
-		[Verify (StronglyTypedNSArray)]
+        // -(NSArray *)awsxml_arrayValueForKeyPath:(NSString *)keyPath;
+        [Export ("awsxml_arrayValueForKeyPath:")]
 		NSObject[] Awsxml_arrayValueForKeyPath (string keyPath);
 
 		// -(NSString *)awsxml_stringValueForKeyPath:(NSString *)keyPath;
@@ -2595,12 +2540,9 @@ namespace AWSCore
 	{
 		// -(NSString *)awsxml_XMLEncodedString;
 		[Export ("awsxml_XMLEncodedString")]
-		[Verify (MethodToProperty)]
-		string Awsxml_XMLEncodedString { get; }
-	}
+		string Awsxml_XMLEncodedString();
+    }
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const AWSXMLBuilderErrorDomain;
@@ -2608,8 +2550,6 @@ namespace AWSCore
 		NSString AWSXMLBuilderErrorDomain { get; }
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const AWSXMLParserErrorDomain;
@@ -2617,8 +2557,6 @@ namespace AWSCore
 		NSString AWSXMLParserErrorDomain { get; }
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const AWSQueryParamBuilderErrorDomain;
@@ -2626,8 +2564,6 @@ namespace AWSCore
 		NSString AWSQueryParamBuilderErrorDomain { get; }
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const AWSEC2ParamBuilderErrorDomain;
@@ -2635,8 +2571,6 @@ namespace AWSCore
 		NSString AWSEC2ParamBuilderErrorDomain { get; }
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const AWSJSONBuilderErrorDomain;
@@ -2644,8 +2578,6 @@ namespace AWSCore
 		NSString AWSJSONBuilderErrorDomain { get; }
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const AWSJSONParserErrorDomain;
@@ -2659,11 +2591,10 @@ namespace AWSCore
 	{
 		// -(instancetype)initWithDictionary:(NSDictionary *)otherDictionary JSONDefinitionRule:(NSDictionary *)rule;
 		[Export ("initWithDictionary:JSONDefinitionRule:")]
-		NativeHandle Constructor (NSDictionary otherDictionary, NSDictionary rule);
+		IntPtr Constructor (NSDictionary otherDictionary, NSDictionary rule);
 
 		// -(NSUInteger)count;
 		[Export ("count")]
-		[Verify (MethodToProperty)]
 		nuint Count { get; }
 
 		// -(id)objectForKey:(id)aKey;
@@ -2693,7 +2624,6 @@ namespace AWSCore
 		// +(AWSXMLParser *)sharedInstance;
 		[Static]
 		[Export ("sharedInstance")]
-		[Verify (MethodToProperty)]
 		AWSXMLParser SharedInstance { get; }
 
 		// -(NSMutableDictionary *)dictionaryForXMLData:(NSData *)data actionName:(NSString *)actionName serviceDefinitionRule:(NSDictionary *)serviceDefinitionRule error:(NSError **)error;
@@ -2741,8 +2671,6 @@ namespace AWSCore
 		NSDictionary DictionaryForJsonData (NSData data, NSHttpUrlResponse response, string actionName, NSDictionary serviceDefinitionRule, out NSError error);
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const _Nonnull AWSTimestampSerializationErrorDomain;
@@ -2793,20 +2721,20 @@ namespace AWSCore
 
 	// @interface AWSJSONRequestSerializer : NSObject <AWSURLRequestSerializer>
 	[BaseType (typeof(NSObject))]
-	interface AWSJSONRequestSerializer : IAWSURLRequestSerializer
+	interface AWSJSONRequestSerializer : AWSURLRequestSerializer
 	{
 		// -(instancetype)initWithJSONDefinition:(NSDictionary *)JSONDefinition actionName:(NSString *)actionName;
 		[Export ("initWithJSONDefinition:actionName:")]
-		NativeHandle Constructor (NSDictionary JSONDefinition, string actionName);
+		IntPtr Constructor (NSDictionary JSONDefinition, string actionName);
 	}
 
 	// @interface AWSXMLRequestSerializer : NSObject <AWSURLRequestSerializer>
 	[BaseType (typeof(NSObject))]
-	interface AWSXMLRequestSerializer : IAWSURLRequestSerializer
+	interface AWSXMLRequestSerializer : AWSURLRequestSerializer
 	{
 		// -(instancetype)initWithJSONDefinition:(NSDictionary *)JSONDefinition actionName:(NSString *)actionName;
 		[Export ("initWithJSONDefinition:actionName:")]
-		NativeHandle Constructor (NSDictionary JSONDefinition, string actionName);
+		IntPtr Constructor (NSDictionary JSONDefinition, string actionName);
 
 		// +(BOOL)constructURIandHeadersAndBody:(NSMutableURLRequest *)request rules:(AWSJSONDictionary *)rules parameters:(NSDictionary *)params uriSchema:(NSString *)uriSchema hostPrefix:(NSString *)hostPrefix error:(NSError **)error;
 		[Static]
@@ -2816,11 +2744,11 @@ namespace AWSCore
 
 	// @interface AWSQueryStringRequestSerializer : NSObject <AWSURLRequestSerializer>
 	[BaseType (typeof(NSObject))]
-	interface AWSQueryStringRequestSerializer : IAWSURLRequestSerializer
+	interface AWSQueryStringRequestSerializer : AWSURLRequestSerializer
 	{
 		// -(instancetype)initWithJSONDefinition:(NSDictionary *)JSONDefinition actionName:(NSString *)actionName;
 		[Export ("initWithJSONDefinition:actionName:")]
-		NativeHandle Constructor (NSDictionary JSONDefinition, string actionName);
+		IntPtr Constructor (NSDictionary JSONDefinition, string actionName);
 
 		// @property (nonatomic, strong) NSDictionary * additionalParameters;
 		[Export ("additionalParameters", ArgumentSemantic.Strong)]
@@ -2829,7 +2757,7 @@ namespace AWSCore
 
 	// @interface AWSJSONResponseSerializer : NSObject <AWSHTTPURLResponseSerializer>
 	[BaseType (typeof(NSObject))]
-	interface AWSJSONResponseSerializer : IAWSHTTPURLResponseSerializer
+	interface AWSJSONResponseSerializer : AWSHTTPURLResponseSerializer
 	{
 		// @property (readonly, nonatomic, strong) NSDictionary * serviceDefinitionJSON;
 		[Export ("serviceDefinitionJSON", ArgumentSemantic.Strong)]
@@ -2845,12 +2773,12 @@ namespace AWSCore
 
 		// -(instancetype)initWithJSONDefinition:(NSDictionary *)JSONDefinition actionName:(NSString *)actionName outputClass:(Class)outputClass;
 		[Export ("initWithJSONDefinition:actionName:outputClass:")]
-		NativeHandle Constructor (NSDictionary JSONDefinition, string actionName, Class outputClass);
+		IntPtr Constructor (NSDictionary JSONDefinition, string actionName, Class outputClass);
 	}
 
 	// @interface AWSXMLResponseSerializer : NSObject <AWSHTTPURLResponseSerializer>
 	[BaseType (typeof(NSObject))]
-	interface AWSXMLResponseSerializer : IAWSHTTPURLResponseSerializer
+	interface AWSXMLResponseSerializer : AWSHTTPURLResponseSerializer
 	{
 		// @property (assign, nonatomic) Class outputClass;
 		[Export ("outputClass", ArgumentSemantic.Assign)]
@@ -2858,7 +2786,7 @@ namespace AWSCore
 
 		// -(instancetype)initWithJSONDefinition:(NSDictionary *)JSONDefinition actionName:(NSString *)actionName outputClass:(Class)outputClass;
 		[Export ("initWithJSONDefinition:actionName:outputClass:")]
-		NativeHandle Constructor (NSDictionary JSONDefinition, string actionName, Class outputClass);
+		IntPtr Constructor (NSDictionary JSONDefinition, string actionName, Class outputClass);
 
 		// +(NSMutableDictionary *)parseResponse:(NSHTTPURLResponse *)response rules:(AWSJSONDictionary *)rules bodyDictionary:(NSMutableDictionary *)bodyDictionary error:(NSError **)error;
 		[Static]
@@ -2866,7 +2794,7 @@ namespace AWSCore
 		NSMutableDictionary ParseResponse (NSHttpUrlResponse response, AWSJSONDictionary rules, NSMutableDictionary bodyDictionary, out NSError error);
 	}
 
-	// @interface AWSURLSessionManager : NSObject <NSURLSessionDelegate, NSURLSessionDataDelegate>
+	// @interface AWSURLSessionManager : NSObject <NSUrlSessionDelegate, NSUrlSessionDataDelegate>
 	[BaseType (typeof(NSObject))]
 	interface AWSURLSessionManager : INSUrlSessionDelegate, INSUrlSessionDataDelegate
 	{
@@ -2876,15 +2804,13 @@ namespace AWSCore
 
 		// -(instancetype)initWithConfiguration:(AWSNetworkingConfiguration *)configuration;
 		[Export ("initWithConfiguration:")]
-		NativeHandle Constructor (AWSNetworkingConfiguration configuration);
+		IntPtr Constructor (AWSNetworkingConfiguration configuration);
 
 		// -(AWSTask *)dataTaskWithRequest:(AWSNetworkingRequest *)request;
 		[Export ("dataTaskWithRequest:")]
 		AWSTask DataTaskWithRequest (AWSNetworkingRequest request);
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const _Nonnull AWSSignatureV4Algorithm;
@@ -2935,25 +2861,25 @@ namespace AWSCore
 
 	// @interface AWSSignatureV4Signer : NSObject <AWSNetworkingRequestInterceptor>
 	[BaseType (typeof(NSObject))]
-	interface AWSSignatureV4Signer : IAWSNetworkingRequestInterceptor
-	{
+	interface AWSSignatureV4Signer : AWSNetworkingRequestInterceptorProtocol
+    {
 		// @property (readonly, nonatomic, strong) id<AWSCredentialsProvider> _Nonnull credentialsProvider;
 		[Export ("credentialsProvider", ArgumentSemantic.Strong)]
-		AWSCredentialsProvider CredentialsProvider { get; }
+		IAWSCredentialsProvider CredentialsProvider { get; }
 
 		// -(instancetype _Nonnull)initWithCredentialsProvider:(id<AWSCredentialsProvider> _Nonnull)credentialsProvider endpoint:(AWSEndpoint * _Nonnull)endpoint;
 		[Export ("initWithCredentialsProvider:endpoint:")]
-		NativeHandle Constructor (AWSCredentialsProvider credentialsProvider, AWSEndpoint endpoint);
+		IntPtr Constructor (IAWSCredentialsProvider credentialsProvider, AWSEndpoint endpoint);
 
-		// +(AWSTask<NSURL *> * _Nonnull)generateQueryStringForSignatureV4WithCredentialProvider:(id<AWSCredentialsProvider> _Nonnull)credentialsProvider httpMethod:(AWSHTTPMethod)httpMethod expireDuration:(int32_t)expireDuration endpoint:(AWSEndpoint * _Nonnull)endpoint keyPath:(NSString * _Nullable)keyPath requestHeaders:(NSDictionary<NSString *,NSString *> * _Nullable)requestHeaders requestParameters:(NSDictionary<NSString *,id> * _Nullable)requestParameters signBody:(BOOL)signBody;
+		// +(AWSTask<NSUrl *> * _Nonnull)generateQueryStringForSignatureV4WithCredentialProvider:(id<AWSCredentialsProvider> _Nonnull)credentialsProvider httpMethod:(AWSHTTPMethod)httpMethod expireDuration:(int32_t)expireDuration endpoint:(AWSEndpoint * _Nonnull)endpoint keyPath:(NSString * _Nullable)keyPath requestHeaders:(NSDictionary<NSString *,NSString *> * _Nullable)requestHeaders requestParameters:(NSDictionary<NSString *,id> * _Nullable)requestParameters signBody:(BOOL)signBody;
 		[Static]
 		[Export ("generateQueryStringForSignatureV4WithCredentialProvider:httpMethod:expireDuration:endpoint:keyPath:requestHeaders:requestParameters:signBody:")]
-		AWSTask<NSURL> GenerateQueryStringForSignatureV4WithCredentialProvider (AWSCredentialsProvider credentialsProvider, AWSHTTPMethod httpMethod, int expireDuration, AWSEndpoint endpoint, [NullAllowed] string keyPath, [NullAllowed] NSDictionary<NSString, NSString> requestHeaders, [NullAllowed] NSDictionary<NSString, NSObject> requestParameters, bool signBody);
+		AWSTask GenerateQueryStringForSignatureV4WithCredentialProvider (IAWSCredentialsProvider credentialsProvider, AWSHTTPMethod httpMethod, int expireDuration, AWSEndpoint endpoint, [NullAllowed] string keyPath, [NullAllowed] NSDictionary<NSString, NSString> requestHeaders, [NullAllowed] NSDictionary<NSString, NSObject> requestParameters, bool signBody);
 
-		// +(AWSTask<NSURL *> * _Nonnull)sigV4SignedURLWithRequest:(NSURLRequest * _Nonnull)request credentialProvider:(id<AWSCredentialsProvider> _Nonnull)credentialsProvider regionName:(NSString * _Nonnull)regionName serviceName:(NSString * _Nonnull)serviceName date:(NSDate * _Nonnull)date expireDuration:(int32_t)expireDuration signBody:(BOOL)signBody signSessionToken:(BOOL)signSessionToken;
+		// +(AWSTask<NSUrl *> * _Nonnull)sigV4SignedURLWithRequest:(NSUrlRequest * _Nonnull)request credentialProvider:(id<AWSCredentialsProvider> _Nonnull)credentialsProvider regionName:(NSString * _Nonnull)regionName serviceName:(NSString * _Nonnull)serviceName date:(NSDate * _Nonnull)date expireDuration:(int32_t)expireDuration signBody:(BOOL)signBody signSessionToken:(BOOL)signSessionToken;
 		[Static]
 		[Export ("sigV4SignedURLWithRequest:credentialProvider:regionName:serviceName:date:expireDuration:signBody:signSessionToken:")]
-		AWSTask<NSURL> SigV4SignedURLWithRequest (NSUrlRequest request, AWSCredentialsProvider credentialsProvider, string regionName, string serviceName, NSDate date, int expireDuration, bool signBody, bool signSessionToken);
+		AWSTask SigV4SignedURLWithRequest (NSUrlRequest request, IAWSCredentialsProvider credentialsProvider, string regionName, string serviceName, NSDate date, int expireDuration, bool signBody, bool signSessionToken);
 
 		// +(NSString * _Nonnull)getCanonicalizedRequest:(NSString * _Nonnull)method path:(NSString * _Nonnull)path query:(NSString * _Nullable)query headers:(NSDictionary * _Nullable)headers contentSha256:(NSString * _Nullable)contentSha256;
 		[Static]
@@ -2973,20 +2899,20 @@ namespace AWSCore
 
 	// @interface AWSSignatureV2Signer : NSObject <AWSNetworkingRequestInterceptor>
 	[BaseType (typeof(NSObject))]
-	interface AWSSignatureV2Signer : IAWSNetworkingRequestInterceptor
-	{
+	interface AWSSignatureV2Signer : AWSNetworkingRequestInterceptorProtocol
+    {
 		// @property (readonly, nonatomic, strong) id<AWSCredentialsProvider> _Nullable credentialsProvider;
 		[NullAllowed, Export ("credentialsProvider", ArgumentSemantic.Strong)]
-		AWSCredentialsProvider CredentialsProvider { get; }
+		IAWSCredentialsProvider CredentialsProvider { get; }
 
 		// +(instancetype _Nonnull)signerWithCredentialsProvider:(id<AWSCredentialsProvider> _Nonnull)credentialsProvider endpoint:(AWSEndpoint * _Nonnull)endpoint;
 		[Static]
 		[Export ("signerWithCredentialsProvider:endpoint:")]
-		AWSSignatureV2Signer SignerWithCredentialsProvider (AWSCredentialsProvider credentialsProvider, AWSEndpoint endpoint);
+		AWSSignatureV2Signer SignerWithCredentialsProvider (IAWSCredentialsProvider credentialsProvider, AWSEndpoint endpoint);
 
 		// -(instancetype _Nonnull)initWithCredentialsProvider:(id<AWSCredentialsProvider> _Nonnull)credentialsProvider endpoint:(AWSEndpoint * _Nonnull)endpoint;
 		[Export ("initWithCredentialsProvider:endpoint:")]
-		NativeHandle Constructor (AWSCredentialsProvider credentialsProvider, AWSEndpoint endpoint);
+		IntPtr Constructor (IAWSCredentialsProvider credentialsProvider, AWSEndpoint endpoint);
 	}
 
 	// @interface AWSS3ChunkedEncodingInputStream : NSInputStream <NSStreamDelegate>
@@ -2999,7 +2925,7 @@ namespace AWSCore
 
 		// -(instancetype _Nonnull)initWithInputStream:(NSInputStream * _Nonnull)stream date:(NSDate * _Nullable)date scope:(NSString * _Nullable)scope kSigning:(NSData * _Nullable)kSigning headerSignature:(NSString * _Nullable)headerSignature;
 		[Export ("initWithInputStream:date:scope:kSigning:headerSignature:")]
-		NativeHandle Constructor (NSInputStream stream, [NullAllowed] NSDate date, [NullAllowed] string scope, [NullAllowed] NSData kSigning, [NullAllowed] string headerSignature);
+		IntPtr Constructor (NSInputStream stream, [NullAllowed] NSDate date, [NullAllowed] string scope, [NullAllowed] NSData kSigning, [NullAllowed] string headerSignature);
 
 		// +(NSUInteger)computeContentLengthForChunkedData:(NSUInteger)dataLength;
 		[Static]
@@ -3009,7 +2935,7 @@ namespace AWSCore
 
 	// @interface AWSURLRequestRetryHandler : NSObject <AWSURLRequestRetryHandler>
 	[BaseType (typeof(NSObject))]
-	interface AWSURLRequestRetryHandler : IAWSURLRequestRetryHandler
+	interface AWSURLRequestRetryHandler : AWSURLRequestRetryHandlerProtocol
 	{
 		// @property (assign, nonatomic) uint32_t maxRetryCount;
 		[Export ("maxRetryCount")]
@@ -3017,11 +2943,9 @@ namespace AWSCore
 
 		// -(instancetype)initWithMaximumRetryCount:(uint32_t)maxRetryCount;
 		[Export ("initWithMaximumRetryCount:")]
-		NativeHandle Constructor (uint maxRetryCount);
+		IntPtr Constructor (uint maxRetryCount);
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const AWSValidationErrorDomain;
@@ -3029,8 +2953,6 @@ namespace AWSCore
 		NSString AWSValidationErrorDomain { get; }
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const _Nonnull AWSInfoDefault;
@@ -3212,8 +3134,6 @@ namespace AWSCore
 		void Execute (Action block);
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const _Nonnull AWSTaskErrorDomain;
@@ -3266,12 +3186,12 @@ namespace AWSCore
 		// +(AWSTask<AWSVoid> * _Nonnull)taskWithDelay:(int)millis;
 		[Static]
 		[Export ("taskWithDelay:")]
-		AWSTask<_AWSVoid_Nonexistant> TaskWithDelay (int millis);
+		AWSTask TaskWithDelay (int millis);
 
 		// +(AWSTask<AWSVoid> * _Nonnull)taskWithDelay:(int)millis cancellationToken:(AWSCancellationToken * _Nullable)token;
 		[Static]
 		[Export ("taskWithDelay:cancellationToken:")]
-		AWSTask<_AWSVoid_Nonexistant> TaskWithDelay (int millis, [NullAllowed] AWSCancellationToken token);
+		AWSTask TaskWithDelay (int millis, [NullAllowed] AWSCancellationToken token);
 
 		// +(instancetype _Nonnull)taskFromExecutor:(AWSExecutor * _Nonnull)executor withBlock:(id  _Nonnull (^ _Nullable)(void))block;
 		[Static]
@@ -3324,11 +3244,11 @@ namespace AWSCore
 
 		// -(AWSTask * _Nonnull)continueWithExecutor:(AWSExecutor * _Nonnull)executor withSuccessBlock:(AWSContinuationBlock _Nonnull)block __attribute__((swift_name("continueOnSuccessWith(executor:block:)")));
 		[Export ("continueWithExecutor:withSuccessBlock:")]
-		AWSTask ContinueWithExecutor (AWSExecutor executor, AWSContinuationBlock block);
+		AWSTask ContinueWithExecutor_withSuccessBlock(AWSExecutor executor, AWSContinuationBlock block);
 
 		// -(AWSTask * _Nonnull)continueWithExecutor:(AWSExecutor * _Nonnull)executor successBlock:(AWSContinuationBlock _Nonnull)block cancellationToken:(AWSCancellationToken * _Nullable)cancellationToken __attribute__((swift_name("continueOnSuccessWith(executor:block:cancellationToken:)")));
 		[Export ("continueWithExecutor:successBlock:cancellationToken:")]
-		AWSTask ContinueWithExecutor (AWSExecutor executor, AWSContinuationBlock block, [NullAllowed] AWSCancellationToken cancellationToken);
+		AWSTask ContinueWithExecutor_successBlock(AWSExecutor executor, AWSContinuationBlock block, [NullAllowed] AWSCancellationToken cancellationToken);
 
 		// -(void)waitUntilFinished;
 		[Export ("waitUntilFinished")]
@@ -3336,7 +3256,7 @@ namespace AWSCore
 	}
 
 	// typedef id _Nullable (^AWSContinuationBlock)(AWSTask<ResultType> * _Nonnull);
-	delegate NSObject AWSContinuationBlock (AWSTask<NSObject> arg0);
+	delegate NSObject AWSContinuationBlock (AWSTask arg0);
 
 	// audit-objc-generics: @interface AWSTaskCompletionSource<__covariant ResultType> : NSObject
 	[BaseType (typeof(NSObject))]
@@ -3347,9 +3267,9 @@ namespace AWSCore
 		[Export ("taskCompletionSource")]
 		AWSTaskCompletionSource TaskCompletionSource ();
 
-		// @property (readonly, nonatomic, strong) AWSTask<ResultType> * _Nonnull task;
+		// @property (readonly, nonatomic, strong) AWSTask * _Nonnull task;
 		[Export ("task", ArgumentSemantic.Strong)]
-		AWSTask<NSObject> Task { get; }
+		AWSTask Task { get; }
 
 		// -(void)setResult:(ResultType _Nullable)result __attribute__((swift_name("set(result:)")));
 		[Export ("setResult:")]
@@ -3372,13 +3292,10 @@ namespace AWSCore
 		bool TrySetError (NSError error);
 
 		// -(BOOL)trySetCancelled;
-		[Export ("trySetCancelled")]
-		[Verify (MethodToProperty)]
-		bool TrySetCancelled { get; }
+		[Export("trySetCancelled")]
+		bool TrySetCancelled();
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const _Nonnull AWSBoltsFrameworkVersionString;
@@ -3397,14 +3314,12 @@ namespace AWSCore
 
 		// -(NSData *)awsgzip_gzippedData;
 		[Export ("awsgzip_gzippedData")]
-		[Verify (MethodToProperty)]
-		NSData Awsgzip_gzippedData { get; }
+		NSData Awsgzip_gzippedData();
 
-		// -(NSData *)awsgzip_gunzippedData;
-		[Export ("awsgzip_gunzippedData")]
-		[Verify (MethodToProperty)]
-		NSData Awsgzip_gunzippedData { get; }
-	}
+        // -(NSData *)awsgzip_gunzippedData;
+        [Export ("awsgzip_gunzippedData")]
+		NSData Awsgzip_gunzippedData();
+    }
 
 	// @interface AWSFMResultSet : NSObject
 	[BaseType (typeof(NSObject))]
@@ -3437,21 +3352,18 @@ namespace AWSCore
 
 		// -(BOOL)next;
 		[Export ("next")]
-		[Verify (MethodToProperty)]
-		bool Next { get; }
+		bool Next();
 
-		// -(BOOL)nextWithError:(NSError **)outErr;
-		[Export ("nextWithError:")]
+        // -(BOOL)nextWithError:(NSError **)outErr;
+        [Export ("nextWithError:")]
 		bool NextWithError (out NSError outErr);
 
 		// -(BOOL)hasAnotherRow;
 		[Export ("hasAnotherRow")]
-		[Verify (MethodToProperty)]
 		bool HasAnotherRow { get; }
 
 		// -(int)columnCount;
 		[Export ("columnCount")]
-		[Verify (MethodToProperty)]
 		int ColumnCount { get; }
 
 		// -(int)columnIndexForName:(NSString *)columnName;
@@ -3576,12 +3488,10 @@ namespace AWSCore
 
 		// -(NSDictionary *)resultDictionary;
 		[Export ("resultDictionary")]
-		[Verify (MethodToProperty)]
 		NSDictionary ResultDictionary { get; }
 
 		// -(NSDictionary *)resultDict __attribute__((deprecated("")));
 		[Export ("resultDict")]
-		[Verify (MethodToProperty)]
 		NSDictionary ResultDict { get; }
 
 		// -(void)kvcMagic:(id)object;
@@ -3624,25 +3534,22 @@ namespace AWSCore
 
 		// -(instancetype)initWithPath:(NSString *)aPath;
 		[Export ("initWithPath:")]
-		NativeHandle Constructor (string aPath);
+		IntPtr Constructor (string aPath);
 
 		// -(instancetype)initWithPath:(NSString *)aPath flags:(int)openFlags;
 		[Export ("initWithPath:flags:")]
-		NativeHandle Constructor (string aPath, int openFlags);
+		IntPtr Constructor (string aPath, int openFlags);
 
 		// -(NSUInteger)countOfCheckedInDatabases;
 		[Export ("countOfCheckedInDatabases")]
-		[Verify (MethodToProperty)]
 		nuint CountOfCheckedInDatabases { get; }
 
 		// -(NSUInteger)countOfCheckedOutDatabases;
 		[Export ("countOfCheckedOutDatabases")]
-		[Verify (MethodToProperty)]
 		nuint CountOfCheckedOutDatabases { get; }
 
 		// -(NSUInteger)countOfOpenDatabases;
 		[Export ("countOfOpenDatabases")]
-		[Verify (MethodToProperty)]
 		nuint CountOfOpenDatabases { get; }
 
 		// -(void)releaseAllDatabases;
@@ -3655,15 +3562,15 @@ namespace AWSCore
 
 		// -(void)inTransaction:(void (^)(AWSFMDatabase *, BOOL *))block;
 		[Export ("inTransaction:")]
-		unsafe void InTransaction (Action<AWSFMDatabase, bool*> block);
+		unsafe void InTransaction (Action<AWSFMDatabase, bool> block);
 
 		// -(void)inDeferredTransaction:(void (^)(AWSFMDatabase *, BOOL *))block;
 		[Export ("inDeferredTransaction:")]
-		unsafe void InDeferredTransaction (Action<AWSFMDatabase, bool*> block);
+		unsafe void InDeferredTransaction (Action<AWSFMDatabase, bool> block);
 
 		// -(NSError *)inSavePoint:(void (^)(AWSFMDatabase *, BOOL *))block;
 		[Export ("inSavePoint:")]
-		unsafe NSError InSavePoint (Action<AWSFMDatabase, bool*> block);
+		unsafe NSError InSavePoint (Action<AWSFMDatabase, bool> block);
 	}
 
 	// @interface AWSFMDatabasePoolDelegate (NSObject)
@@ -3673,11 +3580,11 @@ namespace AWSCore
 	{
 		// -(BOOL)databasePool:(AWSFMDatabasePool *)pool shouldAddDatabaseToPool:(AWSFMDatabase *)database;
 		[Export ("databasePool:shouldAddDatabaseToPool:")]
-		bool DatabasePool (AWSFMDatabasePool pool, AWSFMDatabase database);
+		bool DatabasePool_shouldAddDatabaseToPool(AWSFMDatabasePool pool, AWSFMDatabase database);
 
 		// -(void)databasePool:(AWSFMDatabasePool *)pool didAddDatabase:(AWSFMDatabase *)database;
 		[Export ("databasePool:didAddDatabase:")]
-		void DatabasePool (AWSFMDatabasePool pool, AWSFMDatabase database);
+		void DatabasePool_didAddDatabase(AWSFMDatabasePool pool, AWSFMDatabase database);
 	}
 
 	// typedef int (^AWSFMDBExecuteStatementsCallbackBlock)(NSDictionary *);
@@ -3714,15 +3621,14 @@ namespace AWSCore
 
 		// -(instancetype)initWithPath:(NSString *)inPath;
 		[Export ("initWithPath:")]
-		NativeHandle Constructor (string inPath);
+		IntPtr Constructor (string inPath);
 
 		// -(BOOL)open;
 		[Export ("open")]
-		[Verify (MethodToProperty)]
-		bool Open { get; }
+		bool Open();
 
-		// -(BOOL)openWithFlags:(int)flags;
-		[Export ("openWithFlags:")]
+        // -(BOOL)openWithFlags:(int)flags;
+        [Export ("openWithFlags:")]
 		bool OpenWithFlags (int flags);
 
 		// -(BOOL)openWithFlags:(int)flags vfs:(NSString *)vfsName;
@@ -3731,12 +3637,10 @@ namespace AWSCore
 
 		// -(BOOL)close;
 		[Export ("close")]
-		[Verify (MethodToProperty)]
-		bool Close { get; }
+		bool Close();
 
-		// -(BOOL)goodConnection;
-		[Export ("goodConnection")]
-		[Verify (MethodToProperty)]
+        // -(BOOL)goodConnection;
+        [Export ("goodConnection")]
 		bool GoodConnection { get; }
 
 		// -(BOOL)executeUpdate:(NSString *)sql withErrorAndBindings:(NSError **)outErr, ...;
@@ -3761,8 +3665,7 @@ namespace AWSCore
 
 		// -(BOOL)executeUpdate:(NSString *)sql withArgumentsInArray:(NSArray *)arguments;
 		[Export ("executeUpdate:withArgumentsInArray:")]
-		[Verify (StronglyTypedNSArray)]
-		bool ExecuteUpdate (string sql, NSObject[] arguments);
+		bool ExecuteUpdate (string sql, NSArray arguments);
 
 		// -(BOOL)executeUpdate:(NSString *)sql withParameterDictionary:(NSDictionary *)arguments;
 		[Export ("executeUpdate:withParameterDictionary:")]
@@ -3782,12 +3685,10 @@ namespace AWSCore
 
 		// -(long long)lastInsertRowId;
 		[Export ("lastInsertRowId")]
-		[Verify (MethodToProperty)]
 		long LastInsertRowId { get; }
 
 		// -(int)changes;
 		[Export ("changes")]
-		[Verify (MethodToProperty)]
 		int Changes { get; }
 
 		// -(AWSFMResultSet *)executeQuery:(NSString *)sql, ...;
@@ -3802,8 +3703,7 @@ namespace AWSCore
 
 		// -(AWSFMResultSet *)executeQuery:(NSString *)sql withArgumentsInArray:(NSArray *)arguments;
 		[Export ("executeQuery:withArgumentsInArray:")]
-		[Verify (StronglyTypedNSArray)]
-		AWSFMResultSet ExecuteQuery (string sql, NSObject[] arguments);
+		AWSFMResultSet ExecuteQuery (string sql, NSArray arguments);
 
 		// -(AWSFMResultSet *)executeQuery:(NSString *)sql withParameterDictionary:(NSDictionary *)arguments;
 		[Export ("executeQuery:withParameterDictionary:")]
@@ -3814,28 +3714,23 @@ namespace AWSCore
 		unsafe AWSFMResultSet ExecuteQuery (string sql, sbyte* args);
 
 		// -(BOOL)beginTransaction;
-		[Export ("beginTransaction")]
-		[Verify (MethodToProperty)]
-		bool BeginTransaction { get; }
+		[Export("beginTransaction")]
+		bool BeginTransaction();
 
 		// -(BOOL)beginDeferredTransaction;
 		[Export ("beginDeferredTransaction")]
-		[Verify (MethodToProperty)]
-		bool BeginDeferredTransaction { get; }
+		bool BeginDeferredTransaction();
 
-		// -(BOOL)commit;
-		[Export ("commit")]
-		[Verify (MethodToProperty)]
-		bool Commit { get; }
+        // -(BOOL)commit;
+        [Export ("commit")]
+		bool Commit();
 
-		// -(BOOL)rollback;
-		[Export ("rollback")]
-		[Verify (MethodToProperty)]
-		bool Rollback { get; }
+        // -(BOOL)rollback;
+        [Export ("rollback")]
+		bool Rollback();
 
-		// -(BOOL)inTransaction;
-		[Export ("inTransaction")]
-		[Verify (MethodToProperty)]
+        // -(BOOL)inTransaction;
+        [Export ("inTransaction")]
 		bool InTransaction { get; }
 
 		// -(void)clearCachedStatements;
@@ -3848,13 +3743,11 @@ namespace AWSCore
 
 		// -(BOOL)hasOpenResultSets;
 		[Export ("hasOpenResultSets")]
-		[Verify (MethodToProperty)]
 		bool HasOpenResultSets { get; }
 
 		// -(BOOL)shouldCacheStatements;
 		// -(void)setShouldCacheStatements:(BOOL)value;
 		[Export ("shouldCacheStatements")]
-		[Verify (MethodToProperty)]
 		bool ShouldCacheStatements { get; set; }
 
 		// -(BOOL)setKey:(NSString *)key;
@@ -3919,7 +3812,7 @@ namespace AWSCore
 
 		// -(NSError *)inSavePoint:(void (^)(BOOL *))block;
 		[Export ("inSavePoint:")]
-		unsafe NSError InSavePoint (Action<bool*> block);
+		unsafe NSError InSavePoint (Action<bool> block);
 
 		// +(BOOL)isSQLiteThreadSafe;
 		[Static]
@@ -3943,7 +3836,7 @@ namespace AWSCore
 
 		// -(void)makeFunctionNamed:(NSString *)name maximumArguments:(int)count withBlock:(void (^)(void *, int, void **))block;
 		[Export ("makeFunctionNamed:maximumArguments:withBlock:")]
-		unsafe void MakeFunctionNamed (string name, int count, Action<void*, int, void**> block);
+		unsafe void MakeFunctionNamed (string name, int count, Action<string, int, NSObject> block);
 
 		// +(NSDateFormatter *)storeableDateFormat:(NSString *)format;
 		[Static]
@@ -4042,20 +3935,19 @@ namespace AWSCore
 
 		// -(AWSFMResultSet *)getSchema;
 		[Export ("getSchema")]
-		[Verify (MethodToProperty)]
-		AWSFMResultSet Schema { get; }
+		AWSFMResultSet Schema();
 
-		// -(AWSFMResultSet *)getTableSchema:(NSString *)tableName;
-		[Export ("getTableSchema:")]
+        // -(AWSFMResultSet *)getTableSchema:(NSString *)tableName;
+        [Export ("getTableSchema:")]
 		AWSFMResultSet GetTableSchema (string tableName);
 
 		// -(BOOL)columnExists:(NSString *)columnName inTableWithName:(NSString *)tableName;
 		[Export ("columnExists:inTableWithName:")]
 		bool ColumnExists (string columnName, string tableName);
 
-		// -(BOOL)columnExists:(NSString *)tableName columnName:(NSString *)columnName __attribute__((deprecated("")));
-		[Export ("columnExists:columnName:")]
-		bool ColumnExists (string tableName, string columnName);
+		//// -(BOOL)columnExists:(NSString *)tableName columnName:(NSString *)columnName __attribute__((deprecated("")));
+		//[Export ("columnExists:columnName:")]
+		//bool ColumnExists (string tableName, string columnName);
 
 		// -(BOOL)validateSQL:(NSString *)sql error:(NSError **)error;
 		[Export ("validateSQL:error:")]
@@ -4064,11 +3956,13 @@ namespace AWSCore
 		// -(uint32_t)applicationID;
 		// -(void)setApplicationID:(uint32_t)appID;
 		[Export ("applicationID")]
-		[Verify (MethodToProperty)]
-		uint ApplicationID { get; set; }
+		uint ApplicationID();
 
-		// -(uint32_t)userVersion;
-		[Export ("userVersion")]
+        [Export("setApplicationID:")]
+        void ApplicationID(uint value);
+
+        // -(uint32_t)userVersion;
+        [Export ("userVersion")]
 		uint UserVersion ();
 
 		// -(void)setUserVersion:(uint32_t)version;
@@ -4100,20 +3994,19 @@ namespace AWSCore
 
 		// -(instancetype)initWithPath:(NSString *)aPath;
 		[Export ("initWithPath:")]
-		NativeHandle Constructor (string aPath);
+		IntPtr Constructor (string aPath);
 
 		// -(instancetype)initWithPath:(NSString *)aPath flags:(int)openFlags;
 		[Export ("initWithPath:flags:")]
-		NativeHandle Constructor (string aPath, int openFlags);
+		IntPtr Constructor (string aPath, int openFlags);
 
 		// -(instancetype)initWithPath:(NSString *)aPath flags:(int)openFlags vfs:(NSString *)vfsName;
 		[Export ("initWithPath:flags:vfs:")]
-		NativeHandle Constructor (string aPath, int openFlags, string vfsName);
+		IntPtr Constructor (string aPath, int openFlags, string vfsName);
 
 		// +(Class)databaseClass;
 		[Static]
 		[Export ("databaseClass")]
-		[Verify (MethodToProperty)]
 		Class DatabaseClass { get; }
 
 		// -(void)close;
@@ -4126,15 +4019,15 @@ namespace AWSCore
 
 		// -(void)inTransaction:(void (^)(AWSFMDatabase *, BOOL *))block;
 		[Export ("inTransaction:")]
-		unsafe void InTransaction (Action<AWSFMDatabase, bool*> block);
+		unsafe void InTransaction (Action<AWSFMDatabase, bool> block);
 
 		// -(void)inDeferredTransaction:(void (^)(AWSFMDatabase *, BOOL *))block;
 		[Export ("inDeferredTransaction:")]
-		unsafe void InDeferredTransaction (Action<AWSFMDatabase, bool*> block);
+		unsafe void InDeferredTransaction (Action<AWSFMDatabase, bool> block);
 
 		// -(NSError *)inSavePoint:(void (^)(AWSFMDatabase *, BOOL *))block;
 		[Export ("inSavePoint:")]
-		unsafe NSError InSavePoint (Action<AWSFMDatabase, bool*> block);
+		unsafe NSError InSavePoint (Action<AWSFMDatabase, bool> block);
 	}
 
 	// @interface AWSHelpers (AWSFMDatabaseQueue)
@@ -4174,13 +4067,11 @@ namespace AWSCore
 		// +(AWSKSReachability *)reachabilityToLocalNetwork;
 		[Static]
 		[Export ("reachabilityToLocalNetwork")]
-		[Verify (MethodToProperty)]
 		AWSKSReachability ReachabilityToLocalNetwork { get; }
 
 		// +(AWSKSReachability *)reachabilityToInternet;
 		[Static]
 		[Export ("reachabilityToInternet")]
-		[Verify (MethodToProperty)]
 		AWSKSReachability ReachabilityToInternet { get; }
 
 		// @property (readonly, retain, nonatomic) NSString * hostname;
@@ -4201,7 +4092,7 @@ namespace AWSCore
 
 		// @property (readonly, assign, nonatomic) SCNetworkReachabilityFlags flags;
 		[Export ("flags", ArgumentSemantic.Assign)]
-		SCNetworkReachabilityFlags Flags { get; }
+        NetworkReachabilityFlags Flags { get; }
 
 		// @property (readonly, assign, nonatomic) BOOL reachable;
 		[Export ("reachable")]
@@ -4223,28 +4114,26 @@ namespace AWSCore
 		// +(AWSKSReachableOperation *)operationWithHost:(NSString *)hostname allowWWAN:(BOOL)allowWWAN onReachabilityAchieved:(dispatch_block_t)onReachabilityAchieved;
 		[Static]
 		[Export ("operationWithHost:allowWWAN:onReachabilityAchieved:")]
-		AWSKSReachableOperation OperationWithHost (string hostname, bool allowWWAN, dispatch_block_t onReachabilityAchieved);
+		AWSKSReachableOperation OperationWithHost (string hostname, bool allowWWAN, Action onReachabilityAchieved);
 
 		// +(AWSKSReachableOperation *)operationWithReachability:(AWSKSReachability *)reachability allowWWAN:(BOOL)allowWWAN onReachabilityAchieved:(dispatch_block_t)onReachabilityAchieved;
 		[Static]
 		[Export ("operationWithReachability:allowWWAN:onReachabilityAchieved:")]
-		AWSKSReachableOperation OperationWithReachability (AWSKSReachability reachability, bool allowWWAN, dispatch_block_t onReachabilityAchieved);
+		AWSKSReachableOperation OperationWithReachability (AWSKSReachability reachability, bool allowWWAN, Action onReachabilityAchieved);
 
 		// -(id)initWithHost:(NSString *)hostname allowWWAN:(BOOL)allowWWAN onReachabilityAchieved:(dispatch_block_t)onReachabilityAchieved;
 		[Export ("initWithHost:allowWWAN:onReachabilityAchieved:")]
-		NativeHandle Constructor (string hostname, bool allowWWAN, dispatch_block_t onReachabilityAchieved);
+		IntPtr Constructor (string hostname, bool allowWWAN, Action onReachabilityAchieved);
 
 		// -(id)initWithReachability:(AWSKSReachability *)reachability allowWWAN:(BOOL)allowWWAN onReachabilityAchieved:(dispatch_block_t)onReachabilityAchieved;
 		[Export ("initWithReachability:allowWWAN:onReachabilityAchieved:")]
-		NativeHandle Constructor (AWSKSReachability reachability, bool allowWWAN, dispatch_block_t onReachabilityAchieved);
+		IntPtr Constructor (AWSKSReachability reachability, bool allowWWAN, Action onReachabilityAchieved);
 
 		// @property (readonly, retain, nonatomic) AWSKSReachability * reachability;
 		[Export ("reachability", ArgumentSemantic.Retain)]
 		AWSKSReachability Reachability { get; }
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const _Nonnull AWSUICKeyChainStoreErrorDomain;
@@ -4268,7 +4157,7 @@ namespace AWSCore
 		[NullAllowed, Export ("accessGroup")]
 		string AccessGroup { get; }
 
-		// @property (readonly, nonatomic) NSURL * _Nullable server;
+		// @property (readonly, nonatomic) NSUrl * _Nullable server;
 		[NullAllowed, Export ("server")]
 		NSUrl Server { get; }
 
@@ -4304,14 +4193,12 @@ namespace AWSCore
 
 		// @property (readonly, nonatomic) NSArray * _Nullable allItems;
 		[NullAllowed, Export ("allItems")]
-		[Verify (StronglyTypedNSArray)]
 		NSObject[] AllItems { get; }
 
 		// +(NSString * _Nonnull)defaultService;
 		// +(void)setDefaultService:(NSString * _Nonnull)defaultService;
 		[Static]
 		[Export ("defaultService")]
-		[Verify (MethodToProperty)]
 		string DefaultService { get; set; }
 
 		// +(AWSUICKeyChainStore * _Nonnull)keyChainStore;
@@ -4329,37 +4216,37 @@ namespace AWSCore
 		[Export ("keyChainStoreWithService:accessGroup:")]
 		AWSUICKeyChainStore KeyChainStoreWithService ([NullAllowed] string service, [NullAllowed] string accessGroup);
 
-		// +(AWSUICKeyChainStore * _Nonnull)keyChainStoreWithServer:(NSURL * _Nonnull)server protocolType:(AWSUICKeyChainStoreProtocolType)protocolType;
+		// +(AWSUICKeyChainStore * _Nonnull)keyChainStoreWithServer:(NSUrl * _Nonnull)server protocolType:(AWSUICKeyChainStoreProtocolType)protocolType;
 		[Static]
 		[Export ("keyChainStoreWithServer:protocolType:")]
 		AWSUICKeyChainStore KeyChainStoreWithServer (NSUrl server, AWSUICKeyChainStoreProtocolType protocolType);
 
-		// +(AWSUICKeyChainStore * _Nonnull)keyChainStoreWithServer:(NSURL * _Nonnull)server protocolType:(AWSUICKeyChainStoreProtocolType)protocolType authenticationType:(AWSUICKeyChainStoreAuthenticationType)authenticationType;
+		// +(AWSUICKeyChainStore * _Nonnull)keyChainStoreWithServer:(NSUrl * _Nonnull)server protocolType:(AWSUICKeyChainStoreProtocolType)protocolType authenticationType:(AWSUICKeyChainStoreAuthenticationType)authenticationType;
 		[Static]
 		[Export ("keyChainStoreWithServer:protocolType:authenticationType:")]
 		AWSUICKeyChainStore KeyChainStoreWithServer (NSUrl server, AWSUICKeyChainStoreProtocolType protocolType, AWSUICKeyChainStoreAuthenticationType authenticationType);
 
 		// -(instancetype _Nonnull)initWithService:(NSString * _Nullable)service;
 		[Export ("initWithService:")]
-		NativeHandle Constructor ([NullAllowed] string service);
+		IntPtr Constructor ([NullAllowed] string service);
 
 		// -(instancetype _Nonnull)initWithService:(NSString * _Nullable)service accessGroup:(NSString * _Nullable)accessGroup;
 		[Export ("initWithService:accessGroup:")]
-		NativeHandle Constructor ([NullAllowed] string service, [NullAllowed] string accessGroup);
+		IntPtr Constructor ([NullAllowed] string service, [NullAllowed] string accessGroup);
 
-		// -(instancetype _Nonnull)initWithServer:(NSURL * _Nonnull)server protocolType:(AWSUICKeyChainStoreProtocolType)protocolType;
+		// -(instancetype _Nonnull)initWithServer:(NSUrl * _Nonnull)server protocolType:(AWSUICKeyChainStoreProtocolType)protocolType;
 		[Export ("initWithServer:protocolType:")]
-		NativeHandle Constructor (NSUrl server, AWSUICKeyChainStoreProtocolType protocolType);
+		IntPtr Constructor (NSUrl server, AWSUICKeyChainStoreProtocolType protocolType);
 
-		// -(instancetype _Nonnull)initWithServer:(NSURL * _Nonnull)server protocolType:(AWSUICKeyChainStoreProtocolType)protocolType authenticationType:(AWSUICKeyChainStoreAuthenticationType)authenticationType;
+		// -(instancetype _Nonnull)initWithServer:(NSUrl * _Nonnull)server protocolType:(AWSUICKeyChainStoreProtocolType)protocolType authenticationType:(AWSUICKeyChainStoreAuthenticationType)authenticationType;
 		[Export ("initWithServer:protocolType:authenticationType:")]
-		NativeHandle Constructor (NSUrl server, AWSUICKeyChainStoreProtocolType protocolType, AWSUICKeyChainStoreAuthenticationType authenticationType);
+		IntPtr Constructor (NSUrl server, AWSUICKeyChainStoreProtocolType protocolType, AWSUICKeyChainStoreAuthenticationType authenticationType);
 
-		// +(NSString * _Nullable)stringForKey:(NSString * _Nonnull)key;
-		[Static]
-		[Export ("stringForKey:")]
-		[return: NullAllowed]
-		string StringForKey (string key);
+		//// +(NSString * _Nullable)stringForKey:(NSString * _Nonnull)key;
+		//[Static]
+		//[Export ("stringForKey:")]
+		//[return: NullAllowed]
+		//string StringForKey (string key);
 
 		// +(NSString * _Nullable)stringForKey:(NSString * _Nonnull)key service:(NSString * _Nullable)service;
 		[Static]
@@ -4507,9 +4394,8 @@ namespace AWSCore
 		// +(NSArray * _Nullable)allItemsWithItemClass:(AWSUICKeyChainStoreItemClass)itemClass;
 		[Static]
 		[Export ("allItemsWithItemClass:")]
-		[Verify (StronglyTypedNSArray)]
 		[return: NullAllowed]
-		NSObject[] AllItemsWithItemClass (AWSUICKeyChainStoreItemClass itemClass);
+        NSArray AllItemsWithItemClass (AWSUICKeyChainStoreItemClass itemClass);
 
 		// -(void)setAccessibility:(AWSUICKeyChainStoreAccessibility)accessibility authenticationPolicy:(AWSUICKeyChainStoreAuthenticationPolicy)authenticationPolicy __attribute__((availability(ios, introduced=8.0)));
 		[iOS (8,0)]
@@ -4753,25 +4639,23 @@ namespace AWSCore
 		[Export ("setData:forKey:service:accessGroup:genericAttribute:error:")]
 		bool SetData ([NullAllowed] NSData data, string key, [NullAllowed] string service, [NullAllowed] string accessGroup, [NullAllowed] NSObject genericAttribute, [NullAllowed] out NSError error);
 
-		// -(BOOL)setString:(NSString * _Nullable)string forKey:(NSString * _Nonnull)key genericAttribute:(id _Nullable)genericAttribute;
-		[Export ("setString:forKey:genericAttribute:")]
-		bool SetString ([NullAllowed] string @string, string key, [NullAllowed] NSObject genericAttribute);
+		//// -(BOOL)setString:(NSString * _Nullable)string forKey:(NSString * _Nonnull)key genericAttribute:(id _Nullable)genericAttribute;
+		//[Export ("setString:forKey:genericAttribute:")]
+		//bool SetString ([NullAllowed] string @string, string key, [NullAllowed] NSObject genericAttribute);
 
-		// -(BOOL)setString:(NSString * _Nullable)string forKey:(NSString * _Nonnull)key genericAttribute:(id _Nullable)genericAttribute error:(NSError * _Nullable * _Nullable)error;
-		[Export ("setString:forKey:genericAttribute:error:")]
-		bool SetString ([NullAllowed] string @string, string key, [NullAllowed] NSObject genericAttribute, [NullAllowed] out NSError error);
+		//// -(BOOL)setString:(NSString * _Nullable)string forKey:(NSString * _Nonnull)key genericAttribute:(id _Nullable)genericAttribute error:(NSError * _Nullable * _Nullable)error;
+		//[Export ("setString:forKey:genericAttribute:error:")]
+		//bool SetString ([NullAllowed] string @string, string key, [NullAllowed] NSObject genericAttribute, [NullAllowed] out NSError error);
 
-		// -(BOOL)setData:(NSData * _Nullable)data forKey:(NSString * _Nonnull)key genericAttribute:(id _Nullable)genericAttribute;
-		[Export ("setData:forKey:genericAttribute:")]
-		bool SetData ([NullAllowed] NSData data, string key, [NullAllowed] NSObject genericAttribute);
+		//// -(BOOL)setData:(NSData * _Nullable)data forKey:(NSString * _Nonnull)key genericAttribute:(id _Nullable)genericAttribute;
+		//[Export ("setData:forKey:genericAttribute:")]
+		//bool SetData ([NullAllowed] NSData data, string key, [NullAllowed] NSObject genericAttribute);
 
-		// -(BOOL)setData:(NSData * _Nullable)data forKey:(NSString * _Nonnull)key genericAttribute:(id _Nullable)genericAttribute error:(NSError * _Nullable * _Nullable)error;
-		[Export ("setData:forKey:genericAttribute:error:")]
-		bool SetData ([NullAllowed] NSData data, string key, [NullAllowed] NSObject genericAttribute, [NullAllowed] out NSError error);
+		//// -(BOOL)setData:(NSData * _Nullable)data forKey:(NSString * _Nonnull)key genericAttribute:(id _Nullable)genericAttribute error:(NSError * _Nullable * _Nullable)error;
+		//[Export ("setData:forKey:genericAttribute:error:")]
+		//bool SetData ([NullAllowed] NSData data, string key, [NullAllowed] NSObject genericAttribute, [NullAllowed] out NSError error);
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const _Nonnull AWSSTSErrorDomain;
@@ -5192,7 +5076,6 @@ namespace AWSCore
 
 		// -(NSDictionary *)JSONObject;
 		[Export ("JSONObject")]
-		[Verify (MethodToProperty)]
 		NSDictionary JSONObject { get; }
 	}
 
@@ -5226,7 +5109,7 @@ namespace AWSCore
 
 		// -(AWSTask<AWSSTSAssumeRoleResponse *> * _Nonnull)assumeRole:(AWSSTSAssumeRoleRequest * _Nonnull)request;
 		[Export ("assumeRole:")]
-		AWSTask<AWSSTSAssumeRoleResponse> AssumeRole (AWSSTSAssumeRoleRequest request);
+		AWSTask AssumeRole (AWSSTSAssumeRoleRequest request);
 
 		// -(void)assumeRole:(AWSSTSAssumeRoleRequest * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSSTSAssumeRoleResponse * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("assumeRole:completionHandler:")]
@@ -5234,7 +5117,7 @@ namespace AWSCore
 
 		// -(AWSTask<AWSSTSAssumeRoleWithSAMLResponse *> * _Nonnull)assumeRoleWithSAML:(AWSSTSAssumeRoleWithSAMLRequest * _Nonnull)request;
 		[Export ("assumeRoleWithSAML:")]
-		AWSTask<AWSSTSAssumeRoleWithSAMLResponse> AssumeRoleWithSAML (AWSSTSAssumeRoleWithSAMLRequest request);
+		AWSTask AssumeRoleWithSAML (AWSSTSAssumeRoleWithSAMLRequest request);
 
 		// -(void)assumeRoleWithSAML:(AWSSTSAssumeRoleWithSAMLRequest * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSSTSAssumeRoleWithSAMLResponse * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("assumeRoleWithSAML:completionHandler:")]
@@ -5242,7 +5125,7 @@ namespace AWSCore
 
 		// -(AWSTask<AWSSTSAssumeRoleWithWebIdentityResponse *> * _Nonnull)assumeRoleWithWebIdentity:(AWSSTSAssumeRoleWithWebIdentityRequest * _Nonnull)request;
 		[Export ("assumeRoleWithWebIdentity:")]
-		AWSTask<AWSSTSAssumeRoleWithWebIdentityResponse> AssumeRoleWithWebIdentity (AWSSTSAssumeRoleWithWebIdentityRequest request);
+		AWSTask AssumeRoleWithWebIdentity (AWSSTSAssumeRoleWithWebIdentityRequest request);
 
 		// -(void)assumeRoleWithWebIdentity:(AWSSTSAssumeRoleWithWebIdentityRequest * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSSTSAssumeRoleWithWebIdentityResponse * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("assumeRoleWithWebIdentity:completionHandler:")]
@@ -5250,7 +5133,7 @@ namespace AWSCore
 
 		// -(AWSTask<AWSSTSDecodeAuthorizationMessageResponse *> * _Nonnull)decodeAuthorizationMessage:(AWSSTSDecodeAuthorizationMessageRequest * _Nonnull)request;
 		[Export ("decodeAuthorizationMessage:")]
-		AWSTask<AWSSTSDecodeAuthorizationMessageResponse> DecodeAuthorizationMessage (AWSSTSDecodeAuthorizationMessageRequest request);
+		AWSTask DecodeAuthorizationMessage (AWSSTSDecodeAuthorizationMessageRequest request);
 
 		// -(void)decodeAuthorizationMessage:(AWSSTSDecodeAuthorizationMessageRequest * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSSTSDecodeAuthorizationMessageResponse * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("decodeAuthorizationMessage:completionHandler:")]
@@ -5258,7 +5141,7 @@ namespace AWSCore
 
 		// -(AWSTask<AWSSTSGetAccessKeyInfoResponse *> * _Nonnull)getAccessKeyInfo:(AWSSTSGetAccessKeyInfoRequest * _Nonnull)request;
 		[Export ("getAccessKeyInfo:")]
-		AWSTask<AWSSTSGetAccessKeyInfoResponse> GetAccessKeyInfo (AWSSTSGetAccessKeyInfoRequest request);
+		AWSTask GetAccessKeyInfo (AWSSTSGetAccessKeyInfoRequest request);
 
 		// -(void)getAccessKeyInfo:(AWSSTSGetAccessKeyInfoRequest * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSSTSGetAccessKeyInfoResponse * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("getAccessKeyInfo:completionHandler:")]
@@ -5266,7 +5149,7 @@ namespace AWSCore
 
 		// -(AWSTask<AWSSTSGetCallerIdentityResponse *> * _Nonnull)getCallerIdentity:(AWSSTSGetCallerIdentityRequest * _Nonnull)request;
 		[Export ("getCallerIdentity:")]
-		AWSTask<AWSSTSGetCallerIdentityResponse> GetCallerIdentity (AWSSTSGetCallerIdentityRequest request);
+		AWSTask GetCallerIdentity (AWSSTSGetCallerIdentityRequest request);
 
 		// -(void)getCallerIdentity:(AWSSTSGetCallerIdentityRequest * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSSTSGetCallerIdentityResponse * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("getCallerIdentity:completionHandler:")]
@@ -5274,7 +5157,7 @@ namespace AWSCore
 
 		// -(AWSTask<AWSSTSGetFederationTokenResponse *> * _Nonnull)getFederationToken:(AWSSTSGetFederationTokenRequest * _Nonnull)request;
 		[Export ("getFederationToken:")]
-		AWSTask<AWSSTSGetFederationTokenResponse> GetFederationToken (AWSSTSGetFederationTokenRequest request);
+		AWSTask GetFederationToken (AWSSTSGetFederationTokenRequest request);
 
 		// -(void)getFederationToken:(AWSSTSGetFederationTokenRequest * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSSTSGetFederationTokenResponse * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("getFederationToken:completionHandler:")]
@@ -5282,15 +5165,13 @@ namespace AWSCore
 
 		// -(AWSTask<AWSSTSGetSessionTokenResponse *> * _Nonnull)getSessionToken:(AWSSTSGetSessionTokenRequest * _Nonnull)request;
 		[Export ("getSessionToken:")]
-		AWSTask<AWSSTSGetSessionTokenResponse> GetSessionToken (AWSSTSGetSessionTokenRequest request);
+		AWSTask GetSessionToken (AWSSTSGetSessionTokenRequest request);
 
 		// -(void)getSessionToken:(AWSSTSGetSessionTokenRequest * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSSTSGetSessionTokenResponse * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("getSessionToken:completionHandler:")]
 		void GetSessionToken (AWSSTSGetSessionTokenRequest request, [NullAllowed] Action<AWSSTSGetSessionTokenResponse, NSError> completionHandler);
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const _Nonnull AWSCognitoIdentityErrorDomain;
@@ -5497,7 +5378,7 @@ namespace AWSCore
 
 		// @property (nonatomic, strong) NSDictionary<NSString *,AWSCognitoIdentityRoleMapping *> * _Nullable roleMappings;
 		[NullAllowed, Export ("roleMappings", ArgumentSemantic.Strong)]
-		NSDictionary<NSString, AWSCognitoIdentityRoleMapping> RoleMappings { get; set; }
+		NSDictionary<NSString, NSObject> RoleMappings { get; set; }
 
 		// @property (nonatomic, strong) NSDictionary<NSString *,NSString *> * _Nullable roles;
 		[NullAllowed, Export ("roles", ArgumentSemantic.Strong)]
@@ -5892,7 +5773,7 @@ namespace AWSCore
 
 		// @property (nonatomic, strong) NSDictionary<NSString *,AWSCognitoIdentityRoleMapping *> * _Nullable roleMappings;
 		[NullAllowed, Export ("roleMappings", ArgumentSemantic.Strong)]
-		NSDictionary<NSString, AWSCognitoIdentityRoleMapping> RoleMappings { get; set; }
+		NSDictionary<NSString, NSObject> RoleMappings { get; set; }
 
 		// @property (nonatomic, strong) NSDictionary<NSString *,NSString *> * _Nullable roles;
 		[NullAllowed, Export ("roles", ArgumentSemantic.Strong)]
@@ -6041,7 +5922,6 @@ namespace AWSCore
 
 		// -(NSDictionary *)JSONObject;
 		[Export ("JSONObject")]
-		[Verify (MethodToProperty)]
 		NSDictionary JSONObject { get; }
 	}
 
@@ -6075,7 +5955,7 @@ namespace AWSCore
 
 		// -(AWSTask<AWSCognitoIdentityIdentityPool *> * _Nonnull)createIdentityPool:(AWSCognitoIdentityCreateIdentityPoolInput * _Nonnull)request;
 		[Export ("createIdentityPool:")]
-		AWSTask<AWSCognitoIdentityIdentityPool> CreateIdentityPool (AWSCognitoIdentityCreateIdentityPoolInput request);
+		AWSTask CreateIdentityPool (AWSCognitoIdentityCreateIdentityPoolInput request);
 
 		// -(void)createIdentityPool:(AWSCognitoIdentityCreateIdentityPoolInput * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityIdentityPool * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("createIdentityPool:completionHandler:")]
@@ -6083,7 +5963,7 @@ namespace AWSCore
 
 		// -(AWSTask<AWSCognitoIdentityDeleteIdentitiesResponse *> * _Nonnull)deleteIdentities:(AWSCognitoIdentityDeleteIdentitiesInput * _Nonnull)request;
 		[Export ("deleteIdentities:")]
-		AWSTask<AWSCognitoIdentityDeleteIdentitiesResponse> DeleteIdentities (AWSCognitoIdentityDeleteIdentitiesInput request);
+		AWSTask DeleteIdentities (AWSCognitoIdentityDeleteIdentitiesInput request);
 
 		// -(void)deleteIdentities:(AWSCognitoIdentityDeleteIdentitiesInput * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityDeleteIdentitiesResponse * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("deleteIdentities:completionHandler:")]
@@ -6099,7 +5979,7 @@ namespace AWSCore
 
 		// -(AWSTask<AWSCognitoIdentityIdentityDescription *> * _Nonnull)describeIdentity:(AWSCognitoIdentityDescribeIdentityInput * _Nonnull)request;
 		[Export ("describeIdentity:")]
-		AWSTask<AWSCognitoIdentityIdentityDescription> DescribeIdentity (AWSCognitoIdentityDescribeIdentityInput request);
+		AWSTask DescribeIdentity (AWSCognitoIdentityDescribeIdentityInput request);
 
 		// -(void)describeIdentity:(AWSCognitoIdentityDescribeIdentityInput * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityIdentityDescription * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("describeIdentity:completionHandler:")]
@@ -6107,7 +5987,7 @@ namespace AWSCore
 
 		// -(AWSTask<AWSCognitoIdentityIdentityPool *> * _Nonnull)describeIdentityPool:(AWSCognitoIdentityDescribeIdentityPoolInput * _Nonnull)request;
 		[Export ("describeIdentityPool:")]
-		AWSTask<AWSCognitoIdentityIdentityPool> DescribeIdentityPool (AWSCognitoIdentityDescribeIdentityPoolInput request);
+		AWSTask DescribeIdentityPool (AWSCognitoIdentityDescribeIdentityPoolInput request);
 
 		// -(void)describeIdentityPool:(AWSCognitoIdentityDescribeIdentityPoolInput * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityIdentityPool * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("describeIdentityPool:completionHandler:")]
@@ -6115,7 +5995,7 @@ namespace AWSCore
 
 		// -(AWSTask<AWSCognitoIdentityGetCredentialsForIdentityResponse *> * _Nonnull)getCredentialsForIdentity:(AWSCognitoIdentityGetCredentialsForIdentityInput * _Nonnull)request;
 		[Export ("getCredentialsForIdentity:")]
-		AWSTask<AWSCognitoIdentityGetCredentialsForIdentityResponse> GetCredentialsForIdentity (AWSCognitoIdentityGetCredentialsForIdentityInput request);
+		AWSTask GetCredentialsForIdentity (AWSCognitoIdentityGetCredentialsForIdentityInput request);
 
 		// -(void)getCredentialsForIdentity:(AWSCognitoIdentityGetCredentialsForIdentityInput * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityGetCredentialsForIdentityResponse * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("getCredentialsForIdentity:completionHandler:")]
@@ -6123,7 +6003,7 @@ namespace AWSCore
 
 		// -(AWSTask<AWSCognitoIdentityGetIdResponse *> * _Nonnull)getId:(AWSCognitoIdentityGetIdInput * _Nonnull)request;
 		[Export ("getId:")]
-		AWSTask<AWSCognitoIdentityGetIdResponse> GetId (AWSCognitoIdentityGetIdInput request);
+		AWSTask GetId (AWSCognitoIdentityGetIdInput request);
 
 		// -(void)getId:(AWSCognitoIdentityGetIdInput * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityGetIdResponse * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("getId:completionHandler:")]
@@ -6131,7 +6011,7 @@ namespace AWSCore
 
 		// -(AWSTask<AWSCognitoIdentityGetIdentityPoolRolesResponse *> * _Nonnull)getIdentityPoolRoles:(AWSCognitoIdentityGetIdentityPoolRolesInput * _Nonnull)request;
 		[Export ("getIdentityPoolRoles:")]
-		AWSTask<AWSCognitoIdentityGetIdentityPoolRolesResponse> GetIdentityPoolRoles (AWSCognitoIdentityGetIdentityPoolRolesInput request);
+		AWSTask GetIdentityPoolRoles (AWSCognitoIdentityGetIdentityPoolRolesInput request);
 
 		// -(void)getIdentityPoolRoles:(AWSCognitoIdentityGetIdentityPoolRolesInput * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityGetIdentityPoolRolesResponse * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("getIdentityPoolRoles:completionHandler:")]
@@ -6139,7 +6019,7 @@ namespace AWSCore
 
 		// -(AWSTask<AWSCognitoIdentityGetOpenIdTokenResponse *> * _Nonnull)getOpenIdToken:(AWSCognitoIdentityGetOpenIdTokenInput * _Nonnull)request;
 		[Export ("getOpenIdToken:")]
-		AWSTask<AWSCognitoIdentityGetOpenIdTokenResponse> GetOpenIdToken (AWSCognitoIdentityGetOpenIdTokenInput request);
+		AWSTask GetOpenIdToken (AWSCognitoIdentityGetOpenIdTokenInput request);
 
 		// -(void)getOpenIdToken:(AWSCognitoIdentityGetOpenIdTokenInput * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityGetOpenIdTokenResponse * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("getOpenIdToken:completionHandler:")]
@@ -6147,7 +6027,7 @@ namespace AWSCore
 
 		// -(AWSTask<AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse *> * _Nonnull)getOpenIdTokenForDeveloperIdentity:(AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput * _Nonnull)request;
 		[Export ("getOpenIdTokenForDeveloperIdentity:")]
-		AWSTask<AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse> GetOpenIdTokenForDeveloperIdentity (AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput request);
+		AWSTask GetOpenIdTokenForDeveloperIdentity (AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput request);
 
 		// -(void)getOpenIdTokenForDeveloperIdentity:(AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("getOpenIdTokenForDeveloperIdentity:completionHandler:")]
@@ -6155,7 +6035,7 @@ namespace AWSCore
 
 		// -(AWSTask<AWSCognitoIdentityGetPrincipalTagAttributeMapResponse *> * _Nonnull)getPrincipalTagAttributeMap:(AWSCognitoIdentityGetPrincipalTagAttributeMapInput * _Nonnull)request;
 		[Export ("getPrincipalTagAttributeMap:")]
-		AWSTask<AWSCognitoIdentityGetPrincipalTagAttributeMapResponse> GetPrincipalTagAttributeMap (AWSCognitoIdentityGetPrincipalTagAttributeMapInput request);
+		AWSTask GetPrincipalTagAttributeMap (AWSCognitoIdentityGetPrincipalTagAttributeMapInput request);
 
 		// -(void)getPrincipalTagAttributeMap:(AWSCognitoIdentityGetPrincipalTagAttributeMapInput * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityGetPrincipalTagAttributeMapResponse * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("getPrincipalTagAttributeMap:completionHandler:")]
@@ -6163,7 +6043,7 @@ namespace AWSCore
 
 		// -(AWSTask<AWSCognitoIdentityListIdentitiesResponse *> * _Nonnull)listIdentities:(AWSCognitoIdentityListIdentitiesInput * _Nonnull)request;
 		[Export ("listIdentities:")]
-		AWSTask<AWSCognitoIdentityListIdentitiesResponse> ListIdentities (AWSCognitoIdentityListIdentitiesInput request);
+		AWSTask ListIdentities (AWSCognitoIdentityListIdentitiesInput request);
 
 		// -(void)listIdentities:(AWSCognitoIdentityListIdentitiesInput * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityListIdentitiesResponse * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("listIdentities:completionHandler:")]
@@ -6171,7 +6051,7 @@ namespace AWSCore
 
 		// -(AWSTask<AWSCognitoIdentityListIdentityPoolsResponse *> * _Nonnull)listIdentityPools:(AWSCognitoIdentityListIdentityPoolsInput * _Nonnull)request;
 		[Export ("listIdentityPools:")]
-		AWSTask<AWSCognitoIdentityListIdentityPoolsResponse> ListIdentityPools (AWSCognitoIdentityListIdentityPoolsInput request);
+		AWSTask ListIdentityPools (AWSCognitoIdentityListIdentityPoolsInput request);
 
 		// -(void)listIdentityPools:(AWSCognitoIdentityListIdentityPoolsInput * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityListIdentityPoolsResponse * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("listIdentityPools:completionHandler:")]
@@ -6179,7 +6059,7 @@ namespace AWSCore
 
 		// -(AWSTask<AWSCognitoIdentityListTagsForResourceResponse *> * _Nonnull)listTagsForResource:(AWSCognitoIdentityListTagsForResourceInput * _Nonnull)request;
 		[Export ("listTagsForResource:")]
-		AWSTask<AWSCognitoIdentityListTagsForResourceResponse> ListTagsForResource (AWSCognitoIdentityListTagsForResourceInput request);
+		AWSTask ListTagsForResource (AWSCognitoIdentityListTagsForResourceInput request);
 
 		// -(void)listTagsForResource:(AWSCognitoIdentityListTagsForResourceInput * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityListTagsForResourceResponse * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("listTagsForResource:completionHandler:")]
@@ -6187,7 +6067,7 @@ namespace AWSCore
 
 		// -(AWSTask<AWSCognitoIdentityLookupDeveloperIdentityResponse *> * _Nonnull)lookupDeveloperIdentity:(AWSCognitoIdentityLookupDeveloperIdentityInput * _Nonnull)request;
 		[Export ("lookupDeveloperIdentity:")]
-		AWSTask<AWSCognitoIdentityLookupDeveloperIdentityResponse> LookupDeveloperIdentity (AWSCognitoIdentityLookupDeveloperIdentityInput request);
+		AWSTask LookupDeveloperIdentity (AWSCognitoIdentityLookupDeveloperIdentityInput request);
 
 		// -(void)lookupDeveloperIdentity:(AWSCognitoIdentityLookupDeveloperIdentityInput * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityLookupDeveloperIdentityResponse * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("lookupDeveloperIdentity:completionHandler:")]
@@ -6195,7 +6075,7 @@ namespace AWSCore
 
 		// -(AWSTask<AWSCognitoIdentityMergeDeveloperIdentitiesResponse *> * _Nonnull)mergeDeveloperIdentities:(AWSCognitoIdentityMergeDeveloperIdentitiesInput * _Nonnull)request;
 		[Export ("mergeDeveloperIdentities:")]
-		AWSTask<AWSCognitoIdentityMergeDeveloperIdentitiesResponse> MergeDeveloperIdentities (AWSCognitoIdentityMergeDeveloperIdentitiesInput request);
+		AWSTask MergeDeveloperIdentities (AWSCognitoIdentityMergeDeveloperIdentitiesInput request);
 
 		// -(void)mergeDeveloperIdentities:(AWSCognitoIdentityMergeDeveloperIdentitiesInput * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityMergeDeveloperIdentitiesResponse * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("mergeDeveloperIdentities:completionHandler:")]
@@ -6211,7 +6091,7 @@ namespace AWSCore
 
 		// -(AWSTask<AWSCognitoIdentitySetPrincipalTagAttributeMapResponse *> * _Nonnull)setPrincipalTagAttributeMap:(AWSCognitoIdentitySetPrincipalTagAttributeMapInput * _Nonnull)request;
 		[Export ("setPrincipalTagAttributeMap:")]
-		AWSTask<AWSCognitoIdentitySetPrincipalTagAttributeMapResponse> SetPrincipalTagAttributeMap (AWSCognitoIdentitySetPrincipalTagAttributeMapInput request);
+		AWSTask SetPrincipalTagAttributeMap (AWSCognitoIdentitySetPrincipalTagAttributeMapInput request);
 
 		// -(void)setPrincipalTagAttributeMap:(AWSCognitoIdentitySetPrincipalTagAttributeMapInput * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentitySetPrincipalTagAttributeMapResponse * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("setPrincipalTagAttributeMap:completionHandler:")]
@@ -6219,7 +6099,7 @@ namespace AWSCore
 
 		// -(AWSTask<AWSCognitoIdentityTagResourceResponse *> * _Nonnull)tagResource:(AWSCognitoIdentityTagResourceInput * _Nonnull)request;
 		[Export ("tagResource:")]
-		AWSTask<AWSCognitoIdentityTagResourceResponse> TagResource (AWSCognitoIdentityTagResourceInput request);
+		AWSTask TagResource (AWSCognitoIdentityTagResourceInput request);
 
 		// -(void)tagResource:(AWSCognitoIdentityTagResourceInput * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityTagResourceResponse * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("tagResource:completionHandler:")]
@@ -6243,7 +6123,7 @@ namespace AWSCore
 
 		// -(AWSTask<AWSCognitoIdentityUntagResourceResponse *> * _Nonnull)untagResource:(AWSCognitoIdentityUntagResourceInput * _Nonnull)request;
 		[Export ("untagResource:")]
-		AWSTask<AWSCognitoIdentityUntagResourceResponse> UntagResource (AWSCognitoIdentityUntagResourceInput request);
+		AWSTask UntagResource (AWSCognitoIdentityUntagResourceInput request);
 
 		// -(void)untagResource:(AWSCognitoIdentityUntagResourceInput * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityUntagResourceResponse * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("untagResource:completionHandler:")]
@@ -6251,7 +6131,7 @@ namespace AWSCore
 
 		// -(AWSTask<AWSCognitoIdentityIdentityPool *> * _Nonnull)updateIdentityPool:(AWSCognitoIdentityIdentityPool * _Nonnull)request;
 		[Export ("updateIdentityPool:")]
-		AWSTask<AWSCognitoIdentityIdentityPool> UpdateIdentityPool (AWSCognitoIdentityIdentityPool request);
+		AWSTask UpdateIdentityPool (AWSCognitoIdentityIdentityPool request);
 
 		// -(void)updateIdentityPool:(AWSCognitoIdentityIdentityPool * _Nonnull)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityIdentityPool * _Nullable, NSError * _Nullable))completionHandler;
 		[Export ("updateIdentityPool:completionHandler:")]
