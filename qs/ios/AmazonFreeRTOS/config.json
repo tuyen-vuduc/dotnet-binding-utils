@@ -1,0 +1,97 @@
+{
+    "slnFile": "generated/amazon-freertos-ios.sln",
+    "platformVersion": "12.0",
+    "additionalProjects": [],
+    "nugetVersionSuffix": "",
+    "templates": [
+      {
+        "templateFile": "source/Targets.cshtml",
+        "outputFileRule": "{generated}/{name}/{nugetid}.targets"
+      },
+      {
+        "templateFile": "source/Project.cshtml",
+        "outputFileRule": "{generated}/{name}/{nugetid}.csproj"
+      }
+    ],
+    "debug": {
+      "dumpModels": true
+    },
+    "packages": [
+      {
+        "name": "AmazonFreeRTOS",
+        "version": "1.4.0",
+        "nugetVersion": "1.4.0",
+        "libraryType": "framework",
+        "packageType": "pod",
+        "dependencyOnly": false,
+        "targets": [
+          {
+            "nugetId": "AmazonFreeRTOS.iOS",
+            "name": "AmazonFreeRTOS",
+            "deps": [
+              "AWSIoT",
+              "CBORCoding"         
+            ]
+          }
+        ],
+        "git": "https://github.com/aws/amazon-freertos-ble-ios-sdk"
+      },
+      {
+        "name": "AWSIoT",
+        "version": "2.30.3",
+        "nugetVersion": "2.30.3",
+        "libraryType": "framework",
+        "packageType": "pod",
+        "dependencyOnly": false,
+        "targets": [
+          {
+            "nugetId": "AWSIoT.iOS",
+            "name": "AWSIoT",
+            "deps": [
+              "AWSCore"
+            ]
+          },
+          {
+            "nugetId": "AWSCore.iOS",
+            "name": "AWSCore",
+            "deps": [
+              
+            ]
+          }
+        ],
+        "git": "https://github.com/aws-amplify/aws-sdk-ios"
+      },
+      {
+        "name": "CBORCoding",
+        "version": "1.3.2",
+        "nugetVersion": "1.3.2",
+        "libraryType": "framework",
+        "packageType": "pod",
+        "dependencyOnly": false,
+        "targets": [
+          {
+            "nugetId": "CBORCoding.iOS",
+            "name": "CBORCoding",
+            "deps": [
+              "Half"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Half",
+        "version": "1.3.1",
+        "nugetVersion": "1.3.1",
+        "libraryType": "framework",
+        "packageType": "pod",
+        "dependencyOnly": false,
+        "targets": [
+          {
+            "nugetId": "Half.iOS",
+            "name": "Half",
+            "deps": []
+          }
+        ]
+      }
+    ]
+  }

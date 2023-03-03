@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+@using System
+@using System.Linq
+@using System.IO
+@using System.Xml.Linq
+@{
+    var platformVersion = Model.PlatformVersion ?? "12.0";
+    var name = Model.Name.Contains("/") ? Model.Name.Split('/')[1] : Model.Name;
+    var sourceFolderDir = @"../../source/";
+    var sourceFolder = sourceFolderDir + Model.Name.Replace("/", "\\");
+    var projId = System.Guid.NewGuid();
+}
+<Project Sdk="Xamarin.Legacy.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>xamarin.ios10;net6.0-ios</TargetFrameworks>
+    <NoNFloatUsing Condition="'$(TargetFramework)' == 'xamarin.ios10'">true</NoNFloatUsing>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
+    <IsBindingProject>true</IsBindingProject>
+    <NoBindingEmbedding>false</NoBindingEmbedding>
+    <SupportedOSPlatformVersion>12.0</SupportedOSPlatformVersion>
+    <RootNamespace>@(Model.NormalizedName)</RootNamespace>
+    <AssemblyName>@(Model.NuGetPackageId)</AssemblyName>
+    <AssemblyVersion>@(Model.NuGetVersion.Replace("-", "00"))</AssemblyVersion>
+    <FileVersion>@(Model.NuGetVersion.Replace("-", "00"))</FileVersion>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageId>@(Model.NuGetPackageId)</PackageId>
+    <Title>iOS library - @(name)</Title>
+    <Summary>C# bindings for iOS library - @(name)</Summary>
+    <Description>C# bindings for iOS library - @(name)</Description>
+    <Authors>tuyen,tuyen-vuduc</Authors>
+    <Owners>tuyen,tuyen-vuduc</Owners>
+    <Copyright>© tuyen-vuduc. All rights reserved.</Copyright>    
+    <PackageLicense>LICENSE</PackageLicense>
+    <PackageIcon>tv-ico.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/tuyen-vuduc/dotnet-binding-utils</PackageProjectUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageVersion>@(Model.NuGetVersion)</PackageVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="@(sourceFolderDir)AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="@(Model.NuGetPackageId).targets" Pack="True" PackagePath="build/@(Model.NuGetPackageId).targets" />
+    <None Include="@(Model.NuGetPackageId).targets" Pack="True" PackagePath="buildTransitive/@(Model.NuGetPackageId).targets" />
+    <None Include="@(sourceFolderDir)External-Dependency-Info.txt" Pack="True" PackagePath="THIRD-PARTY-NOTICES.txt" />    
+    <None Include="../../../../../assets/tv-ico.png" Pack="True" PackagePath="tv-ico.png" />
+    <None Include="../../../../../LICENSE" Pack="True" PackagePath="LICENSE" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'xamarin.ios10'">
+    <Compile Remove="ApiDefinitions.cs" />
+    <Compile Remove="StructsAndEnums.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingCoreSource Include="@(sourceFolder)\StructsAndEnums.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="@(sourceFolder)\ApiDefinitions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    @foreach (var dep in Model.NuGetDependencies)
+    {
+        if (!dep.IsProjectReference)
+        {
+    <PackageReference Include="@(dep.NuGetPackageId)" Version="@(dep.NuGetVersion)" />
+        }
+    }
+    <PackageReference Include="Xamarin.Build.Download" Version="0.11.4" PrivateAssets="None" />
+  </ItemGroup>
+  <ItemGroup>
+    @foreach (var dep in Model.NuGetDependencies)
+    {
+        if (dep.IsProjectReference)
+        {
+    <ProjectReference Include="..\@(dep.NormalizedName)\@(dep.NuGetPackageId).csproj" PrivateAssets="none" />
+        }
+    }
+  </ItemGroup>
+</Project>
