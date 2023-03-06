@@ -5,7 +5,7 @@
 	<PropertyGroup Condition="'$(TargetFrameworkIdentifier)'=='MonoAndroid' or '$(TargetPlatformIdentifier)'=='android'">
 		<_GradleSyncIsAndroid>true</_GradleSyncIsAndroid>
 		<_GradleSyncMasterBeforeTargets>_ResolveLibraryProjectImports</_GradleSyncMasterBeforeTargets>
-		<_GradleSyncMasterDependsOnTargets>_GradleSync;</_GradleSyncMasterDependsOnTargets>
+		<_GradleSyncMasterDependsOnTargets>_GradleSync</_GradleSyncMasterDependsOnTargets>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(_GradleSyncIsAndroid)'==''">
@@ -21,7 +21,7 @@
 
 	<Target
 			Name="_GradleSync"
-			DependsOnTargets="_GradleSyncCore;"
+			DependsOnTargets="_GradleSyncCore"
 		/>
 	
 	<Target Name="_GradleSyncCore"

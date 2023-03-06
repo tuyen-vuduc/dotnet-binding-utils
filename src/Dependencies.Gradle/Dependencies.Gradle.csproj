@@ -10,15 +10,15 @@
 
     <PackageId>Dependencies.Gradle</PackageId>
     <Title>Xamarin Build-time Gradle Support for Android</Title>
-    <PackageVersion>7.6.0</PackageVersion>
-    <Authors>Microsoft</Authors>
-    <Owners>Microsoft</Owners>
+    <PackageVersion>7.6.0.1</PackageVersion>
+    <Authors>tuyen,tuyen-vuduc</Authors>
+    <Owners>tuyen,tuyen-vuduc</Owners>
     <PackageProjectUrl>https://github.com/tuyen-vuduc/xamarin-android-build-gradle</PackageProjectUrl>
     <PackageIcon>tv-ico.png</PackageIcon>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Description>To resolve Android dependencies using Gradle when building an Andriod app project</Description>
-    <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
+    <Copyright>© tuyen-vuduc. All rights reserved.</Copyright>
     <RepositoryUrl>https://github.com/tuyen-vuduc/xamarin-android-build-gradle.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>

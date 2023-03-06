@@ -18,8 +18,8 @@
         C# bindings for @(Model.Artifact.GradleImplementation)
     </Description>
     <PackageTags> xamarin, @(Model.Tags), @(Model.Artifact.GroupId), @(Model.Artifact.ArtifactId)</PackageTags>
-    <Authors>tuyen-vuduc</Authors>
-    <Owners>tuyen-vuduc</Owners>
+    <Authors>tuyen,tuyen-vuduc</Authors>
+    <Owners>tuyen,tuyen-vuduc</Owners>
     <Company>N/A</Company>
     <FileVersion>@(Model.Artifact.NugetVersion + "-" + DateTimeOffset.Now.ToUnixTimeSeconds())</FileVersion>
     <InformationalVersion>@(Model.Artifact.NugetVersion)</InformationalVersion>
@@ -172,7 +172,7 @@
     }
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Dependencies.Gradle" Version="7.6.0" />
+    <PackageReference Include="Dependencies.Gradle" Version="7.6.0.1" />
   </ItemGroup>
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 </Project>

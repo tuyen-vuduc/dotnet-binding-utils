@@ -132,16 +132,6 @@ public class GradleSync : AsyncTask, Xamarin.Build.Download.ILogger
             LogErrorFromException(ex);
         }
 
-        //something went wrong, clean up so we try again next time
-        try
-        {
-            Directory.Delete(TempDir, true);
-        }
-        catch (Exception ex)
-        {
-            LogCodedError(ErrorCodes.DirectoryDeleteFailed, "Failed to delete directory '{0}'.", TempDir);
-            LogErrorFromException(ex);
-        }
         return false;
     }
 

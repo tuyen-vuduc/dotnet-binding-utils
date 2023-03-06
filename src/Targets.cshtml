@@ -18,7 +18,7 @@
       Condition=" '$(OS)' != 'Unix' and Exists('$(UserProfile)/@(Model.Artifact.LibRelativePath)') " 
       Include="$(UserProfile)/@(Model.Artifact.LibRelativePath)" 
       Bind="false" Pack="false" Visible="false" />
-    <GradleSyncImplementation 
+    <GradleImplementation 
       Condition=" $(@(conditionName)) == 'true' " 
       Include="@(Model.Artifact.GradleImplementation)" />
   </ItemGroup>

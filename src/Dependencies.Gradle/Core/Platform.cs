@@ -22,8 +22,10 @@
 // THE SOFTWARE.
 
 using System;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
+[assembly:InternalsVisibleTo("Dependencies.Gradle.Tests")]
 namespace Xamarin.Build.Download
 {
 	internal static class Platform
