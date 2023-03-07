@@ -2,7 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<UsingTask TaskName="Dependencies.Gradle.GradleSync" AssemblyFile="Dependencies.Gradle.dll" />
 	
-	<PropertyGroup Condition="'$(TargetFrameworkIdentifier)'=='MonoAndroid' or '$(TargetPlatformIdentifier)'=='android'">
+	<PropertyGroup Condition=" ( '$(AndroidApplication)'=='true' or '$(OutputType)'=='exe' ) and ( '$(TargetFrameworkIdentifier)'=='MonoAndroid' or '$(TargetPlatformIdentifier)'=='android' )">
 		<_GradleSyncIsAndroid>true</_GradleSyncIsAndroid>
 		<_GradleSyncMasterBeforeTargets>_ResolveLibraryProjectImports</_GradleSyncMasterBeforeTargets>
 		<_GradleSyncMasterDependsOnTargets>_GradleSync</_GradleSyncMasterDependsOnTargets>

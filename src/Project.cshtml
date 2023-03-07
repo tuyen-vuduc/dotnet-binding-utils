@@ -145,6 +145,25 @@
     <None Include="@(proguardFilePath)" Pack="True" PackagePath="proguard" />
   }  
   </ItemGroup>
+
+@* <ItemGroup>
+  @if (Model.Config.MvnRepositories?.Count > 0) {
+    foreach (var kvp in Model.Config.MvnRepositories) {
+    <GradleRepository Include="@kvp.Key">
+      <Repository>
+      @Raw(@kvp.Value)
+      </Repository>
+    </GradleRepository>
+    }
+  }
+  @if (Model.NuGetDependencies?.Count > 0) {
+    foreach (var dep in Model.NuGetDependencies) {
+    <GradleImplementation 
+      Include="@(dep.GradleImplementation)" />
+    }
+  }
+</ItemGroup> *@
+
   <ItemGroup>
       @if (Model.Artifact.IsAAR) {
     <InputJar Include="$(UserHome)/@(Model.Artifact.LibFolderPath)/_aar/classes.jar" />

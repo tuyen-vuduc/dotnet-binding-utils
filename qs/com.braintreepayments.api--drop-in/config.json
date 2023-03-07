@@ -40,6 +40,7 @@
 	"fixedDepedencies": {
 		"Xamarin.AndroidX.Room.Runtime": "2.3.0.5",
 		"Xamarin.AndroidX.Annotation": "1.5.0.2",
+		"Xamarin.AndroidX.AppCompat": "1.3.1.5",
 		"Xamarin.AndroidX.Fragment": "1.5.5.1",
 		"Xamarin.AndroidX.Lifecycle.Runtime": "2.5.1.2",
 		"Xamarin.Kotlin.StdLib.Jdk8": "1.8.0.1",

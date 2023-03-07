@@ -33,6 +33,8 @@ public class BindingConfig
 	public List<ArtifactModel> Artifacts { get; set; }
 
 	public Dictionary<string, NuGetVersion> FixedDepedencies { get; set; }
+	public Dictionary<string, string> MvnRepositories { get; set; }
+	public Dictionary<string, string> MissingDependencies { get; set; }
 
 	public string[] TargetFrameworks { get; set; }
 	public string[] Tags { get; set; }
