@@ -97,16 +97,11 @@ public class GradleSync : AsyncTask, Xamarin.Build.Download.ILogger
         ProcessArgumentBuilder args = new ProcessArgumentBuilder(processPath);
         args.Add("build");
 
-        ProcessStartInfo psi = Platform.IsWindows
-            ? new ProcessStartInfo(args.ProcessPath, args.ToString())
-            {
-                WorkingDirectory = null,
-                CreateNoWindow = true
-            }
-            : new ProcessStartInfo(args.ProcessPath, args.ToString())
+        ProcessStartInfo psi = new ProcessStartInfo(args.ProcessPath, args.ToString())
             {
                 WorkingDirectory = TempDir,
-                CreateNoWindow = true
+                CreateNoWindow = true,
+                UseShellExecute = false
             };
 
         try
@@ -222,7 +217,10 @@ public class GradleSync : AsyncTask, Xamarin.Build.Download.ILogger
         var gradleProperties = ParseGradleProperties(GradleProperties);
 
         var graldePropertiesStringBuilder = new StringBuilder();
-        graldePropertiesStringBuilder.AppendLine($"sdk.dir={AndroidSdkPath}");
+        var nomarlizedAndroidSdkPath = Platform.IsWindows
+            ? AndroidSdkPath.Replace("\\", "/")
+            : AndroidSdkPath;
+        graldePropertiesStringBuilder.AppendLine($"sdk.dir={nomarlizedAndroidSdkPath}");
 
         for (int i = 0; i < gradleProperties.Length; i++)
         {

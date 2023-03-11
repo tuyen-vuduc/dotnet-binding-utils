@@ -31,15 +31,18 @@
     <None Include="Dependencies.Gradle.targets" Pack="True" PackagePath="build\Dependencies.Gradle.targets" CopyToOutputDirectory="PreserveNewest" />
     <None Include="Dependencies.Gradle.props" Pack="True" PackagePath="build\Dependencies.Gradle.props" CopyToOutputDirectory="PreserveNewest" />
     <None Include="Dependencies.Gradle.assets.zip" Pack="True" PackagePath="build\Dependencies.Gradle.assets.zip" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="$(PkgMicrosoft_Win32_Registry)\runtimes\win\lib\netstandard2.0\Microsoft.Win32.Registry.dll" Visible="False" Pack="True" PackagePath="build\Microsoft.Win32.Registry.dll" />
     <None Include="$(TargetPath)" Pack="True" PackagePath="build\Dependencies.Gradle.dll" />
     <None Include="Dependencies.Gradle.targets" Pack="True" PackagePath="buildTransitive\Dependencies.Gradle.targets" CopyToOutputDirectory="PreserveNewest" />
     <None Include="Dependencies.Gradle.props" Pack="True" PackagePath="buildTransitive\Dependencies.Gradle.props" CopyToOutputDirectory="PreserveNewest" />
     <None Include="Dependencies.Gradle.assets.zip" Pack="True" PackagePath="buildTransitive\Dependencies.Gradle.assets.zip" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="$(PkgMicrosoft_Win32_Registry)\runtimes\win\lib\netstandard2.0\Microsoft.Win32.Registry.dll" Visible="False" Pack="True" PackagePath="buildTransitive\Microsoft.Win32.Registry.dll" />
     <None Include="$(TargetPath)" Pack="True" PackagePath="buildTransitive\Dependencies.Gradle.dll" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Build.Framework" Version="17.4.0" PrivateAssets="all" />
     <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.4.0" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" PrivateAssets="all" GeneratePathProperty="true" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
