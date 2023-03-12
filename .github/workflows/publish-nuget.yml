@@ -1,14 +1,17 @@
 name: Publish Nuget
 run-name: ${{ github.actor }} is publishing NuGet 🚀
 on:
-  push:
-    branches: [ main, master ]
-  # pull_request:
-  #   branches: [ main, master ]
+  workflow_dispatch:
+    inputs:
+      SHOULD_RUN:
+        description: 'True to run'
+        required: true
+        type: boolean
 jobs:
   build-then-publish:
     environment: production
     runs-on: macos-latest
+    if:  ${{ inputs.SHOULD_RUN }} 
     steps:
     - uses: actions/checkout@v3
     - name: Set default Xamarin SDK versions
