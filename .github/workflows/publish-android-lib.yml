@@ -1,5 +1,5 @@
 name: Publish Android Library
-run-name: ${{ github.actor }} is publishing NuGet 🚀
+run-name: ${{ github.actor }} is publishing NuGet 🚀 of ${{ inputs.LIB_FOLDER }}
 on:
   workflow_dispatch:
     inputs:
