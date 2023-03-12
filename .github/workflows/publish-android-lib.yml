@@ -1,5 +1,5 @@
 name: Publish Android Library
-run-name: ${{ inputs.LIB_NAME }} 🚀 NuGet
+run-name: ${{ inputs.LIB_FOLDER }} 🚀 NuGet
 on:
   workflow_dispatch:
     inputs:
