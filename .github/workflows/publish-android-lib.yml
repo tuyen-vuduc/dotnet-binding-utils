@@ -50,7 +50,7 @@ jobs:
       uses: edumserrano/nuget-push@v1.2.0
       with:
         api-key: '${{ secrets.NUGET_PUSH_API_KEY }}' # this example is using GitHub secrets to pass the API key
-        working-directory: 'qs/${{ inputs.LIB_FOLDER }}'
+        working-directory: 'qs/${{ inputs.LIB_FOLDER }}/nugets'
     # The next step is using powershell to parse the action's output but you can use whatever you prefer.
     # Note that in order to read the step outputs the action step must have an id.
     - name: Log output
