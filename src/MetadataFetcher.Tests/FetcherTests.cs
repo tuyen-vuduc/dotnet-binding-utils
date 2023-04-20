@@ -11,6 +11,7 @@ public class FetcherTests
     }
 
     [Theory]
+    [InlineData("Xamarin.AndroidX.LocalBroadcastManager", "androidx.localbroadcastmanager", "localbroadcastmanager")]
     [InlineData("Xamarin.Kotlin.Reflect", "com.squareup.okio", "kotlin-reflect")]
     [InlineData("Square.OkIO", "com.squareup.okio", "okio")]
     [InlineData("Square.Moshi", "com.squareup.moshi", "moshi")]

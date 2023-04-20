@@ -39,7 +39,8 @@ public static class Fetcher
             }
         );
 
-        if (data?.Versions?.Length <= 0)
+        if (data?.Versions is null
+            || data?.Versions?.Length <= 0)
         {
             log?.Invoke(packageId, "No versions found for given package ID");
             return;
