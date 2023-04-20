@@ -50,50 +50,15 @@ public static class Fetcher
             .GroupBy(x => (x.Major, x.Minor, x.Patch, x.Release))
             .ToList();
 
+        var folderPath = Path
+            .Combine(BasePath, "metadata", platform, groupId, artifactId)
+            .ToLower();
+
+        var nugetInfo = GetAndSaveNugetInfo(folderPath, packageId);
+
         foreach (var vg in versionGroups)
         {
             var latestVersion = vg.Last();
-
-            var folderPath = Path
-                .Combine(BasePath, "metadata", platform, groupId, artifactId)
-                .ToLower();
-
-            if (!Directory.Exists(folderPath))
-            {
-                Directory.CreateDirectory(folderPath);
-            }
-
-            var nugetMetadataPath = Path.Combine(folderPath, "nuget.json");
-
-            var nugetInfo = new NugetInfoDto()
-            {
-                PackageId = packageId,
-            };
-            if (!File.Exists(nugetMetadataPath))
-            {
-                var nugetMetadataInJSON = JsonSerializer.Serialize(
-                    nugetInfo,
-                    new JsonSerializerOptions {
-                        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                        IgnoreNullValues = true,
-                    });
-                File.WriteAllText(nugetMetadataPath, nugetMetadataInJSON);
-            }
-            else
-            {
-                var infoInJson = File.ReadAllText(nugetMetadataPath);
-                nugetInfo = JsonSerializer.Deserialize<NugetInfoDto>(
-                    infoInJson,
-                    new JsonSerializerOptions
-                    {
-                        PropertyNameCaseInsensitive = true,
-                        Converters = {
-                            new JsonStringEnumConverter(),
-                            new NuGetVersionConverter(),
-                        },
-                    }
-                );
-            }
 
             string artifactVersion = null;
             string nugetVersion = null;
@@ -119,7 +84,7 @@ public static class Fetcher
                     }
                 }
 
-                if (string.IsNullOrWhiteSpace(artifactVersion)) return;
+                if (string.IsNullOrWhiteSpace(artifactVersion)) continue;
             }
             else
             {
@@ -139,11 +104,54 @@ public static class Fetcher
             {
                 revision = latestVersion.Revision,
                 nugetVersion = nugetVersion,
-            }, new JsonSerializerOptions {
+            }, new JsonSerializerOptions
+            {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
                 IgnoreNullValues = true,
             });
             File.WriteAllText(artifactVersionPath, artifactVersionMetadataInJson);
         }
+    }
+
+    private static NugetInfoDto GetAndSaveNugetInfo(string folderPath, string packageId)
+    {
+        if (!Directory.Exists(folderPath))
+        {
+            Directory.CreateDirectory(folderPath);
+        }
+
+        var nugetMetadataPath = Path.Combine(folderPath, "nuget.json");
+
+        var nugetInfo = new NugetInfoDto()
+        {
+            PackageId = packageId,
+        };
+        if (!File.Exists(nugetMetadataPath))
+        {
+            var nugetMetadataInJSON = JsonSerializer.Serialize(
+                nugetInfo,
+                new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                    IgnoreNullValues = true,
+                });
+            File.WriteAllText(nugetMetadataPath, nugetMetadataInJSON);
+        }
+        else
+        {
+            var infoInJson = File.ReadAllText(nugetMetadataPath);
+            nugetInfo = JsonSerializer.Deserialize<NugetInfoDto>(
+                infoInJson,
+                new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true,
+                    Converters = {
+                            new JsonStringEnumConverter(),
+                            new NuGetVersionConverter(),
+                    },
+                }
+            );
+        }
+        return nugetInfo;
     }
 }
