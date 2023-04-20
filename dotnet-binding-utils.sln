@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "metadata", "metadata", "{11
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetBindings.Cake", "src\DotnetBindings.Cake\DotnetBindings.Cake.csproj", "{95670EEE-39E4-42C4-BF73-B28109EC962D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Build", "qs\software.amazon.freertos--amazonfreertossdk\build\Build.csproj", "{C77BB130-075C-4FA0-AD4B-742FAB52E418}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Build", "qs\com.intellimec.mobile.android--tripdetectionumbrella\build\Build.csproj", "{96BAD60A-88FD-4314-8B84-D187EA59D4F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,10 +51,10 @@ Global
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C77BB130-075C-4FA0-AD4B-742FAB52E418}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C77BB130-075C-4FA0-AD4B-742FAB52E418}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C77BB130-075C-4FA0-AD4B-742FAB52E418}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C77BB130-075C-4FA0-AD4B-742FAB52E418}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96BAD60A-88FD-4314-8B84-D187EA59D4F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96BAD60A-88FD-4314-8B84-D187EA59D4F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96BAD60A-88FD-4314-8B84-D187EA59D4F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96BAD60A-88FD-4314-8B84-D187EA59D4F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{01F8FB17-A885-4C0D-8853-D351186DAC7A} = {98336720-D8F2-434C-9316-2E9F0D62560B}

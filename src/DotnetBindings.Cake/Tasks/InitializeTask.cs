@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DotnetBindings.Cake;
+﻿namespace DotnetBindings.Cake;
 
 public sealed class InitializeTask : FrostingTask<BuildContext>
 {
@@ -18,7 +16,7 @@ public sealed class InitializeTask : FrostingTask<BuildContext>
         configs.BasePath = context.BasePath;
         context.Configs = configs;
 
-        context.GeneratedSlnPath = System.IO.Path.Combine(
+        context.GeneratedSlnPath = PathIO.Combine(
             context.BasePath,
             configs.SolutionFile
         );
@@ -62,7 +60,7 @@ public sealed class InitializeTask : FrostingTask<BuildContext>
             }
         }
 
-        var sourceFolderPath = System.IO.Path.Combine(
+        var sourceFolderPath = PathIO.Combine(
             context.BasePath,
             "source"
             );
@@ -73,7 +71,7 @@ public sealed class InitializeTask : FrostingTask<BuildContext>
 
         foreach (var artifact in artifactsToBind)
         {
-            var artifactFolderPath = System.IO.Path.Combine(
+            var artifactFolderPath = PathIO.Combine(
                 sourceFolderPath,
                 artifact.GroupId,
                 artifact.ArtifactId
@@ -81,7 +79,7 @@ public sealed class InitializeTask : FrostingTask<BuildContext>
 
             if (Directory.Exists(artifactFolderPath)) continue;
 
-            var bindingDefaultZipFilePath = System.IO.Path.Combine(
+            var bindingDefaultZipFilePath = PathIO.Combine(
                 ".",
                 bindingDefaultFile
             );
@@ -101,7 +99,7 @@ public sealed class InitializeTask : FrostingTask<BuildContext>
 
         var allArtifacts = new List<ArtifactModel>();
 
-        foreach (var artifact in artifacts)
+        foreach (var artifact in context.Configs.Artifacts)
         {
             var scannedItems = ArtifactScanner.Scan(
                 artifacts,
@@ -121,16 +119,11 @@ public sealed class InitializeTask : FrostingTask<BuildContext>
                 artifact.NugetRevision ?? context.Configs.NugetRevision
             );
             allArtifacts.AddRange(scannedItems);
-
-            // TODO Handle multi artifacts at once
-            //allArtifacts = allArtifacts
-            //    .DistinctBy(x => x.GroupAndArtifactId())
-            //    .ToList();
-
-            break;
         }
 
-        return allArtifacts;
+        return allArtifacts
+                .DistinctBy(x => x.GroupAndArtifactId())
+                .ToList();
     }
 
     private BindingConfig ReadConfigs(BuildContext context)

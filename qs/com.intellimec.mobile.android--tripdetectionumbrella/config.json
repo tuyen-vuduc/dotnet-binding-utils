@@ -1,0 +1,60 @@
+{
+	"solutionFile" : "generated/com.intellimec.mobile.android.intellimec-bindings.sln",
+	"metadataPath": "../..",
+	"debug": { "dumpModels" : true },
+	"additionalProjects": [
+	],
+	"targetFrameworks": [
+		"MonoAndroid12.0",
+		"net7.0-android33.0"
+	],
+	"projectUrl": "https://github.com/tuyen-vuduc/dotnet-binding-utils",
+	"licensePath": "LICENSE",
+	"iconPath": "tv-icon.png",
+	"tags": [ "android", "intellimec" ],
+	"templates" : [
+		{
+			"templateFile": "../../src/Targets.cshtml",
+			"outputFileRule" : "generated/{nugetid}/{nugetid}.targets"
+		},
+		{
+			"templateFile": "../../src/Project.cshtml",
+			"outputFileRule" : "generated/{nugetid}/{nugetid}.csproj"
+		},
+		{
+			"templateFile": "../../src/Pom.cshtml",
+			"outputFileRule" : "generated/{nugetid}/pom.xml"
+		}
+	],
+	"groupName": "Intellimec SDK",
+	"artifacts": [
+		{
+			"groupId": "com.intellimec.mobile.android",
+			"artifactId": "tripdetectionumbrella",
+			"artifactName": "Trip Detection Umbrella",
+			"version": "1.16.0",
+			"nugetRevision": 0,
+			"tags": [ "tripdetectionumbrella", "trip-detection-umbrella" ]
+		},
+		{
+			"groupId": "com.intellimec.mobile.android",
+			"artifactId": "distracteddriving",
+			"artifactName": "Distracted Driving",
+			"version": "3.11.0",
+			"nugetRevision": 0,
+			"tags": [ "distracteddriving", "distracted-driving" ]
+		},
+		{
+			"groupId": "com.drivesync.android",
+			"artifactId": "devices-wedge",
+			"artifactName": "Devices Wedge",
+			"version": "1.16.0",
+			"nugetRevision": 0,
+			"tags": [ "drivesync", "devices-wedge" ]
+		}
+	],
+	"fixedDepedencies": {
+		"Xamarin.GooglePlayServices.Location": "120.0.0",
+		"Xamarin.AndroidX.Annotation": "1.3.0"
+	}
+}
