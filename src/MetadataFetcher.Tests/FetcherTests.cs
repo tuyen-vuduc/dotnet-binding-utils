@@ -11,6 +11,12 @@ public class FetcherTests
     }
 
     [Theory]
+    [InlineData("Xamarin.Kotlin.Reflect", "com.squareup.okio", "kotlin-reflect")]
+    [InlineData("Square.OkIO", "com.squareup.okio", "okio")]
+    [InlineData("Square.Moshi", "com.squareup.moshi", "moshi")]
+    [InlineData("Square.Moshi.Kotlin", "com.squareup.moshi", "moshi-kotlin")]
+    [InlineData("Square.Moshi.Adapters", "com.squareup.moshi", "moshi-adapters")]
+    [InlineData("Xamarin.KotlinX.Coroutines.Core.Jvm", "org.jetbrains.kotlinx", "kotlinx-coroutines-core-jvm")] 
     [InlineData("Xamarin.Android.Support.Animated.Vector.Drawable", "com.android.support", "animated-vector-drawable")] 
     [InlineData("Xamarin.Android.Support.v7.AppCompat", "com.android.support", "appcompat-v7")] 
     [InlineData("Xamarin.Android.Support.Annotations", "com.android.support", "support-annotations")] 
@@ -25,6 +31,7 @@ public class FetcherTests
     [InlineData("Xamarin.Android.Arch.Lifecycle.Common", "android.arch.lifecycle", "common")] 
     [InlineData("Xamarin.Android.Arch.Lifecycle.Runtime", "android.arch.lifecycle", "runtime")] 
     [InlineData("Xamarin.AndroidX.Arch.Core.Common", "android.arch.core", "common")] 
+    [InlineData("Xamarin.GooglePlayServices.Location", "com.google.android.gms", "play-services-location")] 
     [InlineData("Xamarin.GooglePlayServices.Base", "com.google.android.gms", "play-services-base")] 
     [InlineData("Xamarin.GooglePlayServices.Basement", "com.google.android.gms", "play-services-basement")] 
     [InlineData("Xamarin.GooglePlayServices.Identity", "com.google.android.gms", "play-services-identity")] 
