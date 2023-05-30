@@ -1,3 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+    <attr path="/api/package[@name='org.xbill.DNS']/class[@name='SVCBBase']/field[@name='targetName']" name="managedName">_TargetName</attr>
+    <attr path="/api/package[@name='org.xbill.DNS']/class[@name='SVCBBase']/field[@name='svcPriority']" name="managedName">_SvcPriority</attr>
+    <attr path="/api/package[@name='org.xbill.DNS']/class[@name='Record']/field[@name='name']" name="managedName">_Name</attr>
+    <attr path="/api/package[@name='org.xbill.DNS']/class[@name='Record']/field[@name='type']" name="managedName">_Type</attr>
+    <attr path="/api/package[@name='org.xbill.DNS']/class[@name='Tokenizer']/field[@name='COMMENT']" name="managedName">COMMENT</attr>
+    <attr path="/api/package[@name='org.xbill.DNS']/class[@name='Tokenizer']/field[@name='EOF']" name="managedName">EOF</attr>
+    <attr path="/api/package[@name='org.xbill.DNS']/class[@name='Tokenizer']/field[@name='EOL']" name="managedName">EOL</attr>
+    <attr path="/api/package[@name='org.xbill.DNS']/class[@name='Tokenizer']/field[@name='IDENTIFIER']" name="managedName">IDENTIFIER</attr>
+    <attr path="/api/package[@name='org.xbill.DNS']/class[@name='Tokenizer']/field[@name='QUOTED_STRING']" name="managedName">QUOTED_STRING</attr>
+    <attr path="/api/package[@name='org.xbill.DNS']/class[@name='Tokenizer']/field[@name='WHITESPACE']" name="managedName">WHITESPACE</attr>
+    <attr path="/api/package[@name='org.xbill.DNS']/class[@name='Lookup']" name="managedName">LookupClass</attr>
 </metadata>
