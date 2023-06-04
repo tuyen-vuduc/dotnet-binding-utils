@@ -1,19 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.IO.Compression;
-using System.Linq;
-using System.Net.Http;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Razor.Language;
-using Microsoft.AspNetCore.Razor.Language.Extensions;
+﻿using System.Threading.Tasks;
 using RazorLight;
-using System.Security.Cryptography;
-using System.Text;
-using System.Diagnostics;
-using System.Reflection;
 
 namespace Binderator.Gradle;
 

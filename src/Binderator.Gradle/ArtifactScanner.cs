@@ -63,6 +63,7 @@ public static class ArtifactScanner
             Version = version,
             NugetVersion = version.ToNuGetVersion(nugetRevision),
             NugetPackageId = CreateNugetId(groupId, artifactId),
+            ParentArtifacts = new KeyValuePair<string, string> [] {},
             Files = artifactFiles,
             Tags = tags,
         };

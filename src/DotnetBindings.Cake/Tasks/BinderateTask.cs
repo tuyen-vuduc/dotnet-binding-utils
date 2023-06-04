@@ -24,17 +24,17 @@ public sealed class BinderateTask : AsyncFrostingTask<BuildContext>
                    ? Environment.SpecialFolder.LocalApplicationData
                    : Environment.SpecialFolder.Personal;
         var homeFolderPath = Environment.GetFolderPath(homeFolder);
-        var artifactAarPath = System.IO.Path.Combine(
+        var artifactAarPath = PathIO.Combine(
             homeFolderPath,
             artifact.LibRelativePath
         );
-        var unzipFolderPath = System.IO.Path.Combine(
+        var unzipFolderPath = PathIO.Combine(
             homeFolderPath,
             artifact.LibFolderPath,
             "_aar"
         );
 
-        var unzippedClassesJarPath = System.IO.Path.Combine(
+        var unzippedClassesJarPath = PathIO.Combine(
             unzipFolderPath,
             "classes.jar"
         );

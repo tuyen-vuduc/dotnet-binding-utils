@@ -9,15 +9,15 @@ sh build.sh --base-path $PWD
 - Amend `csproj` file to have these lines
 ```
 <ItemGroup>
-    <GradleRepository Include="https://cardinalcommerceprod.jfrog.io/artifactory/android">
+    <GradleRepository Include="https://maven.pkg.github.com/ims-developers/android-sdk">
         <Repository>
-        maven {
-            url 'https://cardinalcommerceprod.jfrog.io/artifactory/android'
-            credentials {
-                username 'braintree_team_sdk'
-                password 'AKCp8jQcoDy2hxSWhDAUQKXLDPDx6NYRkqrgFLRc3qDrayg6rrCbJpsKKyMwaykVL8FWusJpp'
-            }
+    maven {
+        url 'https://maven.pkg.github.com/ims-developers/android-sdk'
+        credentials {
+            username 'YOUR_GITHUB_USER_NAME'
+            password 'YOUR_GITHUB_PAT'
         }
+    }
         </Repository>
     </GradleRepository>
 </ItemGroup>
