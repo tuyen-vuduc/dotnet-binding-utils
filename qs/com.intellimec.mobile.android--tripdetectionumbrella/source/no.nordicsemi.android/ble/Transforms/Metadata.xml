@@ -1,3 +1,56 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+	<attr path="//field[@name='timeout' and @visibility='protected']" name="managedName">_timeout</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_AUTH_FAIL']" name="managedName">GATT_AUTH_FAIL</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_BUSY']" name="managedName">GATT_BUSY</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_CCCD_CFG_ERROR']" name="managedName">GATT_CCCD_CFG_ERROR</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_CMD_STARTED']" name="managedName">GATT_CMD_STARTED</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_CONGESTED']" name="managedName">GATT_CONGESTED</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_CONN_CANCEL']" name="managedName">GATT_CONN_CANCEL</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_CONN_FAIL_ESTABLISH']" name="managedName">GATT_CONN_FAIL_ESTABLISH</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_CONN_L2C_FAILURE']" name="managedName">GATT_CONN_L2C_FAILURE</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_CONN_LMP_TIMEOUT']" name="managedName">GATT_CONN_LMP_TIMEOUT</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_CONN_TERMINATE_LOCAL_HOST']" name="managedName">GATT_CONN_TERMINATE_LOCAL_HOST</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_CONN_TERMINATE_PEER_USER']" name="managedName">GATT_CONN_TERMINATE_PEER_USER</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_CONN_TIMEOUT']" name="managedName">GATT_CONN_TIMEOUT</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_CONTROLLER_BUSY']" name="managedName">GATT_CONTROLLER_BUSY</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_DB_FULL']" name="managedName">GATT_DB_FULL</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_ENCRYPTED_NO_MITM']" name="managedName">GATT_ENCRYPTED_NO_MITM</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_ERROR']" name="managedName">GATT_ERROR</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_ERR_UNLIKELY']" name="managedName">GATT_ERR_UNLIKELY</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_ILLEGAL_PARAMETER']" name="managedName">GATT_ILLEGAL_PARAMETER</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_INSUF_AUTHENTICATION']" name="managedName">GATT_INSUF_AUTHENTICATION</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_INSUF_AUTHORIZATION']" name="managedName">GATT_INSUF_AUTHORIZATION</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_INSUF_ENCRYPTION']" name="managedName">GATT_INSUF_ENCRYPTION</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_INSUF_KEY_SIZE']" name="managedName">GATT_INSUF_KEY_SIZE</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_INSUF_RESOURCE']" name="managedName">GATT_INSUF_RESOURCE</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_INTERNAL_ERROR']" name="managedName">GATT_INTERNAL_ERROR</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_INVALID_ATTR_LEN']" name="managedName">GATT_INVALID_ATTR_LEN</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_INVALID_CFG']" name="managedName">GATT_INVALID_CFG</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_INVALID_HANDLE']" name="managedName">GATT_INVALID_HANDLE</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_INVALID_OFFSET']" name="managedName">GATT_INVALID_OFFSET</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_INVALID_PDU']" name="managedName">GATT_INVALID_PDU</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_MORE']" name="managedName">GATT_MORE</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_NOT_ENCRYPTED']" name="managedName">GATT_NOT_ENCRYPTED</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_NOT_FOUND']" name="managedName">GATT_NOT_FOUND</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_NOT_LONG']" name="managedName">GATT_NOT_LONG</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_NO_RESOURCES']" name="managedName">GATT_NO_RESOURCES</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_PENDING']" name="managedName">GATT_PENDING</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_PREPARE_Q_FULL']" name="managedName">GATT_PREPARE_Q_FULL</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_PROCEDURE_IN_PROGRESS']" name="managedName">GATT_PROCEDURE_IN_PROGRESS</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_READ_NOT_PERMIT']" name="managedName">GATT_READ_NOT_PERMIT</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_REQ_NOT_SUPPORTED']" name="managedName">GATT_REQ_NOT_SUPPORTED</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_SERVICE_STARTED']" name="managedName">GATT_SERVICE_STARTED</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_SUCCESS']" name="managedName">GATT_SUCCESS</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_UNACCEPT_CONN_INTERVAL']" name="managedName">GATT_UNACCEPT_CONN_INTERVAL</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_UNSUPPORT_GRP_TYPE']" name="managedName">GATT_UNSUPPORT_GRP_TYPE</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_VALUE_OUT_OF_RANGE']" name="managedName">GATT_VALUE_OUT_OF_RANGE</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_WRITE_NOT_PERMIT']" name="managedName">GATT_WRITE_NOT_PERMIT</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='GATT_WRONG_STATE']" name="managedName">GATT_WRONG_STATE</attr>
+	<attr path="/api/package[@name='no.nordicsemi.android.ble.error']/class[@name='GattError']/field[@name='TOO_MANY_OPEN_CONNECTIONS']" name="managedName">TOO_MANY_OPEN_CONNECTIONS</attr>
+	<remove-node path="/api/package[@name='no.nordicsemi.android.ble']/class[@name='Request']/field[@name='handler']"></remove-node>
+	<remove-node path="/api/package[@name='no.nordicsemi.android.ble']/class[@name='Request']/field[@name='requestHandler']"></remove-node>
+	<remove-node path="/api/package[@name='no.nordicsemi.android.ble']/class[@name='BleManager.BleManagerGattCallback']"></remove-node>
+	<remove-node path="/api/package[@name='no.nordicsemi.android.ble']/class[@name='BleManager']/field[@name='requestHandler']"></remove-node>
+	<remove-node path="/api/package[@name='no.nordicsemi.android.ble']/class[@name='BleManager']/method[@name='getGattCallback']"></remove-node>
 </metadata>
