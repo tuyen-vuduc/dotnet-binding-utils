@@ -1,4 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-    <remove-node path="/api/package[@name='org.xbill.DNS']/class[@name='Record']/implements[@name='java.lang.Comparable']" />
+	<attr path="//field[@name='Companion']" name="managedName">CompanionField</attr>
+	<attr path="//field[@name='deviceIdentifier']" name="managedName">_deviceIdentifier</attr>
+	<attr path="//field[@name='logger']" name="managedName">_logger</attr>
+	<attr path="//field[@name='connectivityManager']" name="managedName">_connectivityManager</attr>
+	<attr path="//field[@name='timeMonitor']" name="managedName">_timeMonitor</attr>
+	<attr path="//field[@name='timeOffsetStore']" name="managedName">_timeOffsetStore</attr>
+	<attr path="//field[@name='tokenResolver']" name="managedName">_tokenResolver</attr>
 </metadata>
