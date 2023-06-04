@@ -1,4 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
 	<attr path="//field[@name='Companion']" name="managedName">CompanionField</attr>
+	<attr path="/api/package[@name='com.drivesync.android.provider.activity.mobile']/class[@name='GmsActivityProvider']/method[@name='parseResult' and count(parameter)=1 and parameter[1][@type='android.content.Intent']]" name="managedName">ParseResultX</attr>
+	<attr path="/api/package[@name='com.drivesync.android.provider.activity.mobile']/class[@name='GmsActivityProvider']/method[@name='parseResult' and count(parameter)=1 and parameter[1][@type='android.content.Intent']]" name="visibility">protected</attr>
+	<attr path="/api/package[@name='com.drivesync.android.provider.activity.mobile']/class[@name='GmsActivityProvider']/method[@name='createRequest' and count(parameter)=0]" name="managedName">CreateRequestX</attr>
+	<attr path="/api/package[@name='com.drivesync.android.provider.activity.mobile']/class[@name='GmsActivityProvider']/method[@name='createRequest' and count(parameter)=0]" name="visibility">protected</attr>
+	<remove-node path="/api/package[@name='com.drivesync.android.provider.activity']/interface[@name='DsActivityProvider']/method[@name='createRequest' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='com.drivesync.android.provider.activity']/interface[@name='DsActivityRequest']/method[@name='cancelUpdates' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String']]" />
 </metadata>
