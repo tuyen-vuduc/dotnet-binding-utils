@@ -15,4 +15,6 @@
 	<remove-node path="/api/package[@name='com.drivesync.android.location']/interface[@name='DsGeofenceRequest']/method[@name='setUpdateListener' and count(parameter)=2 and parameter[1][@type='java.lang.String'] and parameter[2][@type='java.lang.Class&lt;? extends android.content.BroadcastReceiver&gt;']]" />
 	<attr path="/api/package[@name='com.drivesync.android.location.mobile']/class[@name='GmsGeofenceProvider.GmsGeofenceRequest']/method[@name='parseResult' and count(parameter)=1 and parameter[1][@type='android.content.Intent']]" name="managedName">ParseResultX</attr>
 	<attr path="/api/package[@name='com.drivesync.android.location.mobile']/class[@name='GmsGeofenceProvider.GmsGeofenceRequest']/method[@name='parseResult' and count(parameter)=1 and parameter[1][@type='android.content.Intent']]" name="visibility">protected</attr>
+	<remove-node path="/api/package[@name='com.drivesync.android.location']/interface[@name='DsGeofenceProvider']/implements[@name='com.drivesync.android.provider.GenericProvider']" />
+	<remove-node path="/api/package[@name='com.drivesync.android.location']/interface[@name='DsGeofenceRequest']/implements[@name='com.drivesync.android.provider.GenericProviderRequest']" />
 </metadata>

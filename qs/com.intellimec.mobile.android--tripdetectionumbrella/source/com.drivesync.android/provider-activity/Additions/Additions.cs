@@ -399,7 +399,6 @@ namespace Com.Drivesync.Android.Provider.Activity
         }
     }
 
-
     partial class IDsActivityRequestInvoker
     {
 
