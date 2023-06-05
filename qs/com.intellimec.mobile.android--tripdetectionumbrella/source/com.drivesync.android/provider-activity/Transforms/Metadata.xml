@@ -10,7 +10,6 @@
 	<remove-node path="/api/package[@name='com.drivesync.android.provider.activity']/interface[@name='DsActivityProvider']/method[@name='createRequest' and count(parameter)=0]" />
 	<remove-node path="/api/package[@name='com.drivesync.android.provider.activity']/interface[@name='DsActivityRequest']/method[@return='com.drivesync.android.provider.activity.DsActivityRequest']" />
 	<attr path="/api/package[@name='com.drivesync.android.provider.activity.mobile']/class[@name='GmsActivityProvider.GmsActivityRequest']/method[@name='startUpdates' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String']]" name="visibility">public</attr>
-
 	<remove-node path="/api/package[@name='com.drivesync.android.provider.activity']/interface[@name='DsActivityProvider']/implements[@name='com.drivesync.android.provider.GenericProvider']" />
 	<remove-node path="/api/package[@name='com.drivesync.android.provider.activity']/interface[@name='DsActivityRequest']/implements[@name='com.drivesync.android.provider.GenericProviderRequest']" />
 </metadata>
