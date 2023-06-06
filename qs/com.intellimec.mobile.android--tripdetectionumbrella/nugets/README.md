@@ -1,9 +1,3 @@
-# Build package
-
-```
-sh build.sh --base-path $PWD
-```
-
 # HOW to USE
 
 ## Preparation
@@ -105,4 +99,3 @@ dotnet nuget add Com.Intellimec.Mobile.Android.Tripdetectionumbrella
 dotnet nuget add Com.Intellimec.Mobile.Android.Distracteddriving
 dotnet nuget add Com.Drivesync.Android.DevicesWedge
 ```
-
