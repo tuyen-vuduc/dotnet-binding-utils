@@ -55,6 +55,7 @@
 	],
 	"fixedDepedencies": {
 		"Xamarin.GooglePlayServices.Location": "120.0.0",
-		"Xamarin.AndroidX.Annotation": "1.3.0"
+		"Xamarin.AndroidX.Annotation": "1.6.0.1",
+		"Xamarin.Kotlin.StdLib.Jdk8": "1.8.20.1"
 	}
 }

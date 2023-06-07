@@ -82,6 +82,8 @@ NOTE-3/3: You shouldn't commit this file into GIT
 ```
 <Project Sdk="Microsoft.NET.Sdk">
 	<Import Condition="EXISTS('{your-project-file-name}.props')" Project="{your-project-file-name}.props" />
+    <!-- Required by TripDetectionUmbrella libraries -->
+    <AndroidMinSdkVersion>26</AndroidMinSdkVersion>
     <!-- other lines -->
 </Project>
 ```
@@ -106,3 +108,5 @@ dotnet nuget add Com.Intellimec.Mobile.Android.Distracteddriving
 dotnet nuget add Com.Drivesync.Android.DevicesWedge
 ```
 
+NOTE 1/2: Ensure all packages restored well without warning
+NOTE 2/2: Ensure Xamarin.Forms version greater than or equal to 5.0.0.2599-pre1 if you using Xamarin.Forms
