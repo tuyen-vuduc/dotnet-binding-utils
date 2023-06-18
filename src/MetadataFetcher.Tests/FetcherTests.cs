@@ -11,6 +11,8 @@ public class FetcherTests
     }
 
     [Theory]
+    [InlineData("iProov.Android", "com.iproov.sdk", "iproov")]
+    [InlineData("PSPDFKit.Android", "com.pspdfkit", "pspdfkit")]
     [InlineData("Xamarin.AndroidX.LocalBroadcastManager", "androidx.localbroadcastmanager", "localbroadcastmanager")]
     [InlineData("Xamarin.Kotlin.Reflect", "com.squareup.okio", "kotlin-reflect")]
     [InlineData("Square.OkIO", "com.squareup.okio", "okio")]
