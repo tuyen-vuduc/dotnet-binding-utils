@@ -13,7 +13,7 @@ public static class ArtifactScanner
         string version,
         Action<string> log)
     {
-        return Scan(new (), metadataBasePath, groupId, artifactId, NuGetVersion.Parse(version), log, missingArtifacts: new ());
+        return Scan(new(), metadataBasePath, groupId, artifactId, NuGetVersion.Parse(version), log, missingArtifacts: new());
     }
 
     public static List<ArtifactModel> Scan(
@@ -63,7 +63,7 @@ public static class ArtifactScanner
             Version = version,
             NugetVersion = version.ToNuGetVersion(nugetRevision),
             NugetPackageId = CreateNugetId(groupId, artifactId),
-            ParentArtifacts = new KeyValuePair<string, string> [] {},
+            ParentArtifacts = new KeyValuePair<string, string>[] { },
             Files = artifactFiles,
             Tags = tags,
         };
@@ -107,7 +107,7 @@ public static class ArtifactScanner
         foreach (XmlNode dependency in dependencies)
         {
             var scope = dependency.SelectSingleNode("descendant::mvn:scope", nsmgr)?.InnerText;
-            if (string.IsNullOrEmpty(scope) || scope == "test") continue;            
+            if (string.IsNullOrEmpty(scope) || scope == "test") continue;
 
             var xgroupId = dependency.SelectSingleNode("descendant::mvn:groupId", nsmgr).InnerText;
             var xartifactId = dependency.SelectSingleNode("descendant::mvn:artifactId", nsmgr).InnerText;
@@ -119,12 +119,21 @@ public static class ArtifactScanner
                 x => x.GroupId == xgroupId && x.ArtifactId == xartifactId
             );
 
+            // TODO Handle version range
             var xversion = dependency.SelectSingleNode("descendant::mvn:version", nsmgr)?.InnerText?.Trim('[', ']');
 
-            // TODO Handle version range
-            var artifactVersion = SemanticVersion.TryParse(xversion, out var semanticVersion)
-                ? semanticVersion
-                : NuGetVersion.Parse(xversion);
+            SemanticVersion artifactVersion;
+            if (xversion.StartsWith("${"))
+            {
+                var propertyValue = xmlDocument.SelectSingleNode($"mvn:properties/{xversion.Trim('$', '{', '}')}").InnerText;
+                artifactVersion = SemanticVersion.Parse(propertyValue);
+            }
+            else
+            {
+                artifactVersion = SemanticVersion.TryParse(xversion, out var semanticVersion)
+                    ? semanticVersion
+                    : NuGetVersion.Parse(xversion);
+            }
 
             if (existingArtifact != null && artifactVersion != existingArtifact.Version)
             {
@@ -258,7 +267,7 @@ public static class ArtifactScanner
             );
 
         if (!System.IO.File.Exists(externalArtifactVersionPath)) return null;
-        
+
         var artifactVersionModel = ReadArtifactVersionModel(externalArtifactVersionPath);
 
         if (artifactVersionModel.FallbackVersion != null)
