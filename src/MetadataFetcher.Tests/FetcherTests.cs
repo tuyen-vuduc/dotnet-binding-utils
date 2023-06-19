@@ -11,6 +11,8 @@ public class FetcherTests
     }
 
     [Theory]
+    [InlineData("Xamarin.CheckerFramework.CheckerCompat", "org.checkerframework", "checker-compat")]
+    [InlineData("Xamarin.CheckerFramework.CheckerCompatQual", "org.checkerframework", "checker-compat-qual")]
     [InlineData("iProov.Android", "com.iproov.sdk", "iproov")]
     [InlineData("PSPDFKit.Android", "com.pspdfkit", "pspdfkit")]
     [InlineData("Xamarin.AndroidX.LocalBroadcastManager", "androidx.localbroadcastmanager", "localbroadcastmanager")]
