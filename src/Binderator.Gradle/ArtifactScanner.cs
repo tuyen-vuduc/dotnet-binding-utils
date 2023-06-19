@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Xml;
 
 namespace Binderator.Gradle;
 
@@ -15,6 +16,11 @@ public static class ArtifactScanner
     {
         return Scan(new(), metadataBasePath, groupId, artifactId, NuGetVersion.Parse(version), log, missingArtifacts: new());
     }
+
+    static readonly string[] skippedDependencies = new[] {
+        "junit",
+        "jsr305",
+    };
 
     public static List<ArtifactModel> Scan(
         List<ArtifactModel> existingArtifacts,
@@ -107,13 +113,13 @@ public static class ArtifactScanner
         foreach (XmlNode dependency in dependencies)
         {
             var scope = dependency.SelectSingleNode("descendant::mvn:scope", nsmgr)?.InnerText;
-            if (string.IsNullOrEmpty(scope) || scope == "test") continue;
+            if (scope == "test") continue;
 
             var xgroupId = dependency.SelectSingleNode("descendant::mvn:groupId", nsmgr).InnerText;
             var xartifactId = dependency.SelectSingleNode("descendant::mvn:artifactId", nsmgr).InnerText;
 
             // TODO Why artifact adds junit as a compile dependency?
-            if (xartifactId == "junit") continue;
+            if (skippedDependencies.Contains(xartifactId)) continue;
 
             var existingArtifact = existingArtifacts.FirstOrDefault(
                 x => x.GroupId == xgroupId && x.ArtifactId == xartifactId
@@ -122,14 +128,29 @@ public static class ArtifactScanner
             // TODO Handle version range
             var xversion = dependency.SelectSingleNode("descendant::mvn:version", nsmgr)?.InnerText?.Trim('[', ']');
 
+            if (xversion == null)
+            {
+                if (existingArtifact == null) continue;
+
+                xversion = existingArtifact.Version.ToNormalizedString();
+            }
+
             SemanticVersion artifactVersion;
             if (xversion.StartsWith("${"))
             {
-                var propertyValue = xmlDocument.SelectSingleNode($"mvn:properties/{xversion.Trim('$', '{', '}')}").InnerText;
-                artifactVersion = SemanticVersion.Parse(propertyValue);
+                xversion = GetVersion(xmlDocument, nsmgr, xversion);
+                artifactVersion = SemanticVersion.Parse(xversion);
             }
             else
             {
+                if (xversion.Contains("-${"))
+                {
+                    var xversions = xversion.Split(new[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
+                    xversions[1] = GetVersion(xmlDocument, nsmgr, xversions[1]);
+
+                    xversion = string.Join("-", xversions);
+                }
+
                 artifactVersion = SemanticVersion.TryParse(xversion, out var semanticVersion)
                     ? semanticVersion
                     : NuGetVersion.Parse(xversion);
@@ -194,6 +215,22 @@ public static class ArtifactScanner
         artifact.ParentArtifacts = parentArtifactIds.ToArray();
 
         return artifacts;
+    }
+
+    private static string GetVersion(XmlDocument xmlDocument, XmlNamespaceManager nsmgr, string xversion)
+    {
+        while (xversion.StartsWith("${"))
+        {
+            var propertyName = xversion.Trim('$', '{', '}');
+
+            xversion = propertyName switch
+            {
+                "project.parent.version" => xmlDocument.SelectSingleNode($"mvn:project/mvn:parent/mvn:version", nsmgr).InnerText,
+                "project.version" => xmlDocument.SelectSingleNode($"mvn:project/mvn:version", nsmgr).InnerText,
+                _ => xmlDocument.SelectSingleNode($"descendant::mvn:properties/mvn:{propertyName}", nsmgr).InnerText
+            };
+        }
+        return xversion;
     }
 
     private static (string, string[]) GetArtifactFiles(

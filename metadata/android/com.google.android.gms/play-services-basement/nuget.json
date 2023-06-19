@@ -4,7 +4,7 @@
     {
         "prefix": "1",
         "method": "Prefix",
-        "fromVersion": "117.0.0-preview01"
+        "fromVersion": "100.0.0"
     },
     {
         "prefix": "1",

@@ -22,6 +22,7 @@ public class GradleSync : AsyncTask, Xamarin.Build.Download.ILogger
     public string GradleAssetsPath { get; set; }
     public string TempDir { get; set; }
     public bool IsAndroid { get; set; }
+    public bool EnableJetifier { get; set; }
     public string AndroidSdkPath { get; set; }
     public string AndroidMinSdkVersion { get; set; }
     public string AndroidTargetSdkVersion { get; set; }
@@ -69,6 +70,8 @@ public class GradleSync : AsyncTask, Xamarin.Build.Download.ILogger
                 AddRepositories();
 
                 AdjustSdkVersions();
+
+                AdjustGradleProperties();
 
                 AddDependencies(implementations);
 
@@ -128,6 +131,25 @@ public class GradleSync : AsyncTask, Xamarin.Build.Download.ILogger
         }
 
         return false;
+    }
+
+    private void AdjustGradleProperties()
+    {
+        var gradleSyncPath = Path.Combine(TempDir, "gradle.properties");
+        var gradleSyncContent = File.ReadAllText(gradleSyncPath);
+        LogMessage(gradleSyncContent, MessageImportance.Normal);
+
+        if (EnableJetifier)
+        {
+            gradleSyncContent += @"
+
+# Automatically convert third-party libraries to use AndroidX
+android.enableJetifier=true
+            ";
+        }
+
+        File.WriteAllText(gradleSyncPath, gradleSyncContent);
+        LogMessage(gradleSyncContent, MessageImportance.Normal);
     }
 
     private void AdjustSdkVersions()

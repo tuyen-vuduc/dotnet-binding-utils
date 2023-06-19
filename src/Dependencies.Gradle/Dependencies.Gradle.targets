@@ -35,6 +35,7 @@
 			User7ZipPath="$(GradleSyncUser7ZipPath)"
 			VsInstallRoot="$(VsInstallRoot)"
 			IsAndroid="$(_GradleSyncIsAndroid)"
+			EnableJetifier="$(GradleSyncEnableJetifier)"
 			AndroidSdkPath="$(AndroidSdkDirectory)"
 			AndroidMinSdkVersion="$(AndroidMinSdkVersion)"
 			AndroidTargetSdkVersion="$(AndroidTargetSdkVersion)"

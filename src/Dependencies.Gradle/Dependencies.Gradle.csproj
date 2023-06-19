@@ -10,14 +10,14 @@
 
     <PackageId>Dependencies.Gradle</PackageId>
     <Title>Xamarin Build-time Gradle Support for Android</Title>
-    <PackageVersion>7.6.0.1</PackageVersion>
+    <PackageVersion>7.6.0.2</PackageVersion>
     <Authors>tuyen,tuyen-vuduc</Authors>
     <Owners>tuyen,tuyen-vuduc</Owners>
     <PackageProjectUrl>https://github.com/tuyen-vuduc/xamarin-android-build-gradle</PackageProjectUrl>
     <PackageIcon>tv-ico.png</PackageIcon>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Description>To resolve Android dependencies using Gradle when building an Andriod app project</Description>
+    <Description>To resolve Android dependencies using Gradle when building an Android app project</Description>
     <Copyright>© tuyen-vuduc. All rights reserved.</Copyright>
     <RepositoryUrl>https://github.com/tuyen-vuduc/xamarin-android-build-gradle.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
@@ -37,7 +37,6 @@
     <None Include="Dependencies.Gradle.props" Pack="True" PackagePath="buildTransitive\Dependencies.Gradle.props" CopyToOutputDirectory="PreserveNewest" />
     <None Include="Dependencies.Gradle.assets.zip" Pack="True" PackagePath="buildTransitive\Dependencies.Gradle.assets.zip" CopyToOutputDirectory="PreserveNewest" />
     <None Include="$(PkgMicrosoft_Win32_Registry)\runtimes\win\lib\netstandard2.0\Microsoft.Win32.Registry.dll" Visible="False" Pack="True" PackagePath="buildTransitive\Microsoft.Win32.Registry.dll" />
-    <None Include="$(TargetPath)" Pack="True" PackagePath="buildTransitive\Dependencies.Gradle.dll" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Build.Framework" Version="17.4.0" PrivateAssets="all" />
