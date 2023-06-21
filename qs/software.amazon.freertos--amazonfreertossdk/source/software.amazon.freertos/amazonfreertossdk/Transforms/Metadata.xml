@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<metadata>
-    <attr path="/api/package[@name='software.amazon.freertos.amazonfreertossdk.deviceinfo']/class[@name='Mtu']/field[@name='mtu']" name="managedName">MtuField</attr>
-    <attr path="/api/package[@name='software.amazon.freertos.amazonfreertossdk.deviceinfo']/class[@name='Version']/field[@name='version']" name="managedName">VersionField</attr>
-    <attr path="/api/package[@name='software.amazon.freertos.amazonfreertossdk.deviceinfo']/class[@name='BrokerEndpoint']/field[@name='brokerEndpoint']" name="managedName">BrokerEndpointField</attr>
-</metadata>
