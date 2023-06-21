@@ -18,7 +18,7 @@
     <PackageReference Include="Dependencies.Gradle" Version="7.6.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <GradleImplementation Include="com.braintreepayments.api:drop-in:6.8.0"></GradleImplementation>
+    <GradleImplementation Include="com.braintreepayments.api:drop-in:6.9.0"></GradleImplementation>
     <GradleRepository Include="https://cardinalcommerceprod.jfrog.io/artifactory/android">
       <Repository>
       maven {

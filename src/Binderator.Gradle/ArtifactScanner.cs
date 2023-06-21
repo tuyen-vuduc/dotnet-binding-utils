@@ -113,7 +113,7 @@ public static class ArtifactScanner
         foreach (XmlNode dependency in dependencies)
         {
             var scope = dependency.SelectSingleNode("descendant::mvn:scope", nsmgr)?.InnerText;
-            if (scope == "test") continue;
+            if (string.IsNullOrWhiteSpace(scope) || scope == "test") continue;
 
             var xgroupId = dependency.SelectSingleNode("descendant::mvn:groupId", nsmgr).InnerText;
             var xartifactId = dependency.SelectSingleNode("descendant::mvn:artifactId", nsmgr).InnerText;

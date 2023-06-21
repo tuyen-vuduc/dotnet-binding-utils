@@ -20,12 +20,13 @@
 	</PropertyGroup>
 
 	<Target
-			Name="_GradleSync"
-			DependsOnTargets="_GradleSyncCore"
+		Name="_GradleSync"
+		DependsOnTargets="_GradleSyncCore"
 		/>
 	
-	<Target Name="_GradleSyncCore"
-			Condition="'@(GradleImplementation)'!=''">
+	<Target 
+		Name="_GradleSyncCore"
+		Condition="'@(GradleImplementation)'!=''">
 		<GradleSync
 			TempDir="$(GradleSyncTempDir)"
 			GradleAssetsPath="$(GradleSyncAssetsPath)"
