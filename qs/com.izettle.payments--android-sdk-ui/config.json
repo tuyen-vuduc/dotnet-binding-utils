@@ -32,9 +32,15 @@
 			"groupId": "com.izettle.payments",
 			"artifactId": "android-sdk-ui",
 			"artifactName": "Android SDK UI",
-			"version": "1.34.3",
+			"version": "1.36.8",
 			"nugetRevision": 0,
 			"tags": [ "zettle", "izettle" ]
 		}
-	]
+	],
+	"fixedDepedencies": {
+		"Xamarin.AndroidX.Annotation": "1.6.0.2",
+		"Xamarin.Kotlin.StdLib.Jdk7": "1.8.21.1",
+		"Xamarin.AndroidX.Core": "1.10.1.1",
+		"Xamarin.AndroidX.Transition": "1.4.0.1"
+	}
 }

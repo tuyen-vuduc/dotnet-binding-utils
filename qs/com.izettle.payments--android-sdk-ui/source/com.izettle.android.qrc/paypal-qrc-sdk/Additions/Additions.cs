@@ -1,4 +1,12 @@
 using System.Linq;
+namespace Com.Izettle.Android.Qrc.Paypal.UI.Payment
+{
+    //partial class PayPalQrcPaymentActivity
+    //{
+    //    public override global::AndroidX.Fragment.App.Fragment OnCreatePaymentFragment()
+    //        => OnCreatePaymentFragmentX();
+    //}
+}
 
 namespace Com.Izettle.Android.Qrc.Paypal.UI.Refund
 {

@@ -6,7 +6,13 @@ on:
       LIB_FOLDER:
         description: 'Folder of Android library to publish'
         required: true
-        type: string
+        type: choice
+        options: 
+        - com.braintreepayments.api--drop-in
+        - com.intellimec.mobile.android--tripdetectionumbrella
+        - com.izettle.payments--android-sdk-ui
+        - com.mapbox.maps--android
+        - org.jfrog.cardinalcommerce.gradle--cardinalmobilesdk
 jobs:
   build-then-publish:
     environment: production

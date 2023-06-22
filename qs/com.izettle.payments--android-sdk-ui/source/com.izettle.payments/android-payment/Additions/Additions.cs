@@ -1,4 +1,6 @@
 using System.Linq;
+using Com.Izettle.Android.Commons.State;
+using Com.Izettle.Payments.Android.Payment.Refunds;
 
 namespace Com.Izettle.Payments.Android.Payment.Refunds
 {
@@ -259,5 +261,16 @@ namespace Com.Izettle.Payments.Android.Payment.Vendors.Datecs
             public unsafe global::Java.Lang.Object Invoke(global::Java.Lang.Object obj1, global::Java.Lang.Object obj2)
              => (global::Java.Lang.Object)Invoke(obj1 as global::Com.Izettle.Payments.Android.Payment.Vendors.Datecs.ISystemUi, obj2 as global::Com.Izettle.Android.Commons.Thread.IEventsLoop);
         }
+    }
+}
+
+namespace Com.Izettle.Payments.Android.Payment.Devmode
+{
+    partial class DevModeRefundManagerImpl : global::Com.Izettle.Payments.Android.Payment.Refunds.IRefundsManager
+    {
+        IState IRefundsManager.GetState() => State;
+
+        void IRefundsManager.InvokeAction(IRefundsManager.Action action)
+            => Action(action);
     }
 }

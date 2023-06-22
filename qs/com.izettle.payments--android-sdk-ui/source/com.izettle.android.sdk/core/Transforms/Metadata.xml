@@ -5,7 +5,6 @@
 	<attr path="//field[@name='cancelBtnView']" name="managedName">cancelBtnViewField</attr>
 	<attr path="//field[@name='optionsView']" name="managedName">optionsViewField</attr>
 	<attr path="//field[@name='titleView']" name="managedName">titleViewField</attr>
-	<attr path="//field[@name='viewPager']" name="managedName">viewPagerField</attr>
 	<attr path="//field[@name='Static']" name="managedName">StaticField</attr>
 	<attr path="//field[@name='CREATOR']" name="managedName">CREATOR_FIELD</attr>
 	<attr path="//class[implements[@name='android.os.Parcelable.Creator']]/method[@name='createFromParcel' and count(parameter)=1 and parameter[1][@type='android.os.Parcel']]" name="managedName">DoCreateFromParcel</attr>
