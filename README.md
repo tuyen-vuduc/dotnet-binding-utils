@@ -10,8 +10,8 @@ I hope it will enable everyone to create, maintain .NET binding libraries either
 | ID | Name/Nuget           | Description                                                       |
 |----|------------          |-------------                                                      |
 | 01 | Dependencies.Gradle  | Make use of gradle to download Android/Java native dependencies   |
-| 02 | Binderators.Gradle | Make use of gradle to download dependencies, form up the dependent tree, then generated appropriate binding csproj and targets. |
-| 03 | MetadataFetcher | Fetch and map native libaries with their NuGet packages |
+| 02 | Binderators.Gradle   | Make use of gradle to download dependencies, form up the dependent tree, then generated appropriate binding csproj and targets. |
+| 03 | MetadataFetcher      | Fetch and map native libaries with their NuGet packages |
 
 ## Usage
 
@@ -315,6 +315,11 @@ console.log(
 )
 ```
 
+6) Fix for Companion field
+```
+<attr path="//field[@name='Companion']" name="managedName">CompanionField</attr>
+```
+
 # Maintainer
 This project is maintained by [tuyen-vuduc](https://github.com/tuyen-vuduc) in his spare time and/or when requested.<br>
 
@@ -324,7 +329,4 @@ If you find this project is helpful and benefit your work/business, please give 
 
 # License
 
-Braintree native libraries and its dependencies are licensed under their original owners' licenses. Please check out their main website for further information.
-
-Braintree binding libraries for Android is released under the MIT license.
-See [LICENSE](./LICENSE) for details.
+N/A
