@@ -23,7 +23,7 @@
     <Company>N/A</Company>
     <FileVersion>@(Model.Artifact.NugetVersion + "-" + DateTimeOffset.Now.ToUnixTimeSeconds())</FileVersion>
     <InformationalVersion>@(Model.Artifact.NugetVersion)</InformationalVersion>
-    <AssemblyVersion>@(Model.Artifact.NugetVersion)</AssemblyVersion>
+    <AssemblyVersion>@(Model.Artifact.NugetVersion.Major + "." + Model.Artifact.NugetVersion.Minor + "." + Model.Artifact.NugetVersion.Patch)</AssemblyVersion>
     <Copyright>© tuyen-vuduc. All rights reserved.</Copyright>
     <PackageProjectUrl>@(Model.Config.ProjectUrl)</PackageProjectUrl>
     <PackageLicense>LICENSE</PackageLicense>
