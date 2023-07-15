@@ -34,6 +34,14 @@ jobs:
         distribution: 'microsoft'
         java-version: '11'
 
+    - name: Set MAPBOX_DOWNLOADS_TOKEN
+      run: |
+        echo 'MAPBOX_DOWNLOADS_TOKEN=$MAPBOX_DOWNLOADS_TOKEN' &gt;&gt; ~/.gradle/gradle.properties
+        cat ~/.gradle/gradle.properties
+      shell: bash
+      env:
+        MAPBOX_DOWNLOADS_TOKEN : ${{secrets.MAPBOX_DOWNLOADS_TOKEN}}
+
     - name: Install android workload
       run: |
         dotnet workload install android
