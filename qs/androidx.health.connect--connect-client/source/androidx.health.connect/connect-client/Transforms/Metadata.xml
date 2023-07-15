@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+	<attr path="//field[@name='Companion']" name="managedName">CompanionField</attr>
+	<attr path="/api/package[@name='androidx.health.platform.client.proto']/class[@name='ByteString']/field[@name='EMPTY']" name="managedName">EMPTY</attr>	
+	<attr path="/api/package[@name='androidx.health.platform.client.proto']/class[@name='AbstractProtobufList']" name="visibility">public</attr>
+	<remove-node path="/api/package[@name='androidx.health.platform.client.impl.sdkservice']/interface[@name='IHealthDataSdkService']/field[@name='DESCRIPTOR']"/>
+	<attr path="/api/package[@name='androidx.health.platform.client.impl.ipc']/interface[@name='Client.ServiceGetter']" name="visibility">public</attr>
+	<add-node path="/api/package[@name='androidx.health.platform.client.proto']/class[@name='AbstractMessageLite']">
+		<method abstract="true" deprecated="not deprecated" final="false" name="newBuilderForType" jni-signature="()Landroidx/health/platform/client/proto/AbstractMessageLite$Builder;" bridge="false" native="false" return="androidx.health.platform.client.proto.MessageLite.Builder" jni-return="Landroidx/health/platform/client/proto/MessageLite$Builder;" static="false" synchronized="false" synthetic="false" visibility="public" />
+    </add-node>
+	<attr path="/api/package[@name='androidx.health.platform.client.proto']/class[@name='GeneratedMessageLite']/method[@name='newBuilderForType' and count(parameter)=0]" name="return">androidx.health.platform.client.proto.MessageLite.Builder</attr>
+</metadata>
