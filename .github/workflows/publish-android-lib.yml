@@ -36,9 +36,11 @@ jobs:
 
     - name: Set MAPBOX_DOWNLOADS_TOKEN
       run: |
-        echo "MAPBOX_DOWNLOADS_TOKEN=${{secrets.MAPBOX_DOWNLOADS_TOKEN}}" >> ~/.gradle/gradle.properties
+        echo "MAPBOX_DOWNLOADS_TOKEN=$MAPBOX_DOWNLOADS_TOKEN" >> ~/.gradle/gradle.properties
         cat ~/.gradle/gradle.properties
       shell: bash
+      env:
+        MAPBOX_DOWNLOADS_TOKEN : ${{secrets.MAPBOX_DOWNLOADS_TOKEN}}
 
     - name: Install android workload
       run: |
