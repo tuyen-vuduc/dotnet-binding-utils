@@ -28,6 +28,7 @@
     <PackageProjectUrl>@(Model.Config.ProjectUrl)</PackageProjectUrl>
     <PackageLicense>LICENSE</PackageLicense>
     <PackageIcon>tv-ico.png</PackageIcon>
+    <PackageIcon>README.md</PackageIcon>
     <PackageVersion>@(Model.Artifact.NugetVersion)</PackageVersion>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <!-- Include symbol files (*.pdb) in the built .nupkg -->
@@ -96,6 +97,7 @@
   }    
     <None Include="../../../../assets/tv-ico.png" Pack="True" PackagePath="tv-ico.png" />
     <None Include="../../../../LICENSE" Pack="True" PackagePath="LICENSE" />
+    <None Include="../../README.md" Pack="True" PackagePath="README.md" />
   </ItemGroup>
 
   <ItemGroup>
