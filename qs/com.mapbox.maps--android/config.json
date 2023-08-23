@@ -9,9 +9,9 @@
 		"net6.0-android31.0",
 		"net7.0-android33.0"
 	],
-	"projectUrl": "https://github.com/tuyen-vuduc/dotnet-binding-utils",
-	"licensePath": "LICENSE",
-	"iconPath": "tv-icon.png",
+	"projectUrl": "https://mapbox.tuyen-vuduc.tech",
+	"packageIconPath": "../../assets/tv-mapbox.png",
+	"licensePath": "../../LICENSE",
 	"tags": [ "android" ],
 	"templates" : [
 		{
@@ -33,14 +33,38 @@
 			"groupId": "com.mapbox.maps",
 			"artifactId": "android",
 			"artifactName": "Android SDK",
-			"version": "10.11.1",
+			"version": "10.15.0",
 			"nugetRevision": 0,
 			"tags": [ "mapbox", "mapbox-android" ]
 		}
 	],
-	"fixedDepedencies": {
-		"Xamarin.AndroidX.Annotation": "1.5.0.2",
+	"fixedDependencies": {
+		"Xamarin.AndroidX.Annotation": "1.6.0.4",
 		"Xamarin.Kotlin.StdLib.Jdk7": "1.5.31.4",
 		"Xamarin.AndroidX.Lifecycle.Runtime": "2.4.1.1"
+	},
+	"missedDependencies": {
+		"com.mapbox.common:logger": [
+			{
+				"groupId": "com.mapbox.base",
+				"artifactId": "common",
+				"dependencyOnly": false
+			}
+		],
+		"com.mapbox.common:loader": [
+			{
+				"groupId": "com.mapbox.base",
+				"artifactId": "common",
+				"dependencyOnly": false
+			}
+		],
+		"com.mapbox.mapboxsdk:mapbox-android-gestures": [
+			{
+				"groupId": "com.google.android.gms",
+				"artifactId": "play-services-location",
+				"version": "18.0.0",
+				"dependencyOnly": true
+			}
+		]
 	}
 }

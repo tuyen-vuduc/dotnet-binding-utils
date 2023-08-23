@@ -37,7 +37,7 @@
 			"tags": [ "health", "connect-client" ]
 		}
 	],
-	"fixedDepedencies": {
+	"fixedDependencies": {
 		"Xamarin.Google.Guava.ListenableFuture": "9999.0.0",
 		"Xamarin.Kotlin.StdLib": "1.8.20.1"
 	}

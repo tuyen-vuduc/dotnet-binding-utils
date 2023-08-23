@@ -15,12 +15,12 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Cake.Frosting" Version="3.0.0" />
-    <PackageReference Include="Dependencies.Gradle" Version="7.6.0.1" />
+    <PackageReference Include="Dependencies.Gradle" Version="7.6.0.2" />
     <!-- <PackageReference Include="Binderator.Gradle" Version="7.6.0" />
     <PackageReference Include="DotnetBindings.Cake" Version="0.1.0" /> -->
   </ItemGroup>
   <ItemGroup>
-    <GradleImplementation Include="com.mapbox.maps:android:10.11.1"></GradleImplementation>
+    <GradleImplementation Include="com.mapbox.maps:android:10.15.0"></GradleImplementation>
     <GradleRepository Include="https://api.mapbox.com/downloads/v2/releases/maven">
       <Repository>
       maven {

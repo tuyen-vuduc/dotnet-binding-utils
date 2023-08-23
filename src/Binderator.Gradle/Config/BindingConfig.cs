@@ -32,7 +32,7 @@ public class BindingConfig
 
 	public List<ArtifactModel> Artifacts { get; set; }
 
-	public Dictionary<string, NuGetVersion> FixedDepedencies { get; set; }
+	public Dictionary<string, NuGetVersion> FixedDependencies { get; set; }
 	public Dictionary<string, string> MvnRepositories { get; set; }
 	public Dictionary<string, string> MissingDependencies { get; set; }
 
@@ -40,7 +40,7 @@ public class BindingConfig
 	public string[] Tags { get; set; }
 
 	public string ProjectUrl { get; set; }
-	public string IconPath { get; set; }
+	public string PackageIconPath { get; set; }
 	public string LicensePath { get; set; }
     public string GroupName { get; set; }
     public int NugetRevision { get; set; }

@@ -112,7 +112,7 @@ public class Engine
                 var parentArtifact = config.Artifacts
                                         .First(x => x.NugetPackageId == mavenDep.Key);
 
-                var fixedParentVersion = config.FixedDepedencies?
+                var fixedParentVersion = config.FixedDependencies?
                                     .FirstOrDefault(x => x.Key == mavenDep.Key)
                                     .Value;
                 if (fixedParentVersion != null && fixedParentVersion > parentArtifact.NugetVersion)
