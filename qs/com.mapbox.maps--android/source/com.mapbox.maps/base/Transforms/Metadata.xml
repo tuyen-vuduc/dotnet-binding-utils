@@ -1,22 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
 	<attr
-		path="/api/package[@name='com.mapbox.maps.plugin']/class[@name='Plugin']/field[@name='Companion']"
-		name="managedName">CompanionField</attr>
-	<attr
-		path="/api/package[@name='com.mapbox.maps.plugin.animation']/class[@name='CameraAnimatorOptions']/field[@name='Companion']"
-		name="managedName">CompanionField</attr>
-	<attr
-		path="/api/package[@name='com.mapbox.maps.plugin.animation']/class[@name='MapAnimationOptions']/field[@name='Companion']"
-		name="managedName">CompanionField</attr>
-	<attr
-		path="/api/package[@name='com.mapbox.maps.plugin.annotation']/class[@name='Annotation']/field[@name='Companion']"
-		name="managedName">CompanionField</attr>
-	<attr
-		path="/api/package[@name='com.mapbox.maps.plugin.attribution']/class[@name='Attribution']/field[@name='Companion']"
-		name="managedName">CompanionField</attr>
-	<attr
-		path="/api/package[@name='com.mapbox.maps.plugin.viewport.data']/class[@name='ViewportStatusChangeReason']/field[@name='Companion']"
+		path="//field[@name='Companion']"
 		name="managedName">CompanionField</attr>
 	 <remove-node
 		path="/api/package[@name='com.mapbox.maps.extension.style']/interface[@name='StyleInterface']/implements[@name='com.mapbox.maps.StyleManagerInterface']" /> 

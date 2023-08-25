@@ -7,6 +7,7 @@ using System.Linq;
 namespace Com.Mapbox.Maps.Extension.Style
 {
     delegate IntPtr _JniMarshal_PPLFLZLLL_L(IntPtr jnienv, IntPtr klass, IntPtr p0, float p1, IntPtr p2, bool p3, IntPtr p4, IntPtr p5, IntPtr p6);
+    delegate IntPtr _JniMarshal_PPLLL_L(IntPtr jnienv, IntPtr klass, IntPtr p0, IntPtr p1, IntPtr p2);
 
     partial interface IStyleInterface : global::Com.Mapbox.Maps.IStyleManagerInterface
     {

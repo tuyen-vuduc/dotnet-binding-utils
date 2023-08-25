@@ -1,34 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
     <attr
-        path="/api/package[@name='com.mapbox.common']/class[@name='CoreInitializer']/field[@name='Companion']"
-        name="managedName">CompanionField</attr>
-    <attr
-        path="/api/package[@name='com.mapbox.common']/class[@name='LifecycleMonitorAndroid']/field[@name='Companion']"
-        name="managedName">CompanionField</attr>
-    <attr
-        path="/api/package[@name='com.mapbox.common']/class[@name='LifecycleService']/field[@name='Companion']"
-        name="managedName">CompanionField</attr>
-    <attr
-        path="/api/package[@name='com.mapbox.common']/class[@name='MmeTelemetryProperties']/field[@name='Companion']"
-        name="managedName">CompanionField</attr>
-    <attr
-        path="/api/package[@name='com.mapbox.common']/class[@name='SDKVersions']/field[@name='Companion']"
-        name="managedName">CompanionField</attr>
-    <attr
-        path="/api/package[@name='com.mapbox.common']/class[@name='SettingsServiceHelper']/field[@name='Companion']"
-        name="managedName">CompanionField</attr>
-    <attr
-        path="/api/package[@name='com.mapbox.common.location']/class[@name='BaseLiveTrackingClient']/field[@name='Companion']"
-        name="managedName">CompanionField</attr>
-    <attr
-        path="/api/package[@name='com.mapbox.common.location']/class[@name='LocationUpdatesReceiver']/field[@name='Companion']"
-        name="managedName">CompanionField</attr>
-    <attr
-        path="/api/package[@name='com.mapbox.common.location.compat']/class[@name='LocationEngineRequest']/field[@name='Companion']"
-        name="managedName">CompanionField</attr>
-    <attr
-        path="/api/package[@name='com.mapbox.common.location.compat']/class[@name='LocationEngineResult']/field[@name='Companion']"
+        path="//field[@name='Companion']"
         name="managedName">CompanionField</attr>
     <attr
         path="/api/package[@name='com.mapbox.common']/class[@name='MapboxSDKCommonInitializer']/method[@name='create' and count(parameter)=1 and parameter[1][@type='android.content.Context']]"
