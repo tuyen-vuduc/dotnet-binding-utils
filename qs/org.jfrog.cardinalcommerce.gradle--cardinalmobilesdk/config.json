@@ -9,8 +9,8 @@
 		"net6.0-android31.0"
 	],
 	"projectUrl": "https://github.com/tuyen-vuduc/dotnet-binding-utils",
-	"licensePath": "LICENSE",
-	"iconPath": "tv-ico.png",
+	"packageIconPath": "../../../../assets/tv-ico.png",
+	"licensePath": "../../../../LICENSE",
 	"tags": [ "android" ],
 	"templates" : [
 		{
@@ -32,7 +32,7 @@
 			"groupId": "org.jfrog.cardinalcommerce.gradle",
 			"artifactId": "cardinalmobilesdk",
 			"artifactName": "Android",
-			"version": "2.2.7-2",
+			"version": "2.2.7-3",
 			"nugetRevision": 1,
 			"tags": [ "cardinalcommerce" ]
 		}
