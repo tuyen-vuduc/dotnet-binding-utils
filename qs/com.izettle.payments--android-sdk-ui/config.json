@@ -37,7 +37,7 @@
 			"tags": [ "zettle", "izettle" ]
 		}
 	],
-	"fixedDepedencies": {
+	"fixedDependencies": {
 		"Xamarin.AndroidX.Annotation": "1.6.0.2",
 		"Xamarin.Kotlin.StdLib.Jdk7": "1.8.21.1",
 		"Xamarin.AndroidX.Core": "1.10.1.1",

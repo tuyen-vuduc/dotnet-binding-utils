@@ -2,6 +2,9 @@
 @using System.Linq
 @using System.Collections.Generic
 @{
+  var packageIconPath = Model.Config.PackageIconPath ?? "../../../../assets/tv-ico.png";
+  var licensePath = Model.Config.LicensePath ?? "../../../../LICENSE";
+  var xxxVersion = Model.Artifact.NugetVersion.Major + "." + Model.Artifact.NugetVersion.Minor + "." + Model.Artifact.NugetVersion.Patch;
 }
 <Project Sdk="Xamarin.Legacy.Sdk">
   <PropertyGroup>
@@ -21,14 +24,15 @@
     <Authors>tuyen,tuyen-vuduc</Authors>
     <Owners>tuyen,tuyen-vuduc</Owners>
     <Company>N/A</Company>
-    <FileVersion>@(Model.Artifact.NugetVersion + "-" + DateTimeOffset.Now.ToUnixTimeSeconds())</FileVersion>
-    <InformationalVersion>@(Model.Artifact.NugetVersion)</InformationalVersion>
-    <AssemblyVersion>@(Model.Artifact.NugetVersion.Major + "." + Model.Artifact.NugetVersion.Minor + "." + Model.Artifact.NugetVersion.Patch)</AssemblyVersion>
+    <FileVersion>@(xxxVersion)</FileVersion>
+    <InformationalVersion>@(Model.Artifact.NugetVersion + "-" + DateTimeOffset.Now.ToUnixTimeSeconds())</InformationalVersion>
+    <AssemblyVersion>@(xxxVersion)</AssemblyVersion>
     <Copyright>© tuyen-vuduc. All rights reserved.</Copyright>
     <PackageProjectUrl>@(Model.Config.ProjectUrl)</PackageProjectUrl>
-    <PackageLicense>LICENSE</PackageLicense>
-    <PackageIcon>tv-ico.png</PackageIcon>
-    <PackageIcon>README.md</PackageIcon>
+    <RepositoryUrl>https://github.com/tuyen-vuduc/dotnet-binding-utils</RepositoryUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageIcon>package-icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageVersion>@(Model.Artifact.NugetVersion)</PackageVersion>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <!-- Include symbol files (*.pdb) in the built .nupkg -->
@@ -39,7 +43,12 @@
     <AndroidClassParser>class-parse</AndroidClassParser>
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
   </PropertyGroup>
-
+  <ItemGroup>
+    <AndroidNamespaceReplacement Include='Com.Mapbox.Maps.Plugin' Replacement='Com.Mapbox.Maps.Plugins' Visible="false" />
+    <AndroidNamespaceReplacement Include='Com.Mapbox.Maps.Plugins.Attribution' Replacement='Com.Mapbox.Maps.Plugins.Attributions' Visible="false" />
+    <AndroidNamespaceReplacement Include='Com.Mapbox.Maps.Annotation' Replacement='Com.Mapbox.Maps.Annotations' Visible="false" />
+    <AndroidNamespaceReplacement Include='Com.Mapbox.Maps.Plugins.Annotation' Replacement='Com.Mapbox.Maps.Plugins.Annotations' Visible="false" />
+  </ItemGroup>
   <PropertyGroup>
     <!--
       =================================================================================================================
@@ -95,8 +104,8 @@
     <None Include="@(Model.Artifact.NugetPackageId).targets" Pack="True" PackagePath="build\@(targetFrameworkMoniker)" />
     <None Include="@(Model.Artifact.NugetPackageId).targets" Pack="True" PackagePath="buildTransitive\@(targetFrameworkMoniker)" />
   }    
-    <None Include="../../../../assets/tv-ico.png" Pack="True" PackagePath="tv-ico.png" />
-    <None Include="../../../../LICENSE" Pack="True" PackagePath="LICENSE" />
+    <None Include="@(packageIconPath)" Pack="True" PackagePath="package-icon.png" />
+    <None Include="@(licensePath)" Pack="True" PackagePath="" />
     <None Include="../../README.md" Pack="True" PackagePath="README.md" />
   </ItemGroup>
 
@@ -193,7 +202,7 @@
     }
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Dependencies.Gradle" Version="7.6.0.1" />
+    <PackageReference Include="Dependencies.Gradle" Version="7.6.0.2" />
   </ItemGroup>
   <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 </Project>

@@ -1,1 +1,1 @@
-dotnet run --project ./build/Build.csproj -- "$@"
+dotnet run --restore --project ./build/Build.csproj -- "$@"

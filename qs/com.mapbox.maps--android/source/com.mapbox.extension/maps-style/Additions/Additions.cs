@@ -6,7 +6,8 @@ namespace Com.Mapbox.Maps.Extension.Style.Layers.Properties
     using System.Collections.Generic;
     using Java.Interop;
 
-    partial class PropertyValue { 
+    partial class PropertyValue
+    {
         [Register("getValue", "()Lcom/mapbox/bindgen/Value;", "")]
         public unsafe global::Com.Mapbox.Bindgen.Value GetBindGenValue()
         {
@@ -61,12 +62,31 @@ namespace Com.Mapbox.Maps.Extension.Style
         public string StyleUri => throw new System.NotImplementedException();
 
         public IStyleContract.IStyleTerrainExtension Terrain => GetTerrain();
+
+        public global::System.Collections.Generic.IList<global::Com.Mapbox.Maps.Extension.Style.IStyleContract.IStyleModelExtension> Models => GetModels();
     }
 }
 
-    namespace Com.Mapbox.Maps.Extension.Style.Layers.Generated
+namespace Com.Mapbox.Maps.Extension.Style.Layers.Generated
 {
     partial class BackgroundLayer
+    {
+        public override unsafe global::Com.Mapbox.Maps.Extension.Style.Layers.Layer MaxZoom(double maxZoom)
+        {
+            return SetMaxZoom(maxZoom);
+        }
+
+        public override unsafe global::Com.Mapbox.Maps.Extension.Style.Layers.Layer MinZoom(double minZoom)
+        {
+            return SetMinZoom(minZoom);
+        }
+
+        public override unsafe global::Com.Mapbox.Maps.Extension.Style.Layers.Layer Visibility(global::Com.Mapbox.Maps.Extension.Style.Layers.Properties.Generated.Visibility visibility)
+        {
+            return SetVisibility(visibility);
+        }
+    }
+    partial class ModelLayer
     {
         public override unsafe global::Com.Mapbox.Maps.Extension.Style.Layers.Layer MaxZoom(double maxZoom)
         {
