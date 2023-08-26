@@ -248,7 +248,18 @@ public static class ArtifactScanner
 
         if (!Directory.Exists(artifactVersionFolderPath))
         {
-            return (artifactVersionFolderPath, Array.Empty<string>());
+            if (version.Patch == 0)
+            {
+                artifactVersionFolderPath = Path.Combine(
+                    homeFolderPath,
+                    $".gradle/caches/modules-2/files-2.1/{groupId}/{artifactId}/{version.Major}.{version.Minor}"
+                );
+            }
+
+            if (!Directory.Exists(artifactVersionFolderPath))
+            {
+                return (artifactVersionFolderPath, Array.Empty<string>());
+            }
         }
 
         var files = Directory.GetFiles(
