@@ -91,6 +91,7 @@ public class FetcherTests
     [InlineData("Xamarin.AndroidX.CoordinatorLayout", "androidx.coordinatorlayout", "coordinatorlayout")] 
     [InlineData("Xamarin.AndroidX.Concurrent.Futures", "androidx.concurrent", "concurrent-futures")] 
     [InlineData("Xamarin.AndroidX.Compose.Runtime", "androidx.compose.runtime", "runtime")] 
+    [InlineData("Xamarin.AndroidX.Compose.UI", "androidx.compose.ui", "ui")] 
     [InlineData("Xamarin.AndroidX.Compose.Runtime.RxJava2", "androidx.compose.runtime", "runtime-rxjava2")] 
     [InlineData("Xamarin.AndroidX.Camera.Core", "androidx.camera", "camera-core")] 
     [InlineData("Xamarin.AndroidX.Camera.Camera2", "androidx.camera", "camera-camera2")] 
