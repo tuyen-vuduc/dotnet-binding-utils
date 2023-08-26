@@ -39,9 +39,5 @@
 		}
 	],
 	"fixedDependencies": {
-		"Xamarin.Kotlin.StdLib.Jdk8": "1.9.0.1",
-		"Xamarin.AndroidX.Fragment": "1.6.0.1",
-		"Xamarin.AndroidX.Activity": "1.7.2.1",
-		"Xamarin.AndroidX.Lifecycle.ViewModelSavedState": "2.6.1.3"
 	}
 }
