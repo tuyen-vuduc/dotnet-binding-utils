@@ -22,6 +22,7 @@
     <GradleImplementation Include="org.bouncycastle:bcutil-jdk15on:1.70"></GradleImplementation>
     <GradleImplementation Include="org.bouncycastle:bcprov-jdk15to18:1.69"></GradleImplementation>
     <GradleImplementation Include="com.nimbusds:nimbus-jose-jwt:9.21"></GradleImplementation>
+    <GradleImplementation Include="androidx.lifecycle:lifecycle-common-java8:2.6.0"></GradleImplementation>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Binderator.Gradle\Binderator.Gradle.csproj" />
