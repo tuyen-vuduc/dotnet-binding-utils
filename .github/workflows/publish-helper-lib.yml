@@ -1,4 +1,4 @@
-name: Publish Nuget
+name: Publish Helper Library
 run-name: ${{ github.actor }} is publishing NuGet 🚀
 on:
   workflow_dispatch:
