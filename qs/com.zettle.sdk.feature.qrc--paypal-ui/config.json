@@ -1,5 +1,5 @@
 {
-	"solutionFile" : "generated/izettle-bindings.sln",
+	"solutionFile" : "generated/izettle-paypal-ui-bindings.sln",
 	"metadataPath": "../..",
 	"debug": { "dumpModels" : true },
 	"additionalProjects": [
