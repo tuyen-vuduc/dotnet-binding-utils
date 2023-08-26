@@ -6,7 +6,8 @@
 	],
 	"targetFrameworks": [
 		"MonoAndroid12.0",
-		"net6.0-android31.0"
+		"net6.0-android31.0",
+		"net7.0-android33.0"
 	],
 	"projectUrl": "https://github.com/tuyen-vuduc/dotnet-binding-utils",
 	"licensePath": "LICENSE",
