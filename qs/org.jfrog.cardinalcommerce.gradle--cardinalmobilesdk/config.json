@@ -6,11 +6,12 @@
 	],
 	"targetFrameworks": [
 		"MonoAndroid12.0",
-		"net6.0-android31.0"
+		"net6.0-android31.0",
+		"net7.0-android33.0"
 	],
 	"projectUrl": "https://github.com/tuyen-vuduc/dotnet-binding-utils",
-	"packageIconPath": "../../../../assets/tv-ico.png",
-	"licensePath": "../../../../LICENSE",
+	"packageIconPath": "../../assets/tv-cardinalcommerce.png",
+	"licensePath": "../../LICENSE",
 	"tags": [ "android" ],
 	"templates" : [
 		{
@@ -33,7 +34,7 @@
 			"artifactId": "cardinalmobilesdk",
 			"artifactName": "Android",
 			"version": "2.2.7-3",
-			"nugetRevision": 1,
+			"nugetRevision": 2,
 			"tags": [ "cardinalcommerce" ]
 		}
 	]
