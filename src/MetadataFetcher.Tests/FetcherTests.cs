@@ -11,6 +11,9 @@ public class FetcherTests
     }
 
     [Theory]
+    [InlineData("Xamarin.AndroidX.Compose.UI.Util", "androidx.compose.ui", "ui-util")]
+    [InlineData("Xamarin.AndroidX.Compose.UI.Unit", "androidx.compose.ui", "ui-unit")]
+    [InlineData("Xamarin.AndroidX.Compose.UI.Graphics", "androidx.compose.ui", "ui-graphics")]
     [InlineData("Xamarin.AndroidX.Compose.UI.Text", "androidx.compose.ui", "ui-text")]
     [InlineData("Xamarin.KotlinX.Coroutines.Guava", "org.jetbrains.kotlinx", "kotlinx-coroutines-guava")]
     [InlineData("Xamarin.JavaX.Inject", "javax.inject", "javax.inject")]
