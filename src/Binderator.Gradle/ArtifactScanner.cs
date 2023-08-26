@@ -126,7 +126,8 @@ public static class ArtifactScanner
             );
 
             // TODO Handle version range
-            var xversion = dependency.SelectSingleNode("descendant::mvn:version", nsmgr)?.InnerText?.Trim('[', ']');
+            var rawVersion = dependency.SelectSingleNode("descendant::mvn:version", nsmgr)?.InnerText;
+            var xversion = rawVersion;
 
             if (xversion == null)
             {
@@ -134,27 +135,28 @@ public static class ArtifactScanner
 
                 xversion = existingArtifact.Version.ToNormalizedString();
             }
-
-            SemanticVersion artifactVersion;
-            if (xversion.StartsWith("${"))
+            else if (xversion.StartsWith("${"))
             {
                 xversion = GetVersion(xmlDocument, nsmgr, xversion);
-                artifactVersion = SemanticVersion.Parse(xversion);
             }
-            else
+            else if (xversion.Contains("-${"))
             {
-                if (xversion.Contains("-${"))
-                {
-                    var xversions = xversion.Split(new[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
-                    xversions[1] = GetVersion(xmlDocument, nsmgr, xversions[1]);
+                var xversions = xversion.Split(new[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
+                xversions[1] = GetVersion(xmlDocument, nsmgr, xversions[1]);
 
-                    xversion = string.Join("-", xversions);
-                }
-
-                artifactVersion = SemanticVersion.TryParse(xversion, out var semanticVersion)
-                    ? semanticVersion
-                    : NuGetVersion.Parse(xversion);
+                xversion = string.Join("-", xversions);
             }
+            else if (VersionRange.TryParse(rawVersion, out var versionRange))
+            {
+                xversion = versionRange.IsMaxInclusive
+                    ? versionRange.MaxVersion.ToNormalizedString()
+                    : versionRange.MinVersion.ToNormalizedString();
+            }
+
+            SemanticVersion artifactVersion = SemanticVersion.TryParse(xversion, out var semanticVersion)
+                ? semanticVersion
+                : NuGetVersion.Parse(xversion);
+
 
             if (existingArtifact != null && artifactVersion != existingArtifact.Version)
             {
@@ -246,7 +248,18 @@ public static class ArtifactScanner
 
         if (!Directory.Exists(artifactVersionFolderPath))
         {
-            return (artifactVersionFolderPath, Array.Empty<string>());
+            if (version.Patch == 0)
+            {
+                artifactVersionFolderPath = Path.Combine(
+                    homeFolderPath,
+                    $".gradle/caches/modules-2/files-2.1/{groupId}/{artifactId}/{version.Major}.{version.Minor}"
+                );
+            }
+
+            if (!Directory.Exists(artifactVersionFolderPath))
+            {
+                return (artifactVersionFolderPath, Array.Empty<string>());
+            }
         }
 
         var files = Directory.GetFiles(
