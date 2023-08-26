@@ -32,7 +32,7 @@
 			"groupId": "com.braintreepayments.api",
 			"artifactId": "drop-in",
 			"artifactName": "Drop In",
-			"version": "6.9.0",
+			"version": "6.12.0",
 			"nugetRevision": 0,
 			"tags": [ "braintree-drop-in", "dropin" ]
 		}
