@@ -42,6 +42,10 @@ namespace Xamarin.Build.Download
 			}
 
 			// Fall back to trying some hard coded likely paths
+			tryPath = FindInVs("2022", VS_2019_RELATIVE_PATH_TO_7Z);
+			if (!string.IsNullOrEmpty(tryPath) && File.Exists(tryPath))
+				return tryPath;
+
 			tryPath = FindInVs("2019", VS_2019_RELATIVE_PATH_TO_7Z);
 			if (!string.IsNullOrEmpty(tryPath) && File.Exists(tryPath))
 				return tryPath;
@@ -67,7 +71,7 @@ namespace Xamarin.Build.Download
 		{
 			foreach (var drive in DriveInfo.GetDrives())
 			{
-				var root = $@"{drive.Name}Program Files (x86)\Microsoft Visual Studio\{vsYear}";
+				var root = $@"{drive.Name}Program Files\Microsoft Visual Studio\{vsYear}";
 
 				if (Directory.Exists(root))
 				{

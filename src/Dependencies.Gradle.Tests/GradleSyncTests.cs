@@ -44,19 +44,8 @@ public class GradleSyncTests : TestsBase
         prel.AddProperty("AndroidSdkDirectory", androidSdkFullPath);
 
         prel.AddItem(
-            "GradleProperty",
-            "MAPBOX_DOWNLOADS_TOKEN",
-            new Dictionary<string, string> {
-                { "Value", "sk.eyJ1IjoidHV5ZW52IiwiYSI6ImNsMnRqNTc2MTA0dHIzcW13emF5M2cycTEifQ.3_F3OAZMw5Tq9S_9PK_olA" }
-            });
-
-        prel.AddItem(
             "GradleImplementation",
             "com.braintreepayments.api:three-d-secure:4.15.0",
-            new Dictionary<string, string> { });
-        prel.AddItem(
-            "GradleImplementation",
-            "com.mapbox.maps:android:10.5.0",
             new Dictionary<string, string> { });
         prel.AddItem(
             "GradleRepository",
@@ -70,25 +59,7 @@ public class GradleSyncTests : TestsBase
     }
 }" },
             });
-        prel.AddItem(
-            "GradleRepository",
-            "https://api.mapbox.com/downloads/v2/releases/maven",
-            new Dictionary<string, string> {
-                    { "Repository", @"
-        maven {
-            url 'https://api.mapbox.com/downloads/v2/releases/maven'
-            authentication {
-                basic(BasicAuthentication)
-            }
-            credentials {
-                // Do not change the username below.
-                // This should always be `mapbox` (not your username).
-                username = ""mapbox""
-                // Use the secret token you stored in gradle.properties as the password
-                password = MAPBOX_DOWNLOADS_TOKEN
-            }
-        }" },
-            });
+        
         AddCoreTargets(prel);
 
         var project = new ProjectInstance(prel);

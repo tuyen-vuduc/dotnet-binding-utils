@@ -13,6 +13,12 @@ I hope it will enable everyone to create, maintain .NET binding libraries either
 | 02 | Binderators.Gradle   | Make use of gradle to download dependencies, form up the dependent tree, then generated appropriate binding csproj and targets. |
 | 03 | MetadataFetcher      | Fetch and map native libaries with their NuGet packages |
 
+## Notes
+You should install Android Studio or place Android SDK at the following location and use for Visual Studio.
+
+- MacOS: `$(Home)/Library/Android/sdk`
+- Windows: `$(UserProfile)/AppData/Local/Android/sdk`
+
 ## Usage
 
 ### 1) Dependencies.Gradle

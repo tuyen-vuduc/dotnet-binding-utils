@@ -39,7 +39,7 @@ public static class ArtifactScanner
         missingArtifacts ??= new();
 
         var homeFolder = Platform.IsWindows
-                    ? Environment.SpecialFolder.LocalApplicationData
+                    ? Environment.SpecialFolder.UserProfile
                     : Environment.SpecialFolder.Personal;
         var homeFolderPath = Environment.GetFolderPath(homeFolder);
 
@@ -272,7 +272,7 @@ public static class ArtifactScanner
             artifactVersionFolderPath,
             files
                 .Where(x => !x.Contains("/_aar/"))
-                .Select(x => x.Replace(homeFolderPath, string.Empty).Trim('/'))
+                .Select(x => x.Replace(homeFolderPath, string.Empty).Trim('/').Trim('\\'))
                 .ToArray()
         );
     }

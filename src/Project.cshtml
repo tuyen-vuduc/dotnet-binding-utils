@@ -14,6 +14,10 @@
     <RootNamespace>@(Model.Artifact.NugetPackageId)</RootNamespace>
   </PropertyGroup>
   <PropertyGroup>
+    <AndroidSdkDirectory Condition=" '$(OS)' == 'Unix' ">$(Home)/Library/Android/sdk</AndroidSdkDirectory>
+    <AndroidSdkDirectory Condition=" '$(OS)' != 'Unix' ">$(UserProfile)/AppData/Local/Android/sdk</AndroidSdkDirectory>
+  </PropertyGroup>  
+  <PropertyGroup>
     <PackageId>@(Model.Artifact.NugetPackageId)</PackageId>
     <Title>@(Model.GroupName) - @(Model.ArtifactName)</Title>
     <Summary>C# bindings for @(Model.Artifact.GradleImplementation)</Summary>
@@ -202,7 +206,7 @@
     }
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Dependencies.Gradle" Version="7.6.0.3" />
+    <PackageReference Include="Dependencies.Gradle" Version="7.6.1" />
     <TransformFile Include="..\..\..\..\src\Metadata.common.xml">
       <Link>Transforms/Metadata.common.xml</Link>
     </TransformFile>
