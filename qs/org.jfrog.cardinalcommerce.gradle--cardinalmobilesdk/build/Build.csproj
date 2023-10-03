@@ -8,14 +8,14 @@
   </PropertyGroup>
   <PropertyGroup>
     <AndroidSdkDirectory Condition=" '$(OS)' == 'Unix' ">$(Home)/Library/Android/sdk</AndroidSdkDirectory>
-    <AndroidSdkDirectory Condition=" '$(OS)' != 'Unix' ">$(UserProfile)/Library/Android/sdk</AndroidSdkDirectory>
+    <AndroidSdkDirectory Condition=" '$(OS)' != 'Unix' ">$(UserProfile)/AppData/Local/Android/sdk</AndroidSdkDirectory>
   </PropertyGroup>  
   <ItemGroup>
     <PackageReference Include="Cake.Frosting" Version="3.0.0" />
-    <PackageReference Include="Dependencies.Gradle" Version="7.6.0.3" />
+    <PackageReference Include="Dependencies.Gradle" Version="7.6.1" />
   </ItemGroup>
   <ItemGroup>
-    <GradleImplementation Include="org.jfrog.cardinalcommerce.gradle:cardinalmobilesdk:2.2.7-3"></GradleImplementation>
+    <GradleImplementation Include="org.jfrog.cardinalcommerce.gradle:cardinalmobilesdk:2.2.7-5"></GradleImplementation>
     <GradleImplementation Include="androidx.appcompat:appcompat:1.2.0"></GradleImplementation>
     <GradleRepository Include="https://cardinalcommerceprod.jfrog.io/artifactory/android">
       <Repository>
