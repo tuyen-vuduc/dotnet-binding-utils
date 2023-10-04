@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Security.Cryptography;
+using System.Text.Json.Serialization;
 
 namespace Binderator.Gradle;
 
@@ -14,7 +9,7 @@ public static class Util
     public readonly static JsonSerializerOptions JsonOptions = new JsonSerializerOptions
     {
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-        IgnoreNullValues = true,
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
         Converters =
             {
                 new NuGetVersionJsonValueConverter(),
