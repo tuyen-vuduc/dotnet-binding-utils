@@ -11,6 +11,7 @@ public class FetcherTests
     }
 
     [Theory]
+    [InlineData("Xamarin.KotlinX.Coroutines.Play.Services", "org.jetbrains.kotlinx", "kotlinx-coroutines-play-services")]
     [InlineData("Xamarin.AndroidX.Activity.Compose", "androidx.activity", "activity-compose")]
     [InlineData("Xamarin.AndroidX.Compose.UI.Util", "androidx.compose.ui", "ui-util")]
     [InlineData("Xamarin.AndroidX.Compose.UI.Unit", "androidx.compose.ui", "ui-unit")]
