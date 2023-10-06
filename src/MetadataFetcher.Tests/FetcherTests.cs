@@ -16,7 +16,7 @@ public class FetcherTests
     [InlineData("Xamarin.AndroidX.Compose.UI.Util", "androidx.compose.ui", "ui-util")]
     [InlineData("Xamarin.AndroidX.Compose.UI.Unit", "androidx.compose.ui", "ui-unit")]
     [InlineData("Xamarin.AndroidX.Compose.UI.Graphics", "androidx.compose.ui", "ui-graphics")]
-    [InlineData("Xamarin.GooglePlayServices.InstantApps", "com.google.android.instantapps", "instantapps")]
+    [InlineData("Xamarin.GooglePlayServices.InstantApps", "com.google.android.gms", "play-services-instantapps")]
     [InlineData("Xamarin.Google.Accompanist.FlowLayout", "com.google.accompanist", "accompanist-flowlayout")]
     [InlineData("Xamarin.Google.Accompanist.SystemUIController", "com.google.accompanist", "accompanist-systemuicontroller")]
     [InlineData("Xamarin.AndroidX.Navigation.Common", "androidx.navigation", "navigation-common")]
