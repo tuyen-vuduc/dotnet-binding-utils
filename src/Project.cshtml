@@ -192,7 +192,7 @@
       Condition="Exists('$(UserHome)/@(Model.Artifact.LibFolderPath)/_aar/libs/')"
       Include="$(UserHome)/@(Model.Artifact.LibFolderPath)/_aar/libs/*.jar"
       />
-      } else {
+      } else if (!string.IsNullOrEmpty(Model.Artifact.LibRelativePath)) {
     <InputJar Include="$(UserHome)/@(Model.Artifact.LibRelativePath)" />
       }
   </ItemGroup>
