@@ -4,7 +4,12 @@
 @{
   var packageIconPath = Model.Config.PackageIconPath ?? "../../../../assets/tv-ico.png";
   var licensePath = Model.Config.LicensePath ?? "../../../../LICENSE";
-  var xxxVersion = Model.Artifact.NugetVersion.Major + "." + Model.Artifact.NugetVersion.Minor + "." + Model.Artifact.NugetVersion.Patch;
+  var assemblyVersion = string.Join(
+    ".",
+    Model.Artifact.NugetVersion.Major,
+    Model.Artifact.NugetVersion.Minor,
+    Model.Artifact.NugetVersion.Patch,
+    DateTime.Today.DayOfYear);
 }
 <Project Sdk="Xamarin.Legacy.Sdk">
   <PropertyGroup>
@@ -28,9 +33,9 @@
     <Authors>tuyen,tuyen-vuduc</Authors>
     <Owners>tuyen,tuyen-vuduc</Owners>
     <Company>N/A</Company>
-    <FileVersion>@(xxxVersion)</FileVersion>
+    <FileVersion>@(assemblyVersion)</FileVersion>
     <InformationalVersion>@(Model.Artifact.NugetVersion + "-" + DateTimeOffset.Now.ToUnixTimeSeconds())</InformationalVersion>
-    <AssemblyVersion>@(xxxVersion)</AssemblyVersion>
+    <AssemblyVersion>@(assemblyVersion)</AssemblyVersion>
     <Copyright>© tuyen-vuduc. All rights reserved.</Copyright>
     <PackageProjectUrl>@(Model.Config.ProjectUrl)</PackageProjectUrl>
     <RepositoryUrl>https://github.com/tuyen-vuduc/dotnet-binding-utils</RepositoryUrl>
@@ -187,7 +192,7 @@
       Condition="Exists('$(UserHome)/@(Model.Artifact.LibFolderPath)/_aar/libs/')"
       Include="$(UserHome)/@(Model.Artifact.LibFolderPath)/_aar/libs/*.jar"
       />
-      } else {
+      } else if (!string.IsNullOrEmpty(Model.Artifact.LibRelativePath)) {
     <InputJar Include="$(UserHome)/@(Model.Artifact.LibRelativePath)" />
       }
   </ItemGroup>

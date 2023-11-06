@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <attr
+        path="//field[@name='Default']"
+        name="managedName">DefaultField</attr>
+    <attr
+        path="//field[@name='Builtins']"
+        name="managedName">BuiltinsField</attr>
+
+    <remove-node path="/api/package[@name='kotlinx.serialization.json']/class[@name='JsonClassDiscriminator.Impl']" />
+    <attr path="/api/package[@name='kotlinx.serialization.json']/class[@name='JsonArray']/method[@name='getSize' and count(parameter)=0]"
+          name="propertyName"></attr>
+    <attr path="/api/package[@name='kotlinx.serialization.json']/class[@name='JsonObject']/method[@name='getSize' and count(parameter)=0]"
+          name="propertyName"></attr>
+    <remove-node path="/api/package[@name='kotlinx.serialization.json']/class[@name='JsonNames.Impl']"/>
+    <add-node path="/api/package[@name='kotlinx.serialization.json']/interface[@name='JsonEncoder']">
+        <method abstract="true" deprecated="not deprecated" final="false" name="getSerializersModule" jni-signature="()Lkotlinx/serialization/modules/SerializersModule;" bridge="false" native="false" return="kotlinx.serialization.modules.SerializersModule" jni-return="Lkotlinx/serialization/modules/SerializersModule;" static="false" synchronized="false" synthetic="false" visibility="public" return-not-null="true" />
+        <method abstract="true" deprecated="not deprecated" final="false" name="decodeByteElement" jni-signature="(Lkotlinx/serialization/descriptors/SerialDescriptor;I)B" bridge="false" native="false" return="byte" jni-return="B" static="false" synchronized="false" synthetic="false" visibility="public">
+            <parameter name="descriptor" type="kotlinx.serialization.descriptors.SerialDescriptor" jni-type="Lkotlinx/serialization/descriptors/SerialDescriptor;" not-null="true" />
+            <parameter name="index" type="int" jni-type="I" />
+        </method>
+        <method abstract="true" deprecated="not deprecated" final="false" name="decodeByte" jni-signature="()B" bridge="false" native="false" return="byte" jni-return="B" static="false" synchronized="false" synthetic="false" visibility="public" />
+    </add-node>
+</metadata>
