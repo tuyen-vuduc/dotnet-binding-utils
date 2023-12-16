@@ -13,6 +13,8 @@ on:
         - com.izettle.payments--android-sdk-ui
         - com.mapbox.maps--android
         - org.jfrog.cardinalcommerce.gradle--cardinalmobilesdk
+        - com.github.nguyenhoanglam--imagepicker
+        - androidx.health.connect--connect-client
 jobs:
   build-then-publish:
     environment: production
