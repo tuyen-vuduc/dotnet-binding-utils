@@ -34,6 +34,11 @@ public sealed class BinderateTask : AsyncFrostingTask<BuildContext>
             "_aar"
         );
 
+        if (!Directory.Exists(unzipFolderPath))
+        {
+            Directory.CreateDirectory(unzipFolderPath);
+        }
+
         var unzippedClassesJarPath = PathIO.Combine(
             unzipFolderPath,
             "classes.jar"

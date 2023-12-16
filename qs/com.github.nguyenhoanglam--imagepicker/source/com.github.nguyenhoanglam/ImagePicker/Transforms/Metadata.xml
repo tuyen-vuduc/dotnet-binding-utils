@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <attr path="//field[@name='CREATOR']" name="managedName">CREATOR</attr>
+    <attr path="//field[@name='selectedImages']" name="managedName">_selectedImages</attr>
+    <attr path="//field[@name='BUCKET_ID']" name="managedName">BUCKET_ID</attr>
+    <attr path="/api/package[@name='com.nguyenhoanglam.imagepicker.ui.adapter']/class[@name='FolderPickerAdapter']/method[@name='onCreateViewHolder' and count(parameter)=2 and parameter[1][@type='android.view.ViewGroup'] and parameter[2][@type='int']]" name="managedName">
+        OnCreateFolderViewHolder
+    </attr>
+    <attr path="/api/package[@name='com.nguyenhoanglam.imagepicker.ui.adapter']/class[@name='ImagePickerAdapter']/method[@name='onCreateViewHolder' and count(parameter)=2 and parameter[1][@type='android.view.ViewGroup'] and parameter[2][@type='int']]" name="managedName">
+        OnCreateImageViewHolder
+    </attr>
+</metadata>

@@ -27,8 +27,8 @@ public class ArtifactModel : IEquatable<ArtifactModel>
     public string ArtifactWithVersion => $"{ArtifactId}-{Version}";
 
     public string LibRelativePath => IsAAR
-        ? Files?.FirstOrDefault(x => x.EndsWith(ArtifactWithVersion + ".aar"))
-        : Files?.FirstOrDefault(x => x.EndsWith(ArtifactWithVersion + ".jar"));
+        ? Files?.FirstOrDefault(x => x.EndsWith(ArtifactWithVersion + ".aar")).Replace("\\", "/")
+        : Files?.FirstOrDefault(x => x.EndsWith(ArtifactWithVersion + ".jar")).Replace("\\", "/");
 
     public string SourcesJarRelativeFilePath => Files?.FirstOrDefault(x => x.EndsWith("-sources.jar"));
     public string JavadocJarRelativeFilePath => Files?.FirstOrDefault(x => x.EndsWith("-javadoc.jar"));
@@ -36,13 +36,13 @@ public class ArtifactModel : IEquatable<ArtifactModel>
     public string LibFolderPath => LibRelativePath?.Substring(
         0,
         LibRelativePath.IndexOf(ArtifactWithVersion)
-    ).Trim('/');
+    ).Trim('/').Replace("\\", "/");
 
     public string ProguardFileRelativePath => IsAAR ? System.IO.Path.Combine(
         LibFolderPath ?? string.Empty,
         "_aar",
         "proguard.txt"
-    ) : string.Empty;
+    ).Replace("\\", "/") : string.Empty;
 
     public KeyValuePair<string, string>[] ParentArtifacts { get; set; }
     public string GroupName { get; set; }
