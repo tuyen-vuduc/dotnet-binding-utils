@@ -185,6 +185,8 @@ public class FetcherTests
     [InlineData("Xamarin.AndroidX.Fragment", "androidx.fragment", "fragment")]
     [InlineData("Xamarin.AndroidX.Fragment.Ktx", "androidx.fragment", "fragment-ktx")]
     [InlineData("Xamarin.AndroidX.Interpolator", "androidx.interpolator", "interpolator")]
+    [InlineData("Xamarin.AndroidX.Lifecycle.Service", "androidx.lifecycle", "lifecycle-service")]
+    [InlineData("Xamarin.AndroidX.Lifecycle.Extensions", "androidx.lifecycle", "lifecycle-extensions")]
     [InlineData("Xamarin.AndroidX.Lifecycle.Common", "androidx.lifecycle", "lifecycle-common")]
     [InlineData("Xamarin.AndroidX.Lifecycle.Common.Java8", "androidx.lifecycle", "lifecycle-common-java8")]
     [InlineData("Xamarin.AndroidX.Lifecycle.Runtime", "androidx.lifecycle", "lifecycle-runtime")]

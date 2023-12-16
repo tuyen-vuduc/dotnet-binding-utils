@@ -73,7 +73,7 @@ public class Engine
 
         if (!string.IsNullOrEmpty(config.SolutionFile))
         {
-            var slnPath = Path.Combine(config.BasePath ?? AppDomain.CurrentDomain.BaseDirectory, config.SolutionFile);
+            var slnPath = Path.Combine(config.BasePath, config.SolutionFile.Replace('/', Path.DirectorySeparatorChar));
             var sln = SolutionFileBuilder.Build(config, slnProjModels);
             File.WriteAllText(slnPath, sln);
         }
