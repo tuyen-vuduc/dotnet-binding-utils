@@ -20,7 +20,7 @@
     <PackageReference Include="DotnetBindings.Cake" Version="0.1.0" /> -->
   </ItemGroup>
   <ItemGroup>
-    <GradleImplementation Include="com.mapbox.maps:android:10.16.1"></GradleImplementation>
+    <GradleImplementation Include="com.mapbox.maps:android:11.0.0"></GradleImplementation>
     <GradleRepository Include="https://api.mapbox.com/downloads/v2/releases/maven">
       <Repository>
       maven {
@@ -33,7 +33,7 @@
           // This should always be `mapbox` (not your username).
           username = "mapbox"
           // Use the secret token you stored in gradle.properties as the password
-          password = MAPBOX_DOWNLOADS_TOKEN
+          password = providers.gradleProperty("MAPBOX_DOWNLOADS_TOKEN").get()
         }
       }
       </Repository>

@@ -3,4 +3,7 @@
 	<attr
 		path="//field[@name='Companion']"
 		name="managedName">CompanionField</attr>
+  <attr
+    path="//field[@name='CREATOR']"
+    name="managedName">CREATOR</attr>
 </metadata>
