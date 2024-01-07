@@ -1,4 +1,6 @@
-﻿namespace DotnetBindings.Cake;
+﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
+
+namespace DotnetBindings.Cake;
 
 [IsDependentOn(typeof(InitializeTask))]
 public sealed class BinderateTask : AsyncFrostingTask<BuildContext>
@@ -13,7 +15,15 @@ public sealed class BinderateTask : AsyncFrostingTask<BuildContext>
 
         await Engine.BinderateAsync(
             context.Configs
-        );
+        ).ContinueWith(t =>
+        {
+            if (t.IsFaulted)
+            {
+                context.Log.Error(t.Exception);
+
+                throw t.Exception;  
+            }
+        });
     }
 
     static void Unzip(BuildContext context, ArtifactModel artifact)
