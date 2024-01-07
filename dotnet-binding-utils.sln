@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "metadata", "metadata", "{11
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetBindings.Cake", "src\DotnetBindings.Cake\DotnetBindings.Cake.csproj", "{95670EEE-39E4-42C4-BF73-B28109EC962D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Build", "qs\com.github.nguyenhoanglam--imagepicker\build\Build.csproj", "{4A1197B6-5785-450C-885A-79B84D2FE562}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Build", "qs\io.github.sceneview--sceneview\build\Build.csproj", "{7C3D619C-BAFA-4471-8D6E-B6EFEBB4B285}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,10 +51,10 @@ Global
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4A1197B6-5785-450C-885A-79B84D2FE562}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4A1197B6-5785-450C-885A-79B84D2FE562}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4A1197B6-5785-450C-885A-79B84D2FE562}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4A1197B6-5785-450C-885A-79B84D2FE562}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C3D619C-BAFA-4471-8D6E-B6EFEBB4B285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C3D619C-BAFA-4471-8D6E-B6EFEBB4B285}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C3D619C-BAFA-4471-8D6E-B6EFEBB4B285}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C3D619C-BAFA-4471-8D6E-B6EFEBB4B285}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
