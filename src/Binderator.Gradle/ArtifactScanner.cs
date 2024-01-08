@@ -176,6 +176,7 @@ public static class ArtifactScanner
                     );
                     existingArtifact.Files = xartifactFiles;
                     existingArtifact.Version = artifactVersion;
+                    existingArtifact.NugetVersion = artifactVersion.ToNuGetVersion(nugetRevision);
                 }
 
                 continue;
