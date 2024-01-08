@@ -33,6 +33,7 @@ public static class ArtifactScanner
         string artifactName = default,
         string[] tags = default,
         int nugetRevision = default,
+        string nugetPackageId = default,
         List<string> missingArtifacts = default)
     {
         List<ArtifactModel> artifacts = new();
@@ -68,8 +69,8 @@ public static class ArtifactScanner
             ArtifactName = artifactName,
             Version = version,
             NugetVersion = version.ToNuGetVersion(nugetRevision),
-            NugetPackageId = CreateNugetId(groupId, artifactId),
-            ParentArtifacts = new KeyValuePair<string, string>[] { },
+            NugetPackageId = nugetPackageId ?? CreateNugetId(groupId, artifactId),
+            ParentArtifacts = new KeyValuePair<string, string>[0],
             Files = artifactFiles,
             Tags = tags,
         };

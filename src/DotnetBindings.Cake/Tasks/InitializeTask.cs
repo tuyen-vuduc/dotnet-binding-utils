@@ -116,7 +116,8 @@ public sealed class InitializeTask : FrostingTask<BuildContext>
                 artifact.GroupName,
                 artifact.ArtifactName,
                 artifact.Tags,
-                artifact.NugetRevision ?? context.Configs.NugetRevision
+                artifact.NugetRevision ?? context.Configs.NugetRevision,
+                artifact.NugetPackageId
             );
             allArtifacts.AddRange(scannedItems);
         }
