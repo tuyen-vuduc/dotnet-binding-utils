@@ -45,5 +45,9 @@
 			"nugetRevision": 0,
 			"tags": [ "arsceneview" ]
 		}
-	]
+	],
+	"fixedDependencies": {
+		"Xamarin.Kotlin.StdLib.Jdk8": "1.9.21.1",
+		"Xamarin.Kotlin.StdLib.Common": "1.9.21.1"
+	}
 }

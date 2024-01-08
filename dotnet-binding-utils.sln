@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "metadata", "metadata", "{11
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetBindings.Cake", "src\DotnetBindings.Cake\DotnetBindings.Cake.csproj", "{95670EEE-39E4-42C4-BF73-B28109EC962D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Build", "qs\io.github.sceneview--sceneview\build\Build.csproj", "{7C3D619C-BAFA-4471-8D6E-B6EFEBB4B285}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Build", "qs\io.github.sceneview--sceneview\build\Build.csproj", "{CC17D026-B090-44B2-9DEB-59E6E2AA86E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,10 +51,10 @@ Global
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7C3D619C-BAFA-4471-8D6E-B6EFEBB4B285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7C3D619C-BAFA-4471-8D6E-B6EFEBB4B285}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7C3D619C-BAFA-4471-8D6E-B6EFEBB4B285}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7C3D619C-BAFA-4471-8D6E-B6EFEBB4B285}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC17D026-B090-44B2-9DEB-59E6E2AA86E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC17D026-B090-44B2-9DEB-59E6E2AA86E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC17D026-B090-44B2-9DEB-59E6E2AA86E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC17D026-B090-44B2-9DEB-59E6E2AA86E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
