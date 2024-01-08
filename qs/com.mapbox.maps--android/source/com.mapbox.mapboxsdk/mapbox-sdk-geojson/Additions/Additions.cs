@@ -1,3 +1,36 @@
+namespace Com.Mapbox.Geojson.Gson
+{
+    public partial class BoundingBoxTypeAdapter
+    {
+        public override unsafe global::Java.Lang.Object Read(global::GoogleGson.Stream.JsonReader @in)
+        {
+            return ReadBoudingBox(@in);
+        }
+
+        public override unsafe void Write(global::GoogleGson.Stream.JsonWriter @out, global::Java.Lang.Object value)
+        {
+            Write(@out, value as global::Com.Mapbox.Geojson.BoundingBox);
+        }
+    }
+}
+
+
+namespace Com.Mapbox.Geojson
+{
+    public partial class PointAsCoordinatesTypeAdapter
+    {
+        public override unsafe global::Java.Lang.Object Read(global::GoogleGson.Stream.JsonReader @in)
+        {
+            return ReadPoint(@in);
+        }
+
+        public override unsafe void Write(global::GoogleGson.Stream.JsonWriter @out, global::Java.Lang.Object value)
+        {
+            Write(@out, value as global::Com.Mapbox.Geojson.Point);
+        }
+    }
+}
+
 namespace Com.Mapbox.Geojson
 {
     using System.Linq;
