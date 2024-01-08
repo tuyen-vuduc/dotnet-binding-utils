@@ -1,0 +1,53 @@
+{
+	"solutionFile" : "generated/androidx.appcompat-bindings.sln",
+	"metadataPath": "../..",
+	"debug": { "dumpModels" : true },
+	"additionalProjects": [
+	],
+	"targetFrameworks": [
+		"MonoAndroid12.0",
+		"net6.0-android31.0",
+		"net7.0-android33.0"
+	],
+	"projectUrl": "https://github.com/tuyen-vuduc/dotnet-binding-utils",
+	"packageIconPath": "../../assets/tv-sceneview.png",
+	"licensePath": "../../LICENSE",
+	"tags": [ "android" ],
+	"templates" : [
+		{
+			"templateFile": "../../src/Targets.cshtml",
+			"outputFileRule" : "generated/{nugetid}/{nugetid}.targets"
+		},
+		{
+			"templateFile": "../../src/Project.cshtml",
+			"outputFileRule" : "generated/{nugetid}/{nugetid}.csproj"
+		},
+		{
+			"templateFile": "../../src/Pom.cshtml",
+			"outputFileRule" : "generated/{nugetid}/pom.xml"
+		}
+	],
+	"groupName": "SceneView",
+	"artifacts": [
+		{
+			"groupId": "io.github.sceneview",
+			"artifactId": "sceneview",
+			"artifactName": "SceneView",
+			"version": "2.0.2",
+			"nugetRevision": 0,
+			"tags": [ "sceneview" ]
+		},
+		{
+			"groupId": "io.github.sceneview",
+			"artifactId": "arsceneview",
+			"artifactName": "AR SceneView",
+			"version": "2.0.2",
+			"nugetRevision": 0,
+			"tags": [ "arsceneview" ]
+		}
+	],
+	"fixedDependencies": {
+		"Xamarin.Kotlin.StdLib.Jdk8": "1.9.21.1",
+		"Xamarin.Kotlin.StdLib.Common": "1.9.21.1"
+	}
+}

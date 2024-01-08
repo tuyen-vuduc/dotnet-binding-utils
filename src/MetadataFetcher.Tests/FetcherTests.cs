@@ -11,6 +11,9 @@ public class FetcherTests
     }
 
     [Theory]
+    [InlineData("Xamarin.KotlinX.Coroutines.Jdk8", "org.jetbrains.kotlinx", "kotlinx-coroutines-jdk8")]
+    [InlineData("Xamarin.AndroidX.ProfileInstaller.ProfileInstaller", "androidx.profileinstaller", "profileinstaller")]
+    [InlineData("Xamarin.Google.ARCore", "com.google.ar", "core")]
     [InlineData("Xamarin.KotlinX.Coroutines.Play.Services", "org.jetbrains.kotlinx", "kotlinx-coroutines-play-services")]
     [InlineData("Xamarin.AndroidX.Activity.Compose", "androidx.activity", "activity-compose")]
     [InlineData("Xamarin.AndroidX.Compose.UI.Util", "androidx.compose.ui", "ui-util")]
