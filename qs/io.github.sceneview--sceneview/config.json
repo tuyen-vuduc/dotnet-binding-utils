@@ -1,5 +1,5 @@
 {
-	"solutionFile" : "generated/androidx.appcompat-bindings.sln",
+	"solutionFile" : "generated/sceneview-bindings.sln",
 	"metadataPath": "../..",
 	"debug": { "dumpModels" : true },
 	"additionalProjects": [
