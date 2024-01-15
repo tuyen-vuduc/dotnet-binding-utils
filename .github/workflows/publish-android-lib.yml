@@ -17,6 +17,7 @@ on:
         - androidx.health.connect--connect-client
         - com.google.ar--core
         - org.jetbrains.kotlin
+        - com.google.android.filament
 jobs:
   build-then-publish:
     environment: production
