@@ -1,0 +1,65 @@
+{
+	"solutionFile" : "generated/androix-lifecycle-bindings.sln",
+	"metadataPath": "../..",
+	"debug": { "dumpModels" : true },
+	"additionalProjects": [
+	],
+	"targetFrameworks": [
+		"MonoAndroid12.0",
+		"net6.0-android31.0",
+		"net7.0-android33.0"
+	],
+	"projectUrl": "https://github.com/tuyen-vuduc/dotnet-binding-utils",
+	"packageIconPath": "../../assets/tv-android.png",
+	"licensePath": "../../LICENSE",
+	"tags": [ "android" ],
+	"templates" : [
+		{
+			"templateFile": "../../src/Targets.cshtml",
+			"outputFileRule" : "generated/{nugetid}/{nugetid}.targets"
+		},
+		{
+			"templateFile": "../../src/Project.cshtml",
+			"outputFileRule" : "generated/{nugetid}/{nugetid}.csproj"
+		},
+		{
+			"templateFile": "../../src/Pom.cshtml",
+			"outputFileRule" : "generated/{nugetid}/pom.xml"
+		}
+	],
+	"groupName": "AndroidX Lifecycle",
+	"artifacts": [
+		{
+			"groupId": "androidx.lifecycle",
+			"artifactId": "lifecycle-common",
+			"version": "2.7.0-beta01",
+			"nugetPackageId": "Xamarin.AndroidX.Lifecycle.Common",
+			"nugetRevision": 0,
+			"tags": []
+		},
+		{
+			"groupId": "androidx.lifecycle",
+			"artifactId": "lifecycle-runtime",
+			"nugetPackageId": "Xamarin.AndroidX.Lifecycle.Runtime",
+			"version": "2.7.0-beta01",
+			"nugetRevision": 0,
+			"tags": []
+		},
+		{
+			"groupId": "androidx.lifecycle",
+			"artifactId": "lifecycle-runtime-compose",
+			"nugetPackageId": "Xamarin.AndroidX.Lifecycle.Runtime.Compose",
+			"version": "2.7.0-beta01",
+			"nugetRevision": 0,
+			"tags": []
+		},
+		{
+			"groupId": "androidx.lifecycle",
+			"artifactId": "lifecycle-runtime-ktx",
+			"nugetPackageId": "Xamarin.AndroidX.Lifecycle.Runtime.Ktx",
+			"version": "2.7.0-beta01",
+			"nugetRevision": 0,
+			"tags": [ ]
+		}
+	]
+}

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Build": {
+      "commandName": "Project",
+      "commandLineArgs": "--base-path C:\\ws\\tv\\dotnet-binding-utils\\qs\\androidx.lifecycle"
+    }
+  }
+}
