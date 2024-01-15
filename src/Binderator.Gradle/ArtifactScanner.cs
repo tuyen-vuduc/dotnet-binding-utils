@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Xml;
-
-namespace Binderator.Gradle;
+﻿namespace Binderator.Gradle;
 
 public static class ArtifactScanner
 {
@@ -194,6 +189,7 @@ public static class ArtifactScanner
                     artifactVersion,
                     log,
                     nugetRevision: nugetRevision,
+                    nugetPackageId: existingArtifact?.NugetPackageId,
                     missingArtifacts: missingArtifacts);
 
                 if (parentArtifacts.Count == 0) continue;
@@ -281,23 +277,23 @@ public static class ArtifactScanner
 
     private static ArtifactModel FindExternalArtifact(string basePath, string xgroupId, string xartifactId, SemanticVersion xversion)
     {
-        var externalArtifactFolderPath = System.IO.Path.Combine(
+        var externalArtifactFolderPath = Path.Combine(
                 basePath,
                 "metadata", "android",
                 xgroupId, xartifactId
             );
 
-        if (!System.IO.Directory.Exists(externalArtifactFolderPath)) return null;
+        if (!Directory.Exists(externalArtifactFolderPath)) return null;
 
         var nugetVersion = GetNugetVersion(externalArtifactFolderPath, xversion);
 
         if (nugetVersion == null) return null;
 
-        var externalArtifactNugetPath = System.IO.Path.Combine(
+        var externalArtifactNugetPath = Path.Combine(
                 externalArtifactFolderPath,
                 "nuget.json"
             );
-        using var stream = System.IO.File.OpenRead(externalArtifactNugetPath);
+        using var stream = File.OpenRead(externalArtifactNugetPath);
         var nugetModel = stream.Deserialize<NugetModel>();
 
         return new ArtifactModel
@@ -313,12 +309,12 @@ public static class ArtifactScanner
 
     private static NuGetVersion GetNugetVersion(string externalArtifactFolderPath, SemanticVersion xversion)
     {
-        var externalArtifactVersionPath = System.IO.Path.Combine(
+        var externalArtifactVersionPath = Path.Combine(
                 externalArtifactFolderPath,
                 xversion + ".json"
             );
 
-        if (!System.IO.File.Exists(externalArtifactVersionPath)) return null;
+        if (!File.Exists(externalArtifactVersionPath)) return null;
 
         var artifactVersionModel = ReadArtifactVersionModel(externalArtifactVersionPath);
 
@@ -332,7 +328,7 @@ public static class ArtifactScanner
 
     private static ArtifactVersionModel ReadArtifactVersionModel(string externalArtifactVersionPath)
     {
-        using var stream = System.IO.File.OpenRead(externalArtifactVersionPath);
+        using var stream = File.OpenRead(externalArtifactVersionPath);
 
         return stream.Deserialize<ArtifactVersionModel>();
     }
