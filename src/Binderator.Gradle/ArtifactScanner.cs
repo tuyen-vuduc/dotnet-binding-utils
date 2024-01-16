@@ -29,6 +29,7 @@ public static class ArtifactScanner
         string[] tags = default,
         int nugetRevision = default,
         string nugetPackageId = default,
+        string[] missingDependencies = default,
         List<string> missingArtifacts = default)
     {
         List<ArtifactModel> artifacts = new();
@@ -109,10 +110,16 @@ public static class ArtifactScanner
         foreach (XmlNode dependency in dependencies)
         {
             var scope = dependency.SelectSingleNode("descendant::mvn:scope", nsmgr)?.InnerText;
-            if (string.IsNullOrWhiteSpace(scope) || scope == "test") continue;
+            if (scope == "test") continue;
 
             var xgroupId = dependency.SelectSingleNode("descendant::mvn:groupId", nsmgr).InnerText;
             var xartifactId = dependency.SelectSingleNode("descendant::mvn:artifactId", nsmgr).InnerText;
+
+            if (string.IsNullOrWhiteSpace(scope) && 
+                !missingDependencies.Contains($"{xgroupId}:{xartifactId}"))
+            {
+                continue;
+            }
 
             // TODO Why artifact adds junit as a compile dependency?
             if (skippedDependencies.Contains(xartifactId)) continue;
@@ -190,6 +197,7 @@ public static class ArtifactScanner
                     log,
                     nugetRevision: nugetRevision,
                     nugetPackageId: existingArtifact?.NugetPackageId,
+                    missingDependencies: existingArtifact?.MissingDependencies ?? Array.Empty<string>(),
                     missingArtifacts: missingArtifacts);
 
                 if (parentArtifacts.Count == 0) continue;

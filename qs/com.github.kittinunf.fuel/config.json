@@ -34,7 +34,12 @@
 			"artifactId": "fuel-android",
 			"version": "2.3.1",
 			"nugetRevision": 0,
-			"tags": []
+			"tags": [],
+			"missingDependencies": [
+				"org.jetbrains.kotlin:kotlin-android-extensions-runtime",
+				"org.jetbrains.kotlin:kotlin-stdlib",
+				"com.github.kittinunf.fuel:fuel"
+			]
 		},
 		{
 			"groupId": "com.github.kittinunf.fuel",
@@ -52,6 +57,8 @@
 		}
 	],
 	"fixedDependencies": {
-		"Xamarin.KotlinX.Coroutines.Core": "1.4.3.1"
+		"Xamarin.KotlinX.Coroutines.Core": "1.5.0",
+		"Org.Jetbrains.Kotlin.KotlinAndroidExtensionsRuntime": "1.7.20",
+		"Xamarin.Kotlin.StdLib": "1.5.0.1"
 	}
 }

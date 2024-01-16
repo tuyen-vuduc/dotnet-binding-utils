@@ -18,6 +18,7 @@ on:
         - com.google.ar--core
         - org.jetbrains.kotlin
         - com.google.android.filament
+        - com.github.kittinunf.fuel
 jobs:
   build-then-publish:
     environment: production
