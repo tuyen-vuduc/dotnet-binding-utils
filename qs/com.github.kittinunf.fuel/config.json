@@ -50,5 +50,8 @@
 			"nugetRevision": 0,
 			"tags": []
 		}
-	]
+	],
+	"fixedDependencies": {
+		"Xamarin.KotlinX.Coroutines.Core": "1.4.3.1"
+	}
 }
