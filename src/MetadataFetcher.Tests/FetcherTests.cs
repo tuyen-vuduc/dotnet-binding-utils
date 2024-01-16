@@ -220,6 +220,13 @@ public class FetcherTests
     [InlineData("Org.Jetbrains.Kotlin.KotlinAndroidExtensionsRuntime", "org.jetbrains.kotlin", "kotlin-android-extensions-runtime")]
     [InlineData("Xamarin.KotlinX.Coroutines.Android", "org.jetbrains.kotlinx", "kotlinx-coroutines-android")]
     [InlineData("Xamarin.KotlinX.Coroutines.Core", "org.jetbrains.kotlinx", "kotlinx-coroutines-core")]
+    [InlineData("Com.Github.Kittinunf.Fuel.Fuel", "com.github.kittinunf.fuel", "fuel")]
+    [InlineData("Com.Github.Kittinunf.Fuel.FuelCoroutines", "com.github.kittinunf.fuel", "fuel-coroutines")]
+    [InlineData("Com.Github.Kittinunf.Fuel.FuelAndroid", "com.github.kittinunf.fuel", "fuel-android")]
+    [InlineData("Com.Github.Kittinunf.Result.Result", "com.github.kittinunf.result", "result")]
+    [InlineData("Com.Google.Android.Filament.GltfioAndroid", "com.google.android.filament", "gltfio-android")]
+    [InlineData("Com.Google.Android.Filament.FilamentAndroid", "com.google.android.filament", "filament-android")]
+    [InlineData("Com.Google.Android.Filament.FilamentUtilsAndroid", "com.google.android.filament", "filament-utils-android")]
     public Task Fetch_Android(string nugetId, string groupId, string artifactId)
     {
         return Fetcher.FetchAsync(nugetId, groupId, artifactId, "android", (packageId, error) =>
