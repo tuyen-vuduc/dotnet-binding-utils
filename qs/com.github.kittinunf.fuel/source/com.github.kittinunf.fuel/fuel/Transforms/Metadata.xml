@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <attr path="/api/package[@name='com.github.kittinunf.fuel.core.requests']/class[@name='DefaultRequest']/field[@name='executionOptions']"
+        name="managedName">ExecutionOptions_</attr>
+  <attr path="/api/package[@name='com.github.kittinunf.fuel']/class[@name='Fuel']"
+        name="managedName">FuelClass</attr>
+  <attr path="/api/package[@name='com.github.kittinunf.fuel.core']/class[@name='InlineDataPart']/method[@name='inputStream' and count(parameter)=0]"
+        name="managedName">InvokeInputStream</attr>
+  <attr path="/api/package[@name='com.github.kittinunf.fuel.core']/class[@name='BlobDataPart']/method[@name='inputStream' and count(parameter)=0]"
+        name="managedName">InvokeInputStream</attr>
+  <attr path="/api/package[@name='com.github.kittinunf.fuel.core']/class[@name='InlineDataPart']/method[@name='inputStream' and count(parameter)=0]"
+        name="override">false</attr>
+  <attr path="/api/package[@name='com.github.kittinunf.fuel.core']/class[@name='BlobDataPart']/method[@name='inputStream' and count(parameter)=0]"
+        name="override">false</attr>
+</metadata>
