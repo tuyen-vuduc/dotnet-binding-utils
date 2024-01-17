@@ -31,6 +31,22 @@
 	"artifacts": [
 		{
 			"groupId": "androidx.lifecycle",
+			"artifactId": "lifecycle-common-java8",
+			"version": "2.7.0-beta01",
+			"nugetPackageId": "Xamarin.AndroidX.Lifecycle.Common.Java8",
+			"nugetRevision": 0,
+			"tags": []
+		},
+		{
+			"groupId": "androidx.lifecycle",
+			"artifactId": "lifecycle-livedata-core",
+			"version": "2.7.0-beta01",
+			"nugetPackageId": "Xamarin.AndroidX.Lifecycle.LiveData.Core",
+			"nugetRevision": 0,
+			"tags": []
+		},
+		{
+			"groupId": "androidx.lifecycle",
 			"artifactId": "lifecycle-common",
 			"version": "2.7.0-beta01",
 			"nugetPackageId": "Xamarin.AndroidX.Lifecycle.Common",

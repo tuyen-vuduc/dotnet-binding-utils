@@ -115,10 +115,12 @@ public static class ArtifactScanner
             var xgroupId = dependency.SelectSingleNode("descendant::mvn:groupId", nsmgr).InnerText;
             var xartifactId = dependency.SelectSingleNode("descendant::mvn:artifactId", nsmgr).InnerText;
 
-            if (string.IsNullOrWhiteSpace(scope) && 
-                !missingDependencies.Contains($"{xgroupId}:{xartifactId}"))
+            if (string.IsNullOrWhiteSpace(scope))
             {
-                continue;
+                if (!missingDependencies.Contains($"{xgroupId}:{xartifactId}")) continue;
+
+                // TODO Need to check why scope is N/A for a normal dependency
+                scope = "compile";
             }
 
             // TODO Why artifact adds junit as a compile dependency?
