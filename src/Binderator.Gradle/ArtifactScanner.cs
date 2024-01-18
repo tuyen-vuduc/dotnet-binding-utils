@@ -1,4 +1,8 @@
-﻿namespace Binderator.Gradle;
+﻿using Microsoft.Extensions.DependencyModel;
+using System;
+using System.Xml;
+
+namespace Binderator.Gradle;
 
 public static class ArtifactScanner
 {
@@ -112,23 +116,28 @@ public static class ArtifactScanner
             var scope = dependency.SelectSingleNode("descendant::mvn:scope", nsmgr)?.InnerText;
             if (scope == "test") continue;
 
-            var xgroupId = dependency.SelectSingleNode("descendant::mvn:groupId", nsmgr).InnerText;
             var xartifactId = dependency.SelectSingleNode("descendant::mvn:artifactId", nsmgr).InnerText;
-
-            if (string.IsNullOrWhiteSpace(scope))
-            {
-                if (!missingDependencies.Contains($"{xgroupId}:{xartifactId}")) continue;
-
-                // TODO Need to check why scope is N/A for a normal dependency
-                scope = "compile";
-            }
 
             // TODO Why artifact adds junit as a compile dependency?
             if (skippedDependencies.Contains(xartifactId)) continue;
 
+            var xgroupId = dependency.SelectSingleNode("descendant::mvn:groupId", nsmgr).InnerText;
+
+            if (string.IsNullOrWhiteSpace(scope))
+            {
+                var missed = missingDependencies.Any(x =>
+                    x == $"{xgroupId}:{xartifactId}:" ||
+                    x.StartsWith($"{xgroupId}:{xartifactId}:"));
+
+                if (!missed) continue;
+
+                // TODO Why scope is N/A for a normal dependency
+                scope = "compile";
+            }
+
             var existingArtifact = existingArtifacts.FirstOrDefault(
-                x => x.GroupId == xgroupId && x.ArtifactId == xartifactId
-            );
+                    x => x.GroupId == xgroupId && x.ArtifactId == xartifactId
+                );
 
             // TODO Handle version range
             var rawVersion = dependency.SelectSingleNode("descendant::mvn:version", nsmgr)?.InnerText;
@@ -158,73 +167,116 @@ public static class ArtifactScanner
                     : versionRange.MinVersion.ToNormalizedString();
             }
 
-            SemanticVersion artifactVersion = SemanticVersion.TryParse(xversion, out var semanticVersion)
-                ? semanticVersion
-                : NuGetVersion.Parse(xversion);
+            AddParentArtifact(
+                existingArtifacts,
+                xgroupId, xartifactId, xversion,
+                existingArtifact, parentArtifactIds, log,
+                homeFolderPath, scope, nugetRevision,
+                basePath, artifacts, missingArtifacts);
+        }
 
+        foreach (var missingDependency in missingDependencies)
+        {
+            var parts = missingDependency.Split(':');
 
-            if (existingArtifact != null && artifactVersion != existingArtifact.Version)
-            {
-                parentArtifactIds.Add(new KeyValuePair<string, string>(existingArtifact.NugetPackageId, scope));
-                log?.Invoke(
-                    $"ARTIFACT EXISTS >> {xgroupId}:{xartifactId}-{xversion} << {existingArtifact.Version}"
+            // Missing dependency must be in format of groupdId:artifactId:version
+            if (parts.Length != 3) continue;
+
+            var existingArtifact = existingArtifacts.FirstOrDefault(
+                    x => x.GroupId == parts[0] && x.ArtifactId == parts[1]
                 );
 
-                if (existingArtifact.Version < artifactVersion)
-                {
-                    var (_, xartifactFiles) = GetArtifactFiles(
-                        homeFolderPath,
-                        xgroupId,
-                        xartifactId,
-                        artifactVersion
-                    );
-                    existingArtifact.Files = xartifactFiles;
-                    existingArtifact.Version = artifactVersion;
-                    existingArtifact.NugetVersion = artifactVersion.ToNuGetVersion(nugetRevision);
-                }
-
-                continue;
-            }
-
-            var parentArtifact = FindExternalArtifact(basePath, xgroupId, xartifactId, artifactVersion);
-
-            if (parentArtifact == null)
-            {
-                var parentArtifacts = Scan(
-                    existingArtifacts,
-                    basePath,
-                    xgroupId,
-                    xartifactId,
-                    artifactVersion,
-                    log,
-                    nugetRevision: nugetRevision,
-                    nugetPackageId: existingArtifact?.NugetPackageId,
-                    missingDependencies: existingArtifact?.MissingDependencies ?? Array.Empty<string>(),
-                    missingArtifacts: missingArtifacts);
-
-                if (parentArtifacts.Count == 0) continue;
-
-                artifacts.AddRange(parentArtifacts);
-                existingArtifacts.AddRange(parentArtifacts);
-                artifacts = artifacts.Distinct().ToList();
-                parentArtifactIds.Add(new KeyValuePair<string, string>(parentArtifacts[0].NugetPackageId, scope));
-            }
-            else
-            {
-                if (artifactVersion != parentArtifact.Version)
-                {
-                    log?.Invoke(
-                        $"EXTERNAL ARTIFACT >> {xgroupId}:{xartifactId}-{xversion} << {parentArtifact.Version}"
-                    );
-                }
-
-                artifacts.Add(parentArtifact);
-                parentArtifactIds.Add(new KeyValuePair<string, string>(parentArtifact.NugetPackageId, scope));
-            }
+            AddParentArtifact(
+                existingArtifacts,
+                parts[0], parts[1], parts[2],
+                existingArtifact, parentArtifactIds, log,
+                homeFolderPath, "compile", 0,
+                basePath, artifacts, missingArtifacts);
         }
+
+
         artifact.ParentArtifacts = parentArtifactIds.ToArray();
 
         return artifacts;
+    }
+
+    private static void AddParentArtifact(
+        List<ArtifactModel> existingArtifacts,
+        string xgroupId,
+        string xartifactId,
+        string xversion,
+        ArtifactModel existingArtifact,
+        List<KeyValuePair<string, string>> parentArtifactIds,
+        Action<string> log,
+        string homeFolderPath,
+        string scope,
+        int nugetRevision,
+        string basePath,
+        List<ArtifactModel> artifacts,
+        List<string> missingArtifacts = default)
+    {
+        SemanticVersion artifactVersion = SemanticVersion.TryParse(xversion, out var semanticVersion)
+            ? semanticVersion
+            : NuGetVersion.Parse(xversion);
+
+        if (existingArtifact != null && artifactVersion != existingArtifact.Version)
+        {
+            parentArtifactIds.Add(new KeyValuePair<string, string>(existingArtifact.NugetPackageId, scope));
+            log?.Invoke(
+                $"ARTIFACT EXISTS >> {xgroupId}:{xartifactId}-{xversion} << {existingArtifact.Version}"
+            );
+
+            if (existingArtifact.Version < artifactVersion)
+            {
+                var (_, xartifactFiles) = GetArtifactFiles(
+                    homeFolderPath,
+                    xgroupId,
+                    xartifactId,
+                    artifactVersion
+                );
+                existingArtifact.Files = xartifactFiles;
+                existingArtifact.Version = artifactVersion;
+                existingArtifact.NugetVersion = artifactVersion.ToNuGetVersion(nugetRevision);
+            }
+
+            return;
+        }
+
+        var parentArtifact = FindExternalArtifact(basePath, xgroupId, xartifactId, artifactVersion);
+
+        if (parentArtifact == null)
+        {
+            var parentArtifacts = Scan(
+                existingArtifacts,
+                basePath,
+                xgroupId,
+                xartifactId,
+                artifactVersion,
+                log,
+                nugetRevision: nugetRevision,
+                nugetPackageId: existingArtifact?.NugetPackageId,
+                missingDependencies: existingArtifact?.MissingDependencies ?? Array.Empty<string>(),
+                missingArtifacts: missingArtifacts);
+
+            if (parentArtifacts.Count == 0) return;
+
+            artifacts.AddRange(parentArtifacts);
+            existingArtifacts.AddRange(parentArtifacts);
+            artifacts = artifacts.Distinct().ToList();
+            parentArtifactIds.Add(new KeyValuePair<string, string>(parentArtifacts[0].NugetPackageId, scope));
+        }
+        else
+        {
+            if (artifactVersion != parentArtifact.Version)
+            {
+                log?.Invoke(
+                    $"EXTERNAL ARTIFACT >> {xgroupId}:{xartifactId}-{xversion} << {parentArtifact.Version}"
+                );
+            }
+
+            artifacts.Add(parentArtifact);
+            parentArtifactIds.Add(new KeyValuePair<string, string>(parentArtifact.NugetPackageId, scope));
+        }
     }
 
     private static string GetVersion(XmlDocument xmlDocument, XmlNamespaceManager nsmgr, string xversion)

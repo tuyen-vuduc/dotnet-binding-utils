@@ -35,7 +35,14 @@
 			"artifactName": "SceneView",
 			"version": "2.0.2",
 			"nugetRevision": 0,
-			"tags": [ "sceneview" ]
+			"tags": [ "sceneview" ],
+			"missingDependencies": [
+				"androidx.lifecycle:lifecycle-common:2.7.0-beta01",
+				"androidx.lifecycle:lifecycle-runtime:2.7.0-beta01",
+				"androidx.lifecycle:lifecycle-livedata-core:2.7.0-beta01",
+				"org.jetbrains:annotations:24.1.0",
+				"org.jetbrains.kotlin:kotlin-stdlib:1.9.21"
+			]
 		},
 		{
 			"groupId": "io.github.sceneview",
@@ -43,11 +50,20 @@
 			"artifactName": "AR SceneView",
 			"version": "2.0.2",
 			"nugetRevision": 0,
-			"tags": [ "arsceneview" ]
+			"tags": [ "arsceneview" ],
+			"missingDependencies": [
+				"androidx.lifecycle:lifecycle-common:2.7.0-beta01",
+				"androidx.lifecycle:lifecycle-runtime:2.7.0-beta01",
+				"androidx.lifecycle:lifecycle-livedata-core:2.7.0-beta01",
+				"org.jetbrains:annotations:24.1.0",
+				"org.jetbrains.kotlin:kotlin-stdlib:1.9.21"
+			]
 		}
 	],
 	"fixedDependencies": {
 		"Xamarin.Kotlin.StdLib.Jdk8": "1.9.21.1",
-		"Xamarin.Kotlin.StdLib.Common": "1.9.21.1"
+		"Xamarin.Kotlin.StdLib.Common": "1.9.21.1",
+		"Xamarin.Jetbrains.Annotations": "24.1.0.1",
+		"Xamarin.AndroidX.Lifecycle.Common.Java8": "2.7.0-beta01"
 	}
 }
