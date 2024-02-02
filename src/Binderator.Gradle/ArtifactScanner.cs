@@ -54,7 +54,7 @@ public static class ArtifactScanner
         if (artifactFiles.Length == 0)
         {
             log?.Invoke(
-                $"ARTIFACT FOLDER MISSING >> {groupId}:{artifactId}-{version} << {artifactVersionFolderPath}"
+                $"ARTIFACT FOLDER MISSING >> {groupId}:{artifactId}:{version} << {artifactVersionFolderPath}"
             );
             missingArtifacts.Add($"{groupId}:{artifactId}-{version} << {artifactVersionFolderPath}");
 

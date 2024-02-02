@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "metadata", "metadata", "{11
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetBindings.Cake", "src\DotnetBindings.Cake\DotnetBindings.Cake.csproj", "{95670EEE-39E4-42C4-BF73-B28109EC962D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Build", "qs\io.github.sceneview--sceneview\build\Build.csproj", "{318DF61F-5A08-4356-8FD5-4561484F32C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Build", "qs\dev.romainguy--kotlin-math\build\Build.csproj", "{7CE35612-61B4-41F3-9211-01EB412F5BA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,10 +51,10 @@ Global
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{318DF61F-5A08-4356-8FD5-4561484F32C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{318DF61F-5A08-4356-8FD5-4561484F32C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{318DF61F-5A08-4356-8FD5-4561484F32C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{318DF61F-5A08-4356-8FD5-4561484F32C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CE35612-61B4-41F3-9211-01EB412F5BA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CE35612-61B4-41F3-9211-01EB412F5BA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CE35612-61B4-41F3-9211-01EB412F5BA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CE35612-61B4-41F3-9211-01EB412F5BA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

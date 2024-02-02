@@ -1,0 +1,40 @@
+{
+	"solutionFile" : "generated/kotline-math-bindings.sln",
+	"metadataPath": "../..",
+	"debug": { "dumpModels" : true },
+	"additionalProjects": [
+	],
+	"targetFrameworks": [
+		"MonoAndroid12.0",
+		"net6.0-android31.0",
+		"net7.0-android33.0"
+	],
+	"projectUrl": "https://github.com/tuyen-vuduc/dotnet-binding-utils",
+	"packageIconPath": "../../assets/tv-kotlin-math.png",
+	"licensePath": "../../LICENSE",
+	"tags": [ "android" ],
+	"templates" : [
+		{
+			"templateFile": "../../src/Targets.cshtml",
+			"outputFileRule" : "generated/{nugetid}/{nugetid}.targets"
+		},
+		{
+			"templateFile": "../../src/Project.cshtml",
+			"outputFileRule" : "generated/{nugetid}/{nugetid}.csproj"
+		},
+		{
+			"templateFile": "../../src/Pom.cshtml",
+			"outputFileRule" : "generated/{nugetid}/pom.xml"
+		}
+	],
+	"groupName": "RomainGuy",
+	"artifacts": [
+		{
+			"groupId": "dev.romainguy",
+			"artifactId": "kotlin-math",
+			"version": "1.5.3",
+			"nugetRevision": 0,
+			"tags": []
+		}
+	]
+}
