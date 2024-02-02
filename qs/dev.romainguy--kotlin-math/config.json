@@ -1,5 +1,5 @@
 {
-	"solutionFile" : "generated/kotline-math-bindings.sln",
+	"solutionFile" : "generated/kotlin-math-bindings.sln",
 	"metadataPath": "../..",
 	"debug": { "dumpModels" : true },
 	"additionalProjects": [
