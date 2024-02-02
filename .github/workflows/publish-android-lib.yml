@@ -19,6 +19,7 @@ on:
         - org.jetbrains.kotlin
         - com.google.android.filament
         - com.github.kittinunf.fuel
+        - dev.romainguy--kotlin-math
 jobs:
   build-then-publish:
     environment: production
