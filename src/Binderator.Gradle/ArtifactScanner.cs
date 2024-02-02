@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyModel;
 using System;
+using System.Text.Json.Nodes;
 using System.Xml;
 
 namespace Binderator.Gradle;
@@ -75,8 +76,51 @@ public static class ArtifactScanner
             Tags = tags,
         };
 
-        var artifactPomFileName = $"{artifactId}-{version}.pom";
-        var pomFilePath = artifactFiles.FirstOrDefault(x => x.EndsWith(artifactPomFileName));
+        var artifactModuleFileName = $"{artifactId}-{version}.module";
+        var moduleFilePath = artifactFiles.FirstOrDefault(x => x.EndsWith(artifactModuleFileName));
+        if (!string.IsNullOrWhiteSpace(moduleFilePath))
+        {
+            moduleFilePath = Path.Combine(homeFolderPath, moduleFilePath);
+            var jsonNode = JsonNode.Parse(File.OpenRead(moduleFilePath));
+            var variantsNode = jsonNode["variants"] as JsonArray;
+            var jvmApiElementsPublishedNode = variantsNode.FirstOrDefault(x => x["name"].GetValue<string>() == "jvmApiElements-published");
+
+            if (jvmApiElementsPublishedNode != null)
+            {
+                var availableAtNode = jvmApiElementsPublishedNode["available-at"];
+                if (availableAtNode != null)
+                {
+                    var shadowGroup = availableAtNode["group"].GetValue<string>();
+                    var shadowArtifactId = availableAtNode["module"].GetValue<string>();
+                    var shadowVersion = SemanticVersion.Parse(availableAtNode["version"].GetValue<string>());
+                    var parentArtifacts = Scan(
+                        existingArtifacts,
+                        basePath,
+                        shadowGroup,
+                        shadowArtifactId,
+                        shadowVersion,
+                        log,
+                        nugetRevision: nugetRevision,
+                        nugetPackageId: artifact?.NugetPackageId,
+                        missingDependencies: artifact?.MissingDependencies ?? Array.Empty<string>(),
+                        missingArtifacts: missingArtifacts);
+
+                    var shadowArtifact = parentArtifacts.FirstOrDefault(x => x.ArtifactId == shadowArtifactId && x.GroupId == shadowGroup);
+                    parentArtifacts.Remove(shadowArtifact);
+
+                    artifact.ShadowArtifact = shadowArtifact;
+                    artifacts.Add(artifact);
+
+                    artifacts.AddRange(parentArtifacts);
+                    existingArtifacts.AddRange(parentArtifacts);
+                    artifacts = artifacts.Distinct().ToList();
+
+                    return artifacts;
+                }
+            }
+        }
+
+        var pomFilePath = artifactFiles.FirstOrDefault(x => x.EndsWith(".pom"));
 
         if (pomFilePath == null)
         {
@@ -172,7 +216,7 @@ public static class ArtifactScanner
                 xgroupId, xartifactId, xversion,
                 existingArtifact, parentArtifactIds, log,
                 homeFolderPath, scope, nugetRevision,
-                basePath, artifacts, missingArtifacts);
+                basePath, ref artifacts, missingArtifacts);
         }
 
         foreach (var missingDependency in missingDependencies)
@@ -191,7 +235,7 @@ public static class ArtifactScanner
                 parts[0], parts[1], parts[2],
                 existingArtifact, parentArtifactIds, log,
                 homeFolderPath, "compile", 0,
-                basePath, artifacts, missingArtifacts);
+                basePath, ref artifacts, missingArtifacts);
         }
 
 
@@ -212,7 +256,7 @@ public static class ArtifactScanner
         string scope,
         int nugetRevision,
         string basePath,
-        List<ArtifactModel> artifacts,
+        ref List<ArtifactModel> artifacts,
         List<string> missingArtifacts = default)
     {
         SemanticVersion artifactVersion = SemanticVersion.TryParse(xversion, out var semanticVersion)
