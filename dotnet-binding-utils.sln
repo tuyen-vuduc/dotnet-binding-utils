@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "metadata", "metadata", "{11
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetBindings.Cake", "src\DotnetBindings.Cake\DotnetBindings.Cake.csproj", "{95670EEE-39E4-42C4-BF73-B28109EC962D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Build", "qs\com.mapbox.maps--android\build\Build.csproj", "{6642B6BA-8796-4E3A-9213-F79528240F2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Build", "qs\dev.romainguy--kotlin-math\build\Build.csproj", "{7CE35612-61B4-41F3-9211-01EB412F5BA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,10 +51,10 @@ Global
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6642B6BA-8796-4E3A-9213-F79528240F2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6642B6BA-8796-4E3A-9213-F79528240F2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6642B6BA-8796-4E3A-9213-F79528240F2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6642B6BA-8796-4E3A-9213-F79528240F2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CE35612-61B4-41F3-9211-01EB412F5BA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CE35612-61B4-41F3-9211-01EB412F5BA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CE35612-61B4-41F3-9211-01EB412F5BA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CE35612-61B4-41F3-9211-01EB412F5BA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,5 +66,8 @@ Global
 		{EBD1E63E-6567-4C3B-B274-EF980E961025} = {98336720-D8F2-434C-9316-2E9F0D62560B}
 		{E0AC64A6-B554-4941-8257-D102AEF12A26} = {11E44A3E-263D-4F7C-B6BA-F646275DA72B}
 		{95670EEE-39E4-42C4-BF73-B28109EC962D} = {98336720-D8F2-434C-9316-2E9F0D62560B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {618AC419-45C4-4690-9F4D-27BE632F8B5B}
 	EndGlobalSection
 EndGlobal

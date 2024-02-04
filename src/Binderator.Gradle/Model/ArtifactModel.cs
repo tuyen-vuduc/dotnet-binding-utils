@@ -23,31 +23,53 @@ public class ArtifactModel : IEquatable<ArtifactModel>
     public string Key => $"{GroupId}:{ArtifactId}";
     public string GradleImplementation => $"{GroupId}:{ArtifactId}:{Version}";
 
-    public bool IsAAR => Packaging == "aar" || Files?.Any(x => x.EndsWith(ArtifactWithVersion + ".aar")) == true;
+    public bool IsAAR => ShadowArtifact != null
+        ? ShadowArtifact.IsAAR
+        : Packaging == "aar" || Files?.Any(x => x.EndsWith(ArtifactWithVersion + ".aar")) == true;
     public string ArtifactWithVersion => $"{ArtifactId}-{Version}";
 
-    public string LibRelativePath => IsAAR
+    public string LibRelativePath => ShadowArtifact != null
+        ? ShadowArtifact.LibRelativePath
+        : IsAAR
         ? Files?.FirstOrDefault(x => x.EndsWith(ArtifactWithVersion + ".aar"))?.Replace("\\", "/")
         : Files?.FirstOrDefault(x => x.EndsWith(ArtifactWithVersion + ".jar"))?.Replace("\\", "/");
 
-    public string SourcesJarRelativeFilePath => Files?.FirstOrDefault(x => x.EndsWith("-sources.jar"));
-    public string JavadocJarRelativeFilePath => Files?.FirstOrDefault(x => x.EndsWith("-javadoc.jar"));
+    public string SourcesJarRelativeFilePath => ShadowArtifact != null
+        ? ShadowArtifact.SourcesJarRelativeFilePath
+        : Files?.FirstOrDefault(x => x.EndsWith("-sources.jar"));
+    public string JavadocJarRelativeFilePath => ShadowArtifact != null
+        ? ShadowArtifact.JavadocJarRelativeFilePath
+        : Files?.FirstOrDefault(x => x.EndsWith("-javadoc.jar"));
 
-    public string LibFolderPath => LibRelativePath?.Substring(
-        0,
-        LibRelativePath.IndexOf(ArtifactWithVersion)
-    ).Trim('/').Replace("\\", "/");
+    public string LibFolderPath => ShadowArtifact != null
+        ? ShadowArtifact.LibFolderPath
+        : LibRelativePath?.Substring(
+            0,
+            LibRelativePath.IndexOf(ArtifactWithVersion)
+        ).Trim('/').Replace("\\", "/");
 
-    public string ProguardFileRelativePath => IsAAR ? System.IO.Path.Combine(
-        LibFolderPath ?? string.Empty,
-        "_aar",
-        "proguard.txt"
-    ).Replace("\\", "/") : string.Empty;
+    public string ProguardFileRelativePath => ShadowArtifact != null
+        ? ShadowArtifact.ProguardFileRelativePath
+        : IsAAR
+        ? Path.Combine(
+            LibFolderPath ?? string.Empty,
+            "_aar",
+            "proguard.txt"
+        ).Replace("\\", "/")
+        : string.Empty;
 
-    public KeyValuePair<string, string>[] ParentArtifacts { get; set; }
+    private KeyValuePair<string, string>[] parentArtifacts;
+    public KeyValuePair<string, string>[] ParentArtifacts
+    {
+        get => ShadowArtifact?.parentArtifacts ?? parentArtifacts;
+        set => parentArtifacts = value;
+    }
     public string GroupName { get; set; }
     public string ArtifactName { get; set; }
     public string[] Tags { get; set; }
+    public string[] MissingDependencies { get; set; }
+
+    public ArtifactModel ShadowArtifact { get; set; }
 
     public bool Equals(ArtifactModel other)
     {
@@ -66,6 +88,6 @@ public class ArtifactModel : IEquatable<ArtifactModel>
         return ToString().GetHashCode();
     }
 
-    public override string ToString() => $"{GroupId}:{ArtifactId}-{Version}.{Packaging}";
+    public override string ToString() => $"{GroupId}:{ArtifactId}-{Version}.{ShadowArtifact?.Packaging ?? Packaging}";
 }
 

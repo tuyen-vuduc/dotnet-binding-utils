@@ -17,6 +17,10 @@ on:
         - androidx.health.connect--connect-client
         - com.google.ar--core
         - org.jetbrains.kotlin
+        - com.google.android.filament
+        - com.github.kittinunf.fuel
+        - dev.romainguy--kotlin-math
+        - io.github.sceneview--sceneview
 jobs:
   build-then-publish:
     environment: production

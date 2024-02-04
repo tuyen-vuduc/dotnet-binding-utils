@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <attr path="/api/package[@name='com.github.kittinunf.result']/class[@name='Result']"
+        name="managedName">ResultClass</attr>
+  <attr path="/api/package[@name='com.github.kittinunf.result']/class[@name='Result.Failure']/method[@name='get' and count(parameter)=0]"
+        name="managedOverride">override</attr>
+  <attr path="/api/package[@name='com.github.kittinunf.result']/class[@name='Result.Failure']/method[@name='get' and count(parameter)=0]"
+        name="managedReturn">Java.Lang.Object</attr>
+</metadata>
