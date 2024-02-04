@@ -42,6 +42,11 @@
 				"androidx.lifecycle:lifecycle-livedata:2.7.0",
 				"androidx.lifecycle:lifecycle-livedata-core:2.7.0",
 				"androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0",
+				"androidx.lifecycle:lifecycle-process:2.7.0",
+				"androidx.lifecycle:lifecycle-service:2.7.0",
+				"androidx.lifecycle:lifecycle-viewmodel:2.7.0",
+				"androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0",
+				"androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0",
 				"org.jetbrains:annotations:24.1.0"
 			]
 		},

@@ -15,10 +15,12 @@
     <PackageReference Include="Dependencies.Gradle" Version="7.6.1" />
   </ItemGroup>
   <ItemGroup>
-    <GradleImplementation Include="androidx.lifecycle:lifecycle-common:2.7.0-beta01"></GradleImplementation>
-    <GradleImplementation Include="androidx.lifecycle:lifecycle-runtime:2.7.0-beta01"></GradleImplementation>
-    <GradleImplementation Include="androidx.lifecycle:lifecycle-runtime-compose:2.7.0-beta01"></GradleImplementation>
-    <GradleImplementation Include="androidx.lifecycle:lifecycle-runtime-ktx:2.7.0-beta01"></GradleImplementation>
+    <GradleImplementation Include="androidx.lifecycle:lifecycle-common-java8:2.7.0"></GradleImplementation>
+    <GradleImplementation Include="androidx.lifecycle:lifecycle-livedata-core:2.7.0"></GradleImplementation>
+    <GradleImplementation Include="androidx.lifecycle:lifecycle-common:2.7.0"></GradleImplementation>
+    <GradleImplementation Include="androidx.lifecycle:lifecycle-runtime:2.7.0"></GradleImplementation>
+    <GradleImplementation Include="androidx.lifecycle:lifecycle-runtime-compose:2.7.0"></GradleImplementation>
+    <GradleImplementation Include="androidx.lifecycle:lifecycle-runtime-ktx:2.7.0"></GradleImplementation>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Binderator.Gradle\Binderator.Gradle.csproj" />
