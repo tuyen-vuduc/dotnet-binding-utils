@@ -15,7 +15,7 @@
     <PackageReference Include="Dependencies.Gradle" Version="7.6.1" />
   </ItemGroup>
   <ItemGroup>
-    <GradleImplementation Include="com.google.android.filament:filament-utils-android:1.49.0"></GradleImplementation>
+    <GradleImplementation Include="com.google.android.filament:filament-utils-android:1.49.3"></GradleImplementation>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Binderator.Gradle\Binderator.Gradle.csproj" />

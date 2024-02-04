@@ -4,4 +4,7 @@
   <attr path="/api/package[@name='com.google.android.filament']/class[@name='Material.Parameter']/field[@name='type']" name="managedName">Type_</attr>
   <attr path="/api/package[@name='com.google.android.filament']/class[@name='View.BloomOptions']/field[@name='blendMode']" name="managedName">BlendMode_</attr>
   <attr path="/api/package[@name='com.google.android.filament']/class[@name='View.DepthOfFieldOptions']/field[@name='filter']" name="managedName">Filter_</attr>
+  <attr path="/api/package[@name='com.google.android.filament']/class[@name='View.TemporalAntiAliasingOptions']/field[@name='boxType']" name="managedName">BoxType_</attr>
+  <attr path="/api/package[@name='com.google.android.filament']/class[@name='View.TemporalAntiAliasingOptions']/field[@name='jitterPattern']" name="managedName">JitterPattern_</attr>
+  <attr path="/api/package[@name='com.google.android.filament']/class[@name='View.TemporalAntiAliasingOptions']/field[@name='boxClipping']" name="managedName">BoxClipping_</attr>
 </metadata>
