@@ -27,7 +27,7 @@
 			"outputFileRule" : "generated/{nugetid}/pom.xml"
 		}
 	],
-	"groupName": "Google Filament",
+	"groupName": "kittinunf",
 	"artifacts": [
 		{
 			"groupId": "com.github.kittinunf.fuel",
