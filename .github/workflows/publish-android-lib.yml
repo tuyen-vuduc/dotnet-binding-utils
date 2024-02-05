@@ -18,6 +18,7 @@ on:
         - com.google.ar--core
         - org.jetbrains.kotlin
         - com.google.android.filament
+        - com.github.kittinunf.result
         - com.github.kittinunf.fuel
         - dev.romainguy--kotlin-math
         - io.github.sceneview--sceneview
