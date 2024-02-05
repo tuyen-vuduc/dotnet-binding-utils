@@ -1,5 +1,5 @@
 {
-	"solutionFile" : "generated/kittinunf-fuel-bindings.sln",
+	"solutionFile" : "generated/kittinunf-result-bindings.sln",
 	"metadataPath": "../..",
 	"debug": { "dumpModels" : true },
 	"additionalProjects": [
@@ -30,28 +30,9 @@
 	"groupName": "kittinunf",
 	"artifacts": [
 		{
-			"groupId": "com.github.kittinunf.fuel",
-			"artifactId": "fuel-android",
-			"version": "2.3.1",
-			"nugetRevision": 1,
-			"tags": [],
-			"missingDependencies": [
-				"org.jetbrains.kotlin:kotlin-android-extensions-runtime",
-				"org.jetbrains.kotlin:kotlin-stdlib",
-				"com.github.kittinunf.fuel:fuel"
-			]
-		},
-		{
-			"groupId": "com.github.kittinunf.fuel",
-			"artifactId": "fuel",
-			"version": "2.3.1",
-			"nugetRevision": 1,
-			"tags": []
-		},
-		{
-			"groupId": "com.github.kittinunf.fuel",
-			"artifactId": "fuel-coroutines",
-			"version": "2.3.1",
+			"groupId": "com.github.kittinunf.result",
+			"artifactId": "result",
+			"version": "3.1.0",
 			"nugetRevision": 1,
 			"tags": []
 		}

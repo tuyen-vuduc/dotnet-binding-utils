@@ -15,8 +15,6 @@
     <PackageReference Include="Dependencies.Gradle" Version="7.6.1" />
   </ItemGroup>
   <ItemGroup>
-    <GradleImplementation Include="com.github.kittinunf.fuel:fuel-android:2.3.1"></GradleImplementation>
-    <GradleImplementation Include="com.github.kittinunf.fuel:fuel-coroutines:2.3.1"></GradleImplementation>
     <GradleImplementation Include="com.github.kittinunf.result:result:3.1.0"></GradleImplementation>
   </ItemGroup>
   <ItemGroup>

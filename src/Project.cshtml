@@ -12,6 +12,9 @@
     DateTime.Today.DayOfYear);
 }
 <Project Sdk="Xamarin.Legacy.Sdk">
+  <Target Name="_CleanAarOutputPath" AfterTargets="_CreateAar" BeforeTargets="_IncludeAarInNuGetPackage">
+    <Delete Files="$(_AarOutputPath)" />
+  </Target>
   <PropertyGroup>
     <TargetFrameworks>@(Model.TargetFrameworks)</TargetFrameworks>
     <IsBindingProject>true</IsBindingProject>
@@ -45,7 +48,7 @@
     <PackageVersion>@(Model.Artifact.NugetVersion)</PackageVersion>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <!-- Include symbol files (*.pdb) in the built .nupkg -->
-    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>.dll;.xml;.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
 
   <PropertyGroup>
