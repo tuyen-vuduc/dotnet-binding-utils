@@ -33,7 +33,7 @@
 			"groupId": "com.mapbox.maps",
 			"artifactId": "android",
 			"artifactName": "Android SDK",
-			"version": "11.0.0",
+			"version": "11.1.0",
 			"nugetRevision": 0,
 			"tags": [ "mapbox", "mapbox-android" ]
 		}
