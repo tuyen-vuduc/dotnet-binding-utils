@@ -34,7 +34,7 @@
 			"artifactId": "cardinalmobilesdk",
 			"artifactName": "Android",
 			"version": "2.2.7-5",
-			"nugetRevision": 0,
+			"nugetRevision": 1,
 			"tags": [ "cardinalcommerce" ]
 		}
 	]
