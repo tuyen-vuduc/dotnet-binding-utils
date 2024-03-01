@@ -34,7 +34,7 @@
 			"artifactId": "drop-in",
 			"artifactName": "Drop In",
 			"version": "6.14.0",
-			"nugetRevision": 3,
+			"nugetRevision": 4,
 			"tags": [ "braintree-drop-in", "dropin" ]
 		}
 	],

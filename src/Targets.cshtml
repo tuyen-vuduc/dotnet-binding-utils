@@ -29,27 +29,23 @@
 @if (Model.Artifact.IsAAR) {
   <AndroidAarLibrary 
     Condition=" '$(OS)' == 'Unix' and Exists('$(Home)/@(Model.Artifact.LibRelativePath)') " 
-    Include="$(Home)/@(Model.Artifact.LibRelativePath)" 
-    Bind="false" Pack="false" Visible="false">
+    Include="$(Home)/@(Model.Artifact.LibRelativePath)" >
     <AndroidXSkipAndroidXMigration>true</AndroidXSkipAndroidXMigration>
   </AndroidAarLibrary>
   <AndroidAarLibrary       
     Condition=" '$(OS)' != 'Unix' and Exists('$(UserProfile)/@(Model.Artifact.LibRelativePath)') " 
-    Include="$(UserProfile)/@(Model.Artifact.LibRelativePath)" 
-    Bind="false" Pack="false" Visible="false">
+    Include="$(UserProfile)/@(Model.Artifact.LibRelativePath)" >
     <AndroidXSkipAndroidXMigration>true</AndroidXSkipAndroidXMigration>
   </AndroidAarLibrary>
 } else {
   <AndroidJavaLibrary 
     Condition=" '$(OS)' == 'Unix' and Exists('$(Home)/@(Model.Artifact.LibRelativePath)') " 
-    Include="$(Home)/@(Model.Artifact.LibRelativePath)" 
-    Bind="false" Pack="false" Visible="false">
+    Include="$(Home)/@(Model.Artifact.LibRelativePath)" >
     <AndroidXSkipAndroidXMigration>true</AndroidXSkipAndroidXMigration>
   </AndroidJavaLibrary>
   <AndroidJavaLibrary       
     Condition=" '$(OS)' != 'Unix' and Exists('$(UserProfile)/@(Model.Artifact.LibRelativePath)') " 
-    Include="$(UserProfile)/@(Model.Artifact.LibRelativePath)" 
-    Bind="false" Pack="false" Visible="false">
+    Include="$(UserProfile)/@(Model.Artifact.LibRelativePath)" >
     <AndroidXSkipAndroidXMigration>true</AndroidXSkipAndroidXMigration>
   </AndroidJavaLibrary>
 }
