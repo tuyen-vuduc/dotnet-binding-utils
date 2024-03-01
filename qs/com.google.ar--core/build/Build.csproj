@@ -20,7 +20,7 @@
     <PackageReference Include="Dependencies.Gradle" Version="7.6.1" />
   </ItemGroup>
   <ItemGroup>
-    <GradleImplementation Include="com.google.ar:core:1.40.0"></GradleImplementation>
+    <GradleImplementation Include="com.google.ar:core:1.41.0"></GradleImplementation>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Binderator.Gradle\Binderator.Gradle.csproj" />
