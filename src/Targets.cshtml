@@ -26,18 +26,33 @@
   </ItemGroup>
 }
   <ItemGroup>
-    <AndroidLibrary 
-      Condition=" '$(OS)' == 'Unix' and Exists('$(Home)/@(Model.Artifact.LibRelativePath)') " 
-      Include="$(Home)/@(Model.Artifact.LibRelativePath)" 
-      Bind="false" Pack="false" Visible="false">
-      <AndroidXSkipAndroidXMigration>true</AndroidXSkipAndroidXMigration>
-    </AndroidLibrary>
-    <AndroidLibrary       
-      Condition=" '$(OS)' != 'Unix' and Exists('$(UserProfile)/@(Model.Artifact.LibRelativePath)') " 
-      Include="$(UserProfile)/@(Model.Artifact.LibRelativePath)" 
-      Bind="false" Pack="false" Visible="false">
-      <AndroidXSkipAndroidXMigration>true</AndroidXSkipAndroidXMigration>
-    </AndroidLibrary>
+@if (Model.Artifact.IsAAR) {
+  <AndroidAarLibrary 
+    Condition=" '$(OS)' == 'Unix' and Exists('$(Home)/@(Model.Artifact.LibRelativePath)') " 
+    Include="$(Home)/@(Model.Artifact.LibRelativePath)" 
+    Bind="false" Pack="false" Visible="false">
+    <AndroidXSkipAndroidXMigration>true</AndroidXSkipAndroidXMigration>
+  </AndroidAarLibrary>
+  <AndroidAarLibrary       
+    Condition=" '$(OS)' != 'Unix' and Exists('$(UserProfile)/@(Model.Artifact.LibRelativePath)') " 
+    Include="$(UserProfile)/@(Model.Artifact.LibRelativePath)" 
+    Bind="false" Pack="false" Visible="false">
+    <AndroidXSkipAndroidXMigration>true</AndroidXSkipAndroidXMigration>
+  </AndroidAarLibrary>
+} else {
+  <AndroidJavaLibrary 
+    Condition=" '$(OS)' == 'Unix' and Exists('$(Home)/@(Model.Artifact.LibRelativePath)') " 
+    Include="$(Home)/@(Model.Artifact.LibRelativePath)" 
+    Bind="false" Pack="false" Visible="false">
+    <AndroidXSkipAndroidXMigration>true</AndroidXSkipAndroidXMigration>
+  </AndroidJavaLibrary>
+  <AndroidJavaLibrary       
+    Condition=" '$(OS)' != 'Unix' and Exists('$(UserProfile)/@(Model.Artifact.LibRelativePath)') " 
+    Include="$(UserProfile)/@(Model.Artifact.LibRelativePath)" 
+    Bind="false" Pack="false" Visible="false">
+    <AndroidXSkipAndroidXMigration>true</AndroidXSkipAndroidXMigration>
+  </AndroidJavaLibrary>
+}
     <GradleImplementation 
       Condition=" $(@(conditionName)) == 'true' " 
       Include="@(Model.Artifact.GradleImplementation)" />
