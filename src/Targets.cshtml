@@ -9,15 +9,35 @@
   <PropertyGroup>
     <@(conditionName)>true</@(conditionName)>
   </PropertyGroup>  
+  <PropertyGroup>
+    <AndroidManifestMerger Condition=" '$(AndroidManifestMerger)' == '' ">manifestmerger.jar</AndroidManifestMerger>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AndroidFragmentType>AndroidX.Fragment.App.Fragment</AndroidFragmentType>
+  </PropertyGroup>
+  
+@if (!string.IsNullOrEmpty(Model.Artifact.ProguardFileRelativePath)) {
+  <ItemGroup>
+    <ProguardConfiguration
+      Condition=" '$(AndroidApplication)' == 'true' and Exists('$(MSBuildThisFileDirectory)..\..\proguard\proguard.txt') "
+      Include="$(MSBuildThisFileDirectory)..\..\proguard\proguard.txt">
+      <AndroidXSkipAndroidXMigration>true</AndroidXSkipAndroidXMigration>
+    </ProguardConfiguration>
+  </ItemGroup>
+}
   <ItemGroup>
     <AndroidLibrary 
       Condition=" '$(OS)' == 'Unix' and Exists('$(Home)/@(Model.Artifact.LibRelativePath)') " 
       Include="$(Home)/@(Model.Artifact.LibRelativePath)" 
-      Bind="false" Pack="false" Visible="false"/>
+      Bind="false" Pack="false" Visible="false">
+      <AndroidXSkipAndroidXMigration>true</AndroidXSkipAndroidXMigration>
+    </AndroidLibrary>
     <AndroidLibrary       
       Condition=" '$(OS)' != 'Unix' and Exists('$(UserProfile)/@(Model.Artifact.LibRelativePath)') " 
       Include="$(UserProfile)/@(Model.Artifact.LibRelativePath)" 
-      Bind="false" Pack="false" Visible="false" />
+      Bind="false" Pack="false" Visible="false">
+      <AndroidXSkipAndroidXMigration>true</AndroidXSkipAndroidXMigration>
+    </AndroidLibrary>
     <GradleImplementation 
       Condition=" $(@(conditionName)) == 'true' " 
       Include="@(Model.Artifact.GradleImplementation)" />
