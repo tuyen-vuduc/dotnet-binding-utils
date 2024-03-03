@@ -15,8 +15,8 @@
     <PackageReference Include="Dependencies.Gradle" Version="7.6.1" />
   </ItemGroup>
   <ItemGroup>
-    <GradleImplementation Include="org.jetbrains.kotlin:kotlin-android-extensions-runtime:1.7.20"></GradleImplementation>
-    <GradleImplementation Include="org.jetbrains.kotlin:kotlin-android-extensions-runtime:1.7.20"></GradleImplementation>
+    <GradleImplementation Include="org.jetbrains.kotlin:kotlin-android-extensions-runtime:1.8.22"></GradleImplementation>
+    <GradleImplementation Include="org.jetbrains.kotlin:kotlin-android-extensions-runtime:1.8.22"></GradleImplementation>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Binderator.Gradle\Binderator.Gradle.csproj" />
