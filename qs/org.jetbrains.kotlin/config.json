@@ -32,15 +32,15 @@
 		{
 			"groupId": "org.jetbrains.kotlin",
 			"artifactId": "kotlin-android-extensions-runtime",
-			"version": "1.7.20",
-			"nugetRevision": 2,
+			"version": "1.8.22",
+			"nugetRevision": 1,
 			"tags": [ "kotlin-android-extensions-runtime" ]
 		},
 		{
 			"groupId": "org.jetbrains.kotlin",
 			"artifactId": "kotlin-parcelize-runtime",
-			"version": "1.7.20",
-			"nugetRevision": 2,
+			"version": "1.8.22",
+			"nugetRevision": 1,
 			"tags": [ "kotlin-parcelize-runtime" ]
 		}
 	]
