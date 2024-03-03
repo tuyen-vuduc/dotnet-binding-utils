@@ -34,7 +34,7 @@
 			"artifactId": "ImagePicker",
 			"artifactName": "ImagePicker",
 			"version": "1.6.2",
-			"nugetRevision": 0,
+			"nugetRevision": 1,
 			"tags": [ "ImagePicker", "nguyenhoanglam" ]
 		}
 	],
