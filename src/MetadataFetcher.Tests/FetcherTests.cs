@@ -219,6 +219,7 @@ public class FetcherTests
     [InlineData("Xamarin.Kotlin.StdLib.Jdk7", "org.jetbrains.kotlin", "kotlin-stdlib-jdk7")]
     [InlineData("Xamarin.Kotlin.StdLib.Jdk8", "org.jetbrains.kotlin", "kotlin-stdlib-jdk8")]
     [InlineData("Org.Jetbrains.Kotlin.KotlinAndroidExtensionsRuntime", "org.jetbrains.kotlin", "kotlin-android-extensions-runtime")]
+    [InlineData("Org.Jetbrains.Kotlin.KotlinAndroidExtensionsRuntime", "org.jetbrains.kotlin", "kotlin-parcelize-runtime")]
     [InlineData("Xamarin.KotlinX.Coroutines.Android", "org.jetbrains.kotlinx", "kotlinx-coroutines-android")]
     [InlineData("Xamarin.KotlinX.Coroutines.Core", "org.jetbrains.kotlinx", "kotlinx-coroutines-core")]
     [InlineData("Com.Github.Kittinunf.Fuel.Fuel", "com.github.kittinunf.fuel", "fuel")]
