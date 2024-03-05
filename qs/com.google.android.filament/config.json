@@ -31,9 +31,23 @@
 	"artifacts": [
 		{
 			"groupId": "com.google.android.filament",
+			"artifactId": "filament-android",
+			"version": "1.49.3",
+			"nugetRevision": 2,
+			"tags": []
+		},
+		{
+			"groupId": "com.google.android.filament",
 			"artifactId": "filament-utils-android",
 			"version": "1.49.3",
-			"nugetRevision": 1,
+			"nugetRevision": 2,
+			"tags": []
+		},
+		{
+			"groupId": "com.google.android.filament",
+			"artifactId": "gltfio-android",
+			"version": "1.49.3",
+			"nugetRevision": 2,
 			"tags": []
 		}
 	]

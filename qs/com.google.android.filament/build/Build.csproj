@@ -16,6 +16,8 @@
   </ItemGroup>
   <ItemGroup>
     <GradleImplementation Include="com.google.android.filament:filament-utils-android:1.49.3"></GradleImplementation>
+    <GradleImplementation Include="com.google.android.filament:filament-android:1.49.3"></GradleImplementation>
+    <GradleImplementation Include="com.google.android.filament:gltfio-android:1.49.3"></GradleImplementation>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Binderator.Gradle\Binderator.Gradle.csproj" />
