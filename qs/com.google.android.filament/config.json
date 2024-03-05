@@ -33,7 +33,7 @@
 			"groupId": "com.google.android.filament",
 			"artifactId": "filament-utils-android",
 			"version": "1.49.3",
-			"nugetRevision": 0,
+			"nugetRevision": 1,
 			"tags": []
 		}
 	]
