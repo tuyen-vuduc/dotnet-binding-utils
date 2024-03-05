@@ -34,7 +34,7 @@
 			"artifactId": "sceneview",
 			"artifactName": "SceneView",
 			"version": "2.0.3",
-			"nugetRevision": 1,
+			"nugetRevision": 2,
 			"tags": [ "sceneview" ],
 			"missingDependencies": [
 				"androidx.lifecycle:lifecycle-common:2.7.0",
@@ -55,7 +55,7 @@
 			"artifactId": "arsceneview",
 			"artifactName": "AR SceneView",
 			"version": "2.0.3",
-			"nugetRevision": 1,
+			"nugetRevision": 2,
 			"tags": [ "arsceneview" ],
 			"missingDependencies": [
 				"androidx.lifecycle:lifecycle-common:2.7.0",
@@ -82,6 +82,7 @@
 		"Xamarin.KotlinX.Coroutines.Core.Jvm": "1.7.3.3", 
 		"Xamarin.KotlinX.Coroutines.Core": "1.7.3.3",
 		"Xamarin.KotlinX.Coroutines.Android": "1.7.3.3",
-		"Xamarin.AndroidX.Annotation": "1.7.1"
+		"Xamarin.AndroidX.Annotation": "1.7.1",
+		"Xamarin.AndroidX.Compose.UI": "1.6.2"
 	}
 }
