@@ -33,7 +33,7 @@
 			"groupId": "com.github.kittinunf.fuel",
 			"artifactId": "fuel-android",
 			"version": "2.3.1",
-			"nugetRevision": 1,
+			"nugetRevision": 2,
 			"tags": [],
 			"missingDependencies": [
 				"org.jetbrains.kotlin:kotlin-android-extensions-runtime",
@@ -45,14 +45,14 @@
 			"groupId": "com.github.kittinunf.fuel",
 			"artifactId": "fuel",
 			"version": "2.3.1",
-			"nugetRevision": 1,
+			"nugetRevision": 2,
 			"tags": []
 		},
 		{
 			"groupId": "com.github.kittinunf.fuel",
 			"artifactId": "fuel-coroutines",
 			"version": "2.3.1",
-			"nugetRevision": 1,
+			"nugetRevision": 2,
 			"tags": []
 		}
 	],
