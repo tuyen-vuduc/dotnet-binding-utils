@@ -33,8 +33,8 @@
 			"groupId": "io.github.sceneview",
 			"artifactId": "sceneview",
 			"artifactName": "SceneView",
-			"version": "2.0.3",
-			"nugetRevision": 2,
+			"version": "2.0.4",
+			"nugetRevision": 0,
 			"tags": [ "sceneview" ],
 			"missingDependencies": [
 				"androidx.lifecycle:lifecycle-common:2.7.0",
@@ -54,8 +54,8 @@
 			"groupId": "io.github.sceneview",
 			"artifactId": "arsceneview",
 			"artifactName": "AR SceneView",
-			"version": "2.0.3",
-			"nugetRevision": 2,
+			"version": "2.0.4",
+			"nugetRevision": 0,
 			"tags": [ "arsceneview" ],
 			"missingDependencies": [
 				"androidx.lifecycle:lifecycle-common:2.7.0",

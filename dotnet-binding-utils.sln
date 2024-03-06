@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "metadata", "metadata", "{11
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetBindings.Cake", "src\DotnetBindings.Cake\DotnetBindings.Cake.csproj", "{95670EEE-39E4-42C4-BF73-B28109EC962D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Build", "qs\com.google.android.filament\build\Build.csproj", "{2217336B-E5E8-4DEC-9C95-FF290626F8B5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Build", "qs\io.github.sceneview--sceneview\build\Build.csproj", "{38E4C0B1-CFAC-4C6A-A4A2-E970438CB694}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,10 +51,10 @@ Global
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2217336B-E5E8-4DEC-9C95-FF290626F8B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2217336B-E5E8-4DEC-9C95-FF290626F8B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2217336B-E5E8-4DEC-9C95-FF290626F8B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2217336B-E5E8-4DEC-9C95-FF290626F8B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38E4C0B1-CFAC-4C6A-A4A2-E970438CB694}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38E4C0B1-CFAC-4C6A-A4A2-E970438CB694}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38E4C0B1-CFAC-4C6A-A4A2-E970438CB694}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38E4C0B1-CFAC-4C6A-A4A2-E970438CB694}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

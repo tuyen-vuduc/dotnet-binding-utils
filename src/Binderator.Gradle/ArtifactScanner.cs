@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyModel;
 using System;
 using System.Text.Json.Nodes;
+using System.Text.RegularExpressions;
 using System.Xml;
 
 namespace Binderator.Gradle;
@@ -265,9 +266,12 @@ public static class ArtifactScanner
 
         if (existingArtifact != null)
         {
+            var existingNugetPackageId = existingArtifact.NugetPackageId
+                ?? CreateNugetId(xgroupId, xartifactId);
+            parentArtifactIds.Add(new KeyValuePair<string, string>(existingNugetPackageId, scope));
+
             if (artifactVersion != existingArtifact.Version)
             {
-                parentArtifactIds.Add(new KeyValuePair<string, string>(existingArtifact.NugetPackageId, scope));
                 log?.Invoke(
                     $"ARTIFACT EXISTS >> {xgroupId}:{xartifactId}-{xversion} << {existingArtifact.Version}"
                 );

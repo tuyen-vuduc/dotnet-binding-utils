@@ -110,7 +110,7 @@ public class Engine
                     continue;
 
                 var parentArtifact = config.Artifacts
-                                        .First(x => x.NugetPackageId == mavenDep.Key);
+                                        .FirstOrDefault(x => x.NugetPackageId == mavenDep.Key);
 
                 var fixedParentVersion = config.FixedDependencies?
                                     .FirstOrDefault(x => x.Key == mavenDep.Key)
