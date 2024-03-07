@@ -3,7 +3,7 @@ namespace Com.Mapbox.Functions
     using System;
     using Kotlin.Jvm.Functions;
 
-    public class Function1Action<T>
+    public sealed class Function1Action<T>
         : Java.Lang.Object, IFunction1
         where T : Android.Runtime.IJavaObject
     {

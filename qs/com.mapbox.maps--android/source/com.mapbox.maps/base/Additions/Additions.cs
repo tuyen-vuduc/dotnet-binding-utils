@@ -1,7 +1,40 @@
+using System;
+
+namespace Com.Mapbox.Maps.Plugins.Locationcomponent
+{
+    public sealed class PuckLocatedAtPointListenerAction : Java.Lang.Object, global::Com.Mapbox.Maps.Plugins.Locationcomponent.IPuckLocatedAtPointListener
+    {
+        Action<bool> onResult;
+        public PuckLocatedAtPointListenerAction(Action<bool> onResult)
+        {
+            this.onResult = onResult;
+        }
+
+        public void OnResult(bool isPuckLocatedAtPoint) => onResult?.Invoke(isPuckLocatedAtPoint);
+    }
+
+    public static class LocationComponentPluginExtensions
+    {
+        public static void IsLocatedAt(
+            this ILocationComponentPlugin locationComponent,
+            global::Com.Mapbox.Geojson.Point point, Action<bool> onResult)
+            => locationComponent.IsLocatedAt(point, new PuckLocatedAtPointListenerAction(onResult));
+
+        public static System.Threading.Tasks.Task<bool> IsLocatedAtAsync(
+            this ILocationComponentPlugin locationComponent,
+            global::Com.Mapbox.Geojson.Point point, Action<bool> onResult)
+        {
+            var tcs = new System.Threading.Tasks.TaskCompletionSource<bool>();
+
+            IsLocatedAt(locationComponent, point, result => tcs.TrySetResult(result));
+
+            return tcs.Task;
+        }
+    }
+}
+
 namespace Com.Mapbox.Maps.Plugins.Gestures
 {
-    using System;
-
     public sealed class OnMapClickListenerFunction : Java.Lang.Object, IOnMapClickListener
     {
         Func<global::Com.Mapbox.Geojson.Point, bool> func;
