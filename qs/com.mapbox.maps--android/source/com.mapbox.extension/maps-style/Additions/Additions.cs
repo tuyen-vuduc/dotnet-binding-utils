@@ -1,10 +1,30 @@
 using System;
 using Android.Runtime;
 
+namespace Com.Mapbox.Maps.Extension.Style.Light.Generated
+{
+    partial class FlatLightKt
+    {
+        public static unsafe void FlatLight(
+            Action<Com.Mapbox.Maps.Extension.Style.Light.Generated.IFlatLightDslReceiver> build,
+            string id = "flat")
+            => FlatLightKt.FlatLight(id, new global::Com.Mapbox.Functions.Function1Action<IFlatLightDslReceiver>(build));
+    }
+}
+
 namespace Com.Mapbox.Maps.Extension.Style.Light
 {
     public static class LightUtilsExt
     {
+        public static unsafe void SetLight(
+            this global::Com.Mapbox.Maps.MapboxStyleManager obj,
+            Action<Com.Mapbox.Maps.Extension.Style.Light.Generated.IFlatLightDslReceiver> build,
+            string id = "flat")
+            => LightUtils.SetLight(
+                obj,
+                Com.Mapbox.Maps.Extension.Style.Light.Generated.FlatLightKt.FlatLight(
+                    id, new 
+                    global::Com.Mapbox.Functions.Function1Action<Com.Mapbox.Maps.Extension.Style.Light.Generated.IFlatLightDslReceiver>(build)));
         public static unsafe void SetLight(
             this global::Com.Mapbox.Maps.MapboxStyleManager obj,
             global::Com.Mapbox.Maps.Extension.Style.Light.Generated.FlatLight flatLight)
@@ -18,7 +38,7 @@ namespace Com.Mapbox.Maps.Extension.Style.Light
             this global::Com.Mapbox.Maps.MapboxStyleManager obj,
             global::System.Collections.Generic.IList<global::Com.Mapbox.Maps.Extension.Style.Light.Light> lights)
             => LightUtils.SetLights(obj, lights);
-        public static unsafe global::Com.Mapbox.Maps.Extension.Style.Light.Light GetLight (
+        public static unsafe global::Com.Mapbox.Maps.Extension.Style.Light.Light GetLight(
             this global::Com.Mapbox.Maps.MapboxStyleManager obj,
             string lightId)
             => LightUtils.GetLight(obj, lightId);
