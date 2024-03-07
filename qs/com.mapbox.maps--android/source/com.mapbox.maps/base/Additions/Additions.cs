@@ -1,6 +1,35 @@
-namespace Com.Mapbox.Maps.Plugins.Delegates.Listeners {
+namespace Com.Mapbox.Maps.Plugins.Gestures
+{
     using System;
-    public class OnMapLoadErrorListenerAction : Java.Lang.Object, IOnMapLoadErrorListener {
+
+    public sealed class OnMapClickListenerFunction : Java.Lang.Object, IOnMapClickListener
+    {
+        Func<global::Com.Mapbox.Geojson.Point, bool> func;
+        public OnMapClickListenerFunction(Func<global::Com.Mapbox.Geojson.Point, bool> func)
+        {
+            this.func = func;
+        }
+
+        public bool OnMapClick(global::Com.Mapbox.Geojson.Point point)
+        {
+            return func?.Invoke(point) ?? false;
+        }
+    }
+
+    public static class IGesturesPluginExtensions
+    {
+        public static void OnMapClick(
+            this IGesturesPlugin gestures,
+            Func<global::Com.Mapbox.Geojson.Point, bool> mapClicked)
+            => gestures.AddOnMapClickListener(new OnMapClickListenerFunction(mapClicked));
+    }
+}
+
+namespace Com.Mapbox.Maps.Plugins.Delegates.Listeners
+{
+    using System;
+    public sealed class OnMapLoadErrorListenerAction : Java.Lang.Object, IOnMapLoadErrorListener
+    {
         private readonly Action<global::Com.Mapbox.Maps.Extension.Observable.Eventdata.MapLoadingErrorEventData> action;
 
         public OnMapLoadErrorListenerAction(Action<global::Com.Mapbox.Maps.Extension.Observable.Eventdata.MapLoadingErrorEventData> action)
@@ -8,7 +37,7 @@ namespace Com.Mapbox.Maps.Plugins.Delegates.Listeners {
             this.action = action;
         }
 
-        public void OnMapLoadError (global::Com.Mapbox.Maps.Extension.Observable.Eventdata.MapLoadingErrorEventData eventData)
+        public void OnMapLoadError(global::Com.Mapbox.Maps.Extension.Observable.Eventdata.MapLoadingErrorEventData eventData)
             => action?.Invoke(eventData);
     }
 }
