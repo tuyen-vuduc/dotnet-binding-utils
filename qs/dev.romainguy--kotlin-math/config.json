@@ -33,7 +33,7 @@
 			"groupId": "dev.romainguy",
 			"artifactId": "kotlin-math",
 			"version": "1.5.3",
-			"nugetRevision": 0,
+			"nugetRevision": 1,
 			"tags": []
 		}
 	]

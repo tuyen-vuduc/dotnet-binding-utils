@@ -34,12 +34,12 @@
 			"artifactId": "drop-in",
 			"artifactName": "Drop In",
 			"version": "6.14.0",
-			"nugetRevision": 1,
+			"nugetRevision": 5,
 			"tags": [ "braintree-drop-in", "dropin" ]
 		}
 	],
 	"fixedDependencies": {
-		"Xamarin.AndroidX.Room.Runtime": "2.3.0.5",
+		"Xamarin.AndroidX.Room.Runtime": "2.3.0.6",
 		"Xamarin.AndroidX.Annotation": "1.7.0.3",
 		"Xamarin.AndroidX.AppCompat": "1.3.1.5",
 		"Xamarin.AndroidX.Fragment": "1.6.2.1",

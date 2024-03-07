@@ -34,7 +34,7 @@
 			"artifactId": "core",
 			"artifactName": "Core",
 			"nugetPackageId": "Xamarin.Google.ARCore",
-			"version": "1.40.0",
+			"version": "1.41.0",
 			"nugetRevision": 0,
 			"tags": [ "core" ]
 		}

@@ -19,8 +19,8 @@
     <PackageReference Include="Dependencies.Gradle" Version="7.6.1" />
   </ItemGroup>
   <ItemGroup>
-    <GradleImplementation Include="io.github.sceneview:sceneview:2.0.3"></GradleImplementation>
-    <GradleImplementation Include="io.github.sceneview:arsceneview:2.0.3"></GradleImplementation>
+    <GradleImplementation Include="io.github.sceneview:sceneview:2.0.4"></GradleImplementation>
+    <GradleImplementation Include="io.github.sceneview:arsceneview:2.0.4"></GradleImplementation>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Binderator.Gradle\Binderator.Gradle.csproj" />

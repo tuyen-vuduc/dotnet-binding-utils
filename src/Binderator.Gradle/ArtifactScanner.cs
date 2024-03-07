@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyModel;
 using System;
 using System.Text.Json.Nodes;
+using System.Text.RegularExpressions;
 using System.Xml;
 
 namespace Binderator.Gradle;
@@ -263,24 +264,30 @@ public static class ArtifactScanner
             ? semanticVersion
             : NuGetVersion.Parse(xversion);
 
-        if (existingArtifact != null && artifactVersion != existingArtifact.Version)
+        if (existingArtifact != null)
         {
-            parentArtifactIds.Add(new KeyValuePair<string, string>(existingArtifact.NugetPackageId, scope));
-            log?.Invoke(
-                $"ARTIFACT EXISTS >> {xgroupId}:{xartifactId}-{xversion} << {existingArtifact.Version}"
-            );
+            var existingNugetPackageId = existingArtifact.NugetPackageId
+                ?? CreateNugetId(xgroupId, xartifactId);
+            parentArtifactIds.Add(new KeyValuePair<string, string>(existingNugetPackageId, scope));
 
-            if (existingArtifact.Version < artifactVersion)
+            if (artifactVersion != existingArtifact.Version)
             {
-                var (_, xartifactFiles) = GetArtifactFiles(
-                    homeFolderPath,
-                    xgroupId,
-                    xartifactId,
-                    artifactVersion
+                log?.Invoke(
+                    $"ARTIFACT EXISTS >> {xgroupId}:{xartifactId}-{xversion} << {existingArtifact.Version}"
                 );
-                existingArtifact.Files = xartifactFiles;
-                existingArtifact.Version = artifactVersion;
-                existingArtifact.NugetVersion = artifactVersion.ToNuGetVersion(nugetRevision);
+
+                if (existingArtifact.Version < artifactVersion)
+                {
+                    var (_, xartifactFiles) = GetArtifactFiles(
+                        homeFolderPath,
+                        xgroupId,
+                        xartifactId,
+                        artifactVersion
+                    );
+                    existingArtifact.Files = xartifactFiles;
+                    existingArtifact.Version = artifactVersion;
+                    existingArtifact.NugetVersion = artifactVersion.ToNuGetVersion(nugetRevision);
+                }
             }
 
             return;

@@ -34,11 +34,13 @@
 			"artifactId": "ImagePicker",
 			"artifactName": "ImagePicker",
 			"version": "1.6.2",
-			"nugetRevision": 0,
+			"nugetRevision": 1,
 			"tags": [ "ImagePicker", "nguyenhoanglam" ]
 		}
 	],
 	"fixedDependencies": {
-		"Xamarin.AndroidX.Lifecycle.Service": "2.6.2"
+		"Xamarin.AndroidX.Lifecycle.Service": "2.6.2",
+		"Xamarin.AndroidX.Activity.Ktx": "1.8.2.1",
+		"Xamarin.AndroidX.Lifecycle.ViewModel.Ktx": "2.7.0.1"
 	}
 }

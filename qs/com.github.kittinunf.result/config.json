@@ -33,7 +33,7 @@
 			"groupId": "com.github.kittinunf.result",
 			"artifactId": "result",
 			"version": "3.1.0",
-			"nugetRevision": 1,
+			"nugetRevision": 2,
 			"tags": []
 		}
 	],

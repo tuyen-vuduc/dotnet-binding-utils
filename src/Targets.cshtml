@@ -9,15 +9,43 @@
   <PropertyGroup>
     <@(conditionName)>true</@(conditionName)>
   </PropertyGroup>  
+  <PropertyGroup>
+    <AndroidManifestMerger Condition=" '$(AndroidManifestMerger)' == '' ">manifestmerger.jar</AndroidManifestMerger>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AndroidFragmentType>AndroidX.Fragment.App.Fragment</AndroidFragmentType>
+  </PropertyGroup>
+  
+@if (!string.IsNullOrEmpty(Model.Artifact.ProguardFileRelativePath)) {
   <ItemGroup>
-    <AndroidLibrary 
-      Condition=" '$(OS)' == 'Unix' and Exists('$(Home)/@(Model.Artifact.LibRelativePath)') " 
-      Include="$(Home)/@(Model.Artifact.LibRelativePath)" 
-      Bind="false" Pack="false" Visible="false"/>
-    <AndroidLibrary       
-      Condition=" '$(OS)' != 'Unix' and Exists('$(UserProfile)/@(Model.Artifact.LibRelativePath)') " 
-      Include="$(UserProfile)/@(Model.Artifact.LibRelativePath)" 
-      Bind="false" Pack="false" Visible="false" />
+    <ProguardConfiguration
+      Condition=" '$(AndroidApplication)' == 'true' and Exists('$(MSBuildThisFileDirectory)..\..\proguard\proguard.txt') "
+      Include="$(MSBuildThisFileDirectory)..\..\proguard\proguard.txt">
+      <AndroidXSkipAndroidXMigration>true</AndroidXSkipAndroidXMigration>
+    </ProguardConfiguration>
+  </ItemGroup>
+}
+  @* <Target Name="@(conditionName)" AfterTargets="_GradleSyncTarget"> *@
+    <ItemGroup>
+      <AndroidLibrary 
+        Condition=" '$(OS)' == 'Unix' "
+        Pack="False"
+        Bind="False"
+        Visible="False"
+        Include="$(Home)/@(Model.Artifact.LibRelativePath)" >
+        <AndroidXSkipAndroidXMigration>true</AndroidXSkipAndroidXMigration>
+      </AndroidLibrary>
+      <AndroidLibrary       
+        Condition=" '$(OS)' != 'Unix' "
+        Include="$(UserProfile)/@(Model.Artifact.LibRelativePath)" 
+        Pack="False"
+        Bind="False"
+        Visible="False">
+        <AndroidXSkipAndroidXMigration>true</AndroidXSkipAndroidXMigration>
+      </AndroidLibrary>
+    </ItemGroup>
+  @* </Target> *@
+  <ItemGroup>
     <GradleImplementation 
       Condition=" $(@(conditionName)) == 'true' " 
       Include="@(Model.Artifact.GradleImplementation)" />
