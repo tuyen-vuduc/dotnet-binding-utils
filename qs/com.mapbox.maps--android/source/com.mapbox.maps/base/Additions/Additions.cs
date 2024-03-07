@@ -19,17 +19,6 @@ namespace Com.Mapbox.Maps.Plugins.Locationcomponent
             this ILocationComponentPlugin locationComponent,
             global::Com.Mapbox.Geojson.Point point, Action<bool> onResult)
             => locationComponent.IsLocatedAt(point, new PuckLocatedAtPointListenerAction(onResult));
-
-        public static System.Threading.Tasks.Task<bool> IsLocatedAtAsync(
-            this ILocationComponentPlugin locationComponent,
-            global::Com.Mapbox.Geojson.Point point, Action<bool> onResult)
-        {
-            var tcs = new System.Threading.Tasks.TaskCompletionSource<bool>();
-
-            IsLocatedAt(locationComponent, point, result => tcs.TrySetResult(result));
-
-            return tcs.Task;
-        }
     }
 }
 
@@ -48,6 +37,20 @@ namespace Com.Mapbox.Maps.Plugins.Gestures
             return func?.Invoke(point) ?? false;
         }
     }
+    
+    public sealed class OnMapLongClickListenerFunction : Java.Lang.Object, IOnMapLongClickListener
+    {
+        Func<global::Com.Mapbox.Geojson.Point, bool> func;
+        public OnMapLongClickListenerFunction(Func<global::Com.Mapbox.Geojson.Point, bool> func)
+        {
+            this.func = func;
+        }
+
+        public bool OnMapLongClick(global::Com.Mapbox.Geojson.Point point)
+        {
+            return func?.Invoke(point) ?? false;
+        }
+    }
 
     public static class IGesturesPluginExtensions
     {
@@ -55,6 +58,11 @@ namespace Com.Mapbox.Maps.Plugins.Gestures
             this IGesturesPlugin gestures,
             Func<global::Com.Mapbox.Geojson.Point, bool> mapClicked)
             => gestures.AddOnMapClickListener(new OnMapClickListenerFunction(mapClicked));
+
+        public static void OnMapLongClick(
+            this IGesturesPlugin gestures,
+            Func<global::Com.Mapbox.Geojson.Point, bool> mapLongClicked)
+            => gestures.AddOnMapLongClickListener(new OnMapLongClickListenerFunction(mapLongClicked));
     }
 }
 
