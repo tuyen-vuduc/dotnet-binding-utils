@@ -1,6 +1,20 @@
 using System;
 using Android.Runtime;
 
+namespace Com.Mapbox.Maps.Extension.Style.Projection.Generated
+{
+    public static class StyleProjectionUtilsExtensions
+    {
+        public static unsafe void SetProjection(
+            this global::Com.Mapbox.Maps.MapboxStyleManager obj,
+            global::Com.Mapbox.Maps.Extension.Style.Projection.Generated.Projection projection)
+            => StyleProjectionUtils.SetProjection(obj, projection);
+        public static unsafe global::Com.Mapbox.Maps.Extension.Style.Projection.Generated.Projection GetProjection(
+            this global::Com.Mapbox.Maps.MapboxStyleManager obj)
+            => StyleProjectionUtils.GetProjection(obj);
+    }
+}
+
 namespace Com.Mapbox.Maps.Extension.Style.Light.Generated
 {
     partial class FlatLightKt
@@ -23,7 +37,7 @@ namespace Com.Mapbox.Maps.Extension.Style.Light
             => LightUtils.SetLight(
                 obj,
                 Com.Mapbox.Maps.Extension.Style.Light.Generated.FlatLightKt.FlatLight(
-                    id, new 
+                    id, new
                     global::Com.Mapbox.Functions.Function1Action<Com.Mapbox.Maps.Extension.Style.Light.Generated.IFlatLightDslReceiver>(build)));
         public static unsafe void SetLight(
             this global::Com.Mapbox.Maps.MapboxStyleManager obj,
