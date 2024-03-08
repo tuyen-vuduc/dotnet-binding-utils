@@ -202,7 +202,7 @@
   <ItemGroup>
     @foreach (var dep in @Model.NuGetDependencies) {
       if (!dep.DependencyOnly) {
-        <ProjectReference Include="..\..\generated\@(dep.NugetPackageId)\@(dep.NugetPackageId).csproj" PrivateAssets="none" />
+        <ProjectReference Include="..\@(dep.NugetPackageId)\@(dep.NugetPackageId).csproj" PrivateAssets="none" />
       }
     }
   </ItemGroup>
