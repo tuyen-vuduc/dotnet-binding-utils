@@ -31,8 +31,8 @@ public class ArtifactModel : IEquatable<ArtifactModel>
     public string LibRelativePath => ShadowArtifact != null
         ? ShadowArtifact.LibRelativePath
         : IsAAR
-        ? Files?.FirstOrDefault(x => x.EndsWith(ArtifactWithVersion + ".aar"))?.Replace("\\", "/")
-        : Files?.FirstOrDefault(x => x.EndsWith(ArtifactWithVersion + ".jar"))?.Replace("\\", "/");
+        ? Files?.FirstOrDefault(x => x.EndsWith(".aar"))?.Replace("\\", "/")
+        : Files?.FirstOrDefault(x => x.EndsWith(".jar"))?.Replace("\\", "/");
 
     public string SourcesJarRelativeFilePath => ShadowArtifact != null
         ? ShadowArtifact.SourcesJarRelativeFilePath
@@ -42,11 +42,11 @@ public class ArtifactModel : IEquatable<ArtifactModel>
         : Files?.FirstOrDefault(x => x.EndsWith("-javadoc.jar"));
 
     public string LibFolderPath => ShadowArtifact != null
-        ? ShadowArtifact.LibFolderPath
-        : LibRelativePath?.Substring(
-            0,
-            LibRelativePath.IndexOf(ArtifactWithVersion)
-        ).Trim('/').Replace("\\", "/");
+            ? ShadowArtifact.LibFolderPath
+            : string.IsNullOrWhiteSpace(LibRelativePath)
+            ? string.Empty
+            : Path.GetDirectoryName(LibRelativePath)
+        .Trim('/').Replace("\\", "/");
 
     public string ProguardFileRelativePath => ShadowArtifact != null
         ? ShadowArtifact.ProguardFileRelativePath
