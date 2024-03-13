@@ -20,8 +20,8 @@
     <GradleImplementation Include="com.github.kittinunf.result:result:3.1.0"></GradleImplementation>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Binderator.Gradle\Binderator.Gradle.csproj" />
-    <ProjectReference Include="..\..\..\src\DotnetBindings.Cake\DotnetBindings.Cake.csproj" />
+    <ProjectReference Include="..\..\..\helpers\Binderator.Gradle\Binderator.Gradle.csproj" />
+    <ProjectReference Include="..\..\..\helpers\DotnetBindings.Cake\DotnetBindings.Cake.csproj" />
   </ItemGroup>
   <Target Name="_GradleDependencyResolverTrigger" DependsOnTargets="_GradleSync" BeforeTargets="CoreCompile" />
 </Project>

@@ -25,8 +25,8 @@
     <GradleImplementation Include="com.drivesync.android:devices-wedge:1.16.0"></GradleImplementation>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Binderator.Gradle\Binderator.Gradle.csproj" />
-    <ProjectReference Include="..\..\..\src\DotnetBindings.Cake\DotnetBindings.Cake.csproj" />
+    <ProjectReference Include="..\..\..\helpers\Binderator.Gradle\Binderator.Gradle.csproj" />
+    <ProjectReference Include="..\..\..\helpers\DotnetBindings.Cake\DotnetBindings.Cake.csproj" />
   </ItemGroup>
   <Target Name="_GradleDependencyResolverTrigger" DependsOnTargets="_GradleSync" BeforeTargets="CoreCompile" />
 </Project>

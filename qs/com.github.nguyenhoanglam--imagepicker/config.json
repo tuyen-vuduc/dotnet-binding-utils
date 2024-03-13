@@ -15,15 +15,15 @@
 	"tags": [ "ImagePicker" ],
 	"templates" : [
 		{
-			"templateFile": "../../src/Targets.cshtml",
+			"templateFile": "../../helpers/Targets.cshtml",
 			"outputFileRule" : "generated/{nugetid}/{nugetid}.targets"
 		},
 		{
-			"templateFile": "../../src/Project.cshtml",
+			"templateFile": "../../helpers/Project.cshtml",
 			"outputFileRule" : "generated/{nugetid}/{nugetid}.csproj"
 		},
 		{
-			"templateFile": "../../src/Pom.cshtml",
+			"templateFile": "../../helpers/Pom.cshtml",
 			"outputFileRule" : "generated/{nugetid}/pom.xml"
 		}
 	],

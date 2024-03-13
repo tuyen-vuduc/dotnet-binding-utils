@@ -156,12 +156,12 @@ public class Engine
         return Uri.UnescapeDataString(folderUri.MakeRelativeUri(pathUri).ToString().Replace('/', Path.DirectorySeparatorChar));
     }
 
-    static Dictionary<string, string> MergeValues(Dictionary<string, string> dest, Dictionary<string, string> src)
+    static Dictionary<string, string> MergeValues(Dictionary<string, string> dest, Dictionary<string, string> helpers)
     {
         dest = dest ?? new Dictionary<string, string>();
-        if (src != null)
+        if (helpers != null)
         {
-            foreach (var kvp in src)
+            foreach (var kvp in helpers)
             {
                 dest[kvp.Key] = kvp.Value;
             }

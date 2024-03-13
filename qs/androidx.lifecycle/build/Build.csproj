@@ -23,8 +23,8 @@
     <GradleImplementation Include="androidx.lifecycle:lifecycle-runtime-ktx:2.7.0"></GradleImplementation>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Binderator.Gradle\Binderator.Gradle.csproj" />
-    <ProjectReference Include="..\..\..\src\DotnetBindings.Cake\DotnetBindings.Cake.csproj" />
+    <ProjectReference Include="..\..\..\helpers\Binderator.Gradle\Binderator.Gradle.csproj" />
+    <ProjectReference Include="..\..\..\helpers\DotnetBindings.Cake\DotnetBindings.Cake.csproj" />
   </ItemGroup>
   <Target Name="_GradleDependencyResolverTrigger" DependsOnTargets="_GradleSync" BeforeTargets="CoreCompile" />
 </Project>

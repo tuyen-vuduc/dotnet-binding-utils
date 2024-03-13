@@ -124,7 +124,7 @@
     <Folder Include="Transforms\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\..\src\AssemblyInfo.cs" />
+    <Compile Include="..\..\..\..\helpers\AssemblyInfo.cs" />
     <Compile Include="..\..\source\@(Model.Artifact.GroupId)\@(Model.Artifact.ArtifactId)\Additions\*.cs">
         <Link>Additions/%(RecursiveDir)/%(Filename)%(Extension)</Link>
     </Compile>
@@ -194,7 +194,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Dependencies.Gradle" Version="7.6.1" />
-    <TransformFile Include="..\..\..\..\src\Metadata.common.xml">
+    <TransformFile Include="..\..\..\..\helpers\Metadata.common.xml">
       <Link>Transforms/Metadata.common.xml</Link>
     </TransformFile>
   </ItemGroup>

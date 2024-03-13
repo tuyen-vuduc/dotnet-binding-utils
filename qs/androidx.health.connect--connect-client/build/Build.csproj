@@ -22,8 +22,8 @@
     <GradleImplementation Include="androidx.health.connect:connect-client:1.0.0-alpha11"></GradleImplementation>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Binderator.Gradle\Binderator.Gradle.csproj" />
-    <ProjectReference Include="..\..\..\src\DotnetBindings.Cake\DotnetBindings.Cake.csproj" />
+    <ProjectReference Include="..\..\..\helpers\Binderator.Gradle\Binderator.Gradle.csproj" />
+    <ProjectReference Include="..\..\..\helpers\DotnetBindings.Cake\DotnetBindings.Cake.csproj" />
   </ItemGroup>
   <Target Name="_GradleDependencyResolverTrigger" DependsOnTargets="_GradleSync" BeforeTargets="CoreCompile" />
 </Project>

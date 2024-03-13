@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 25.0.1705.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dependencies.Gradle.Qs", "src\Dependencies.Gradle.Qs\Dependencies.Gradle.Qs.csproj", "{58D59C3D-5DFC-4780-AF8E-B3B198408A99}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dependencies.Gradle.Qs", "helpers\Dependencies.Gradle.Qs\Dependencies.Gradle.Qs.csproj", "{58D59C3D-5DFC-4780-AF8E-B3B198408A99}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
