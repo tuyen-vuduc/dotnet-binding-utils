@@ -58,12 +58,13 @@
     <AndroidClassParser>class-parse</AndroidClassParser>
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
   </PropertyGroup>
-  @* <ItemGroup>
-    <AndroidNamespaceReplacement Include='Com.Mapbox.Maps.Plugin' Replacement='Com.Mapbox.Maps.Plugins' Visible="false" />
-    <AndroidNamespaceReplacement Include='Com.Mapbox.Maps.Plugins.Attribution' Replacement='Com.Mapbox.Maps.Plugins.Attributions' Visible="false" />
-    <AndroidNamespaceReplacement Include='Com.Mapbox.Maps.Annotation' Replacement='Com.Mapbox.Maps.Annotations' Visible="false" />
-    <AndroidNamespaceReplacement Include='Com.Mapbox.Maps.Plugins.Annotation' Replacement='Com.Mapbox.Maps.Plugins.Annotations' Visible="false" />
-  </ItemGroup> *@
+  @if (Model.Config.NamespaceMapping != null && Model.Config.NamespaceMapping.Count > 0) {
+  <ItemGroup>
+    @foreach(var item in Model.Config.NamespaceMapping) {
+      <AndroidNamespaceReplacement Include='@item.Key' Replacement='@item.Value' Visible="false" />
+    }
+  </ItemGroup>
+  }
   <PropertyGroup>
     <!--
       =================================================================================================================

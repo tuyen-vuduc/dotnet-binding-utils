@@ -69,5 +69,11 @@
 				"dependencyOnly": true
 			}
 		]
+	},
+	"namespaceMapping": {
+		"Com.Mapbox.Maps.Plugin": "Com.Mapbox.Maps.Plugins",
+		"Com.Mapbox.Maps.Plugins.Attribution": "Com.Mapbox.Maps.Plugins.Attributions",
+		"Com.Mapbox.Maps.Annotation": "Com.Mapbox.Maps.Annotations",
+		"Com.Mapbox.Maps.Plugins.Annotation": "Com.Mapbox.Maps.Plugins.Annotations"
 	}
 }

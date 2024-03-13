@@ -35,6 +35,7 @@ public class BindingConfig
 	public Dictionary<string, NuGetVersion> FixedDependencies { get; set; }
 	public Dictionary<string, string> MvnRepositories { get; set; }
 	public Dictionary<string, string> MissingDependencies { get; set; }
+	public Dictionary<string, string> NamespaceMapping { get; set; }
 
 	public string[] TargetFrameworks { get; set; }
 	public string[] Tags { get; set; }
