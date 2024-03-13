@@ -22,6 +22,8 @@ on:
         - com.github.kittinunf.fuel
         - dev.romainguy--kotlin-math
         - io.github.sceneview--sceneview
+        - com.shakebugs
+        - com.facebook.android
 jobs:
   build-then-publish:
     environment: production
