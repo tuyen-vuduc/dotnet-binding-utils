@@ -1,0 +1,48 @@
+{
+	"solutionFile" : "generated/shakebugs-bindings.sln",
+	"metadataPath": "../..",
+	"debug": { "dumpModels" : true },
+	"additionalProjects": [
+	],
+	"targetFrameworks": [
+		"MonoAndroid12.0",
+		"net6.0-android31.0",
+		"net7.0-android33.0"
+	],
+	"projectUrl": "https://github.com/tuyen-vuduc/dotnet-binding-utils",
+	"packageIconPath": "../../assets/tv-shakebugs.png",
+	"licensePath": "../../LICENSE",
+	"tags": [ "android" ],
+	"templates" : [
+		{
+			"templateFile": "../../src/Targets.cshtml",
+			"outputFileRule" : "generated/{nugetid}/{nugetid}.targets"
+		},
+		{
+			"templateFile": "../../src/Project.cshtml",
+			"outputFileRule" : "generated/{nugetid}/{nugetid}.csproj"
+		},
+		{
+			"templateFile": "../../src/Pom.cshtml",
+			"outputFileRule" : "generated/{nugetid}/pom.xml"
+		}
+	],
+	"groupName": "ShakeBugs",
+	"artifacts": [
+		{
+			"groupId": "com.shakebugs",
+			"artifactId": "shake",
+			"version": "16.2.4",
+			"nugetRevision": 0,
+			"tags": [],
+			"missingDependencies": [
+				"org.jetbrains.kotlin:kotlin-stdlib:1.9.22"
+			]
+		}
+	],
+	"fixedDependencies": {
+		"Xamarin.Kotlin.StdLib": "1.9.22.1",
+		"Org.Jetbrains.Kotlin.KotlinParcelizeRuntime": "1.8.22",
+		"Xamarin.AndroidX.Annotation": "1.7.0.1"
+	}
+}

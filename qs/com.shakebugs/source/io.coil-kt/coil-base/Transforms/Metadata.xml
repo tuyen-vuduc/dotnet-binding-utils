@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <attr path="/api/package[@name='coil.drawable']/class[@name='CrossfadeDrawable']/method[@name='getStart' and count(parameter)=0]"
+        name="propertyName"></attr>
+  <attr path="/api/package[@name='coil.target']/interface[@name='ViewTarget']/method[@name='getView' and count(parameter)=0]"
+        name="propertyName"></attr>
+  <attr path="/api/package[@name='coil.transition']/interface[@name='TransitionTarget']/method[@name='getView' and count(parameter)=0]"
+        name="propertyName"></attr>
+  <remove-node path="/api/package[@name='coil.target']/class[@name='GenericViewTarget']/implements[@name='coil.target.ViewTarget']" />
+  <remove-node path="/api/package[@name='coil.target']/class[@name='GenericViewTarget']/implements[@name='androidx.lifecycle.DefaultLifecycleObserver']" />
+</metadata>
