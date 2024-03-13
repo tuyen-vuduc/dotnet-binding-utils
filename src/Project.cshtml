@@ -11,28 +11,31 @@
     Model.Artifact.NugetVersion.Patch,
     DateTime.Today.DayOfYear);
 }
-<Project Sdk="Xamarin.Legacy.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <Target Name="_CleanAarOutputPath" AfterTargets="_CreateAar" BeforeTargets="_IncludeAarInNuGetPackage">
     <Delete Files="$(_AarOutputPath)" />
   </Target>
   <PropertyGroup>
-    <TargetFrameworks>@(Model.TargetFrameworks)</TargetFrameworks>
+    <TargetFrameworks>net7.0-android33.0;net6.0-android31.0</TargetFrameworks>
     <IsBindingProject>true</IsBindingProject>
     <AssemblyName>@(Model.Artifact.NugetPackageId)</AssemblyName>
     <RootNamespace>@(Model.Artifact.NugetPackageId)</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <PropertyGroup>
-    <AndroidSdkDirectory Condition=" '$(OS)' == 'Unix' ">$(Home)/Library/Android/sdk</AndroidSdkDirectory>
-    <AndroidSdkDirectory Condition=" '$(OS)' != 'Unix' ">$(UserProfile)/AppData/Local/Android/sdk</AndroidSdkDirectory>
+    <UserHome Condition=" '$(OS)' == 'Unix' ">$(Home)</UserHome>
+    <UserHome Condition=" '$(OS)' != 'Unix' ">$(UserProfile)</UserHome>
+    <AndroidSdkDirectory>$(UserHome)/Library/Android/sdk</AndroidSdkDirectory>
   </PropertyGroup>  
   <PropertyGroup>
     <PackageId>@(Model.Artifact.NugetPackageId)</PackageId>
     <Title>@(Model.GroupName) - @(Model.ArtifactName)</Title>
-    <Summary>C# bindings for @(Model.Artifact.GradleImplementation)</Summary>
+    <Summary>.NET Android binding library for @(Model.Artifact.GradleImplementation)</Summary>
     <Description>
-        C# bindings for @(Model.Artifact.GradleImplementation)
+        .NET Android binding library for @(Model.Artifact.GradleImplementation)
     </Description>
-    <PackageTags> xamarin, @(Model.Tags), @(Model.Artifact.GroupId), @(Model.Artifact.ArtifactId)</PackageTags>
+    <PackageTags> xamarin, android, @(Model.Tags), @(Model.Artifact.GroupId), @(Model.Artifact.ArtifactId)</PackageTags>
     <Authors>tuyen,tuyen-vuduc</Authors>
     <Owners>tuyen,tuyen-vuduc</Owners>
     <Company>N/A</Company>
@@ -55,12 +58,12 @@
     <AndroidClassParser>class-parse</AndroidClassParser>
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
   </PropertyGroup>
-  <ItemGroup>
+  @* <ItemGroup>
     <AndroidNamespaceReplacement Include='Com.Mapbox.Maps.Plugin' Replacement='Com.Mapbox.Maps.Plugins' Visible="false" />
     <AndroidNamespaceReplacement Include='Com.Mapbox.Maps.Plugins.Attribution' Replacement='Com.Mapbox.Maps.Plugins.Attributions' Visible="false" />
     <AndroidNamespaceReplacement Include='Com.Mapbox.Maps.Annotation' Replacement='Com.Mapbox.Maps.Annotations' Visible="false" />
     <AndroidNamespaceReplacement Include='Com.Mapbox.Maps.Plugins.Annotation' Replacement='Com.Mapbox.Maps.Plugins.Annotations' Visible="false" />
-  </ItemGroup>
+  </ItemGroup> *@
   <PropertyGroup>
     <!--
       =================================================================================================================
@@ -106,16 +109,9 @@
       =================================================================================================================
     -->
   </PropertyGroup>
-  <PropertyGroup>
-    <UserHome Condition=" '$(OS)' == 'Unix' ">$(Home)</UserHome>
-    <UserHome Condition=" '$(OS)' != 'Unix' ">$(UserProfile)</UserHome>
-  </PropertyGroup>
-
   <ItemGroup>
-  @foreach(var targetFrameworkMoniker in Model.Config.TargetFrameworks) {
-    <None Include="@(Model.Artifact.NugetPackageId).targets" Pack="True" PackagePath="build\@(targetFrameworkMoniker)" />
-    <None Include="@(Model.Artifact.NugetPackageId).targets" Pack="True" PackagePath="buildTransitive\@(targetFrameworkMoniker)" />
-  }    
+    <None Include="@(Model.Artifact.NugetPackageId).targets" Pack="True" PackagePath="build\$(TargetFramework)" />
+    <None Include="@(Model.Artifact.NugetPackageId).targets" Pack="True" PackagePath="buildTransitive\$(TargetFramework)" />
     <None Include="@(packageIconPath)" Pack="True" PackagePath="package-icon.png" />
     <None Include="@(licensePath)" Pack="True" PackagePath="" />
     <None Include="../../README.md" Pack="True" PackagePath="README.md" />
@@ -138,7 +134,7 @@
         <Link>Transforms/%(RecursiveDir)/%(Filename)%(Extension)</Link>
     </TransformFile>
   </ItemGroup>
-  @* <ItemGroup>
+  <ItemGroup>
   @if (!string.IsNullOrEmpty(Model.Artifact.SourcesJarRelativeFilePath)) {
     <JavaSourceJar
           Include="$(UserHome)/@(Model.Artifact.SourcesJarRelativeFilePath)"
@@ -151,7 +147,7 @@
           Condition="Exists('$(UserHome)/@(Model.Artifact.JavadocJarRelativeFilePath)')"
           />
   }
-  </ItemGroup> *@
+  </ItemGroup>
 @{
   var homeFolder = Xamarin.Build.Download.Platform.IsWindows
                   ? System.Environment.SpecialFolder.LocalApplicationData
@@ -168,24 +164,6 @@
     <None Include="@(proguardFilePath)" Pack="True" PackagePath="proguard" />
   }  
   </ItemGroup>
-
-@* <ItemGroup>
-  @if (Model.Config.MvnRepositories?.Count > 0) {
-    foreach (var kvp in Model.Config.MvnRepositories) {
-    <GradleRepository Include="@kvp.Key">
-      <Repository>
-      @Raw(@kvp.Value)
-      </Repository>
-    </GradleRepository>
-    }
-  }
-  @if (Model.NuGetDependencies?.Count > 0) {
-    foreach (var dep in Model.NuGetDependencies) {
-    <GradleImplementation 
-      Include="@(dep.GradleImplementation)" />
-    }
-  }
-</ItemGroup> *@
 
   <ItemGroup>
       @if (Model.Artifact.IsAAR) {
@@ -219,5 +197,4 @@
       <Link>Transforms/Metadata.common.xml</Link>
     </TransformFile>
   </ItemGroup>
-  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 </Project>

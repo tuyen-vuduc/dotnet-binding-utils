@@ -67,6 +67,7 @@ public class ArtifactModel : IEquatable<ArtifactModel>
     public string GroupName { get; set; }
     public string ArtifactName { get; set; }
     public string[] Tags { get; set; }
+    public Dictionary<string, string> NamespaceMapping { get; set; }
     public string[] MissingDependencies { get; set; }
 
     public ArtifactModel ShadowArtifact { get; set; }
