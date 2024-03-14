@@ -1,54 +1,163 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-  <attr path="//field[@name='TAG']"
-        name="managedName">TAG</attr>
-  <attr path="//field[@name='INSTANCE']"
-        name="managedName">INSTANCE</attr>
-  <attr path="//field[@name='authType']"
-        name="managedName">_authType</attr>
-  <attr path="//field[@name='e2e']"
-        name="managedName">_e2e</attr>
-  <attr path="//field[@name='EXTRA_REQUEST']"
-        name="managedName">EXTRA_REQUEST</attr>
-  <attr path="//field[@name='REQUEST_KEY']"
-        name="managedName">REQUEST_KEY</attr>
-  <attr path="//field[@name='RESULT_KEY']"
-        name="managedName">RESULT_KEY</attr>
-  <attr
-    path="/api/package[@name='com.facebook.login']/class[@name='LoginMethodHandler']/method[@name='getLoginClient' and count(parameter)=0]"
-    name="propertyName"></attr>
-  <attr path="//field[@name='calledThroughLoggedOutAppSwitch']"
-        name="managedName">
-    _calledThroughLoggedOutAppSwitch
-  </attr>
-  <attr path="//field[@name='CREATOR']"
-        name="managedName">CREATOR</attr>
-  <attr path="//field[@name='OAUTH_DIALOG']"
-        name="managedName">OAUTH_DIALOG</attr>
-  <attr path="//field[@name='authenticationToken']"
-        name="managedName">_authenticationToken</attr>
-  <attr path="//field[@name='code']"
-        name="managedName">_code</attr>
-  <attr path="//field[@name='CREATOR']"
-        name="managedName">CREATOR</attr>
-  <attr path="//field[@name='errorCode']"
-        name="managedName">_errorCode</attr>
-  <attr path="//field[@name='errorMessage']"
-        name="managedName">_errorMessage</attr>
-  <attr path="//field[@name='extraData']"
-        name="managedName">_extraData</attr>
-  <attr path="//field[@name='loggingExtras']"
-        name="managedName">_loggingExtras</attr>
-  <attr path="//field[@name='request']"
-        name="managedName">_request</attr>
-  <attr path="//field[@name='token']"
-        name="managedName">_token</attr>
-  <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase.ModeHandler']/method[@name='canShow' and count(parameter)=2]/parameter[1]"
-    name="type">Java.Lang.Object</attr>
-  <attr
-    path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase.ModeHandler']/method[@name='createAppCall' and count(parameter)=1]/parameter[1]"
-    name="type">Java.Lang.Object</attr>
-
-  <remove-node path="/api/package[@name='com.facebook.login']/class[@name='NativeAppLoginMethodHandler']/method[@name='tryAuthorize' and count(parameter)=1 and parameter[1][@type='com.facebook.login.LoginClient.Request']]" />
+	<attr path="//field[@name='TAG']"
+		name="managedName">TAG</attr>
+	<attr path="//field[@name='INSTANCE']"
+		name="managedName">INSTANCE</attr>
+	<attr path="//field[@name='authType']"
+		name="managedName">_authType</attr>
+	<attr path="//field[@name='e2e']"
+		name="managedName">_e2e</attr>
+	<attr path="//field[@name='EXTRA_REQUEST']"
+		name="managedName">EXTRA_REQUEST</attr>
+	<attr path="//field[@name='REQUEST_KEY']"
+		name="managedName">REQUEST_KEY</attr>
+	<attr path="//field[@name='RESULT_KEY']"
+		name="managedName">RESULT_KEY</attr>
+	<attr
+		path="/api/package[@name='com.facebook.login']/class[@name='LoginMethodHandler']/method[@name='getLoginClient' and count(parameter)=0]"
+		name="propertyName"></attr>
+	<attr path="//field[@name='calledThroughLoggedOutAppSwitch']"
+		name="managedName">
+		_calledThroughLoggedOutAppSwitch
+	</attr>
+	<attr path="//field[@name='CREATOR']"
+		name="managedName">CREATOR</attr>
+	<attr path="//field[@name='OAUTH_DIALOG']"
+		name="managedName">OAUTH_DIALOG</attr>
+	<attr path="//field[@name='authenticationToken']"
+		name="managedName">_authenticationToken</attr>
+	<attr path="//field[@name='code']"
+		name="managedName">_code</attr>
+	<attr path="//field[@name='CREATOR']"
+		name="managedName">CREATOR</attr>
+	<attr path="//field[@name='errorCode']"
+		name="managedName">_errorCode</attr>
+	<attr path="//field[@name='errorMessage']"
+		name="managedName">_errorMessage</attr>
+	<attr path="//field[@name='extraData']"
+		name="managedName">_extraData</attr>
+	<attr path="//field[@name='loggingExtras']"
+		name="managedName">_loggingExtras</attr>
+	<attr path="//field[@name='request']"
+		name="managedName">_request</attr>
+	<attr path="//field[@name='token']"
+		name="managedName">_token</attr>
+	<attr
+		path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase.ModeHandler']/method[@name='canShow' and count(parameter)=2]/parameter[1]"
+		name="type">Java.Lang.Object</attr>
+	<attr
+		path="/api/package[@name='com.facebook.internal']/class[@name='FacebookDialogBase.ModeHandler']/method[@name='createAppCall' and count(parameter)=1]/parameter[1]"
+		name="type">Java.Lang.Object</attr>
+	<remove-node
+		path="/api/package[@name='com.facebook.login']/class[@name='NativeAppLoginMethodHandler']/method[@name='tryAuthorize' and count(parameter)=1 and parameter[1][@type='com.facebook.login.LoginClient.Request']]" />
+	<attr
+		path="/api/package[@name='com.facebook.login']/class[@name='LoginManager.FacebookLoginActivityResultContract']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]"
+		name="managedName">ParseActivityResult</attr>
+	<attr
+		path="//class[implements[@name='com.facebook.internal.DialogFeature']]/method[@name='getMinVersion']"
+		name="visibility">public</attr>
+	<attr
+		path="/api/package[@name='com.facebook.share.model']/class[@name='AppGroupCreationContent.Builder']/method[@name='build' and count(parameter)=0]"
+		name="managedName">BuildAppGroupCreationContent</attr>
+	<attr
+		path="/api/package[@name='com.facebook.share.model']/class[@name='CameraEffectArguments.Builder']/method[@name='build' and count(parameter)=0]"
+		name="managedName">BuildCameraEffectArguments</attr>
+	<attr
+		path="/api/package[@name='com.facebook.share.model']/class[@name='CameraEffectTextures.Builder']/method[@name='build' and count(parameter)=0]"
+		name="managedName">BuildCameraEffectTextures</attr>
+	<attr
+		path="/api/package[@name='com.facebook.share.model']/class[@name='GameRequestContent.Builder']/method[@name='build' and count(parameter)=0]"
+		name="managedName">BuildGameRequestContent</attr>
+	<add-node
+		path="/api/package[@name='com.facebook.share.model']/class[@name='ShareContent.Builder']">
+		<method abstract="true"
+			deprecated="not deprecated"
+			final="false"
+			name="build"
+			jni-signature="()Ljava/lang/Object;"
+			bridge="false"
+			native="false"
+			return="M"
+			jni-return="TM;"
+			static="false"
+			synchronized="false"
+			synthetic="false"
+			visibility="public" />
+	</add-node>
+	<attr
+		path="/api/package[@name='com.facebook.share.model']/class[@name='ShareHashtag.Builder']/method[@name='build' and count(parameter)=0]"
+		name="managedName">BuildShareHashtag</attr>
+	<add-node
+		path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMedia.Builder']"
+	>
+		<method abstract="true"
+			deprecated="not deprecated"
+			final="false"
+			name="build"
+			jni-signature="()Ljava/lang/Object;"
+			bridge="false"
+			native="false"
+			return="M"
+			jni-return="TM;"
+			static="false"
+			synchronized="false"
+			synthetic="false"
+			visibility="public" />
+	</add-node>
+	<add-node
+		path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMessengerActionButton.Builder']"
+	>
+		<method abstract="true"
+			deprecated="not deprecated"
+			final="false"
+			name="build"
+			jni-signature="()Ljava/lang/Object;"
+			bridge="false"
+			native="false"
+			return="M"
+			jni-return="TM;"
+			static="false"
+			synchronized="false"
+			synthetic="false"
+			visibility="public" />
+	</add-node>
+	<attr
+		path="//class[implements[@name='com.facebook.share.Sharer']]/method[@name='getShouldFailOnDataError']"
+		name="visibility">public</attr>
+	<attr
+		path="//class[implements[@name='com.facebook.share.Sharer']]/method[@name='setShouldFailOnDataError']"
+		name="visibility">public</attr>
+	<remove-node
+		path="/api/package[@name='com.facebook.share.widget']/class[@name='ShareDialog']/method[@name='getOrderedModeHandlers' and count(parameter)=0]" />
+	<attr
+		path="/api/package[@name='com.facebook.share.internal']/class[@name='ShareFeedContent.Builder']/method[@name='build' and count(parameter)=0]"
+		name="managedName">BuildShareFeedContent</attr>
+	<attr
+		path="/api/package[@name='com.facebook.share.model']/class[@name='ShareCameraEffectContent.Builder']/method[@name='build' and count(parameter)=0]"
+		name="managedName">BuildShareCameraEffectContent</attr>
+	<attr
+		path="/api/package[@name='com.facebook.share.model']/class[@name='ShareLinkContent.Builder']/method[@name='build' and count(parameter)=0]"
+		name="managedName">BuildShareLinkContent</attr>
+	<attr
+		path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMediaContent.Builder']/method[@name='build' and count(parameter)=0]"
+		name="managedName">BuildShareMediaContent</attr>
+	<attr
+		path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMessengerURLActionButton.Builder']/method[@name='build' and count(parameter)=0]"
+		name="managedName">BuildShareMessengerURLActionButton</attr>
+	<attr
+		path="/api/package[@name='com.facebook.share.model']/class[@name='SharePhoto.Builder']/method[@name='build' and count(parameter)=0]"
+		name="managedName">BuildSharePhoto</attr>
+	<attr
+		path="/api/package[@name='com.facebook.share.model']/class[@name='SharePhotoContent.Builder']/method[@name='build' and count(parameter)=0]"
+		name="managedName">BuildSharePhotoContent</attr>
+	<attr
+		path="/api/package[@name='com.facebook.share.model']/class[@name='ShareStoryContent.Builder']/method[@name='build' and count(parameter)=0]"
+		name="managedName">BuildShareStoryContent</attr>
+	<attr
+		path="/api/package[@name='com.facebook.share.model']/class[@name='ShareVideo.Builder']/method[@name='build' and count(parameter)=0]"
+		name="managedName">BuildShareVideo</attr>
+	<attr
+		path="/api/package[@name='com.facebook.share.model']/class[@name='ShareVideoContent.Builder']/method[@name='build' and count(parameter)=0]"
+		name="managedName">BuildShareVideoContent</attr>
 </metadata>
