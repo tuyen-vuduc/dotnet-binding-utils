@@ -41,6 +41,7 @@
 		"Xamarin.Kotlin.StdLib": "1.9.22.1",
 		"Xamarin.AndroidX.Annotation": "1.7.1.1",
 		"Xamarin.AndroidX.Fragment": "1.6.2.2",
-		"Xamarin.AndroidX.Activity": "1.6.1.1"
+		"Xamarin.AndroidX.Activity": "1.8.2.1",
+		"Xamarin.AndroidX.Core.Core.Ktx": "1.12.0.4"
 	}
 }
