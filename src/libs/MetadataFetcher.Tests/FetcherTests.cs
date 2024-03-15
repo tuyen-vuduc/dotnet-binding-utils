@@ -6,7 +6,7 @@ public class FetcherTests
     {
         Fetcher.BasePath = Path.Combine(
             Environment.CurrentDirectory,
-            "../../../../.."
+            "../../../../../.."
         );
     }
 
