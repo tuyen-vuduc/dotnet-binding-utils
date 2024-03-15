@@ -29,7 +29,7 @@
 			"artifactId": "android",
 			"artifactName": "Android SDK",
 			"version": "11.2.0",
-			"nugetRevision": 2,
+			"nugetRevision": 3,
 			"tags": [ "mapbox", "mapbox-android" ]
 		}
 	],
