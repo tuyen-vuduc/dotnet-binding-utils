@@ -16,23 +16,28 @@
     <Delete Files="$(_AarOutputPath)" />
   </Target>
   <PropertyGroup>
-    <TargetFrameworks>@(Model.TargetFrameworks)</TargetFrameworks>
+    <TargetFrameworks Condition=" '10' == '10' ">net7.0-android33.0;net6.0-android31.0</TargetFrameworks>
+    <TargetFrameworks Condition=" '10' == '0' ">MonoAndroid12.0;net7.0-android33.0;net6.0-android31.0</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
     <IsBindingProject>true</IsBindingProject>
     <AssemblyName>@(Model.Artifact.NugetPackageId)</AssemblyName>
     <RootNamespace>@(Model.Artifact.NugetPackageId)</RootNamespace>
   </PropertyGroup>
   <PropertyGroup>
-    <AndroidSdkDirectory Condition=" '$(OS)' == 'Unix' ">$(Home)/Library/Android/sdk</AndroidSdkDirectory>
-    <AndroidSdkDirectory Condition=" '$(OS)' != 'Unix' ">$(UserProfile)/AppData/Local/Android/sdk</AndroidSdkDirectory>
+    <UserHome Condition=" '$(OS)' == 'Unix' ">$(Home)</UserHome>
+    <UserHome Condition=" '$(OS)' != 'Unix' ">$(UserProfile)</UserHome>
+    <AndroidSdkDirectory Condition=" '$(OS)' == 'Unix' ">$(UserHome)/Library/Android/sdk</AndroidSdkDirectory>
+    <AndroidSdkDirectory Condition=" '$(OS)' != 'Unix' ">$(UserHome)/AppData/Local/Android/sdk</AndroidSdkDirectory>
   </PropertyGroup>  
   <PropertyGroup>
     <PackageId>@(Model.Artifact.NugetPackageId)</PackageId>
     <Title>@(Model.GroupName) - @(Model.ArtifactName)</Title>
-    <Summary>C# bindings for @(Model.Artifact.GradleImplementation)</Summary>
+    <Summary>.NET Android binding library for @(Model.Artifact.GradleImplementation)</Summary>
     <Description>
-        C# bindings for @(Model.Artifact.GradleImplementation)
+        .NET Android binding library for @(Model.Artifact.GradleImplementation)
     </Description>
-    <PackageTags> xamarin, @(Model.Tags), @(Model.Artifact.GroupId), @(Model.Artifact.ArtifactId)</PackageTags>
+    <PackageTags> xamarin, android, @(Model.Tags), @(Model.Artifact.GroupId), @(Model.Artifact.ArtifactId)</PackageTags>
     <Authors>tuyen,tuyen-vuduc</Authors>
     <Owners>tuyen,tuyen-vuduc</Owners>
     <Company>N/A</Company>
@@ -107,16 +112,15 @@
       =================================================================================================================
     -->
   </PropertyGroup>
-  <PropertyGroup>
-    <UserHome Condition=" '$(OS)' == 'Unix' ">$(Home)</UserHome>
-    <UserHome Condition=" '$(OS)' != 'Unix' ">$(UserProfile)</UserHome>
-  </PropertyGroup>
-
   <ItemGroup>
-  @foreach(var targetFrameworkMoniker in Model.Config.TargetFrameworks) {
-    <None Include="@(Model.Artifact.NugetPackageId).targets" Pack="True" PackagePath="build\@(targetFrameworkMoniker)" />
-    <None Include="@(Model.Artifact.NugetPackageId).targets" Pack="True" PackagePath="buildTransitive\@(targetFrameworkMoniker)" />
-  }    
+    <_TargetFrameworkNugetBuildFolders Include="build\net6.0-android31.0" />
+    <_TargetFrameworkNugetBuildFolders Include="build\net7.0-android33.0" />
+    <_TargetFrameworkNugetBuildFolders Include="buildTransitive\net6.0-android31.0" />
+    <_TargetFrameworkNugetBuildFolders Include="buildTransitive\net7.0-android33.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="@(Model.Artifact.NugetPackageId).targets" Pack="True" PackagePath="@@(_TargetFrameworkNugetBuildFolders)" />
+    <None Include="@(Model.Artifact.NugetPackageId).targets" Pack="True" PackagePath="@@(_TargetFrameworkNugetBuildFolders)" />   
     <None Include="@(packageIconPath)" Pack="True" PackagePath="package-icon.png" />
     <None Include="@(licensePath)" Pack="True" PackagePath="" />
     <None Include="../../README.md" Pack="True" PackagePath="README.md" />

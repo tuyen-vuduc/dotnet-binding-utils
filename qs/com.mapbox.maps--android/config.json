@@ -1,13 +1,8 @@
 {
-	"solutionFile" : "generated/com.mapbox.maps--android-bindings.sln",
+	"solutionFile" : "generated/mapbox-bindings.sln",
 	"metadataPath": "../..",
 	"debug": { "dumpModels" : true },
 	"additionalProjects": [
-	],
-	"targetFrameworks": [
-		"MonoAndroid12.0",
-		"net6.0-android31.0",
-		"net7.0-android33.0"
 	],
 	"projectUrl": "https://mapbox.tuyen-vuduc.tech",
 	"packageIconPath": "../../assets/tv-mapbox.png",
