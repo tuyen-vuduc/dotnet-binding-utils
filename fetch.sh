@@ -1,6 +1,6 @@
 export DIR=$PWD
 
-cd src/MetadataFetcher.Tests
+cd src/libs/MetadataFetcher.Tests
 
 dotnet test
 
