@@ -10,6 +10,12 @@ public static class Util
     {
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
         IgnoreNullValues = true,
+        AllowTrailingCommas = true,
+        Converters = {
+            new JsonStringEnumConverter(),
+            new NuGetVersionConverter(),
+        },
+        WriteIndented = true,
     };
 
     public readonly static JsonSerializerOptions JsonOptions = new JsonSerializerOptions
@@ -65,7 +71,7 @@ public static class Util
             return hash.ToString();
         }
     }
-    public static ArtifactModel FromArtifactString(string basePath, string artifactString)
+    public static ArtifactModel FromArtifactString(string basePath, string artifactString, bool overriding)
     {
         var artifactParts = artifactString.Split(new[] { ":" }, StringSplitOptions.RemoveEmptyEntries);
 
@@ -74,9 +80,9 @@ public static class Util
             throw new InvalidOperationException("You must provide a valid artifact string, e.g. group:artifact:version");
         }
 
-        GroupModel group = FetchGroupInfo(basePath, artifactParts[0]);
-        NuGetModel nuget = FetchNugetInfo(basePath, artifactParts[0], artifactParts[1]);
-        VersionModel version = FetchVersionInfo(basePath, artifactParts[0], artifactParts[1], artifactParts[2]);
+        GroupModel group = FetchGroupInfo(basePath, artifactParts[0], overriding);
+        NuGetModel nuget = FetchNugetInfo(basePath, artifactParts[0], artifactParts[1], overriding);
+        VersionModel version = FetchVersionInfo(basePath, artifactParts[0], artifactParts[1], artifactParts[2], overriding);
 
         return new()
         {
@@ -86,7 +92,7 @@ public static class Util
         };
 
     }
-    private static VersionModel FetchVersionInfo(string basePath, string groupId, string artifactId, string versionString)
+    private static VersionModel FetchVersionInfo(string basePath, string groupId, string artifactId, string versionString, bool overriding = false)
     {
         if (!SemanticVersion.TryParse(versionString, out var semanticVersion))
         {
@@ -94,7 +100,7 @@ public static class Util
         }
 
         var versionJsonPath = Path.Combine(basePath, "src", "android", groupId, artifactId, $"{semanticVersion.ToNormalizedString()}.json");
-        VersionModel version;
+        VersionModel version = null;
         if (File.Exists(versionJsonPath))
         {
             version = JsonSerializer.Deserialize<VersionModel>(
@@ -102,7 +108,7 @@ public static class Util
                 jsonSerializerOptions
             );
         }
-        else
+        else if (overriding)
         {
             version = new VersionModel
             {
@@ -111,22 +117,31 @@ public static class Util
                 FallbackVersion = null,
             };
         }
-        version.SemanticVersion = semanticVersion;
 
-        File.WriteAllText(versionJsonPath, JsonSerializer.Serialize(version, jsonSerializerOptions));
+        if (version is not null)
+        {
+            version.SemanticVersion = semanticVersion;
+        }
+
+        if (overriding)
+        {
+            File.WriteAllText(versionJsonPath, JsonSerializer.Serialize(version, jsonSerializerOptions));
+        }
         return version;
     }
 
-    private static NuGetModel FetchNugetInfo(string basePath, string groupId, string artifactId)
+    private static NuGetModel FetchNugetInfo(string basePath, string groupId, string artifactId, bool overriding = false)
     {
         var artifactFolderPath = Path.Combine(basePath, "src", "android", groupId, artifactId);
 
-        if (!Directory.Exists(artifactFolderPath))
+        overriding |= Directory.Exists(artifactFolderPath);
+
+        if (overriding)
         {
             Directory.CreateDirectory(artifactFolderPath);
         }
 
-        NuGetModel nuget;
+        NuGetModel nuget = null;
 
         var nugetJsonPath = Path.Combine(artifactFolderPath, "nuget.json");
         if (File.Exists(nugetJsonPath))
@@ -140,7 +155,7 @@ public static class Util
                 ? artifactId
                 : nuget.Name;
         }
-        else
+        else if (overriding)
         {
             nuget = new NuGetModel
             {
@@ -149,27 +164,35 @@ public static class Util
             };
         }
 
-        var iconFile = nuget.Icon ?? "icon.png";
-        var iconPath = Path.Combine(artifactFolderPath, iconFile);
-        if (File.Exists(iconPath))
+        if (nuget is not null)
         {
-            nuget.Icon = iconFile;
+            var iconFile = nuget.Icon ?? "icon.png";
+            var iconPath = Path.Combine(artifactFolderPath, iconFile);
+            if (File.Exists(iconPath))
+            {
+                nuget.Icon = iconFile;
+            }
         }
 
-        File.WriteAllText(nugetJsonPath, JsonSerializer.Serialize(nuget, jsonSerializerOptions));
+        if (overriding)
+        {
+            File.WriteAllText(nugetJsonPath, JsonSerializer.Serialize(nuget, jsonSerializerOptions));
+        }
         return nuget;
     }
 
-    private static GroupModel FetchGroupInfo(string basePath, string groupId)
+    private static GroupModel FetchGroupInfo(string basePath, string groupId, bool overriding = false)
     {
         var groupFolderPath = Path.Combine(basePath, "src", "android", groupId);
 
-        if (!Directory.Exists(groupFolderPath))
+        overriding |= Directory.Exists(groupFolderPath);
+
+        if (overriding)
         {
             Directory.CreateDirectory(groupFolderPath);
         }
 
-        GroupModel group;
+        GroupModel group = null;
 
         var groupJsonPath = Path.Combine(groupFolderPath, "group.json");
         if (File.Exists(groupJsonPath))
@@ -183,7 +206,7 @@ public static class Util
                 ? groupId
                 : group.Name;
         }
-        else
+        else if (overriding)
         {
             group = new GroupModel
             {
@@ -192,15 +215,53 @@ public static class Util
             };
         }
 
-        var iconFile = group.Icon ?? "icon.png";
-        var iconPath = Path.Combine(groupFolderPath, iconFile);
-        if (File.Exists(iconPath))
+        if (group is not null)
         {
-            group.Icon = iconFile;
+            var iconFile = group.Icon ?? "icon.png";
+            var iconPath = Path.Combine(groupFolderPath, iconFile);
+            if (File.Exists(iconPath))
+            {
+                group.Icon = iconFile;
+            }
         }
 
-        File.WriteAllText(groupJsonPath, JsonSerializer.Serialize(group, jsonSerializerOptions));
+        if (overriding)
+        {
+            File.WriteAllText(groupJsonPath, JsonSerializer.Serialize(group, jsonSerializerOptions));
+        }
         return group;
     }
 
+    class NuGetVersionConverter : JsonConverter<NuGetVersion>
+    {
+        public override NuGetVersion? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        {
+            var stringValue = reader.GetString();
+            return NuGetVersion.TryParse(stringValue, out var result)
+                ? result
+                : null;
+        }
+
+        public override void Write(Utf8JsonWriter writer, NuGetVersion value, JsonSerializerOptions options)
+        {
+            var stringValue = value?.ToNormalizedString();
+            writer.WriteStringValue(stringValue);
+        }
+    }
+    class SemanticVersionConverter : JsonConverter<SemanticVersion>
+    {
+        public override SemanticVersion? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        {
+            var stringValue = reader.GetString();
+            return SemanticVersion.TryParse(stringValue, out var result)
+                ? result
+                : null;
+        }
+
+        public override void Write(Utf8JsonWriter writer, SemanticVersion value, JsonSerializerOptions options)
+        {
+            var stringValue = value?.ToNormalizedString();
+            writer.WriteStringValue(stringValue);
+        }
+    }
 }

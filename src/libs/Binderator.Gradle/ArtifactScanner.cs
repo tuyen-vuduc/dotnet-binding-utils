@@ -17,7 +17,8 @@ public static class ArtifactScanner
     {
         List<ArtifactModel> artifacts = new();
 
-        var artifact = Util.FromArtifactString(basePath, artifactString);
+        var artifact = Util.FromArtifactString(basePath, artifactString, true);
+        artifacts.Add(artifact);
 
         var homeFolder = Platform.IsWindows
                     ? Environment.SpecialFolder.UserProfile
@@ -82,8 +83,9 @@ public static class ArtifactScanner
         if (pomFilePath == null)
         {
             var libFilePath = artifactFiles.FirstOrDefault(x =>
-                x.EndsWith($".aar") ||
-                x.EndsWith($".jar")
+                !x.Contains("_aar") &&
+                (x.EndsWith($".aar") ||
+                x.EndsWith($".jar"))
             );
 
             if (!string.IsNullOrWhiteSpace(libFilePath))
@@ -107,7 +109,6 @@ public static class ArtifactScanner
         nsmgr.AddNamespace("mvn", "http://maven.apache.org/POM/4.0.0");
 
         artifact.Packaging = xmlDocument.DocumentElement.SelectSingleNode("descendant::mvn:packaging", nsmgr)?.InnerText;
-        artifacts.Add(artifact);
 
         var dependencies = xmlDocument.DocumentElement.SelectNodes("mvn:dependencies/mvn:dependency", nsmgr);
 
@@ -216,7 +217,7 @@ public static class ArtifactScanner
 
         var parentArtifact = FindExternalArtifact(basePath, xgroupId, xartifactId, artifactVersion);
 
-        if (parentArtifact == null)
+        if (parentArtifact.Version == null)
         {
             var parentArtifacts = Scan(
                 existingArtifacts,
@@ -305,8 +306,11 @@ public static class ArtifactScanner
 
     private static ArtifactModel FindExternalArtifact(string basePath, string xgroupId, string xartifactId, SemanticVersion xversion)
     {
-        ArtifactModel artifact = Util.FromArtifactString(basePath, $"{xgroupId}:{xartifactId}:{xversion}");
-        artifact.DependencyOnly = true;
+        ArtifactModel artifact = Util.FromArtifactString(basePath, $"{xgroupId}:{xartifactId}:{xversion}", false);
+        if (artifact is not null)
+        {
+            artifact.DependencyOnly = true;
+        }
         return artifact;
     }
 

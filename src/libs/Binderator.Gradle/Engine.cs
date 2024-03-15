@@ -7,7 +7,7 @@ public class Engine
 {
     public static Task<BindingConfig> BinderateAsync(string artifact, string basePath)
     {
-        var selectedArtifact = Util.FromArtifactString(basePath, artifact);
+        var selectedArtifact = Util.FromArtifactString(basePath, artifact, true);
 
         BindingConfig config = new BindingConfig
         {
