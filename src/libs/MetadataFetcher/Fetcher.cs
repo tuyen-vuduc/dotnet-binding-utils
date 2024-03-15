@@ -52,7 +52,7 @@ public static class Fetcher
             .ToList();
 
         var folderPath = Path
-            .Combine(BasePath, "metadata", platform, groupId, artifactId)
+            .Combine(BasePath, platform, groupId, artifactId)
             .ToLower();
 
         var nugetInfo = GetAndSaveNugetInfo(folderPath, packageId);

@@ -11,6 +11,7 @@ public class FetcherTests
     }
 
     [Theory]
+    [InlineData("Com.Mapbox.Maps.Android", "com.mapbox.maps", "android")]
     [InlineData("Dev.Romainguy.KotlinMath", "dev.romainguy", "kotlin-math")]
     [InlineData("Xamarin.KotlinX.Coroutines.Jdk8", "org.jetbrains.kotlinx", "kotlinx-coroutines-jdk8")]
     [InlineData("Xamarin.AndroidX.ProfileInstaller.ProfileInstaller", "androidx.profileinstaller", "profileinstaller")]
