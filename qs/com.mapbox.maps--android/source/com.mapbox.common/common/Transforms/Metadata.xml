@@ -1,12 +1,3 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-    <attr
-        path="//field[@name='Companion']"
-        name="managedName">CompanionField</attr>
-    <attr
-        path="/api/package[@name='com.mapbox.common']/class[@name='MapboxSDKCommonInitializer']/method[@name='create' and count(parameter)=1 and parameter[1][@type='android.content.Context']]"
-        name="managedName">CreateMapboxSDKCommon</attr>
-    <attr
-        path="/api/package[@name='com.mapbox.common']/class[@name='CoreInitializer']/method[@name='create' and count(parameter)=1 and parameter[1][@type='android.content.Context']]"
-        name="managedName">CreateMapboxSDKCommon</attr>
 </metadata>

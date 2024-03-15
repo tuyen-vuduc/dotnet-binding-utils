@@ -33,18 +33,20 @@
 			"groupId": "com.mapbox.maps",
 			"artifactId": "android",
 			"artifactName": "Android SDK",
-			"version": "11.1.0",
-			"nugetRevision": 1,
+			"version": "11.2.0",
+			"nugetRevision": 3,
 			"tags": [ "mapbox", "mapbox-android" ]
 		}
 	],
 	"fixedDependencies": {
-		"Xamarin.AndroidX.Annotation": "1.7.0.3",
+		"Xamarin.AndroidX.Annotation": "1.7.1.1",
 		"Xamarin.Kotlin.StdLib.Jdk7": "1.5.31.4",
 		"Xamarin.Kotlin.StdLib.Jdk8": "1.9.21.1",
-		"Xamarin.AndroidX.Lifecycle.Runtime": "2.6.2.3",
+		"Xamarin.AndroidX.Lifecycle.Runtime": "2.7.0.1",
 		"Xamarin.KotlinX.Coroutines.Core.Jvm": "1.6.4.3",
-		"Xamarin.AndroidX.Core.Core.Ktx": "1.12.0.3"
+		"Xamarin.KotlinX.Coroutines.Core": "1.8.0.1",
+		"Xamarin.AndroidX.Core.Core.Ktx": "1.12.0.4",
+		"Org.Jetbrains.Kotlin.KotlinParcelizeRuntime": "1.8.22.3"
 	},
 	"missedDependencies": {
 		"com.mapbox.common:logger": [

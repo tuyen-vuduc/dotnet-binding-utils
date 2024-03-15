@@ -20,7 +20,8 @@
     <PackageReference Include="DotnetBindings.Cake" Version="0.1.0" /> -->
   </ItemGroup>
   <ItemGroup>
-    <GradleImplementation Include="com.mapbox.maps:android:11.1.0"></GradleImplementation>
+    <GradleImplementation Include="com.mapbox.maps:android:11.2.0"></GradleImplementation>
+    <GradleImplementation Include="org.jetbrains.kotlin:kotlin-android-extensions-runtime:1.8.22"></GradleImplementation>
     <GradleRepository Include="https://api.mapbox.com/downloads/v2/releases/maven">
       <Repository>
       maven {

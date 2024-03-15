@@ -1,11 +1,9 @@
 
 namespace Com.Mapbox.Maps.Loader
 {
-    partial class MapboxMapsInitializer
+    partial class MapboxMapsInitializerImpl
     {
-        public virtual unsafe global::Java.Lang.Object Create(global::Android.Content.Context context)
-        {
-            return CreateMapboxMaps(context);
-        }
+        global::Java.Lang.Object global::AndroidX.Startup.IInitializer.Create(global::Android.Content.Context context)
+            => Create(context);
     }
 }
