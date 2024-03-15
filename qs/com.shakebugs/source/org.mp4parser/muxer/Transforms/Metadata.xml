@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <attr path="//field[@name='BUFFER']"
+        name="managedName">BUFFER</attr>
+  <attr path="//field[@name='decodingTimes']"
+        name="managedName">_decodingTimes</attr>
+  <attr path="//field[@name='stss']"
+        name="managedName">_stss</attr>
+  <attr path="//field[@name='trackMetaData']"
+        name="managedName">_trackMetaData</attr>
+  <attr path="//field[@name='bottom_field_flag']"
+        name="managedName">bottom_field_flag</attr>
+  <attr path="//field[@name='colour_plane_id']"
+        name="managedName">colour_plane_id</attr>
+  <attr path="//field[@name='delta_pic_order_cnt_0']"
+        name="managedName">delta_pic_order_cnt_0</attr>
+  <attr path="//field[@name='delta_pic_order_cnt_1']"
+        name="managedName">delta_pic_order_cnt_1</attr>
+  <attr path="//field[@name='delta_pic_order_cnt_bottom']"
+        name="managedName">
+    delta_pic_order_cnt_bottom
+  </attr>
+  <attr path="//field[@name='field_pic_flag']"
+        name="managedName">field_pic_flag</attr>
+  <attr path="//field[@name='first_mb_in_slice']"
+        name="managedName">first_mb_in_slice</attr>
+  <attr path="//field[@name='frame_num']"
+        name="managedName">frame_num</attr>
+  <attr path="//field[@name='idr_pic_id']"
+        name="managedName">idr_pic_id</attr>
+  <attr path="//field[@name='pic_order_cnt_lsb']"
+        name="managedName">pic_order_cnt_lsb</attr>
+  <attr path="//field[@name='pic_parameter_set_id']"
+        name="managedName">pic_parameter_set_id</attr>
+  <attr path="//field[@name='pps']"
+        name="managedName">_pps</attr>
+  <attr path="//field[@name='slice_type']"
+        name="managedName">slice_type</attr>
+  <attr path="//field[@name='sps']"
+        name="managedName">_sps</attr>
+  <attr path="//field[@name='aspect_ratio']"
+        name="managedName">aspect_ratio</attr>
+  <attr path="//field[@name='aspect_ratio_info_present_flag']"
+        name="managedName">
+    aspect_ratio_info_present_flag
+  </attr>
+  <attr path="//field[@name='bitstreamRestriction']"
+        name="managedName">_bitstreamRestriction</attr>
+  <attr path="//field[@name='chroma_loc_info_present_flag']"
+        name="managedName">
+    chroma_loc_info_present_flag
+  </attr>
+  <attr path="//field[@name='chroma_sample_loc_type_bottom_field']"
+        name="managedName">
+    chroma_sample_loc_type_bottom_field
+  </attr>
+  <attr path="//field[@name='chroma_sample_loc_type_top_field']"
+        name="managedName">
+    chroma_sample_loc_type_top_field
+  </attr>
+  <attr path="//field[@name='colour_description_present_flag']"
+        name="managedName">
+    colour_description_present_flag
+  </attr>
+  <attr path="//field[@name='colour_primaries']"
+        name="managedName">colour_primaries</attr>
+  <attr path="//field[@name='fixed_frame_rate_flag']"
+        name="managedName">fixed_frame_rate_flag</attr>
+  <attr path="//field[@name='low_delay_hrd_flag']"
+        name="managedName">low_delay_hrd_flag</attr>
+  <attr path="//field[@name='matrix_coefficients']"
+        name="managedName">matrix_coefficients</attr>
+  <attr path="//field[@name='nalHRDParams']"
+        name="managedName">_nalHRDParams</attr>
+  <attr path="//field[@name='num_units_in_tick']"
+        name="managedName">num_units_in_tick</attr>
+  <attr path="//field[@name='overscan_appropriate_flag']"
+        name="managedName">
+    overscan_appropriate_flag
+  </attr>
+  <attr path="//field[@name='overscan_info_present_flag']"
+        name="managedName">
+    overscan_info_present_flag
+  </attr>
+  <attr path="//field[@name='pic_struct_present_flag']"
+        name="managedName">pic_struct_present_flag</attr>
+  <attr path="//field[@name='sar_height']"
+        name="managedName">sar_height</attr>
+  <attr path="//field[@name='sar_width']"
+        name="managedName">sar_width</attr>
+  <attr path="//field[@name='time_scale']"
+        name="managedName">time_scale</attr>
+  <attr path="//field[@name='timing_info_present_flag']"
+        name="managedName">
+    timing_info_present_flag
+  </attr>
+  <attr path="//field[@name='transfer_characteristics']"
+        name="managedName">
+    transfer_characteristics
+  </attr>
+  <attr path="//field[@name='vclHRDParams']"
+        name="managedName">_vclHRDParams</attr>
+  <attr path="//field[@name='video_format']"
+        name="managedName">video_format</attr>
+  <attr path="//field[@name='video_full_range_flag']"
+        name="managedName">video_full_range_flag</attr>
+  <attr path="//field[@name='video_signal_type_present_flag']"
+        name="managedName">
+    video_signal_type_present_flag
+  </attr>
+  <attr path="//field[@name='scalingList']"
+        name="managedName">
+    _scalingList
+  </attr>
+  <attr path="//field[@name='fragmenter']"
+        name="managedName">fragmenter</attr>
+  <attr path="//field[@name='debug']"
+        name="managedName">debug</attr>
+  <attr path="/api/package[@name='org.mp4parser.muxer.container.mp4']/class[@name='DefaultMp4SampleList']/method[@name='get' and count(parameter)=1 and parameter[1][@type='int']]"
+        name="managedName">GetSample</attr>
+  <attr path="/api/package[@name='org.mp4parser.muxer.container.mp4']/class[@name='Mp4SampleList']/method[@name='get' and count(parameter)=1 and parameter[1][@type='int']]"
+        name="managedName">GetSample</attr>
+  <attr path="/api/package[@name='org.mp4parser.muxer.tracks.encryption']/class[@name='CencEncryptingSampleList']/method[@name='get' and count(parameter)=1 and parameter[1][@type='int']]"
+        name="managedName">GetSample</attr>
+  <attr path="/api/package[@name='org.mp4parser.muxer.container.mp4']/class[@name='FragmentedMp4SampleList']/method[@name='get' and count(parameter)=1 and parameter[1][@type='int']]"
+        name="managedName">GetSample</attr>
+  <attr path="/api/package[@name='org.mp4parser.muxer.tracks.encryption']/class[@name='CencDecryptingSampleList']/method[@name='get' and count(parameter)=1 and parameter[1][@type='int']]"
+        name="managedName">GetSample</attr>
+</metadata>
