@@ -1,8 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-	<attr
-		path="//field[@name='Companion']"
-		name="managedName">CompanionField</attr>
 	 <remove-node
 		path="/api/package[@name='com.mapbox.maps.extension.style']/interface[@name='StyleInterface']/implements[@name='com.mapbox.maps.StyleManagerInterface']" /> 
 </metadata>

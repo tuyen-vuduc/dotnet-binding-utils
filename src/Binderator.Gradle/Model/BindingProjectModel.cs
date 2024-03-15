@@ -30,8 +30,6 @@ public class BindingProjectModel
         )
     );
 
-    public string TargetFrameworks => string.Join(";", Config.TargetFrameworks);
-
 	public List<ArtifactModel> NuGetDependencies { get; set; } = new List<ArtifactModel>();
 
 	public List<string> ProjectReferences { get; set; } = new List<string>();

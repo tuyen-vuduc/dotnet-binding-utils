@@ -1,33 +1,18 @@
+using System;
+using System.Collections.Generic;
+using Android.Runtime;
+using GoogleGson.Stream;
+using Java.Interop;
+
 namespace Com.Mapbox.Geojson.Gson
 {
-    public partial class BoundingBoxTypeAdapter
+    partial class BoundingBoxTypeAdapter
     {
-        public override unsafe global::Java.Lang.Object Read(global::GoogleGson.Stream.JsonReader @in)
-        {
-            return ReadBoudingBox(@in);
-        }
+        public override Java.Lang.Object Read(JsonReader p0)
+            => ReadX(p0);
 
-        public override unsafe void Write(global::GoogleGson.Stream.JsonWriter @out, global::Java.Lang.Object value)
-        {
-            Write(@out, value as global::Com.Mapbox.Geojson.BoundingBox);
-        }
-    }
-}
-
-
-namespace Com.Mapbox.Geojson
-{
-    public partial class PointAsCoordinatesTypeAdapter
-    {
-        public override unsafe global::Java.Lang.Object Read(global::GoogleGson.Stream.JsonReader @in)
-        {
-            return ReadPoint(@in);
-        }
-
-        public override unsafe void Write(global::GoogleGson.Stream.JsonWriter @out, global::Java.Lang.Object value)
-        {
-            Write(@out, value as global::Com.Mapbox.Geojson.Point);
-        }
+        public override void Write(JsonWriter p0, Java.Lang.Object p1)
+            => Write(p0, p1 as BoundingBox);
     }
 }
 

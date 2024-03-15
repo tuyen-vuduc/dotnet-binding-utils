@@ -1,4 +1,16 @@
 using System;
+using System.Collections.Generic;
+using Android.Runtime;
+using Java.Interop;
+
+namespace Com.Mapbox.Maps
+{
+    partial class MapboxInitializer
+    {
+        global::Java.Lang.Object global::AndroidX.Startup.IInitializer.Create(global::Android.Content.Context context)
+            => Create(context);
+    }
+}
 
 namespace Com.Mapbox.Maps.Plugins.Locationcomponent
 {
@@ -37,7 +49,7 @@ namespace Com.Mapbox.Maps.Plugins.Gestures
             return func?.Invoke(point) ?? false;
         }
     }
-    
+
     public sealed class OnMapLongClickListenerFunction : Java.Lang.Object, IOnMapLongClickListener
     {
         Func<global::Com.Mapbox.Geojson.Point, bool> func;

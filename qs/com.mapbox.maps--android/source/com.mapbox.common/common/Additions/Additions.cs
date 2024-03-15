@@ -1,22 +1,19 @@
 
 namespace Com.Mapbox.Common
 {
-    partial class MapboxSDKCommonInitializer
+    partial class BaseMapboxInitializer
     {
-        public unsafe global::Java.Lang.Object Create(global::Android.Content.Context context)
-        {
-            return CreateMapboxSDKCommon(context);
-        }
-	}
-}
-
-namespace Com.Mapbox.Common
-{
+        global::Java.Lang.Object global::AndroidX.Startup.IInitializer.Create(global::Android.Content.Context context)
+            => Create(context);
+    }
+    partial class MapboxSDKCommonInitializerImpl
+    {
+        global::Java.Lang.Object global::AndroidX.Startup.IInitializer.Create(global::Android.Content.Context context)
+            => Create(context);
+    }
     partial class CoreInitializer
     {
-        public unsafe global::Java.Lang.Object Create(global::Android.Content.Context context)
-        {
-            return CreateMapboxSDKCommon(context);
-        }
+        global::Java.Lang.Object global::AndroidX.Startup.IInitializer.Create(global::Android.Content.Context context)
+            => Create(context);
     }
 }
