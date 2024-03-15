@@ -12,9 +12,10 @@ public class Engine
         BindingConfig config = new BindingConfig
         {
             BasePath = basePath,
-            Artifacts = [
+            Artifacts = new List<ArtifactModel>
+            {
                 selectedArtifact,
-            ],
+            },
             SlnPath = Path.Combine(basePath, "bindings.g.sln"),
         };
 

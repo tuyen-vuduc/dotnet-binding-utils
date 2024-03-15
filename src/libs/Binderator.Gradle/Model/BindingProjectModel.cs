@@ -11,24 +11,13 @@ public class BindingProjectModel
 
     public ArtifactModel Artifact { get; set; }
 
-    public string GroupName => string.IsNullOrWhiteSpace(Artifact.GroupName)
-        ? string.IsNullOrWhiteSpace(Config.GroupName)
-        ? Artifact.GroupId
-        : Config.GroupName
-        : Artifact.GroupName;
+    public string GroupName => string.IsNullOrWhiteSpace(Artifact.Group.Name)
+        ? Artifact.Group.Id
+        : Artifact.Group.Name;
 
-    public string ArtifactName => string.IsNullOrWhiteSpace(Artifact.ArtifactName)
-        ? Artifact.ArtifactId
-        : Artifact.ArtifactName;
-
-    public string Tags => string.Join(
-        ",",
-        new List<string>(
-            Artifact.Tags ?? new string[0]
-        ).Union(
-            Config.Tags ?? new string[0]
-        )
-    );
+    public string ArtifactName => string.IsNullOrWhiteSpace(Artifact.Nuget.Name)
+        ? Artifact.Nuget.ArtifactId
+        : Artifact.Nuget.Name;
 
 	public List<ArtifactModel> NuGetDependencies { get; set; } = new List<ArtifactModel>();
 

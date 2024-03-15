@@ -13,6 +13,8 @@ public class ArtifactModel : IEquatable<ArtifactModel>
 
     public string Key => $"{Group.Id}:{Nuget.ArtifactId}";
     public string GradleImplementation => $"{Key}:{Version.SemanticVersion}";
+    public string RelativeFolderPath => Path.Combine("src", "android", Group.Id, Nuget.ArtifactId);
+    public string RelativeBindingFolderPath => Path.Combine(RelativeFolderPath, "binding");
 
     public bool IsAAR => ShadowArtifact != null
         ? ShadowArtifact.IsAAR
@@ -50,8 +52,7 @@ public class ArtifactModel : IEquatable<ArtifactModel>
         get => ShadowArtifact?.ParentArtifacts ?? parentArtifacts;
         set => parentArtifacts = value;
     }
-    public string GroupName { get; set; }
-    public string ArtifactName { get; set; }
+
     public string[] Tags { get; set; }
     public string[] MissingDependencies { get; set; }
 

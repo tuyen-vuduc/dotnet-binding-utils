@@ -4,39 +4,26 @@ public sealed class InitializeTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
-        var configs = ReadConfigs(context);
-
-        if (configs.Artifacts?.Count <= 0)
+        var configs = new BindingConfig
         {
-            context.Log.Error("No artifacts supplied");
-
-            return;
-        }
-
-        configs.BasePath = context.BasePath;
+            BasePath = context.BasePath,
+        };
         context.Configs = configs;
 
-        context.GeneratedSlnPath = PathIO.Combine(
-            context.BasePath,
-            configs.SolutionFile
-        );
-
         var artifacts = configs.Artifacts = Scan(
-            new List<ArtifactModel>(configs.Artifacts),
             context
         );
 
-        if (configs.Debug.DumpModels)
+#if DEBUG
+        var configPath = PathIO.Combine(context.BasePath, "artifacts.g.json");
+        if (File.Exists(configPath))
         {
-            var configPath = PathIO.Combine(context.BasePath, "artifacts.g.json");
-            if (File.Exists(configPath))
-            {
-                File.Delete(configPath);
-            }
-
-            var json = artifacts.Serialize();
-            File.WriteAllText(configPath, json);
+            File.Delete(configPath);
         }
+
+        var json = artifacts.Serialize();
+        File.WriteAllText(configPath, json);
+#endif
 
         UnzipAar(context, artifacts);
 
@@ -46,8 +33,9 @@ public sealed class InitializeTask : FrostingTask<BuildContext>
     private void UnzipAar(BuildContext context, List<ArtifactModel> artifacts)
     {
         const string bindingDefaultFile = "binding-default.zip";
-        if (!File.Exists(bindingDefaultFile)) {
-            using(var stream = GetType()
+        if (!File.Exists(bindingDefaultFile))
+        {
+            using (var stream = GetType()
                                 .Assembly
                                 .GetManifestResourceStream(
                                     $"DotnetBindings.Cake.{bindingDefaultFile}"
@@ -60,11 +48,6 @@ public sealed class InitializeTask : FrostingTask<BuildContext>
             }
         }
 
-        var sourceFolderPath = PathIO.Combine(
-            context.BasePath,
-            "source"
-            );
-
         var artifactsToBind = artifacts
             .Where(x => !x.DependencyOnly)
             .ToList();
@@ -72,9 +55,8 @@ public sealed class InitializeTask : FrostingTask<BuildContext>
         foreach (var artifact in artifactsToBind)
         {
             var artifactFolderPath = PathIO.Combine(
-                sourceFolderPath,
-                artifact.GroupId,
-                artifact.ArtifactId
+                context.BasePath,
+                artifact.RelativeBindingFolderPath
             );
 
             if (Directory.Exists(artifactFolderPath)) continue;
@@ -90,53 +72,25 @@ public sealed class InitializeTask : FrostingTask<BuildContext>
         }
     }
 
-    private List<ArtifactModel> Scan(List<ArtifactModel> artifacts, BuildContext context)
+    private List<ArtifactModel> Scan(BuildContext context)
     {
-        var metadataBasePath = PathIO.Combine(
-            context.BasePath,
-            "../.."
-        );
-
         var allArtifacts = new List<ArtifactModel>();
-
-        foreach (var artifact in context.Configs.Artifacts)
-        {
-            var scannedItems = ArtifactScanner.Scan(
-                artifacts,
-                metadataBasePath,
-                artifact.GroupId,
-                artifact.ArtifactId,
-                artifact.Version,
-                log => {
-                    if (log.Contains("MISSING"))
-                        context.Log.Information(log);
-                    else if (log.Contains("EXISTS"))
-                        context.Log.Information(log);
-                },
-                artifact.GroupName,
-                artifact.ArtifactName,
-                artifact.Tags,
-                artifact.NugetRevision ?? context.Configs.NugetRevision,
-                artifact.NugetPackageId,
-                artifact.MissingDependencies ?? Array.Empty<string>()
-            );
-            allArtifacts.AddRange(scannedItems);
-        }
+        var scannedItems = ArtifactScanner.Scan(
+            allArtifacts,
+            context.BasePath,
+            context.Artifact,
+            log =>
+            {
+                if (log.Contains("MISSING"))
+                    context.Log.Information(log);
+                else if (log.Contains("EXISTS"))
+                    context.Log.Information(log);
+            }
+        );
+        allArtifacts.AddRange(scannedItems);
 
         return allArtifacts
                 .DistinctBy(x => x.GroupAndArtifactId())
                 .ToList();
-    }
-
-    private BindingConfig ReadConfigs(BuildContext context)
-    {
-        var configFilePath = PathIO.Combine(
-            context.BasePath,
-            "config.json"
-        );
-
-        using var stream = File.OpenRead(configFilePath);
-
-        return stream.Deserialize<BindingConfig>();
     }
 }

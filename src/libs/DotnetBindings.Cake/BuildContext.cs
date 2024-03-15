@@ -3,10 +3,9 @@
 public class BuildContext : FrostingContext
 {
     public string BasePath { get; set; }
-    public string GeneratedSlnPath { get; set; }
-
-    public List<ArtifactModel> Artifacts { get; set; }
+    public string Artifact { get; set; }
     public BindingConfig Configs { get; set; }
+    public List<ArtifactModel> Artifacts { get; set; }
 
     public BuildContext(ICakeContext context)
         : base(context)
@@ -18,5 +17,6 @@ public class BuildContext : FrostingContext
 
         BasePath = context.Arguments.GetArgument("base-path")
                     ?? defaultBasePath;
-    }
+        Artifact = context.Arguments.GetArgument("artifact");
+}
 }

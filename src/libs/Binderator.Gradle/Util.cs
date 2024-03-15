@@ -6,6 +6,12 @@ namespace Binderator.Gradle;
 
 public static class Util
 {
+    static readonly JsonSerializerOptions jsonSerializerOptions = new ()
+    {
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+        IgnoreNullValues = true,
+    };
+
     public readonly static JsonSerializerOptions JsonOptions = new JsonSerializerOptions
     {
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
@@ -87,12 +93,13 @@ public static class Util
             throw new InvalidOperationException("You must provide a valid version string.");
         }
 
-        var versionJsonPath = Path.Combine(basePath, groupId, artifactId, $"{semanticVersion.ToNormalizedString()}.json");
+        var versionJsonPath = Path.Combine(basePath, "src", "android", groupId, artifactId, $"{semanticVersion.ToNormalizedString()}.json");
         VersionModel version;
         if (File.Exists(versionJsonPath))
         {
             version = JsonSerializer.Deserialize<VersionModel>(
-                File.ReadAllText(versionJsonPath)
+                File.ReadAllText(versionJsonPath),
+                jsonSerializerOptions
             );
         }
         else
@@ -106,13 +113,13 @@ public static class Util
         }
         version.SemanticVersion = semanticVersion;
 
-        File.WriteAllText(versionJsonPath, JsonSerializer.Serialize(version));
+        File.WriteAllText(versionJsonPath, JsonSerializer.Serialize(version, jsonSerializerOptions));
         return version;
     }
 
     private static NuGetModel FetchNugetInfo(string basePath, string groupId, string artifactId)
     {
-        var artifactFolderPath = Path.Combine(basePath, groupId, artifactId);
+        var artifactFolderPath = Path.Combine(basePath, "src", "android", groupId, artifactId);
 
         if (!Directory.Exists(artifactFolderPath))
         {
@@ -125,7 +132,8 @@ public static class Util
         if (File.Exists(nugetJsonPath))
         {
             nuget = JsonSerializer.Deserialize<NuGetModel>(
-                File.ReadAllText(nugetJsonPath)
+                File.ReadAllText(nugetJsonPath),
+                jsonSerializerOptions
             );
             nuget.ArtifactId = artifactId;
             nuget.Name = string.IsNullOrWhiteSpace(nuget.Name)
@@ -148,13 +156,13 @@ public static class Util
             nuget.Icon = iconFile;
         }
 
-        File.WriteAllText(nugetJsonPath, JsonSerializer.Serialize(nuget));
+        File.WriteAllText(nugetJsonPath, JsonSerializer.Serialize(nuget, jsonSerializerOptions));
         return nuget;
     }
 
     private static GroupModel FetchGroupInfo(string basePath, string groupId)
     {
-        var groupFolderPath = Path.Combine(basePath, groupId);
+        var groupFolderPath = Path.Combine(basePath, "src", "android", groupId);
 
         if (!Directory.Exists(groupFolderPath))
         {
@@ -167,7 +175,8 @@ public static class Util
         if (File.Exists(groupJsonPath))
         {
             group = JsonSerializer.Deserialize<GroupModel>(
-                File.ReadAllText(groupJsonPath)
+                File.ReadAllText(groupJsonPath),
+                jsonSerializerOptions
             );
             group.Id = groupId;
             group.Name = string.IsNullOrWhiteSpace(group.Name)
@@ -190,7 +199,7 @@ public static class Util
             group.Icon = iconFile;
         }
 
-        File.WriteAllText(groupJsonPath, JsonSerializer.Serialize(group));
+        File.WriteAllText(groupJsonPath, JsonSerializer.Serialize(group, jsonSerializerOptions));
         return group;
     }
 

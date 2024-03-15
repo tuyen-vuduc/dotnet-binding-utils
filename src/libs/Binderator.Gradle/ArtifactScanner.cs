@@ -305,60 +305,9 @@ public static class ArtifactScanner
 
     private static ArtifactModel FindExternalArtifact(string basePath, string xgroupId, string xartifactId, SemanticVersion xversion)
     {
-        var externalArtifactFolderPath = Path.Combine(
-                basePath,
-                "src/android",
-                xgroupId, xartifactId
-            );
-
-        if (!Directory.Exists(externalArtifactFolderPath)) return null;
-
-        var nugetVersion = GetNugetVersion(externalArtifactFolderPath, xversion);
-
-        if (nugetVersion == null) return null;
-
-        var externalArtifactNugetPath = Path.Combine(
-                externalArtifactFolderPath,
-                "nuget.json"
-            );
-        using var stream = File.OpenRead(externalArtifactNugetPath);
-        var nugetModel = stream.Deserialize<NuGetModel>();
-
-        return new ArtifactModel
-        {
-            GroupId = xgroupId,
-            ArtifactId = xartifactId,
-            Version = xversion,
-            NugetPackageId = nugetModel.PackageId,
-            NugetVersion = nugetVersion,
-            DependencyOnly = true,
-        };
-    }
-
-    private static NuGetVersion GetNugetVersion(string externalArtifactFolderPath, SemanticVersion xversion)
-    {
-        var externalArtifactVersionPath = Path.Combine(
-                externalArtifactFolderPath,
-                xversion + ".json"
-            );
-
-        if (!File.Exists(externalArtifactVersionPath)) return null;
-
-        var artifactVersionModel = ReadArtifactVersionModel(externalArtifactVersionPath);
-
-        if (artifactVersionModel.FallbackVersion != null)
-        {
-            return GetNugetVersion(externalArtifactFolderPath, artifactVersionModel.FallbackVersion);
-        }
-
-        return artifactVersionModel.NugetVersion ?? xversion.ToNuGetVersion(artifactVersionModel.Revision);
-    }
-
-    private static ArtifactVersionModel ReadArtifactVersionModel(string externalArtifactVersionPath)
-    {
-        using var stream = File.OpenRead(externalArtifactVersionPath);
-
-        return stream.Deserialize<ArtifactVersionModel>();
+        ArtifactModel artifact = Util.FromArtifactString(basePath, $"{xgroupId}:{xartifactId}:{xversion}");
+        artifact.DependencyOnly = true;
+        return artifact;
     }
 
     static string CreateNugetId(string groupId, string artifactId)
