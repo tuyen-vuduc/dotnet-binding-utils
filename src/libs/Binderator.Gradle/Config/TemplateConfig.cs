@@ -29,7 +29,6 @@ public class TemplateConfig
 	public string GetOutputFile(BindingConfig config, BindingProjectModel model)
 	{
 		var p = OutputFileRule
-				 .Replace("{generated}", config.GeneratedDir)
 				 .Replace("{groupid}", model.Artifact.GroupId)
 				 .Replace("{artifactid}", model.Artifact.ArtifactId)
 				 .Replace("{nugetid}", model.Artifact.NugetPackageId);

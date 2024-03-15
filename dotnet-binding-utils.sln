@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "metadata", "metadata", "{11
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetBindings.Cake", "src\libs\DotnetBindings.Cake\DotnetBindings.Cake.csproj", "{95670EEE-39E4-42C4-BF73-B28109EC962D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Build", "qs\com.shakebugs\build\Build.csproj", "{A756BCEC-3358-4B56-9903-AC6DED4EF42B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BindingHost", "src\libs\BindingHost\BindingHost.csproj", "{AE9DAF54-5BE5-4500-976B-0313C055B722}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,10 +51,10 @@ Global
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A756BCEC-3358-4B56-9903-AC6DED4EF42B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A756BCEC-3358-4B56-9903-AC6DED4EF42B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A756BCEC-3358-4B56-9903-AC6DED4EF42B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A756BCEC-3358-4B56-9903-AC6DED4EF42B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE9DAF54-5BE5-4500-976B-0313C055B722}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE9DAF54-5BE5-4500-976B-0313C055B722}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE9DAF54-5BE5-4500-976B-0313C055B722}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE9DAF54-5BE5-4500-976B-0313C055B722}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
