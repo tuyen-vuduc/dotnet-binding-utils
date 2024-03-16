@@ -1,7 +1,0 @@
-
-    <Project>
-    <ItemGroup>
-        <GradleImplementation Include="dev.romainguy:kotlin-math:1.5.3"></GradleImplementation>
-    </ItemGroup>
-</Project>
-    
