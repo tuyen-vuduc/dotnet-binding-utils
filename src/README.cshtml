@@ -1,0 +1,13 @@
+@using System;
+
+@if (!string.IsNullOrWhiteSpace(Model.Artifact.Nuget.HomePageUrl)) {
+    @Raw("# Home page\n\n")
+
+    @(Model.Artifact.Nuget.HomePageUrl)
+}
+
+@if (!string.IsNullOrWhiteSpace(Model.Artifact.Nuget.GuideUrl)) {
+    @Raw("# Guide page\n\n")
+
+    @(Model.Artifact.Nuget.GuideUrl)
+}

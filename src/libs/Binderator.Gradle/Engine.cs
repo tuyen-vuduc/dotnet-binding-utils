@@ -20,12 +20,15 @@ public class Engine
         };
 
         return BinderateAsync(config)
-            .ContinueWith(t => config);
+            .ContinueWith(t =>
+            {
+                return config;
+            });
     }
 
-    public static async Task BinderateAsync(BindingConfig config)
+    public static Task BinderateAsync(BindingConfig config)
     {
-        await ProcessConfig(config);
+        return ProcessConfig(config);
     }
 
     static async Task ProcessConfig(BindingConfig config)
@@ -43,27 +46,34 @@ public class Engine
             .Build();
         var templates = new Dictionary<string, string>()
         {
-            { "Project.cshtml", "binding/{0}.csproj" },
-            { "Targets.cshtml", "binding/{0}.targets" }
+            { "README.cshtml", "README.md" },
+            { "LICENSE.cshtml", "LICENSE" },
+            { "Project.cshtml", "{0}.csproj" },
+            { "Targets.cshtml", "{0}.targets" },
         };
 
         foreach (var model in models)
         {
             foreach (var template in templates)
             {
-                var inputTemplateFile = Path.Combine(config.BasePath, template.Key);
+                var inputTemplateFile = Path.Combine(config.BasePath, "src", template.Key);
                 var templateSrc = File.ReadAllText(inputTemplateFile);
 
                 var outputFilePath = Path.Combine(
                     config.BasePath,
-                    model.Artifact.Group.Id,
-                    model.Artifact.Nuget.ArtifactId,
-                    "binding",
+                    model.Artifact.RelativeBindingFolderPath,
                     string.Format(template.Value, model.Artifact.Nuget.PackageId));
 
-                string result = await engine.CompileRenderStringAsync(inputTemplateFile, templateSrc, model);
+                try
+                {
+                    string result = await engine.CompileRenderStringAsync(inputTemplateFile, templateSrc, model);
 
-                File.WriteAllText(outputFilePath, result);
+                    File.WriteAllText(outputFilePath, result);
+                }
+                catch (Exception ex)
+                {
+
+                }
 
                 // We want to collect all the models for the .csproj's so we can add them to a .sln file after
                 if (!slnProjModels.ContainsKey(outputFilePath) && outputFilePath.EndsWith(".csproj"))

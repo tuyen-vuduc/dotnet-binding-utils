@@ -2,14 +2,9 @@
 @using System.Linq
 @using System.Collections.Generic
 @{
-  var packageIconPath = Model.Config.PackageIconPath ?? "../../../../assets/tv-ico.png";
-  var licensePath = Model.Config.LicensePath ?? "../../../../LICENSE";
-  var assemblyVersion = string.Join(
-    ".",
-    Model.Artifact.NugetVersion.Major,
-    Model.Artifact.NugetVersion.Minor,
-    Model.Artifact.NugetVersion.Patch,
-    DateTime.Today.DayOfYear);
+  var packageIconPath = Model.Artifact.Icon ?? "../../../../assets/tv-ico.png";
+  var licensePath = "LICENSE";
+  var assemblyVersion = Model.Artifact.AssemblyVersion;
 }
 <Project Sdk="Xamarin.Legacy.Sdk">
   <Target Name="_CleanAarOutputPath" AfterTargets="_CreateAar" BeforeTargets="_IncludeAarInNuGetPackage">

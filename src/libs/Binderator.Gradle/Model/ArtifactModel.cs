@@ -1,10 +1,24 @@
-﻿namespace Binderator.Gradle;
+﻿using System.Reflection;
+
+namespace Binderator.Gradle;
 
 public class ArtifactModel : IEquatable<ArtifactModel>
 {
     public GroupModel Group { get; set; }
     public NuGetModel Nuget { get; set; }
     public VersionModel Version { get; set; }
+    public string Icon => string.IsNullOrWhiteSpace(Nuget.Icon)
+        ? Group.Icon
+        : Nuget.Icon;
+    public string AssemblyVersion => $"{
+        Version.SemanticVersion.Major}.{
+        Version.SemanticVersion.Minor}.{
+        Version.SemanticVersion.Patch}.{
+        DateTime.Today.DayOfYear}{
+        DateTime.Now.TimeOfDay.Hours:D2}";
+    public string Owner => string.IsNullOrWhiteSpace(Group.Owner)
+        ? Group.Name
+        : Group.Owner;
 
     public string Packaging { get; set; }
     public bool DependencyOnly { get; set; } = false;

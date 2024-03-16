@@ -18,5 +18,5 @@ public class BuildContext : FrostingContext
         BasePath = context.Arguments.GetArgument("base-path")
                     ?? defaultBasePath;
         Artifact = context.Arguments.GetArgument("artifact");
-}
+    }
 }
