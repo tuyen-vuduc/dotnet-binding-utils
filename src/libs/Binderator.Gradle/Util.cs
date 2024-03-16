@@ -166,8 +166,7 @@ public static class Util
 
         if (nuget is not null)
         {
-            var iconFile = nuget.Icon ?? "icon.png";
-            var iconPath = Path.Combine(artifactFolderPath, iconFile);
+            var iconPath = Path.Combine(artifactFolderPath, "icon.png");
             if (File.Exists(iconPath))
             {
                 nuget.Icon = iconPath;
@@ -217,8 +216,7 @@ public static class Util
 
         if (group is not null)
         {
-            var iconFile = group.Icon ?? "icon.png";
-            var iconPath = Path.Combine(groupFolderPath, iconFile);
+            var iconPath = Path.Combine(groupFolderPath, "icon.png");
             if (File.Exists(iconPath))
             {
                 group.Icon = iconPath;
