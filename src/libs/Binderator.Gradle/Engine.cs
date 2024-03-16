@@ -64,16 +64,9 @@ public class Engine
                     model.Artifact.RelativeBindingFolderPath,
                     string.Format(template.Value, model.Artifact.Nuget.PackageId));
 
-                try
-                {
-                    string result = await engine.CompileRenderStringAsync(inputTemplateFile, templateSrc, model);
+                string result = await engine.CompileRenderStringAsync(inputTemplateFile, templateSrc, model);
 
-                    File.WriteAllText(outputFilePath, result);
-                }
-                catch (Exception ex)
-                {
-
-                }
+                File.WriteAllText(outputFilePath, result);
 
                 // We want to collect all the models for the .csproj's so we can add them to a .sln file after
                 if (!slnProjModels.ContainsKey(outputFilePath) && outputFilePath.EndsWith(".csproj"))

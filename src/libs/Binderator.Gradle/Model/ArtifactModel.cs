@@ -4,6 +4,9 @@ namespace Binderator.Gradle;
 
 public class ArtifactModel : IEquatable<ArtifactModel>
 {
+    public string Name => string.IsNullOrWhiteSpace(Nuget.Name)
+        ? Nuget.ArtifactId
+        : Nuget.Name;
     public GroupModel Group { get; set; }
     public NuGetModel Nuget { get; set; }
     public VersionModel Version { get; set; }
@@ -16,9 +19,11 @@ public class ArtifactModel : IEquatable<ArtifactModel>
         Version.SemanticVersion.Patch}.{
         DateTime.Today.DayOfYear}{
         DateTime.Now.TimeOfDay.Hours:D2}";
-    public string Owner => string.IsNullOrWhiteSpace(Group.Owner)
-        ? Group.Name
-        : Group.Owner;
+    public string InformationalVersion => $"{
+        Version.NugetVersion}-{
+        DateTime.Today.DayOfYear}{
+        DateTime.Now.TimeOfDay.Hours:D2}";
+    public string RepositoryUrl => $"https://github.com/tuyen-vuduc/dotnet-binding-utils/tree/master/{Group.Id}/{Nuget.ArtifactId}";
 
     public string Packaging { get; set; }
     public bool DependencyOnly { get; set; } = false;
@@ -36,8 +41,8 @@ public class ArtifactModel : IEquatable<ArtifactModel>
     public string LibRelativePath => ShadowArtifact != null
         ? ShadowArtifact.LibRelativePath
         : IsAAR
-        ? Files?.FirstOrDefault(x => x.EndsWith(".aar"))?.Replace("\\", "/")
-        : Files?.FirstOrDefault(x => x.EndsWith(".jar"))?.Replace("\\", "/");
+        ? Files?.FirstOrDefault(x => !x.Contains("_aar") && x.EndsWith(".aar"))?.Replace("\\", "/")
+        : Files?.FirstOrDefault(x => !x.Contains("_aar") && x.EndsWith(".jar"))?.Replace("\\", "/");
     public string SourcesJarRelativeFilePath => ShadowArtifact != null
         ? ShadowArtifact.SourcesJarRelativeFilePath
         : Files?.FirstOrDefault(x => x.EndsWith("-sources.jar"));

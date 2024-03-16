@@ -16,8 +16,8 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <IsBindingProject>true</IsBindingProject>
-    <AssemblyName>@(Model.Artifact.NugetPackageId)</AssemblyName>
-    <RootNamespace>@(Model.Artifact.NugetPackageId)</RootNamespace>
+    <AssemblyName>@(Model.Artifact.Nuget.PackageId)</AssemblyName>
+    <RootNamespace>@(Model.Artifact.Nuget.PackageId)</RootNamespace>
   </PropertyGroup>
   <PropertyGroup>
     <UserHome Condition=" '$(OS)' == 'Unix' ">$(Home)</UserHome>
@@ -26,8 +26,8 @@
     <AndroidSdkDirectory Condition=" '$(OS)' != 'Unix' ">$(UserHome)/AppData/Local/Android/sdk</AndroidSdkDirectory>
   </PropertyGroup>  
   <PropertyGroup>
-    <PackageId>@(Model.Artifact.NugetPackageId)</PackageId>
-    <Title>@(Model.GroupName) - @(Model.ArtifactName)</Title>
+    <PackageId>@(Model.Artifact.Nuget.PackageId)</PackageId>
+    <Title>@(Model.GroupName) - @(Model.Artifact.Name)</Title>
     <Summary>.NET Android binding library for @(Model.Artifact.GradleImplementation)</Summary>
     <Description>
         .NET Android binding library for @(Model.Artifact.GradleImplementation)
@@ -37,15 +37,15 @@
     <Owners>tuyen,tuyen-vuduc</Owners>
     <Company>N/A</Company>
     <FileVersion>@(assemblyVersion)</FileVersion>
-    <InformationalVersion>@(Model.Artifact.NugetVersion + "-" + DateTimeOffset.Now.ToUnixTimeSeconds())</InformationalVersion>
+    <InformationalVersion>@(Model.Artifact.InformationalVersion)</InformationalVersion>
     <AssemblyVersion>@(assemblyVersion)</AssemblyVersion>
     <Copyright>© tuyen-vuduc. All rights reserved.</Copyright>
-    <PackageProjectUrl>@(Model.Config.ProjectUrl)</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/tuyen-vuduc/dotnet-binding-utils</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/tuyen-vuduc/dotnet-binding-utils</PackageProjectUrl>
+    <RepositoryUrl>@(Model.Artifact.RepositoryUrl)</RepositoryUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageIcon>package-icon.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageVersion>@(Model.Artifact.NugetVersion)</PackageVersion>
+    <PackageVersion>@(Model.Artifact.Version.NugetVersion)</PackageVersion>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <!-- Include symbol files (*.pdb) in the built .nupkg -->
     <AllowedOutputExtensionsInPackageBuildOutputFolder>.dll;.xml;.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
@@ -114,11 +114,11 @@
     <_TargetFrameworkNugetBuildFolders Include="buildTransitive\net7.0-android33.0" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="@(Model.Artifact.NugetPackageId).targets" Pack="True" PackagePath="@@(_TargetFrameworkNugetBuildFolders)" />
-    <None Include="@(Model.Artifact.NugetPackageId).targets" Pack="True" PackagePath="@@(_TargetFrameworkNugetBuildFolders)" />   
+    <None Include="@(Model.Artifact.Nuget.PackageId).targets" Pack="True" PackagePath="@@(_TargetFrameworkNugetBuildFolders)" />
+    <None Include="@(Model.Artifact.Nuget.PackageId).targets" Pack="True" PackagePath="@@(_TargetFrameworkNugetBuildFolders)" />   
     <None Include="@(packageIconPath)" Pack="True" PackagePath="package-icon.png" />
-    <None Include="@(licensePath)" Pack="True" PackagePath="" />
-    <None Include="../../README.md" Pack="True" PackagePath="README.md" />
+    <None Include="LICENSE" Pack="True" PackagePath="LICENSE" />
+    <None Include="README.md" Pack="True" PackagePath="README.md" />
   </ItemGroup>
 
   <ItemGroup>
@@ -127,18 +127,14 @@
     <Folder Include="Transforms\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\..\src\AssemblyInfo.cs" />
-    <Compile Include="..\..\source\@(Model.Artifact.GroupId)\@(Model.Artifact.ArtifactId)\Additions\*.cs">
-        <Link>Additions/%(RecursiveDir)/%(Filename)%(Extension)</Link>
-    </Compile>
+    @* <Compile Include="..\..\..\..\src\AssemblyInfo.cs" /> *@
+    <Compile Include="Additions\*.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <TransformFile Include="..\..\source\@(Model.Artifact.GroupId)\@(Model.Artifact.ArtifactId)\Transforms\*.xml">
-        <Link>Transforms/%(RecursiveDir)/%(Filename)%(Extension)</Link>
-    </TransformFile>
+    <TransformFile Include="Transforms\*.xml" />
   </ItemGroup>
-  @* <ItemGroup>
+  <ItemGroup>
   @if (!string.IsNullOrEmpty(Model.Artifact.SourcesJarRelativeFilePath)) {
     <JavaSourceJar
           Include="$(UserHome)/@(Model.Artifact.SourcesJarRelativeFilePath)"
@@ -151,7 +147,7 @@
           Condition="Exists('$(UserHome)/@(Model.Artifact.JavadocJarRelativeFilePath)')"
           />
   }
-  </ItemGroup> *@
+  </ItemGroup>
 @{
   var homeFolder = Xamarin.Build.Download.Platform.IsWindows
                   ? System.Environment.SpecialFolder.LocalApplicationData
@@ -202,20 +198,20 @@
   <ItemGroup>
     @foreach (var dep in @Model.NuGetDependencies) {
       if (!dep.DependencyOnly) {
-        <ProjectReference Include="..\@(dep.NugetPackageId)\@(dep.NugetPackageId).csproj" PrivateAssets="none" />
+        <ProjectReference Include="..\..\..\@(dep.Group.Id)\@(dep.Nuget.ArtifactId)\binding\@(dep.Nuget.PackageId).csproj" PrivateAssets="none" />
       }
     }
   </ItemGroup>
   <ItemGroup>
     @foreach (var dep in @Model.NuGetDependencies) {
       if (dep.DependencyOnly) {
-      <PackageReference Include="@(dep.NugetPackageId)" Version="@(dep.NugetVersion.ToNormalizedString())" PrivateAssets="none" />
+      <PackageReference Include="@(dep.Nuget.PackageId)" Version="@(dep.Version.NugetVersion.ToNormalizedString())" PrivateAssets="none" />
       }
     }
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Dependencies.Gradle" Version="7.6.1" />
-    <TransformFile Include="..\..\..\..\src\Metadata.common.xml">
+    <TransformFile Include="..\..\..\..\Metadata.common.xml">
       <Link>Transforms/Metadata.common.xml</Link>
     </TransformFile>
   </ItemGroup>

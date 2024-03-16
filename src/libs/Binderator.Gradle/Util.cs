@@ -1,6 +1,7 @@
 using System.Text;
 using System.Security.Cryptography;
 using System.Text.Json.Serialization;
+using NuGet.Versioning;
 
 namespace Binderator.Gradle;
 
@@ -9,7 +10,7 @@ public static class Util
     static readonly JsonSerializerOptions jsonSerializerOptions = new ()
     {
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-        IgnoreNullValues = true,
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
         AllowTrailingCommas = true,
         Converters = {
             new JsonStringEnumConverter(),
@@ -121,6 +122,7 @@ public static class Util
         if (version is not null)
         {
             version.SemanticVersion = semanticVersion;
+            version.NugetVersion = semanticVersion.ToNuGetVersion(version.Revision);
         }
 
         if (overriding)
