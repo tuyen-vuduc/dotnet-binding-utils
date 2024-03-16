@@ -45,7 +45,7 @@ jobs:
     - name: Build
       run: |
         echo "PWD: $PWD"
-        sh bind.sh --base-path=$PWD --artifact ${{ inputs.LIB_ARTIFACT }}
+        sh bind.sh --artifact ${{ inputs.LIB_ARTIFACT }}
   
     # - name: Publish with Dotnet CLI
     #   env:
