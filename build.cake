@@ -20,7 +20,7 @@ Task("Default")
     </ItemGroup>
 </Project>
     ";
-    FileWriteText("./src/libs/BindingHost/BindingHost.xprops", props);
+    FileWriteText("./src/libs/BindingHost/BindingHost.props", props);
 });
 
 RunTarget ("Default");
