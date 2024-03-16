@@ -1,29 +1,14 @@
 name: Publish Android Library
-run-name: ${{ inputs.LIB_FOLDER }} 🚀 NuGet
+run-name: ${{ inputs.LIB_ARTIFACT }} 🚀 NuGet
 on:
   workflow_dispatch:
     inputs:
-      LIB_FOLDER:
+      LIB_ARTIFACT:
         description: 'Folder of Android library to publish'
         required: true
         type: choice
         options: 
-        - com.braintreepayments.api--drop-in
-        - com.intellimec.mobile.android--tripdetectionumbrella
-        - com.izettle.payments--android-sdk-ui
-        - com.mapbox.maps--android
-        - org.jfrog.cardinalcommerce.gradle--cardinalmobilesdk
-        - com.github.nguyenhoanglam--imagepicker
-        - androidx.health.connect--connect-client
-        - com.google.ar--core
-        - org.jetbrains.kotlin
-        - com.google.android.filament
-        - com.github.kittinunf.result
-        - com.github.kittinunf.fuel
-        - dev.romainguy--kotlin-math
-        - io.github.sceneview--sceneview
-        - com.shakebugs
-        - com.facebook.android
+        - dev.romainguy:kotlin-math:1.5.3
 jobs:
   build-then-publish:
     environment: production
@@ -59,9 +44,8 @@ jobs:
 
     - name: Build
       run: |
-        cd "qs/${{ inputs.LIB_FOLDER }}"
         echo "PWD: $PWD"
-        sh build.sh --base-path=$PWD
+        sh bind.sh --base-path=$PWD --artifact ${{ inputs.LIB_ARTIFACT }}
   
     # - name: Publish with Dotnet CLI
     #   env:
@@ -75,7 +59,8 @@ jobs:
       uses: edumserrano/nuget-push@v1.2.0
       with:
         api-key: '${{ secrets.NUGET_PUSH_API_KEY }}' # this example is using GitHub secrets to pass the API key
-        working-directory: 'qs/${{ inputs.LIB_FOLDER }}/nugets'
+        working-directory: 'nugets'
+
     # The next step is using powershell to parse the action's output but you can use whatever you prefer.
     # Note that in order to read the step outputs the action step must have an id.
     - name: Log output
