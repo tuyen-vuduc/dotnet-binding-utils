@@ -48,8 +48,8 @@ public class Engine
         {
             { "README.cshtml", "README.md" },
             { "LICENSE.cshtml", "LICENSE" },
-            { "Project.cshtml", "{0}.csproj" },
             { "Targets.cshtml", "{0}.targets" },
+            { "Project.cshtml", "{0}.csproj" },
         };
 
         foreach (var model in models)
