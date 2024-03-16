@@ -23,7 +23,7 @@ public static class SolutionFileBuilder
         {
             s.AppendLine("Project(\"{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}\") = \"" + 
                 project.Value.Artifact.Nuget.PackageId + "\", \"" + 
-                project.Key + "\", \"{" + project.Value.Id + "\"}");
+                project.Key + "\", \"{" + project.Value.Id + "}\"");
             s.AppendLine("EndProject");
         }
 

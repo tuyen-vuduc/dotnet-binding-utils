@@ -172,7 +172,7 @@ public static class Util
             var iconPath = Path.Combine(artifactFolderPath, iconFile);
             if (File.Exists(iconPath))
             {
-                nuget.Icon = iconFile;
+                nuget.Icon = iconPath;
             }
         }
 
@@ -223,7 +223,7 @@ public static class Util
             var iconPath = Path.Combine(groupFolderPath, iconFile);
             if (File.Exists(iconPath))
             {
-                group.Icon = iconFile;
+                group.Icon = iconPath;
             }
         }
 

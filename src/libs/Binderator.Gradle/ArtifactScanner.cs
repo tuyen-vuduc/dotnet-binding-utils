@@ -39,6 +39,7 @@ public static class ArtifactScanner
             );
             return artifacts;
         }
+        artifact.Files = artifactFiles;
 
         var artifactModuleFileName = $"{artifact.Nuget.ArtifactId}-{artifact.Version.SemanticVersion}.module";
         var moduleFilePath = artifactFiles.FirstOrDefault(x => x.EndsWith(artifactModuleFileName));
