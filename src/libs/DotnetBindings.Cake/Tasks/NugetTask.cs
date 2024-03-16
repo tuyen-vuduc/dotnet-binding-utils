@@ -14,12 +14,8 @@ public sealed class NugetTask : FrostingTask<BuildContext>
             Configuration = "Release",
             OutputDirectory = nugetsFolderPath,
         };
-        var slnPath = PathIO.Combine(
-            context.BasePath,
-            "bindings.g.sln");
-
         context.DotNetPack(
-            slnPath,
+            context.SlnPath,
             settings
         );
     }

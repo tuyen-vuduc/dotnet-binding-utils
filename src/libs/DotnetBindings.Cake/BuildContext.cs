@@ -6,6 +6,7 @@ public class BuildContext : FrostingContext
     public string Artifact { get; set; }
     public BindingConfig Configs { get; set; }
     public List<ArtifactModel> Artifacts { get; set; }
+    public string SlnPath => PathIO.Combine(BasePath, "bindings.g.sln");
 
     public BuildContext(ICakeContext context)
         : base(context)

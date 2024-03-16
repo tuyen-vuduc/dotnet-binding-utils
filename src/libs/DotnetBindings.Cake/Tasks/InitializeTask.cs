@@ -7,6 +7,7 @@ public sealed class InitializeTask : FrostingTask<BuildContext>
         var configs = new BindingConfig
         {
             BasePath = context.BasePath,
+            SlnPath = context.SlnPath,
         };
         context.Configs = configs;
 

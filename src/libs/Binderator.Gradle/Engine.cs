@@ -59,18 +59,21 @@ public class Engine
                 var inputTemplateFile = Path.Combine(config.BasePath, "src", template.Key);
                 var templateSrc = File.ReadAllText(inputTemplateFile);
 
-                var outputFilePath = Path.Combine(
-                    config.BasePath,
+                var outputRelativePath = Path.Combine(
                     model.Artifact.RelativeBindingFolderPath,
                     string.Format(template.Value, model.Artifact.Nuget.PackageId));
+                var outputFilePath = Path.Combine(
+                    config.BasePath,
+                    outputRelativePath
+                    );
 
                 string result = await engine.CompileRenderStringAsync(inputTemplateFile, templateSrc, model);
 
                 File.WriteAllText(outputFilePath, result);
 
                 // We want to collect all the models for the .csproj's so we can add them to a .sln file after
-                if (!slnProjModels.ContainsKey(outputFilePath) && outputFilePath.EndsWith(".csproj"))
-                    slnProjModels.Add(outputFilePath, model);
+                if (!slnProjModels.ContainsKey(outputRelativePath) && outputRelativePath.EndsWith(".csproj"))
+                    slnProjModels.Add(outputRelativePath, model);
             }
         }
 

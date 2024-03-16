@@ -49,3 +49,4 @@ generated/
 output/
 binderator
 models.json
+*.g.sln
