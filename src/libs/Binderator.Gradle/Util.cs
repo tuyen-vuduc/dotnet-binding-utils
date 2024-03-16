@@ -113,7 +113,6 @@ public static class Util
         {
             version = new VersionModel
             {
-                NugetVersion = semanticVersion.ToNuGetVersion(),
                 Revision = 0,
                 FallbackVersion = null,
             };
@@ -122,7 +121,6 @@ public static class Util
         if (version is not null)
         {
             version.SemanticVersion = semanticVersion;
-            version.NugetVersion = semanticVersion.ToNuGetVersion(version.Revision);
         }
 
         if (overriding)

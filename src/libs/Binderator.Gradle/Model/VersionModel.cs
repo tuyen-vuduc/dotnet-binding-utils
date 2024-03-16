@@ -9,5 +9,5 @@ public record VersionModel
     public int Revision { get; set; }
     public SemanticVersion FallbackVersion { get; set; }
     [JsonIgnore]
-    public NuGetVersion NugetVersion { get; set; }
+    public NuGetVersion NugetVersion => SemanticVersion.ToNuGetVersion(Revision);
 }
