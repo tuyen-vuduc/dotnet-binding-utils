@@ -1,1 +1,4 @@
-{"packageId":"Org.Jetbrains.Kotlin.KotlinParcelizeRuntime"}
+{
+  "packageId": "Org.Jetbrains.Kotlin.KotlinParcelizeRuntime",
+  "versionMappings": []
+}

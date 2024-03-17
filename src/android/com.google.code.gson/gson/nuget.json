@@ -1,1 +1,5 @@
-{"packageId":"GoogleGson"}
+{
+  "packageId": "GoogleGson",
+  "name": "gson",
+  "versionMappings": []
+}

@@ -9,4 +9,6 @@ public record GroupModel
     public string Name { get; set; }
     [JsonIgnore]
     public string Icon { get; set; }
+    [JsonIgnore]
+    public string MavenPropsFile { get; set; }
 }

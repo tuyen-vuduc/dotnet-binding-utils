@@ -1,1 +1,5 @@
-{"packageId":"Xamarin.AndroidX.Activity.Ktx"}
+{
+  "packageId": "Xamarin.AndroidX.Activity.Ktx",
+  "name": "activity-ktx",
+  "versionMappings": []
+}

@@ -1,1 +1,5 @@
-{"packageId":"Xamarin.Google.Guava.ListenableFuture","versionMappings":[]}
+{
+  "packageId": "Xamarin.Google.Guava.ListenableFuture",
+  "name": "listenablefuture",
+  "versionMappings": []
+}

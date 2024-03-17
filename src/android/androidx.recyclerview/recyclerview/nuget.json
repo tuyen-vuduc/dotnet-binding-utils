@@ -1,1 +1,4 @@
-{"packageId":"Xamarin.AndroidX.RecyclerView"}
+{
+  "packageId": "Xamarin.AndroidX.RecyclerView",
+  "versionMappings": []
+}

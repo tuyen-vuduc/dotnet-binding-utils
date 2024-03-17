@@ -1,1 +1,5 @@
-{"packageId":"Xamarin.AndroidX.Lifecycle.Common"}
+{
+  "packageId": "Xamarin.AndroidX.Lifecycle.Common",
+  "name": "lifecycle-common",
+  "versionMappings": []
+}

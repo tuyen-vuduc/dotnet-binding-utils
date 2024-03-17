@@ -1,1 +1,4 @@
-{"packageId":"Xamarin.Jetbrains.Annotations"}
+{
+  "packageId": "Xamarin.Jetbrains.Annotations",
+  "versionMappings": []
+}

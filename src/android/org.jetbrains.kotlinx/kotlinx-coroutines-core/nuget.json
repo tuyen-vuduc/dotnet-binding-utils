@@ -1,1 +1,5 @@
-{"packageId":"Xamarin.KotlinX.Coroutines.Core"}
+{
+  "packageId": "Xamarin.KotlinX.Coroutines.Core",
+  "name": "kotlinx-coroutines-core",
+  "versionMappings": []
+}

@@ -1,1 +1,4 @@
-{"packageId":"Xamarin.AndroidX.Startup.StartupRuntime"}
+{
+  "packageId": "Xamarin.AndroidX.Startup.StartupRuntime",
+  "versionMappings": []
+}

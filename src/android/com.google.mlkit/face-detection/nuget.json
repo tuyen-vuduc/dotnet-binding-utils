@@ -1,11 +1,16 @@
-{"packageId":"Xamarin.GooglePlayServices.MLKit.FaceDetection","versionMappings":[{
-    "prefix": "1",
-    "method": "Prefix",
-    "fromVersion": "117.0.0-preview01"
-},
 {
-    "prefix": "1",
-    "method": "CombinedToMinor",
-    "fromVersion": "32.5.0",
-    "toVersion": "72.0.0"
-}]}
+  "packageId": "Xamarin.Google.MLKit.FaceDetection",
+  "versionMappings": [
+    {
+      "method": "Prefix",
+      "fromVersion": "117.0.0-preview01",
+      "prefix": "1"
+    },
+    {
+      "method": "CombinedToMinor",
+      "fromVersion": "32.5.0",
+      "toVersion": "72.0.0",
+      "prefix": "1"
+    }
+  ]
+}

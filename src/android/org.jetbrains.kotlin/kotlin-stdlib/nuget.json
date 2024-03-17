@@ -1,1 +1,5 @@
-{"packageId":"Xamarin.Kotlin.StdLib"}
+{
+  "packageId": "Xamarin.Kotlin.StdLib",
+  "name": "kotlin-stdlib",
+  "versionMappings": []
+}

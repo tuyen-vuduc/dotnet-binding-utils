@@ -9,12 +9,11 @@ using System.Xml.Linq;
 
 var ARTIFACT = Argument<string>("artifact");
 
-Task("Default")
+Task("Create BindingHost.props")
     .Does(() =>
 {
     Information ($"ARTIFACT            : {ARTIFACT}");
-    var props = $@"
-    <Project>
+    var props = $@"<Project>
     <ItemGroup>
         <GradleImplementation Include=""{ARTIFACT}""></GradleImplementation>
     </ItemGroup>
@@ -22,5 +21,25 @@ Task("Default")
     ";
     FileWriteText("./src/libs/BindingHost/BindingHost.props", props);
 });
+Task("Copy group maven.props")
+    .Does(() =>
+{
+    var artifactParts = ARTIFACT.Split(new [] { ":" }, StringSplitOptions.RemoveEmptyEntries);
+    var groupPropsPath = $"./src/android/{artifactParts[0]}/maven.props";
+    if (FileExists(groupPropsPath))
+    {
+        Information ($"MAVEN_PROPS            : {groupPropsPath}");
+        CopyFile($"./src/android/{artifactParts[0]}/maven.props", $"./src/libs/BindingHost/{artifactParts[0]}_maven.props");
+    } else {
+        Information("NO CUSTOM maven.props");
+    }
+});
+
+Task("Default")
+    .IsDependentOn("Create BindingHost.props")
+    .IsDependentOn("Copy group maven.props")
+    .Does(() => {
+        Information ($"DONE");
+    });
 
 RunTarget ("Default");

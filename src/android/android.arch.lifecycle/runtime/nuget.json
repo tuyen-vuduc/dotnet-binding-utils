@@ -1,1 +1,5 @@
-{"packageId":"Xamarin.Android.Arch.Lifecycle.Runtime","versionMappings":[]}
+{
+  "packageId": "Xamarin.Android.Arch.Lifecycle.Runtime",
+  "name": "runtime",
+  "versionMappings": []
+}

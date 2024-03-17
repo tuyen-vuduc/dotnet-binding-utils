@@ -1,1 +1,4 @@
-{"packageId":"Xamarin.AndroidX.Lifecycle.LiveData"}
+{
+  "packageId": "Xamarin.AndroidX.Lifecycle.LiveData",
+  "versionMappings": []
+}

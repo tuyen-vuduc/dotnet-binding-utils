@@ -123,22 +123,8 @@ public static class Fetcher
 
         var nugetMetadataPath = Path.Combine(folderPath, "nuget.json");
 
-        var nugetInfo = new NugetInfoDto()
-        {
-            PackageId = packageId,
-        };
-        if (!File.Exists(nugetMetadataPath))
-        {
-            var nugetMetadataInJSON = JsonSerializer.Serialize(
-                nugetInfo,
-                new JsonSerializerOptions
-                {
-                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                    IgnoreNullValues = true,
-                });
-            File.WriteAllText(nugetMetadataPath, nugetMetadataInJSON);
-        }
-        else
+        var nugetInfo = new NugetInfoDto();
+        if (File.Exists(nugetMetadataPath))
         {
             var infoInJson = File.ReadAllText(nugetMetadataPath);
             nugetInfo = JsonSerializer.Deserialize<NugetInfoDto>(
@@ -150,9 +136,25 @@ public static class Fetcher
                             new JsonStringEnumConverter(),
                             new NuGetVersionConverter(),
                     },
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                    WriteIndented = true,  
                 }
             );
         }
+        nugetInfo.PackageId = packageId;
+        var nugetMetadataInJSON = JsonSerializer.Serialize(
+            nugetInfo,
+            new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                IgnoreNullValues = true,
+                Converters = {
+                            new JsonStringEnumConverter(),
+                            new NuGetVersionConverter(),
+                    },
+                WriteIndented = true,
+            });
+        File.WriteAllText(nugetMetadataPath, nugetMetadataInJSON);
         return nugetInfo;
     }
 }

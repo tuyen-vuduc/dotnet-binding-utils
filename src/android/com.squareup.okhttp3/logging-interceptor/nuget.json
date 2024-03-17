@@ -1,1 +1,4 @@
-{"packageId":"Square.OkHttp3.LoggingInterceptor","versionMappings":[]}
+{
+  "packageId": "Square.OkHttp3.LoggingInterceptor",
+  "versionMappings": []
+}

@@ -1,1 +1,4 @@
-{"packageId":"Xamarin.AndroidX.Core"}
+{
+  "packageId": "Xamarin.AndroidX.Core",
+  "versionMappings": []
+}

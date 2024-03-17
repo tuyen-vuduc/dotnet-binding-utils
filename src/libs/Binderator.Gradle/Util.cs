@@ -171,6 +171,7 @@ public static class Util
             {
                 nuget.Icon = iconPath;
             }
+            nuget.PackageId ??= CreateNugetId(groupId, artifactId);
         }
 
         if (overriding)
@@ -221,6 +222,11 @@ public static class Util
             {
                 group.Icon = iconPath;
             }
+            var mavenPropsPath = Path.Combine(groupFolderPath, "maven.props");
+            if (File.Exists(mavenPropsPath))
+            {
+                group.MavenPropsFile = mavenPropsPath;
+            }
         }
 
         if (overriding)
@@ -228,6 +234,15 @@ public static class Util
             File.WriteAllText(groupJsonPath, JsonSerializer.Serialize(group, jsonSerializerOptions));
         }
         return group;
+    }
+
+    static string CreateNugetId(string groupId, string artifactId)
+    {
+        return string.Join(
+                ".",
+                groupId.Split('.')
+                    .Select(x => x.ToCSharpName())
+                ) + "." + artifactId.ToCSharpName();
     }
 
     class NuGetVersionConverter : JsonConverter<NuGetVersion>

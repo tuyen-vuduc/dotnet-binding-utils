@@ -1,11 +1,16 @@
-{"packageId":"Xamarin.Google.MLKit.BarcodeScanning.Common","versionMappings":[{
-    "prefix": "1",
-    "method": "Prefix",
-    "fromVersion": "100.0.0"
-},
 {
-    "prefix": "1",
-    "method": "CombinedToMinor",
-    "fromVersion": "32.5.0",
-    "toVersion": "72.0.0"
-}]}
+  "packageId": "Xamarin.Google.MLKit.BarcodeScanning.Common",
+  "versionMappings": [
+    {
+      "method": "Prefix",
+      "fromVersion": "100.0.0",
+      "prefix": "1"
+    },
+    {
+      "method": "CombinedToMinor",
+      "fromVersion": "32.5.0",
+      "toVersion": "72.0.0",
+      "prefix": "1"
+    }
+  ]
+}

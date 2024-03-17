@@ -7,6 +7,9 @@ class MetadataDto {
 
 class NugetInfoDto {
     public string PackageId { get; set; }
+    public string Name { get; set; }
+    public string HomePageUrl { get; set; }
+    public string GuideUrl { get; set; }
     public VersionMappingDto[] VersionMappings { get; set; } = Array.Empty<VersionMappingDto>();
 }
 
