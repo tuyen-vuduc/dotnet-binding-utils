@@ -1,12 +1,16 @@
 ﻿using System.Text.Json.Nodes;
+using Microsoft.AspNetCore.Http.Features;
 
 namespace Binderator.Gradle;
 
 public static class ArtifactScanner
 {
-    static readonly string[] skippedDependencies = new[] {
+    static readonly string[] skippedArtifacts = new[] {
         "junit",
         "jsr305",
+    };
+    static readonly string[] skippedGroups = new[] {
+        "androidx.test",
     };
 
     public static List<ArtifactModel> Scan(
@@ -122,9 +126,11 @@ public static class ArtifactScanner
             var xartifactId = dependency.SelectSingleNode("descendant::mvn:artifactId", nsmgr).InnerText;
 
             // TODO Why artifact adds junit as a compile dependency?
-            if (skippedDependencies.Contains(xartifactId)) continue;
+            if (skippedArtifacts.Contains(xartifactId)) continue;
 
             var xgroupId = dependency.SelectSingleNode("descendant::mvn:groupId", nsmgr).InnerText;
+
+            if (skippedGroups.Contains(xgroupId)) continue;
 
             var existingArtifact = existingArtifacts.FirstOrDefault(
                     x => x.Group.Id == xgroupId && x.Nuget.ArtifactId == xartifactId
@@ -158,12 +164,17 @@ public static class ArtifactScanner
                     : versionRange.MinVersion.ToNormalizedString();
             }
 
-            AddParentArtifact(
+            var parentArtifact = AddParentArtifact(
                 existingArtifacts,
                 xgroupId, xartifactId, xversion,
                 existingArtifact, parentArtifactIds, log,
                 homeFolderPath, scope,
                 basePath, ref artifacts);
+
+            if (parentArtifact is not null)
+            {
+                parentArtifact.DependencyOnly = parentArtifact.Group != artifact.Group;
+            }
         }
 
         artifact.ParentArtifacts = parentArtifactIds.ToArray();
@@ -171,7 +182,7 @@ public static class ArtifactScanner
         return artifacts;
     }
 
-    private static void AddParentArtifact(
+    private static ArtifactModel AddParentArtifact(
         List<ArtifactModel> existingArtifacts,
         string xgroupId,
         string xartifactId,
@@ -213,7 +224,7 @@ public static class ArtifactScanner
                 }
             }
 
-            return;
+            return null;
         }
 
         var parentArtifact = FindExternalArtifact(basePath, xgroupId, xartifactId, artifactVersion);
@@ -226,12 +237,14 @@ public static class ArtifactScanner
                 $"{xgroupId}:{xartifactId}:{artifactVersion}",
                 log);
 
-            if (parentArtifacts.Count == 0) return;
+            if (parentArtifacts.Count == 0) return null;
 
             artifacts.AddRange(parentArtifacts);
             existingArtifacts.AddRange(parentArtifacts);
             artifacts = artifacts.Distinct().ToList();
             parentArtifactIds.Add(new KeyValuePair<string, string>(parentArtifacts[0].Nuget.PackageId, scope));
+
+            return parentArtifacts[0];
         }
         else
         {
@@ -244,6 +257,7 @@ public static class ArtifactScanner
 
             artifacts.Add(parentArtifact);
             parentArtifactIds.Add(new KeyValuePair<string, string>(parentArtifact.Nuget.PackageId, scope));
+            return parentArtifact;
         }
     }
 

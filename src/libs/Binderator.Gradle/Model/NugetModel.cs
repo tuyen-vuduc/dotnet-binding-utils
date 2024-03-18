@@ -18,7 +18,13 @@ public record NuGetModel
 public record VersionMappingModel
 {
     public string Prefix { get; set; }
-    public string Method { get; set; }
-    public SemanticVersion FromVersion { get; set; }
-    public SemanticVersion ToVersion { get; set; }
+    public VersionMappingMethod Method { get; set; }
+    public NuGetVersion FromVersion { get; set; }
+    public NuGetVersion ToVersion { get; set; }
+}
+
+public enum VersionMappingMethod
+{
+    Prefix,
+    CombinedToMinor,
 }

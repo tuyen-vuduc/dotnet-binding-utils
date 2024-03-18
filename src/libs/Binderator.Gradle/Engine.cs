@@ -105,7 +105,7 @@ public class Engine
                     continue;
 
                 var parentArtifact = config.Artifacts
-                                        .FirstOrDefault(x => x.Nuget.PackageId == mavenDep.Key);
+                                        .Single(x => x.Nuget.PackageId == mavenDep.Key);
 
                 projectModel.NuGetDependencies.Add(parentArtifact);
             }
@@ -121,6 +121,11 @@ public class Engine
 
     static bool ShouldIncludeDependency(BindingConfig config, ArtifactModel artifact, KeyValuePair<string, string> dependency, List<Exception> exceptions)
     {
+        var scope = dependency.Value;
+
+        // Need to double check if it's valid for every case
+        if (string.IsNullOrWhiteSpace(scope)) return true;
+
         // We always care about 'compile' scoped dependencies
         if (string.Equals(dependency.Value, "compile", StringComparison.OrdinalIgnoreCase))
             return true;
