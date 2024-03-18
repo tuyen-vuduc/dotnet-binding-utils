@@ -22,6 +22,9 @@ public static class ArtifactScanner
         "junit",
         "jsr305",
     };
+    static readonly string[] skippedGroups = new[] {
+        "androidx.test"
+    };
 
     public static List<ArtifactModel> Scan(
         List<ArtifactModel> existingArtifacts,
@@ -167,14 +170,15 @@ public static class ArtifactScanner
             if (skippedDependencies.Contains(xartifactId)) continue;
 
             var xgroupId = dependency.SelectSingleNode("descendant::mvn:groupId", nsmgr).InnerText;
+            if(skippedGroups.Contains(xgroupId)) continue;
 
             if (string.IsNullOrWhiteSpace(scope))
             {
-                var missed = missingDependencies.Any(x =>
-                    x == $"{xgroupId}:{xartifactId}:" ||
-                    x.StartsWith($"{xgroupId}:{xartifactId}:"));
+                //var missed = missingDependencies.Any(x =>
+                //    x == $"{xgroupId}:{xartifactId}:" ||
+                //    x.StartsWith($"{xgroupId}:{xartifactId}:"));
 
-                if (!missed) continue;
+                //if (!missed) continue;
 
                 // TODO Why scope is N/A for a normal dependency
                 scope = "compile";
@@ -398,16 +402,22 @@ public static class ArtifactScanner
 
         if (!Directory.Exists(externalArtifactFolderPath)) return null;
 
-        var nugetVersion = GetNugetVersion(externalArtifactFolderPath, xversion);
-
-        if (nugetVersion == null) return null;
-
         var externalArtifactNugetPath = Path.Combine(
                 externalArtifactFolderPath,
                 "nuget.json"
             );
         using var stream = File.OpenRead(externalArtifactNugetPath);
         var nugetModel = stream.Deserialize<NugetModel>();
+        stream.Close();
+
+        if (!string.IsNullOrWhiteSpace(nugetModel.Relocated))
+        {
+            var relocatedParts = nugetModel.Relocated.Split(':');
+            return FindExternalArtifact(basePath, relocatedParts[0], relocatedParts[1], xversion);
+        }
+
+        var nugetVersion = GetNugetVersion(externalArtifactFolderPath, xversion);
+        if (nugetVersion == null) return null;
 
         return new ArtifactModel
         {

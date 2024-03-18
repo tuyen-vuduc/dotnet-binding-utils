@@ -134,6 +134,8 @@ public class Engine
 
     static bool ShouldIncludeDependency(BindingConfig config, ArtifactModel artifact, KeyValuePair<string, string> dependency, List<Exception> exceptions)
     {
+        if (string.IsNullOrWhiteSpace(dependency.Value)) return true;
+
         // We always care about 'compile' scoped dependencies
         if (string.Equals(dependency.Value, "compile", StringComparison.OrdinalIgnoreCase))
             return true;

@@ -24,6 +24,7 @@ on:
         - io.github.sceneview--sceneview
         - com.shakebugs
         - com.facebook.android
+        - DriveSmart
 jobs:
   build-then-publish:
     environment: production
