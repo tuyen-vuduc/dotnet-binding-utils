@@ -13,8 +13,7 @@ https://github.com/DriveSmart-MobileTeam/dstracker_integration_sample
 ## OPTION 1: Everything in CSPROJ file
 1/ Change your CSPROJ file to have Gradle configuration
 ```
-<ItemGroup>
-    <GradleImplementation Include="DriveSmart:DS-Tracker:1.2.1"></GradleImplementation>
+  <ItemGroup>
     <GradleRepository Include="https://tfsdrivesmart.pkgs.visualstudio.com/5243836b-8777-4cb6-aded-44ab518bc748/_packaging/Android_Libraries/maven/v1">
       <Repository>
         maven {
@@ -36,7 +35,6 @@ https://github.com/DriveSmart-MobileTeam/dstracker_integration_sample
 1/ Change your CSPROJ file to have Gradle configuration
 ```
   <ItemGroup>
-    <GradleImplementation Include="DriveSmart:DS-Tracker:1.2.1"></GradleImplementation>
     <GradleRepository Include="https://tfsdrivesmart.pkgs.visualstudio.com/5243836b-8777-4cb6-aded-44ab518bc748/_packaging/Android_Libraries/maven/v1">
       <Repository>
         maven {
