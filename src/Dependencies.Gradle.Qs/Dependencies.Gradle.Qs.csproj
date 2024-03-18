@@ -25,6 +25,6 @@
     </GradleRepository>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Dependencies.Gradle" Version="7.6.1" />
+    <PackageReference Include="Dependencies.Gradle" Version="7.6.1.1" />
   </ItemGroup>
 </Project>
