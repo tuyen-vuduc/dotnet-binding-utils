@@ -122,6 +122,8 @@ public class Engine
     static bool ShouldIncludeDependency(BindingConfig config, ArtifactModel artifact, KeyValuePair<string, string> dependency, List<Exception> exceptions)
     {
         var scope = dependency.Value;
+        
+        if (string.IsNullOrWhiteSpace(scope)) return true;
 
         // Need to double check if it's valid for every case
         if (string.IsNullOrWhiteSpace(scope)) return true;

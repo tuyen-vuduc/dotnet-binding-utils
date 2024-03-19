@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+    <IsPackable>false</IsPackable>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AndroidSdkDirectory Condition=" '$(OS)' == 'Unix' ">$(Home)/Library/Android/sdk</AndroidSdkDirectory>
+    <AndroidSdkDirectory Condition=" '$(OS)' != 'Unix' ">$(UserProfile)/AppData/Local/Android/sdk</AndroidSdkDirectory>
+  </PropertyGroup>  
+  <ItemGroup>
+    <PackageReference Include="Cake.Frosting" Version="3.0.0" />
+    <PackageReference Include="Dependencies.Gradle" Version="7.6.1.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <GradleImplementation Include="DriveSmart:DS-Tracker:1.2.1"></GradleImplementation>
+    <GradleRepository Include="https://cardinalcommerceprod.jfrog.io/artifactory/android">
+      <Repository>
+        maven {
+          url 'https://tfsdrivesmart.pkgs.visualstudio.com/5243836b-8777-4cb6-aded-44ab518bc748/_packaging/Android_Libraries/maven/v1'
+          name 'Android_Libraries'
+          credentials {
+              username tfsdrivesmart_user
+              password tfsdrivesmart_password
+          }
+      }
+      </Repository>
+    </GradleRepository>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Binderator.Gradle\Binderator.Gradle.csproj" />
+    <ProjectReference Include="..\..\..\src\DotnetBindings.Cake\DotnetBindings.Cake.csproj" />
+  </ItemGroup>
+  <Target Name="_GradleDependencyResolverTrigger" DependsOnTargets="_GradleSync" BeforeTargets="CoreCompile" />
+</Project>

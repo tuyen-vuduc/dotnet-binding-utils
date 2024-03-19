@@ -129,8 +129,19 @@ public static class ArtifactScanner
             if (skippedArtifacts.Contains(xartifactId)) continue;
 
             var xgroupId = dependency.SelectSingleNode("descendant::mvn:groupId", nsmgr).InnerText;
+            if(skippedGroups.Contains(xgroupId)) continue;
 
-            if (skippedGroups.Contains(xgroupId)) continue;
+            if (string.IsNullOrWhiteSpace(scope))
+            {
+                //var missed = missingDependencies.Any(x =>
+                //    x == $"{xgroupId}:{xartifactId}:" ||
+                //    x.StartsWith($"{xgroupId}:{xartifactId}:"));
+
+                //if (!missed) continue;
+
+                // TODO Why scope is N/A for a normal dependency
+                scope = "compile";
+            }
 
             var existingArtifact = existingArtifacts.FirstOrDefault(
                     x => x.Group.Id == xgroupId && x.Nuget.ArtifactId == xartifactId
@@ -322,10 +333,13 @@ public static class ArtifactScanner
     private static ArtifactModel FindExternalArtifact(string basePath, string xgroupId, string xartifactId, SemanticVersion xversion)
     {
         ArtifactModel artifact = Util.FromArtifactString(basePath, $"{xgroupId}:{xartifactId}:{xversion}", false);
-        if (artifact is not null)
+        
+        if (!string.IsNullOrWhiteSpace(artifact.Nuget.Relocated))
         {
-            artifact.DependencyOnly = true;
+            var relocatedParts = nugetModel.Relocated.Split(':');
+            return FindExternalArtifact(basePath, relocatedParts[0], relocatedParts[1], xversion);
         }
+        
         return artifact;
     }
 

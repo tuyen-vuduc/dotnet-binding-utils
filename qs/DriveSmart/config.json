@@ -1,0 +1,40 @@
+{
+	"solutionFile" : "generated/drivesmart-bindings.sln",
+	"metadataPath": "../..",
+	"debug": { "dumpModels" : true },
+	"additionalProjects": [
+	],
+	"targetFrameworks": [
+		"MonoAndroid12.0",
+		"net6.0-android31.0",
+		"net7.0-android33.0"
+	],
+	"projectUrl": "https://github.com/tuyen-vuduc/dotnet-binding-utils",
+	"packageIconPath": "../../assets/tv-drivesmart.png",
+	"licensePath": "../../LICENSE",
+	"tags": [ "android" ],
+	"templates" : [
+		{
+			"templateFile": "../../src/Targets.cshtml",
+			"outputFileRule" : "generated/{nugetid}/{nugetid}.targets"
+		},
+		{
+			"templateFile": "../../src/Project.cshtml",
+			"outputFileRule" : "generated/{nugetid}/{nugetid}.csproj"
+		},
+		{
+			"templateFile": "../../src/Pom.cshtml",
+			"outputFileRule" : "generated/{nugetid}/pom.xml"
+		}
+	],
+	"groupName": "DriveSmart",
+	"artifacts": [
+		{
+			"groupId": "DriveSmart",
+			"artifactId": "DS-Tracker",
+			"version": "1.2.1",
+			"nugetRevision": 3,
+			"tags": []
+		}
+	]
+}
