@@ -33,7 +33,7 @@
 			"groupId": "DriveSmart",
 			"artifactId": "DS-Tracker",
 			"version": "1.2.1",
-			"nugetRevision": 2,
+			"nugetRevision": 3,
 			"tags": []
 		}
 	]
