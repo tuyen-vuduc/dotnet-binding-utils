@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Activity.Ktx",
   "name": "activity-ktx",
+  "dependencyOnly": true,
   "versionMappings": []
 }

@@ -7,10 +7,11 @@ public record NuGetModel
     [JsonIgnore]
     public string ArtifactId { get; set; }
     public string PackageId { get; set; }
-    public string Name { get; set; }
+    public string Name { get; set; }    
     public string HomePageUrl { get; set; }
     public string GuideUrl { get; set; }
     public string Relocated { get; set; }
+    public bool DependencyOnly { get; set; } = true;    
     [JsonIgnore]
     public string Icon { get; set; }
     public IEnumerable<VersionMappingModel> VersionMappings { get; set; } = new VersionMappingModel[0];

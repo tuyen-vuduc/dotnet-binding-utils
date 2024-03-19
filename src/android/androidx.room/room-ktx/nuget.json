@@ -1,5 +1,6 @@
 {
   "packageId": "Androidx.Room.RoomKtx",
   "name": "room-ktx",
+  "dependencyOnly": true,
   "versionMappings": []
 }

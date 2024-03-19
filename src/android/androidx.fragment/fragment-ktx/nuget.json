@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Fragment.Ktx",
   "name": "fragment-ktx",
+  "dependencyOnly": true,
   "versionMappings": []
 }

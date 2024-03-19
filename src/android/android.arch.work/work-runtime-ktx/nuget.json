@@ -1,6 +1,7 @@
 {
   "packageId": "Android.Arch.Work.WorkRuntimeKtx",
   "name": "work-runtime-ktx",
-  "versionMappings": [],
-  "relocated":"androidx.work:work-runtime-ktx"
+  "relocated": "androidx.work:work-runtime-ktx",
+  "dependencyOnly": true,
+  "versionMappings": []
 }

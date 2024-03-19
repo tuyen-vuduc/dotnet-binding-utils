@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.Kotlin.StdLib",
   "name": "kotlin-stdlib",
+  "dependencyOnly": true,
   "versionMappings": []
 }

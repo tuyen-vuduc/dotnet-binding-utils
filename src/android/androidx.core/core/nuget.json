@@ -1,4 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Core",
+  "name": "core",
+  "dependencyOnly": true,
   "versionMappings": []
 }

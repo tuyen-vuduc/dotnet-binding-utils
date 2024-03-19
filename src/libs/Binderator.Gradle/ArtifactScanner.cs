@@ -1,5 +1,4 @@
 ﻿using System.Text.Json.Nodes;
-using Microsoft.AspNetCore.Http.Features;
 
 namespace Binderator.Gradle;
 
@@ -175,17 +174,12 @@ public static class ArtifactScanner
                     : versionRange.MinVersion.ToNormalizedString();
             }
 
-            var parentArtifact = AddParentArtifact(
+            AddParentArtifact(
                 existingArtifacts,
                 xgroupId, xartifactId, xversion,
                 existingArtifact, parentArtifactIds, log,
                 homeFolderPath, scope,
                 basePath, ref artifacts);
-
-            if (parentArtifact is not null)
-            {
-                parentArtifact.DependencyOnly = parentArtifact.Group != artifact.Group;
-            }
         }
 
         artifact.ParentArtifacts = parentArtifactIds.ToArray();
@@ -219,7 +213,7 @@ public static class ArtifactScanner
             if (artifactVersion != existingArtifact.Version.SemanticVersion)
             {
                 log?.Invoke(
-                    $"ARTIFACT EXISTS >> {xgroupId}:{xartifactId}-{xversion} << {existingArtifact.Version}"
+                    $"ARTIFACT EXISTS >> {xgroupId}:{xartifactId}-{xversion} << {existingArtifact.Version.SemanticVersion.ToNormalizedString()}"
                 );
 
                 if (existingArtifact.Version.SemanticVersion < artifactVersion)
@@ -240,12 +234,13 @@ public static class ArtifactScanner
 
         var parentArtifact = FindExternalArtifact(basePath, xgroupId, xartifactId, artifactVersion);
 
-        if (parentArtifact.Version == null)
+        if (parentArtifact.Version == null || !parentArtifact.Nuget.DependencyOnly)
         {
+            var parentVersion = (parentArtifact.Version?.SemanticVersion ?? artifactVersion).ToNormalizedString();
             var parentArtifacts = Scan(
                 existingArtifacts,
                 basePath,
-                $"{xgroupId}:{xartifactId}:{artifactVersion}",
+                $"{parentArtifact.Group.Id}:{parentArtifact.Nuget.ArtifactId}:{parentVersion}",
                 log);
 
             if (parentArtifacts.Count == 0) return null;
@@ -254,6 +249,7 @@ public static class ArtifactScanner
             existingArtifacts.AddRange(parentArtifacts);
             artifacts = artifacts.Distinct().ToList();
             parentArtifactIds.Add(new KeyValuePair<string, string>(parentArtifacts[0].Nuget.PackageId, scope));
+            parentArtifacts[0].Nuget.DependencyOnly = false;
 
             return parentArtifacts[0];
         }
@@ -262,7 +258,7 @@ public static class ArtifactScanner
             if (artifactVersion != parentArtifact.Version.SemanticVersion)
             {
                 log?.Invoke(
-                    $"EXTERNAL ARTIFACT >> {xgroupId}:{xartifactId}-{xversion} << {parentArtifact.Version}"
+                    $"EXTERNAL ARTIFACT >> {xgroupId}:{xartifactId}-{xversion} << {parentArtifact.Version.SemanticVersion.ToNormalizedString()}"
                 );
             }
 

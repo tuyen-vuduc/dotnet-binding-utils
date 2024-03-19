@@ -196,14 +196,14 @@
   </ItemGroup>
   <ItemGroup>
     @foreach (var dep in @Model.NuGetDependencies) {
-      if (!dep.DependencyOnly) {
+      if (!dep.Nuget.DependencyOnly) {
         <ProjectReference Include="..\..\..\@(dep.Group.Id)\@(dep.Nuget.ArtifactId)\binding\@(dep.Nuget.PackageId).csproj" PrivateAssets="none" />
       }
     }
   </ItemGroup>
   <ItemGroup>
     @foreach (var dep in @Model.NuGetDependencies) {
-      if (dep.DependencyOnly) {
+      if (dep.Nuget.DependencyOnly) {
       <PackageReference Include="@(dep.Nuget.PackageId)" Version="@(dep.Version.NugetVersion.ToNormalizedString())" PrivateAssets="none" />
       }
     }

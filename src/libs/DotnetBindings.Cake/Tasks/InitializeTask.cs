@@ -50,7 +50,7 @@ public sealed class InitializeTask : FrostingTask<BuildContext>
         }
 
         var artifactsToBind = artifacts
-            .Where(x => !x.DependencyOnly)
+            .Where(x => !x.Nuget.DependencyOnly)
             .ToList();
 
         foreach (var artifact in artifactsToBind)

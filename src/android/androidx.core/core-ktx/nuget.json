@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Core.Core.Ktx",
   "name": "core-ktx",
+  "dependencyOnly": true,
   "versionMappings": []
 }

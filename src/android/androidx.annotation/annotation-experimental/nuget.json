@@ -1,4 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Annotation.Experimental",
+  "name": "annotation-experimental",
+  "dependencyOnly": true,
   "versionMappings": []
 }

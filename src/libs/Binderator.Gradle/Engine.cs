@@ -88,7 +88,7 @@ public class Engine
 
         foreach (var artifact in config.Artifacts)
         {
-            if (artifact.DependencyOnly)
+            if (artifact.Nuget.DependencyOnly)
                 continue;
 
             var projectModel = new BindingProjectModel

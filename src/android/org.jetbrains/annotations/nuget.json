@@ -1,4 +1,6 @@
 {
   "packageId": "Xamarin.Jetbrains.Annotations",
+  "name": "annotations",
+  "dependencyOnly": true,
   "versionMappings": []
 }
