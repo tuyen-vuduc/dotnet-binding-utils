@@ -1,4 +1,5 @@
 {
   "packageId": "Xamarin.AndroidX.Lifecycle.ViewModel.Compose",
+  "dependencyOnly": true,
   "versionMappings": []
 }

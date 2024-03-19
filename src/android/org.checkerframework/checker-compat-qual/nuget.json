@@ -1,4 +1,5 @@
 {
   "packageId": "Xamarin.CheckerFramework.CheckerCompatQual",
+  "dependencyOnly": true,
   "versionMappings": []
 }

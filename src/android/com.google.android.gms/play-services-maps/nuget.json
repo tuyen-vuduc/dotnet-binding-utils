@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.GooglePlayServices.Maps",
+  "dependencyOnly": true,
   "versionMappings": [
     {
       "method": "Prefix",

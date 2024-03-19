@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.Firebase.Annotations",
+  "dependencyOnly": true,
   "versionMappings": [
     {
       "method": "Prefix",

@@ -1,4 +1,5 @@
 {
   "packageId": "Xamarin.Android.ReactiveX.RxJava",
+  "dependencyOnly": true,
   "versionMappings": []
 }

@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.GooglePlayServices.ClearCut",
+  "dependencyOnly": true,
   "versionMappings": [
     {
       "method": "Prefix",

@@ -1,4 +1,5 @@
 {
   "packageId": "Xam.Plugins.Android.ExoPlayer.Dash",
+  "dependencyOnly": true,
   "versionMappings": []
 }

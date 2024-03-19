@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.GooglePlayServices.InstantApps",
+  "dependencyOnly": true,
   "versionMappings": [
     {
       "method": "Prefix",

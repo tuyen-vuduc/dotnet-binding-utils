@@ -10,10 +10,10 @@ public class FetcherTests
         );
     }
 
-    [Theory]
-    [InlineData("Xamarin.AndroidX.Room.Common", "androidx-room", "room-common")]
-    [InlineData("Xamarin.AndroidX.Room.Runtime", "androidx-room", "room-runtime")]
-    [InlineData("Xamarin.AndroidX.Room.Room.Ktx", "androidx-room", "room-ktx")]
+    [Theory]    
+    [InlineData("Xamarin.AndroidX.Room.Common", "androidx.room", "room-common")]
+    [InlineData("Xamarin.AndroidX.Room.Runtime", "androidx.room", "room-runtime")]
+    [InlineData("Xamarin.AndroidX.Room.Room.Ktx", "androidx.room", "room-ktx")]
     [InlineData("Xamarin.Kotlin.Reflect", "org.jetbrains.kotlin", "kotlin-reflect")]
     [InlineData("Com.Mapbox.Maps.Android", "com.mapbox.maps", "android")]
     [InlineData("Dev.Romainguy.KotlinMath", "dev.romainguy", "kotlin-math")]
@@ -216,9 +216,6 @@ public class FetcherTests
     [InlineData("Xamarin.AndroidX.ResourceInspection.Annotation", "androidx.lifecycle", "resourceinspection-annotation")]
     [InlineData("Xamarin.AndroidX.Lifecycle.Process", "androidx.lifecycle", "lifecycle-process")]
     [InlineData("Xamarin.AndroidX.RecyclerView", "androidx.recyclerview", "recyclerview")]
-    [InlineData("Xamarin.AndroidX.Room.Runtime", "androidx.room", "room-runtime")]
-    [InlineData("Xamarin.AndroidX.Room.Common", "androidx.room", "room-common")]
-    [InlineData("Xamarin.AndroidX.Room.Room.Ktx", "androidx.room", "room-ktx")]
     [InlineData("Xamarin.AndroidX.SavedState", "androidx.savedstate", "savedstate")]
     [InlineData("Xamarin.AndroidX.SavedState.SavedState.Ktx", "androidx.savedstate", "savedstate-ktx")]
     [InlineData("Xamarin.AndroidX.Security.SecurityCrypto", "androidx.security", "security-crypto")]

@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.GooglePlayServices.MLKit.BarcodeScanning",
+  "dependencyOnly": true,
   "versionMappings": [
     {
       "method": "Prefix",

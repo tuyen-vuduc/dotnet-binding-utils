@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.Android.Arch.Lifecycle.Extensions",
   "name": "extensions",
+  "dependencyOnly": true,
   "versionMappings": []
 }

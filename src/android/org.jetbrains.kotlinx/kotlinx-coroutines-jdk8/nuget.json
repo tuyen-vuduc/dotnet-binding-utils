@@ -1,4 +1,5 @@
 {
   "packageId": "Xamarin.KotlinX.Coroutines.Jdk8",
+  "dependencyOnly": true,
   "versionMappings": []
 }

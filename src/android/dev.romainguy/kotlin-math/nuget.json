@@ -3,5 +3,6 @@
   "name": "kotlin-math",
   "homePageUrl": "https://github.com/romainguy/kotlin-math",
   "guideUrl": "",
+  "dependencyOnly": true,
   "versionMappings": []
 }

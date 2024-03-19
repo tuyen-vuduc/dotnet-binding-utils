@@ -1,4 +1,5 @@
 {
   "packageId": "Xamarin.AndroidX.Legacy.Support.Core.UI",
+  "dependencyOnly": true,
   "versionMappings": []
 }

@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.Google.MLKit.Vision.Common",
+  "dependencyOnly": true,
   "versionMappings": [
     {
       "method": "Prefix",

@@ -10,6 +10,8 @@ class NugetInfoDto {
     public string Name { get; set; }
     public string HomePageUrl { get; set; }
     public string GuideUrl { get; set; }
+    public string Relocated { get; set; }
+    public bool DependencyOnly { get; set; } = true;
     public VersionMappingDto[] VersionMappings { get; set; } = Array.Empty<VersionMappingDto>();
 }
 

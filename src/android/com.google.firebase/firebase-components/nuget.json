@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.Firebase.Components",
+  "dependencyOnly": true,
   "versionMappings": [
     {
       "method": "Prefix",

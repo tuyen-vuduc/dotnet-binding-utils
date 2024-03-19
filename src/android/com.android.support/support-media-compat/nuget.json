@@ -1,4 +1,5 @@
 {
   "packageId": "Xamarin.Android.Support.Media.Compat",
+  "dependencyOnly": true,
   "versionMappings": []
 }

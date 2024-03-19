@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.Firebase.Encoders.JSON",
+  "dependencyOnly": true,
   "versionMappings": [
     {
       "method": "Prefix",

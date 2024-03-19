@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.GooglePlayServices.Flags",
+  "dependencyOnly": true,
   "versionMappings": [
     {
       "method": "Prefix",

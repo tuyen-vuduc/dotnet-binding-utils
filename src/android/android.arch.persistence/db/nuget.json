@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.Android.Arch.Persistence.Db",
   "name": "db",
+  "dependencyOnly": true,
   "versionMappings": []
 }

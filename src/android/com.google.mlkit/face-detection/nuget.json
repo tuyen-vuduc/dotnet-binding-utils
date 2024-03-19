@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.Google.MLKit.FaceDetection",
+  "dependencyOnly": true,
   "versionMappings": [
     {
       "method": "Prefix",

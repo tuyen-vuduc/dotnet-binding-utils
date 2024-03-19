@@ -1,4 +1,5 @@
 {
   "packageId": "Xamarin.AndroidX.Autofill",
+  "dependencyOnly": true,
   "versionMappings": []
 }

@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.GooglePlayServices.Phenotype",
+  "dependencyOnly": true,
   "versionMappings": [
     {
       "method": "Prefix",

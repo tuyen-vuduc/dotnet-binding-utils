@@ -1,4 +1,5 @@
 {
   "packageId": "Xamarin.JavaX.Inject",
+  "dependencyOnly": true,
   "versionMappings": []
 }

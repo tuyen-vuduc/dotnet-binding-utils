@@ -1,4 +1,5 @@
 {
   "packageId": "Square.Moshi.Adapters",
+  "dependencyOnly": true,
   "versionMappings": []
 }

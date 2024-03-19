@@ -3,6 +3,18 @@ using System.Text.Json.Serialization;
 
 public static class Fetcher
 {
+    static readonly JsonSerializerOptions jsonSerializerOptions = new JsonSerializerOptions()
+    {
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+        AllowTrailingCommas = true,
+        Converters = {
+            new JsonStringEnumConverter(),
+            new NuGetVersionConverter(),
+        },
+        WriteIndented = true,
+    };
+
     public static string BasePath = ".";
 
     public static async Task FetchAsync(
@@ -33,10 +45,7 @@ public static class Fetcher
 
         var data = JsonSerializer.Deserialize<MetadataDto>(
             json,
-            new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true,
-            }
+            jsonSerializerOptions
         );
 
         if (data?.Versions is null
@@ -105,11 +114,7 @@ public static class Fetcher
             {
                 revision = latestVersion.Revision,
                 nugetVersion = nugetVersion,
-            }, new JsonSerializerOptions
-            {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                IgnoreNullValues = true,
-            });
+            }, jsonSerializerOptions);
             File.WriteAllText(artifactVersionPath, artifactVersionMetadataInJson);
         }
     }
@@ -129,31 +134,13 @@ public static class Fetcher
             var infoInJson = File.ReadAllText(nugetMetadataPath);
             nugetInfo = JsonSerializer.Deserialize<NugetInfoDto>(
                 infoInJson,
-                new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true,
-                    Converters = {
-                            new JsonStringEnumConverter(),
-                            new NuGetVersionConverter(),
-                    },
-                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                    WriteIndented = true,  
-                }
+                jsonSerializerOptions
             );
         }
         nugetInfo.PackageId = packageId;
         var nugetMetadataInJSON = JsonSerializer.Serialize(
             nugetInfo,
-            new JsonSerializerOptions
-            {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                IgnoreNullValues = true,
-                Converters = {
-                            new JsonStringEnumConverter(),
-                            new NuGetVersionConverter(),
-                    },
-                WriteIndented = true,
-            });
+            jsonSerializerOptions);
         File.WriteAllText(nugetMetadataPath, nugetMetadataInJSON);
         return nugetInfo;
     }

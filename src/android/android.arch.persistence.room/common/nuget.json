@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.Android.Arch.Persistence.Room.Common",
   "name": "common",
+  "dependencyOnly": true,
   "versionMappings": []
 }

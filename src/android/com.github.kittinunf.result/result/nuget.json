@@ -1,4 +1,5 @@
 {
   "packageId": "Com.Github.Kittinunf.Result.Result",
+  "dependencyOnly": true,
   "versionMappings": []
 }

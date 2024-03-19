@@ -1,4 +1,5 @@
 {
   "packageId": "Xamarin.Kotlin.Reflect",
+  "dependencyOnly": true,
   "versionMappings": []
 }

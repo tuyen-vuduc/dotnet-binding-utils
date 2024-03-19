@@ -1,4 +1,5 @@
 {
   "packageId": "Xamarin.Google.Android.DataTransport.TransportBackendCct",
+  "dependencyOnly": true,
   "versionMappings": []
 }

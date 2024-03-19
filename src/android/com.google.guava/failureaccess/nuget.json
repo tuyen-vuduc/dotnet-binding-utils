@@ -1,4 +1,5 @@
 {
   "packageId": "Xamarin.Google.Guava.FailureAccess",
+  "dependencyOnly": true,
   "versionMappings": []
 }
