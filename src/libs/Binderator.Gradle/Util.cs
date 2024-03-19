@@ -121,6 +121,11 @@ public static class Util
         if (version is not null)
         {
             version.SemanticVersion = semanticVersion;
+
+            if (version.NugetVersion is null)
+            {
+                version.NugetVersion = semanticVersion.ToNuGetVersion(version.Revision);
+            }
         }
 
         if (overriding)
