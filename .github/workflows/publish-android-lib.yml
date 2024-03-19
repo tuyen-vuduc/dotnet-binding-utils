@@ -24,6 +24,7 @@ on:
         - io.github.sceneview--sceneview
         - com.shakebugs
         - com.facebook.android
+        - DriveSmart
 jobs:
   build-then-publish:
     environment: production
@@ -46,6 +47,7 @@ jobs:
         java-version: '11'
 
     - name: Set MAPBOX_DOWNLOADS_TOKEN
+      if: ${{ inputs.LIB_FOLDER == 'com.mapbox.maps--android' }}
       run: |
         echo "MAPBOX_DOWNLOADS_TOKEN=$MAPBOX_DOWNLOADS_TOKEN" >> ~/.gradle/gradle.properties
         cat ~/.gradle/gradle.properties
@@ -53,6 +55,17 @@ jobs:
       env:
         MAPBOX_DOWNLOADS_TOKEN : ${{secrets.MAPBOX_DOWNLOADS_TOKEN}}
 
+    - name: Set DriveSmart credentials
+      if: ${{ inputs.LIB_FOLDER == 'DriveSmart' }}
+      run: |
+        echo "tfsdrivesmart_user=$TFSDRIVESMART_USER" >> ~/.gradle/gradle.properties
+        echo "tfsdrivesmart_password=$TFSDRIVESMART_PASSWORD" >> ~/.gradle/gradle.properties
+        cat ~/.gradle/gradle.properties
+      shell: bash
+      env:
+        TFSDRIVESMART_USER: ${{secrets.TFSDRIVESMART_USER}}
+        TFSDRIVESMART_PASSWORD: ${{secrets.TFSDRIVESMART_PASSWORD}}
+  
     - name: Install android workload
       run: |
         dotnet workload install android
