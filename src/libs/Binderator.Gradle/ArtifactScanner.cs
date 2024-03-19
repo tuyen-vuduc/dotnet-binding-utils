@@ -336,7 +336,7 @@ public static class ArtifactScanner
         
         if (!string.IsNullOrWhiteSpace(artifact.Nuget.Relocated))
         {
-            var relocatedParts = nugetModel.Relocated.Split(':');
+            var relocatedParts = artifact.Nuget.Relocated.Split(':');
             return FindExternalArtifact(basePath, relocatedParts[0], relocatedParts[1], xversion);
         }
         
