@@ -1,0 +1,6 @@
+{
+  "packageId": "Org.Mp4parser.Isoparser",
+  "name": "isoparser",
+  "dependencyOnly": false,
+  "versionMappings": []
+}

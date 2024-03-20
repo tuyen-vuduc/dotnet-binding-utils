@@ -1,0 +1,6 @@
+{
+  "packageId": "Org.Mp4parser.Muxer",
+  "name": "muxer",
+  "dependencyOnly": false,
+  "versionMappings": []
+}
