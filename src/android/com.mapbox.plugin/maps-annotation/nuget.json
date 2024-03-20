@@ -1,0 +1,6 @@
+{
+  "packageId": "Com.Mapbox.Plugin.MapsAnnotation",
+  "name": "maps-annotation",
+  "dependencyOnly": false,
+  "versionMappings": []
+}

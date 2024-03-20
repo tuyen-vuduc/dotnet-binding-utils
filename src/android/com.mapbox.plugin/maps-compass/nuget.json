@@ -1,0 +1,6 @@
+{
+  "packageId": "Com.Mapbox.Plugin.MapsCompass",
+  "name": "maps-compass",
+  "dependencyOnly": false,
+  "versionMappings": []
+}

@@ -1,5 +1,6 @@
 {
   "packageId": "Com.Mapbox.Maps.Android",
-  "dependencyOnly": true,
+  "name": "android",
+  "dependencyOnly": false,
   "versionMappings": []
 }
