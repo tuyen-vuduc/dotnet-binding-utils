@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Mapbox.Mapboxsdk.MapboxSdkGeojson",
   "name": "mapbox-sdk-geojson",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }
