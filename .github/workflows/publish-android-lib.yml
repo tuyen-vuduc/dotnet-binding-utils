@@ -9,6 +9,7 @@ on:
         type: choice
         options: 
         - dev.romainguy:kotlin-math:1.5.3
+        - io.coil-kt:coil:2.0.0
 jobs:
   build-then-publish:
     environment: production
