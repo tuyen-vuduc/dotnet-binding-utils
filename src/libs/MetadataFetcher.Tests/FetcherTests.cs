@@ -10,7 +10,25 @@ public class FetcherTests
         );
     }
 
-    [Theory]    
+    [Fact]
+    public async Task FetchByReadingDirectories()
+    {
+        var path = Path.Combine(Fetcher.BasePath, "android");
+        var nugetJsonFiles = Directory
+            .EnumerateFiles(
+                path,
+                "*nuget.json",
+                SearchOption.AllDirectories
+            )
+            .ToList();
+
+        foreach (var nugetJsonFile in nugetJsonFiles)
+        {
+            await Fetcher.FetchWithFileAsync(nugetJsonFile);
+        }
+    }
+
+    [Theory(Skip = "Keep for reference")]    
     [InlineData("Xamarin.CodeHaus.Mojo.AnimalSnifferAnnotations", "org.codehaus.mojo", "animal-sniffer-annotations")]
     [InlineData("Xamarin.AndroidX.Room.Common", "androidx.room", "room-common")]
     [InlineData("Xamarin.AndroidX.Room.Runtime", "androidx.room", "room-runtime")]

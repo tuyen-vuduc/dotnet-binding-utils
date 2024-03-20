@@ -8,6 +8,7 @@ using System.Xml;
 using System.Xml.Linq;
 
 var ARTIFACT = Argument<string>("artifact");
+var TASK = Argument<string>("task", Argument<string>("t", "Default"));
 
 Task("Create BindingHost.props")
     .Does(() =>
@@ -42,4 +43,4 @@ Task("Default")
         Information ($"DONE");
     });
 
-RunTarget ("Default");
+RunTarget (TASK);

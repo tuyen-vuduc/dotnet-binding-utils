@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -16,6 +17,17 @@ public static class Fetcher
     };
 
     public static string BasePath = ".";
+
+    public static Task FetchWithFileAsync(string nugetJsonPath)
+    {
+        var nugetInfo = Read(nugetJsonPath);
+        var fileParts = nugetJsonPath
+            .Replace(BasePath, string.Empty)
+            .Trim(Path.DirectorySeparatorChar)
+            .Split(Path.DirectorySeparatorChar)
+            .ToArray();
+        return FetchAsync(nugetInfo.PackageId, fileParts[^3], fileParts[^2], fileParts[^4]);
+    }
 
     public static async Task FetchAsync(
         string packageId,
@@ -128,20 +140,25 @@ public static class Fetcher
 
         var nugetMetadataPath = Path.Combine(folderPath, "nuget.json");
 
-        var nugetInfo = new NugetInfoDto();
-        if (File.Exists(nugetMetadataPath))
-        {
-            var infoInJson = File.ReadAllText(nugetMetadataPath);
-            nugetInfo = JsonSerializer.Deserialize<NugetInfoDto>(
-                infoInJson,
-                jsonSerializerOptions
-            );
-        }
+        var nugetInfo = Read(nugetMetadataPath) ?? new NugetInfoDto();
         nugetInfo.PackageId = packageId;
         var nugetMetadataInJSON = JsonSerializer.Serialize(
             nugetInfo,
             jsonSerializerOptions);
         File.WriteAllText(nugetMetadataPath, nugetMetadataInJSON);
         return nugetInfo;
+    }
+
+    private static NugetInfoDto Read(string jsonPath)
+    {
+        if (File.Exists(jsonPath))
+        {
+            var infoInJson = File.ReadAllText(jsonPath);
+            return JsonSerializer.Deserialize<NugetInfoDto>(
+                infoInJson,
+                jsonSerializerOptions
+            );
+        }
+        return null;
     }
 }

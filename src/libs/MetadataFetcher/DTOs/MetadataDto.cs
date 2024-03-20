@@ -15,11 +15,12 @@ class NugetInfoDto {
     public VersionMappingDto[] VersionMappings { get; set; } = Array.Empty<VersionMappingDto>();
 }
 
-class VersionMappingDto {
+class VersionMappingDto
+{
+    public string Prefix { get; set; }
     public VersionMappingMethod Method { get; set; }
     public NuGetVersion FromVersion { get; set; }
     public NuGetVersion ToVersion { get; set; }
-    public string Prefix { get; set; }
 }
 
 enum VersionMappingMethod {
