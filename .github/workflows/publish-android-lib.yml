@@ -11,6 +11,7 @@ on:
         - dev.romainguy:kotlin-math:1.5.3
         - io.coil-kt:coil:2.0.0
         - org.slf4j:slf4j-api:1.7.24
+        - org.jetbrains.kotlin:kotlin-parcelize-runtime:1.6.10
 jobs:
   build-then-publish:
     environment: production

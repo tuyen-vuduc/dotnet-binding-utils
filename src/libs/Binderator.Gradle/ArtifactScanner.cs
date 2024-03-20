@@ -22,6 +22,7 @@ public static class ArtifactScanner
         List<ArtifactModel> artifacts = new();
 
         var artifact = Util.FromArtifactString(basePath, artifactString, true);
+        artifact.Nuget.DependencyOnly = false;
         artifacts.Add(artifact);
 
         var homeFolder = Platform.IsWindows

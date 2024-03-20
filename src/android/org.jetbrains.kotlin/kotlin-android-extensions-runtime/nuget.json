@@ -1,5 +1,6 @@
 {
   "packageId": "Org.Jetbrains.Kotlin.KotlinAndroidExtensionsRuntime",
-  "dependencyOnly": true,
+  "name": "kotlin-android-extensions-runtime",
+  "dependencyOnly": false,
   "versionMappings": []
 }
