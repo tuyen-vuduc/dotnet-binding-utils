@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Interpolator",
+  "name": "interpolator",
   "dependencyOnly": true,
   "versionMappings": []
 }

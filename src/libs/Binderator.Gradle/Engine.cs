@@ -46,6 +46,7 @@ public class Engine
             .Build();
         var templates = new Dictionary<string, string>()
         {
+            { ".gitignore", "../.gitignore" },
             { "README.cshtml", "README.md" },
             { "LICENSE.cshtml", "LICENSE" },
             { "Targets.cshtml", "{0}.targets" },
