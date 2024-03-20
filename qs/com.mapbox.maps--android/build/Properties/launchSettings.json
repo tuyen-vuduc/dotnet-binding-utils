@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "Build": {
-      "commandName": "Project",
-      "commandLineArgs": "--base-path \"c://ws/tv/dotnet-binding-utils/qs/com.mapbox.maps--android\""
-    }
-  }
-}

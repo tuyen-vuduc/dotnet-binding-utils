@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<metadata>
-	<attr
-		path="//field[@name='Companion']"
-		name="managedName">CompanionField</attr>
-	<attr
-		path="/api/package[@name='com.mapbox.maps.plugin.animation']/class[@name='CameraAnimationsPluginImpl']/field[@name='cameraAnimationsFactory']"
-		name="managedName">_cameraAnimationsFactory</attr>
-</metadata>

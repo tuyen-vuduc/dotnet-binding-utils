@@ -1,3 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+	<attr path="//class[@name='PointAsCoordinatesTypeAdapter']"
+		  name="visibility"></attr>
+	<attr path="//class[@extends='com.google.gson.TypeAdapter']/method[@name='read' and count(parameter)=1 and parameter[1][@type='com.google.gson.stream.JsonReader']]"
+		  name="managedName">ReadX</attr>
+	<remove-node path="/api/package[@name='com.mapbox.geojson']/class[@name='Polygon']/implements[@name='com.mapbox.geojson.CoordinateContainer']" />
+	<remove-node path="/api/package[@name='com.mapbox.geojson']/class[@name='MultiPolygon']/implements[@name='com.mapbox.geojson.CoordinateContainer']" />
+	<remove-node path="/api/package[@name='com.mapbox.geojson']/class[@name='Point']/implements[@name='com.mapbox.geojson.CoordinateContainer']" />
+	<remove-node path="/api/package[@name='com.mapbox.geojson']/class[@name='MultiPoint']/implements[@name='com.mapbox.geojson.CoordinateContainer']" />
+	<remove-node path="/api/package[@name='com.mapbox.geojson']/class[@name='LineString']/implements[@name='com.mapbox.geojson.CoordinateContainer']" />
+	<remove-node path="/api/package[@name='com.mapbox.geojson']/class[@name='MultiLineString']/implements[@name='com.mapbox.geojson.CoordinateContainer']" />
 </metadata>
