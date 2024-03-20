@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.AppCompat.AppCompatResources",
+  "name": "AppCompat Resources",
   "dependencyOnly": true,
   "versionMappings": []
 }

@@ -1,7 +1,6 @@
 using System.Text;
 using System.Security.Cryptography;
 using System.Text.Json.Serialization;
-using NuGet.Versioning;
 
 namespace Binderator.Gradle;
 
@@ -15,26 +14,16 @@ public static class Util
         Converters = {
             new JsonStringEnumConverter(),
             new NuGetVersionConverter(),
+            new SemanticVersionConverter(),
         },
         WriteIndented = true,
     };
 
-    public readonly static JsonSerializerOptions JsonOptions = new JsonSerializerOptions
-    {
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
-        Converters =
-            {
-                new NuGetVersionJsonValueConverter(),
-                new SemanticVersionJsonValueConverter(),
-            }
-    };
-
     public static T Deserialize<T>(this Stream stream)
-        => JsonSerializer.Deserialize<T>(stream, JsonOptions);
+        => JsonSerializer.Deserialize<T>(stream, jsonSerializerOptions);
 
     public static string Serialize<T>(this T obj)
-        => JsonSerializer.Serialize(obj, JsonOptions);
+        => JsonSerializer.Serialize(obj, jsonSerializerOptions);
 
     internal static string HashMd5(Stream value)
     {

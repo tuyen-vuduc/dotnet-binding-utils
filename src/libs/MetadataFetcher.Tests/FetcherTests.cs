@@ -11,6 +11,7 @@ public class FetcherTests
     }
 
     [Theory]    
+    [InlineData("Xamarin.CodeHaus.Mojo.AnimalSnifferAnnotations", "org.codehaus.mojo", "animal-sniffer-annotations")]
     [InlineData("Xamarin.AndroidX.Room.Common", "androidx.room", "room-common")]
     [InlineData("Xamarin.AndroidX.Room.Runtime", "androidx.room", "room-runtime")]
     [InlineData("Xamarin.AndroidX.Room.Room.Ktx", "androidx.room", "room-ktx")]

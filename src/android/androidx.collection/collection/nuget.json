@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Collection",
+  "name": "Collection",
   "dependencyOnly": true,
   "versionMappings": []
 }

@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.Google.Android.Material",
+  "name": "material",
   "dependencyOnly": true,
   "versionMappings": []
 }

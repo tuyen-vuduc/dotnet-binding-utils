@@ -10,6 +10,7 @@ public static class ArtifactScanner
     };
     static readonly string[] skippedGroups = new[] {
         "androidx.test",
+        "org.json"
     };
 
     public static List<ArtifactModel> Scan(
@@ -240,7 +241,7 @@ public static class ArtifactScanner
             var parentArtifacts = Scan(
                 existingArtifacts,
                 basePath,
-                $"{parentArtifact.Group.Id}:{parentArtifact.Nuget.ArtifactId}:{parentVersion}",
+                $"{parentArtifact.Group?.Id ?? xgroupId}:{parentArtifact.Nuget?.ArtifactId ?? xartifactId}:{parentVersion}",
                 log);
 
             if (parentArtifacts.Count == 0) return null;
@@ -330,7 +331,7 @@ public static class ArtifactScanner
     {
         ArtifactModel artifact = Util.FromArtifactString(basePath, $"{xgroupId}:{xartifactId}:{xversion}", false);
         
-        if (!string.IsNullOrWhiteSpace(artifact.Nuget.Relocated))
+        if (!string.IsNullOrWhiteSpace(artifact.Nuget?.Relocated))
         {
             var relocatedParts = artifact.Nuget.Relocated.Split(':');
             return FindExternalArtifact(basePath, relocatedParts[0], relocatedParts[1], xversion);

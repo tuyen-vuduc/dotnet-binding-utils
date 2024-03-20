@@ -1,5 +1,6 @@
 {
   "packageId": "Square.OkHttp3",
+  "name": "okhttp",
   "dependencyOnly": true,
   "versionMappings": []
 }

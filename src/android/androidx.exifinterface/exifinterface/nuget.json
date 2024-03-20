@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.ExifInterface",
+  "name": "ExifInterface",
   "dependencyOnly": true,
   "versionMappings": []
 }

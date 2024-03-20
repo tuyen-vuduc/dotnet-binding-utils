@@ -1,5 +1,6 @@
 {
   "packageId": "Square.OkHttp3.LoggingInterceptor",
+  "name": "logging-interceptor",
   "dependencyOnly": true,
   "versionMappings": []
 }
