@@ -1,3 +1,5 @@
 {
-  "name": "com.mapbox.mapboxsdk"
+  "name": "Mapbox",
+  "homePageUrl": "https://docs.mapbox.com/android/maps/guides/",
+  "guideUrl": "https://mapbox.tuyen-vuduc.tech/"
 }

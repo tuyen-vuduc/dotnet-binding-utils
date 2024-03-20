@@ -1,13 +1,23 @@
 @using System;
 
-@if (!string.IsNullOrWhiteSpace(Model.Artifact.Nuget.HomePageUrl)) {
-    @Raw("# Home page\n\n")
+@{
+    var homePageUrl = string.IsNullOrWhiteSpace(Model.Artifact.Nuget.HomePageUrl)
+        ? Model.Artifact.Group.HomePageUrl
+        : Model.Artifact.Nuget.HomePageUrl;
 
-    @(Model.Artifact.Nuget.HomePageUrl)
+    var guideUrl = string.IsNullOrWhiteSpace(Model.Artifact.Nuget.GuideUrl)
+        ? Model.Artifact.Group.GuideUrl
+        : Model.Artifact.Nuget.GuideUrl;
 }
 
-@if (!string.IsNullOrWhiteSpace(Model.Artifact.Nuget.GuideUrl)) {
+@if (!string.IsNullOrWhiteSpace(homePageUrl)) {
+    @Raw("# Home page\n\n")
+
+    @(homePageUrl)
+}
+
+@if (!string.IsNullOrWhiteSpace(guideUrl)) {
     @Raw("# Guide page\n\n")
 
-    @(Model.Artifact.Nuget.GuideUrl)
+    @(guideUrl)
 }
