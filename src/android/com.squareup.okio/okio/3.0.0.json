@@ -1,4 +1,3 @@
 {
-  "revision": 0,
-  "nugetVersion": "3.0.0"
+  "fallbackVersion": "3.2.0"
 }

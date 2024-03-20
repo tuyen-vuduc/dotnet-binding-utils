@@ -337,7 +337,12 @@ public static class ArtifactScanner
             var relocatedParts = artifact.Nuget.Relocated.Split(':');
             return FindExternalArtifact(basePath, relocatedParts[0], relocatedParts[1], xversion);
         }
-        
+
+        if (artifact.Version?.FallbackVersion is not null)
+        {
+            return FindExternalArtifact(basePath, xgroupId, xartifactId, artifact.Version.FallbackVersion);
+        }
+
         return artifact;
     }
 
