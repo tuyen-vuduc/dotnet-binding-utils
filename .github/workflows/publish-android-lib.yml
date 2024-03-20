@@ -35,7 +35,7 @@ jobs:
         java-version: '11'
 
     - name: Set MAPBOX_DOWNLOADS_TOKEN
-      if: ${{ inputs.LIB_FOLDER == 'com.mapbox.maps--android' }}
+      if: contains(${{ inputs.LIB_FOLDER }}, 'com.mapbox.maps')
       run: |
         echo "MAPBOX_DOWNLOADS_TOKEN=$MAPBOX_DOWNLOADS_TOKEN" >> ~/.gradle/gradle.properties
         cat ~/.gradle/gradle.properties
