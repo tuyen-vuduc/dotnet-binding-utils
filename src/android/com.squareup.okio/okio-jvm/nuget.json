@@ -1,0 +1,6 @@
+{
+  "packageId": "Com.Squareup.Okio.OkioJvm",
+  "name": "okio-jvm",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

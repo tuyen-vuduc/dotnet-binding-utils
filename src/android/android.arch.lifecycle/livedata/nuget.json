@@ -1,0 +1,6 @@
+{
+  "packageId": "Xamarin.Android.Arch.Lifecycle.LiveData",
+  "name": "livedata",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

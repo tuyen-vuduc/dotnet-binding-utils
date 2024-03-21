@@ -2,7 +2,7 @@
 @using System.IO
 @using System.Xml.Linq
 @{
-  var conditionName = "_" + Model.Artifact.NugetPackageId.Replace(".", string.Empty);
+  var conditionName = "_" + Model.Artifact.Nuget.PackageId.Replace(".", string.Empty);
 }
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -25,7 +25,6 @@
     </ProguardConfiguration>
   </ItemGroup>
 }
-  @* <Target Name="@(conditionName)" AfterTargets="_GradleSyncTarget"> *@
     <ItemGroup>
       <AndroidLibrary 
         Condition=" '$(OS)' == 'Unix' "

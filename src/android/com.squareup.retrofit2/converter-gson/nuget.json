@@ -1,0 +1,6 @@
+{
+  "packageId": "Square.Retrofit2.ConverterGson",
+  "name": "converter-gson",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

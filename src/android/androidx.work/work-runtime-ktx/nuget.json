@@ -1,0 +1,6 @@
+{
+  "packageId": "Xamarin.AndroidX.Work.Work.Runtime.Ktx",
+  "name": "work-runtime-ktx",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

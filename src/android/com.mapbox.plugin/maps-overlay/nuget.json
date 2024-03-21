@@ -1,0 +1,6 @@
+{
+  "packageId": "Com.Mapbox.Plugin.MapsOverlay",
+  "name": "maps-overlay",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

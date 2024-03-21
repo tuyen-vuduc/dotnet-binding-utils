@@ -1,0 +1,6 @@
+{
+  "packageId": "Xamarin.KotlinX.Coroutines.Core.Jvm",
+  "name": "kotlinx-coroutines-core-jvm",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

@@ -3,23 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Binderator.Gradle", "src\Binderator.Gradle\Binderator.Gradle.csproj", "{01F8FB17-A885-4C0D-8853-D351186DAC7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Binderator.Gradle", "src\libs\Binderator.Gradle\Binderator.Gradle.csproj", "{01F8FB17-A885-4C0D-8853-D351186DAC7A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dependencies.Gradle", "src\Dependencies.Gradle\Dependencies.Gradle.csproj", "{09DAEDD9-928C-4DEB-AEC2-724A96331E1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dependencies.Gradle", "src\libs\Dependencies.Gradle\Dependencies.Gradle.csproj", "{09DAEDD9-928C-4DEB-AEC2-724A96331E1F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetadataFetcher", "src\MetadataFetcher\MetadataFetcher.csproj", "{B4C10780-84FC-42FE-8F92-4B156615344F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetadataFetcher", "src\libs\MetadataFetcher\MetadataFetcher.csproj", "{B4C10780-84FC-42FE-8F92-4B156615344F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dependencies.Gradle.Tests", "src\Dependencies.Gradle.Tests\Dependencies.Gradle.Tests.csproj", "{EBD1E63E-6567-4C3B-B274-EF980E961025}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dependencies.Gradle.Tests", "src\libs\Dependencies.Gradle.Tests\Dependencies.Gradle.Tests.csproj", "{EBD1E63E-6567-4C3B-B274-EF980E961025}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetadataFetcher.Tests", "src\MetadataFetcher.Tests\MetadataFetcher.Tests.csproj", "{E0AC64A6-B554-4941-8257-D102AEF12A26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetadataFetcher.Tests", "src\libs\MetadataFetcher.Tests\MetadataFetcher.Tests.csproj", "{E0AC64A6-B554-4941-8257-D102AEF12A26}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "gradle", "gradle", "{98336720-D8F2-434C-9316-2E9F0D62560B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "metadata", "metadata", "{11E44A3E-263D-4F7C-B6BA-F646275DA72B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetBindings.Cake", "src\DotnetBindings.Cake\DotnetBindings.Cake.csproj", "{95670EEE-39E4-42C4-BF73-B28109EC962D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetBindings.Cake", "src\libs\DotnetBindings.Cake\DotnetBindings.Cake.csproj", "{95670EEE-39E4-42C4-BF73-B28109EC962D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Build", "qs\DriveSmart\build\Build.csproj", "{876D7FCD-239F-4CA1-B244-1CA0C9B9C491}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BindingHost", "src\libs\BindingHost\BindingHost.csproj", "{AE9DAF54-5BE5-4500-976B-0313C055B722}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,10 +51,10 @@ Global
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95670EEE-39E4-42C4-BF73-B28109EC962D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{876D7FCD-239F-4CA1-B244-1CA0C9B9C491}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{876D7FCD-239F-4CA1-B244-1CA0C9B9C491}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{876D7FCD-239F-4CA1-B244-1CA0C9B9C491}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{876D7FCD-239F-4CA1-B244-1CA0C9B9C491}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE9DAF54-5BE5-4500-976B-0313C055B722}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE9DAF54-5BE5-4500-976B-0313C055B722}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE9DAF54-5BE5-4500-976B-0313C055B722}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE9DAF54-5BE5-4500-976B-0313C055B722}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

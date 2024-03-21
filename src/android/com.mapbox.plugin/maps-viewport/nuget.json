@@ -1,0 +1,6 @@
+{
+  "packageId": "Com.Mapbox.Plugin.MapsViewport",
+  "name": "maps-viewport",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

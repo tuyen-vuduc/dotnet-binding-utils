@@ -1,0 +1,6 @@
+{
+  "packageId": "Xamarin.AndroidX.Annotation",
+  "name": "annotation",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

@@ -1,0 +1,6 @@
+{
+  "packageId": "Xamarin.Android.Arch.Persistence.Db.Framework",
+  "name": "db-framework",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

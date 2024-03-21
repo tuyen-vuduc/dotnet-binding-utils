@@ -1,36 +1,48 @@
 name: Publish Android Library
-run-name: ${{ inputs.LIB_FOLDER }} 🚀 NuGet
+run-name: ${{ inputs.LIB_ARTIFACT }} 🚀 NuGet
 on:
   workflow_dispatch:
     inputs:
-      LIB_FOLDER:
+      LIB_ARTIFACT:
         description: 'Folder of Android library to publish'
         required: true
         type: choice
         options: 
-        - com.braintreepayments.api--drop-in
-        - com.intellimec.mobile.android--tripdetectionumbrella
-        - com.izettle.payments--android-sdk-ui
-        - com.mapbox.maps--android
-        - org.jfrog.cardinalcommerce.gradle--cardinalmobilesdk
-        - com.github.nguyenhoanglam--imagepicker
-        - androidx.health.connect--connect-client
-        - com.google.ar--core
-        - org.jetbrains.kotlin
-        - com.google.android.filament
-        - com.github.kittinunf.result
-        - com.github.kittinunf.fuel
-        - dev.romainguy--kotlin-math
-        - io.github.sceneview--sceneview
-        - com.shakebugs
-        - com.facebook.android
-        - DriveSmart
+        - dev.romainguy:kotlin-math:1.5.3
+        - io.coil-kt:coil:2.0.0
+        - org.slf4j:slf4j-api:1.7.24
+        - org.jetbrains.kotlin:kotlin-parcelize-runtime:1.6.10
+        - com.mapbox.maps:android:11.2.1
+        - io.socket:socket.io-client:2.0.1
+        - org.mp4parser:muxer:1.9.41
+        - com.shakebugs:shake:16.2.4
 jobs:
   build-then-publish:
     environment: production
     runs-on: macos-latest
     steps:
+    - name: Set MAPBOX_DOWNLOADS_TOKEN
+      if: contains(${{ inputs.LIB_ARTIFACT }}, 'com.mapbox.maps')
+      run: |
+        echo "MAPBOX_DOWNLOADS_TOKEN=$MAPBOX_DOWNLOADS_TOKEN" >> ~/.gradle/gradle.properties
+        cat ~/.gradle/gradle.properties
+      shell: bash
+      env:
+        MAPBOX_DOWNLOADS_TOKEN : ${{secrets.MAPBOX_DOWNLOADS_TOKEN}}
+
+    - name: Set DriveSmart credentials
+      if: contains(${{ inputs.LIB_ARTIFACT }}, 'DriveSmart')
+      run: |
+        echo "tfsdrivesmart_user=$TFSDRIVESMART_USER" >> ~/.gradle/gradle.properties
+        echo "tfsdrivesmart_password=$TFSDRIVESMART_PASSWORD" >> ~/.gradle/gradle.properties
+        cat ~/.gradle/gradle.properties
+      shell: bash
+      env:
+        TFSDRIVESMART_USER: ${{secrets.TFSDRIVESMART_USER}}
+        TFSDRIVESMART_PASSWORD: ${{secrets.TFSDRIVESMART_PASSWORD}}
+  
     - uses: actions/checkout@v3
+    
     - name: Set default Xamarin SDK versions
       run: |
         $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --android=13.0
@@ -46,35 +58,14 @@ jobs:
         distribution: 'microsoft'
         java-version: '11'
 
-    - name: Set MAPBOX_DOWNLOADS_TOKEN
-      if: ${{ inputs.LIB_FOLDER == 'com.mapbox.maps--android' }}
-      run: |
-        echo "MAPBOX_DOWNLOADS_TOKEN=$MAPBOX_DOWNLOADS_TOKEN" >> ~/.gradle/gradle.properties
-        cat ~/.gradle/gradle.properties
-      shell: bash
-      env:
-        MAPBOX_DOWNLOADS_TOKEN : ${{secrets.MAPBOX_DOWNLOADS_TOKEN}}
-
-    - name: Set DriveSmart credentials
-      if: ${{ inputs.LIB_FOLDER == 'DriveSmart' }}
-      run: |
-        echo "tfsdrivesmart_user=$TFSDRIVESMART_USER" >> ~/.gradle/gradle.properties
-        echo "tfsdrivesmart_password=$TFSDRIVESMART_PASSWORD" >> ~/.gradle/gradle.properties
-        cat ~/.gradle/gradle.properties
-      shell: bash
-      env:
-        TFSDRIVESMART_USER: ${{secrets.TFSDRIVESMART_USER}}
-        TFSDRIVESMART_PASSWORD: ${{secrets.TFSDRIVESMART_PASSWORD}}
-  
     - name: Install android workload
       run: |
         dotnet workload install android
 
     - name: Build
       run: |
-        cd "qs/${{ inputs.LIB_FOLDER }}"
         echo "PWD: $PWD"
-        sh build.sh --base-path=$PWD
+        sh bind.sh --artifact ${{ inputs.LIB_ARTIFACT }}
   
     # - name: Publish with Dotnet CLI
     #   env:
@@ -88,7 +79,8 @@ jobs:
       uses: edumserrano/nuget-push@v1.2.0
       with:
         api-key: '${{ secrets.NUGET_PUSH_API_KEY }}' # this example is using GitHub secrets to pass the API key
-        working-directory: 'qs/${{ inputs.LIB_FOLDER }}/nugets'
+        working-directory: 'nugets'
+
     # The next step is using powershell to parse the action's output but you can use whatever you prefer.
     # Note that in order to read the step outputs the action step must have an id.
     - name: Log output

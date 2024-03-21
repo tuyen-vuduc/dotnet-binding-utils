@@ -1,0 +1,7 @@
+{
+  "packageId": "Org.Mp4parser.Isoparser",
+  "name": "isoparser",
+  "homePageUrl": "https://mvnrepository.com/artifact/org.mp4parser/isoparser",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

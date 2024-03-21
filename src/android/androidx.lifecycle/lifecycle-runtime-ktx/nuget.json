@@ -1,0 +1,6 @@
+{
+  "packageId": "Xamarin.AndroidX.Lifecycle.Runtime.Ktx",
+  "name": "lifecycle-runtime-ktx",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

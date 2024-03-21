@@ -1,0 +1,6 @@
+{
+  "packageId": "Xamarin.AndroidX.Room.Common",
+  "name": "room-common",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

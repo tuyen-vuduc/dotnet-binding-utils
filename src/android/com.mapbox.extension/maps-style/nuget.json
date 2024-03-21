@@ -1,0 +1,6 @@
+{
+  "packageId": "Com.Mapbox.Extension.MapsStyle",
+  "name": "maps-style",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

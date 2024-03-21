@@ -1,0 +1,6 @@
+{
+  "packageId": "Xamarin.Android.Arch.Persistence.Room.Runtime",
+  "name": "runtime",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

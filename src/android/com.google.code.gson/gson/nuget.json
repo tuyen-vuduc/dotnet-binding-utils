@@ -1,0 +1,6 @@
+{
+  "packageId": "GoogleGson",
+  "name": "gson",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

@@ -1,0 +1,6 @@
+{
+  "packageId": "Xamarin.AndroidX.Room.Runtime",
+  "name": "room-runtime",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

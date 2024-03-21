@@ -1,0 +1,6 @@
+{
+  "packageId": "Io.Socket.Socket.ioClient",
+  "name": "socket.io-client",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

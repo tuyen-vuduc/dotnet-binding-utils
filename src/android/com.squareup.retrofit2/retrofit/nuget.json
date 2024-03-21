@@ -1,0 +1,6 @@
+{
+  "packageId": "Square.Retrofit2",
+  "name": "retrofit",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

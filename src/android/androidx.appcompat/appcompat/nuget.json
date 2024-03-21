@@ -1,0 +1,6 @@
+{
+  "packageId": "Xamarin.AndroidX.AppCompat",
+  "name": "appcompat",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

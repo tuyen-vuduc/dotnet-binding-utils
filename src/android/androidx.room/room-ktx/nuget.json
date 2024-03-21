@@ -1,0 +1,6 @@
+{
+  "packageId": "Xamarin.AndroidX.Room.Room.Ktx",
+  "name": "room-ktx",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

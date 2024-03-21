@@ -1,0 +1,6 @@
+{
+  "packageId": "Xamarin.AndroidX.Startup.StartupRuntime",
+  "name": "startup-runtime",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

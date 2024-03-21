@@ -1,0 +1,6 @@
+{
+  "packageId": "Xamarin.AndroidX.Arch.Core.Common",
+  "name": "common",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

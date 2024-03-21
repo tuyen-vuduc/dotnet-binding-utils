@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <attr path="//field[@name='callFactory']" name="managedName">_callFactory</attr>
+    <attr path="//field[@name='EVENT_CLOSE']" name="managedName">EVENT_CLOSE</attr>
+    <attr path="//field[@name='EVENT_DRAIN']" name="managedName">EVENT_DRAIN</attr>
+    <attr path="//field[@name='EVENT_ERROR']" name="managedName">EVENT_ERROR</attr>
+    <attr path="//field[@name='EVENT_OPEN']" name="managedName">EVENT_OPEN</attr>
+    <attr path="//field[@name='EVENT_PACKET']" name="managedName">EVENT_PACKET</attr>
+    <attr path="//field[@name='EVENT_REQUEST_HEADERS']" name="managedName">EVENT_REQUEST_HEADERS</attr>
+    <attr path="//field[@name='EVENT_RESPONSE_HEADERS']" name="managedName">EVENT_RESPONSE_HEADERS</attr>
+    <attr path="//field[@name='extraHeaders']" name="managedName">_extraHeaders</attr>
+    <attr path="//field[@name='hostname']" name="managedName">_hostname</attr>
+    <attr path="//field[@name='name']" name="managedName">_name</attr>
+    <attr path="//field[@name='path']" name="managedName">_path</attr>
+    <attr path="//field[@name='port']" name="managedName">_port</attr>
+    <attr path="//field[@name='query']" name="managedName">_query</attr>
+    <attr path="//field[@name='readyState']" name="managedName">_readyState</attr>
+    <attr path="//field[@name='secure']" name="managedName">_secure</attr>
+    <attr path="//field[@name='socket']" name="managedName">_socket</attr>
+    <attr path="//field[@name='timestampParam']" name="managedName">_timestampParam</attr>
+    <attr path="//field[@name='timestampRequests']" name="managedName">_timestampRequests</attr>
+    <attr path="//field[@name='webSocketFactory']" name="managedName">_webSocketFactory</attr>
+    <attr path="//field[@name='writable']" name="managedName">_writable</attr>
+    <attr
+        path="/api/package[@name='io.socket.emitter']/interface[@name='Emitter.Listener']/method[@name='call' and count(parameter)=1 and parameter[1][@type='java.lang.Object...']]"
+        name="eventName"></attr>
+</metadata>

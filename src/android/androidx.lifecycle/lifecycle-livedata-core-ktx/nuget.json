@@ -1,0 +1,5 @@
+{
+  "packageId": "Xamarin.AndroidX.Lifecycle.LiveData.Core.Ktx",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

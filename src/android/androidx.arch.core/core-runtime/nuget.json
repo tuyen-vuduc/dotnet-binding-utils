@@ -1,0 +1,6 @@
+{
+  "packageId": "Xamarin.AndroidX.Arch.Core.Runtime",
+  "name": "core-runtime",
+  "dependencyOnly": true,
+  "versionMappings": []
+}
