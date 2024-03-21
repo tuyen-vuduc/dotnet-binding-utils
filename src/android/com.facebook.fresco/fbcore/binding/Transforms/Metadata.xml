@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <remove-node path="/api/package[@name='com.facebook.common.executors']/interface[@name='SerialExecutorService']/implements[@name='java.util.concurrent.ExecutorService']" />
+    <remove-node path="/api/package[@name='com.facebook.common.executors']/interface[@name='HandlerExecutorService']/implements[@name='java.util.concurrent.ScheduledExecutorService']" />
+</metadata>
