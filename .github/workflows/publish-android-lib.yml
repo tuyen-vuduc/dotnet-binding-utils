@@ -15,6 +15,7 @@ on:
         - com.mapbox.maps:android:11.2.1
         - io.socket:socket.io-client:2.0.1
         - org.mp4parser:muxer:1.9.41
+        - com.shakebugs:shake:16.2.4
 jobs:
   build-then-publish:
     environment: production
