@@ -1,6 +1,6 @@
 {
   "packageId": "DriveSmart.DSCore",
   "name": "DS-Core",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }

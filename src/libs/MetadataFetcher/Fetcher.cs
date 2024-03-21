@@ -142,6 +142,7 @@ public static class Fetcher
 
         var nugetInfo = Read(nugetMetadataPath) ?? new NugetInfoDto();
         nugetInfo.PackageId = packageId;
+        nugetInfo.DependencyOnly = true;
         var nugetMetadataInJSON = JsonSerializer.Serialize(
             nugetInfo,
             jsonSerializerOptions);

@@ -1,6 +1,6 @@
 {
   "packageId": "DriveSmart.DSNetworking",
   "name": "DS-Networking",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }
