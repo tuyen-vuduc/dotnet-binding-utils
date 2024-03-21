@@ -1,6 +1,7 @@
 {
   "packageId": "Org.Mp4parser.Muxer",
   "name": "muxer",
+  "homePageUrl": "https://mvnrepository.com/artifact/org.mp4parser/muxer",
   "dependencyOnly": false,
   "versionMappings": []
 }

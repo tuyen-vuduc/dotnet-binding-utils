@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <attr path="//field[@name='debug']" name="managedName">_debug</attr>
+    <attr path="//field[@name='aspect_ratio']" name="managedName">_aspect_ratio</attr>
+    <attr path="//field[@name='aspect_ratio_info_present_flag']" name="managedName">
+        _aspect_ratio_info_present_flag</attr>
+    <attr path="//field[@name='bitstreamRestriction']" name="managedName">_bitstreamRestriction</attr>
+    <attr path="//field[@name='chroma_loc_info_present_flag']" name="managedName">
+        _chroma_loc_info_present_flag</attr>
+    <attr path="//field[@name='chroma_sample_loc_type_bottom_field']" name="managedName">
+        _chroma_sample_loc_type_bottom_field</attr>
+    <attr path="//field[@name='chroma_sample_loc_type_top_field']" name="managedName">
+        _chroma_sample_loc_type_top_field</attr>
+    <attr path="//field[@name='colour_description_present_flag']" name="managedName">
+        _colour_description_present_flag</attr>
+    <attr path="//field[@name='colour_primaries']" name="managedName">_colour_primaries</attr>
+    <attr path="//field[@name='fixed_frame_rate_flag']" name="managedName">_fixed_frame_rate_flag</attr>
+    <attr path="//field[@name='low_delay_hrd_flag']" name="managedName">_low_delay_hrd_flag</attr>
+    <attr path="//field[@name='matrix_coefficients']" name="managedName">_matrix_coefficients</attr>
+    <attr path="//field[@name='nalHRDParams']" name="managedName">_nalHRDParams</attr>
+    <attr path="//field[@name='num_units_in_tick']" name="managedName">_num_units_in_tick</attr>
+    <attr path="//field[@name='overscan_appropriate_flag']" name="managedName">
+        _overscan_appropriate_flag</attr>
+    <attr path="//field[@name='overscan_info_present_flag']" name="managedName">
+        _overscan_info_present_flag</attr>
+    <attr path="//field[@name='pic_struct_present_flag']" name="managedName">
+        _pic_struct_present_flag</attr>
+    <attr path="//field[@name='sar_height']" name="managedName">_sar_height</attr>
+    <attr path="//field[@name='sar_width']" name="managedName">_sar_width</attr>
+    <attr path="//field[@name='time_scale']" name="managedName">_time_scale</attr>
+    <attr path="//field[@name='timing_info_present_flag']" name="managedName">
+        _timing_info_present_flag</attr>
+    <attr path="//field[@name='transfer_characteristics']" name="managedName">
+        _transfer_characteristics</attr>
+    <attr path="//field[@name='vclHRDParams']" name="managedName">_vclHRDParams</attr>
+    <attr path="//field[@name='video_format']" name="managedName">_video_format</attr>
+    <attr path="//field[@name='video_full_range_flag']" name="managedName">_video_full_range_flag</attr>
+    <attr path="//field[@name='video_signal_type_present_flag']" name="managedName">
+        _video_signal_type_present_flag</attr>
+    <attr path="//field[@name='bottom_field_flag']" name="managedName">_bottom_field_flag</attr>
+    <attr path="//field[@name='colour_plane_id']" name="managedName">_colour_plane_id</attr>
+    <attr path="//field[@name='delta_pic_order_cnt_0']" name="managedName">_delta_pic_order_cnt_0</attr>
+    <attr path="//field[@name='delta_pic_order_cnt_1']" name="managedName">_delta_pic_order_cnt_1</attr>
+    <attr path="//field[@name='delta_pic_order_cnt_bottom']" name="managedName">
+        _delta_pic_order_cnt_bottom</attr>
+    <attr path="//field[@name='field_pic_flag']" name="managedName">_field_pic_flag</attr>
+    <attr path="//field[@name='first_mb_in_slice']" name="managedName">_first_mb_in_slice</attr>
+    <attr path="//field[@name='frame_num']" name="managedName">_frame_num</attr>
+    <attr path="//field[@name='idr_pic_id']" name="managedName">_idr_pic_id</attr>
+    <attr path="//field[@name='pic_order_cnt_lsb']" name="managedName">_pic_order_cnt_lsb</attr>
+    <attr path="//field[@name='pic_parameter_set_id']" name="managedName">_pic_parameter_set_id</attr>
+    <attr path="//field[@name='pps']" name="managedName">_pps</attr>
+    <attr path="//field[@name='slice_type']" name="managedName">_slice_type</attr>
+    <attr path="//field[@name='sps']" name="managedName">_sps</attr>
+    <attr path="//field[@name='fragmenter']" name="managedName">_fragmenter</attr>
+    <attr path="//field[@name='BUFFER']" name="managedName">BUFFER</attr>
+    <attr path="//field[@name='ctts']" name="managedName">_ctts</attr>
+    <attr path="//field[@name='decodingTimes']" name="managedName">_decodingTimes</attr>
+    <attr path="//field[@name='sdtp']" name="managedName">_sdtp</attr>
+    <attr path="//field[@name='stss']" name="managedName">_stss</attr>
+    <attr path="//field[@name='trackMetaData']" name="managedName">_trackMetaData</attr>
+</metadata>

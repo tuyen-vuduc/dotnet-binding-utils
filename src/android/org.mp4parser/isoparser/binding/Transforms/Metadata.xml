@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <attr
+        path="/api/package[@name='org.mp4parser.aj.internal.lang.reflect']/class[@name='DeclareAnnotationImpl']/method[@name='getKind' and count(parameter)=0]"
+        name="propertyName"></attr>
+    <attr
+        path="/api/package[@name='org.mp4parser.boxes.apple']/class[@name='Utf8AppleDataBox']/method[@name='writeData' and count(parameter)=0]"
+        name="visibility">protected</attr>
+    <attr
+        path="//method[@name='_parseDetails' and parent::class[@extends='org.mp4parser.support.AbstractBox'] ]"
+        name="visibility">protected</attr>
+    <attr
+        path="//method[@name='_parseDetails' and parent::class[@extends='org.mp4parser.support.AbstractFullBox'] ]"
+        name="visibility">protected</attr>
+    <attr
+        path="//method[@name='_parseDetails' and parent::class[@extends='org.mp4parser.boxes.iso14496.part12.AbstractMediaHeaderBox'] ]"
+        name="visibility">protected</attr>
+    <attr
+        path="//method[@name='_parseDetails' and parent::class[@extends='org.mp4parser.boxes.iso14496.part12.ChunkOffsetBox'] ]"
+        name="visibility">protected</attr>
+
+    <attr
+        path="//method[@name='getContentSize' and count(parameter)=0 and parent::class[@extends='org.mp4parser.support.AbstractBox'] ]"
+        name="visibility">protected</attr>
+    <attr
+        path="//method[@name='getContentSize' and count(parameter)=0 and parent::class[@extends='org.mp4parser.support.AbstractFullBox'] ]"
+        name="visibility">protected</attr>
+    <attr
+        path="//method[@name='getContentSize' and count(parameter)=0 and parent::class[@extends='org.mp4parser.boxes.iso14496.part12.AbstractMediaHeaderBox'] ]"
+        name="visibility">protected</attr>
+    <attr
+        path="//method[@name='getContentSize' and count(parameter)=0 and parent::class[@extends='org.mp4parser.boxes.iso14496.part12.ChunkOffsetBox'] ]"
+        name="visibility">protected</attr>
+
+    <attr
+        path="//method[@name='getContent' and count(parameter)=1 and parameter[1][@type='java.nio.ByteBuffer'] and parent::class[@extends='org.mp4parser.support.AbstractBox'] ]"
+        name="visibility">protected</attr>
+    <attr
+        path="//method[@name='getContent' and count(parameter)=1 and parameter[1][@type='java.nio.ByteBuffer'] and parent::class[@extends='org.mp4parser.support.AbstractFullBox'] ]"
+        name="visibility">protected</attr>
+    <attr
+        path="//method[@name='getContent' and count(parameter)=1 and parameter[1][@type='java.nio.ByteBuffer'] and parent::class[@extends='org.mp4parser.boxes.iso14496.part12.AbstractMediaHeaderBox'] ]"
+        name="visibility">protected</attr>
+    <attr
+        path="//method[@name='getContent' and count(parameter)=1 and parameter[1][@type='java.nio.ByteBuffer'] and parent::class[@extends='org.mp4parser.boxes.iso14496.part12.ChunkOffsetBox'] ]"
+        name="visibility">protected</attr>
+    <attr path="//field[@name='TYPE']" name="managedName">TYPE</attr>
+    <attr path="//field[@name='VERSION']" name="managedName">_VERSION</attr>
+    <attr path="//field[@name='content']" name="managedName">_content</attr>
+    <attr path="//field[@name='type']" name="managedName">_type</attr>
+    <attr path="//field[@name='data']" name="managedName">_data</attr>
+    <attr path="//field[@name='descriptor']" name="managedName">_descriptor</attr>
+    <attr path="//field[@name='dataReferenceIndex']" name="managedName">_dataReferenceIndex</attr>
+    <attr path="//field[@name='entries']" name="managedName">_entries</attr>
+    <attr path="//field[@name='fragmentAbsoluteDuration']" name="managedName">
+        _fragmentAbsoluteDuration</attr>
+    <attr path="//field[@name='fragmentAbsoluteTime']" name="managedName">_fragmentAbsoluteTime</attr>
+    <attr path="//field[@name='baseOffsetSize']" name="managedName">_baseOffsetSize</attr>
+    <attr path="//field[@name='indexSize']" name="managedName">_indexSize</attr>
+    <attr path="//field[@name='items']" name="managedName">_items</attr>
+    <attr path="//field[@name='lengthSize']" name="managedName">_lengthSize</attr>
+    <attr path="//field[@name='offsetSize']" name="managedName">_offsetSize</attr>
+    <attr path="//field[@name='aacScalefactorDataResilienceFlag']" name="managedName">
+        _aacScalefactorDataResilienceFlag</attr>
+    <attr path="//field[@name='aacSectionDataResilienceFlag']" name="managedName">
+        _aacSectionDataResilienceFlag</attr>
+    <attr path="//field[@name='aacSpectralDataResilienceFlag']" name="managedName">
+        _aacSpectralDataResilienceFlag</attr>
+    <attr path="//field[@name='audioObjectType']" name="managedName">_audioObjectType</attr>
+    <attr path="//field[@name='audioObjectTypeMap']" name="managedName">_audioObjectTypeMap</attr>
+    <attr path="//field[@name='channelConfiguration']" name="managedName">_channelConfiguration</attr>
+    <attr path="//field[@name='coreCoderDelay']" name="managedName">_coreCoderDelay</attr>
+    <attr path="//field[@name='dependsOnCoreCoder']" name="managedName">_dependsOnCoreCoder</attr>
+    <attr path="//field[@name='directMapping']" name="managedName">_directMapping</attr>
+    <attr path="//field[@name='eldSpecificConfig']" name="managedName">_eldSpecificConfig</attr>
+    <attr path="//field[@name='epConfig']" name="managedName">_epConfig</attr>
+    <attr path="//field[@name='erHvxcExtensionFlag']" name="managedName">_erHvxcExtensionFlag</attr>
+    <attr path="//field[@name='extensionAudioObjectType']" name="managedName">
+        _extensionAudioObjectType</attr>
+    <attr path="//field[@name='extensionChannelConfiguration']" name="managedName">
+        _extensionChannelConfiguration</attr>
+    <attr path="//field[@name='extensionFlag']" name="managedName">_extensionFlag</attr>
+    <attr path="//field[@name='extensionFlag3']" name="managedName">_extensionFlag3</attr>
+    <attr path="//field[@name='extensionSamplingFrequency']" name="managedName">
+        _extensionSamplingFrequency</attr>
+    <attr path="//field[@name='extensionSamplingFrequencyIndex']" name="managedName">
+        _extensionSamplingFrequencyIndex</attr>
+    <attr path="//field[@name='fillBits']" name="managedName">_fillBits</attr>
+    <attr path="//field[@name='frameLengthFlag']" name="managedName">_frameLengthFlag</attr>
+    <attr path="//field[@name='gaSpecificConfig']" name="managedName">_gaSpecificConfig</attr>
+    <attr path="//field[@name='hilnContMode']" name="managedName">_hilnContMode</attr>
+    <attr path="//field[@name='hilnEnhaLayer']" name="managedName">_hilnEnhaLayer</attr>
+    <attr path="//field[@name='hilnEnhaQuantMode']" name="managedName">_hilnEnhaQuantMode</attr>
+    <attr path="//field[@name='hilnFrameLength']" name="managedName">_hilnFrameLength</attr>
+    <attr path="//field[@name='hilnMaxNumLine']" name="managedName">_hilnMaxNumLine</attr>
+    <attr path="//field[@name='hilnQuantMode']" name="managedName">_hilnQuantMode</attr>
+    <attr path="//field[@name='hilnSampleRateCode']" name="managedName">_hilnSampleRateCode</attr>
+    <attr path="//field[@name='hvxcRateMode']" name="managedName">_hvxcRateMode</attr>
+    <attr path="//field[@name='hvxcVarMode']" name="managedName">_hvxcVarMode</attr>
+    <attr path="//field[@name='innerSyncExtensionType']" name="managedName">_innerSyncExtensionType</attr>
+    <attr path="//field[@name='isBaseLayer']" name="managedName">_isBaseLayer</attr>
+    <attr path="//field[@name='layerNr']" name="managedName">_layerNr</attr>
+    <attr path="//field[@name='layer_length']" name="managedName">_layer_length</attr>
+    <attr path="//field[@name='numOfSubFrame']" name="managedName">_numOfSubFrame</attr>
+    <attr path="//field[@name='origExtensionAudioObjectType']" name="managedName">
+        _origExtensionAudioObjectType</attr>
+    <attr path="//field[@name='originalAudioObjectType']" name="managedName">
+        _originalAudioObjectType</attr>
+    <attr path="//field[@name='outerSyncExtensionType']" name="managedName">_outerSyncExtensionType</attr>
+    <attr path="//field[@name='paraExtensionFlag']" name="managedName">_paraExtensionFlag</attr>
+    <attr path="//field[@name='parametricSpecificConfig']" name="managedName">
+        _parametricSpecificConfig</attr>
+    <attr path="//field[@name='paraMode']" name="managedName">_paraMode</attr>
+    <attr path="//field[@name='psPresentFlag']" name="managedName">_psPresentFlag</attr>
+    <attr path="//field[@name='sacPayloadEmbedding']" name="managedName">_sacPayloadEmbedding</attr>
+    <attr path="//field[@name='samplingFrequency']" name="managedName">_samplingFrequency</attr>
+    <attr path="//field[@name='samplingFrequencyIndex']" name="managedName">_samplingFrequencyIndex</attr>
+    <attr path="//field[@name='samplingFrequencyIndexMap']" name="managedName">
+        _samplingFrequencyIndexMap</attr>
+    <attr path="//field[@name='sbrPresentFlag']" name="managedName">_sbrPresentFlag</attr>
+    <attr path="//field[@name='syncExtensionType']" name="managedName">_syncExtensionType</attr>
+    <attr path="//field[@name='var_ScalableFlag']" name="managedName">_var_ScalableFlag</attr>
+</metadata>
