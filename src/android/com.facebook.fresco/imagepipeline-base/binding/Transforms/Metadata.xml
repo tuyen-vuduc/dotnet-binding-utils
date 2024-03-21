@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <attr path="//field[@name='from']" name="managedName">_from</attr>
+    <attr path="//field[@name='to']" name="managedName">_to</attr>
+    <attr path="//field[@name='TO_END_OF_CONTENT']" name="managedName">TO_END_OF_CONTENT</attr>
+</metadata>
