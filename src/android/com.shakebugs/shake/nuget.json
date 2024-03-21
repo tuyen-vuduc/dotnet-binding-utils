@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Shakebugs.Shake",
   "name": "Shake",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }
