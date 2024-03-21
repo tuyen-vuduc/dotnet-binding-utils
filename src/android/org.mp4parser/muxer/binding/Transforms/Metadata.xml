@@ -1,5 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+    <attr
+        path="//method[@name='get' and count(parameter)=1 and parameter[1][@type='int'] and parent::class[@extends='java.util.AbstractList'] ]"
+        name="managedName">GetX</attr>
+    <attr path="//field[@name='scalingList']" name="managedName">_scalingList</attr>
+    <attr path="//field[@name='useDefaultScalingMatrixFlag']" name="managedName">
+        _useDefaultScalingMatrixFlag</attr>
     <attr path="//field[@name='debug']" name="managedName">_debug</attr>
     <attr path="//field[@name='aspect_ratio']" name="managedName">_aspect_ratio</attr>
     <attr path="//field[@name='aspect_ratio_info_present_flag']" name="managedName">
