@@ -23,7 +23,7 @@ public class ArtifactModel : IEquatable<ArtifactModel>
         Version.NugetVersion}-{
         DateTime.Today.DayOfYear}{
         DateTime.Now.TimeOfDay.Hours:D2}";
-    public string RepositoryUrl => $"https://github.com/tuyen-vuduc/dotnet-binding-utils/tree/master/{Group.Id}/{Nuget.ArtifactId}";
+    public string RepositoryUrl => $"https://github.com/tuyen-vuduc/dotnet-binding-utils/tree/main/src/android/{Group.Id}/{Nuget.ArtifactId}";
     public string Packaging { get; set; }
     public string[] Files { get; set; }
 
