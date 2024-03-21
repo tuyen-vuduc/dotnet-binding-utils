@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Nodes;
+using Microsoft.AspNetCore.Http.Features;
 
 namespace Binderator.Gradle;
 
@@ -130,7 +131,7 @@ public static class ArtifactScanner
             if (skippedArtifacts.Contains(xartifactId)) continue;
 
             var xgroupId = dependency.SelectSingleNode("descendant::mvn:groupId", nsmgr).InnerText;
-            if(skippedGroups.Contains(xgroupId)) continue;
+            if (skippedGroups.Contains(xgroupId)) continue;
 
             if (string.IsNullOrWhiteSpace(scope))
             {
@@ -184,7 +185,35 @@ public static class ArtifactScanner
                 basePath, ref artifacts);
         }
 
+        var fixedVersionJsonPath = Path.Combine(
+            basePath,
+            artifact.RelativeFolderPath,
+            $"{artifact.Version.SemanticVersion.ToNormalizedString()}.fixed.json"
+            );
+        var nonExistingFixedVersions = new List<KeyValuePair<string, string>>();
+        if (File.Exists(fixedVersionJsonPath))
+        {
+            var fixedVersions = Util.Deserialize<Dictionary<string, string>>(
+                File.OpenRead(fixedVersionJsonPath)
+            ); 
+
+            foreach (var v in fixedVersions)
+            {
+                var index = artifacts.FindIndex(x => x.Nuget.PackageId == v.Key);
+
+                if (index >= 0)
+                {
+                    artifacts[index].Version.NugetVersion = NuGetVersion.Parse(v.Value);
+                }
+                else
+                {
+                    nonExistingFixedVersions.Add(v);
+                }
+            }
+        }
+
         artifact.ParentArtifacts = parentArtifactIds.ToArray();
+        artifact.FixedVersions = nonExistingFixedVersions.ToArray();
 
         return artifacts;
     }
@@ -231,7 +260,7 @@ public static class ArtifactScanner
                 }
             }
 
-            return null;
+            return existingArtifact;
         }
 
         var parentArtifact = FindExternalArtifact(basePath, xgroupId, xartifactId, artifactVersion);
@@ -331,7 +360,7 @@ public static class ArtifactScanner
     private static ArtifactModel FindExternalArtifact(string basePath, string xgroupId, string xartifactId, SemanticVersion xversion)
     {
         ArtifactModel artifact = Util.FromArtifactString(basePath, $"{xgroupId}:{xartifactId}:{xversion}", false);
-        
+
         if (!string.IsNullOrWhiteSpace(artifact.Nuget?.Relocated))
         {
             var relocatedParts = artifact.Nuget.Relocated.Split(':');

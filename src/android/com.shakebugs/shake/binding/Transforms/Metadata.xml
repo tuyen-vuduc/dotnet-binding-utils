@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <attr path="//field[@name='ID']" name="managedName">ID</attr>
+    <attr path="//field[@name='MESSAGE']" name="managedName">MESSAGE</attr>
+    <attr path="//field[@name='TITLE']" name="managedName">TITLE</attr>
+    <attr path="//field[@name='USER']" name="managedName">USER</attr>
+    <attr path="//field[@name='eventType']" name="managedName">_eventType</attr>
+    <attr path="//field[@name='timestamp']" name="managedName">_timestamp</attr>
+    <attr path="//field[@name='TYPE']" name="managedName">TYPE</attr>
+    <remove-node path="//implements[@name='com.shakebugs.shake.internal.s4']" />
+    <remove-node path="//class[@name='ShakeActivity']/method[string-length(@name) = 1]" />
+    <remove-node path="//class[@name='BackgroundObserver']/method[string-length(@name) = 1]" />
+    <remove-node path="//class[@name='PaletteView']/method[string-length(@name) = 1]" />
+    <remove-node path="//method[parameter[@type='com.shakebugs.shake.internal.view.PaletteView.i']]" />
+    <remove-node path="//method[@return='com.shakebugs.shake.internal.view.PaletteView.i']" />
+    <remove-node path="/api/package[@name='com.shakebugs.shake.internal.domain.models']/class[@name='ActivityHistoryEvent']/implements[@name='java.lang.Comparable']" />
+    <attr path="//field[@name='timeOccurred']" name="managedName">timeOccurred</attr>
+</metadata>
