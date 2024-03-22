@@ -140,12 +140,13 @@
           Condition="Exists('$(UserHome)/@(Model.Artifact.SourcesJarRelativeFilePath)')"
           />
   }
+  @* https://github.com/xamarin/java.interop/issues/1028#issuecomment-1222895957
   @if (!string.IsNullOrEmpty(Model.Artifact.JavadocJarRelativeFilePath)) {
     <JavaDocJar
           Include="$(UserHome)/@(Model.Artifact.JavadocJarRelativeFilePath)"
           Condition="Exists('$(UserHome)/@(Model.Artifact.JavadocJarRelativeFilePath)')"
           />
-  }
+  } *@
   </ItemGroup>
 @{
   var homeFolder = Xamarin.Build.Download.Platform.IsWindows
