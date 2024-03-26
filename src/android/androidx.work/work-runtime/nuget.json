@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Work.Runtime",
+  "name": "work-runtime",
   "dependencyOnly": true,
   "versionMappings": []
 }

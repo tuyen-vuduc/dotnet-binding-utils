@@ -1,6 +1,6 @@
 {
   "packageId": "DriveSmart.DSTracker",
   "name": "DS-Tracker",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "versionMappings": []
 }
