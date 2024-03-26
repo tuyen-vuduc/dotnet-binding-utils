@@ -37,7 +37,7 @@ public class GradleSync : AsyncTask, Xamarin.Build.Download.ILogger
             return true;
         }
 
-        System.Threading.Tasks.Task.Run(async () =>
+        Task.Run(async () =>
         {
             try
             {
@@ -418,19 +418,6 @@ android.enableJetifier=true
         return false;
     }
 
-    async Task<int> ExtractTarOnWindows(StringWriter output, CancellationToken token)
-    {
-        var psi = CreateExtractionArgs(GradleAssetsPath, TempDir, VsInstallRoot, true);
-        var returnCode = await ProcessUtils.StartProcess(psi, output, output, token);
-        if (returnCode == 7)
-        {
-            LogMessage("7Zip command line parse did not work.  Trying without -snl-");
-            psi = CreateExtractionArgs(GradleAssetsPath, TempDir, VsInstallRoot, false);
-            returnCode = await ProcessUtils.StartProcess(psi, output, output, token);
-        }
-        return returnCode;
-    }
-
     ProcessStartInfo CreateExtractionArgs(string file, string contentDir, string vsInstallRoot, bool ignoreTarSymLinks = false)
     {
         ProcessArgumentBuilder args = Platform.IsWindows
@@ -488,14 +475,6 @@ android.enableJetifier=true
     {
         var args = new ProcessArgumentBuilder("/usr/bin/unzip");
         args.Add("-o", "-q");
-        args.AddQuoted(file);
-        return args;
-    }
-
-    static ProcessArgumentBuilder BuildTgzExtractionArgs(string file, string contentDir)
-    {
-        var args = new ProcessArgumentBuilder("/usr/bin/tar");
-        args.Add("-x", "-f");
         args.AddQuoted(file);
         return args;
     }
