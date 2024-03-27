@@ -215,7 +215,6 @@ android.enableJetifier=true
         LogMessage(defaultGradleSyncContent);
 
         const string DependenciesSectionStart = "dependencies {";
-        var additionalRepositories = repositoriesStringBuilder.ToString();
         var indexOfDependenciesSectionStart = defaultGradleSyncContent.LastIndexOf(DependenciesSectionStart);
         var insertionPosition = indexOfDependenciesSectionStart + DependenciesSectionStart.Length;
 
