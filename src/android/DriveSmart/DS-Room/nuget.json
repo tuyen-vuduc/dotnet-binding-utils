@@ -1,6 +1,6 @@
 {
   "packageId": "DriveSmart.DSRoom",
   "name": "DS-Room",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "versionMappings": []
 }
