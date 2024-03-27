@@ -201,7 +201,7 @@ public static class ArtifactScanner
             {
                 var index = artifacts.FindIndex(x => x.Nuget.PackageId == v.Key);
 
-                if (index >= 0)
+                if (index >= 0 && parentArtifactIds.Any(x => x.Key == v.Key))
                 {
                     artifacts[index].Version.NugetVersion = NuGetVersion.Parse(v.Value);
                 }
