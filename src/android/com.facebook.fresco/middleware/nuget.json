@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Facebook.Fresco.Middleware",
   "name": "middleware",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }

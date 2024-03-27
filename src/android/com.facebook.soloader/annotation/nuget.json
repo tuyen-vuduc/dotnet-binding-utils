@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Facebook.Soloader.Annotation",
   "name": "annotation",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }

@@ -1,6 +1,6 @@
 {
   "packageId": "Org.Jetbrains.Kotlin.KotlinAnnotationsJvm",
   "name": "kotlin-annotations-jvm",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }
