@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Project>
+	<PropertyGroup>
+		<_Shake>16.2.3</_Shake>
+		<_NugetSuffix></_NugetSuffix>
+		<_ShakeAssemblyName>Shake.iOS, Version=$(_Shake), Culture=neutral, PublicKeyToken=null </_ShakeAssemblyName>
+		<_ShakeItemsFolder>Shake-$(_Shake)$(_NugetSuffix)</_ShakeItemsFolder>
+		<_ShakeSDKBaseFolder>$(XamarinBuildDownloadDir)$(_ShakeItemsFolder)\</_ShakeSDKBaseFolder>
+	</PropertyGroup>
+  <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+    <XamarinBuildDownload Include="$(_ShakeItemsFolder)">
+      <Url>https://github.com/shakebugs/shake-ios/archive/refs/tags/$(_Shake).zip</Url>
+      <Kind>Zip</Kind>
+    </XamarinBuildDownload>
+    <NativeReference Include="$(_ShakeSDKBaseFolder)shake-ios-$(_Shake)\Sources\Shake.xcframework">
+      <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+  </ItemGroup>
+</Project>

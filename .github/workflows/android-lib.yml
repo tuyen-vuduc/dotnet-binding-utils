@@ -1,10 +1,10 @@
-name: Publish Android Library
+name: Android Binding Libraries
 run-name: ${{ inputs.LIB_ARTIFACT }} 🚀 NuGet
 on:
   workflow_dispatch:
     inputs:
       LIB_ARTIFACT:
-        description: 'Folder of Android library to publish'
+        description: 'Android library to publish'
         required: true
         type: choice
         options: 
