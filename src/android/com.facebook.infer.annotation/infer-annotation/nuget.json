@@ -1,0 +1,6 @@
+{
+  "packageId": "Com.Facebook.Infer.Annotation.InferAnnotation",
+  "name": "infer-annotation",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

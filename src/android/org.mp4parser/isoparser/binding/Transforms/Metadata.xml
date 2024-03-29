@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+  <attr path="//field[@name='flags']"
+        name="managedName">_flags</attr>
+  <attr path="//field[@name='version']"
+        name="managedName">_version</attr>
     <attr
         path="/api/package[@name='org.mp4parser.aj.internal.lang.reflect']/class[@name='DeclareAnnotationImpl']/method[@name='getKind' and count(parameter)=0]"
         name="propertyName"></attr>

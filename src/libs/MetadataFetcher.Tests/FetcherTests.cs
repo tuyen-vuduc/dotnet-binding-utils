@@ -106,7 +106,6 @@ public class FetcherTests
     [InlineData("Xamarin.Android.Glide.GifDecoder", "com.github.bumptech.glide", "gifdecoder")]
     [InlineData("Xamarin.Android.Glide", "com.github.bumptech.glide", "glide")]
     [InlineData("Xamarin.ReLinker", "com.getkeepsafe.relinker", "relinker")]
-    [InlineData("Xamarin.Android.Facebook.Conceal", "com.facebook.conceal", "conceal")]
     [InlineData("Xamarin.Amplitude.Android", "com.amplitude", "android-sdk")]
     [InlineData("Xamarin.AndroidX.SlidingPaneLayout", "androidx.slidingpanelayout", "slidingpanelayout")]
     [InlineData("Xamarin.AndroidX.Print", "androidx.print", "print")]

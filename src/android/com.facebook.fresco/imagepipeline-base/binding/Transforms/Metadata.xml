@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <attr path="//field[@name='from']" name="managedName">_from</attr>
+    <attr path="//field[@name='to']" name="managedName">_to</attr>
+    <attr path="//field[@name='TO_END_OF_CONTENT']" name="managedName">TO_END_OF_CONTENT</attr>
+    <remove-node path="/api/package[@name='com.facebook.imagepipeline.image']/interface[@name='CloseableImage']/implements[@name='com.facebook.fresco.middleware.HasExtraData']" />
+    <remove-node path="/api/package[@name='com.facebook.imagepipeline.image']/interface[@name='CloseableImage']/implements[@name='com.facebook.imagepipeline.image.ImageInfo']" />
+    <!--<remove-node path="/api/package[@name='com.facebook.imagepipeline.image']/interface[@name='CloseableImage']/method[@name='getHeight' and count(parameter)=0]" />
+    <remove-node path="/api/package[@name='com.facebook.imagepipeline.image']/interface[@name='CloseableImage']/method[@name='getWidth' and count(parameter)=0]" />-->
+</metadata>

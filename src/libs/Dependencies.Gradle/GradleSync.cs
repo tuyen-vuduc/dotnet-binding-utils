@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Security.Cryptography;
 using System.Text;
 using Microsoft.Build.Framework;
 using Xamarin.Build.Download;
@@ -37,8 +38,21 @@ public class GradleSync : AsyncTask, Xamarin.Build.Download.ILogger
             return true;
         }
 
-        System.Threading.Tasks.Task.Run(async () =>
+        Task.Run(async () =>
         {
+            var md5 = MD5Hash(string.Join(",", implementations.Select(x => x.Id).OrderBy(x => x)));
+            var md5File = Path.Combine(TempDir, ".md5");
+
+            if (File.Exists(md5File))
+            {
+                var lastMd5 = File.ReadAllText(md5File);
+                if (lastMd5 == md5)
+                {
+                    Complete();
+                    return;
+                }
+            }
+
             try
             {
                 LogMessage("GradleSyncTempDir: " + TempDir);
@@ -63,7 +77,10 @@ public class GradleSync : AsyncTask, Xamarin.Build.Download.ILogger
 
                 var unpacked = await MakeSureLibraryIsInPlace(Token);
 
-                if (!unpacked) return;
+                if (!unpacked)
+                {
+                    return;
+                }
 
                 OverrideLocalProperties();
 
@@ -76,6 +93,8 @@ public class GradleSync : AsyncTask, Xamarin.Build.Download.ILogger
                 AddDependencies(implementations);
 
                 await ExecuteGradleBuild();
+
+                File.WriteAllText(md5File, md5);
             }
             catch (Exception ex)
             {
@@ -196,7 +215,6 @@ android.enableJetifier=true
         LogMessage(defaultGradleSyncContent);
 
         const string DependenciesSectionStart = "dependencies {";
-        var additionalRepositories = repositoriesStringBuilder.ToString();
         var indexOfDependenciesSectionStart = defaultGradleSyncContent.LastIndexOf(DependenciesSectionStart);
         var insertionPosition = indexOfDependenciesSectionStart + DependenciesSectionStart.Length;
 
@@ -418,19 +436,6 @@ android.enableJetifier=true
         return false;
     }
 
-    async Task<int> ExtractTarOnWindows(StringWriter output, CancellationToken token)
-    {
-        var psi = CreateExtractionArgs(GradleAssetsPath, TempDir, VsInstallRoot, true);
-        var returnCode = await ProcessUtils.StartProcess(psi, output, output, token);
-        if (returnCode == 7)
-        {
-            LogMessage("7Zip command line parse did not work.  Trying without -snl-");
-            psi = CreateExtractionArgs(GradleAssetsPath, TempDir, VsInstallRoot, false);
-            returnCode = await ProcessUtils.StartProcess(psi, output, output, token);
-        }
-        return returnCode;
-    }
-
     ProcessStartInfo CreateExtractionArgs(string file, string contentDir, string vsInstallRoot, bool ignoreTarSymLinks = false)
     {
         ProcessArgumentBuilder args = Platform.IsWindows
@@ -492,11 +497,16 @@ android.enableJetifier=true
         return args;
     }
 
-    static ProcessArgumentBuilder BuildTgzExtractionArgs(string file, string contentDir)
+    static string MD5Hash(string input)
     {
-        var args = new ProcessArgumentBuilder("/usr/bin/tar");
-        args.Add("-x", "-f");
-        args.AddQuoted(file);
-        return args;
+        StringBuilder hash = new StringBuilder();
+        MD5CryptoServiceProvider md5provider = new MD5CryptoServiceProvider();
+        byte[] bytes = md5provider.ComputeHash(new UTF8Encoding().GetBytes(input));
+
+        for (int i = 0; i < bytes.Length; i++)
+        {
+            hash.Append(bytes[i].ToString("x2"));
+        }
+        return hash.ToString();
     }
 }

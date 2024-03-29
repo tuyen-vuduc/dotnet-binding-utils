@@ -1,0 +1,6 @@
+{
+  "packageId": "Com.Facebook.Fresco.Soloader",
+  "name": "soloader",
+  "dependencyOnly": false,
+  "versionMappings": []
+}

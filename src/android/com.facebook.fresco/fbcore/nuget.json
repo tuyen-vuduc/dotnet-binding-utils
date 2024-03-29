@@ -1,0 +1,6 @@
+{
+  "packageId": "Com.Facebook.Fresco.Fbcore",
+  "name": "fbcore",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

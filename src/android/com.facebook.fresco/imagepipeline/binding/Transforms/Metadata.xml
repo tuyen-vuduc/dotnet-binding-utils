@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+
+  <remove-node
+    path="/api/package[@name='com.facebook.imagepipeline.producers']/interface[@name='ProducerContext']/implements[@name='com.facebook.fresco.middleware.HasExtraData']" />
+  <attr path="//field[@name='PRODUCER_NAME']"
+        name="managedName">PRODUCER_NAME</attr>
+  <remove-node path="//class[@name='MultiplexProducer.Multiplexer']" />
+  <remove-node path="//method[@name='getExistingMultiplexer']" />
+  <attr path="//field[@name='allowDelay']"
+        name="managedName">_allowDelay</attr>
+  <attr path="//field[@name='allowProgressiveOnPrefetch']"
+        name="managedName">
+    _allowProgressiveOnPrefetch
+  </attr>
+  <attr path="//field[@name='animatedCacheMemoryPercentage']"
+        name="managedName">
+    _animatedCacheMemoryPercentage
+  </attr>
+  <attr path="//field[@name='animationRenderFpsLimit']"
+        name="managedName">
+    _animationRenderFpsLimit
+  </attr>
+  <attr path="//field[@name='balancedStrategyPreparationMs']"
+        name="managedName">
+    _balancedStrategyPreparationMs
+  </attr>
+  <attr path="//field[@name='bitmapPrepareToDrawForPrefetch']"
+        name="managedName">
+    _bitmapPrepareToDrawForPrefetch
+  </attr>
+  <attr path="//field[@name='bitmapPrepareToDrawMaxSizeBytes']"
+        name="managedName">
+    _bitmapPrepareToDrawMaxSizeBytes
+  </attr>
+  <attr path="//field[@name='bitmapPrepareToDrawMinSizeBytes']"
+        name="managedName">
+    _bitmapPrepareToDrawMinSizeBytes
+  </attr>
+  <attr path="//field[@name='cancelDecodeOnCacheMiss']"
+        name="managedName">
+    _cancelDecodeOnCacheMiss
+  </attr>
+  <attr path="//field[@name='decodeCancellationEnabled']"
+        name="managedName">
+    _decodeCancellationEnabled
+  </attr>
+  <attr path="//field[@name='downsampleIfLargeBitmap']"
+        name="managedName">
+    _downsampleIfLargeBitmap
+  </attr>
+  <attr path="//field[@name='downscaleFrameToDrawableDimensions']"
+        name="managedName">
+    _downscaleFrameToDrawableDimensions
+  </attr>
+  <attr path="//field[@name='encodedCacheEnabled']"
+        name="managedName">_encodedCacheEnabled</attr>
+  <attr path="//field[@name='ensureTranscoderLibraryLoaded']"
+        name="managedName">
+    _ensureTranscoderLibraryLoaded
+  </attr>
+  <attr path="//field[@name='experimentalThreadHandoffQueueEnabled']"
+        name="managedName">
+    _experimentalThreadHandoffQueueEnabled
+  </attr>
+  <attr path="//field[@name='gingerbreadDecoderEnabled']"
+        name="managedName">
+    _gingerbreadDecoderEnabled
+  </attr>
+  <attr path="//field[@name='handOffOnUiThreadOnly']"
+        name="managedName">_handOffOnUiThreadOnly</attr>
+  <attr path="//field[@name='isDiskCacheProbingEnabled']"
+        name="managedName">
+    _isDiskCacheProbingEnabled
+  </attr>
+  <attr path="//field[@name='isEncodedMemoryCacheProbingEnabled']"
+        name="managedName">
+    _isEncodedMemoryCacheProbingEnabled
+  </attr>
+  <attr path="//field[@name='isPartialImageCachingEnabled']"
+        name="managedName">
+    _isPartialImageCachingEnabled
+  </attr>
+  <attr path="//field[@name='keepCancelledFetchAsLowPriority']"
+        name="managedName">
+    _keepCancelledFetchAsLowPriority
+  </attr>
+  <attr path="//field[@name='lazyDataSource']"
+        name="managedName">_lazyDataSource</attr>
+  <attr path="//field[@name='maxBitmapSize']"
+        name="managedName">_maxBitmapSize</attr>
+  <attr path="//field[@name='memoryType']"
+        name="managedName">_memoryType</attr>
+  <attr path="//field[@name='nativeCodeDisabled']"
+        name="managedName">_nativeCodeDisabled</attr>
+  <attr path="//field[@name='platformDecoderOptions']"
+        name="managedName">_platformDecoderOptions</attr>
+  <attr path="//field[@name='prefetchShortcutEnabled']"
+        name="managedName">
+    _prefetchShortcutEnabled
+  </attr>
+  <attr path="//field[@name='producerFactoryMethod']"
+        name="managedName">_producerFactoryMethod</attr>
+  <attr path="//field[@name='shouldIgnoreCacheSizeMismatch']"
+        name="managedName">
+    _shouldIgnoreCacheSizeMismatch
+  </attr>
+  <attr path="//field[@name='shouldStoreCacheEntrySize']"
+        name="managedName">
+    _shouldStoreCacheEntrySize
+  </attr>
+  <attr path="//field[@name='shouldUseDecodingBufferHelper']"
+        name="managedName">
+    _shouldUseDecodingBufferHelper
+  </attr>
+  <attr path="//field[@name='suppressBitmapPrefetchingSupplier']"
+        name="managedName">
+    _suppressBitmapPrefetchingSupplier
+  </attr>
+  <attr path="//field[@name='trackedKeysSize']"
+        name="managedName">_trackedKeysSize</attr>
+  <attr path="//field[@name='useBalancedAnimationStrategy']"
+        name="managedName">
+    _useBalancedAnimationStrategy
+  </attr>
+  <attr path="//field[@name='useBitmapPrepareToDraw']"
+        name="managedName">_useBitmapPrepareToDraw</attr>
+  <attr path="//field[@name='useDownsamplingRatioForResizing']"
+        name="managedName">
+    _useDownsamplingRatioForResizing
+  </attr>
+  <attr path="//field[@name='webpBitmapFactory']"
+        name="managedName">_webpBitmapFactory</attr>
+  <attr path="//field[@name='webpErrorLogger']"
+        name="managedName">_webpErrorLogger</attr>
+  <attr path="//field[@name='webpSupportEnabled']"
+        name="managedName">_webpSupportEnabled</attr>
+  <attr
+    path="/api/package[@name='com.facebook.imagepipeline.datasource']/class[@name='BaseBitmapReferenceDataSubscriber']/method[@name='onNewResultImpl' and count(parameter)=1 and parameter[1][@type='com.facebook.datasource.DataSource&lt;com.facebook.common.references.CloseableReference&lt;com.facebook.imagepipeline.image.CloseableImage&gt;&gt;']]"
+    name="visibility">protected</attr>
+  <attr path="//method[@name='alloc' and count(parameter)=1 and parameter[1][@type='int'] and parent::class[@extends='com.facebook.imagepipeline.memory.BasePool']]"
+        name="managedName">AllocX</attr>
+  <attr
+    path="/api/package[@name='com.facebook.imagepipeline.datasource']/class[@name='BaseBitmapDataSubscriber']/method[@name='onNewResultImpl' and count(parameter)=1 and parameter[1][@type='com.facebook.datasource.DataSource&lt;com.facebook.common.references.CloseableReference&lt;com.facebook.imagepipeline.image.CloseableImage&gt;&gt;']]"
+    name="visibility">protected</attr>
+  <attr
+    path="/api/package[@name='com.facebook.imagepipeline.datasource']/class[@name='BaseListBitmapDataSubscriber']/method[@name='onNewResultImpl' and count(parameter)=1 and parameter[1][@type='com.facebook.datasource.DataSource&lt;java.util.List&lt;com.facebook.common.references.CloseableReference&lt;com.facebook.imagepipeline.image.CloseableImage&gt;&gt;&gt;']]"
+    name="visibility">protected</attr>
+  <attr
+    path="/api/package[@name='com.facebook.imagepipeline.memory']/interface[@name='PoolBackend']"
+    name="visibility">public</attr>
+  <add-node path="/api/package[@name='com.facebook.imagepipeline.memory']/class[@name='LruBucketsPoolBackend']">
+    <method abstract="true"
+            deprecated="not deprecated"
+            final="false"
+            name="getSize"
+            jni-signature="(Ljava/lang/Object;)I"
+            bridge="false"
+            native="false"
+            return="int"
+            jni-return="I"
+            static="false"
+            synchronized="false"
+            synthetic="false"
+            visibility="public">
+      <parameter name="p0"
+                 type="T"
+                 jni-type="TT;" />
+    </method>
+  </add-node>
+</metadata>
