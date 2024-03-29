@@ -3,6 +3,18 @@ using System.Collections.Generic;
 using Android.Runtime;
 using Java.Interop;
 
+namespace Com.Facebook.Imagepipeline.Cache
+{
+    partial class DefaultEncodedMemoryCacheParamsSupplier
+    {
+        global::Java.Lang.Object global::Com.Facebook.Common.Internal.ISupplier.Get() => Get();
+    }
+    partial class DefaultBitmapMemoryCacheParamsSupplier
+    {
+        global::Java.Lang.Object global::Com.Facebook.Common.Internal.ISupplier.Get() => Get();
+    }
+}
+
 namespace Com.Facebook.Imagepipeline.Producers
 {
     partial class BaseProducerContext
@@ -183,21 +195,31 @@ namespace Com.Facebook.Imagepipeline.Memory
     {
         unsafe void global::Com.Facebook.Common.References.IResourceReleaser.Release(global::Java.Lang.Object? value)
             => Release(value as global::Android.Graphics.Bitmap);
+
+        global::Java.Lang.Object global::Com.Facebook.Common.Memory.IPool.Get(int index)
+            => Get(index);
+        void global::Com.Facebook.Common.Memory.IPool.Release(global::Java.Lang.Object obj)
+            => Release(obj as global::Java.Nio.ByteBuffer);
     }
     partial class LruBitmapPool
     {
         unsafe void global::Com.Facebook.Common.References.IResourceReleaser.Release(global::Java.Lang.Object? value)
             => Release(value as global::Android.Graphics.Bitmap);
+
+        global::Java.Lang.Object global::Com.Facebook.Common.Memory.IPool.Get(int index)
+            => Get(index);
+        void global::Com.Facebook.Common.Memory.IPool.Release(global::Java.Lang.Object obj)
+            => Release(obj as global::Java.Nio.ByteBuffer);
     }
     partial class DummyTrackingInUseBitmapPool
     {
         unsafe void global::Com.Facebook.Common.References.IResourceReleaser.Release(global::Java.Lang.Object? value)
             => Release(value as global::Android.Graphics.Bitmap);
 
-		global::Java.Lang.Object global::AndroidX.Core.Util.Pools.IPool.Get(int index)
-			=> Get(index);
-		bool global::AndroidX.Core.Util.Pools.IPool.Release(global::Java.Lang.Object obj)
-			=> Release(obj as global::Java.Nio.ByteBuffer);
+        global::Java.Lang.Object global::Com.Facebook.Common.Memory.IPool.Get(int index)
+            => Get(index);
+        void global::Com.Facebook.Common.Memory.IPool.Release(global::Java.Lang.Object obj)
+            => Release(obj as global::Java.Nio.ByteBuffer);
     }
 
     partial class BucketsBitmapPool
