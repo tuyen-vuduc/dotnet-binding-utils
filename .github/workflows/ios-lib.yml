@@ -38,7 +38,7 @@ jobs:
     
     - name: Set default Xamarin SDK versions
       run: |
-        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=16.4
+        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=16.2
 
     - name: Setup .NET Core SDK 7.0.101
       uses: actions/setup-dotnet@v3
