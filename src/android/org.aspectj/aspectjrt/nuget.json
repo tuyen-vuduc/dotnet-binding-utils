@@ -1,6 +1,6 @@
 {
   "packageId": "Org.Aspectj.Aspectjrt",
   "name": "aspectjrt",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }

@@ -1,6 +1,6 @@
 {
   "packageId": "Org.Slf4j.Slf4jApi",
   "name": "slf4j-api",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }
