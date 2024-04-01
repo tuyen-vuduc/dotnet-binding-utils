@@ -1,0 +1,6 @@
+{
+  "packageId": "Com.Facebook.Android.FacebookMessenger",
+  "name": "facebook-messenger",
+  "dependencyOnly": false,
+  "versionMappings": []
+}

@@ -84,7 +84,7 @@ public static class Util
     }
     private static VersionModel FetchVersionInfo(string basePath, string groupId, string artifactId, string versionString, bool overriding = false)
     {
-        bool withoutPatch = false;
+        bool? withoutPatch = null;
         if (!SemanticVersion.TryParse(versionString, out var semanticVersion))
         {
             // TODO Given version isn't always semantic
