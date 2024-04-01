@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using NuGet.Versioning;
 
 class MetadataDto {
@@ -26,4 +27,10 @@ class VersionMappingDto
 enum VersionMappingMethod {
     Prefix,
     CombinedToMinor
+}
+public record VersionDto
+{
+    public int Revision { get; set; }
+    public NuGetVersion NugetVersion { get; set; }
+    public bool? WithoutPatch { get; set; }
 }

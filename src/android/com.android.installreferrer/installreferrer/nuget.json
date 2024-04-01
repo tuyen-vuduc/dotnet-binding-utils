@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Android.Installreferrer.Installreferrer",
   "name": "installreferrer",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }
