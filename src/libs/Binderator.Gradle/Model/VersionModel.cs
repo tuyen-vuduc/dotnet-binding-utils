@@ -9,4 +9,5 @@ public record VersionModel
     public int Revision { get; set; }
     public SemanticVersion FallbackVersion { get; set; }
     public NuGetVersion NugetVersion { get; set; }
+    public bool WithoutPatch { get; set; }
 }

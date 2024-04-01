@@ -84,9 +84,16 @@ public static class Util
     }
     private static VersionModel FetchVersionInfo(string basePath, string groupId, string artifactId, string versionString, bool overriding = false)
     {
+        bool withoutPatch = false;
         if (!SemanticVersion.TryParse(versionString, out var semanticVersion))
         {
-            throw new InvalidOperationException("You must provide a valid version string.");
+            // TODO Given version isn't always semantic
+            if (!SemanticVersion.TryParse(versionString + ".0", out semanticVersion))
+            {
+                throw new InvalidOperationException("You must provide a valid version string.");
+            }
+
+            withoutPatch = true;
         }
 
         var versionJsonPath = Path.Combine(basePath, "src", "android", groupId, artifactId, $"{semanticVersion.ToNormalizedString()}.json");
@@ -110,6 +117,7 @@ public static class Util
         if (version is not null)
         {
             version.SemanticVersion = semanticVersion;
+            version.WithoutPatch = withoutPatch;
 
             if (version.NugetVersion is null)
             {
