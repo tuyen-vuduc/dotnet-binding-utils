@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Facebook.Android.FacebookBolts",
   "name": "facebook-bolts",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "versionMappings": []
 }
