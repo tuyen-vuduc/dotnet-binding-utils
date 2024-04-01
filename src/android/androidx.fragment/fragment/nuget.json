@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Fragment",
+  "name": "fragment",
   "dependencyOnly": true,
   "versionMappings": []
 }
