@@ -1,3 +1,4 @@
+using NuGet.Versioning;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -122,11 +123,20 @@ public static class Fetcher
                 folderPath,
                 artifactVersion + ".json"
             );
-            var artifactVersionMetadataInJson = JsonSerializer.Serialize(new
-            {
-                revision = latestVersion.Revision,
-                nugetVersion = nugetVersion,
-            }, jsonSerializerOptions);
+            VersionDto? version = File.Exists(artifactVersionPath) 
+                ? JsonSerializer.Deserialize<VersionDto>(
+                    File.ReadAllText(artifactVersionPath),
+                    jsonSerializerOptions)
+                : new VersionDto();
+            version.Revision = latestVersion.Revision;
+            version.NugetVersion = string.IsNullOrWhiteSpace(nugetVersion)
+                ? null
+                : NuGetVersion.Parse(nugetVersion);
+
+            var artifactVersionMetadataInJson = JsonSerializer.Serialize(
+                version,
+                jsonSerializerOptions);
+
             File.WriteAllText(artifactVersionPath, artifactVersionMetadataInJson);
         }
     }
