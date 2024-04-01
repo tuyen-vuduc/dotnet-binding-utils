@@ -207,7 +207,16 @@ public static class ArtifactScanner
                 }
                 else
                 {
-                    nonExistingFixedVersions.Add(v);
+                    index = existingArtifacts.FindIndex(x => x.Nuget.PackageId == v.Key);
+                    
+                    if (index >= 0 && parentArtifactIds.Any(x => x.Key == v.Key))
+                    {
+                        existingArtifacts[index].Version.NugetVersion = NuGetVersion.Parse(v.Value);
+                    }
+                    else
+                    {
+                        nonExistingFixedVersions.Add(v);
+                    }
                 }
             }
         }
