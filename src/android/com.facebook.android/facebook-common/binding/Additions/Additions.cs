@@ -27,6 +27,138 @@ namespace Com.Facebook.Login
 }
 
 namespace Com.Facebook.Share.Model {
+    partial class ShareMedia
+    {
+        partial class Builder
+        {
+
+            static Delegate? cb_build;
+#pragma warning disable 0169
+            static Delegate GetBuildHandler()
+            {
+                if (cb_build == null)
+                    cb_build = JNINativeWrapper.CreateDelegate((_JniMarshal_PP_L)n_Build);
+                return cb_build;
+            }
+
+            static IntPtr n_Build(IntPtr jnienv, IntPtr native__this)
+            {
+                var __this = global::Java.Lang.Object.GetObject<global::Com.Facebook.Share.Model.ShareMedia.Builder>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+                return JNIEnv.ToLocalJniHandle(__this.Build());
+            }
+#pragma warning restore 0169
+
+            // Metadata.xml XPath method reference: path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMedia.Builder']/method[@name='build' and count(parameter)=0]"
+            [Register("build", "()Lcom/facebook/share/model/ShareMedia;", "GetBuildHandler")]
+            public abstract global::Java.Lang.Object? Build();
+        }
+        partial class BuilderInvoker
+        {
+            // Metadata.xml XPath method reference: path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMedia.Builder']/method[@name='build' and count(parameter)=0]"
+            [Register("build", "()Lcom/facebook/share/model/ShareMedia;", "GetBuildHandler")]
+            public override unsafe global::Java.Lang.Object? Build()
+            {
+                const string __id = "build.()Lcom/facebook/share/model/ShareMedia;";
+                try
+                {
+                    var __rm = _members.InstanceMethods.InvokeAbstractObjectMethod(__id, this, null);
+                    return (global::Java.Lang.Object?)global::Java.Lang.Object.GetObject<global::Java.Lang.Object>(__rm.Handle, JniHandleOwnership.TransferLocalRef);
+                }
+                finally
+                {
+                }
+            }
+        }
+    }
+
+    partial class ShareContent
+    {
+        partial class Builder
+        {
+
+            static Delegate? cb_build;
+#pragma warning disable 0169
+            static Delegate GetBuildHandler()
+            {
+                if (cb_build == null)
+                    cb_build = JNINativeWrapper.CreateDelegate((_JniMarshal_PP_L)n_Build);
+                return cb_build;
+            }
+
+            static IntPtr n_Build(IntPtr jnienv, IntPtr native__this)
+            {
+                var __this = global::Java.Lang.Object.GetObject<global::Com.Facebook.Share.Model.ShareMedia.Builder>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+                return JNIEnv.ToLocalJniHandle(__this.Build());
+            }
+#pragma warning restore 0169
+
+            // Metadata.xml XPath method reference: path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMedia.Builder']/method[@name='build' and count(parameter)=0]"
+            [Register("build", "()Lcom/facebook/share/model/ShareMedia;", "GetBuildHandler")]
+            public abstract global::Java.Lang.Object? Build();
+        }
+        partial class BuilderInvoker
+        {
+            // Metadata.xml XPath method reference: path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMedia.Builder']/method[@name='build' and count(parameter)=0]"
+            [Register("build", "()Lcom/facebook/share/model/ShareMedia;", "GetBuildHandler")]
+            public override unsafe global::Java.Lang.Object? Build()
+            {
+                const string __id = "build.()Lcom/facebook/share/model/ShareMedia;";
+                try
+                {
+                    var __rm = _members.InstanceMethods.InvokeAbstractObjectMethod(__id, this, null);
+                    return (global::Java.Lang.Object?)global::Java.Lang.Object.GetObject<global::Java.Lang.Object>(__rm.Handle, JniHandleOwnership.TransferLocalRef);
+                }
+                finally
+                {
+                }
+            }
+        }
+    }
+
+    partial class ShareMessengerActionButton
+    {
+        partial class Builder
+        {
+
+            static Delegate? cb_build;
+#pragma warning disable 0169
+            static Delegate GetBuildHandler()
+            {
+                if (cb_build == null)
+                    cb_build = JNINativeWrapper.CreateDelegate((_JniMarshal_PP_L)n_Build);
+                return cb_build;
+            }
+
+            static IntPtr n_Build(IntPtr jnienv, IntPtr native__this)
+            {
+                var __this = global::Java.Lang.Object.GetObject<global::Com.Facebook.Share.Model.ShareMedia.Builder>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+                return JNIEnv.ToLocalJniHandle(__this.Build());
+            }
+#pragma warning restore 0169
+
+            // Metadata.xml XPath method reference: path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMedia.Builder']/method[@name='build' and count(parameter)=0]"
+            [Register("build", "()Lcom/facebook/share/model/ShareMedia;", "GetBuildHandler")]
+            public abstract global::Java.Lang.Object? Build();
+        }
+        partial class BuilderInvoker
+        {
+            // Metadata.xml XPath method reference: path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMedia.Builder']/method[@name='build' and count(parameter)=0]"
+            [Register("build", "()Lcom/facebook/share/model/ShareMedia;", "GetBuildHandler")]
+            public override unsafe global::Java.Lang.Object? Build()
+            {
+                const string __id = "build.()Lcom/facebook/share/model/ShareMedia;";
+                try
+                {
+                    var __rm = _members.InstanceMethods.InvokeAbstractObjectMethod(__id, this, null);
+                    return (global::Java.Lang.Object?)global::Java.Lang.Object.GetObject<global::Java.Lang.Object>(__rm.Handle, JniHandleOwnership.TransferLocalRef);
+                }
+                finally
+                {
+                }
+            }
+        }
+    }
+
     partial class AppGroupCreationContent
     {
         partial class Builder

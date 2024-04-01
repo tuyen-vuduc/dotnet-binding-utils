@@ -69,59 +69,9 @@
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='GameRequestContent.Builder']/method[@name='build' and count(parameter)=0]"
     name="managedName">BuildGameRequestContent</attr>
-  <add-node
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareContent.Builder']">
-    <method abstract="true"
-            deprecated="not deprecated"
-            final="false"
-            name="build"
-            jni-signature="()Ljava/lang/Object;"
-            bridge="false"
-            native="false"
-            return="M"
-            jni-return="TM;"
-            static="false"
-            synchronized="false"
-            synthetic="false"
-            visibility="public" />
-  </add-node>
   <attr
     path="/api/package[@name='com.facebook.share.model']/class[@name='ShareHashtag.Builder']/method[@name='build' and count(parameter)=0]"
     name="managedName">BuildShareHashtag</attr>
-  <add-node
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMedia.Builder']"
-	>
-    <method abstract="true"
-            deprecated="not deprecated"
-            final="false"
-            name="build"
-            jni-signature="()Ljava/lang/Object;"
-            bridge="false"
-            native="false"
-            return="M"
-            jni-return="TM;"
-            static="false"
-            synchronized="false"
-            synthetic="false"
-            visibility="public" />
-  </add-node>
-  <add-node
-    path="/api/package[@name='com.facebook.share.model']/class[@name='ShareMessengerActionButton.Builder']"
-	>
-    <method abstract="true"
-            deprecated="not deprecated"
-            final="false"
-            name="build"
-            jni-signature="()Ljava/lang/Object;"
-            bridge="false"
-            native="false"
-            return="M"
-            jni-return="TM;"
-            static="false"
-            synchronized="false"
-            synthetic="false"
-            visibility="public" />
-  </add-node>
   <attr
     path="//class[implements[@name='com.facebook.share.Sharer']]/method[@name='getShouldFailOnDataError']"
     name="visibility">public</attr>
