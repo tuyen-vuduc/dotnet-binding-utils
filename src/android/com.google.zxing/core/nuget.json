@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.Google.ZXing.Core",
+  "name": "core",
   "dependencyOnly": true,
   "versionMappings": []
 }

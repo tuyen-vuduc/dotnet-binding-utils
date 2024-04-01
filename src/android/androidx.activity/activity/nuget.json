@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Activity",
+  "name": "activity",
   "dependencyOnly": true,
   "versionMappings": []
 }

@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Browser",
+  "name": "browser",
   "dependencyOnly": true,
   "versionMappings": []
 }
