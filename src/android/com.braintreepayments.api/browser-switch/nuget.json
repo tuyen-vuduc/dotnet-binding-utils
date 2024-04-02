@@ -1,0 +1,6 @@
+{
+  "packageId": "Com.Braintreepayments.Api.BrowserSwitch",
+  "name": "browser-switch",
+  "dependencyOnly": false,
+  "versionMappings": []
+}

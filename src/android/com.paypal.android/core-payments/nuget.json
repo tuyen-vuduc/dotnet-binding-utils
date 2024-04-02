@@ -1,0 +1,6 @@
+{
+  "packageId": "Com.Paypal.Android.CorePayments",
+  "name": "core-payments",
+  "dependencyOnly": false,
+  "versionMappings": []
+}
