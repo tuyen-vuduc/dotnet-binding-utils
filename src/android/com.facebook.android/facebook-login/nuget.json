@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Facebook.Android.FacebookLogin",
   "name": "facebook-login",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }

@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Facebook.Android.FacebookAndroidSdk",
   "name": "facebook-android-sdk",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }
