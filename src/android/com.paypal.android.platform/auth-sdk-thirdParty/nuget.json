@@ -1,0 +1,6 @@
+{
+  "packageId": "Com.Paypal.Android.Platform.AuthSdkThirdParty",
+  "name": "auth-sdk-thirdParty",
+  "dependencyOnly": false,
+  "versionMappings": []
+}

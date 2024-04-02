@@ -1,0 +1,6 @@
+{
+  "packageId": "Xamarin.AndroidX.Navigation.Fragment",
+  "name": "navigation-fragment",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

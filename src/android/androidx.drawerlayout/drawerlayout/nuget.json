@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.DrawerLayout",
+  "name": "drawerlayout",
   "dependencyOnly": true,
   "versionMappings": []
 }

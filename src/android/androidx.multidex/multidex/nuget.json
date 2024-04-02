@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.MultiDex",
+  "name": "multidex",
   "dependencyOnly": true,
   "versionMappings": []
 }

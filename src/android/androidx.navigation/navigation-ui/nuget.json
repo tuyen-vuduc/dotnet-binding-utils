@@ -1,0 +1,6 @@
+{
+  "packageId": "Xamarin.AndroidX.Navigation.UI",
+  "name": "navigation-ui",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.DataBinding.DataBindingAdapters",
+  "name": "databinding-adapters",
   "dependencyOnly": true,
   "versionMappings": []
 }

@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Lifecycle.LiveData.Ktx",
+  "name": "lifecycle-livedata-ktx",
   "dependencyOnly": true,
   "versionMappings": []
 }

@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Navigation.Runtime.Ktx",
+  "name": "navigation-runtime-ktx",
   "dependencyOnly": true,
   "versionMappings": []
 }

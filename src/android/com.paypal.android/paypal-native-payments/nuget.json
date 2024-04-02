@@ -1,0 +1,6 @@
+{
+  "packageId": "Com.Paypal.Android.PaypalNativePayments",
+  "name": "paypal-native-payments",
+  "dependencyOnly": false,
+  "versionMappings": []
+}
