@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Facebook.Android.FacebookCommon",
   "name": "facebook-common",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }

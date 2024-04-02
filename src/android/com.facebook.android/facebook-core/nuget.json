@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Facebook.Android.FacebookCore",
   "name": "facebook-core",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }

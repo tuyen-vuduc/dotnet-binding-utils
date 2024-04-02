@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Facebook.Android.FacebookApplinks",
   "name": "facebook-applinks",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }
