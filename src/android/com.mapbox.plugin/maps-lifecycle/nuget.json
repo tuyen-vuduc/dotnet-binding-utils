@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Mapbox.Plugin.MapsLifecycle",
   "name": "maps-lifecycle",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "versionMappings": []
 }

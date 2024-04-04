@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Mapbox.Module.MapsTelemetry",
   "name": "maps-telemetry",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "versionMappings": []
 }
