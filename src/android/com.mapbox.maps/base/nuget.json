@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Mapbox.Maps.Base",
   "name": "base",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "versionMappings": []
 }

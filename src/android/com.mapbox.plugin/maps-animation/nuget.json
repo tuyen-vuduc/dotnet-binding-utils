@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Mapbox.Plugin.MapsAnimation",
   "name": "maps-animation",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "versionMappings": []
 }
