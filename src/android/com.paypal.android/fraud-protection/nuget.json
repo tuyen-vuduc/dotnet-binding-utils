@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Paypal.Android.FraudProtection",
   "name": "fraud-protection",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }

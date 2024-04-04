@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Paypal.Android.CardPayments",
   "name": "card-payments",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }
