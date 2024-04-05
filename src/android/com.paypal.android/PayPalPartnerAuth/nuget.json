@@ -1,0 +1,6 @@
+{
+  "packageId": "Com.Paypal.Android.PayPalPartnerAuth",
+  "name": "PayPalPartnerAuth",
+  "dependencyOnly": false,
+  "versionMappings": []
+}

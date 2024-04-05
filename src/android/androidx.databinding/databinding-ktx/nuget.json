@@ -1,0 +1,6 @@
+{
+  "packageId": "Androidx.Databinding.DatabindingKtx",
+  "name": "databinding-ktx",
+  "dependencyOnly": false,
+  "versionMappings": []
+}

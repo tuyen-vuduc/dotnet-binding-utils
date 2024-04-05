@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.SavedState.SavedState.Ktx",
+  "name": "savedstate-ktx",
   "dependencyOnly": true,
   "versionMappings": []
 }

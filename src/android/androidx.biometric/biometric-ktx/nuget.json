@@ -1,0 +1,6 @@
+{
+  "packageId": "Androidx.Biometric.BiometricKtx",
+  "name": "biometric-ktx",
+  "dependencyOnly": false,
+  "versionMappings": []
+}

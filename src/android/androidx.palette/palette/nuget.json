@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Palette",
+  "name": "palette",
   "dependencyOnly": true,
   "versionMappings": []
 }

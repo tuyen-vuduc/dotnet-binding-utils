@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Transition",
+  "name": "transition",
   "dependencyOnly": true,
   "versionMappings": []
 }

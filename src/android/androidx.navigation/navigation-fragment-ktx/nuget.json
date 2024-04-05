@@ -1,0 +1,6 @@
+{
+  "packageId": "Xamarin.AndroidX.Navigation.Fragment.Ktx",
+  "name": "navigation-fragment-ktx",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

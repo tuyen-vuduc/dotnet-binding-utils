@@ -1,0 +1,6 @@
+{
+  "packageId": "Com.Paypal.Checkout.AndroidSdk",
+  "name": "android-sdk",
+  "dependencyOnly": false,
+  "versionMappings": []
+}

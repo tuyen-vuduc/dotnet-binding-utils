@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <remove-node path="//method[parameter[@type='lib.android.paypal.com.magnessdk.c.h.b']]" />
+    <remove-node path="//class[string-length(@name) &lt; 2]" />
+    <remove-node path="//class[starts-with(@name, 'a.')]" />
+    <remove-node path="//class[starts-with(@name, 'b.')]" />
+    <remove-node path="//class[starts-with(@name, 'c.')]" />
+    <remove-node path="//class[starts-with(@name, 'd.')]" />
+    <remove-node path="//class[starts-with(@name, 'e.')]" />
+    <remove-node path="//class[starts-with(@name, 'f.')]" />
+    <remove-node path="//class[starts-with(@name, 'g.')]" />
+    <remove-node path="//class[starts-with(@name, 'h.')]" />
+    <remove-node path="//class[starts-with(@name, 'i.')]" />
+    <remove-node path="//class[starts-with(@name, 'j.')]" />
+    <remove-node path="//class[starts-with(@name, 'k.')]" />
+    <remove-node path="//class[starts-with(@name, 'l.')]" />
+    <remove-node path="//class[starts-with(@name, 'm.')]" />
+    <remove-node path="//class[starts-with(@name, 'n.')]" />
+    <remove-node path="//class[starts-with(@name, 'o.')]" />
+    <remove-node path="//interface[string-length(@name) &lt; 2]" />
+    <remove-node path="//interface[starts-with(@name, 'a.')]" />
+    <remove-node path="//interface[starts-with(@name, 'b.')]" />
+    <remove-node path="//interface[starts-with(@name, 'c.')]" />
+    <remove-node path="//interface[starts-with(@name, 'd.')]" />
+    <remove-node path="//interface[starts-with(@name, 'e.')]" />
+    <remove-node path="//interface[starts-with(@name, 'f.')]" />
+    <remove-node path="//interface[starts-with(@name, 'g.')]" />
+    <remove-node path="//interface[starts-with(@name, 'h.')]" />
+    <remove-node path="//interface[starts-with(@name, 'i.')]" />
+    <remove-node path="//interface[starts-with(@name, 'j.')]" />
+    <remove-node path="//interface[starts-with(@name, 'k.')]" />
+    <remove-node path="//interface[starts-with(@name, 'l.')]" />
+    <remove-node path="//interface[starts-with(@name, 'm.')]" />
+    <remove-node path="//interface[starts-with(@name, 'n.')]" />
+    <remove-node path="//interface[starts-with(@name, 'o.')]" />
+</metadata>

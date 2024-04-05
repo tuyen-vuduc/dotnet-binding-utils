@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Lifecycle.ViewModel",
+  "name": "lifecycle-viewmodel",
   "dependencyOnly": true,
   "versionMappings": []
 }
