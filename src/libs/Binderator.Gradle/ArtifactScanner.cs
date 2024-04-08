@@ -170,7 +170,8 @@ public static class ArtifactScanner
 
                 xversion = string.Join("-", xversions);
             }
-            else if (VersionRange.TryParse(rawVersion, out var versionRange))
+            else if (rawVersion.StartsWith("[")
+                && VersionRange.TryParse(rawVersion, out var versionRange))
             {
                 xversion = versionRange.IsMaxInclusive
                     ? versionRange.MaxVersion.ToNormalizedString()
