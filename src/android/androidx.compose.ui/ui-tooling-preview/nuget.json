@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Compose.UI.Tooling.Preview",
+  "name": "ui-tooling-preview",
   "dependencyOnly": true,
   "versionMappings": []
 }

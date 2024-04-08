@@ -141,10 +141,8 @@ public class Engine
         if (string.Equals(dependency.Value, "compile", StringComparison.OrdinalIgnoreCase))
             return true;
 
-        if (string.Equals(dependency.Value, "runtime", StringComparison.OrdinalIgnoreCase))
-            return true;
-
         // TODO need to check other cases: runtime, etc.
+        // https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html
 
         return false;
     }
