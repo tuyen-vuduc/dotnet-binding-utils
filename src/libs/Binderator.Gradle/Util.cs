@@ -90,7 +90,16 @@ public static class Util
             // TODO Given version isn't always semantic
             if (!SemanticVersion.TryParse(versionString + ".0", out semanticVersion))
             {
-                throw new InvalidOperationException("You must provide a valid version string.");
+                if (!int.TryParse(versionString, out _) ||
+                    !SemanticVersion.TryParse(versionString + ".0.0", out semanticVersion))
+                {
+                    var indexOfDash = versionString.IndexOf('-');
+                    if (indexOfDash < 0 ||
+                        !SemanticVersion.TryParse(versionString.Insert(indexOfDash, ".0"), out semanticVersion))
+                    {
+                        throw new InvalidOperationException("You must provide a valid version string.");
+                    }
+                }
             }
 
             withoutPatch = true;
