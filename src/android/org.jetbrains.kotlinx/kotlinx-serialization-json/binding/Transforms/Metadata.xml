@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <attr path="//field[@name='Builtins']"
+        name="managedName">BuiltIns</attr>
+  <remove-node path="/api/package[@name='kotlinx.serialization.json']/class[@name='JsonClassDiscriminator.Impl']" />
+  <remove-node path="/api/package[@name='kotlinx.serialization.json']/class[@name='JsonNames.Impl']" />
+</metadata>
