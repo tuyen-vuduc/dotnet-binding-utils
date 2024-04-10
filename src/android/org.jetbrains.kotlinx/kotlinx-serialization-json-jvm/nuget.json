@@ -1,0 +1,6 @@
+{
+  "packageId": "Org.Jetbrains.Kotlinx.KotlinxSerializationJsonJvm",
+  "name": "kotlinx-serialization-json-jvm",
+  "dependencyOnly": false,
+  "versionMappings": []
+}
