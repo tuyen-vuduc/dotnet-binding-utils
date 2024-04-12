@@ -1,0 +1,6 @@
+{
+  "packageId": "Com.Nimbusds.NimbusJoseJwt",
+  "name": "nimbus-jose-jwt",
+  "dependencyOnly": false,
+  "versionMappings": []
+}
