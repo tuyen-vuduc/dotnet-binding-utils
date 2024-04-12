@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-  <remove-node
-    path="/api/package[@name='org.bouncycastle.crypto']/class[@name='StreamBlockCipher']/implements[@name='org.bouncycastle.crypto.BlockCipher']" />
   <attr path="//field[@name='isConstructed']"
         name="managedName">_isConstructed</attr>
   <attr path="//field[@name='octets']"
@@ -10,7 +8,7 @@
         name="managedName">_tag</attr>
   <attr path="//field[@name='pointMap']"
         name="managedName">_pointMap</attr>
-  <attr path="//field[@name='pariameters']"
+  <attr path="//field[@name='parameters']"
         name="managedName">_parameters</attr>
   <attr path="//field[@name='i']"
         name="managedName">_i</attr>
@@ -390,4 +388,231 @@
         name="managedName">UNUSED</attr>
   <attr path="//field[@name='unused']"
         name="managedName">_unused</attr>
+  <attr path="//field[@name='gmss']"
+        name="managedName">_gmss</attr>
+  <attr path="//field[@name='gmssWithSha1']"
+        name="managedName">_gmssWithSha1</attr>
+  <attr path="//field[@name='gmssWithSha224']"
+        name="managedName">_gmssWithSha224</attr>
+  <attr path="//field[@name='gmssWithSha256']"
+        name="managedName">_gmssWithSha256</attr>
+  <attr path="//field[@name='gmssWithSha384']"
+        name="managedName">_gmssWithSha384</attr>
+  <attr path="//field[@name='gmssWithSha512']"
+        name="managedName">_gmssWithSha512</attr>
+  <attr path="//field[@name='mcEliece']"
+        name="managedName">_mcEliece</attr>
+  <attr path="//field[@name='mcElieceCca2']"
+        name="managedName">_mcElieceCca2</attr>
+  <attr path="//field[@name='mcElieceFujisaki']"
+        name="managedName">_mcElieceFujisaki</attr>
+  <attr path="//field[@name='mcElieceKobara_Imai']"
+        name="managedName">_mcElieceKobara_Imai</attr>
+  <attr path="//field[@name='mcEliecePointcheval']"
+        name="managedName">_mcEliecePointcheval</attr>
+  <attr path="//field[@name='newHope']"
+        name="managedName">_newHope</attr>
+  <attr path="//field[@name='qTESLA']"
+        name="managedName">_qTESLA</attr>
+  <attr path="//field[@name='qTESLA_p_I']"
+        name="managedName">_qTESLA_p_I</attr>
+  <attr path="//field[@name='qTESLA_p_III']"
+        name="managedName">_qTESLA_p_III</attr>
+  <attr path="//field[@name='rainbow']"
+        name="managedName">_rainbow</attr>
+  <attr path="//field[@name='rainbowWithSha1']"
+        name="managedName">_rainbowWithSha1</attr>
+  <attr path="//field[@name='rainbowWithSha224']"
+        name="managedName">_rainbowWithSha224</attr>
+  <attr path="//field[@name='rainbowWithSha256']"
+        name="managedName">_rainbowWithSha256</attr>
+  <attr path="//field[@name='rainbowWithSha384']"
+        name="managedName">_rainbowWithSha384</attr>
+  <attr path="//field[@name='rainbowWithSha512']"
+        name="managedName">_rainbowWithSha512</attr>
+  <attr path="//field[@name='sphincs256']"
+        name="managedName">_sphincs256</attr>
+  <attr path="//field[@name='sphincs256_with_BLAKE512']"
+        name="managedName">_sphincs256_with_BLAKE512</attr>
+  <attr path="//field[@name='sphincs256_with_SHA3_512']"
+        name="managedName">_sphincs256_with_SHA3_512</attr>
+  <attr path="//field[@name='sphincs256_with_SHA512']"
+        name="managedName">_sphincs256_with_SHA512</attr>
+  <attr path="//field[@name='xmss']"
+        name="managedName">_xmss</attr>
+  <attr path="//field[@name='xmss_mt']"
+        name="managedName">_xmss_mt</attr>
+  <attr path="//field[@name='xmss_mt_SHA256']"
+        name="managedName">_xmss_mt_SHA256</attr>
+  <attr path="//field[@name='xmss_mt_SHA256ph']"
+        name="managedName">_xmss_mt_SHA256ph</attr>
+  <attr path="//field[@name='xmss_mt_SHA512']"
+        name="managedName">_xmss_mt_SHA512</attr>
+  <attr path="//field[@name='xmss_mt_SHA512ph']"
+        name="managedName">_xmss_mt_SHA512ph</attr>
+  <attr path="//field[@name='xmss_mt_SHAKE128']"
+        name="managedName">_xmss_mt_SHAKE128</attr>
+  <attr path="//field[@name='xmss_mt_SHAKE128ph']"
+        name="managedName">_xmss_mt_SHAKE128ph</attr>
+  <attr path="//field[@name='xmss_mt_SHAKE256']"
+        name="managedName">_xmss_mt_SHAKE256</attr>
+  <attr path="//field[@name='xmss_mt_SHAKE256ph']"
+        name="managedName">_xmss_mt_SHAKE256ph</attr>
+  <attr path="//field[@name='xmss_mt_with_SHA256']"
+        name="managedName">_xmss_mt_with_SHA256</attr>
+  <attr path="//field[@name='xmss_mt_with_SHA512']"
+        name="managedName">_xmss_mt_with_SHA512</attr>
+  <attr path="//field[@name='xmss_mt_with_SHAKE128']"
+        name="managedName">_xmss_mt_with_SHAKE128</attr>
+  <attr path="//field[@name='xmss_mt_with_SHAKE256']"
+        name="managedName">_xmss_mt_with_SHAKE256</attr>
+  <attr path="//field[@name='xmss_SHA256']"
+        name="managedName">_xmss_SHA256</attr>
+  <attr path="//field[@name='xmss_SHA256ph']"
+        name="managedName">_xmss_SHA256ph</attr>
+  <attr path="//field[@name='xmss_SHA512']"
+        name="managedName">_xmss_SHA512</attr>
+  <attr path="//field[@name='xmss_SHA512ph']"
+        name="managedName">_xmss_SHA512ph</attr>
+  <attr path="//field[@name='xmss_SHAKE128']"
+        name="managedName">_xmss_SHAKE128</attr>
+  <attr path="//field[@name='xmss_SHAKE128ph']"
+        name="managedName">_xmss_SHAKE128ph</attr>
+  <attr path="//field[@name='xmss_SHAKE256']"
+        name="managedName">_xmss_SHAKE256</attr>
+  <attr path="//field[@name='xmss_SHAKE256ph']"
+        name="managedName">_xmss_SHAKE256ph</attr>
+  <attr path="//field[@name='xmss_with_SHA256']"
+        name="managedName">_xmss_with_SHA256</attr>
+  <attr path="//field[@name='xmss_with_SHA512']"
+        name="managedName">_xmss_with_SHA512</attr>
+  <attr path="//field[@name='xmss_with_SHAKE128']"
+        name="managedName">_xmss_with_SHAKE128</attr>
+  <attr path="//field[@name='xmss_with_SHAKE256']"
+        name="managedName">_xmss_with_SHAKE256</attr>
+  <remove-node path="/api/package[@name='org.bouncycastle.crypto']/class[@name='StreamBlockCipher']/implements[@name='org.bouncycastle.crypto.BlockCipher']" />
+  <attr path="//class[@extends='org.bouncycastle.crypto.StreamBlockCipher']/method[@name='getBlockSize' and count(parameter)=0]"
+        name="propertyName"></attr>
+  <attr path="//class[@extends='org.bouncycastle.crypto.StreamBlockCipher']/method[@name='processBlock' and count(parameter)=4 and parameter[1][@type='byte[]'] and parameter[2][@type='int'] and parameter[3][@type='byte[]'] and parameter[4][@type='int']]"
+        name="managedName">DoProcessBlock</attr>
+  <attr path="//class[@extends='javax.crypto.CipherSpi']/method[@name='engineGetBlockSize' and count(parameter)=0]"
+        name="visibility">protected</attr>
+  <attr path="//class[@extends='javax.crypto.CipherSpi']/method[@name='engineDoFinal' and count(parameter)=3 and parameter[1][@type='byte[]'] and parameter[2][@type='int'] and parameter[3][@type='int']]"
+        name="visibility">protected</attr>
+  <attr path="//class[@extends='javax.crypto.CipherSpi']/method[@name='engineDoFinal' and count(parameter)=5 and parameter[1][@type='byte[]'] and parameter[2][@type='int'] and parameter[3][@type='int'] and parameter[4][@type='byte[]'] and parameter[5][@type='int']]"
+        name="visibility">protected</attr>
+  <attr path="//class[@extends='javax.crypto.CipherSpi']/method[@name='engineGetIV' and count(parameter)=0]"
+        name="visibility">protected</attr>
+  <attr path="//class[@extends='javax.crypto.CipherSpi']/method[@name='engineGetOutputSize' and count(parameter)=1 and parameter[1][@type='int']]"
+        name="visibility">protected</attr>
+  <attr path="//class[@extends='javax.crypto.CipherSpi']/method[@name='engineGetParameters' and count(parameter)=0]"
+        name="visibility">protected</attr>
+  <attr path="//class[@extends='javax.crypto.CipherSpi']/method[@name='engineInit' and count(parameter)=4 and parameter[1][@type='int'] and parameter[2][@type='java.security.Key'] and parameter[3][@type='java.security.spec.AlgorithmParameterSpec'] and parameter[4][@type='java.security.SecureRandom']]"
+        name="visibility">protected</attr>
+  <attr path="//class[@extends='javax.crypto.CipherSpi']/method[@name='engineInit' and count(parameter)=4 and parameter[1][@type='int'] and parameter[2][@type='java.security.Key'] and parameter[3][@type='java.security.AlgorithmParameters'] and parameter[4][@type='java.security.SecureRandom']]"
+        name="visibility">protected</attr>
+  <attr path="//class[@extends='javax.crypto.CipherSpi']/method[@name='engineInit' and count(parameter)=3 and parameter[1][@type='int'] and parameter[2][@type='java.security.Key'] and parameter[3][@type='java.security.SecureRandom']]"
+        name="visibility">protected</attr>
+  <attr path="//class[@extends='javax.crypto.CipherSpi']/method[@name='engineSetMode' and count(parameter)=1 and parameter[1][@type='java.lang.String']]"
+        name="visibility">protected</attr>
+  <attr path="//class[@extends='javax.crypto.CipherSpi']/method[@name='engineSetPadding' and count(parameter)=1 and parameter[1][@type='java.lang.String']]"
+        name="visibility">protected</attr>
+  <attr path="//class[@extends='javax.crypto.CipherSpi']/method[@name='engineUpdate' and count(parameter)=3 and parameter[1][@type='byte[]'] and parameter[2][@type='int'] and parameter[3][@type='int']]"
+        name="visibility">protected</attr>
+  <attr path="//class[@extends='javax.crypto.CipherSpi']/method[@name='engineUpdate' and count(parameter)=5 and parameter[1][@type='byte[]'] and parameter[2][@type='int'] and parameter[3][@type='int'] and parameter[4][@type='byte[]'] and parameter[5][@type='int']]"
+        name="visibility">protected</attr>
+  <attr path="//constructor/parameter[@type='java.io.InputStream']"
+        name="managedType">System.IO.MemoryStream</attr>
+  <attr path="/api/package[@name='org.bouncycastle.jcajce.provider.asymmetric.ecgost12']/class[@name='KeyFactorySpi']/method[@name='engineGeneratePublic' and count(parameter)=1 and parameter[1][@type='java.security.spec.KeySpec']]"
+        name="visibility">protected</attr>
+  <attr
+    path="/api/package[@name='org.bouncycastle.pqc.jcajce.provider']/class[@name='Rainbow']"
+    name="managedName">RainbowCls</attr>
+  <attr
+    path="/api/package[@name='org.bouncycastle.jcajce.provider.asymmetric']/class[@name='DH']"
+    name="managedName">DHCls</attr>
+  <attr
+    path="/api/package[@name='org.bouncycastle.jcajce.provider.asymmetric']/class[@name='EC']"
+    name="managedName">ECCls</attr>
+  <attr
+    path="/api/package[@name='org.bouncycastle.jcajce.provider.asymmetric']/class[@name='BC']"
+    name="managedName">BCCls</attr>
+  <attr
+    path="/api/package[@name='org.bouncycastle.jcajce.provider.asymmetric']/class[@name='X509']"
+    name="managedName">X509Cls</attr>
+  <attr
+    path="/api/package[@name='org.bouncycastle.jcajce.provider.keystore']/class[@name='BC']"
+    name="managedName">BCCls</attr>
+  <attr path="//class[@extends='java.security.AlgorithmParametersSpi']/method[@name='engineGetParameterSpec' and count(parameter)=1 and parameter[1][@type='java.lang.Class']]"
+        name="managedReturn">Java.Lang.Object</attr>
+  <attr path="/api/package[@name='org.bouncycastle.jcajce.provider.asymmetric.x509']/class[@name='KeyFactory']/method[@name='engineGetKeySpec' and count(parameter)=2 and parameter[1][@type='java.security.Key'] and parameter[2][@type='java.lang.Class']]"
+        name="managedReturn">Java.Lang.Object</attr>
+  <attr path="/api/package[@name='org.bouncycastle.jcajce.provider.asymmetric.util']/class[@name='BaseKeyFactorySpi']/method[@name='engineGetKeySpec' and count(parameter)=2 and parameter[1][@type='java.security.Key'] and parameter[2][@type='java.lang.Class']]"
+        name="managedReturn">Java.Lang.Object</attr>
+  <attr path="/api/package[@name='org.bouncycastle.pqc.jcajce.provider.mceliece']/class[@name='McElieceCCA2KeyFactorySpi']/method[@name='engineGetKeySpec' and count(parameter)=2 and parameter[1][@type='java.security.Key'] and parameter[2][@type='java.lang.Class']]"
+        name="managedReturn">Java.Lang.Object</attr>
+  <attr path="/api/package[@name='org.bouncycastle.pqc.jcajce.provider.lms']/class[@name='LMSKeyFactorySpi']/method[@name='engineGetKeySpec' and count(parameter)=2 and parameter[1][@type='java.security.Key'] and parameter[2][@type='java.lang.Class']]"
+        name="managedReturn">Java.Lang.Object</attr>
+  <attr path="//class[@extends='java.security.KeyFactorySpi']/method[@name='engineGetKeySpec' and count(parameter)=2 and parameter[1][@type='java.security.Key'] and parameter[2][@type='java.lang.Class']]"
+        name="managedReturn">Java.Lang.Object</attr>
+  <remove-node path="/api/package[@name='org.bouncycastle.jcajce.provider.asymmetric.x509']/class[@name='CertificateFactory']/method[@name='engineGenerateCRLs' and count(parameter)=1 and parameter[1][@type='java.io.InputStream']]"/>
+  <remove-node path="/api/package[@name='org.bouncycastle.jcajce.provider.asymmetric.x509']/class[@name='CertificateFactory']/method[@name='engineGenerateCertificates' and count(parameter)=1 and parameter[1][@type='java.io.InputStream']]" />
+  <attr path="/api/package[@name='org.bouncycastle.jcajce.provider.digest']/class[@name='BCMessageDigest']/method[@name='engineDigest' and count(parameter)=0]"
+        name="visibility">protected</attr>
+  <attr path="/api/package[@name='org.bouncycastle.jcajce.provider.digest']/class[@name='BCMessageDigest']/method[@name='engineReset' and count(parameter)=0]"
+        name="visibility">protected</attr>
+  <attr path="/api/package[@name='org.bouncycastle.jcajce.provider.digest']/class[@name='BCMessageDigest']/method[@name='engineUpdate' and count(parameter)=3 and parameter[1][@type='byte[]'] and parameter[2][@type='int'] and parameter[3][@type='int']]"
+        name="visibility">protected</attr>
+  <attr path="/api/package[@name='org.bouncycastle.jcajce.provider.digest']/class[@name='BCMessageDigest']/method[@name='engineUpdate' and count(parameter)=1 and parameter[1][@type='byte']]"
+        name="visibility">protected</attr>
+  <remove-node path="/api/package[@name='org.bouncycastle.jcajce.provider.asymmetric.x509']/class[@name='PKIXCertPath']/method[@name='getCertificates' and count(parameter)=0]"
+               />
+  <remove-node path="/api/package[@name='org.bouncycastle.jce.provider']/class[@name='CertStoreCollectionSpi']/method[@name='engineGetCRLs' and count(parameter)=1 and parameter[1][@type='java.security.cert.CRLSelector']]" />
+  <remove-node path="/api/package[@name='org.bouncycastle.jce.provider']/class[@name='CertStoreCollectionSpi']/method[@name='engineGetCertificates' and count(parameter)=1 and parameter[1][@type='java.security.cert.CertSelector']]" />
+  <remove-node path="/api/package[@name='org.bouncycastle.jce.provider']/class[@name='MultiCertStoreSpi']/method[@name='engineGetCRLs' and count(parameter)=1 and parameter[1][@type='java.security.cert.CRLSelector']]" />
+  <remove-node path="/api/package[@name='org.bouncycastle.jce.provider']/class[@name='MultiCertStoreSpi']/method[@name='engineGetCertificates' and count(parameter)=1 and parameter[1][@type='java.security.cert.CertSelector']]" />
+  <remove-node path="/api/package[@name='org.bouncycastle.jce.provider']/class[@name='X509LDAPCertStoreSpi']/method[@name='engineGetCRLs' and count(parameter)=1 and parameter[1][@type='java.security.cert.CRLSelector']]" />
+  <remove-node path="/api/package[@name='org.bouncycastle.jce.provider']/class[@name='X509LDAPCertStoreSpi']/method[@name='engineGetCertificates' and count(parameter)=1 and parameter[1][@type='java.security.cert.CertSelector']]" />
+  <remove-node path="/api/package[@name='org.bouncycastle.jce.provider']/class[@name='X509CertificateObject']/method[@name='getCriticalExtensionOIDs' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='org.bouncycastle.jce.provider']/class[@name='X509CertificateObject']/method[@name='getNonCriticalExtensionOIDs' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='org.bouncycastle.jce.provider']/class[@name='X509CRLEntryObject']/method[@name='getCriticalExtensionOIDs' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='org.bouncycastle.jce.provider']/class[@name='X509CRLEntryObject']/method[@name='getNonCriticalExtensionOIDs' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='org.bouncycastle.jce.provider']/class[@name='X509CRLObject']/method[@name='getNonCriticalExtensionOIDs' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='org.bouncycastle.jce.provider']/class[@name='X509CRLObject']/method[@name='getCriticalExtensionOIDs' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='org.bouncycastle.jce.provider']/class[@name='X509CRLObject']/method[@name='getRevokedCertificates' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='org.bouncycastle.pqc.crypto']/interface[@name='ExchangePairGenerator']/method[@name='GenerateExchange' and count(parameter)=1 and parameter[1][@type='org.bouncycastle.crypto.params.AsymmetricKeyParameter']]" />
+  <remove-node path="/api/package[@name='org.bouncycastle.pqc.crypto.newhope']/class[@name='NHExchangePairGenerator']/method[@name='GenerateExchange' and count(parameter)=1 and parameter[1][@type='org.bouncycastle.crypto.params.AsymmetricKeyParameter']]" />
+  <attr path="//class[@name='LMSSignature']"
+        name="visibility">public</attr>
+  <attr path="//class[@name='LMSSignedPubKey']"
+        name="visibility">public</attr>
+  <attr path="//class[@name='WOTSPlus']"
+        name="visibility">public</attr>
+  <attr
+    path="/api/package[@name='org.bouncycastle.pqc.jcajce.provider.lms']/class[@name='LMSKeyFactorySpi']/method[@name='engineGeneratePrivate' and count(parameter)=1 and parameter[1][@type='java.security.spec.KeySpec']]"
+    name="visibility">protected</attr>
+  <attr
+    path="/api/package[@name='org.bouncycastle.pqc.jcajce.provider.lms']/class[@name='LMSKeyFactorySpi']/method[@name='engineGeneratePublic' and count(parameter)=1 and parameter[1][@type='java.security.spec.KeySpec']]"
+    name="visibility">protected</attr>
+  <attr
+    path="/api/package[@name='org.bouncycastle.pqc.jcajce.provider.lms']/class[@name='LMSKeyFactorySpi']/method[@name='engineGetKeySpec' and count(parameter)=2 and parameter[1][@type='java.security.Key'] and parameter[2][@type='java.lang.Class']]"
+    name="visibility">protected</attr>
+  <attr
+    path="/api/package[@name='org.bouncycastle.pqc.jcajce.provider.lms']/class[@name='LMSKeyFactorySpi']/method[@name='engineTranslateKey' and count(parameter)=1 and parameter[1][@type='java.security.Key']]"
+    name="visibility">protected</attr>
+  <remove-node path="/api/package[@name='org.bouncycastle.pqc.crypto.xmss']/class[@name='WOTSPlus']/method[@name='getKhf' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='org.bouncycastle.pqc.crypto.xmss']/class[@name='WOTSPlus']/method[@name='getPrivateKey' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='org.bouncycastle.pqc.crypto.xmss']/class[@name='WOTSPlus']/method[@name='getParams' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='org.bouncycastle.pqc.jcajce.provider.util']/class[@name='AsymmetricHybridCipher']/method[@name='doFinal' and count(parameter)=3 and parameter[1][@type='byte[]'] and parameter[2][@type='int'] and parameter[3][@type='int']]" />
+  <remove-node path="/api/package[@name='org.bouncycastle.pqc.jcajce.provider.util']/class[@name='AsymmetricHybridCipher']/method[@name='update' and count(parameter)=3 and parameter[1][@type='byte[]'] and parameter[2][@type='int'] and parameter[3][@type='int']]" />
+  <attr path="//field[@name='BYTES']" name="managedName">BYTES</attr>
+  <attr path="//field[@name='SIZE']" name="managedName">SIZE</attr>
+  <attr path="//class[@extends='java.security.KeyFactorySpi']/method[@name='engineGeneratePrivate' and count(parameter)=1 and parameter[1][@type='java.security.spec.KeySpec']]"
+        name="visibility">protected</attr>
+  <attr path="//class[@extends='java.security.KeyFactorySpi']/method[@name='engineGeneratePublic' and count(parameter)=1 and parameter[1][@type='java.security.spec.KeySpec']]"
+        name="visibility">protected</attr>
+  <attr path="//class[@extends='java.security.KeyFactorySpi']/method[@name='engineGetKeySpec' and count(parameter)=2 and parameter[1][@type='java.security.Key'] and parameter[2][@type='java.lang.Class']]"
+        name="visibility">protected</attr>
+  <attr path="//class[@extends='java.security.KeyFactorySpi']/method[@name='engineTranslateKey' and count(parameter)=1 and parameter[1][@type='java.security.Key']]"
+        name="visibility">protected</attr>
 </metadata>
