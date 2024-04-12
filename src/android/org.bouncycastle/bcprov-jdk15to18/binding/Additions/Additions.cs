@@ -7,6 +7,126 @@ using Org.Bouncycastle.Util;
 
 namespace Org.Bouncycastle.X509
 {
+    partial interface IX509AttributeCertificate : global::Java.Security.Cert.IX509Extension
+    {
+
+    }
+
+    partial class IX509AttributeCertificateInvoker
+    {
+        static Delegate? cb_getCriticalExtensionOIDs;
+#pragma warning disable 0169
+        static Delegate GetGetCriticalExtensionOIDsHandler()
+        {
+            if (cb_getCriticalExtensionOIDs == null)
+                cb_getCriticalExtensionOIDs = JNINativeWrapper.CreateDelegate((_JniMarshal_PP_L)n_GetCriticalExtensionOIDs);
+            return cb_getCriticalExtensionOIDs;
+        }
+
+        static IntPtr n_GetCriticalExtensionOIDs(IntPtr jnienv, IntPtr native__this)
+        {
+            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.X509.IX509AttributeCertificate>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+            return global::Android.Runtime.JavaSet<string>.ToLocalJniHandle(__this.CriticalExtensionOIDs);
+        }
+#pragma warning restore 0169
+
+        IntPtr id_getCriticalExtensionOIDs;
+        public unsafe global::System.Collections.Generic.ICollection<global::System.String>? CriticalExtensionOIDs
+        {
+            get
+            {
+                if (id_getCriticalExtensionOIDs == IntPtr.Zero)
+                    id_getCriticalExtensionOIDs = JNIEnv.GetMethodID(class_ref, "getCriticalExtensionOIDs", "()Ljava/util/Set;");
+                return global::Android.Runtime.JavaSet<string>.FromJniHandle(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_getCriticalExtensionOIDs), JniHandleOwnership.TransferLocalRef);
+            }
+        }
+
+        static Delegate? cb_hasUnsupportedCriticalExtension;
+#pragma warning disable 0169
+        static Delegate GetGetHasUnsupportedCriticalExtensionHandler()
+        {
+            if (cb_hasUnsupportedCriticalExtension == null)
+                cb_hasUnsupportedCriticalExtension = JNINativeWrapper.CreateDelegate((_JniMarshal_PP_Z)n_GetHasUnsupportedCriticalExtension);
+            return cb_hasUnsupportedCriticalExtension;
+        }
+
+        static bool n_GetHasUnsupportedCriticalExtension(IntPtr jnienv, IntPtr native__this)
+        {
+            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.X509.IX509AttributeCertificate>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+            return __this.HasUnsupportedCriticalExtension;
+        }
+#pragma warning restore 0169
+
+        IntPtr id_hasUnsupportedCriticalExtension;
+        public unsafe bool HasUnsupportedCriticalExtension
+        {
+            get
+            {
+                if (id_hasUnsupportedCriticalExtension == IntPtr.Zero)
+                    id_hasUnsupportedCriticalExtension = JNIEnv.GetMethodID(class_ref, "hasUnsupportedCriticalExtension", "()Z");
+                return JNIEnv.CallBooleanMethod(((global::Java.Lang.Object)this).Handle, id_hasUnsupportedCriticalExtension);
+            }
+        }
+
+        static Delegate? cb_getNonCriticalExtensionOIDs;
+#pragma warning disable 0169
+        static Delegate GetGetNonCriticalExtensionOIDsHandler()
+        {
+            if (cb_getNonCriticalExtensionOIDs == null)
+                cb_getNonCriticalExtensionOIDs = JNINativeWrapper.CreateDelegate((_JniMarshal_PP_L)n_GetNonCriticalExtensionOIDs);
+            return cb_getNonCriticalExtensionOIDs;
+        }
+
+        static IntPtr n_GetNonCriticalExtensionOIDs(IntPtr jnienv, IntPtr native__this)
+        {
+            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.X509.IX509AttributeCertificate>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+            return global::Android.Runtime.JavaSet<string>.ToLocalJniHandle(__this.NonCriticalExtensionOIDs);
+        }
+#pragma warning restore 0169
+
+        IntPtr id_getNonCriticalExtensionOIDs;
+        public unsafe global::System.Collections.Generic.ICollection<global::System.String>? NonCriticalExtensionOIDs
+        {
+            get
+            {
+                if (id_getNonCriticalExtensionOIDs == IntPtr.Zero)
+                    id_getNonCriticalExtensionOIDs = JNIEnv.GetMethodID(class_ref, "getNonCriticalExtensionOIDs", "()Ljava/util/Set;");
+                return global::Android.Runtime.JavaSet<string>.FromJniHandle(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_getNonCriticalExtensionOIDs), JniHandleOwnership.TransferLocalRef);
+            }
+        }
+
+        static Delegate? cb_getExtensionValue_Ljava_lang_String_;
+#pragma warning disable 0169
+        static Delegate GetGetExtensionValue_Ljava_lang_String_Handler()
+        {
+            if (cb_getExtensionValue_Ljava_lang_String_ == null)
+                cb_getExtensionValue_Ljava_lang_String_ = JNINativeWrapper.CreateDelegate((_JniMarshal_PPL_L)n_GetExtensionValue_Ljava_lang_String_);
+            return cb_getExtensionValue_Ljava_lang_String_;
+        }
+
+        static IntPtr n_GetExtensionValue_Ljava_lang_String_(IntPtr jnienv, IntPtr native__this, IntPtr native_oid)
+        {
+            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.X509.IX509AttributeCertificate>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+            var oid = JNIEnv.GetString(native_oid, JniHandleOwnership.DoNotTransfer);
+            IntPtr __ret = JNIEnv.NewArray(__this.GetExtensionValue(oid));
+            return __ret;
+        }
+#pragma warning restore 0169
+
+        IntPtr id_getExtensionValue_Ljava_lang_String_;
+        public unsafe global::System.Byte[]? GetExtensionValue(string? oid)
+        {
+            if (id_getExtensionValue_Ljava_lang_String_ == IntPtr.Zero)
+                id_getExtensionValue_Ljava_lang_String_ = JNIEnv.GetMethodID(class_ref, "getExtensionValue", "(Ljava/lang/String;)[B");
+            IntPtr native_oid = JNIEnv.NewString((string?)oid);
+            JValue* __args = stackalloc JValue[1];
+            __args[0] = new JValue(native_oid);
+            var __ret = (byte[]?)JNIEnv.GetArray(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_getExtensionValue_Ljava_lang_String_, __args), JniHandleOwnership.TransferLocalRef, typeof(byte));
+            JNIEnv.DeleteLocalRef(native_oid);
+            return __ret;
+        }
+    }
+
     partial class X509V2AttributeCertificate
     {
         ICollection<string>? IX509Extension.CriticalExtensionOIDs => CriticalExtensionOIDs?.Cast<string>().ToList();

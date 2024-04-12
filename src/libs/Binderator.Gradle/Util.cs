@@ -126,7 +126,7 @@ public static class Util
         if (version is not null)
         {
             version.SemanticVersion = semanticVersion;
-            version.WithoutPatch = withoutPatch;
+            version.WithoutPatch = version.WithoutPatch ?? withoutPatch;
 
             if (version.NugetVersion is null)
             {
