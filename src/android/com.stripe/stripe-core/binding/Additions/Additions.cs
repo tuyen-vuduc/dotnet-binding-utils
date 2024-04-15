@@ -78,8 +78,19 @@ namespace Com.Stripe.Android.Core
         }
     }
 }
+namespace Com.Stripe.Android.Core.Utils
+{
+    partial class RealIsWorkManagerAvailable_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+}
 namespace Com.Stripe.Android.Core.Networking
 {
+    partial class LinearRetryDelaySupplier_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
     partial class ExponentialBackoffRetryDelaySupplier_Factory
     {
         global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
