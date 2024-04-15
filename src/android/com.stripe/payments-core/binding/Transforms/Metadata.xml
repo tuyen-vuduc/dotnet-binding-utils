@@ -1,3 +1,36 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+    <attr path="//field[@name='root']" name="managedName">_root</attr>
+    <attr path="//field[@name='addPaymentMethodCard']" name="managedName">_addPaymentMethodCard</attr>
+    <attr path="//field[@name='billingAddressWidget']" name="managedName">_billingAddressWidget</attr>
+    <attr path="//field[@name='cardMultilineWidget']" name="managedName">_cardMultilineWidget</attr>
+    <attr path="//field[@name='label']" name="managedName">_label</attr>
+    <attr path="//field[@name='countryAutocompleteAaw']" name="managedName">_countryAutocompleteAaw</attr>
+    <attr path="//field[@name='etAddressLineOneAaw']" name="managedName">_etAddressLineOneAaw</attr>
+    <attr path="//field[@name='etAddressLineTwoAaw']" name="managedName">_etAddressLineTwoAaw</attr>
+    <attr path="//field[@name='etCityAaw']" name="managedName">_etCityAaw</attr>
+    <attr path="//field[@name='etNameAaw']" name="managedName">_etNameAaw</attr>
+    <attr path="//field[@name='etPhoneNumberAaw']" name="managedName">_etPhoneNumberAaw</attr>
+    <attr path="//field[@name='etPostalCodeAaw']" name="managedName">_etPostalCodeAaw</attr>
+    <attr path="//field[@name='etStateAaw']" name="managedName">_etStateAaw</attr>
+    <attr path="//field[@name='tlAddressLine1Aaw']" name="managedName">_tlAddressLine1Aaw</attr>
+    <attr path="//field[@name='tlAddressLine2Aaw']" name="managedName">_tlAddressLine2Aaw</attr>
+    <attr path="//field[@name='tlCityAaw']" name="managedName">_tlCityAaw</attr>
+    <attr path="//field[@name='tlNameAaw']" name="managedName">_tlNameAaw</attr>
+    <attr path="//field[@name='tlPhoneNumberAaw']" name="managedName">_tlPhoneNumberAaw</attr>
+    <attr path="//field[@name='tlPostalCodeAaw']" name="managedName">_tlPostalCodeAaw</attr>
+    <attr path="//field[@name='tlStateAaw']" name="managedName">_tlStateAaw</attr>
+    <attr path="//field[@name='checkIcon']" name="managedName">_checkIcon</attr>
+    <attr path="//field[@name='icon']" name="managedName">_icon</attr>
+    <attr path="//field[@name='name']" name="managedName">_name</attr>
+    <attr path="//field[@name='bankList']" name="managedName">_bankList</attr>
+    <attr path="//field[@name='accountNumberEditText']" name="managedName">_accountNumberEditText</attr>
+    <attr path="//field[@name='accountNumberTextInputLayout']" name="managedName">_accountNumberTextInputLayout</attr>
+    <attr path="//field[@name='bsbEditText']" name="managedName">_bsbEditText</attr>
+    <attr path="//field[@name='bsbTextInputLayout']" name="managedName">_bsbTextInputLayout</attr>
+    <attr path="//field[@name='emailEditText']" name="managedName">_emailEditText</attr>
+    <attr path="//field[@name='emailTextInputLayout']" name="managedName">_emailTextInputLayout</attr>
+    <attr path="//field[@name='mandateAcceptanceTextView']" name="managedName">_mandateAcceptanceTextView</attr>
+    <attr path="//field[@name='nameEditText']" name="managedName">_nameEditText</attr>
+    <attr path="//field[@name='nameTextInputLayout']" name="managedName">_nameTextInputLayout</attr>
 </metadata>
