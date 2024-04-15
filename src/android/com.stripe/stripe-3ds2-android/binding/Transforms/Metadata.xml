@@ -4,4 +4,6 @@
         name="managedName">_FileName</attr>
   <attr path="//field[@name='HasUsedLink']"
         name="managedName">_HasUsedLink</attr>
+  <attr path="/api/package[@name='com.stripe.android.stripe3ds2.transaction']/class[@name='ChallengeContract']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]"
+        name="managedName">ParseChallengeResult</attr>
 </metadata>
