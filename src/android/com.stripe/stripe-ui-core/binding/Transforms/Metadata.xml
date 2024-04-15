@@ -1,3 +1,68 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[@name='TextFieldStateConstants']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'TextFieldStateConstants.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/interface[@name='TextFieldController']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'TextFieldController.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[@name='AddressTextFieldController']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'AddressTextFieldController.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[@name='SimpleTextFieldController']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'SimpleTextFieldController.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[@name='AddressType']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'AddressType.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/interface[@name='ParameterDestination']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'ParameterDestination.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[@name='EmailConfig']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'EmailConfig.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[@name='NameConfig']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'NameConfig.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[@name='IdentifierSpec']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'IdentifierSpec.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/interface[@name='SectionFieldElement']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'SectionFieldElement.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[@name='SectionMultiFieldElement']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'SectionMultiFieldElement.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[@name='AddressElement']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'AddressElement.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[@name='SimpleTextElement']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'SimpleTextElement.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[@name='AddressTextFieldElement']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'AddressTextFieldElement.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[@name='AdministrativeAreaElement']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'AdministrativeAreaElement.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[@name='CountryElement']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'CountryElement.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[@name='PhoneNumberElement']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'PhoneNumberElement.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[@name='RowElement']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'RowElement.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[@name='SameAsShippingElement']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'SameAsShippingElement.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[@name='SectionSingleFieldElement']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'SectionSingleFieldElement.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/interface[@name='FormElement']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'FormElement.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[@name='SectionElement']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'SectionElement.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[@name='CheckboxFieldElement']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'CheckboxFieldElement.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[@name='OTPElement']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'OTPElement.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[@name='RowController']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'RowController.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[@name='SimpleTextFieldConfig']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'SimpleTextFieldConfig.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[@name='PostalCodeConfig']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.elements']/class[starts-with(@name, 'PostalCodeConfig.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.address']/class[@name='FieldType']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.address']/class[starts-with(@name, 'FieldType.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.address']/class[@name='CountryAddressSchema']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.address']/class[starts-with(@name, 'CountryAddressSchema.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.address']/class[@name='TransformAddressToElementKt']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.address']/class[starts-with(@name, 'TransformAddressToElementKt.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.address']/class[@name='AddressSchemaRepository']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.address']/class[starts-with(@name, 'AddressSchemaRepository.')]" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.address']/class[@name='AddressSchemaRepository']" />
+  <remove-node path="/api/package[@name='com.stripe.android.uicore.address']/class[starts-with(@name, 'AddressSchemaRepository.')]" />
+  <remove-node path="//class[implements[@name='dagger.internal.Factory']]" />
 </metadata>
