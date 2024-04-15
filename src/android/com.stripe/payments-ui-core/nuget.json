@@ -1,0 +1,6 @@
+{
+  "packageId": "Com.Stripe.PaymentsUiCore",
+  "name": "payments-ui-core",
+  "dependencyOnly": false,
+  "versionMappings": []
+}

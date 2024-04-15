@@ -1,0 +1,6 @@
+{
+  "packageId": "Com.Stripe.StripeAndroid",
+  "name": "stripe-android",
+  "dependencyOnly": false,
+  "versionMappings": []
+}

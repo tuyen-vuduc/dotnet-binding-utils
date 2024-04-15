@@ -1,0 +1,8 @@
+{
+  "Xamarin.Kotlin.StdLib": "1.9.22.1",
+  "Xamarin.Kotlin.StdLib.Common": "1.9.22.1",
+  "Xamarin.Jetbrains.Annotations": "24.0.1.3",
+  "Xamarin.KotlinX.Coroutines.Core": "1.8.0.1",
+  "Xamarin.AndroidX.Core.Core.Ktx": " 1.12.0.4",
+  "Xamarin.KotlinX.Coroutines.Android": "1.8.0.1"
+}

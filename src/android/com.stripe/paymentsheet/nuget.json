@@ -1,0 +1,6 @@
+{
+  "packageId": "Com.Stripe.Paymentsheet",
+  "name": "paymentsheet",
+  "dependencyOnly": false,
+  "versionMappings": []
+}

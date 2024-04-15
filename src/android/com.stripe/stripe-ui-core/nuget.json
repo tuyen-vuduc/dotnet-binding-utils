@@ -1,0 +1,6 @@
+{
+  "packageId": "Com.Stripe.StripeUiCore",
+  "name": "stripe-ui-core",
+  "dependencyOnly": false,
+  "versionMappings": []
+}

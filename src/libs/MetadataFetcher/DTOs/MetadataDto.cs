@@ -33,4 +33,5 @@ public record VersionDto
     public int Revision { get; set; }
     public NuGetVersion NugetVersion { get; set; }
     public bool? WithoutPatch { get; set; }
+    public bool? RuntimeDependenciesAsCompile { get; set; }
 }

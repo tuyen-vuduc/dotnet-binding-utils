@@ -1,0 +1,6 @@
+{
+  "packageId": "Com.Stripe.PaymentsModel",
+  "name": "payments-model",
+  "dependencyOnly": false,
+  "versionMappings": []
+}
