@@ -1,27 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-	<attr path="/api/package[@name='com.stripe.android.core.networking']/class[@name='StripeConnection.AbstractConnection']/method[@name='getResponse' and count(parameter)=0]"
-		  name="visibility">public</attr>
-  <remove-node path="/api/package[@name='com.stripe.android.core.networking']/interface[@name='StripeConnection']" />
-  <remove-node path="/api/package[@name='com.stripe.android.core.networking']/class[@name='StripeConnection.AbstractConnection']" />
-  <remove-node path="/api/package[@name='com.stripe.android.core.networking']/class[@name='StripeConnection.AbstractConnection.Companion']" />
-  <remove-node path="/api/package[@name='com.stripe.android.core.networking']/class[@name='StripeConnection.Default']" />
-  <remove-node path="/api/package[@name='com.stripe.android.core.networking']/class[@name='StripeConnection.FileConnection']" />
-  <remove-node path="/api/package[@name='com.stripe.android.core.networking']/class[@name='StripeResponse']" />
-  <remove-node path="/api/package[@name='com.stripe.android.core.networking']/class[@name='StripeResponse.Companion']" />
-  <remove-node path="/api/package[@name='com.stripe.android.core.networking']/interface[@name='ConnectionFactory']" />
-  <remove-node path="/api/package[@name='com.stripe.android.core.networking']/class[@name='ConnectionFactory.Companion']" />
-  <remove-node path="/api/package[@name='com.stripe.android.core.networking']/class[@name='ConnectionFactory.Default']" />
-  <remove-node path="/api/package[@name='com.stripe.android.core.networking']/interface[@name='ConnectionFactory.ConnectionOpener']" />
-  <remove-node path="/api/package[@name='com.stripe.android.core.networking']/class[@name='ConnectionFactory.ConnectionOpener.Default']" />
-  <remove-node path="/api/package[@name='com.stripe.android.core.networking']/class[@name='RequestExecutorKt']" />
-  <remove-node path="/api/package[@name='com.stripe.android.core.networking']/class[@name='ResponseJsonKt']" />
-  <remove-node path="/api/package[@name='com.stripe.android.core.networking']/class[@name='DefaultStripeNetworkClient']" />
-  <remove-node path="/api/package[@name='com.stripe.android.core.networking']/class[@name='DefaultStripeNetworkClient.Companion']" />
-  <remove-node path="/api/package[@name='com.stripe.android.core.model.parsers']/interface[@name='ModelJsonParser']" />
-  <remove-node path="/api/package[@name='com.stripe.android.core.model.parsers']/class[@name='ModelJsonParser.Companion']" />
-  <remove-node path="/api/package[@name='com.stripe.android.core.model.parsers']/class[@name='StripeFileJsonParser']" />
-  <remove-node path="/api/package[@name='com.stripe.android.core.model.parsers']/class[@name='StripeFileJsonParser.Companion']" />
-  <remove-node path="/api/package[@name='com.stripe.android.core.model.parsers']/class[@name='StripeErrorJsonParser']" />
-  <remove-node path="/api/package[@name='com.stripe.android.core.model.parsers']/class[@name='StripeErrorJsonParser.Companion']" />
+  <remove-node path="/api/package[@name='com.stripe.android.core.networking']/class[@name='StripeConnection.AbstractConnection']/implements[@name='com.stripe.android.core.networking.StripeConnection']" />
+  <remove-node path="/api/package[@name='com.stripe.android.core.networking']/class[@name='StripeConnection.AbstractConnection']/method[@name='getResponse' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='com.stripe.android.core.networking']/class[@name='StripeConnection.AbstractConnection']/method[@name='getResponseCode' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='com.stripe.android.core.networking']/class[@name='StripeConnection.FileConnection']/method[@name='createBodyFromResponseStream' and count(parameter)=1 and parameter[1][@type='java.io.InputStream']]" />
+  <remove-node path="/api/package[@name='com.stripe.android.core.networking']/class[@name='StripeConnection.Default']/method[@name='createBodyFromResponseStream' and count(parameter)=1 and parameter[1][@type='java.io.InputStream']]" />  
 </metadata>
