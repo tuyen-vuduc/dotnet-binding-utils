@@ -110,3 +110,32 @@ namespace Com.Stripe.Android.Model
         }
     }
 }
+
+namespace Com.Stripe.Android.Model.Parsers
+{
+    partial class BankAccountJsonParser
+    {
+        global::Java.Lang.Object global::Com.Stripe.Android.Core.Model.Parsers.IModelJsonParser.Parse(global::Org.Json.JSONObject json)
+            => Parse(json);
+    }
+    partial class CardJsonParser
+    {
+        global::Java.Lang.Object global::Com.Stripe.Android.Core.Model.Parsers.IModelJsonParser.Parse(global::Org.Json.JSONObject json)
+            => Parse(json);
+    }
+    partial class ConsumerSessionJsonParser
+    {
+        global::Java.Lang.Object global::Com.Stripe.Android.Core.Model.Parsers.IModelJsonParser.Parse(global::Org.Json.JSONObject json)
+            => Parse(json);
+    }
+    partial class ConsumerSessionLookupJsonParser
+    {
+        global::Java.Lang.Object global::Com.Stripe.Android.Core.Model.Parsers.IModelJsonParser.Parse(global::Org.Json.JSONObject json)
+            => Parse(json);
+    }
+    partial class TokenJsonParser
+    {
+        global::Java.Lang.Object global::Com.Stripe.Android.Core.Model.Parsers.IModelJsonParser.Parse(global::Org.Json.JSONObject json)
+            => Parse(json);
+    }
+}

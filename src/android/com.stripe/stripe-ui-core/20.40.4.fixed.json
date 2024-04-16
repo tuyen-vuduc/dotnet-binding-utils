@@ -1,3 +1,6 @@
 {
+    "Xamarin.KotlinX.Coroutines.Android": "1.8.0.1",
+    "Xamarin.Kotlin.StdLib": "1.9.22.1",
+    "Xamarin.KotlinX.Coroutines.Core": "1.8.0.1",
     "Xamarin.AndroidX.Lifecycle.Runtime": "2.7.0.1"
 }
