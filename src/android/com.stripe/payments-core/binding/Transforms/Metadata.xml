@@ -1,73 +1,179 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-      <attr path="//field[@name='root']" name="managedName">_root</attr>
-      <attr path="//field[@name='addPaymentMethodCard']" name="managedName">_addPaymentMethodCard</attr>
-      <attr path="//field[@name='billingAddressWidget']" name="managedName">_billingAddressWidget</attr>
-      <attr path="//field[@name='cardMultilineWidget']" name="managedName">_cardMultilineWidget</attr>
-      <attr path="//field[@name='label']" name="managedName">_label</attr>
-      <attr path="//field[@name='countryAutocompleteAaw']" name="managedName">_countryAutocompleteAaw</attr>
-      <attr path="//field[@name='etAddressLineOneAaw']" name="managedName">_etAddressLineOneAaw</attr>
-      <attr path="//field[@name='etAddressLineTwoAaw']" name="managedName">_etAddressLineTwoAaw</attr>
-      <attr path="//field[@name='etCityAaw']" name="managedName">_etCityAaw</attr>
-      <attr path="//field[@name='etNameAaw']" name="managedName">_etNameAaw</attr>
-      <attr path="//field[@name='etPhoneNumberAaw']" name="managedName">_etPhoneNumberAaw</attr>
-      <attr path="//field[@name='etPostalCodeAaw']" name="managedName">_etPostalCodeAaw</attr>
-      <attr path="//field[@name='etStateAaw']" name="managedName">_etStateAaw</attr>
-      <attr path="//field[@name='tlAddressLine1Aaw']" name="managedName">_tlAddressLine1Aaw</attr>
-      <attr path="//field[@name='tlAddressLine2Aaw']" name="managedName">_tlAddressLine2Aaw</attr>
-      <attr path="//field[@name='tlCityAaw']" name="managedName">_tlCityAaw</attr>
-      <attr path="//field[@name='tlNameAaw']" name="managedName">_tlNameAaw</attr>
-      <attr path="//field[@name='tlPhoneNumberAaw']" name="managedName">_tlPhoneNumberAaw</attr>
-      <attr path="//field[@name='tlPostalCodeAaw']" name="managedName">_tlPostalCodeAaw</attr>
-      <attr path="//field[@name='tlStateAaw']" name="managedName">_tlStateAaw</attr>
-      <attr path="//field[@name='checkIcon']" name="managedName">_checkIcon</attr>
-      <attr path="//field[@name='icon']" name="managedName">_icon</attr>
-      <attr path="//field[@name='name']" name="managedName">_name</attr>
-      <attr path="//field[@name='bankList']" name="managedName">_bankList</attr>
-      <attr path="//field[@name='accountNumberEditText']" name="managedName">_accountNumberEditText</attr>
-      <attr path="//field[@name='accountNumberTextInputLayout']" name="managedName">_accountNumberTextInputLayout</attr>
-      <attr path="//field[@name='bsbEditText']" name="managedName">_bsbEditText</attr>
-      <attr path="//field[@name='bsbTextInputLayout']" name="managedName">_bsbTextInputLayout</attr>
-      <attr path="//field[@name='emailEditText']" name="managedName">_emailEditText</attr>
-      <attr path="//field[@name='emailTextInputLayout']" name="managedName">_emailTextInputLayout</attr>
-      <attr path="//field[@name='mandateAcceptanceTextView']" name="managedName">_mandateAcceptanceTextView</attr>
-      <attr path="//field[@name='nameEditText']" name="managedName">_nameEditText</attr>
-      <attr path="//field[@name='nameTextInputLayout']" name="managedName">_nameTextInputLayout</attr>
-      <attr path="//field[@name='AddCard']" name="managedName">_AddCard</attr>
-      <attr path="//field[@name='AddFpx']" name="managedName">_AddFpx</attr>
-      <attr path="//field[@name='Card']" name="managedName">_Card</attr>
-      <attr path="//field[@name='GooglePay']" name="managedName">_GooglePay</attr>
-      <attr path="//field[@name='CREATOR']" name="managedName">CREATOR</attr>
-      <attr path="//field[@name='type']" name="managedName">_type</attr>
-      <attr path="//field[@name='auBecsDebit']" name="managedName">_auBecsDebit</attr>
-      <attr path="//field[@name='bacsDebit']" name="managedName">_bacsDebit</attr>
-      <attr path="//field[@name='billingDetails']" name="managedName">_billingDetails</attr>
-      <attr path="//field[@name='card']" name="managedName">_card</attr>
-      <attr path="//field[@name='cardPresent']" name="managedName">_cardPresent</attr>
-      <attr path="//field[@name='code']" name="managedName">_code</attr>
-      <attr path="//field[@name='created']" name="managedName">_created</attr>
-      <attr path="//field[@name='customerId']" name="managedName">_customerId</attr>
-      <attr path="//field[@name='fpx']" name="managedName">_fpx</attr>
-      <attr path="//field[@name='id']" name="managedName">_id</attr>
-      <attr path="//field[@name='ideal']" name="managedName">_ideal</attr>
-      <attr path="//field[@name='liveMode']" name="managedName">_liveMode</attr>
-      <attr path="//field[@name='netbanking']" name="managedName">_netbanking</attr>
-      <attr path="//field[@name='sepaDebit']" name="managedName">_sepaDebit</attr>
-      <attr path="//field[@name='sofort']" name="managedName">_sofort</attr>
-      <attr path="//field[@name='type']" name="managedName">_type</attr>
-      <attr path="//field[@name='upi']" name="managedName">_upi</attr>
-      <attr path="//field[@name='usBankAccount']" name="managedName">_usBankAccount</attr>
-      <attr path="//field[@name='brand']" name="managedName">_brand</attr>
-      <attr path="//field[@name='checks']" name="managedName">_checks</attr>
-      <attr path="//field[@name='country']" name="managedName">_country</attr>
-      <attr path="//field[@name='displayBrand']" name="managedName">_displayBrand</attr>
-      <attr path="//field[@name='expiryMonth']" name="managedName">_expiryMonth</attr>
-      <attr path="//field[@name='expiryYear']" name="managedName">_expiryYear</attr>
-      <attr path="//field[@name='fingerprint']" name="managedName">_fingerprint</attr>
-      <attr path="//field[@name='funding']" name="managedName">_funding</attr>
-      <attr path="//field[@name='last4']" name="managedName">_last4</attr>
-      <attr path="//field[@name='networks']" name="managedName">_networks</attr>
-      <attr path="//field[@name='threeDSecureUsage']" name="managedName">_threeDSecureUsage</attr>
-      <attr path="//field[@name='wallet']" name="managedName">_wallet</attr>
-      <attr path="/api/package[@name='com.stripe.android.payments.core.authentication.threeds2']/class[@name='Stripe3ds2TransactionContract']" name="visibility">internal</attr>
+  <attr path="//field[@name='root']"
+        name="managedName">_root</attr>
+  <attr path="//field[@name='addPaymentMethodCard']"
+        name="managedName">_addPaymentMethodCard</attr>
+  <attr path="//field[@name='billingAddressWidget']"
+        name="managedName">_billingAddressWidget</attr>
+  <attr path="//field[@name='cardMultilineWidget']"
+        name="managedName">_cardMultilineWidget</attr>
+  <attr path="//field[@name='label']"
+        name="managedName">_label</attr>
+  <attr path="//field[@name='countryAutocompleteAaw']"
+        name="managedName">_countryAutocompleteAaw</attr>
+  <attr path="//field[@name='etAddressLineOneAaw']"
+        name="managedName">_etAddressLineOneAaw</attr>
+  <attr path="//field[@name='etAddressLineTwoAaw']"
+        name="managedName">_etAddressLineTwoAaw</attr>
+  <attr path="//field[@name='etCityAaw']"
+        name="managedName">_etCityAaw</attr>
+  <attr path="//field[@name='etNameAaw']"
+        name="managedName">_etNameAaw</attr>
+  <attr path="//field[@name='etPhoneNumberAaw']"
+        name="managedName">_etPhoneNumberAaw</attr>
+  <attr path="//field[@name='etPostalCodeAaw']"
+        name="managedName">_etPostalCodeAaw</attr>
+  <attr path="//field[@name='etStateAaw']"
+        name="managedName">_etStateAaw</attr>
+  <attr path="//field[@name='tlAddressLine1Aaw']"
+        name="managedName">_tlAddressLine1Aaw</attr>
+  <attr path="//field[@name='tlAddressLine2Aaw']"
+        name="managedName">_tlAddressLine2Aaw</attr>
+  <attr path="//field[@name='tlCityAaw']"
+        name="managedName">_tlCityAaw</attr>
+  <attr path="//field[@name='tlNameAaw']"
+        name="managedName">_tlNameAaw</attr>
+  <attr path="//field[@name='tlPhoneNumberAaw']"
+        name="managedName">_tlPhoneNumberAaw</attr>
+  <attr path="//field[@name='tlPostalCodeAaw']"
+        name="managedName">_tlPostalCodeAaw</attr>
+  <attr path="//field[@name='tlStateAaw']"
+        name="managedName">_tlStateAaw</attr>
+  <attr path="//field[@name='checkIcon']"
+        name="managedName">_checkIcon</attr>
+  <attr path="//field[@name='icon']"
+        name="managedName">_icon</attr>
+  <attr path="//field[@name='name']"
+        name="managedName">_name</attr>
+  <attr path="//field[@name='bankList']"
+        name="managedName">_bankList</attr>
+  <attr path="//field[@name='accountNumberEditText']"
+        name="managedName">_accountNumberEditText</attr>
+  <attr path="//field[@name='accountNumberTextInputLayout']"
+        name="managedName">_accountNumberTextInputLayout</attr>
+  <attr path="//field[@name='bsbEditText']"
+        name="managedName">_bsbEditText</attr>
+  <attr path="//field[@name='bsbTextInputLayout']"
+        name="managedName">_bsbTextInputLayout</attr>
+  <attr path="//field[@name='emailEditText']"
+        name="managedName">_emailEditText</attr>
+  <attr path="//field[@name='emailTextInputLayout']"
+        name="managedName">_emailTextInputLayout</attr>
+  <attr path="//field[@name='mandateAcceptanceTextView']"
+        name="managedName">_mandateAcceptanceTextView</attr>
+  <attr path="//field[@name='nameEditText']"
+        name="managedName">_nameEditText</attr>
+  <attr path="//field[@name='nameTextInputLayout']"
+        name="managedName">_nameTextInputLayout</attr>
+  <attr path="//field[@name='AddCard']"
+        name="managedName">_AddCard</attr>
+  <attr path="//field[@name='AddFpx']"
+        name="managedName">_AddFpx</attr>
+  <attr path="//field[@name='Card']"
+        name="managedName">_Card</attr>
+  <attr path="//field[@name='GooglePay']"
+        name="managedName">_GooglePay</attr>
+  <attr path="//field[@name='CREATOR']"
+        name="managedName">CREATOR</attr>
+  <attr path="//field[@name='type']"
+        name="managedName">_type</attr>
+  <attr path="//field[@name='auBecsDebit']"
+        name="managedName">_auBecsDebit</attr>
+  <attr path="//field[@name='bacsDebit']"
+        name="managedName">_bacsDebit</attr>
+  <attr path="//field[@name='billingDetails']"
+        name="managedName">_billingDetails</attr>
+  <attr path="//field[@name='card']"
+        name="managedName">_card</attr>
+  <attr path="//field[@name='cardPresent']"
+        name="managedName">_cardPresent</attr>
+  <attr path="//field[@name='code']"
+        name="managedName">_code</attr>
+  <attr path="//field[@name='created']"
+        name="managedName">_created</attr>
+  <attr path="//field[@name='customerId']"
+        name="managedName">_customerId</attr>
+  <attr path="//field[@name='fpx']"
+        name="managedName">_fpx</attr>
+  <attr path="//field[@name='id']"
+        name="managedName">_id</attr>
+  <attr path="//field[@name='ideal']"
+        name="managedName">_ideal</attr>
+  <attr path="//field[@name='liveMode']"
+        name="managedName">_liveMode</attr>
+  <attr path="//field[@name='netbanking']"
+        name="managedName">_netbanking</attr>
+  <attr path="//field[@name='sepaDebit']"
+        name="managedName">_sepaDebit</attr>
+  <attr path="//field[@name='sofort']"
+        name="managedName">_sofort</attr>
+  <attr path="//field[@name='type']"
+        name="managedName">_type</attr>
+  <attr path="//field[@name='upi']"
+        name="managedName">_upi</attr>
+  <attr path="//field[@name='usBankAccount']"
+        name="managedName">_usBankAccount</attr>
+  <attr path="//field[@name='brand']"
+        name="managedName">_brand</attr>
+  <attr path="//field[@name='checks']"
+        name="managedName">_checks</attr>
+  <attr path="//field[@name='country']"
+        name="managedName">_country</attr>
+  <attr path="//field[@name='displayBrand']"
+        name="managedName">_displayBrand</attr>
+  <attr path="//field[@name='expiryMonth']"
+        name="managedName">_expiryMonth</attr>
+  <attr path="//field[@name='expiryYear']"
+        name="managedName">_expiryYear</attr>
+  <attr path="//field[@name='fingerprint']"
+        name="managedName">_fingerprint</attr>
+  <attr path="//field[@name='funding']"
+        name="managedName">_funding</attr>
+  <attr path="//field[@name='last4']"
+        name="managedName">_last4</attr>
+  <attr path="//field[@name='networks']"
+        name="managedName">_networks</attr>
+  <attr path="//field[@name='threeDSecureUsage']"
+        name="managedName">_threeDSecureUsage</attr>
+  <attr path="//field[@name='wallet']"
+        name="managedName">_wallet</attr>
+  <attr path="/api/package[@name='com.stripe.android.payments.core.authentication.threeds2']/class[@name='Stripe3ds2TransactionContract']"
+        name="visibility">internal</attr>
+  <attr path="//class[@extends='androidx.activity.result.contract.ActivityResultContract']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]"
+        name="managedName">ParseResultX</attr>
+  <attr path="/api/package[@name='com.stripe.android.payments.core.authentication']/interface[@name='PaymentAuthenticatorRegistry']"
+        name="visibility">public</attr>
+  <attr path="/api/package[@name='com.stripe.android.payments.core.authentication.threeds2']/class[@name='Stripe3ds2TransactionContract']"
+        name="visibility">public</attr>
+  <attr path="/api/package[@name='com.stripe.android.view']/class[@name='AddPaymentMethodActivity']/method[@name='onActionSave' and count(parameter)=0]"
+        name="visibility">protected</attr>
+  <add-node path="/api/package[@name='com.stripe.android.model']/class[@name='ConfirmSetupIntentParams']">
+    <method abstract="false"
+            deprecated="not deprecated"
+            final="false"
+            name="getClientSecret"
+            jni-signature="()Ljava/lang/String;"
+            bridge="false"
+            native="false"
+            return="java.lang.String"
+            jni-return="Ljava/lang/String;"
+            static="false"
+            synchronized="false"
+            synthetic="false"
+            visibility="public" />
+  </add-node>
+  <attr path="/api/package[@name='com.stripe.android']/class[@name='StripeIntentResult']/method[@name='getOutcome' and count(parameter)=0]"
+        name="propertyName"></attr>
+  <attr path="//method[@return='com.stripe.android.model.StripeIntent.NextActionData.SdkData.Use3DS2.DirectoryServerEncryption']"
+        name="managedReturn">Com.Stripe.Android.Model.IStripeIntent.NextActionData.SdkData.Use3DS2.DirectoryServerEncryption</attr>
+  <attr path="//parameter[@type='com.stripe.android.model.StripeIntent.NextActionData.SdkData.Use3DS2.DirectoryServerEncryption']"
+        name="managedType">Com.Stripe.Android.Model.IStripeIntent.NextActionData.SdkData.Use3DS2.DirectoryServerEncryption</attr>
+  <attr path="//method[@return='com.stripe.android.model.StripeIntent.NextActionData.SdkData.Use3DS2.DirectoryServerEncryption[]']"
+        name="managedReturn">Com.Stripe.Android.Model.IStripeIntent.NextActionData.SdkData.Use3DS2.DirectoryServerEncryption[]</attr>
+  <remove-node path="/api/package[@name='com.stripe.android.model']/class[@name='StripeIntent.NextActionData.SdkData.Use3DS2.DirectoryServerEncryption.Creator']/method[@name='newArray' and count(parameter)=1 and parameter[1][@type='int']]" />
+  <attr path="//field[@name='CARD_FORM_VIEW']"
+        name="managedName">CARD_FORM_VIEW</attr>
+  <attr path="/api/package[@name='com.stripe.android.view']/class[@name='PaymentFlowActivity']/method[@name='onActionSave' and count(parameter)=0]"
+        name="visibility">protected</attr>
 </metadata>

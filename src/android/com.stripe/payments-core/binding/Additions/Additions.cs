@@ -173,6 +173,8 @@ namespace Com.Stripe.Android
     }
     partial class PaymentIntentResult
     {
+        protected override global::Java.Lang.Object RawIntent => Intent;
+
         partial class Creator
         {
             global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel source)
@@ -335,6 +337,10 @@ namespace Com.Stripe.Android.Googlepaylauncher
     }
     partial class GooglePayLauncherContract
     {
+        public override global::Android.Content.Intent CreateIntent(global::Android.Content.Context context, global::Java.Lang.Object? args)
+            => CreateIntent(context, args as Args);
+        public override global::Java.Lang.Object? ParseResult(int resultCode, global::Android.Content.Intent? intent)
+            => ParseResultX(resultCode, intent);
         partial class PaymentIntentArgs
         {
             partial class Creator
@@ -470,6 +476,10 @@ namespace Com.Stripe.Android.Googlepaylauncher
     }
     partial class GooglePayPaymentMethodLauncherContract
     {
+        public override global::Android.Content.Intent CreateIntent(global::Android.Content.Context context, global::Java.Lang.Object? args)
+            => CreateIntent(context, args as Args);
+        public override global::Java.Lang.Object? ParseResult(int resultCode, global::Android.Content.Intent? intent)
+            => ParseResultX(resultCode, intent);
         partial class Args
         {
             partial class Creator
@@ -782,6 +792,8 @@ namespace Com.Stripe.Android.Model
     }
     partial class ConfirmPaymentIntentParams
     {
+        global::Com.Stripe.Android.Model.IConfirmStripeIntentParams global::Com.Stripe.Android.Model.IConfirmStripeIntentParams.WithShouldUseStripeSdk(bool shouldUseStripeSdk)
+            => WithShouldUseStripeSdk(shouldUseStripeSdk);
         partial class Creator
         {
             global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel source)
@@ -794,9 +806,6 @@ namespace Com.Stripe.Android.Model
                 return this.NewArray(size);
             }
         }
-    }
-    partial class ConfirmPaymentIntentParams
-    {
         partial class Shipping
         {
             partial class Creator
@@ -815,6 +824,8 @@ namespace Com.Stripe.Android.Model
     }
     partial class ConfirmSetupIntentParams
     {
+        global::Com.Stripe.Android.Model.IConfirmStripeIntentParams global::Com.Stripe.Android.Model.IConfirmStripeIntentParams.WithShouldUseStripeSdk(bool shouldUseStripeSdk)
+            => WithShouldUseStripeSdk(shouldUseStripeSdk);
         partial class Creator
         {
             global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel source)
@@ -1040,7 +1051,7 @@ namespace Com.Stripe.Android.Model
     }
     partial class DeferredIntentParams
     {
-        partial class IMode
+        partial interface IMode
         {
             partial class Payment
             {
@@ -1061,7 +1072,7 @@ namespace Com.Stripe.Android.Model
     }
     partial class DeferredIntentParams
     {
-        partial class IMode
+        partial interface IMode
         {
             partial class Setup
             {
@@ -1143,7 +1154,7 @@ namespace Com.Stripe.Android.Model
             }
         }
     }
-    partial class IElementsSessionParams
+    partial interface IElementsSessionParams
     {
         partial class DeferredIntentType
         {
@@ -1161,7 +1172,7 @@ namespace Com.Stripe.Android.Model
             }
         }
     }
-    partial class IElementsSessionParams
+    partial interface IElementsSessionParams
     {
         partial class PaymentIntentType
         {
@@ -1179,7 +1190,7 @@ namespace Com.Stripe.Android.Model
             }
         }
     }
-    partial class IElementsSessionParams
+    partial interface IElementsSessionParams
     {
         partial class SetupIntentType
         {
@@ -1212,7 +1223,7 @@ namespace Com.Stripe.Android.Model
             }
         }
     }
-    partial class IStripeIntent
+    partial interface IStripeIntent
     {
         partial class NextActionData
         {
@@ -1233,7 +1244,7 @@ namespace Com.Stripe.Android.Model
             }
         }
     }
-    partial class IStripeIntent
+    partial interface IStripeIntent
     {
         partial class NextActionData
         {
@@ -1254,7 +1265,7 @@ namespace Com.Stripe.Android.Model
             }
         }
     }
-    partial class IStripeIntent
+    partial interface IStripeIntent
     {
         partial class NextActionData
         {
@@ -1275,7 +1286,7 @@ namespace Com.Stripe.Android.Model
             }
         }
     }
-    partial class IStripeIntent
+    partial interface IStripeIntent
     {
         partial class NextActionData
         {
@@ -1296,7 +1307,7 @@ namespace Com.Stripe.Android.Model
             }
         }
     }
-    partial class IStripeIntent
+    partial interface IStripeIntent
     {
         partial class NextActionData
         {
@@ -1317,7 +1328,7 @@ namespace Com.Stripe.Android.Model
             }
         }
     }
-    partial class IStripeIntent
+    partial interface IStripeIntent
     {
         partial class NextActionData
         {
@@ -1338,7 +1349,7 @@ namespace Com.Stripe.Android.Model
             }
         }
     }
-    partial class IStripeIntent
+    partial interface IStripeIntent
     {
         partial class NextActionData
         {
@@ -1362,7 +1373,7 @@ namespace Com.Stripe.Android.Model
             }
         }
     }
-    partial class IStripeIntent
+    partial interface IStripeIntent
     {
         partial class NextActionData
         {
@@ -1386,7 +1397,7 @@ namespace Com.Stripe.Android.Model
             }
         }
     }
-    partial class IStripeIntent
+    partial interface IStripeIntent
     {
         partial class NextActionData
         {
@@ -1407,13 +1418,30 @@ namespace Com.Stripe.Android.Model
                             {
                                 return this.NewArray(size);
                             }
+
+                            // Metadata.xml XPath method reference: path="/api/package[@name='com.stripe.android.model']/class[@name='StripeIntent.NextActionData.SdkData.Use3DS2.DirectoryServerEncryption.Creator']/method[@name='newArray' and count(parameter)=1 and parameter[1][@type='int']]"
+                            [Register("newArray", "(I)[Lcom/stripe/android/model/StripeIntent$NextActionData$SdkData$Use3DS2$DirectoryServerEncryption;", "")]
+                            public unsafe global::Com.Stripe.Android.Model.IStripeIntent.NextActionData.SdkData.Use3DS2.DirectoryServerEncryption[] NewArray(int size)
+                            {
+                                const string __id = "newArray.(I)[Lcom/stripe/android/model/StripeIntent$NextActionData$SdkData$Use3DS2$DirectoryServerEncryption;";
+                                try
+                                {
+                                    JniArgumentValue* __args = stackalloc JniArgumentValue[1];
+                                    __args[0] = new JniArgumentValue(size);
+                                    var __rm = _members.InstanceMethods.InvokeNonvirtualObjectMethod(__id, this, __args);
+                                    return (global::Com.Stripe.Android.Model.IStripeIntent.NextActionData.SdkData.Use3DS2.DirectoryServerEncryption[]?)JNIEnv.GetArray(__rm.Handle, JniHandleOwnership.TransferLocalRef, typeof(global::Com.Stripe.Android.Model.IStripeIntent.NextActionData.SdkData.Use3DS2.DirectoryServerEncryption))!;
+                                }
+                                finally
+                                {
+                                }
+                            }
                         }
                     }
                 }
             }
         }
     }
-    partial class IStripeIntent
+    partial interface IStripeIntent
     {
         partial class NextActionData
         {
@@ -1434,7 +1462,7 @@ namespace Com.Stripe.Android.Model
             }
         }
     }
-    partial class IStripeIntent
+    partial interface IStripeIntent
     {
         partial class NextActionData
         {
@@ -1455,7 +1483,7 @@ namespace Com.Stripe.Android.Model
             }
         }
     }
-    partial class IStripeIntent
+    partial interface IStripeIntent
     {
         partial class NextActionData
         {
@@ -1476,7 +1504,7 @@ namespace Com.Stripe.Android.Model
             }
         }
     }
-    partial class IStripeIntent
+    partial interface IStripeIntent
     {
         partial class NextActionData
         {
@@ -3073,7 +3101,7 @@ namespace Com.Stripe.Android.Model
         }
     }
 }
-namespace Com.Stripe.Android.Models.Wallet
+namespace Com.Stripe.Android.Model.Wallets
 {
     partial class Wallet
     {
@@ -3227,6 +3255,10 @@ namespace Com.Stripe.Android.Payments.Bankaccount.Navigation
 {
     partial class CollectBankAccountContract
     {
+        public override global::Android.Content.Intent CreateIntent(global::Android.Content.Context context, global::Java.Lang.Object? args)
+            => CreateIntent(context, args as Args);
+        public override global::Java.Lang.Object? ParseResult(int resultCode, global::Android.Content.Intent? intent)
+            => ParseResultX(resultCode, intent);
         partial class Args
         {
             partial class ForDeferredPaymentIntent
@@ -3452,6 +3484,11 @@ namespace Com.Stripe.Android.Payments.Core.Authentication.Threeds2
 {
     partial class Stripe3ds2TransactionContract
     {
+        public override global::Android.Content.Intent CreateIntent(global::Android.Content.Context context, global::Java.Lang.Object? args)
+            => CreateIntent(context, args as Args);
+        public override global::Java.Lang.Object? ParseResult(int resultCode, global::Android.Content.Intent? intent)
+            => ParseResultX(resultCode, intent);
+
         partial class Args
         {
             partial class Creator
@@ -3486,6 +3523,17 @@ namespace Com.Stripe.Android.Payments
                 {
                     return this.NewArray(size);
                 }
+            }
+            partial class Companion
+            {
+                global::Java.Lang.Object? global::Kotlinx.Parcelize.IParceler.Create(global::Android.OS.Parcel parcel)
+                    => Create(parcel);
+
+                global::Java.Lang.Object[] global::Kotlinx.Parcelize.IParceler.NewArray(int size)
+                    => NewArray(size).Cast<Java.Lang.Object>().ToArray();
+
+                void global::Kotlinx.Parcelize.IParceler.Write(global::Java.Lang.Object? p0, global::Android.OS.Parcel parcel, int flags)
+                    => Write(p0 as Unvalidated, parcel, flags);
             }
         }
     }
@@ -3548,6 +3596,10 @@ namespace Com.Stripe.Android.Payments.Paymentlauncher
     }
     partial class PaymentLauncherContract
     {
+        public override global::Android.Content.Intent CreateIntent(global::Android.Content.Context context, global::Java.Lang.Object? args)
+            => CreateIntent(context, args as Args);
+        public override global::Java.Lang.Object? ParseResult(int resultCode, global::Android.Content.Intent? intent)
+            => ParseResultX(resultCode, intent);
         partial class Args
         {
             partial class IntentConfirmationArgs
@@ -3818,5 +3870,231 @@ namespace Com.Stripe.Android.View
                 }
             }
         }
+    }
+}
+namespace Com.Stripe.Android.Payments.Paymentlauncher
+{
+    partial class PaymentLauncherViewModel_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+}
+namespace Com.Stripe.Android
+{
+    partial class GooglePayJsonFactory_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+}
+namespace Com.Stripe.Android.Googlepaylauncher
+{
+    partial class GooglePayPaymentMethodLauncherViewModel_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+}
+namespace Com.Stripe.Android.Googlepaylauncher.Injection
+{
+    partial class GooglePayLauncherModule_ProvideGooglePayRepositoryFactoryFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class GooglePayPaymentMethodLauncherModule_Companion_ProvidePaymentsClientFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+}
+namespace Com.Stripe.Android.Networking
+{
+    partial class PaymentAnalyticsRequestFactory_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class StripeApiRepository_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+}
+namespace Com.Stripe.Android.Payments.Bankaccount.DI
+{
+    partial class CollectBankAccountModule_ProvidePublishableKeyFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class CollectBankAccountModule_ProvidesAppContextFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class CollectBankAccountModule_ProvidesEnableLoggingFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class CollectBankAccountModule_ProvidesProductUsageFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+}
+namespace Com.Stripe.Android.Payments.Bankaccount.UI
+{
+    partial class CollectBankAccountViewModel_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+}
+namespace Com.Stripe.Android.Payments.Core.Analytics
+{
+    partial class DefaultErrorReporterModule_Companion_ProvideIoContextFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class DefaultErrorReporterModule_Companion_ProvideLoggerFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class DefaultErrorReporterModule_Companion_ProvidePublishableKeyFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class RealErrorReporter_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+}
+namespace Com.Stripe.Android.Payments.Core.Authentication
+{
+    partial class BoletoAuthenticator_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class KonbiniAuthenticator_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class NoOpIntentAuthenticator_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class OxxoAuthenticator_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class SourceAuthenticator_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class UnsupportedAuthenticator_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class WebIntentAuthenticator_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+}
+namespace Com.Stripe.Android.Payments.Core.Authentication.Threeds2
+{
+    partial class Stripe3DS2Authenticator_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class Stripe3ds2TransactionViewModel_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+}
+namespace Com.Stripe.Android.Payments.Core.Injection
+{
+    partial class AuthenticationModule_Companion_ProvidePaymentBrowserAuthStarterFactoryFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class AuthenticationModule_Companion_ProvidePaymentRelayStarterFactoryFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class PaymentLauncherModule_ProvideIsInstantAppFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class PaymentLauncherModule_ProvidePaymentAuthenticatorRegistryFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class PaymentLauncherModule_ProvideThreeDs1IntentReturnUrlMapFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class Stripe3ds2TransactionModule_Companion_ProvideMessageVersionRegistryFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class Stripe3ds2TransactionModule_Companion_ProvideStripeThreeDs2ServiceFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class Stripe3DSAuthenticatorModule_Companion_ProvidePaymentAuthConfigFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class Stripe3dsTransactionViewModelModule_ProvidesInitChallengeRepositoryFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+}
+namespace Com.Stripe.Android.Polling
+{
+    partial class DefaultIntentStatusPoller_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+}
+namespace Com.Stripe.Android.Model.Parsers
+{
+    partial class AddressJsonParser
+    {
+        global::Java.Lang.Object? global::Com.Stripe.Android.Core.Model.Parsers.IModelJsonParser.Parse(global::Org.Json.JSONObject json) => Parse(json);
+    }
+    partial class ConsumerPaymentDetailsJsonParser
+    {
+        global::Java.Lang.Object? global::Com.Stripe.Android.Core.Model.Parsers.IModelJsonParser.Parse(global::Org.Json.JSONObject json) => Parse(json);
+    }
+    partial class CustomerPaymentSourceJsonParser
+    {
+        global::Java.Lang.Object? global::Com.Stripe.Android.Core.Model.Parsers.IModelJsonParser.Parse(global::Org.Json.JSONObject json) => Parse(json);
+    }
+    partial class DeferredPaymentIntentJsonParser
+    {
+        global::Java.Lang.Object? global::Com.Stripe.Android.Core.Model.Parsers.IModelJsonParser.Parse(global::Org.Json.JSONObject json) => Parse(json);
+    }
+    partial class DeferredSetupIntentJsonParser
+    {
+        global::Java.Lang.Object? global::Com.Stripe.Android.Core.Model.Parsers.IModelJsonParser.Parse(global::Org.Json.JSONObject json) => Parse(json);
+    }
+    partial class PaymentIntentJsonParser
+    {
+        global::Java.Lang.Object? global::Com.Stripe.Android.Core.Model.Parsers.IModelJsonParser.Parse(global::Org.Json.JSONObject json) => Parse(json);
+    }
+    partial class PaymentMethodJsonParser
+    {
+        global::Java.Lang.Object? global::Com.Stripe.Android.Core.Model.Parsers.IModelJsonParser.Parse(global::Org.Json.JSONObject json) => Parse(json);
+    }
+    partial class SetupIntentJsonParser
+    {
+        global::Java.Lang.Object? global::Com.Stripe.Android.Core.Model.Parsers.IModelJsonParser.Parse(global::Org.Json.JSONObject json) => Parse(json);
+    }
+}
+namespace Com.Stripe.Android.Model
+{
+    partial class PaymentIntent
+    {
+        global::Com.Stripe.Android.Model.IStripeIntent.NextActionData? global::Com.Stripe.Android.Model.IStripeIntent.GetNextActionData() => NextActionData;
+        global::Com.Stripe.Android.Model.IStripeIntent.NextActionType? global::Com.Stripe.Android.Model.IStripeIntent.GetNextActionType() => NextActionType;
+        global::Com.Stripe.Android.Model.IStripeIntent.Status? global::Com.Stripe.Android.Model.IStripeIntent.GetStatus() => Status;
+    }
+    partial class SetupIntent
+    {
+        global::Com.Stripe.Android.Model.IStripeIntent.NextActionData? global::Com.Stripe.Android.Model.IStripeIntent.GetNextActionData() => NextActionData;
+        global::Com.Stripe.Android.Model.IStripeIntent.NextActionType? global::Com.Stripe.Android.Model.IStripeIntent.GetNextActionType() => NextActionType;
+        global::Com.Stripe.Android.Model.IStripeIntent.Status? global::Com.Stripe.Android.Model.IStripeIntent.GetStatus() => Status;
     }
 }
