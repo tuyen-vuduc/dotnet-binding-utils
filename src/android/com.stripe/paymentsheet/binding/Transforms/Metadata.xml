@@ -1,3 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+  <attr path="/api/package[@name='com.stripe.android.paymentsheet.paymentdatacollection.polling']/class[@name='PollingViewModel']"
+        name="visibility">public</attr>
 </metadata>

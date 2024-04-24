@@ -1,10 +1,49 @@
 const fs = require("node:fs");
 
+process_AndroidX_ViewBinding_IViewBinding();
 // process_Com_Stripe_Android_Uicore_Elements_IFormElement();
-
 // process_JavaX_Inject_IProvider();
-process_Android_OS_IParcelableCreator();
+// process_Android_OS_IParcelableCreator();
 // process_Com_Stripe_Android_Model_IStripeIntent();
+
+function process_AndroidX_ViewBinding_IViewBinding() {
+  var input = fs.readFileSync("input.AndroidX.ViewBinding.IViewBinding.txt");
+
+  var items = input
+    .toString()
+    .trim()
+    .split("\n")
+    .map(x => /.+'(\w+[^ ]+Binding)'.+src\\([^ ]+Binding)\.cs.+/.exec(x))
+    .map(x => x.slice(1, 3))
+    .map(x => x.join(' '))
+    .filter(onlyUnique)
+    .map((x) => x.split(" "))
+    .map((x) => {
+      var clsName = x[0];
+      var ns = x[1].replace("." + clsName, "");
+      return [ns, `partial class ${clsName} {
+        global::Android.Views.View global::AndroidX.ViewBinding.IViewBinding.Root => Root;
+        }`];
+    })
+    .reduce((result, item) => {
+      var reduced = result.find((x) => x[0] == item[0]);
+      if (reduced) {
+        reduced.push(item[1]);
+      } else {
+        result.push(item);
+      }
+      return result;
+    }, [])
+    .map((x) => {
+      return `namespace ${x[0]} {
+            ${x.slice(1).join("\n")}
+        }`;
+    })
+    ;
+
+  // console.log(items[0]);
+  fs.writeFileSync("output.AndroidX.ViewBinding.IViewBinding.cs", items.join("\n"));
+}
 
 function process_Com_Stripe_Android_Uicore_Elements_IFormElement() {
   var input = fs.readFileSync("input.Com.Stripe.Android.Uicore.Elements.IFormElement.txt");
