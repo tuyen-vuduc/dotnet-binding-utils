@@ -1,9 +1,9 @@
 const fs = require("node:fs");
 
-process_AndroidX_ViewBinding_IViewBinding();
+// process_AndroidX_ViewBinding_IViewBinding();
 // process_Com_Stripe_Android_Uicore_Elements_IFormElement();
 // process_JavaX_Inject_IProvider();
-// process_Android_OS_IParcelableCreator();
+process_Android_OS_IParcelableCreator();
 // process_Com_Stripe_Android_Model_IStripeIntent();
 
 function process_AndroidX_ViewBinding_IViewBinding() {
@@ -228,10 +228,8 @@ function process_Android_OS_IParcelableCreator() {
         (result, item) => {
           return `partial class ${item} {${result}}`;
         },
-        `global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source)
-          => this.CreateFromParcel(source);    
-                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
-                    => this.NewArray(size);`
+        `global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);    
+         global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);`
       );
       return [ns, cls];
     })

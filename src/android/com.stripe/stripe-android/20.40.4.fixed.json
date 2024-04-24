@@ -1,4 +1,5 @@
 {
     "Xamarin.AndroidX.Lifecycle.Runtime": "2.7.0.1",
-    "Xamarin.AndroidX.Lifecycle.Common": "2.7.0.1"
+    "Xamarin.AndroidX.Lifecycle.Common": "2.7.0.1",
+    "Xamarin.AndroidX.Compose.Runtime": "1.6.4"
 }
