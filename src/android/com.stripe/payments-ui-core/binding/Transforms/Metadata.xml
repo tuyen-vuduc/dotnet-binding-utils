@@ -1,3 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+  <attr path="//field[@name='DEBUG_LABEL']"
+        name="managedName">DEBUG_LABEL</attr>
+  <attr path="//field[@name='LENGTH']"
+        name="managedName">LENGTH</attr>
+  <attr path="//field[@name='PLACEHOLDER']"
+        name="managedName">PLACEHOLDER</attr>
+  <attr path="//field[@name='ACCOUNT_NUMBER_API_PATH']"
+        name="managedName">ACCOUNT_NUMBER_API_PATH</attr>
+  <attr path="//field[@name='SORT_CODE_API_PATH']"
+        name="managedName">SORT_CODE_API_PATH</attr>
 </metadata>
