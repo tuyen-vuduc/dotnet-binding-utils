@@ -41,7 +41,7 @@ on:
 jobs:
   build-then-publish:
     environment: production
-    runs-on: macos-13
+    runs-on: macos-latest
     steps:
     - name: Set MAPBOX_DOWNLOADS_TOKEN
       if: contains(${{ inputs.LIB_ARTIFACT }}, 'com.mapbox.maps')
