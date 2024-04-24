@@ -220,6 +220,8 @@ namespace Com.Stripe.Android
     }
     partial class SetupIntentResult
     {
+        protected override global::Java.Lang.Object RawIntent => Intent;
+
         partial class Creator
         {
             global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel source)
@@ -498,6 +500,10 @@ namespace Com.Stripe.Android.Googlepaylauncher
     }
     partial class GooglePayPaymentMethodLauncherContractV2
     {
+        public override global::Android.Content.Intent CreateIntent(global::Android.Content.Context context, global::Java.Lang.Object? args)
+            => CreateIntent(context, args as Args);
+        public override global::Java.Lang.Object? ParseResult(int resultCode, global::Android.Content.Intent? intent)
+            => ParseResultX(resultCode, intent);
         partial class Args
         {
             partial class Creator
@@ -837,6 +843,36 @@ namespace Com.Stripe.Android.Model
             {
                 return this.NewArray(size);
             }
+        }
+    }
+    partial interface IConfirmStripeIntentParams : global::Com.Stripe.Android.Model.IStripeParamsModel
+    {
+
+    }
+    partial class IConfirmStripeIntentParamsInvoker
+    {
+        static Delegate? cb_toParamMap;
+#pragma warning disable 0169
+        static Delegate GetToParamMapHandler()
+        {
+            if (cb_toParamMap == null)
+                cb_toParamMap = JNINativeWrapper.CreateDelegate((_JniMarshal_PP_L)n_ToParamMap);
+            return cb_toParamMap;
+        }
+
+        static IntPtr n_ToParamMap(IntPtr jnienv, IntPtr native__this)
+        {
+            var __this = global::Java.Lang.Object.GetObject<global::Com.Stripe.Android.Model.IConfirmStripeIntentParams>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+            return global::Android.Runtime.JavaDictionary<global::System.String, global::Java.Lang.Object>.ToLocalJniHandle(__this.ToParamMap());
+        }
+#pragma warning restore 0169
+
+        IntPtr id_toParamMap;
+        public unsafe global::System.Collections.Generic.IDictionary<global::System.String, global::Java.Lang.Object> ToParamMap()
+        {
+            if (id_toParamMap == IntPtr.Zero)
+                id_toParamMap = JNIEnv.GetMethodID(class_ref, "toParamMap", "()Ljava/util/Map;");
+            return global::Android.Runtime.JavaDictionary<global::System.String, global::Java.Lang.Object>.FromJniHandle(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_toParamMap), JniHandleOwnership.TransferLocalRef)!;
         }
     }
     partial class ConsumerPaymentDetails
@@ -1608,8 +1644,28 @@ namespace Com.Stripe.Android.Model
     }
     partial class MandateDataParams
     {
-        partial class Type
+        partial class Type: global::Com.Stripe.Android.Model.IStripeParamsModel
         {
+            static Delegate? cb_toParamMap;
+#pragma warning disable 0169
+            static Delegate GetToParamMapHandler()
+            {
+                if (cb_toParamMap == null)
+                    cb_toParamMap = JNINativeWrapper.CreateDelegate((_JniMarshal_PP_L)n_ToParamMap);
+                return cb_toParamMap;
+            }
+
+            static IntPtr n_ToParamMap(IntPtr jnienv, IntPtr native__this)
+            {
+                var __this = global::Java.Lang.Object.GetObject<global::Com.Stripe.Android.Model.MandateDataParams.Type>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+                return global::Android.Runtime.JavaDictionary<string, global::Java.Lang.Object>.ToLocalJniHandle(__this.ToParamMap());
+            }
+#pragma warning restore 0169
+
+            // Metadata.xml XPath method reference: path="/api/package[@name='com.stripe.android.model']/class[@name='MandateDataParams.Type']/method[@name='toParamMap' and count(parameter)=0]"
+            [Register("toParamMap", "()Ljava/util/Map;", "GetToParamMapHandler")]
+            public abstract global::System.Collections.Generic.IDictionary<string, global::Java.Lang.Object> ToParamMap();
+
             partial class Online
             {
                 partial class Creator
@@ -1623,6 +1679,24 @@ namespace Com.Stripe.Android.Model
                     {
                         return this.NewArray(size);
                     }
+                }
+                public override global::System.Collections.Generic.IDictionary<string, global::Java.Lang.Object> ToParamMap()
+                    => ToParamMapX();
+            }
+        }
+        partial class TypeInvoker
+        {
+            [Register("toParamMap", "()Ljava/util/Map;", "GetToParamMapHandler")]
+            public override unsafe global::System.Collections.Generic.IDictionary<global::System.String, global::Java.Lang.Object> ToParamMap()
+            {
+                const string __id = "toParamMap.()Ljava/util/Map;";
+                try
+                {
+                    var __rm = _members.InstanceMethods.InvokeAbstractObjectMethod(__id, this, null);
+                    return global::Android.Runtime.JavaDictionary<global::System.String, global::Java.Lang.Object>.FromJniHandle(__rm.Handle, JniHandleOwnership.TransferLocalRef)!;
+                }
+                finally
+                {
                 }
             }
         }
@@ -4096,5 +4170,29 @@ namespace Com.Stripe.Android.Model
         global::Com.Stripe.Android.Model.IStripeIntent.NextActionData? global::Com.Stripe.Android.Model.IStripeIntent.GetNextActionData() => NextActionData;
         global::Com.Stripe.Android.Model.IStripeIntent.NextActionType? global::Com.Stripe.Android.Model.IStripeIntent.GetNextActionType() => NextActionType;
         global::Com.Stripe.Android.Model.IStripeIntent.Status? global::Com.Stripe.Android.Model.IStripeIntent.GetStatus() => Status;
+    }
+}
+
+
+namespace Com.Stripe.Android.View
+{
+    partial class StripeEditText
+    {
+        // Metadata.xml XPath method reference: path="/api/package[@name='com.stripe.android.view']/class[@name='StripeEditText']/method[@name='setOnFocusChangeListener' and count(parameter)=1 and parameter[1][@type='android.view.View.OnFocusChangeListener']]"
+        [Register("setOnFocusChangeListener", "(Landroid/view/View$OnFocusChangeListener;)V", "")]
+        public virtual unsafe void SetOnFocusChangeListener(global::Android.Views.View.IOnFocusChangeListener? listener)
+        {
+            const string __id = "setOnFocusChangeListener.(Landroid/view/View$OnFocusChangeListener;)V";
+            try
+            {
+                JniArgumentValue* __args = stackalloc JniArgumentValue[1];
+                __args[0] = new JniArgumentValue((listener == null) ? IntPtr.Zero : ((global::Java.Lang.Object)listener).Handle);
+                _members.InstanceMethods.InvokeNonvirtualVoidMethod(__id, this, __args);
+            }
+            finally
+            {
+                global::System.GC.KeepAlive(listener);
+            }
+        }
     }
 }
