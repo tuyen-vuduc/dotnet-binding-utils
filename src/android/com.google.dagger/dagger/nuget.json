@@ -1,6 +1,6 @@
 {
   "packageId": "Xamarin.Google.Dagger",
   "name": "dagger",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }
