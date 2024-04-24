@@ -282,4 +282,6 @@
 	<remove-node path="/api/package[@name='com.nimbusds.jose.shaded.json.reader']/class[@name='BeansWriter']/implements[@name='com.nimbusds.jose.shaded.json.reader.JsonWriterI']" />
 	<remove-node path="/api/package[@name='com.nimbusds.jose.shaded.json.reader']/class[@name='BeansWriterASM']/implements[@name='com.nimbusds.jose.shaded.json.reader.JsonWriterI']" />
 	<remove-node path="/api/package[@name='com.nimbusds.jose.shaded.json.reader']/class[@name='BeansWriterASMRemap']/implements[@name='com.nimbusds.jose.shaded.json.reader.JsonWriterI']" />
+    <attr path="//class[@extends='com.nimbusds.jose.JOSEObject']/method[@name='getHeader' and count(parameter)=0]"
+        name="managedReturn">Com.Nimbusds.Jose.Header</attr>
 </metadata>
