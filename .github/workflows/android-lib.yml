@@ -32,7 +32,6 @@ on:
         - com.paypal.android:fraud-protection:1.3.0
         - com.paypal.android:paypal-native-payments:1.3.0
         - com.paypal.android:paypal-web-payments:1.3.0
-        - com.google.android.instantapps:instantapps:1.1.0
         - io.github.sceneview:sceneview:2.1.1
         - io.github.sceneview:arsceneview:2.1.1
         - com.braintreepayments.api:drop-in:6.16.0
