@@ -6,4 +6,6 @@
   name="propertyName"></attr>
   <attr path="//class[implements[@name='com.stripe.android.uicore.elements.TextFieldState']]/method[@name='getError' and count(parameter)=0]"
   name="propertyName"></attr>
+  <attr path="//method[@name='getController' and count(parameter)=0 and parent::class[@extends='com.stripe.android.uicore.elements.SectionSingleFieldElement']]"
+        name="managedReturn">Com.Stripe.Android.Uicore.Elements.IInputController</attr>
 </metadata>

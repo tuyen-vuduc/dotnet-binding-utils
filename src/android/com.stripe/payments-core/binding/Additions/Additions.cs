@@ -177,7 +177,7 @@ namespace Com.Stripe.Android
 
         partial class Creator
         {
-            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel source)
+            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source)
             {
                 return this.CreateFromParcel(source);
             }
@@ -192,7 +192,7 @@ namespace Com.Stripe.Android
     {
         partial class Creator
         {
-            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel source)
+            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source)
             {
                 return this.CreateFromParcel(source);
             }
@@ -207,7 +207,7 @@ namespace Com.Stripe.Android
     {
         partial class Creator
         {
-            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel source)
+            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source)
             {
                 return this.CreateFromParcel(source);
             }
@@ -224,7 +224,7 @@ namespace Com.Stripe.Android
 
         partial class Creator
         {
-            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel source)
+            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source)
             {
                 return this.CreateFromParcel(source);
             }

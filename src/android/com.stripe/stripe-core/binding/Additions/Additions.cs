@@ -204,9 +204,12 @@ namespace Com.Stripe.Android.Core.Networking
         }
         partial class FileConnection
         {
+            public override unsafe global::Java.Lang.Object? CreateBodyFromResponseStream(global::System.IO.Stream? responseStream)
+                => CreateBodyFromResponseStreamX(responseStream);
+
             // Metadata.xml XPath method reference: path="/api/package[@name='com.stripe.android.core.networking']/class[@name='StripeConnection.FileConnection']/method[@name='createBodyFromResponseStream' and count(parameter)=1 and parameter[1][@type='java.io.InputStream']]"
             [Register("createBodyFromResponseStream", "(Ljava/io/InputStream;)Ljava/io/File;", "")]
-            public override unsafe global::Java.IO.File? CreateBodyFromResponseStream(global::System.IO.Stream? responseStream)
+            public unsafe global::Java.IO.File? CreateBodyFromResponseStreamX(global::System.IO.Stream? responseStream)
             {
                 const string __id = "createBodyFromResponseStream.(Ljava/io/InputStream;)Ljava/io/File;";
                 IntPtr native_responseStream = global::Android.Runtime.InputStreamAdapter.ToLocalJniHandle(responseStream);
@@ -226,9 +229,12 @@ namespace Com.Stripe.Android.Core.Networking
         }
         partial class Default
         {
+            public override unsafe global::Java.Lang.Object? CreateBodyFromResponseStream(global::System.IO.Stream? responseStream)
+                => CreateBodyFromResponseStreamX(responseStream);
+
             // Metadata.xml XPath method reference: path="/api/package[@name='com.stripe.android.core.networking']/class[@name='StripeConnection.Default']/method[@name='createBodyFromResponseStream' and count(parameter)=1 and parameter[1][@type='java.io.InputStream']]"
             [Register("createBodyFromResponseStream", "(Ljava/io/InputStream;)Ljava/io/File;", "")]
-            public override unsafe global::Java.IO.File? CreateBodyFromResponseStream(global::System.IO.Stream? responseStream)
+            public unsafe global::Java.IO.File? CreateBodyFromResponseStreamX(global::System.IO.Stream? responseStream)
             {
                 const string __id = "createBodyFromResponseStream.(Ljava/io/InputStream;)Ljava/io/File;";
                 IntPtr native_responseStream = global::Android.Runtime.InputStreamAdapter.ToLocalJniHandle(responseStream);

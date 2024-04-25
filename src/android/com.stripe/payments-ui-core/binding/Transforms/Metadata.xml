@@ -10,4 +10,6 @@
         name="managedName">ACCOUNT_NUMBER_API_PATH</attr>
   <attr path="//field[@name='SORT_CODE_API_PATH']"
         name="managedName">SORT_CODE_API_PATH</attr>
+  <attr path="//method[@name='getController' and count(parameter)=0 and parent::class[@extends='com.stripe.android.uicore.elements.SectionSingleFieldElement']]"
+        name="managedReturn">Com.Stripe.Android.Uicore.Elements.IInputController</attr>
 </metadata>
