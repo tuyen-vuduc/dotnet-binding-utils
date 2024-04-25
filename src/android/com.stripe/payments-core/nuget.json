@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Stripe.PaymentsCore",
   "name": "payments-core",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }

@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Google.Accompanist.AccompanistThemeadapterAppcompat",
   "name": "accompanist-themeadapter-appcompat",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }

@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Stripe.Stripe3ds2Android",
   "name": "stripe-3ds2-android",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }

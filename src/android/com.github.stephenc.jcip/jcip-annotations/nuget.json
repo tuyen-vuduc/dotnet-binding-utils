@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Github.Stephenc.Jcip.JcipAnnotations",
   "name": "jcip-annotations",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }

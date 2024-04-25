@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Stripe.Link",
   "name": "link",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }

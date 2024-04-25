@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Google.Accompanist.AccompanistThemeadapterMaterial3",
   "name": "accompanist-themeadapter-material3",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }

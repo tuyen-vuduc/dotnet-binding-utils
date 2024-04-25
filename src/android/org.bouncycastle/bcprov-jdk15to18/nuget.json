@@ -1,6 +1,6 @@
 {
   "packageId": "Org.Bouncycastle.BcprovJdk15to18",
   "name": "bcprov-jdk15to18",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }

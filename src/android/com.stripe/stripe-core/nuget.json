@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Stripe.StripeCore",
   "name": "stripe-core",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }
