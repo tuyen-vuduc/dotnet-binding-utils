@@ -1,0 +1,4 @@
+*.xcframework
+Pods
+build
+Carthage

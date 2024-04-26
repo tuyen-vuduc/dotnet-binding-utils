@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Project>
+	<PropertyGroup>
+		<_Stripe>23.27.1</_Stripe>
+		<_NugetSuffix></_NugetSuffix>
+		<_StripePaymentsUIAssemblyName>StripePaymentsUI.iOS, Version=$(_Stripe), Culture=neutral, PublicKeyToken=null </_StripePaymentsUIAssemblyName>
+		<_StripeItemsFolder>Stripe-$(_Stripe)$(_NugetSuffix)</_StripeItemsFolder>
+		<_StripeSDKBaseFolder>$(XamarinBuildDownloadDir)$(_StripeItemsFolder)\</_StripeSDKBaseFolder>
+	</PropertyGroup>
+  <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+    <XamarinBuildDownload Include="$(_StripeItemsFolder)">
+      <Url>https://github.com/stripe/stripe-ios/releases/download/$(_Stripe)/Stripe.xcframework.zip</Url>
+      <Kind>Zip</Kind>
+    </XamarinBuildDownload>
+    <NativeReference Include="$(_StripeSDKBaseFolder)stripe-ios-$(_Stripe)\Stripe.xcframework\StripePaymentsUI.xcframework">
+      <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Xamarin.Legacy.Sdk">
+  <PropertyGroup>
+      <TargetFrameworks>xamarin.ios10;net6.0-ios;net7.0-ios;</TargetFrameworks>
+      <NoNFloatUsing Condition="'$(TargetFramework)' == 'xamarin.ios10'">true</NoNFloatUsing>
+      <Nullable>enable</Nullable>
+      <ImplicitUsings>true</ImplicitUsings>
+      <IsBindingProject>true</IsBindingProject>
+      <NoBindingEmbedding>false</NoBindingEmbedding>
+      <SupportedOSPlatformVersion>12.0</SupportedOSPlatformVersion>
+      <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_NativeVersion>23.27.1</_NativeVersion>
+    <_NugetSuffix></_NugetSuffix>
+    <_NugetVersion>$(_NativeVersion)$(_NugetSuffix)</_NugetVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>StripeFinancialConnections.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>StripeFinancialConnections.iOS</AssemblyName>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <AssemblyVersion>$(_NativeVersion)</AssemblyVersion>
+    <FileVersion>$(_NativeVersion)</FileVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageId>StripeFinancialConnections.iOS</PackageId>
+    <Title>Stripe SDK library for .NET iOS</Title>
+    <Summary>.NET iOS bindings for Stripe SDK - StripeFinancialConnections</Summary>
+    <Description>.NET iOS bindings for Stripe SDK - StripeFinancialConnections</Description>
+    <Authors>tuyen,tuyen-vuduc</Authors>
+    <Owners>tuyen,tuyen-vuduc</Owners>
+    <Copyright>© tuyen-vuduc. All rights reserved.</Copyright>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageVersion>$(_NugetVersion)</PackageVersion>
+    <PackageTags>xamarin, ios, Stripe SDK, stripe</PackageTags>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StripeFinancialConnections.iOS.targets" Pack="True" PackagePath="build/StripeFinancialConnections.iOS.targets" />
+    <None Include="StripeFinancialConnections.iOS.targets" Pack="True" PackagePath="buildTransitive/StripeFinancialConnections.iOS.targets" />
+  </ItemGroup>
+  <Import Project="StripeFinancialConnections.iOS.targets" />
+  <ItemGroup>
+    <_NativeReference Include="../artifacts/StripeFinancialConnections.xcframework">
+        <_Id>$(_StripeId)</_Id>
+    </_NativeReference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'xamarin.ios10'">
+      <Compile Remove="ApiDefinitions.cs" />
+      <Compile Remove="StructsAndEnums.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinitions.cs" />
+    <ObjcBindingCoreSource Condition=" EXISTS('StructsAndEnums.cs') " Include="StructsAndEnums.cs" />
+  </ItemGroup>
+  <ItemGroup>
+      <PackageReference Include="Xamarin.Build.Download" Version="0.11.4" PrivateAssets="None" />
+  </ItemGroup>
+</Project>
