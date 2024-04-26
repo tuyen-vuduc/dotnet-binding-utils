@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>    
+    <attr path="//field[@name='ANIMATION_MODE_FADE']" name="managedName">ANIMATION_MODE_FADE</attr>
+    <attr path="//field[@name='ANIMATION_MODE_SLIDE']" name="managedName">ANIMATION_MODE_SLIDE</attr>
+    <attr path="//field[@name='LENGTH_INDEFINITE']" name="managedName">LENGTH_INDEFINITE</attr>
+    <attr path="//field[@name='LENGTH_LONG']" name="managedName">LENGTH_LONG</attr>
+    <attr path="//field[@name='LENGTH_SHORT']" name="managedName">LENGTH_SHORT</attr>
+    <attr path="//field[@name='view']" name="managedName">_view</attr>
+</metadata>

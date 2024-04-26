@@ -1,10 +1,31 @@
 const fs = require("node:fs");
 
+process_downgrade();
 // process_AndroidX_ViewBinding_IViewBinding();
 // process_Com_Stripe_Android_Uicore_Elements_IFormElement();
 // process_JavaX_Inject_IProvider();
-process_Android_OS_IParcelableCreator();
+// process_Android_OS_IParcelableCreator();
 // process_Com_Stripe_Android_Model_IStripeIntent();
+
+function process_downgrade() {
+  var input = fs.readFileSync("input.downgrade.txt");
+
+  var items = input
+    .toString()
+    .trim()
+    .split("\n")
+    .filter(x => x.indexOf('NU1605') > 0)
+    .map(x => /.+ downgrade: ([A-Za-z0-9._]+) from ([0-9.]+) to .+/.exec(x))
+    .map(x => x.slice(1, 3))
+    .map(x => x.join(' '))
+    .filter(onlyUnique)
+    .map((x) => x.split(" "))
+    .map((x) => "\"" + x.join('": "') + "\"")
+    ;
+
+  // console.log(items[0]);
+  fs.writeFileSync("output.downgrade.cs", items.join(",\n"));
+}
 
 function process_AndroidX_ViewBinding_IViewBinding() {
   var input = fs.readFileSync("input.AndroidX.ViewBinding.IViewBinding.txt");
