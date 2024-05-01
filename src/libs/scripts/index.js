@@ -1,6 +1,8 @@
 const fs = require("node:fs");
 
-process_downgrade();
+process_Android_Util_ITypeEvaluator();
+// process_Android_Util_Property();
+// process_downgrade();
 // process_AndroidX_ViewBinding_IViewBinding();
 // process_Com_Stripe_Android_Uicore_Elements_IFormElement();
 // process_JavaX_Inject_IProvider();
@@ -271,4 +273,92 @@ function process_Android_OS_IParcelableCreator() {
 
   // console.log(items[0]);
   fs.writeFileSync("output.Android.OS.IParcelableCreator.cs", items.join("\n"));
+}
+
+function process_Android_Util_Property() {
+  var input = fs.readFileSync("input.Android.Util.Property.txt");
+
+  var items = input
+    .toString()
+    .trim()
+    .split("\n")
+    .map(x => /.+'(\w+[^ ]+Property)'.+src\\([^ ]+)\.cs.+/.exec(x))
+    .map(x => x.slice(1, 3))
+    .map(x => x.join(' '))
+    .filter(onlyUnique)
+    .map((x) => x.split(" "))
+    .map((x) => {
+      var parts = x[0].split(".");
+      var ns = x[1].replace("." + parts[0], "");
+      var cls = parts.reverse().reduce(
+        (result, item) => {
+          return `partial class ${item} {${result}}`;
+        },
+        `public override global::Java.Lang.Object? Get(global::Java.Lang.Object? source)
+            => this.Get(source); `
+      );
+      return [ns, cls];
+    })
+    .reduce((result, item) => {
+      var reduced = result.find((x) => x[0] == item[0]);
+      if (reduced) {
+        reduced.push(item[1]);
+      } else {
+        result.push(item);
+      }
+      return result;
+    }, [])
+    .map((x) => {
+      return `namespace ${x[0]} {
+            ${x.slice(1).join("\n")}
+        }`;
+    });
+
+  // console.log(items[0]);
+  fs.writeFileSync("output.Android.Util.Property.cs", items.join("\n"));
+}
+
+
+
+function process_Android_Util_ITypeEvaluator() {
+  var input = fs.readFileSync("input.Android.Animation.ITypeEvaluator.txt");
+
+  var items = input
+    .toString()
+    .trim()
+    .split("\n")
+    .map(x => /.+'(\w+[^ ]+Evaluator)'.+src\\([^ ]+)\.cs.+/.exec(x))
+    .map(x => x.slice(1, 3))
+    .map(x => x.join(' '))
+    .filter(onlyUnique)
+    .map((x) => x.split(" "))
+    .map((x) => {
+      var parts = x[0].split(".");
+      var ns = x[1].replace("." + parts[0], "");
+      var cls = parts.reverse().reduce(
+        (result, item) => {
+          return `partial class ${item} {${result}}`;
+        },
+        `Java.Lang.Object? global::Android.Animation.ITypeEvaluator.Evaluate(float fraction, Java.Lang.Object? startValue, Java.Lang.Object? endValue)
+            => this.Evaluate(fraction, startValue as Java.Lang.Integer, endValue as Java.Lang.Integer); `
+      );
+      return [ns, cls];
+    })
+    .reduce((result, item) => {
+      var reduced = result.find((x) => x[0] == item[0]);
+      if (reduced) {
+        reduced.push(item[1]);
+      } else {
+        result.push(item);
+      }
+      return result;
+    }, [])
+    .map((x) => {
+      return `namespace ${x[0]} {
+            ${x.slice(1).join("\n")}
+        }`;
+    });
+
+  // console.log(items[0]);
+  fs.writeFileSync("output.Android.Animation.ITypeEvaluator.cs", items.join("\n"));
 }

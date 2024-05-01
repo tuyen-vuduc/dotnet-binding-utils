@@ -6,4 +6,22 @@
     <attr path="//field[@name='LENGTH_LONG']" name="managedName">LENGTH_LONG</attr>
     <attr path="//field[@name='LENGTH_SHORT']" name="managedName">LENGTH_SHORT</attr>
     <attr path="//field[@name='view']" name="managedName">_view</attr>
+  <attr path="//parameter[@type='T' and ancestor::*[typeParameters/typeParameter[@name='T' and @classBound='com.google.android.material.appbar.AppBarLayout']]]"
+        name="type">com.google.android.material.appbar.AppBarLayout</attr>
+  <attr path="//parameter[@type='V' and ancestor::*[typeParameters/typeParameter[@name='V' and @classBound='android.view.View']]]"
+        name="type">android.view.View</attr>
+  <attr path="//parameter[@type='L' and ancestor::*[typeParameters/typeParameter[@name='L' and starts-with(@interfaceBounds, 'com.google.android.material.slider.BaseOnChangeListener')]]]"
+        name="type">com.google.android.material.slider.BaseOnChangeListener</attr>
+  <attr path="//parameter[@type='T' and ancestor::*[typeParameters/typeParameter[@name='T' and starts-with(@interfaceBounds, 'com.google.android.material.slider.BaseOnSliderTouchListener')]]]"
+        name="type">com.google.android.material.slider.BaseOnChangeListener</attr>
+  <attr path="//method[@return='P' and ancestor::*[typeParameters/typeParameter[@name='P' and @interfaceBounds='com.google.android.material.transition.VisibilityAnimatorProvider']]]"
+        name="return">com.google.android.material.transition.VisibilityAnimatorProvider</attr>
+  <attr path="//method[@return='P' and ancestor::*[typeParameters/typeParameter[@name='P' and @interfaceBounds='com.google.android.material.transition.platform.VisibilityAnimatorProvider']]]"
+        name="return">com.google.android.material.transition.platform.VisibilityAnimatorProvider</attr>
+  <attr path="/api/package[@name='com.google.android.material.appbar']/class[@name='HeaderBehavior']"
+        name="visibility">public</attr>
+  <attr path="/api/package[@name='com.google.android.material.appbar']/class[@name='ViewOffsetBehavior']"
+        name="visibility">public</attr>
+  <attr path="/api/package[@name='com.google.android.material.appbar']/class[@name='AppBarLayout.BaseBehavior']"
+        name="visibility">public</attr>
 </metadata>
