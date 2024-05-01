@@ -27,6 +27,7 @@ public static class Fetcher
             .Trim(Path.DirectorySeparatorChar)
             .Split(Path.DirectorySeparatorChar)
             .ToArray();
+        Console.WriteLine("{0} -> {1}:{2}", nugetInfo.PackageId, fileParts[^3], fileParts[^2], fileParts[^4]);
         return FetchAsync(nugetInfo.PackageId, fileParts[^3], fileParts[^2], fileParts[^4]);
     }
 
