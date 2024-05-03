@@ -1,5 +1,9 @@
 {
     "Xamarin.AndroidX.Lifecycle.Runtime": "2.7.0.1",
     "Xamarin.AndroidX.Lifecycle.Common": "2.7.0.1",
-    "Xamarin.AndroidX.Compose.Runtime": "1.6.4"
+    "Xamarin.AndroidX.Compose.Runtime": "1.6.4",
+    "Xamarin.AndroidX.Compose.UI": "1.6.1.1",
+    "Xamarin.Kotlin.StdLib": "1.9.23",
+    "Xamarin.KotlinX.Coroutines.Android": "1.8.0.1",
+    "Xamarin.KotlinX.Coroutines.Core": "1.8.0.1"
 }
