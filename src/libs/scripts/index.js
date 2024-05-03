@@ -1,6 +1,7 @@
 const fs = require("node:fs");
 
-process_Android_Util_ITypeEvaluator();
+process_Com_Google_Android_Material_Circularreveal_ICircularRevealWidget();
+// process_Android_Util_ITypeEvaluator();
 // process_Android_Util_Property();
 // process_downgrade();
 // process_AndroidX_ViewBinding_IViewBinding();
@@ -8,6 +9,48 @@ process_Android_Util_ITypeEvaluator();
 // process_JavaX_Inject_IProvider();
 // process_Android_OS_IParcelableCreator();
 // process_Com_Stripe_Android_Model_IStripeIntent();
+
+function process_Com_Google_Android_Material_Circularreveal_ICircularRevealWidget() {
+  var input = fs.readFileSync("input.Com.Google.Android.Material.Circularreveal.ICircularRevealWidget.txt");
+
+  var items = input
+    .toString()
+    .trim()
+    .split("\n")
+    .map(x => /Error	CS0535	'(\w+[^']+)'.+src\\([^ ]+)\.cs.+/.exec(x))
+    .map(x => x.slice(1, 3))
+    .map(x => x.join(' '))
+    .filter(onlyUnique)
+    .map((x) => x.split(" "))
+    .map((x) => {
+      var clsName = x[0];
+      var ns = x[1].replace("." + clsName, "");
+      return [ns, `partial class ${clsName} {
+        global::Com.Google.Android.Material.Circularreveal.ICircularRevealWidget.RevealInfo? Com.Google.Android.Material.Circularreveal.ICircularRevealWidget.GetRevealInfo () 
+          => RevealInfo;
+        void Com.Google.Android.Material.Circularreveal.ICircularRevealWidget.SetRevealInfo (global::Com.Google.Android.Material.Circularreveal.ICircularRevealWidget.RevealInfo? arg) 
+            => RevealInfo = arg;
+        }`];
+    })
+    .reduce((result, item) => {
+      var reduced = result.find((x) => x[0] == item[0]);
+      if (reduced) {
+        reduced.push(item[1]);
+      } else {
+        result.push(item);
+      }
+      return result;
+    }, [])
+    .map((x) => {
+      return `namespace ${x[0]} {
+            ${x.slice(1).join("\n")}
+        }`;
+    })
+    ;
+
+  console.log(items[0]);
+  fs.writeFileSync("output.Com.Google.Android.Material.Circularreveal.ICircularRevealWidget.cs", items.join("\n"));
+}
 
 function process_downgrade() {
   var input = fs.readFileSync("input.downgrade.txt");
@@ -317,8 +360,6 @@ function process_Android_Util_Property() {
   // console.log(items[0]);
   fs.writeFileSync("output.Android.Util.Property.cs", items.join("\n"));
 }
-
-
 
 function process_Android_Util_ITypeEvaluator() {
   var input = fs.readFileSync("input.Android.Animation.ITypeEvaluator.txt");
