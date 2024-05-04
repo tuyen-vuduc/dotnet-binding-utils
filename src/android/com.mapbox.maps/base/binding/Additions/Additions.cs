@@ -3,15 +3,6 @@ using System.Collections.Generic;
 using Android.Runtime;
 using Java.Interop;
 
-namespace Com.Mapbox.Maps
-{
-    partial class MapboxInitializer
-    {
-        global::Java.Lang.Object global::AndroidX.Startup.IInitializer.Create(global::Android.Content.Context context)
-            => Create(context);
-    }
-}
-
 namespace Com.Mapbox.Maps.Plugins.Locationcomponent
 {
     public sealed class PuckLocatedAtPointListenerAction : Java.Lang.Object, global::Com.Mapbox.Maps.Plugins.Locationcomponent.IPuckLocatedAtPointListener
