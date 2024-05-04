@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Mapbox.Maps.AndroidCore",
   "name": "android-core",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "versionMappings": []
 }

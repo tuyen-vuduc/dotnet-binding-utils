@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Mapbox.Plugin.MapsAttribution",
   "name": "maps-attribution",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "versionMappings": []
 }
