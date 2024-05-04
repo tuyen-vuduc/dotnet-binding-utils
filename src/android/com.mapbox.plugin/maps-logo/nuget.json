@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Mapbox.Plugin.MapsLogo",
   "name": "maps-logo",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }

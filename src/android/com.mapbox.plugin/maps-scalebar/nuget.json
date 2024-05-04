@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Mapbox.Plugin.MapsScalebar",
   "name": "maps-scalebar",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }

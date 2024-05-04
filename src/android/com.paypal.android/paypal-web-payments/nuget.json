@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Paypal.Android.PaypalWebPayments",
   "name": "paypal-web-payments",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }
