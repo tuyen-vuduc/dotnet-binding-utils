@@ -1,4 +1,5 @@
 
+rm -rf ./src/libs/BindingHost/*.props
 dotnet tool restore
 dotnet cake "$@"
 dotnet clean ./src/libs/BindingHost/BindingHost.csproj

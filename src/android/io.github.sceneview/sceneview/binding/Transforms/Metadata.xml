@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <attr path="//field[@name='FRACTION_POSITION']"
+          name="managedName">FRACTION_POSITION</attr>
+    <attr path="//field[@name='FRAME_POSITION']"
+          name="managedName">FRAME_POSITION</attr>
+    <attr path="//field[@name='TIME_POSITION']"
+          name="managedName">TIME_POSITION</attr>
+    <attr path="//field[@name='collisionShape']"
+          name="managedName">_collisionShape</attr>
+    <attr path="//field[@name='prev']"
+          name="managedName">_prev</attr>
+    <attr path="//field[@name='next']"
+          name="managedName">_next</attr>
+    <attr path="//field[@name='filamentMaterialInstance']"
+          name="managedName">_filamentMaterialInstance</attr>
+    <attr path="//field[@name='event']"
+          name="managedName">_event</attr>
+    <remove-node path="//class[@name='SceneView.LifeCycleObserver']" />
+    <attr path="//field[@name='appSettingsLauncher']"
+          name="managedName">AppSettingsLauncher_</attr>
+    <attr path="//field[@name='cameraPermissionLauncher']"
+          name="managedName">CameraPermissionLauncher_</attr>
+    <attr path="//field[@name='features']"
+          name="managedName">Features_</attr>
+    <attr path="/api/package[@name='com.google.ar.sceneform.rendering']/class[@name='ModelRenderable.Builder']/method[@name='makeRenderable' and count(parameter)=1 and parameter[1][@type='com.google.android.filament.Engine']]"
+          name="managedName">MakeModelRenderable</attr>
+    <attr path="/api/package[@name='com.google.ar.sceneform.rendering']/class[@name='ModelRenderable']/method[@name='makeCopy' and count(parameter)=0]"
+          name="managedName">MakeModelRenderableCopy</attr>
+    <attr path="/api/package[@name='com.google.ar.sceneform.rendering']/class[@name='ViewRenderable.Builder']/method[@name='makeRenderable' and count(parameter)=1 and parameter[1][@type='com.google.android.filament.Engine']]"
+          name="managedName">MakeViewRenderable</attr>
+    <attr path="/api/package[@name='com.google.ar.sceneform.rendering']/class[@name='ViewRenderable']/method[@name='makeCopy' and count(parameter)=0]"
+          name="managedName">MakeViewRenderableCopy</attr>
+    <attr path="//field[@name='viewSize']"
+          name="managedName">ViewSize_</attr>
+    <attr path="//field[@name='MATERIAL_COLOR']"
+          name="managedName">MATERIAL_COLOR</attr>
+    <attr path="//field[@name='MATERIAL_SPOTLIGHT_RADIUS']"
+          name="managedName">MATERIAL_SPOTLIGHT_RADIUS</attr>
+    <attr path="//field[@name='MATERIAL_TEXTURE']"
+          name="managedName">MATERIAL_TEXTURE</attr>
+    <attr path="//field[@name='MATERIAL_UV_SCALE']"
+          name="managedName">MATERIAL_UV_SCALE</attr>
+    <attr path="/api/package[@name='io.github.sceneview.ar']/class[@name='Scene']"
+          name="managedName">ScreneClass</attr>
+    <attr path="/api/package[@name='io.github.sceneview.collision']/class[@name='Box']/method[@name='makeCopy' and count(parameter)=0]"
+          name="managedName">MakeBoxCopy</attr>
+    <attr path="/api/package[@name='io.github.sceneview.collision']/class[@name='Sphere']/method[@name='makeCopy' and count(parameter)=0]"
+          name="managedName">MakeSphereCopy</attr>
+    <attr path="/api/package[@name='com.google.ar.sceneform.rendering']/class[@name='RenderViewToExternalTexture']/method[@name='onLayout' and count(parameter)=5 and parameter[1][@type='boolean'] and parameter[2][@type='int'] and parameter[3][@type='int'] and parameter[4][@type='int'] and parameter[5][@type='int']]"
+          name="visibility">protected</attr>
+</metadata>

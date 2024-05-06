@@ -1,5 +1,6 @@
 {
   "packageId": "Com.Google.Android.Filament.FilamentAndroid",
-  "dependencyOnly": true,
+  "name": "filament-android",
+  "dependencyOnly": false,
   "versionMappings": []
 }
