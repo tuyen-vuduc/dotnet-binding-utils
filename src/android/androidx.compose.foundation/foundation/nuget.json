@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Compose.Foundation",
+  "name": "foundation",
   "dependencyOnly": true,
   "versionMappings": []
 }

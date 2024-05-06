@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Mapbox.Extension.MapsLocalization",
   "name": "maps-localization",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }

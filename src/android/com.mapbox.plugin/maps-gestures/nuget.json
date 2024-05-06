@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Mapbox.Plugin.MapsGestures",
   "name": "maps-gestures",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }

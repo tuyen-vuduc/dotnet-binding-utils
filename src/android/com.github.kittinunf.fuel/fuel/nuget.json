@@ -1,5 +1,6 @@
 {
   "packageId": "Com.Github.Kittinunf.Fuel.Fuel",
+  "name": "fuel",
   "dependencyOnly": true,
   "versionMappings": []
 }

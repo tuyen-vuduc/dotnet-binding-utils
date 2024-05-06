@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Compose.UI",
+  "name": "ui",
   "dependencyOnly": true,
   "versionMappings": []
 }

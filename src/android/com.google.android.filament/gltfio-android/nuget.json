@@ -1,5 +1,6 @@
 {
   "packageId": "Com.Google.Android.Filament.GltfioAndroid",
-  "dependencyOnly": true,
+  "name": "gltfio-android",
+  "dependencyOnly": false,
   "versionMappings": []
 }

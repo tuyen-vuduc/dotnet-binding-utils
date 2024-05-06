@@ -1,0 +1,5 @@
+<Project>    
+  <PropertyGroup>
+    <AndroidMinSdkVersion>24</AndroidMinSdkVersion>
+  </PropertyGroup>
+</Project>

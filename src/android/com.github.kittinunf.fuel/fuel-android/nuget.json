@@ -1,5 +1,6 @@
 {
   "packageId": "Com.Github.Kittinunf.Fuel.FuelAndroid",
+  "name": "fuel-android",
   "dependencyOnly": true,
   "versionMappings": []
 }
