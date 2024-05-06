@@ -1,0 +1,6 @@
+{
+  "packageId": "Com.Braintreepayments.Api.DataCollector",
+  "name": "data-collector",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

@@ -1,0 +1,6 @@
+{
+  "packageId": "Com.Braintreepayments.CardForm",
+  "name": "card-form",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

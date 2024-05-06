@@ -1,0 +1,6 @@
+{
+  "packageId": "Com.Braintreepayments.Api.GooglePay",
+  "name": "google-pay",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

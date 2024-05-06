@@ -1,0 +1,15 @@
+<Project>    
+    <ItemGroup>
+      <GradleRepository Include="https://api.mapbox.com/downloads/v2/releases/maven">
+        <Repository>
+        maven {
+            url "https://cardinalcommerceprod.jfrog.io/artifactory/android"
+            credentials {
+                username 'braintree_team_sdk'
+                password 'AKCp8jQcoDy2hxSWhDAUQKXLDPDx6NYRkqrgFLRc3qDrayg6rrCbJpsKKyMwaykVL8FWusJpp'
+            }
+        }
+        </Repository>
+      </GradleRepository>
+    </ItemGroup>
+  </Project>
