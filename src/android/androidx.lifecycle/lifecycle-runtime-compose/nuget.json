@@ -1,1 +1,6 @@
-{"packageId":"Xamarin.AndroidX.Lifecycle.Runtime.Compose"}
+{
+  "packageId": "Xamarin.AndroidX.Lifecycle.Runtime.Compose",
+  "name": "lifecycle-runtime-compose",
+  "dependencyOnly": true,
+  "versionMappings": []
+}
