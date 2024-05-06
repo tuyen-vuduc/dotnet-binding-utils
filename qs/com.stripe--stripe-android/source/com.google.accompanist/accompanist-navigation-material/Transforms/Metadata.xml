@@ -1,5 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<metadata>
-    <attr path="/api/package[@name='com.google.accompanist.navigation.material']/class[@name='BottomSheetNavigator']/method[@name='createDestination' and count(parameter)=0]"
-          name="managedName">CreateDestinationX</attr>
-</metadata>

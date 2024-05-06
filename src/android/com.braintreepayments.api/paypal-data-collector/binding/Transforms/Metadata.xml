@@ -1,3 +1,4 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+    <remove-node path="//package[starts-with(@name, 'lib.android.paypal.com.magnessdk')]" />
 </metadata>

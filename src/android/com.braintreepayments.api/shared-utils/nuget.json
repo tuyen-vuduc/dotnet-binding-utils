@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Braintreepayments.Api.SharedUtils",
   "name": "shared-utils",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "versionMappings": []
 }

@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Braintreepayments.Api.Paypal",
   "name": "paypal",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "versionMappings": []
 }

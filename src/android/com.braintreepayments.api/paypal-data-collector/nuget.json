@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Braintreepayments.Api.PaypalDataCollector",
   "name": "paypal-data-collector",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "versionMappings": []
 }

@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Braintreepayments.Api.DropIn",
   "name": "drop-in",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "versionMappings": []
 }

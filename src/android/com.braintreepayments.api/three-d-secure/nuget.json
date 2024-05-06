@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Braintreepayments.Api.ThreeDSecure",
   "name": "three-d-secure",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "versionMappings": []
 }

@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Braintreepayments.Api.UnionPay",
   "name": "union-pay",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "versionMappings": []
 }
