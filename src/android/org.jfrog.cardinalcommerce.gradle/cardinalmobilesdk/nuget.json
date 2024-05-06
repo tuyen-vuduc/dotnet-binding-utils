@@ -1,5 +1,6 @@
 {
   "packageId": "Org.Jfrog.Cardinalcommerce.Gradle.Cardinalmobilesdk",
+  "name": "cardinalmobilesdk",
   "dependencyOnly": true,
   "versionMappings": []
 }

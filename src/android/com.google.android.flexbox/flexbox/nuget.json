@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.Android.Google.Android.Flexbox",
+  "name": "flexbox",
   "dependencyOnly": true,
   "versionMappings": []
 }
