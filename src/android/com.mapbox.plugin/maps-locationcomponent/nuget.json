@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Mapbox.Plugin.MapsLocationcomponent",
   "name": "maps-locationcomponent",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }
