@@ -1,3 +1,4 @@
 {
-  "name": "com.google.android.gms"
+  "name": "com.google.android.gms",
+  "dotnet8": false
 }

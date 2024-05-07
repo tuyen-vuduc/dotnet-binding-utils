@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.ConstraintLayout.Solver",
+  "name": "constraintlayout-solver",
   "dependencyOnly": true,
   "versionMappings": []
 }

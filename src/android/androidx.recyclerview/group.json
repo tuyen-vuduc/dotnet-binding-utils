@@ -1,3 +1,4 @@
 {
-  "name": "androidx.recyclerview"
+  "name": "androidx.recyclerview",
+  "dotnet8": false
 }

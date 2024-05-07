@@ -1,3 +1,4 @@
 {
-  "name": "com.braintreepayments"
+  "name": "com.braintreepayments",
+  "dotnet8": false
 }

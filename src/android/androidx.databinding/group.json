@@ -1,3 +1,4 @@
 {
-  "name": "androidx.databinding"
+  "name": "androidx.databinding",
+  "dotnet8": false
 }

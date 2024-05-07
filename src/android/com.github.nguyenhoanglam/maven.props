@@ -1,0 +1,12 @@
+<Project>    
+    <PropertyGroup>
+        <AndroidTargetSdkVersion>34</AndroidTargetSdkVersion>
+    </PropertyGroup>
+    <ItemGroup>
+      <GradleRepository Include="https://jitpack.io">
+        <Repository>
+        maven { url 'https://jitpack.io' }
+        </Repository>
+      </GradleRepository>
+    </ItemGroup>
+  </Project>

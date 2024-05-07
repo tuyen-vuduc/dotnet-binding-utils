@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.ResourceInspection.Annotation",
+  "name": "resourceinspection-annotation",
   "dependencyOnly": true,
   "versionMappings": []
 }

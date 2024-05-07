@@ -1,0 +1,15 @@
+<Project>    
+    <ItemGroup>
+      <GradleRepository Include="https://maven.pkg.github.com/ims-developers/android-sdk">
+        <Repository>
+        maven {
+            url 'https://maven.pkg.github.com/ims-developers/android-sdk'
+            credentials {
+              username providers.gradleProperty("tfsdrivesmart_user").get()
+              password providers.gradleProperty("tfsdrivesmart_password").get()
+            }
+        }
+        </Repository>
+      </GradleRepository>
+    </ItemGroup>
+  </Project>

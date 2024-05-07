@@ -3,6 +3,14 @@ run-name: ${{ inputs.LIB_ARTIFACT }} 🚀 NuGet
 on:
   workflow_dispatch:
     inputs:
+      DOTNET_VERSION:
+        description: '.NET Version'
+        type: choice
+        required: true
+        options:
+          - '7.0.404'
+          - '8.0.204'
+        default: '7.0.404'
       LIB_ARTIFACT:
         description: 'Android library to publish'
         required: true
@@ -27,6 +35,7 @@ on:
         - io.github.sceneview:sceneview:2.1.1
         - io.github.sceneview:arsceneview:2.1.1
         - com.braintreepayments.api:drop-in:6.16.0
+        - com.github.nguyenhoanglam:ImagePicker:1.6.3
 jobs:
   build-then-publish:
     environment: production
@@ -58,7 +67,7 @@ jobs:
       uses: android-actions/setup-android@v3
       with:
         cmdline-tools-version: 11076708    
-        packages: tools platform-tools platforms;android-33 platforms;android-31
+        packages: tools platform-tools platforms;android-33 platforms;android-31 platforms;android-34
 
     # - name: Set default Xamarin SDK versions
     #   run: |
@@ -68,10 +77,10 @@ jobs:
       run: |
         brew install --cask xamarin-android
 
-    - name: Setup .NET Core SDK 7.0.101
+    - name: Setup .NET Core SDK ${{ inputs.DOTNET_VERSION }}
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '7.0.101'
+        dotnet-version: '${{ inputs.DOTNET_VERSION }}'
 
     - name: Setup Java 11
       uses: actions/setup-java@v3
@@ -79,14 +88,15 @@ jobs:
         distribution: 'microsoft'
         java-version: '11'
 
-    - name: Install android workload
+    - name: Setup Global.json
       run: |
-        dotnet workload install android
-
+        echo "PWD: $PWD"
+        sh global.sh ${{ inputs.DOTNET_VERSION }}
+    
     - name: Build
       run: |
         echo "PWD: $PWD"
-        sh bind.sh --artifact ${{ inputs.LIB_ARTIFACT }}
+        sh bind.sh --artifact ${{ inputs.LIB_ARTIFACT }} --dotnet ${{ inputs.DOTNET_VERSION }}
   
     # - name: Publish with Dotnet CLI
     #   env:

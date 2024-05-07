@@ -1,6 +1,6 @@
 <Project>    
     <ItemGroup>
-      <GradleRepository Include="https://api.mapbox.com/downloads/v2/releases/maven">
+      <GradleRepository Include="https://cardinalcommerceprod.jfrog.io/artifactory/android">
         <Repository>
         maven {
             url "https://cardinalcommerceprod.jfrog.io/artifactory/android"

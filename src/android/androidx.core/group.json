@@ -1,3 +1,4 @@
 {
-  "name": "androidx.core"
+  "name": "androidx.core",
+  "dotnet8": false
 }
