@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.Android.Glide",
+  "name": "glide",
   "dependencyOnly": true,
   "versionMappings": []
 }

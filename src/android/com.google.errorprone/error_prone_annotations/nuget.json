@@ -1,0 +1,6 @@
+{
+  "packageId": "Xamarin.Google.ErrorProne.Annotations",
+  "name": "error_prone_annotations",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

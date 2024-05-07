@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.CoordinatorLayout",
+  "name": "coordinatorlayout",
   "dependencyOnly": true,
   "versionMappings": []
 }

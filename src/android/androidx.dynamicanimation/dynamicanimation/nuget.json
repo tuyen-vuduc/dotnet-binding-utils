@@ -1,0 +1,6 @@
+{
+  "packageId": "Xamarin.AndroidX.DynamicAnimation",
+  "name": "dynamicanimation",
+  "dependencyOnly": true,
+  "versionMappings": []
+}

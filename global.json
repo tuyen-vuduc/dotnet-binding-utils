@@ -1,7 +1,7 @@
 {
     "sdk": 
     {
-        "version": "7.0.101",
+        "version": "8.0.204",
         "rollForward": "feature"
     },
     "msbuild-sdks": 
