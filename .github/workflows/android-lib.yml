@@ -88,10 +88,6 @@ jobs:
         distribution: 'microsoft'
         java-version: '11'
 
-    - name: Install android workload
-      run: |
-        dotnet workload install android
-
     - name: Build
       run: |
         echo "PWD: $PWD"
