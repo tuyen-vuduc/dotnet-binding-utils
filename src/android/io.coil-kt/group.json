@@ -1,3 +1,4 @@
 {
-  "name": "io.coil-kt"
+  "name": "io.coil-kt",
+  "dotnet8": false
 }

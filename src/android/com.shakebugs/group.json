@@ -1,3 +1,4 @@
 {
-  "name": "ShakeBugs"
+  "name": "ShakeBugs",
+  "dotnet8": false
 }

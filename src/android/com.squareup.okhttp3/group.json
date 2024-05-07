@@ -1,3 +1,4 @@
 {
-  "name": "com.squareup.okhttp3"
+  "name": "com.squareup.okhttp3",
+  "dotnet8": false
 }

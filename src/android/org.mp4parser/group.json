@@ -1,3 +1,4 @@
 {
-  "name": "MP4 Parser"
+  "name": "MP4 Parser",
+  "dotnet8": false
 }

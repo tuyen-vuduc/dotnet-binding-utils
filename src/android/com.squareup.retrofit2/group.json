@@ -1,3 +1,4 @@
 {
-  "name": "com.squareup.retrofit2"
+  "name": "com.squareup.retrofit2",
+  "dotnet8": false
 }

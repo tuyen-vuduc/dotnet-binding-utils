@@ -1,5 +1,6 @@
 {
   "name": "SocketIO",
   "homePageUrl": "https://github.com/socketio/socket.io-client-java",
-  "guideUrl": "https://socket.io/blog/native-socket-io-and-android/"
+  "guideUrl": "https://socket.io/blog/native-socket-io-and-android/",
+  "dotnet8": false
 }
