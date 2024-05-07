@@ -88,6 +88,11 @@ jobs:
         distribution: 'microsoft'
         java-version: '11'
 
+    - name: Setup Global.json
+      run: |
+        echo "PWD: $PWD"
+        sh global.sh ${{ inputs.DOTNET_VERSION }}
+    
     - name: Build
       run: |
         echo "PWD: $PWD"
