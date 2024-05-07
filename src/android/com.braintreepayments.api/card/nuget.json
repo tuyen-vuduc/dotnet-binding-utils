@@ -1,6 +1,6 @@
 {
   "packageId": "Com.Braintreepayments.Api.Card",
   "name": "card",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "versionMappings": []
 }
