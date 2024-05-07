@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.RecyclerView",
+  "name": "recyclerview",
   "dependencyOnly": true,
   "versionMappings": []
 }

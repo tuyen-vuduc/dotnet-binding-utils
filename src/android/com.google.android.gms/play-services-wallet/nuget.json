@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.GooglePlayServices.Wallet",
+  "name": "play-services-wallet",
   "dependencyOnly": true,
   "versionMappings": [
     {

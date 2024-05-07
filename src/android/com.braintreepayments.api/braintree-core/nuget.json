@@ -1,0 +1,6 @@
+{
+  "packageId": "Com.Braintreepayments.Api.BraintreeCore",
+  "name": "braintree-core",
+  "dependencyOnly": false,
+  "versionMappings": []
+}

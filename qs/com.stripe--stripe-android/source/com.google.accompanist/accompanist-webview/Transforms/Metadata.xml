@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<metadata>
-    <attr path="//field[@name='state' and @visibility='public']"
-          name="managedName">StateField</attr>
-    <attr path="//field[@name='navigator' and @visibility='public']"
-          name="managedName">NavigatorField</attr>
-</metadata>

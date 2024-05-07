@@ -1,5 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<metadata>
-    <attr path="/api/package[@name='com.braintreepayments.api']/class[@name='DataCollector']" name="managedName">DataCollectorClass</attr>
-    <remove-node path="/api/package[@name='com.kount.api']/class[@name='DataCollector']/method[@name='createLocationCollector' and count(parameter)=1 and parameter[1][@type='java.lang.Object']]" />
-</metadata>
