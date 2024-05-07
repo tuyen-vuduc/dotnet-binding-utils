@@ -1,3 +1,4 @@
 {
-  "name": "androidx.browser"
+  "name": "androidx.browser",
+  "dotnet8": false
 }

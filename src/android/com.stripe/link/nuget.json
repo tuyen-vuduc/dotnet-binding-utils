@@ -2,5 +2,6 @@
   "packageId": "Com.Stripe.Link",
   "name": "link",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

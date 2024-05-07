@@ -1,3 +1,4 @@
 {
-  "name": "com.google.pay.button"
+  "name": "com.google.pay.button",
+  "dotnet8": false
 }

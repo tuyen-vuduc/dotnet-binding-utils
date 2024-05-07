@@ -8,7 +8,19 @@ using System.Xml;
 using System.Xml.Linq;
 
 var ARTIFACT = Argument<string>("artifact");
+var DOTNET_VERSION = Argument<string>("dotnet");
 var TASK = Argument<string>("task", Argument<string>("t", "Default"));
+
+
+Task("Setup Global.json")
+    .Does(() =>
+{
+    var globalJsonFile = DOTNET_VERSION.StartsWith("8.0")
+        ? "global.8.json"
+        : "global.7.json";
+    
+    CopyFile($"./{globalJsonFile}", $"./global.json");
+});
 
 Task("Create BindingHost.props")
     .Does(() =>
@@ -45,6 +57,7 @@ Task("Copy group maven.props")
 });
 
 Task("Default")
+    .IsDependentOn("Setup Global.json")
     .IsDependentOn("Create BindingHost.props")
     .IsDependentOn("Copy group maven.props")
     .Does(() => {

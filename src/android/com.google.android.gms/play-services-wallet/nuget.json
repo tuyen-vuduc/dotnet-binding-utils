@@ -2,6 +2,7 @@
   "packageId": "Xamarin.GooglePlayServices.Wallet",
   "name": "play-services-wallet",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": [
     {
       "prefix": "1",

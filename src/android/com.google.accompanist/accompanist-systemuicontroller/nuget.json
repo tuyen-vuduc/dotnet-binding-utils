@@ -2,5 +2,6 @@
   "packageId": "Xamarin.Google.Accompanist.SystemUIController",
   "name": "accompanist-systemuicontroller",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

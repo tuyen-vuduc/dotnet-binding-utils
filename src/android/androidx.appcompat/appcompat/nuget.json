@@ -2,5 +2,6 @@
   "packageId": "Xamarin.AndroidX.AppCompat",
   "name": "appcompat",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

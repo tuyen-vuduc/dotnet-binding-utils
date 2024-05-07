@@ -1,3 +1,4 @@
 {
-  "name": "androidx.compose.material"
+  "name": "androidx.compose.material",
+  "dotnet8": false
 }

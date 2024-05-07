@@ -2,5 +2,6 @@
   "packageId": "Com.Google.Pay.Button.ComposePayButton",
   "name": "compose-pay-button",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

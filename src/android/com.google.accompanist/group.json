@@ -1,3 +1,4 @@
 {
-  "name": "com.google.accompanist"
+  "name": "com.google.accompanist",
+  "dotnet8": false
 }

@@ -13,6 +13,7 @@ class NugetInfoDto {
     public string GuideUrl { get; set; }
     public string Relocated { get; set; }
     public bool DependencyOnly { get; set; } = true;
+    public bool Dotnet8 { get; set; } = false;
     public VersionMappingDto[] VersionMappings { get; set; } = Array.Empty<VersionMappingDto>();
 }
 

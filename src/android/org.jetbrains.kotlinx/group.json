@@ -1,3 +1,4 @@
 {
-  "name": "org.jetbrains.kotlinx"
+  "name": "org.jetbrains.kotlinx",
+  "dotnet8": false
 }

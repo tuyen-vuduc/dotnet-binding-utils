@@ -2,5 +2,6 @@
   "packageId": "Xamarin.AndroidX.Lifecycle.ViewModel.Ktx",
   "name": "lifecycle-viewmodel-ktx",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

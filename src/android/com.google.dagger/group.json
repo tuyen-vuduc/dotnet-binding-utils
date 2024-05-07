@@ -1,3 +1,4 @@
 {
-  "name": "com.google.dagger"
+  "name": "com.google.dagger",
+  "dotnet8": false
 }

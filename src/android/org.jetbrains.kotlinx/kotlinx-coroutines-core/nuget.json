@@ -2,5 +2,6 @@
   "packageId": "Xamarin.KotlinX.Coroutines.Core",
   "name": "kotlinx-coroutines-core",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

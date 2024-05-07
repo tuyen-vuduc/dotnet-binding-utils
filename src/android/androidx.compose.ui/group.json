@@ -1,3 +1,4 @@
 {
-  "name": "androidx.compose.ui"
+  "name": "androidx.compose.ui",
+  "dotnet8": false
 }

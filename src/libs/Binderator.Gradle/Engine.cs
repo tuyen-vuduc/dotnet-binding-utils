@@ -58,7 +58,7 @@ public class Engine
             templates.Remove("Project.cshtml");
             templates.Remove("Project.net8.cshtml");
 
-            var projectTemplateKey = model.Artifact.Group.Dotnet8
+            var projectTemplateKey = model.Artifact.Group.Dotnet8 || model.Artifact.Nuget.Dotnet8
                 ? "Project.net8.cshtml"
                 : "Project.cshtml";
             templates[projectTemplateKey] = "{0}.csproj";
