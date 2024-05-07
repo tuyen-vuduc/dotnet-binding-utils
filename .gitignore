@@ -50,3 +50,4 @@ output/
 binderator
 models.json
 *.g.sln
+global.json

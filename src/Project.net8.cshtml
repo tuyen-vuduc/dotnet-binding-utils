@@ -11,23 +11,26 @@
     <Delete Files="$(_AarOutputPath)" />
   </Target>
   <PropertyGroup>
-    <TargetFrameworks>net7.0-android33.0;net6.0-android31.0</TargetFrameworks>
-    <TargetFrameworks Condition=" '$(OS)' == 'Unix' or '10' == '10' ">$(TargetFrameworks);MonoAndroid12.0;</TargetFrameworks>
+    <TargetFrameworks>net8.0-android34.0;</TargetFrameworks>
+    @* <TargetFrameworks>net7.0-android33.0;net6.0-android31.0</TargetFrameworks>
+    <TargetFrameworks Condition=" '$(OS)' == 'Unix' or '10' == '10' ">$(TargetFrameworks);MonoAndroid12.0;</TargetFrameworks> *@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <IsBindingProject>true</IsBindingProject>
     <AssemblyName>@(Model.Artifact.Nuget.PackageId)</AssemblyName>
     <RootNamespace>@(Model.Artifact.Nuget.PackageId)</RootNamespace>
   </PropertyGroup>
-  <ItemGroup Condition=" '$(OS)' == 'Unix' or '10' == '10' ">
+  @* <ItemGroup Condition=" '$(OS)' == 'Unix' or '10' == '10' ">
     <_TargetFrameworkNugetBuildFolders Include="build\MonoAndroid12.0" />
     <_TargetFrameworkNugetBuildFolders Include="buildTransitive\MonoAndroid12.0" />
-  </ItemGroup>
+  </ItemGroup> *@
   <ItemGroup>
-    <_TargetFrameworkNugetBuildFolders Include="build\net6.0-android31.0" />
+    @* <_TargetFrameworkNugetBuildFolders Include="build\net6.0-android31.0" />
     <_TargetFrameworkNugetBuildFolders Include="buildTransitive\net6.0-android31.0" />
     <_TargetFrameworkNugetBuildFolders Include="build\net7.0-android33.0" />
-    <_TargetFrameworkNugetBuildFolders Include="buildTransitive\net7.0-android33.0" />
+    <_TargetFrameworkNugetBuildFolders Include="buildTransitive\net7.0-android33.0" /> *@
+    <_TargetFrameworkNugetBuildFolders Include="build\net8.0-android34.0" />
+    <_TargetFrameworkNugetBuildFolders Include="buildTransitive\net8.0-android34.0" />
   </ItemGroup>
   <PropertyGroup>
     <UserHome Condition=" '$(OS)' == 'Unix' ">$(Home)</UserHome>

@@ -55,6 +55,14 @@ public class Engine
 
         foreach (var model in models)
         {
+            templates.Remove("Project.cshtml");
+            templates.Remove("Project.net8.cshtml");
+
+            var projectTemplateKey = model.Artifact.Group.Dotnet8
+                ? "Project.net8.cshtml"
+                : "Project.cshtml";
+            templates[projectTemplateKey] = "{0}.csproj";
+
             foreach (var template in templates)
             {
                 var inputTemplateFile = Path.Combine(config.BasePath, "src", template.Key);

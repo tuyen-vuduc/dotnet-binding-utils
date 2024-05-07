@@ -1,3 +1,4 @@
 {
-  "name": "com.github.bumptech.glide"
+  "name": "com.github.bumptech.glide",
+  "dotnet8": false
 }

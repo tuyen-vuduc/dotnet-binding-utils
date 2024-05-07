@@ -1,3 +1,4 @@
 {
-  "name": "androidx.activity"
+  "name": "androidx.activity",
+  "dotnet8": false
 }

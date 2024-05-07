@@ -1,3 +1,4 @@
 {
-  "name": "androidx.fragment"
+  "name": "androidx.fragment",
+  "dotnet8": false
 }

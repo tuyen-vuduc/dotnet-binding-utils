@@ -1,3 +1,4 @@
 {
-  "name": "androidx.annotation"
+  "name": "androidx.annotation",
+  "dotnet8": false
 }

@@ -1,3 +1,4 @@
 {
-  "name": "com.github.nguyenhoanglam"
+  "name": "com.github.nguyenhoanglam",
+  "dotnet8": true
 }

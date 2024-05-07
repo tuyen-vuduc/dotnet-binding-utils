@@ -1,5 +1,6 @@
 {
   "name": "Braintree Payments API",
   "homePageUrl": "https://developer.paypal.com/braintree/docs/start/hello-client/android/v4",
-  "guideUrl": "https://github.com/braintree/braintree_android"
+  "guideUrl": "https://github.com/braintree/braintree_android",
+  "dotnet8": false
 }

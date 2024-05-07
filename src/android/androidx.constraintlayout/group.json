@@ -1,3 +1,4 @@
 {
-  "name": "androidx.constraintlayout"
+  "name": "androidx.constraintlayout",
+  "dotnet8": false
 }

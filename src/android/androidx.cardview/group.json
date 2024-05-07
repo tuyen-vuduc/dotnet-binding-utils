@@ -1,3 +1,4 @@
 {
-  "name": "androidx.cardview"
+  "name": "androidx.cardview",
+  "dotnet8": false
 }

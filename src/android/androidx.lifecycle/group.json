@@ -1,3 +1,4 @@
 {
-  "name": "androidx.lifecycle"
+  "name": "androidx.lifecycle",
+  "dotnet8": false
 }

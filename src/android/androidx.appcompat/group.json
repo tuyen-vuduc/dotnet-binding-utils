@@ -1,3 +1,4 @@
 {
-  "name": "androidx.appcompat"
+  "name": "androidx.appcompat",
+  "dotnet8": false
 }
