@@ -1,6 +1,6 @@
 {
-  "packageId": "Square.Moshi.Kotlin",
-  "name": "moshi-kotlin",
+  "packageId": "Xamarin.AndroidX.DataStore",
+  "name": "datastore",
   "dependencyOnly": true,
   "dotnet8": false,
   "versionMappings": []

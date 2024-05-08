@@ -1,0 +1,7 @@
+{
+  "packageId": "No.Nordicsemi.Android.Dfu",
+  "name": "dfu",
+  "dependencyOnly": false,
+  "dotnet8": false,
+  "versionMappings": []
+}

@@ -1,0 +1,7 @@
+{
+  "packageId": "Xamarin.AndroidX.DataStore.Core",
+  "name": "datastore-core",
+  "dependencyOnly": true,
+  "dotnet8": false,
+  "versionMappings": []
+}
