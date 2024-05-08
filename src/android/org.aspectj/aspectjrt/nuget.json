@@ -2,5 +2,6 @@
   "packageId": "Org.Aspectj.Aspectjrt",
   "name": "aspectjrt",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }
