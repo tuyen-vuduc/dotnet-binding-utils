@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Stripe.StripeCore",
+  "name": "stripe-core",
+  "dependencyOnly": true,
+  "dotnet8": false,
+  "versionMappings": []
+}

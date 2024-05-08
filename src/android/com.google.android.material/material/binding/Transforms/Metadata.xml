@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <attr path="//field[@name='ANIMATION_MODE_FADE']"
+        name="managedName">ANIMATION_MODE_FADE</attr>
+  <attr path="//field[@name='ANIMATION_MODE_SLIDE']"
+        name="managedName">ANIMATION_MODE_SLIDE</attr>
+  <attr path="//field[@name='LENGTH_INDEFINITE']"
+        name="managedName">LENGTH_INDEFINITE</attr>
+  <attr path="//field[@name='LENGTH_LONG']"
+        name="managedName">LENGTH_LONG</attr>
+  <attr path="//field[@name='LENGTH_SHORT']"
+        name="managedName">LENGTH_SHORT</attr>
+  <attr path="//field[@name='view']"
+        name="managedName">_view</attr>
+  <attr path="//parameter[@type='T' and ancestor::*[typeParameters/typeParameter[@name='T' and @classBound='com.google.android.material.appbar.AppBarLayout']]]"
+        name="type">com.google.android.material.appbar.AppBarLayout</attr>
+  <attr path="//parameter[@type='V' and ancestor::*[typeParameters/typeParameter[@name='V' and @classBound='android.view.View']]]"
+        name="type">android.view.View</attr>
+  <attr path="//parameter[@type='L' and ancestor::*[typeParameters/typeParameter[@name='L' and starts-with(@interfaceBounds, 'com.google.android.material.slider.BaseOnChangeListener')]]]"
+        name="type">com.google.android.material.slider.BaseOnChangeListener</attr>
+  <attr path="//parameter[@type='T' and ancestor::*[typeParameters/typeParameter[@name='T' and starts-with(@interfaceBounds, 'com.google.android.material.slider.BaseOnSliderTouchListener')]]]"
+        name="type">com.google.android.material.slider.BaseOnChangeListener</attr>
+  <attr path="//method[@return='P' and ancestor::*[typeParameters/typeParameter[@name='P' and @interfaceBounds='com.google.android.material.transition.VisibilityAnimatorProvider']]]"
+        name="return">com.google.android.material.transition.VisibilityAnimatorProvider</attr>
+  <attr path="//method[@return='P' and ancestor::*[typeParameters/typeParameter[@name='P' and @interfaceBounds='com.google.android.material.transition.platform.VisibilityAnimatorProvider']]]"
+        name="return">com.google.android.material.transition.platform.VisibilityAnimatorProvider</attr>
+  <attr path="/api/package[@name='com.google.android.material.appbar']/class[@name='HeaderBehavior']"
+        name="visibility">public</attr>
+  <attr path="/api/package[@name='com.google.android.material.appbar']/class[@name='ViewOffsetBehavior']"
+        name="visibility">public</attr>
+  <attr path="/api/package[@name='com.google.android.material.appbar']/class[@name='AppBarLayout.BaseBehavior']"
+        name="visibility">public</attr>
+  <remove-node path="/api/package[@name='com.google.android.material.slider']/class[@name='RangeSlider']/method[@name='setEnabled' and count(parameter)=1 and parameter[1][@type='boolean']]" />
+  <remove-node path="/api/package[@name='com.google.android.material.slider']/class[@name='Slider']/method[@name='setEnabled' and count(parameter)=1 and parameter[1][@type='boolean']]" />
+  <attr path="/api/package[@name='com.google.android.material.navigationrail']/class[@name='NavigationRailView']/method[@name='createNavigationBarMenuView' and count(parameter)=1 and parameter[1][@type='android.content.Context']]"
+        name="managedName">CreateNavigationBarMenuViewX</attr>
+  <attr path="/api/package[@name='com.google.android.material.sidesheet']/interface[@name='Sheet']"
+        name="visibility">public</attr>
+  <remove-node path="/api/package[@name='com.google.android.material.tabs']/class[@name='TabLayout']/method[@deprecated='deprecated']" />
+  <remove-node path="/api/package[@name='com.google.android.material.snackbar']/class[@name='Snackbar.SnackbarLayout']/method[@name='setBackground' and count(parameter)=1 and parameter[1][@type='android.graphics.drawable.Drawable']]" />
+  <remove-node path="/api/package[@name='com.google.android.material.snackbar']/class[@name='Snackbar.SnackbarLayout']/method[@name='setBackgroundTintList' and count(parameter)=1 and parameter[1][@type='android.content.res.ColorStateList']]" />
+  <remove-node path="/api/package[@name='com.google.android.material.snackbar']/class[@name='Snackbar.SnackbarLayout']/method[@name='setBackgroundTintMode' and count(parameter)=1 and parameter[1][@type='android.graphics.PorterDuff.Mode']]" />
+  <remove-node path="/api/package[@name='com.google.android.material.snackbar']/class[@name='Snackbar.SnackbarLayout']/method[@name='setLayoutParams' and count(parameter)=1 and parameter[1][@type='android.view.ViewGroup.LayoutParams']]" />
+  <remove-node path="/api/package[@name='com.google.android.material.textfield']/class[@name='MaterialAutoCompleteTextView']/method[@name='setAdapter' and count(parameter)=1 and parameter[1][@type='T']]" />
+  <remove-node path="/api/package[@name='com.google.android.material.datepicker']/class[starts-with(@name, 'RangeDateSelector')]" />
+<remove-node path="/api/package[@name='com.google.android.material.datepicker']/class[starts-with(@name, 'SingleDateSelector')]" />
+</metadata>

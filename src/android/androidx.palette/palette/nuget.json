@@ -2,5 +2,6 @@
   "packageId": "Xamarin.AndroidX.Palette",
   "name": "palette",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

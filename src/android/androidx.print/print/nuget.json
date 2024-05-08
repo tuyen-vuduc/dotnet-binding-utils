@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Print",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

@@ -2,5 +2,6 @@
   "packageId": "Xamarin.CodeHaus.Mojo.AnimalSnifferAnnotations",
   "name": "animal-sniffer-annotations",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

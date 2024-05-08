@@ -2,5 +2,6 @@
   "packageId": "Xamarin.AndroidX.Legacy.Support.Core.Utils",
   "name": "legacy-support-core-utils",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

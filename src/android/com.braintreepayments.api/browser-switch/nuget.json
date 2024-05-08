@@ -2,5 +2,6 @@
   "packageId": "Com.Braintreepayments.Api.BrowserSwitch",
   "name": "browser-switch",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

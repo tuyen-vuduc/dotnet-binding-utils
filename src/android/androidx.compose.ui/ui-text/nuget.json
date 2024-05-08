@@ -1,5 +1,7 @@
 {
   "packageId": "Xamarin.AndroidX.Compose.UI.Text",
+  "name": "ui-text",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

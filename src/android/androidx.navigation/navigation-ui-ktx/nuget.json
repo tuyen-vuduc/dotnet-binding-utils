@@ -2,5 +2,6 @@
   "packageId": "Xamarin.AndroidX.Navigation.UI.Ktx",
   "name": "navigation-ui-ktx",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

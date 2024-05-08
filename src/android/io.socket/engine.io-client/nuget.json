@@ -2,5 +2,6 @@
   "packageId": "Io.Socket.Engine.ioClient",
   "name": "engine.io-client",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

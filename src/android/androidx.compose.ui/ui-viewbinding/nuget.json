@@ -1,5 +1,7 @@
 {
   "packageId": "Xamarin.AndroidX.Compose.UI.ViewBinding",
+  "name": "ui-viewbinding",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

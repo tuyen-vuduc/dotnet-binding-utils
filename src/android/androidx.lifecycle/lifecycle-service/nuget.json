@@ -2,5 +2,6 @@
   "packageId": "Xamarin.AndroidX.Lifecycle.Service",
   "name": "lifecycle-service",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

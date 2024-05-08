@@ -2,5 +2,6 @@
   "packageId": "Com.Mapbox.Maps.Base",
   "name": "base",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

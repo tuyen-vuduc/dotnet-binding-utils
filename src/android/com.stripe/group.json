@@ -1,0 +1,5 @@
+{
+  "name": "com.stripe",
+  "dotnet8": false,
+  "runtimeDependenciesAsCompile": true
+}

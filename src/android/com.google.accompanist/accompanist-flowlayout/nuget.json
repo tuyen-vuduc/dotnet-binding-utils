@@ -1,5 +1,7 @@
 {
   "packageId": "Xamarin.Google.Accompanist.FlowLayout",
+  "name": "accompanist-flowlayout",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

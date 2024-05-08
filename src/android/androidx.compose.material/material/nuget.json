@@ -1,5 +1,7 @@
 {
   "packageId": "Xamarin.AndroidX.Compose.Material",
+  "name": "material",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

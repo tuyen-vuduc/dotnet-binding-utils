@@ -69,7 +69,7 @@ public class ArtifactModel : IEquatable<ArtifactModel>
         set => parentArtifacts = value;
     }
 
-    public KeyValuePair<string, string>[] FixedVersions { get; set; }
+    public KeyValuePair<string, string>[] FixedVersions { get; set; } = new KeyValuePair<string, string>[0];
 
     public string[] Tags { get; set; }
     public string[] MissingDependencies { get; set; }

@@ -2,5 +2,6 @@
   "packageId": "Com.Paypal.Android.FraudProtection",
   "name": "fraud-protection",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

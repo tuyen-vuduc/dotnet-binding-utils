@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.Google.AutoValue.Annotations",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

@@ -2,5 +2,6 @@
   "packageId": "Xamarin.AndroidX.ExifInterface",
   "name": "ExifInterface",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

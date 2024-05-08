@@ -1,0 +1,7 @@
+{
+  "packageId": "Xamarin.KotlinX.Coroutines.Core.Jvm",
+  "name": "kotlinx-serialization-core-jvm",
+  "dependencyOnly": true,
+  "dotnet8": false,
+  "versionMappings": []
+}

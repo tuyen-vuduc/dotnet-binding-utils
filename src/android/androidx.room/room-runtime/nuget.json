@@ -2,5 +2,6 @@
   "packageId": "Xamarin.AndroidX.Room.Runtime",
   "name": "room-runtime",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

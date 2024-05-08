@@ -1,5 +1,7 @@
 {
   "packageId": "Xamarin.AndroidX.Lifecycle.ViewModelSavedState",
+  "name": "lifecycle-viewmodel-savedstate",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

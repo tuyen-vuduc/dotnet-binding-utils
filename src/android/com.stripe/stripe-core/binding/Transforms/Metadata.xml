@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <remove-node path="/api/package[@name='com.stripe.android.core.networking']/class[@name='StripeConnection.AbstractConnection']/implements[@name='com.stripe.android.core.networking.StripeConnection']" />
+  <remove-node path="/api/package[@name='com.stripe.android.core.networking']/class[@name='StripeConnection.AbstractConnection']/method[@name='getResponse' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='com.stripe.android.core.networking']/class[@name='StripeConnection.AbstractConnection']/method[@name='getResponseCode' and count(parameter)=0]" />
+  <remove-node path="/api/package[@name='com.stripe.android.core.networking']/class[@name='StripeConnection.FileConnection']/method[@name='createBodyFromResponseStream' and count(parameter)=1 and parameter[1][@type='java.io.InputStream']]" />
+  <remove-node path="/api/package[@name='com.stripe.android.core.networking']/class[@name='StripeConnection.Default']/method[@name='createBodyFromResponseStream' and count(parameter)=1 and parameter[1][@type='java.io.InputStream']]" />  
+</metadata>

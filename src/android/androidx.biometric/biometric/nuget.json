@@ -2,5 +2,6 @@
   "packageId": "Xamarin.AndroidX.Biometric",
   "name": "biometric",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

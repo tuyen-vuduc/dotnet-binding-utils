@@ -1,5 +1,6 @@
 {
   "packageId": "Xam.Plugins.Android.ExoPlayer.SmoothStreaming",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

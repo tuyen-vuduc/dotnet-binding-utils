@@ -2,5 +2,6 @@
   "packageId": "DriveSmart.DSNetworking",
   "name": "DS-Networking",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

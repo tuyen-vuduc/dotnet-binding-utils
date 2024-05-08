@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.Android.Support.Media.Compat",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

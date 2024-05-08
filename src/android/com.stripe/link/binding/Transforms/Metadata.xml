@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <attr path="//field[@name='FileName']"
+        name="managedName">_FileName</attr>
+  <attr path="//field[@name='HasUsedLink']"
+        name="managedName">_HasUsedLink</attr>
+  <attr path="//class[@extends='androidx.activity.result.contract.ActivityResultContract']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]"
+        name="managedName">ParseResultX</attr>
+</metadata>

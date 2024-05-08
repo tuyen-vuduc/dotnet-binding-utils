@@ -2,5 +2,6 @@
   "packageId": "Xamarin.AndroidX.Activity",
   "name": "activity",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

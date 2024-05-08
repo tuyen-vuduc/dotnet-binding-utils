@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Google.Android.Instantapps.Instantapps",
+  "name": "instantapps",
+  "dependencyOnly": true,
+  "dotnet8": false,
+  "versionMappings": []
+}

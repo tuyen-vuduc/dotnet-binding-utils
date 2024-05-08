@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Jakewharton.Disklrucache",
+  "name": "disklrucache",
+  "dependencyOnly": true,
+  "dotnet8": false,
+  "versionMappings": []
+}

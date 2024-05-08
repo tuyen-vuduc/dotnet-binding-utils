@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.GridLayout",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

@@ -1,5 +1,7 @@
 {
   "packageId": "Xamarin.AndroidX.Compose.Animation.Core",
+  "name": "animation-core",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

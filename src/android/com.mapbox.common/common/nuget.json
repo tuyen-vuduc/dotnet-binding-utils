@@ -2,5 +2,6 @@
   "packageId": "Com.Mapbox.Common.Common",
   "name": "common",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

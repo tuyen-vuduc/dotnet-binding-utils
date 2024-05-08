@@ -122,6 +122,13 @@ public static class ArtifactScanner
         var parentArtifactIds = new List<KeyValuePair<string, string>>();
         foreach (XmlNode dependency in dependencies)
         {
+            var optional = dependency.SelectSingleNode("descendant::mvn:optional", nsmgr)?.InnerText;
+            if (!string.IsNullOrWhiteSpace(optional)
+                && bool.TryParse(optional, out var isOptional))
+            {
+                continue;
+            }
+
             var scope = dependency.SelectSingleNode("descendant::mvn:scope", nsmgr)?.InnerText;
             if (scope == "test") continue;
 
@@ -170,7 +177,8 @@ public static class ArtifactScanner
 
                 xversion = string.Join("-", xversions);
             }
-            else if (VersionRange.TryParse(rawVersion, out var versionRange))
+            else if (rawVersion.StartsWith("[")
+                && VersionRange.TryParse(rawVersion, out var versionRange))
             {
                 xversion = versionRange.IsMaxInclusive
                     ? versionRange.MaxVersion.ToNormalizedString()
@@ -343,6 +351,11 @@ public static class ArtifactScanner
                     homeFolderPath,
                     $".gradle/caches/modules-2/files-2.1/{groupId}/{artifactId}/{version.Major}.{version.Minor}"
                 );
+
+                if (!string.IsNullOrWhiteSpace(version.Release))
+                {
+                    artifactVersionFolderPath += $"-{version.Release}";
+                }
             }
 
             if (!Directory.Exists(artifactVersionFolderPath))

@@ -3,5 +3,6 @@
   "name": "muxer",
   "homePageUrl": "https://mvnrepository.com/artifact/org.mp4parser/muxer",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

@@ -1,5 +1,6 @@
 {
   "packageId": "PSPDFKit.Android",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

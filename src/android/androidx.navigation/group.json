@@ -1,3 +1,4 @@
 {
-  "name": "androidx.navigation"
+  "name": "androidx.navigation",
+  "dotnet8": false
 }

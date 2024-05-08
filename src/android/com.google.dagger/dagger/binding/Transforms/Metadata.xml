@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <remove-node path="//method[@deprecated='deprecated']" />
+    <attr path="//method[@name='provider' and @jni-signature='(Ldagger/internal/Provider;)Ldagger/internal/Provider;']"
+        name="managedName">InternalProvider</attr>
+    <remove-node path="/api/package[@name='dagger.internal']/class[@name='MapProviderFactory']/implements[@name='dagger.Lazy']" />
+</metadata>

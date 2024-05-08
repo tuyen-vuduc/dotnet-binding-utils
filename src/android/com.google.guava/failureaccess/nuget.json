@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.Google.Guava.FailureAccess",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

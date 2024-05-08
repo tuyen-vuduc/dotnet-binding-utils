@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.ReLinker",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

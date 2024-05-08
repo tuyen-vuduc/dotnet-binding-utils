@@ -1,5 +1,7 @@
 {
   "packageId": "Xamarin.AndroidX.Navigation.Compose",
+  "name": "navigation-compose",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Github.Stephenc.Jcip.JcipAnnotations",
+  "name": "jcip-annotations",
+  "dependencyOnly": true,
+  "dotnet8": false,
+  "versionMappings": []
+}

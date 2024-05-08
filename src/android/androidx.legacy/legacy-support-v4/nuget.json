@@ -2,5 +2,6 @@
   "packageId": "Xamarin.AndroidX.Legacy.Support.V4",
   "name": "legacy-support-v4",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

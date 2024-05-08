@@ -2,5 +2,6 @@
   "packageId": "Xamarin.Android.Arch.Persistence.Room.Common",
   "name": "common",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

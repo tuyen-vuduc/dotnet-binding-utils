@@ -3,5 +3,6 @@
   "name": "isoparser",
   "homePageUrl": "https://mvnrepository.com/artifact/org.mp4parser/isoparser",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

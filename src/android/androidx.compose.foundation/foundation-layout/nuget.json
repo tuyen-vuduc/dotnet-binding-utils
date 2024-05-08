@@ -1,5 +1,7 @@
 {
   "packageId": "Xamarin.AndroidX.Compose.Foundation.Layout",
+  "name": "foundation-layout",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

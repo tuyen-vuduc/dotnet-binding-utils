@@ -2,5 +2,6 @@
   "packageId": "Xamarin.AndroidX.DataBinding.ViewBinding",
   "name": "viewbinding",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

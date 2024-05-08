@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <attr path="/api/package[@name='com.stripe.android.uicore.elements']/class[@name='RowElement']/method[@name='sectionFieldErrorController' and count(parameter)=0]"
+  name="managedName">SectionFieldErrorRowController</attr>
+  <attr path="/api/package[@name='com.stripe.android.uicore.elements']/interface[@name='TextFieldState']/method[@name='getError' and count(parameter)=0]"
+  name="propertyName"></attr>
+  <attr path="//class[implements[@name='com.stripe.android.uicore.elements.TextFieldState']]/method[@name='getError' and count(parameter)=0]"
+  name="propertyName"></attr>
+  <attr path="//method[@name='getController' and count(parameter)=0 and parent::class[@extends='com.stripe.android.uicore.elements.SectionSingleFieldElement']]"
+        name="managedReturn">Com.Stripe.Android.Uicore.Elements.IInputController</attr>
+</metadata>

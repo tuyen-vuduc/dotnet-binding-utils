@@ -2,5 +2,6 @@
   "packageId": "Xamarin.AndroidX.Core",
   "name": "core",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

@@ -2,6 +2,7 @@
   "packageId": "Xamarin.GooglePlayServices.Location",
   "name": "play-services-location",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": [
     {
       "prefix": "1",

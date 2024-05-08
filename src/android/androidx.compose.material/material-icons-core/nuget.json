@@ -1,5 +1,7 @@
 {
   "packageId": "Xamarin.AndroidX.Compose.Material.Icons.Core",
+  "name": "material-icons-core",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

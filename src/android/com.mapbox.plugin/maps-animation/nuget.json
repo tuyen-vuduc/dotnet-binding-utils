@@ -2,5 +2,6 @@
   "packageId": "Com.Mapbox.Plugin.MapsAnimation",
   "name": "maps-animation",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

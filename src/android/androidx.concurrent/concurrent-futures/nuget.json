@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Concurrent.Futures",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

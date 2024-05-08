@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Camera.Camera2",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }
