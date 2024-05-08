@@ -2,5 +2,6 @@
   "packageId": "Xamarin.AndroidX.VersionedParcelable",
   "name": "Versioned Parcelable",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

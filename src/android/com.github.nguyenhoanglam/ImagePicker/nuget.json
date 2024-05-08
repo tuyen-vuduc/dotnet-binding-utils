@@ -1,6 +1,7 @@
 {
   "packageId": "Com.Github.Nguyenhoanglam.ImagePicker",
   "name": "ImagePicker",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

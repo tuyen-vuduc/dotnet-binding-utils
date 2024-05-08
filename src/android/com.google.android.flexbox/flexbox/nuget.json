@@ -2,5 +2,6 @@
   "packageId": "Xamarin.Android.Google.Android.Flexbox",
   "name": "flexbox",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

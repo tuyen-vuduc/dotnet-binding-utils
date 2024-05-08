@@ -2,5 +2,6 @@
   "packageId": "Square.Retrofit2",
   "name": "retrofit",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

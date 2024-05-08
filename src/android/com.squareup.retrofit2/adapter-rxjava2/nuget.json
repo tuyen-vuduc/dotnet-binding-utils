@@ -1,5 +1,6 @@
 {
   "packageId": "Square.Retrofit2.AdapterRxJava2",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

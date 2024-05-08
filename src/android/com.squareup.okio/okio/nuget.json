@@ -2,5 +2,6 @@
   "packageId": "Square.OkIO",
   "name": "okio",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

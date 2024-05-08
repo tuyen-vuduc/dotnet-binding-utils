@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Legacy.Support.Core.UI",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

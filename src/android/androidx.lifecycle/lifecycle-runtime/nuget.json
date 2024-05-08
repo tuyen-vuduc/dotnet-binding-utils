@@ -2,5 +2,6 @@
   "packageId": "Xamarin.AndroidX.Lifecycle.Runtime",
   "name": "lifecycle-runtime",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

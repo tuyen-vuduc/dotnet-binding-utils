@@ -2,5 +2,6 @@
   "packageId": "Com.Braintreepayments.Api.SharedUtils",
   "name": "shared-utils",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

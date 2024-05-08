@@ -1,5 +1,6 @@
 {
   "packageId": "Square.Moshi.Kotlin",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

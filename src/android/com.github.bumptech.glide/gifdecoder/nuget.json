@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.Android.Glide.GifDecoder",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

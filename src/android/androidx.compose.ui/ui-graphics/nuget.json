@@ -2,5 +2,6 @@
   "packageId": "Xamarin.AndroidX.Compose.UI.Graphics",
   "name": "ui-graphics",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

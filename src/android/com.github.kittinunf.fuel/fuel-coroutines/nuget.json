@@ -2,5 +2,6 @@
   "packageId": "Com.Github.Kittinunf.Fuel.FuelCoroutines",
   "name": "fuel-coroutines",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

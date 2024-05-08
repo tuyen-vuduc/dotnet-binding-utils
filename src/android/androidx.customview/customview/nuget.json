@@ -2,5 +2,6 @@
   "packageId": "Xamarin.AndroidX.CustomView",
   "name": "customview",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

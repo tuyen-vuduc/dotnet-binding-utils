@@ -2,5 +2,6 @@
   "packageId": "Xamarin.AndroidX.Transition",
   "name": "transition",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

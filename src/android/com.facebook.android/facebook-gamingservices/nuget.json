@@ -2,5 +2,6 @@
   "packageId": "Com.Facebook.Android.FacebookGamingservices",
   "name": "facebook-gamingservices",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

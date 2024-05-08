@@ -1,6 +1,7 @@
 {
   "packageId": "Xamarin.GooglePlayServices.Base",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": [
     {
       "prefix": "1",

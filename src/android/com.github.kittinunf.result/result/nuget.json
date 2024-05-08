@@ -1,5 +1,6 @@
 {
   "packageId": "Com.Github.Kittinunf.Result.Result",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

@@ -2,5 +2,6 @@
   "packageId": "Com.Facebook.Android.FacebookCommon",
   "name": "facebook-common",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

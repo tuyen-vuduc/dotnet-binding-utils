@@ -1,6 +1,7 @@
 {
   "packageId": "Xamarin.Google.MLKit.Common",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": [
     {
       "prefix": "1",

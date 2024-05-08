@@ -2,5 +2,6 @@
   "packageId": "Com.Facebook.Soloader.Annotation",
   "name": "annotation",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

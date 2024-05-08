@@ -2,5 +2,6 @@
   "packageId": "Xamarin.AndroidX.CardView",
   "name": "cardview",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

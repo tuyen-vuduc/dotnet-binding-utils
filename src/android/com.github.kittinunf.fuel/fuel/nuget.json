@@ -2,5 +2,6 @@
   "packageId": "Com.Github.Kittinunf.Fuel.Fuel",
   "name": "fuel",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

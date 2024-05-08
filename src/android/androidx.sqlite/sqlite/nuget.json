@@ -2,5 +2,6 @@
   "packageId": "Xamarin.AndroidX.Sqlite",
   "name": "sqlite",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

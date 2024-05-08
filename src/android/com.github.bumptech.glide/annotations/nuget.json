@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.Android.Glide.Annotations",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

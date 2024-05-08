@@ -2,5 +2,6 @@
   "packageId": "Io.CoilKt.CoilBase",
   "name": "coil-base",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

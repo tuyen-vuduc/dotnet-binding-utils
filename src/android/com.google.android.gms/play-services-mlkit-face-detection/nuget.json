@@ -1,6 +1,7 @@
 {
   "packageId": "Xamarin.GooglePlayServices.MLKit.FaceDetection",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": [
     {
       "prefix": "1",

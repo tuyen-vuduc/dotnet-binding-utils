@@ -2,5 +2,6 @@
   "packageId": "Xamarin.AndroidX.Compose.Runtime",
   "name": "runtime",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

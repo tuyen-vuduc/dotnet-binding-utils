@@ -2,5 +2,6 @@
   "packageId": "Xamarin.Android.Arch.Lifecycle.Common",
   "name": "common",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

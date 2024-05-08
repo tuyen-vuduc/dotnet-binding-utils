@@ -2,5 +2,6 @@
   "packageId": "Xamarin.AndroidX.VectorDrawable",
   "name": "vectordrawable",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }

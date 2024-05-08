@@ -2,5 +2,6 @@
   "packageId": "Com.Facebook.Android.FacebookApplinks",
   "name": "facebook-applinks",
   "dependencyOnly": true,
+  "dotnet8": false,
   "versionMappings": []
 }
