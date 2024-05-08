@@ -1,7 +1,7 @@
 {
   "packageId": "Dev.Drewhamilton.Poko.PokoAnnotations",
   "name": "poko-annotations",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": false,
   "versionMappings": []
 }
