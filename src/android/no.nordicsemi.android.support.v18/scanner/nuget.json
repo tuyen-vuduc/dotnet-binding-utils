@@ -1,7 +1,7 @@
 {
   "packageId": "NordicSemi.Android.Support.V18.Scanner",
   "name": "scanner",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": false,
   "versionMappings": []
 }

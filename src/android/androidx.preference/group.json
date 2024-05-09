@@ -1,3 +1,5 @@
 {
-  "name": "androidx.preference"
+  "name": "androidx.preference",
+  "dotnet8": false,
+  "runtimeDependenciesAsCompile": true
 }

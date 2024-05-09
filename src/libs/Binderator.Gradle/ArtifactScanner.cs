@@ -130,7 +130,7 @@ public static class ArtifactScanner
             }
 
             var scope = dependency.SelectSingleNode("descendant::mvn:scope", nsmgr)?.InnerText;
-            if (scope == "test") continue;
+            if (scope == "test" || scope == "provided") continue;
 
             var xartifactId = dependency.SelectSingleNode("descendant::mvn:artifactId", nsmgr).InnerText;
 

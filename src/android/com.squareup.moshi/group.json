@@ -1,4 +1,5 @@
 {
   "name": "com.squareup.moshi",
-  "dotnet8": false
+  "dotnet8": false,
+  "runtimeDependenciesAsCompile": true
 }

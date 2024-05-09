@@ -14,5 +14,5 @@ public record GroupModel
     public string Icon { get; set; }
     [JsonIgnore]
     public string MavenPropsFile { get; set; }
-    public bool? RuntimeDependenciesAsCompile { get; set; }
+    public bool? RuntimeDependenciesAsCompile { get; set; } = true;
 }

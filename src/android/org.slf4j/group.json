@@ -1,3 +1,5 @@
 {
-  "name": "org.slf4j"
+  "name": "org.slf4j",
+  "dotnet8": false,
+  "runtimeDependenciesAsCompile": true
 }
