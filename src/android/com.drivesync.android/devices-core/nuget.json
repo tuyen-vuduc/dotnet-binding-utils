@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Drivesync.Android.DevicesCore",
   "name": "devices-core",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": false,
   "versionMappings": []
 }
