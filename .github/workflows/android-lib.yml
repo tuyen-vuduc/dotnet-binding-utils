@@ -42,6 +42,7 @@ on:
         - dev.drewhamilton.poko:poko-annotations:0.15.2
         - com.stripe:paymentsheet:20.40.4
         - com.stripe:stripe-android:20.40.4
+        - com.drivesync.android:devices-wedge:1.16.0
 jobs:
   build-then-publish:
     environment: production

@@ -1,4 +1,5 @@
 @using System;
+@using System.IO;
 
 @{
     var homePageUrl = string.IsNullOrWhiteSpace(Model.Artifact.Nuget.HomePageUrl)
@@ -8,6 +9,14 @@
     var guideUrl = string.IsNullOrWhiteSpace(Model.Artifact.Nuget.GuideUrl)
         ? Model.Artifact.Group.GuideUrl
         : Model.Artifact.Nuget.GuideUrl;
+
+    var customGradleRepositoryFilePath = Path.Combine(        
+        Model.Config.BasePath,
+        Model.Artifact.RelativeGroupFolderPath,
+         "group.GradleRepository.xml");
+    var gradleRepository = File.Exists(customGradleRepositoryFilePath)
+        ? File.ReadAllText(customGradleRepositoryFilePath)
+        : null;
 }
 @Raw("# " + Model.Artifact.Group.Name + " - " + Model.Artifact.Nuget.Name)
 
@@ -25,4 +34,14 @@ The binding source code can be found [here](https://github.com/tuyen-vuduc/dotne
     @Raw("\n## Guide page\n\n")
 
     @(guideUrl)
+}
+
+@if (!string.IsNullOrWhiteSpace(gradleRepository)) {
+    @Raw("\n## Maven repository setup\n\n")
+
+    @Raw("Open your CSPROJ file and add these lines:\n\n")
+    
+    @Raw("```\n")
+    @Raw(gradleRepository)    
+    @Raw("\n```")
 }

@@ -30,6 +30,7 @@ public class ArtifactModel : IEquatable<ArtifactModel>
     public string Key => $"{Group.Id}:{Nuget.ArtifactId}";
     public string GradleImplementation => $"{Key}:{(Version.WithoutPatch == true ? $"{Version.SemanticVersion.Major}.{Version.SemanticVersion.Minor}" : Version.SemanticVersion)}";
     public string RelativeFolderPath => Path.Combine("src", "android", Group.Id, Nuget.ArtifactId);
+    public string RelativeGroupFolderPath => Path.Combine("src", "android", Group.Id);
     public string RelativeBindingFolderPath => Path.Combine(RelativeFolderPath, "binding");
 
     public bool IsAAR => ShadowArtifact != null

@@ -1,14 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-	<add-node path="/api/package[@name='com.drivesync.android.devices.bluetooth']/class[@name='BaseBluetoothDeviceProvider']">
-		<method abstract="true" deprecated="not deprecated" final="false" name="startDeviceDetection" jni-signature="(Landroid/content/Context;Ljava/util/List;JLcom/drivesync/android/devices/listeners/DsDeviceUpdateListener;)V" bridge="false" native="false" return="void" jni-return="V" static="false"
-			synchronized="false" synthetic="false" visibility="public">
-			<parameter name="context" type="android.content.Context" jni-type="Landroid/content/Context;" not-null="true" />
-			<parameter name="devices" type="java.util.List&lt;com.drivesync.android.devices.DsDevice&gt;" jni-type="Ljava/util/List&lt;Lcom/drivesync/android/devices/DsDevice;&gt;;" />
-			<parameter name="timeout" type="long" jni-type="J" />
-			<parameter name="listener" type="com.drivesync.android.devices.listeners.DsDeviceUpdateListener" jni-type="Lcom/drivesync/android/devices/listeners/DsDeviceUpdateListener;" not-null="true" />
-		</method>
-		<method abstract="true" deprecated="not deprecated" final="false" name="getSupportedDeviceTypes" jni-signature="()Ljava/util/List;" bridge="false" native="false" return="java.util.List&lt;java.lang.String&gt;" jni-return="Ljava/util/List&lt;Ljava/lang/String;&gt;;" static="false"
-			synchronized="false" synthetic="false" visibility="public" return-not-null="true" />
-	</add-node>
+  <remove-node path="/api/package[@name='com.drivesync.android.devices.bluetooth']/class[@name='BaseBluetoothDeviceProvider']/implements[@name='com.drivesync.android.devices.providers.DsDeviceProvider']" />
+  <attr path="//class[@extends='com.drivesync.android.devices.bluetooth.BaseBluetoothDeviceProvider']/method[@name='getSupportedDeviceTypes' and count(parameter)=0]"
+        name="propertyName"></attr>
+  <attr path="//class[@extends='com.drivesync.android.devices.bluetooth.BaseBluetoothDeviceProvider']/method[@name='startDeviceDetection' and count(parameter)=4 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.util.List&lt;com.drivesync.android.devices.DsDevice&gt;'] and parameter[3][@type='long'] and parameter[4][@type='com.drivesync.android.devices.listeners.DsDeviceUpdateListener']]"
+        name="managedName">DoStartDeviceDetection</attr>
+  <attr path="//class[@extends='com.drivesync.android.devices.bluetooth.BaseBluetoothDeviceProvider']/method[@name='stopDeviceDetection' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='com.drivesync.android.devices.listeners.DsDeviceUpdateListener']]"
+        name="managedName">DoStopDeviceDetection</attr>
 </metadata>
