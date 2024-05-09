@@ -7,4 +7,9 @@
 	<remove-node path="/api/package[@name='com.drivesync.android.devices.listeners']/interface[@name='DsDeviceListener']" />
 	<remove-node path="/api/package[@name='com.drivesync.android.devices.listeners']/interface[@name='DsDeviceController']/implements[@name='com.drivesync.android.devices.listeners.DsDeviceListener']" />
 	<remove-node path="/api/package[@name='com.drivesync.android.devices.providers']/interface[@name='DsDeviceProvider']/implements[@name='com.drivesync.android.devices.listeners.DsDeviceListener']" />
+
+  <attr path="//field[@name='INSTANCE']"
+        name="managedName">INSTANCE</attr>
+  <attr path="//field[@name='deviceDb']"
+        name="managedName">_deviceDb</attr>
 </metadata>

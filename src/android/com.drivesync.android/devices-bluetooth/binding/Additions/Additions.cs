@@ -159,4 +159,12 @@ namespace Com.Drivesync.Android.Devices
             => DoStopDeviceDetection(context, listener);
         public override IList<string> SupportedDeviceTypes => GetSupportedDeviceTypes();
     }
+    partial class CarAudioProvider
+    {
+        public override void StartDeviceDetection(Context context, IList<DsDevice>? devices, long timeout, Com.Drivesync.Android.Devices.Listeners.IDsDeviceUpdateListener listener)
+            => DoStartDeviceDetection(context, devices, timeout, listener);
+        public override void StopDeviceDetection(Context context, Com.Drivesync.Android.Devices.Listeners.IDsDeviceUpdateListener listener)
+            => DoStopDeviceDetection(context, listener);
+        public override IList<string> SupportedDeviceTypes => GetSupportedDeviceTypes();
+    }
 }
