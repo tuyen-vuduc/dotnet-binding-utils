@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Intellimec.Mobile.Android.Common",
+  "name": "common",
+  "dependencyOnly": false,
+  "dotnet8": false,
+  "versionMappings": []
+}

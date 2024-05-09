@@ -1,0 +1,7 @@
+{
+  "packageId": "Org.Projectlombok.Lombok",
+  "name": "lombok",
+  "dependencyOnly": false,
+  "dotnet8": false,
+  "versionMappings": []
+}

@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Intellimec.Mobile.Android.Portal",
+  "name": "portal",
+  "dependencyOnly": false,
+  "dotnet8": false,
+  "versionMappings": []
+}

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <attr path="//field[@name='children']"
+        name="managedName">_children</attr>
+  <attr path="//field[@name='isStructurallySignificant']"
+        name="managedName">_isStructurallySignificant</attr>
+  <attr path="//field[@name='kind']"
+        name="managedName">_kind</attr>
+  <attr path="//field[@name='node']"
+        name="managedName">_node</attr>
+  <attr path="//field[@name='parent']"
+        name="managedName">_parent</attr>
+  <attr path="//field[@name='CLASS']"
+        name="managedName">CLASS</attr>
+  <attr path="//field[@name='CLASS_AND_METHOD']"
+        name="managedName">CLASS_AND_METHOD</attr>
+  <attr path="//field[@name='METHOD']"
+        name="managedName">METHOD</attr>
+  <attr path="//field[@name='FIELD_INSN']"
+        name="managedName">FIELD_INSN</attr>
+  <attr path="//field[@name='FRAME']"
+        name="managedName">FRAME</attr>
+  <attr path="//field[@name='IINC_INSN']"
+        name="managedName">IINC_INSN</attr>
+  <attr path="//field[@name='INSN']"
+        name="managedName">INSN</attr>
+  <attr path="//field[@name='INT_INSN']"
+        name="managedName">INT_INSN</attr>
+  <attr path="//field[@name='invisibleTypeAnnotations']"
+        name="managedName">_invisibleTypeAnnotations</attr>
+  <attr path="//field[@name='INVOKE_DYNAMIC_INSN']"
+        name="managedName">INVOKE_DYNAMIC_INSN</attr>
+  <attr path="//field[@name='JUMP_INSN']"
+        name="managedName">JUMP_INSN</attr>
+  <attr path="//field[@name='LABEL']"
+        name="managedName">LABEL</attr>
+  <attr path="//field[@name='LDC_INSN']"
+        name="managedName">LDC_INSN</attr>
+  <attr path="//field[@name='LINE']"
+        name="managedName">LINE</attr>
+  <attr path="//field[@name='LOOKUPSWITCH_INSN']"
+        name="managedName">LOOKUPSWITCH_INSN</attr>
+  <attr path="//field[@name='METHOD_INSN']"
+        name="managedName">METHOD_INSN</attr>
+  <attr path="//field[@name='MULTIANEWARRAY_INSN']"
+        name="managedName">MULTIANEWARRAY_INSN</attr>
+  <attr path="//field[@name='opcode']"
+        name="managedName">_opcode</attr>
+  <attr path="//field[@name='TABLESWITCH_INSN']"
+        name="managedName">TABLESWITCH_INSN</attr>
+  <attr path="//field[@name='TYPE_INSN']"
+        name="managedName">TYPE_INSN</attr>
+  <attr path="//field[@name='VAR_INSN']"
+        name="managedName">VAR_INSN</attr>
+  <attr path="//field[@name='visibleTypeAnnotations']"
+        name="managedName">_visibleTypeAnnotations</attr>
+  <attr path="//field[@name='local']"
+        name="managedName">_local</attr>
+  <attr path="//field[@name='stack']"
+        name="managedName">_stack</attr>
+  <attr path="//field[@name='type']"
+        name="managedName">_type</attr>
+  <attr path="//field[@name='insns']"
+        name="managedName">_insns</attr>
+  <attr path="//field[@name='size']"
+        name="managedName">_size</attr>
+  <attr path="//class[@extends='org.objectweb.asm.tree.analysis.Interpreter']/method[@name='newValue' and count(parameter)=1 and parameter[1][@type='org.objectweb.asm.Type']]"
+        name="managedName">CreateNewValue</attr>
+  <attr path="//class[@extends='org.objectweb.asm.tree.analysis.Interpreter']/method[@name='newOperation' and count(parameter)=1 and parameter[1][@type='org.objectweb.asm.tree.AbstractInsnNode']]"
+        name="managedName">CreateNewOperation</attr>
+  <attr path="/api/package[@name='lombok']/class[@name='Lombok']"
+        name="managedName">Lombok_</attr>
+</metadata>

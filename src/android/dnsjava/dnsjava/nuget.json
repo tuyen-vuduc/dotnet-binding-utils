@@ -1,0 +1,7 @@
+{
+  "packageId": "Dnsjava.Dnsjava",
+  "name": "dnsjava",
+  "dependencyOnly": false,
+  "dotnet8": false,
+  "versionMappings": []
+}

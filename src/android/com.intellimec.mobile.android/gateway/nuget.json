@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Intellimec.Mobile.Android.Gateway",
+  "name": "gateway",
+  "dependencyOnly": false,
+  "dotnet8": false,
+  "versionMappings": []
+}

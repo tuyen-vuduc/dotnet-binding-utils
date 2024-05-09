@@ -1,0 +1,7 @@
+{
+  "name": "com.intellimec.mobile.android",
+  "homePageUrl": "https://ims.tech/",
+  "guideUrl": "https://sdk.ims.tech/readme/android/requirements",
+  "dotnet8": false,
+  "runtimeDependenciesAsCompile": true
+}

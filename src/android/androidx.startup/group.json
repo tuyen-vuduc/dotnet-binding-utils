@@ -1,3 +1,5 @@
 {
-  "name": "androidx.startup"
+  "name": "androidx.startup",
+  "dotnet8": false,
+  "runtimeDependenciesAsCompile": true
 }

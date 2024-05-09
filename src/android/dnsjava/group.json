@@ -1,0 +1,5 @@
+{
+  "name": "dnsjava",
+  "dotnet8": false,
+  "runtimeDependenciesAsCompile": true
+}
