@@ -1,5 +1,7 @@
 {
   "name": "Facebook SDK for Android",
   "homePageUrl": "https://github.com/facebook/facebook-android-sdk",
-  "guideUrl": "https://developers.facebook.com/docs/android"
+  "guideUrl": "https://developers.facebook.com/docs/android",
+  "dotnet8": false,
+  "runtimeDependenciesAsCompile": true
 }

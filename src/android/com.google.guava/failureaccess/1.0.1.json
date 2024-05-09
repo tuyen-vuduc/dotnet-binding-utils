@@ -1,3 +1,4 @@
 {
-  "revision": 14
+  "revision": 14,
+  "runtimeDependenciesAsCompile": true
 }

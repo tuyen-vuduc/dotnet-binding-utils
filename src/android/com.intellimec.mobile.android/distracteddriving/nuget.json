@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Intellimec.Mobile.Android.Distracteddriving",
+  "name": "distracteddriving",
+  "dependencyOnly": false,
+  "dotnet8": false,
+  "versionMappings": []
+}

@@ -1,4 +1,5 @@
 {
   "revision": 5,
-  "nugetVersion": "116.2.0.5"
+  "nugetVersion": "116.2.0.5",
+  "runtimeDependenciesAsCompile": true
 }

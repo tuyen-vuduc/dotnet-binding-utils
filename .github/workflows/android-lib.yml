@@ -44,6 +44,7 @@ on:
         - com.stripe:stripe-android:20.40.4
         - com.drivesync.android:devices-wedge:1.18.0
         - com.intellimec.mobile.android:tripdetectionumbrella:1.18.0
+        - com.intellimec.mobile.android:distracteddriving:3.13.0
 jobs:
   build-then-publish:
     environment: production

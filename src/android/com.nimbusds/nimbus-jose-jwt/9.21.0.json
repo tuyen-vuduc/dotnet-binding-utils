@@ -1,4 +1,5 @@
 {
   "revision": 0,
-  "withoutPatch": true
+  "withoutPatch": true,
+  "runtimeDependenciesAsCompile": true
 }
