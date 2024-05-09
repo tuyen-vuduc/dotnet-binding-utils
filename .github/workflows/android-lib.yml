@@ -68,6 +68,16 @@ jobs:
         TFSDRIVESMART_USER: ${{secrets.TFSDRIVESMART_USER}}
         TFSDRIVESMART_PASSWORD: ${{secrets.TFSDRIVESMART_PASSWORD}}
   
+    - name: Set IMSTech credentials
+      run: |
+        echo "ims_github_user=$ims_github_user" >> ~/.gradle/gradle.properties
+        echo "ims_github_pat=$ims_github_pat" >> ~/.gradle/gradle.properties
+        cat ~/.gradle/gradle.properties
+      shell: bash
+      env:
+        ims_github_user: ${{secrets.ims_github_user}}
+        ims_github_pat: ${{secrets.ims_github_pat}}
+    
     - uses: actions/checkout@v3
 
     - name: Setup Android SDK
