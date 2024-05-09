@@ -1,4 +1,5 @@
 {
   "revision": 0,
-  "nugetVersion": "71.1702.0-preview5"
+  "nugetVersion": "71.1702.0-preview5",
+  "runtimeDependenciesAsCompile": true
 }

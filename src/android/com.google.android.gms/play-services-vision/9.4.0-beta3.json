@@ -1,4 +1,5 @@
 {
   "revision": 0,
-  "nugetVersion": "32.940.0-beta3"
+  "nugetVersion": "32.940.0-beta3",
+  "runtimeDependenciesAsCompile": true
 }
