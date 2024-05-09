@@ -8,7 +8,7 @@ using System.Xml;
 using System.Xml.Linq;
 
 var ARTIFACT = Argument<string>("artifact");
-var DOTNET_VERSION = Argument<string>("dotnet");
+var DOTNET_VERSION = Argument<string>("dotnet", "7.0");
 var TASK = Argument<string>("task", Argument<string>("t", "Default"));
 
 

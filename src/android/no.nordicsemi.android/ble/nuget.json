@@ -1,0 +1,7 @@
+{
+  "packageId": "NordicSemi.Android.BLE",
+  "name": "ble",
+  "dependencyOnly": false,
+  "dotnet8": false,
+  "versionMappings": []
+}

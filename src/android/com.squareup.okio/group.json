@@ -1,3 +1,4 @@
 {
-  "name": "com.squareup.okio"
+  "name": "com.squareup.okio",
+  "dotnet8": false
 }

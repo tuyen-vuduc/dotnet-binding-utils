@@ -1,0 +1,6 @@
+{
+  "name": "com.drivesync.android",
+  "homePageUrl": "https://ims.tech/",
+  "guideUrl": "https://sdk.ims.tech/readme/android/requirements",
+  "dotnet8": false
+}

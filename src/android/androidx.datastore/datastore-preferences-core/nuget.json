@@ -1,0 +1,7 @@
+{
+  "packageId": "Xamarin.AndroidX.DataStore.Preferences.Core",
+  "name": "datastore-preferences-core",
+  "dependencyOnly": true,
+  "dotnet8": false,
+  "versionMappings": []
+}

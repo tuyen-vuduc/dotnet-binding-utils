@@ -1,3 +1,4 @@
 {
-  "name": "androidx.work"
+  "name": "androidx.work",
+  "dotnet8": false
 }

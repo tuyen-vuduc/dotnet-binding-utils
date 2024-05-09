@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+	<attr path="/api/package[@name='com.drivesync.android.devices.ble']/class[@name='CommonBleDeviceProvider']/method[@name='startDeviceDetection' and count(parameter)=4 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.util.List&lt;com.drivesync.android.devices.DsDevice&gt;'] and parameter[3][@type='long'] and parameter[4][@type='com.drivesync.android.devices.listeners.DsDeviceUpdateListener']]" name="managedName">StartDeviceDetectionX</attr>
+	<attr path="/api/package[@name='com.drivesync.android.devices.ble']/class[@name='CommonBleDeviceProvider']/method[@name='startDeviceDetection' and count(parameter)=4 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.util.List&lt;com.drivesync.android.devices.DsDevice&gt;'] and parameter[3][@type='long'] and parameter[4][@type='com.drivesync.android.devices.listeners.DsDeviceUpdateListener']]" name="visibility">protected</attr>
+	<attr path="/api/package[@name='com.drivesync.android.devices.ble']/class[@name='BaseBleDeviceProvider']" name="extends">
+	</attr>
+	<attr path="/api/package[@name='com.drivesync.android.devices.ble']/class[@name='BaseBleDeviceProvider']" name="extends-generic-aware">
+	</attr>
+	<attr path="/api/package[@name='com.drivesync.android.devices.ble']/class[@name='BaseBleDeviceProvider']" name="jni-extends">
+	</attr>
+</metadata>

@@ -1,3 +1,4 @@
 {
-  "name": "com.google.code.gson"
+  "name": "com.google.code.gson",
+  "dotnet8": false
 }

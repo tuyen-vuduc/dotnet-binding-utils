@@ -1,3 +1,4 @@
 {
-  "name": "androidx.room"
+  "name": "androidx.room",
+  "dotnet8": false
 }

@@ -1,4 +1,5 @@
 @using System;
+@using System.IO;
 
 @{
     var homePageUrl = string.IsNullOrWhiteSpace(Model.Artifact.Nuget.HomePageUrl)
@@ -8,6 +9,16 @@
     var guideUrl = string.IsNullOrWhiteSpace(Model.Artifact.Nuget.GuideUrl)
         ? Model.Artifact.Group.GuideUrl
         : Model.Artifact.Nuget.GuideUrl;
+
+    var useMyGet = Model.Artifact.Version.UseMyGet ?? false;
+
+    var customGradleRepositoryFilePath = Path.Combine(        
+        Model.Config.BasePath,
+        Model.Artifact.RelativeGroupFolderPath,
+         "group.GradleRepository.xml");
+    var gradleRepository = File.Exists(customGradleRepositoryFilePath)
+        ? File.ReadAllText(customGradleRepositoryFilePath)
+        : null;
 }
 @Raw("# " + Model.Artifact.Group.Name + " - " + Model.Artifact.Nuget.Name)
 
@@ -25,4 +36,31 @@ The binding source code can be found [here](https://github.com/tuyen-vuduc/dotne
     @Raw("\n## Guide page\n\n")
 
     @(guideUrl)
+}
+
+@if (!string.IsNullOrWhiteSpace(gradleRepository)) {
+    @Raw("\n## Maven repository setup\n\n")
+
+    @Raw("Open your CSPROJ file and add these lines:\n\n")
+    
+    @Raw("```\n")
+    @Raw(gradleRepository)    
+    @Raw("\n```")
+}
+
+@if (useMyGet) {
+    @Raw("\n## Nuget.config setup\n\n")
+
+    @Raw("There are dependencies provided by Microsoft, but not yet updated and we need temporary packages in the meanwhile. \nTo use these temporary packages, we need a `nuget.cofig` file with the following content and/or similar content:\n\n")
+    
+    @Raw("```\n")
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <packageSources>
+    <add key="Tuyen - MyGet" value="https://www.myget.org/F/tuyen-vuduc/api/v3/index.json" />
+  </packageSources>
+  <packageSourceCredentials>
+  </packageSourceCredentials>
+</configuration>  
+    @Raw("\n```")
 }

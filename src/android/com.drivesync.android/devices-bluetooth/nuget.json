@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Drivesync.Android.DevicesBluetooth",
+  "name": "devices-bluetooth",
+  "dependencyOnly": false,
+  "dotnet8": false,
+  "versionMappings": []
+}

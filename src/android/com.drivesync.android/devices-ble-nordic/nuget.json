@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Drivesync.Android.DevicesBleNordic",
+  "name": "devices-ble-nordic",
+  "dependencyOnly": false,
+  "dotnet8": false,
+  "versionMappings": []
+}

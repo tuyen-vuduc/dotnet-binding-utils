@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <remove-node path="/api/package[@name='com.drivesync.android.devices.bluetooth']/class[@name='BaseBluetoothDeviceProvider']/implements[@name='com.drivesync.android.devices.providers.DsDeviceProvider']" />
+  <attr path="//class[@extends='com.drivesync.android.devices.bluetooth.BaseBluetoothDeviceProvider']/method[@name='getSupportedDeviceTypes' and count(parameter)=0]"
+        name="propertyName"></attr>
+  <attr path="//class[@extends='com.drivesync.android.devices.bluetooth.BaseBluetoothDeviceProvider']/method[@name='startDeviceDetection' and count(parameter)=4 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.util.List&lt;com.drivesync.android.devices.DsDevice&gt;'] and parameter[3][@type='long'] and parameter[4][@type='com.drivesync.android.devices.listeners.DsDeviceUpdateListener']]"
+        name="managedName">DoStartDeviceDetection</attr>
+  <attr path="//class[@extends='com.drivesync.android.devices.bluetooth.BaseBluetoothDeviceProvider']/method[@name='stopDeviceDetection' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='com.drivesync.android.devices.listeners.DsDeviceUpdateListener']]"
+        name="managedName">DoStopDeviceDetection</attr>
+</metadata>

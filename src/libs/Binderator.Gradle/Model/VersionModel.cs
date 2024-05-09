@@ -11,4 +11,5 @@ public record VersionModel
     public NuGetVersion NugetVersion { get; set; }
     public bool? WithoutPatch { get; set; }
     public bool? RuntimeDependenciesAsCompile { get; set; }
+    public bool? UseMyGet { get; set; }
 }
