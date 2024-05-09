@@ -1,5 +1,5 @@
 {
-  "packageId": "No.Nordicsemi.Android.Ble",
+  "packageId": "TV.Nordicsemi.Android.Ble",
   "name": "ble",
   "dependencyOnly": false,
   "dotnet8": false,

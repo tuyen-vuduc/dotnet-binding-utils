@@ -1,5 +1,5 @@
 {
-  "packageId": "No.Nordicsemi.Android.Dfu",
+  "packageId": "TV.Nordicsemi.Android.Dfu",
   "name": "dfu",
   "dependencyOnly": false,
   "dotnet8": false,

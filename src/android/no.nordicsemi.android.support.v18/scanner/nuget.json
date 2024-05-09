@@ -1,5 +1,5 @@
 {
-  "packageId": "No.Nordicsemi.Android.Support.V18.Scanner",
+  "packageId": "TV.Nordicsemi.Android.Support.V18.Scanner",
   "name": "scanner",
   "dependencyOnly": false,
   "dotnet8": false,
