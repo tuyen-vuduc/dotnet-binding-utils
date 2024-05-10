@@ -1,5 +1,5 @@
 {
-  "name": "com.squareup.okio",
+  "name": "com.airbnb.android",
   "dotnet8": false,
   "runtimeDependenciesAsCompile": true
 }
