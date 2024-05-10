@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <attr path="//field[@name='baselineShift']"
+        name="managedName">_baselineShift</attr>
+  <attr path="//field[@name='boxPosition']"
+        name="managedName">_boxPosition</attr>
+  <attr path="//field[@name='boxSize']"
+        name="managedName">_boxSize</attr>
+  <attr path="//field[@name='color']"
+        name="managedName">_color</attr>
+  <attr path="//field[@name='fontName']"
+        name="managedName">_fontName</attr>
+  <attr path="//field[@name='justification']"
+        name="managedName">_justification</attr>
+  <attr path="//field[@name='lineHeight']"
+        name="managedName">_lineHeight</attr>
+  <attr path="//field[@name='size']"
+        name="managedName">_size</attr>
+  <attr path="//field[@name='strokeColor']"
+        name="managedName">_strokeColor</attr>
+  <attr path="//field[@name='strokeOverFill']"
+        name="managedName">_strokeOverFill</attr>
+  <attr path="//field[@name='strokeWidth']"
+        name="managedName">_strokeWidth</attr>
+  <attr path="//field[@name='text']"
+        name="managedName">_text</attr>
+  <attr path="//field[@name='tracking']"
+        name="managedName">_tracking</attr>
+  <attr path="//field[@name='durationFrames']"
+        name="managedName">_durationFrames</attr>
+  <attr path="//field[@name='startFrame']"
+        name="managedName">_startFrame</attr>
+  <attr path="//field[@name='progress']"
+        name="managedName">_progress</attr>
+  <attr path="//field[@name='valueCallback']"
+        name="managedName">_valueCallback</attr>
+  <attr path="/api/package[@name='com.airbnb.lottie.parser']/interface[@name='ValueParser']"
+        name="visibility">public</attr>
+</metadata>
