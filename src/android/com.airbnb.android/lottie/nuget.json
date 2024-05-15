@@ -1,7 +1,7 @@
 {
   "packageId": "Airbnb.Android.Lottie",
   "name": "lottie",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": false,
   "versionMappings": []
 }
