@@ -1,4 +1,5 @@
 {
   "name": "androidx.room",
-  "dotnet8": false
+  "dotnet8": false,
+  "runtimeDependenciesAsCompile": true
 }
