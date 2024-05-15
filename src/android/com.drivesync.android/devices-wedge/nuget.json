@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Drivesync.Android.DevicesWedge",
   "name": "devices-wedge",
-  "dependencyOnly": true,
-  "dotnet8": false,
+  "dependencyOnly": false,
+  "dotnet8": true,
   "versionMappings": []
 }
