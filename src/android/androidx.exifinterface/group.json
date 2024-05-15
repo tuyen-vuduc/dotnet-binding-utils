@@ -1,3 +1,5 @@
 {
-  "name": "AndroidX ExifInterface"
+  "name": "AndroidX ExifInterface",
+  "dotnet8": false,
+  "runtimeDependenciesAsCompile": true
 }

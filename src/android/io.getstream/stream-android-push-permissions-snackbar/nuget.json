@@ -1,0 +1,7 @@
+{
+  "packageId": "Io.Getstream.StreamAndroidPushPermissionsSnackbar",
+  "name": "stream-android-push-permissions-snackbar",
+  "dependencyOnly": false,
+  "dotnet8": false,
+  "versionMappings": []
+}

@@ -1,0 +1,7 @@
+{
+  "packageId": "Io.Getstream.StreamAndroidPushPermissions",
+  "name": "stream-android-push-permissions",
+  "dependencyOnly": false,
+  "dotnet8": false,
+  "versionMappings": []
+}

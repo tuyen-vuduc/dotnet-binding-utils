@@ -1,0 +1,5 @@
+{
+  "name": "com.ethlo.time",
+  "dotnet8": false,
+  "runtimeDependenciesAsCompile": true
+}

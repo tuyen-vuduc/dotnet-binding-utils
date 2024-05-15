@@ -1,3 +1,5 @@
 {
-  "name": "androidx.legacy"
+  "name": "androidx.legacy",
+  "dotnet8": false,
+  "runtimeDependenciesAsCompile": true
 }
