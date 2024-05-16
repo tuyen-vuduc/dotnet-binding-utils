@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Intellimec.Mobile.Android.Tripdetection",
   "name": "tripdetection",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": false,
   "versionMappings": []
 }
