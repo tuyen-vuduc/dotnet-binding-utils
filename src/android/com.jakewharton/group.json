@@ -1,3 +1,5 @@
 {
-  "name": "com.jakewharton"
+  "name": "com.jakewharton",
+  "dotnet8": false,
+  "runtimeDependenciesAsCompile": true
 }

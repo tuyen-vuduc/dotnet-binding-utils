@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+	<attr path="//method[starts-with(@name, 'zz')]"
+		  name="obfuscated">true</attr>
+	<attr path="//class[starts-with(@name, 'zz')]"
+		  name="obfuscated">true</attr>
+	<attr path="//field[starts-with(@name, 'zz')]"
+		  name="obfuscated">true</attr>
+	<remove-node path="/api/package[@name='com.google.android.gms.wallet.wobs']/class[@name='CommonWalletObject']/method[@name='zzb']" />
+	<attr path="//method[parent::class[@extends='com.google.android.gms.wallet.contract.TaskResultContracts.ResolveApiTaskResult'] and @name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]"
+		  name="managedName">ParseResultX</attr>
+	<attr path="//method[parent::class[@extends='com.google.android.gms.wallet.contract.TaskResultContracts.UnpackApiTaskResult'] and @name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]"
+		  name="managedName">ParseResultX</attr>
+	<attr path="//method[parent::class[@extends='com.google.android.gms.wallet.contract.TaskResultContracts.GetApiTaskResult'] and @name='taskResultFromIntent' and count(parameter)=1 and parameter[1][@type='android.content.Intent']]"
+		  name="managedName">TaskResultFromIntentX</attr>
+	<attr path="//method[parent::class[@extends='com.google.android.gms.wallet.contract.TaskResultContracts.ResolveApiTaskResult'] and @name='outputFromTask' and count(parameter)=1 and parameter[1][@type='com.google.android.gms.tasks.Task&lt;T&gt;'] and @return != 'T']"
+		  name="managedName">OutputFromTaskX</attr>
+	<attr path="/api/package[@name='com.google.android.gms.wallet.wobs']/class[@name='LoyaltyPointsBalance']/method[@name='getType' and count(parameter)=0]"
+		  name="propertyName"></attr>
+</metadata>
