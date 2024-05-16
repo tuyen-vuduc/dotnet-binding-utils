@@ -48,14 +48,14 @@ namespace Com.Stripe.Android.Uicore.Elements
     }
     partial class SimpleTextFieldController
     {
-        global::Xamarin.KotlinX.Coroutines.Flow.IFlow global::Com.Stripe.Android.Uicore.Elements.IInputController.Label => Label;
-        global::Xamarin.KotlinX.Coroutines.Flow.IFlow global::Com.Stripe.Android.Uicore.Elements.ITextFieldController.Label => Label;
-        global::Xamarin.KotlinX.Coroutines.Flow.IFlow global::Com.Stripe.Android.Uicore.Elements.ITextFieldController.PlaceHolder => PlaceHolder;
+        global::Xamarin.KotlinX.Coroutines.Flow.IStateFlow global::Com.Stripe.Android.Uicore.Elements.IInputController.Label => Label;
+        global::Xamarin.KotlinX.Coroutines.Flow.IStateFlow global::Com.Stripe.Android.Uicore.Elements.ITextFieldController.Label => Label;
+        global::Xamarin.KotlinX.Coroutines.Flow.IStateFlow global::Com.Stripe.Android.Uicore.Elements.ITextFieldController.PlaceHolder => PlaceHolder;
     }
     partial class AddressTextFieldController
     {
-        global::Xamarin.KotlinX.Coroutines.Flow.IFlow global::Com.Stripe.Android.Uicore.Elements.IInputController.Label => Label;
-        global::Xamarin.KotlinX.Coroutines.Flow.IFlow global::Com.Stripe.Android.Uicore.Elements.ITextFieldController.Label => Label;
+        global::Xamarin.KotlinX.Coroutines.Flow.IStateFlow global::Com.Stripe.Android.Uicore.Elements.IInputController.Label => Label;
+        global::Xamarin.KotlinX.Coroutines.Flow.IStateFlow global::Com.Stripe.Android.Uicore.Elements.ITextFieldController.Label => Label;
     }
     partial class CheckboxFieldElement
     {
@@ -132,17 +132,5 @@ namespace Com.Stripe.Android.Uicore.Elements
                     => NewArray(size).Cast<global::Java.Lang.Object>().ToArray();
             }
         }
-    }
-}
-
-namespace Com.Stripe.Android.Uicore.Address
-{
-    partial class AddressRepository_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class AddressSchemaRepository_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
     }
 }

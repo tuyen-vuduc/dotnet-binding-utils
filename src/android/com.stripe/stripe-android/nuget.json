@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Stripe.StripeAndroid",
   "name": "stripe-android",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "dotnet8": true,
   "versionMappings": []
 }

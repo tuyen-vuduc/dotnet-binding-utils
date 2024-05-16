@@ -1644,7 +1644,7 @@ namespace Com.Stripe.Android.Model
     }
     partial class MandateDataParams
     {
-        partial class Type: global::Com.Stripe.Android.Model.IStripeParamsModel
+        partial class Type : global::Com.Stripe.Android.Model.IStripeParamsModel
         {
             static Delegate? cb_toParamMap;
 #pragma warning disable 0169
@@ -3304,27 +3304,6 @@ namespace Com.Stripe.Android.Model.Wallets
         }
     }
 }
-namespace Com.Stripe.Android.Payments.Bankaccount
-{
-    partial class CollectBankAccountConfiguration
-    {
-        partial class USBankAccount
-        {
-            partial class Creator
-            {
-                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel source)
-                {
-                    return this.CreateFromParcel(source);
-                }
-
-                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
-                {
-                    return this.NewArray(size);
-                }
-            }
-        }
-    }
-}
 namespace Com.Stripe.Android.Payments.Bankaccount.Navigation
 {
     partial class CollectBankAccountContract
@@ -4036,19 +4015,11 @@ namespace Com.Stripe.Android.Payments.Core.Analytics
 }
 namespace Com.Stripe.Android.Payments.Core.Authentication
 {
-    partial class BoletoAuthenticator_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class KonbiniAuthenticator_Factory
+    partial class VoucherAuthenticator_Factory
     {
         global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
     }
     partial class NoOpIntentAuthenticator_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class OxxoAuthenticator_Factory
     {
         global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
     }
@@ -4192,6 +4163,122 @@ namespace Com.Stripe.Android.View
             finally
             {
                 global::System.GC.KeepAlive(listener);
+            }
+        }
+    }
+}
+namespace Com.Stripe.Android.Payments.Bankaccount.Navigation
+{
+    partial class CollectBankAccountResponseInternal
+    {
+        partial class InstantDebitsData
+        {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+            }
+        }
+    }
+    partial class CollectBankAccountResponseInternal
+    {
+        partial class USBankAccountData
+        {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+            }
+        }
+    }
+    partial interface ICollectBankAccountForInstantDebitsResult
+    {
+        partial class Cancelled
+        {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+            }
+        }
+        partial class Completed
+        {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+            }
+        }
+        partial class Failed
+        {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+            }
+        }
+    }
+}
+namespace Com.Stripe.Android.Model
+{
+    partial class ElementsSession
+    {
+        partial class Customer
+        {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+            }
+        }
+    }
+    partial class ElementsSession
+    {
+        partial class Customer
+        {
+            partial class Session
+            {
+                partial class Creator
+                {
+                    global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                    global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+                }
+            }
+        }
+    }
+    partial interface IStripeIntent
+    {
+        partial class NextActionData
+        {
+            partial class DisplayMultibancoDetails
+            {
+                partial class Creator
+                {
+                    global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                    global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+                }
+            }
+        }
+    }
+}
+namespace Com.Stripe.Android.Payments.Bankaccount
+{
+    partial interface ICollectBankAccountConfiguration
+    {
+        partial class InstantDebits
+        {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+            }
+        }
+        partial class USBankAccount
+        {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
             }
         }
     }
