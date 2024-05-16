@@ -47,44 +47,45 @@ public static class ArtifactScanner
         }
         artifact.Files = artifactFiles;
 
-        var artifactModuleFileName = $"{artifact.Nuget.ArtifactId}-{artifact.Version.SemanticVersion}.module";
-        var moduleFilePath = artifactFiles.FirstOrDefault(x => x.EndsWith(artifactModuleFileName));
-        if (!string.IsNullOrWhiteSpace(moduleFilePath))
-        {
-            moduleFilePath = Path.Combine(homeFolderPath, moduleFilePath);
-            var jsonNode = JsonNode.Parse(File.OpenRead(moduleFilePath));
-            var variantsNode = jsonNode["variants"] as JsonArray;
-            var jvmApiElementsPublishedNode = variantsNode.FirstOrDefault(x => x["name"].GetValue<string>() == "jvmApiElements-published");
+        //var artifactModuleFileName = $"{artifact.Nuget.ArtifactId}-{artifact.Version.SemanticVersion}.module";
+        //var moduleFilePath = artifactFiles.FirstOrDefault(x => x.EndsWith(artifactModuleFileName));
+        //if (!string.IsNullOrWhiteSpace(moduleFilePath))
+        //{
+        //    moduleFilePath = Path.Combine(homeFolderPath, moduleFilePath);
+        //    var jsonNode = JsonNode.Parse(File.OpenRead(moduleFilePath));
+        //    var variantsNode = jsonNode["variants"] as JsonArray;
+        //    var jvmApiElementsPublishedNode = variantsNode.FirstOrDefault(x => x["name"].GetValue<string>() == "jvmApiElements-published");
 
-            if (jvmApiElementsPublishedNode != null)
-            {
-                var availableAtNode = jvmApiElementsPublishedNode["available-at"];
-                if (availableAtNode != null)
-                {
-                    var shadowGroup = availableAtNode["group"].GetValue<string>();
-                    var shadowArtifactId = availableAtNode["module"].GetValue<string>();
-                    var shadowVersion = availableAtNode["version"].GetValue<string>();
-                    var parentArtifacts = Scan(
-                        existingArtifacts,
-                        basePath,
-                        $"{shadowGroup}:{shadowArtifactId}:{shadowVersion}",
-                        log);
+        //    if (jvmApiElementsPublishedNode != null)
+        //    {
+        //        var availableAtNode = jvmApiElementsPublishedNode["available-at"];
+        //        if (availableAtNode != null)
+        //        {
+        //            var shadowGroup = availableAtNode["group"].GetValue<string>();
+        //            var shadowArtifactId = availableAtNode["module"].GetValue<string>();
+        //            var shadowVersion = availableAtNode["version"].GetValue<string>();
+        //            var parentArtifacts = Scan(
+        //                existingArtifacts,
+        //                basePath,
+        //                $"{shadowGroup}:{shadowArtifactId}:{shadowVersion}",
+        //                log);
 
-                    var shadowArtifact = parentArtifacts.FirstOrDefault(x => x.Nuget.ArtifactId == shadowArtifactId && x.Group.Id == shadowGroup);
-                    parentArtifacts.Remove(shadowArtifact);
+        //            var shadowArtifact = parentArtifacts.FirstOrDefault(x => x.Nuget.ArtifactId == shadowArtifactId && x.Group.Id == shadowGroup);
+        //            parentArtifacts.Remove(shadowArtifact);
 
-                    artifact.ShadowArtifact = shadowArtifact;
-                    artifacts.Add(artifact);
+        //            artifact.ShadowArtifact = shadowArtifact;
+        //            artifacts.Add(artifact);
 
-                    artifacts.AddRange(parentArtifacts);
-                    existingArtifacts.AddRange(parentArtifacts);
-                    artifacts = artifacts.Distinct().ToList();
+        //            artifacts.AddRange(parentArtifacts);
+        //            existingArtifacts.AddRange(parentArtifacts);
+        //            artifacts = artifacts.Distinct().ToList();
 
-                    return artifacts;
-                }
-            }
-        }
+        //            return artifacts;
+        //        }
+        //    }
+        //}
 
+        // TODO Handle managed dependencies (BOM)
         var pomFilePath = artifactFiles.FirstOrDefault(x => x.EndsWith(".pom"));
 
         if (pomFilePath == null)
