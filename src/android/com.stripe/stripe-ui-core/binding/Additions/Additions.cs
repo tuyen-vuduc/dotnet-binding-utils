@@ -67,7 +67,7 @@ namespace Com.Stripe.Android.Uicore.Elements
         {
             partial class Creator
             {
-                unsafe global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel parcel)
+                unsafe global::Java.Lang.Object? global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? parcel)
                     => CreateFromParcel(parcel);
 
                 unsafe global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
@@ -78,7 +78,7 @@ namespace Com.Stripe.Android.Uicore.Elements
         {
             partial class Creator
             {
-                unsafe global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel parcel)
+                unsafe global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? parcel)
                     => CreateFromParcel(parcel);
 
                 unsafe global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
@@ -90,7 +90,7 @@ namespace Com.Stripe.Android.Uicore.Elements
     {
         partial class Creator
         {
-            unsafe global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel parcel)
+            unsafe global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? parcel)
                 => CreateFromParcel(parcel);
 
             unsafe global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
@@ -103,7 +103,7 @@ namespace Com.Stripe.Android.Uicore.Elements
         {
             partial class Creator
             {
-                unsafe global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel parcel)
+                unsafe global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? parcel)
                     => CreateFromParcel(parcel);
 
                 unsafe global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
@@ -114,7 +114,7 @@ namespace Com.Stripe.Android.Uicore.Elements
         {
             partial class Creator
             {
-                unsafe global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel parcel)
+                unsafe global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? parcel)
                     => CreateFromParcel(parcel);
 
                 unsafe global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
@@ -125,7 +125,7 @@ namespace Com.Stripe.Android.Uicore.Elements
         {
             partial class Creator
             {
-                unsafe global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel parcel)
+                unsafe global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? parcel)
                     => CreateFromParcel(parcel);
 
                 unsafe global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
