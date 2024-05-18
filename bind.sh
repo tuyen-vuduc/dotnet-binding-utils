@@ -1,5 +1,6 @@
 
 rm -rf ./src/libs/BindingHost/*.props
+# dotnet nuget locals -c all
 dotnet tool restore
 dotnet clean ./src/libs/BindingHost/BindingHost.csproj
 

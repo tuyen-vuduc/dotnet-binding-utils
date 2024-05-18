@@ -40,7 +40,12 @@ public class ArtifactModel : IEquatable<ArtifactModel>
         ? ShadowArtifact.LibRelativePath
         : IsAAR
         ? Files?.FirstOrDefault(x => !x.Contains("_aar") && x.EndsWith(".aar"))?.Replace("\\", "/")
-        : Files?.FirstOrDefault(x => !x.Contains("_aar") && x.EndsWith(".jar"))?.Replace("\\", "/");
+        : Files?.FirstOrDefault(
+            x => !x.Contains("_aar") 
+            && !x.Contains("-sources") 
+            && !x.Contains("-javadoc") 
+            && x.EndsWith(".jar"))
+        ?.Replace("\\", "/");
     public string SourcesJarRelativeFilePath => ShadowArtifact != null
         ? ShadowArtifact.SourcesJarRelativeFilePath
         : Files?.FirstOrDefault(x => x.EndsWith("-sources.jar"));

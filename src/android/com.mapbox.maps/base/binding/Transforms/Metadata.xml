@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-	 <remove-node
+	<remove-node
 		path="/api/package[@name='com.mapbox.maps.extension.style']/interface[@name='StyleInterface']/implements[@name='com.mapbox.maps.StyleManagerInterface']" /> 
+	<!-- <remove-node path="/api/package[@name='com.mapbox.maps.plugin.annotation']/interface[@name='OnAnnotationClickListener']/method[@name='onAnnotationClick' and count(parameter)=1 and parameter[1][@type='T']]" /> -->
 </metadata>

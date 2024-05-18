@@ -1,5 +1,7 @@
 {
   "name": "Mapbox",
   "homePageUrl": "https://docs.mapbox.com/android/maps/guides/",
-  "guideUrl": "https://mapbox.tuyen-vuduc.tech/"
+  "guideUrl": "https://mapbox.tuyen-vuduc.tech/",
+  "dotnet8": true,
+  "runtimeDependenciesAsCompile": true
 }
