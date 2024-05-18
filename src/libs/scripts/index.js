@@ -3,11 +3,11 @@ const fs = require("node:fs");
 // process_Com_Google_Android_Material_Circularreveal_ICircularRevealWidget();
 // process_Android_Util_ITypeEvaluator();
 // process_Android_Util_Property();
-// process_downgrade();
+process_downgrade();
 // process_AndroidX_ViewBinding_IViewBinding();
 // process_Com_Stripe_Android_Uicore_Elements_IFormElement();
 // process_JavaX_Inject_IProvider();
-process_Android_OS_IParcelableCreator();
+// process_Android_OS_IParcelableCreator();
 // process_Com_Stripe_Android_Model_IStripeIntent();
 
 function process_Com_Google_Android_Material_Circularreveal_ICircularRevealWidget() {
@@ -59,9 +59,13 @@ function process_downgrade() {
     .toString()
     .trim()
     .split("\n")
-    .filter(x => x.indexOf('NU1605') > 0)
-    .map(x => /.+ downgrade: ([A-Za-z0-9._]+) from ([0-9.]+) to .+/.exec(x))
-    .map(x => x.slice(1, 3))
+    .filter(x => x.indexOf('downgrade:') > 0)
+    .map(x => /.+ downgrade: ([A-Za-z0-9._]+) from ([0-9.]+) to .+/.exec(x));
+  
+  items = items
+    .map(x => {
+      return x.slice(1, 3);
+    })
     .map(x => x.join(' '))
     .filter(onlyUnique)
     .map((x) => x.split(" "))

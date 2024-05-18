@@ -1,3 +1,5 @@
 {
-  "name": "android.arch.work"
+  "name": "android.arch.work",
+  "dotnet8": false,
+  "runtimeDependenciesAsCompile": true
 }
