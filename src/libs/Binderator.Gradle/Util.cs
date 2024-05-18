@@ -1,3 +1,5 @@
+#nullable restore
+
 using System.Text;
 using System.Security.Cryptography;
 using System.Text.Json.Serialization;

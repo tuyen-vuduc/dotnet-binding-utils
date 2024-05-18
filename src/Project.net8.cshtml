@@ -6,7 +6,7 @@
   var licensePath = "LICENSE";
   var assemblyVersion = Model.Artifact.AssemblyVersion;
 }
-<Project Sdk="Xamarin.Legacy.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <Target Name="_CleanAarOutputPath" AfterTargets="_CreateAar" BeforeTargets="_IncludeAarInNuGetPackage">
     <Delete Files="$(_AarOutputPath)" />
   </Target>
@@ -129,32 +129,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Additions\" />
-    <Folder Include="Jars\" />
-    <Folder Include="Transforms\" />
-  </ItemGroup>
-  <ItemGroup>
-    @* <Compile Include="..\..\..\..\src\AssemblyInfo.cs" /> *@
-  </ItemGroup>
-
-  <ItemGroup>
-    <TransformFile Include="Transforms\*.xml" />
-  </ItemGroup>
-  <ItemGroup>
   @if (!string.IsNullOrEmpty(Model.Artifact.SourcesJarRelativeFilePath)) {
     <JavaSourceJar
-          Include="$(UserHome)/@(Model.Artifact.SourcesJarRelativeFilePath)"
-          Condition="Exists('$(UserHome)/@(Model.Artifact.SourcesJarRelativeFilePath)')"
-          />
+      Include="$(UserHome)/@(Model.Artifact.SourcesJarRelativeFilePath)"
+      Condition="Exists('$(UserHome)/@(Model.Artifact.SourcesJarRelativeFilePath)')"
+      />
   }
-  @* https://github.com/xamarin/java.interop/issues/1028#issuecomment-1222895957
-  @if (!string.IsNullOrEmpty(Model.Artifact.JavadocJarRelativeFilePath)) {
-    <JavaDocJar
-          Include="$(UserHome)/@(Model.Artifact.JavadocJarRelativeFilePath)"
-          Condition="Exists('$(UserHome)/@(Model.Artifact.JavadocJarRelativeFilePath)')"
-          />
-  } *@
-  </ItemGroup>
 @{
   var homeFolder = Xamarin.Build.Download.Platform.IsWindows
                   ? System.Environment.SpecialFolder.LocalApplicationData
@@ -165,33 +145,11 @@
     Model.Artifact.ProguardFileRelativePath
   );
 }
-  <ItemGroup>
 @if (!string.IsNullOrEmpty(Model.Artifact.ProguardFileRelativePath)
   && System.IO.File.Exists(proguardFilePath)) {
     <None Include="@(proguardFilePath)" Pack="True" PackagePath="proguard" />
-  }  
-  </ItemGroup>
-
-@* <ItemGroup>
-  @if (Model.Config.MvnRepositories?.Count > 0) {
-    foreach (var kvp in Model.Config.MvnRepositories) {
-    <GradleRepository Include="@kvp.Key">
-      <Repository>
-      @Raw(@kvp.Value)
-      </Repository>
-    </GradleRepository>
-    }
-  }
-  @if (Model.NuGetDependencies?.Count > 0) {
-    foreach (var dep in Model.NuGetDependencies) {
-    <GradleImplementation 
-      Include="@(dep.GradleImplementation)" />
-    }
-  }
-</ItemGroup> *@
-
-  <ItemGroup>
-      @if (Model.Artifact.IsAAR) {
+}
+@if (Model.Artifact.IsAAR) {
     <InputJar Include="$(UserHome)/@(Model.Artifact.LibFolderPath)/_aar/classes.jar" />
     <!-- For those artifacts with lib/ folder -->
     <InputJar
@@ -201,22 +159,18 @@
       } else if (!string.IsNullOrEmpty(Model.Artifact.LibRelativePath)) {
     <InputJar Include="$(UserHome)/@(Model.Artifact.LibRelativePath)" />
       }
-  </ItemGroup>
-  <ItemGroup>
     @foreach (var dep in @Model.NuGetDependencies) {
       if (!dep.Nuget.DependencyOnly) {
-        <ProjectReference Include="..\..\..\@(dep.Group.Id)\@(dep.Nuget.ArtifactId)\binding\@(dep.Nuget.PackageId).csproj" PrivateAssets="none" />
+    <ProjectReference Include="..\..\..\@(dep.Group.Id)\@(dep.Nuget.ArtifactId)\binding\@(dep.Nuget.PackageId).csproj" PrivateAssets="none" />
       }
     }
-  </ItemGroup>
-  <ItemGroup>
     @foreach (var dep in @Model.NuGetDependencies) {
       if (dep.Nuget.DependencyOnly) {
-      <PackageReference Include="@(dep.Nuget.PackageId)" Version="@(dep.Version.NugetVersion.ToNormalizedString())" PrivateAssets="none" />
+    <PackageReference Include="@(dep.Nuget.PackageId)" Version="@(dep.Version.NugetVersion.ToNormalizedString())" PrivateAssets="none" />
       }
     }
     @foreach (var dep in @Model.Artifact.FixedVersions) {
-      <PackageReference Include="@(dep.Key)" Version="@(dep.Value)" PrivateAssets="none" />
+    <PackageReference Include="@(dep.Key)" Version="@(dep.Value)" PrivateAssets="none" />
     }
   </ItemGroup>
   <ItemGroup>
@@ -225,5 +179,4 @@
       <Link>Transforms/Metadata.common.xml</Link>
     </TransformFile>
   </ItemGroup>
-  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 </Project>
