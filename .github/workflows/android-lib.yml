@@ -10,7 +10,7 @@ on:
         options:
           - '7.0.404'
           - '8.0.204'
-        default: '7.0.404'
+        default: '8.0.204'
       LIB_ARTIFACT:
         description: 'Android library to publish'
         required: true
