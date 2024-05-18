@@ -1,0 +1,27 @@
+<Project>
+  <ItemGroup>
+    <AndroidNamespaceReplacement Include='Com.Mapbox.Maps.Plugin' Replacement='Com.Mapbox.Maps.Plugins' Visible="false" />
+    <AndroidNamespaceReplacement Include='Com.Mapbox.Maps.Plugins.Attribution' Replacement='Com.Mapbox.Maps.Plugins.Attributions' Visible="false" />
+    <AndroidNamespaceReplacement Include='Com.Mapbox.Maps.Annotation' Replacement='Com.Mapbox.Maps.Annotations' Visible="false" />
+    <AndroidNamespaceReplacement Include='Com.Mapbox.Maps.Plugins.Annotation' Replacement='Com.Mapbox.Maps.Plugins.Annotations' Visible="false" />
+  </ItemGroup>    
+  <ItemGroup>
+    <GradleRepository Include="https://api.mapbox.com/downloads/v2/releases/maven">
+      <Repository>
+      maven {
+        url 'https://api.mapbox.com/downloads/v2/releases/maven'
+        authentication {
+          basic(BasicAuthentication)
+        }
+        credentials {
+          // Do not change the username below.
+          // This should always be `mapbox` (not your username).
+          username = "mapbox"
+          // Use the secret token you stored in gradle.properties as the password
+          password = providers.gradleProperty("MAPBOX_DOWNLOADS_TOKEN").get()
+        }
+      }
+      </Repository>
+    </GradleRepository>
+  </ItemGroup>
+</Project>

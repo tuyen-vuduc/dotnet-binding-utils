@@ -1,4 +1,5 @@
 {
   "name": "org.jetbrains.kotlinx",
-  "dotnet8": false
+  "dotnet8": false,
+  "runtimeDependenciesAsCompile": true
 }
