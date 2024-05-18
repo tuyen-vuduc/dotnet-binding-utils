@@ -20,6 +20,7 @@ on:
         - io.coil-kt:coil:2.0.0
         - org.slf4j:slf4j-api:1.7.24
         - org.jetbrains.kotlin:kotlin-parcelize-runtime:1.6.10
+        - com.mapbox.mapboxsdk:mapbox-sdk-geojson:6.9.0
         - com.mapbox.maps:android:11.3.1
         - io.socket:socket.io-client:2.0.1
         - org.mp4parser:muxer:1.9.56
