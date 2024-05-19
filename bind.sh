@@ -8,7 +8,7 @@ dotnet cake "$@"
 
 # Install Android workload
 echo "Install Android workload"
-dotnet workload install android
+dotnet workload install android wasi-experimental
 
 dotnet restore ./src/libs/BindingHost/BindingHost.csproj
 dotnet run --project ./src/libs/BindingHost/BindingHost.csproj -- --base-path=$PWD "$@"
