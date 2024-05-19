@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Stripe.PaymentsCore",
   "name": "payments-core",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "dotnet8": false,
   "versionMappings": []
 }

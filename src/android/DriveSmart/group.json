@@ -1,3 +1,5 @@
 {
-  "name": "DriveSmart"
+  "name": "DriveSmart",
+  "dotnet8": false,
+  "runtimeDependenciesAsCompile": true
 }

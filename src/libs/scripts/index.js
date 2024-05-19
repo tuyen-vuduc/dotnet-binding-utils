@@ -1,6 +1,8 @@
 const fs = require("node:fs");
 
-process_Com_Google_Android_Material_Circularreveal_ICircularRevealWidget();
+process_IJsonDeserializer();
+// process_Com_Example_Dsroom_Dao_IBaseDao();
+// process_Com_Google_Android_Material_Circularreveal_ICircularRevealWidget();
 // process_Android_Util_ITypeEvaluator();
 // process_Android_Util_Property();
 // process_downgrade();
@@ -9,6 +11,118 @@ process_Com_Google_Android_Material_Circularreveal_ICircularRevealWidget();
 // process_JavaX_Inject_IProvider();
 // process_Android_OS_IParcelableCreator();
 // process_Com_Stripe_Android_Model_IStripeIntent();
+
+function process_Com_Example_Dsroom_Dao_IBaseDao() {
+  var input = fs.readFileSync("input.Com.Example.Dsroom.Dao.IBaseDao.txt");
+
+  var items = input
+    .toString()
+    .trim()
+    .split("\n")
+    .map(x => /.+'(\w+[^_]+_Impl)'.+src\\([^_]+_Impl)\.cs.+/.exec(x))
+    .map(x => x.slice(1, 3))
+    .map(x => x.join(' '))
+    .filter(onlyUnique)
+    .map((x) => x.split(" "))
+    .map((x) => {
+      var clsName = x[0];
+      var modelname = clsName.replace('Dao_Impl', 'Model');
+      var ns = x[1].replace("." + clsName, "");
+      return [ns, `partial class ${clsName} {        
+        Java.Lang.Object? Com.Example.Dsroom.Dao.IBaseDao.Delete(Java.Lang.Object? obj, Kotlin.Coroutines.IContinuation p1)
+            => Delete(obj as Entity.${modelname}, p1);
+
+        Java.Lang.Object? Com.Example.Dsroom.Dao.IBaseDao.Insert(global::System.Collections.IList litObj, Kotlin.Coroutines.IContinuation p1)
+            => Insert(litObj?.Cast<Entity.${modelname}>().ToList(), p1);
+
+        Java.Lang.Object? Com.Example.Dsroom.Dao.IBaseDao.Insert(Java.Lang.Object? obj, Kotlin.Coroutines.IContinuation p1)
+            => Insert(obj as Entity.${modelname}, p1);
+
+        Java.Lang.Object? Com.Example.Dsroom.Dao.IBaseDao.Insert(Java.Lang.Object[] obj, Kotlin.Coroutines.IContinuation p1)
+            => Insert(obj?.Cast<Entity.${modelname}>().ToArray(), p1);
+
+        Java.Lang.Object? Com.Example.Dsroom.Dao.IBaseDao.RowQuery(AndroidX.Sqlite.Db.ISupportSQLiteQuery query, Kotlin.Coroutines.IContinuation p1)
+            => RowQuery(query, p1);
+
+        Java.Lang.Object? Com.Example.Dsroom.Dao.IBaseDao.Update(Java.Lang.Object? obj, Kotlin.Coroutines.IContinuation p1)
+            => Update(obj as Entity.${modelname}, p1);
+        }`];
+    })
+    .reduce((result, item) => {
+      var reduced = result.find((x) => x[0] == item[0]);
+      if (reduced) {
+        reduced.push(item[1]);
+      } else {
+        result.push(item);
+      }
+      return result;
+    }, [])
+    .map((x) => {
+      return `namespace ${x[0]} {
+            ${x.slice(1).join("\n")}
+        }`;
+    })
+    ;
+
+  // console.log(items[0]);
+  fs.writeFileSync("output.Com.Example.Dsroom.Dao.IBaseDao.cs", items.join("\n"));
+}
+
+function process_IJsonDeserializer() {
+  var input = fs.readFileSync("input.Com.Example.Dsroom.Dao.IBaseDao.txt");
+
+  var items = input
+    .toString()
+    .trim()
+    .split("\n")
+    .map(x => /.+'(\w+[^_]+_Impl)'.+src\\([^_]+_Impl)\.cs.+/.exec(x))
+    .map(x => x.slice(1, 3))
+    .map(x => x.join(' '))
+    .filter(onlyUnique)
+    .map((x) => x.split(" "))
+    .map((x) => {
+      var clsName = x[0];
+      var modelname = clsName.replace('Dao_Impl', 'Model');
+      var ns = x[1].replace("." + clsName, "");
+      return [ns, `partial class ${clsName} {        
+        Java.Lang.Object? Com.Example.Dsroom.Dao.IBaseDao.Delete(Java.Lang.Object? obj, Kotlin.Coroutines.IContinuation p1)
+            => Delete(obj as Entity.${modelname}, p1);
+
+        Java.Lang.Object? Com.Example.Dsroom.Dao.IBaseDao.Insert(global::System.Collections.IList litObj, Kotlin.Coroutines.IContinuation p1)
+            => Insert(litObj?.Cast<Entity.${modelname}>().ToList(), p1);
+
+        Java.Lang.Object? Com.Example.Dsroom.Dao.IBaseDao.Insert(Java.Lang.Object? obj, Kotlin.Coroutines.IContinuation p1)
+            => Insert(obj as Entity.${modelname}, p1);
+
+        Java.Lang.Object? Com.Example.Dsroom.Dao.IBaseDao.Insert(Java.Lang.Object[] obj, Kotlin.Coroutines.IContinuation p1)
+            => Insert(obj?.Cast<Entity.${modelname}>().ToArray(), p1);
+
+        Java.Lang.Object? Com.Example.Dsroom.Dao.IBaseDao.RowQuery(AndroidX.Sqlite.Db.ISupportSQLiteQuery query, Kotlin.Coroutines.IContinuation p1)
+            => RowQuery(query, p1);
+
+        Java.Lang.Object? Com.Example.Dsroom.Dao.IBaseDao.Update(Java.Lang.Object? obj, Kotlin.Coroutines.IContinuation p1)
+            => Update(obj as Entity.${modelname}, p1);
+        }`];
+    })
+    .reduce((result, item) => {
+      var reduced = result.find((x) => x[0] == item[0]);
+      if (reduced) {
+        reduced.push(item[1]);
+      } else {
+        result.push(item);
+      }
+      return result;
+    }, [])
+    .map((x) => {
+      return `namespace ${x[0]} {
+            ${x.slice(1).join("\n")}
+        }`;
+    })
+    ;
+
+  // console.log(items[0]);
+  fs.writeFileSync("output.Com.Example.Dsroom.Dao.IBaseDao.cs", items.join("\n"));
+}
 
 function process_Com_Google_Android_Material_Circularreveal_ICircularRevealWidget() {
   var input = fs.readFileSync("input.Com.Google.Android.Material.Circularreveal.ICircularRevealWidget.txt");
@@ -59,9 +173,13 @@ function process_downgrade() {
     .toString()
     .trim()
     .split("\n")
-    .filter(x => x.indexOf('NU1605') > 0)
-    .map(x => /.+ downgrade: ([A-Za-z0-9._]+) from ([0-9.]+) to .+/.exec(x))
-    .map(x => x.slice(1, 3))
+    .filter(x => x.indexOf('downgrade:') > 0)
+    .map(x => /.+ downgrade: ([A-Za-z0-9._]+) from ([0-9.]+) to .+/.exec(x));
+  
+  items = items
+    .map(x => {
+      return x.slice(1, 3);
+    })
     .map(x => x.join(' '))
     .filter(onlyUnique)
     .map((x) => x.split(" "))

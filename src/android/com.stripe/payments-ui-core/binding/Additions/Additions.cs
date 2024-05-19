@@ -331,41 +331,10 @@ namespace Com.Stripe.Android.UI.Core.Forms.Resources.Injection
         global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
     }
 }
-namespace Com.Stripe.Android.UI.Core.Elements
-{
-    partial class AuBecsDebitMandateTextElement
-    {
-        global::Com.Stripe.Android.Uicore.Elements.IController? global::Com.Stripe.Android.Uicore.Elements.IFormElement.Controller => Controller;
-    }
-    partial class CardDetailsSectionElement
-    {
-        global::Com.Stripe.Android.Uicore.Elements.IController? global::Com.Stripe.Android.Uicore.Elements.IFormElement.Controller => Controller;
-    }
-    partial class MandateTextElement
-    {
-        global::Com.Stripe.Android.Uicore.Elements.IController? global::Com.Stripe.Android.Uicore.Elements.IFormElement.Controller => Controller;
-    }
-    partial class SaveForFutureUseElement
-    {
-        global::Com.Stripe.Android.Uicore.Elements.IController? global::Com.Stripe.Android.Uicore.Elements.IFormElement.Controller => Controller;
-    }
-    partial class StaticTextElement
-    {
-        global::Com.Stripe.Android.Uicore.Elements.IController? global::Com.Stripe.Android.Uicore.Elements.IFormElement.Controller => Controller;
-    }
-}
 namespace Com.Stripe.Android.UI.Core.Databinding
 {
     partial class StripeActivityCardScanBinding
     {
         global::Android.Views.View global::AndroidX.ViewBinding.IViewBinding.Root => Root;
-    }
-}
-namespace Com.Stripe.Android.UI.Core.Elements
-{
-    partial class IbanConfig
-    {
-        global::Xamarin.KotlinX.Coroutines.Flow.IStateFlow global::Com.Stripe.Android.Uicore.Elements.ITextFieldConfig.TrailingIcon => TrailingIcon;
-        global::Xamarin.KotlinX.Coroutines.Flow.IStateFlow global::Com.Stripe.Android.Uicore.Elements.ITextFieldConfig.Loading => Loading;
     }
 }

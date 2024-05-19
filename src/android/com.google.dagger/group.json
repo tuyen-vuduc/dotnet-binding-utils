@@ -1,4 +1,5 @@
 {
   "name": "com.google.dagger",
-  "dotnet8": false
+  "dotnet8": true,
+  "runtimeDependenciesAsCompile": true
 }

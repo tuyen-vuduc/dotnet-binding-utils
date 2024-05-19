@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.GooglePlayServices.Base",
+  "name": "play-services-base",
   "dependencyOnly": true,
   "dotnet8": false,
   "versionMappings": [

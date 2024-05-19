@@ -2,6 +2,15 @@
 <metadata>
   <attr path="//field[@name='Builtins']"
         name="managedName">BuiltIns</attr>
+  <attr path="//field[@name='Default']"
+        name="managedName">Default_</attr>
   <remove-node path="/api/package[@name='kotlinx.serialization.json']/class[@name='JsonClassDiscriminator.Impl']" />
   <remove-node path="/api/package[@name='kotlinx.serialization.json']/class[@name='JsonNames.Impl']" />
+  <remove-node path="/api/package[@name='kotlinx.serialization.json']/interface[@name='JsonDecoder']/implements" />
+  <attr path="/api/package[@name='kotlinx.serialization.json.internal']/class[@name='AbstractJsonLexer']/method[@name='getSource' and count(parameter)=0]"
+        name="propertyName"></attr>
+  <attr path="/api/package[@name='kotlinx.serialization.json.internal']/class[@name='ArrayAsSequence']/method[@name='getLength' and count(parameter)=0]"
+        name="propertyName"></attr>
+  <attr path="/api/package[@name='kotlinx.serialization.json.internal']/class[@name='ArrayAsSequence']/method[@name='setLength' and count(parameter)=1 and parameter[1][@type='int']]"
+        name="propertyName"></attr>
 </metadata>
