@@ -194,6 +194,33 @@ public static class ArtifactScanner
                 basePath, ref artifacts);
         }
 
+        var missingParentJsonPath = Path.Combine(
+            basePath,
+            artifact.RelativeFolderPath,
+            $"{artifact.Version.SemanticVersion.ToNormalizedString()}.missing.json"
+            );
+        if (File.Exists(missingParentJsonPath))
+        {
+            var missingParents = Util.Deserialize<string[]>(
+                File.OpenRead(missingParentJsonPath)
+            );
+
+            foreach (var missingParent in missingParents)
+            {
+                var index = existingArtifacts.FindIndex(x => x.Key == missingParent);
+
+                var existingArtifact = index < 0
+                    ? Scan(existingArtifacts, basePath, missingParent, log)[0]
+                    : existingArtifacts[index];
+
+                var missingParentInfo = new KeyValuePair<string, string>(
+                    existingArtifact.Nuget.PackageId, 
+                    "compile");
+                parentArtifactIds.Add(missingParentInfo);
+            }
+        }
+
+
         var fixedVersionJsonPath = Path.Combine(
             basePath,
             artifact.RelativeFolderPath,
@@ -204,7 +231,7 @@ public static class ArtifactScanner
         {
             var fixedVersions = Util.Deserialize<Dictionary<string, string>>(
                 File.OpenRead(fixedVersionJsonPath)
-            ); 
+            );
 
             foreach (var v in fixedVersions)
             {
@@ -217,7 +244,7 @@ public static class ArtifactScanner
                 else
                 {
                     index = existingArtifacts.FindIndex(x => x.Nuget.PackageId == v.Key);
-                    
+
                     if (index >= 0 && parentArtifactIds.Any(x => x.Key == v.Key))
                     {
                         existingArtifacts[index].Version.NugetVersion = NuGetVersion.Parse(v.Value);

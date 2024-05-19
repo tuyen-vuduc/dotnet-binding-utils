@@ -1,9 +1,11 @@
 {
-    "Xamarin.AndroidX.Room.Runtime": "2.4.3.2",
     "Xamarin.AndroidX.Fragment.Ktx": "1.6.0.1",
     "Xamarin.AndroidX.AppCompat": "1.6.1.7",
     "Xamarin.AndroidX.Core.Core.Ktx": "1.12.0.4",
-    "Xamarin.Kotlin.StdLib.Jdk7": "1.9.21.1",
+    "Xamarin.Kotlin.StdLib": "1.9.22.1",
+    "Xamarin.Kotlin.StdLib.Jdk7": "1.9.22.1",
     "Xamarin.AndroidX.Activity.Ktx": "1.7.2.2",
-    "Xamarin.AndroidX.Lifecycle.Common": "2.7.0.1"
+    "Xamarin.AndroidX.Lifecycle.Common": "2.7.0.1",
+    "GoogleGson": "2.10.1.8",
+    "Xamarin.AndroidX.Room.Runtime": "2.6.1.1"
 }

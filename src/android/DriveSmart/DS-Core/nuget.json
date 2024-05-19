@@ -1,7 +1,7 @@
 {
   "packageId": "DriveSmart.DSCore",
   "name": "DS-Core",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "dotnet8": false,
   "versionMappings": []
 }
