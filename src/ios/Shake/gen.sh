@@ -11,7 +11,7 @@ do
     sharpie bind \
         --output $frameworkName.iOS \
         --namespace $frameworkName \
-        --sdk iphoneos17.4 \
+        --sdk iphoneos17.5 \
         -scope $dir/ios-arm64/$frameworkName.framework/Headers \
             $dir/ios-arm64/$frameworkName.framework/Headers/*.h
 done

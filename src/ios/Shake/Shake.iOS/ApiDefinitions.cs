@@ -61,7 +61,7 @@ namespace Shake
 
 		// -(instancetype _Nonnull)initWithKey:(NSString * _Nonnull)key label:(NSString * _Nonnull)label required:(BOOL)required initialValue:(NSString * _Nullable)initialValue;
 		[Export ("initWithKey:label:required:initialValue:")]
-		IntPtr Constructor (string key, string label, bool required, [NullAllowed] string initialValue);
+		NativeHandle Constructor (string key, string label, bool required, [NullAllowed] string initialValue);
 	}
 
 	// @interface SHKPickerItem : NSObject
@@ -87,7 +87,7 @@ namespace Shake
 
 		// -(instancetype _Nonnull)initWithKey:(NSString * _Nonnull)key text:(NSString * _Nonnull)text icon:(UIImage * _Nullable)icon tag:(NSString * _Nullable)tag;
 		[Export ("initWithKey:text:icon:tag:")]
-		IntPtr Constructor (string key, string text, [NullAllowed] UIImage icon, [NullAllowed] string tag);
+		NativeHandle Constructor (string key, string text, [NullAllowed] UIImage icon, [NullAllowed] string tag);
 	}
 
 	// @interface SHKPicker : NSObject <SHKFormItemProtocol>
@@ -109,7 +109,7 @@ namespace Shake
 
 		// -(instancetype _Nonnull)initWithKey:(NSString * _Nonnull)key label:(NSString * _Nonnull)label items:(NSArray<SHKPickerItem *> * _Nonnull)items;
 		[Export ("initWithKey:label:items:")]
-		IntPtr Constructor (string key, string label, SHKPickerItem[] items);
+		NativeHandle Constructor (string key, string label, SHKPickerItem[] items);
 	}
 
 	// @interface SHKTitle : NSObject <SHKFormItemProtocol>
@@ -135,7 +135,7 @@ namespace Shake
 
 		// -(instancetype _Nonnull)initWithKey:(NSString * _Nonnull)key label:(NSString * _Nonnull)label required:(BOOL)required initialValue:(NSString * _Nullable)initialValue;
 		[Export ("initWithKey:label:required:initialValue:")]
-		IntPtr Constructor (string key, string label, bool required, [NullAllowed] string initialValue);
+		NativeHandle Constructor (string key, string label, bool required, [NullAllowed] string initialValue);
 	}
 
 	// @interface SHKInspectButton : NSObject <SHKFormItemProtocol>
@@ -167,7 +167,7 @@ namespace Shake
 
 		// -(instancetype _Nonnull)initWithKey:(NSString * _Nonnull)key label:(NSString * _Nonnull)label required:(BOOL)required initialValue:(NSString * _Nullable)initialValue;
 		[Export ("initWithKey:label:required:initialValue:")]
-		IntPtr Constructor (string key, string label, bool required, [NullAllowed] string initialValue);
+		NativeHandle Constructor (string key, string label, bool required, [NullAllowed] string initialValue);
 	}
 
 	// @interface SHKForm : NSObject
@@ -177,7 +177,7 @@ namespace Shake
 	{
 		// @property (readonly) NSArray<id<SHKFormItemProtocol>> * _Nonnull items;
 		[Export ("items")]
-		SHKFormItemProtocol[] Items { get; }
+		ISHKFormItemProtocol[] Items { get; }
 
 		// -(instancetype _Nonnull)initWithItems:(NSArray<id<SHKFormItemProtocol>> * _Nonnull)items;
 		[Export ("initWithItems:")]
@@ -233,7 +233,7 @@ namespace Shake
 	{
 		// -(instancetype _Nonnull)initWithTitle:(NSString * _Nonnull)title subtitle:(NSString * _Nullable)subtitle icon:(UIImage * _Nullable)icon handler:(void (^ _Nullable)(void))handler;
 		[Export ("initWithTitle:subtitle:icon:handler:")]
-		IntPtr Constructor (string title, [NullAllowed] string subtitle, [NullAllowed] UIImage icon, [NullAllowed] Action handler);
+		NativeHandle Constructor (string title, [NullAllowed] string subtitle, [NullAllowed] UIImage icon, [NullAllowed] Action handler);
 
 		// +(NSArray<id<SHKHomeActionProtocol>> * _Nonnull)defaultHomeActions;
 		[Static]
@@ -247,7 +247,7 @@ namespace Shake
 	{
 		// -(instancetype _Nonnull)initWithTitle:(NSString * _Nullable)title subtitle:(NSString * _Nullable)subtitle icon:(UIImage * _Nullable)icon;
 		[Export ("initWithTitle:subtitle:icon:")]
-		IntPtr Constructor ([NullAllowed] string title, [NullAllowed] string subtitle, [NullAllowed] UIImage icon);
+		NativeHandle Constructor ([NullAllowed] string title, [NullAllowed] string subtitle, [NullAllowed] UIImage icon);
 	}
 
 	// @interface SHKHomeChatAction : NSObject <SHKHomeActionProtocol>
@@ -256,7 +256,7 @@ namespace Shake
 	{
 		// -(instancetype _Nonnull)initWithTitle:(NSString * _Nullable)title subtitle:(NSString * _Nullable)subtitle icon:(UIImage * _Nullable)icon;
 		[Export ("initWithTitle:subtitle:icon:")]
-		IntPtr Constructor ([NullAllowed] string title, [NullAllowed] string subtitle, [NullAllowed] UIImage icon);
+		NativeHandle Constructor ([NullAllowed] string title, [NullAllowed] string subtitle, [NullAllowed] UIImage icon);
 	}
 
 	// @interface SHKNetworkRequestEditor : NSObject
@@ -265,7 +265,7 @@ namespace Shake
 	{
 		// -(instancetype _Nonnull)initWith:(NSUrlRequest * _Nonnull)request response:(NSUrlResponse * _Nullable)response responseData:(NSData * _Nullable)data error:(NSError * _Nullable)error timestamp:(NSDate * _Nonnull)timestamp duration:(NSTimeInterval)duration;
 		[Export ("initWith:response:responseData:error:timestamp:duration:")]
-		IntPtr Constructor (NSUrlRequest request, [NullAllowed] NSUrlResponse response, [NullAllowed] NSData data, [NullAllowed] NSError error, NSDate timestamp, double duration);
+		NativeHandle Constructor (NSUrlRequest request, [NullAllowed] NSUrlResponse response, [NullAllowed] NSData data, [NullAllowed] NSError error, NSDate timestamp, double duration);
 
 		// @property (readonly, nonatomic, strong) NSString * _Nullable method;
 		[NullAllowed, Export ("method", ArgumentSemantic.Strong)]
@@ -318,7 +318,7 @@ namespace Shake
 
 		// @property NSString * _Nonnull description;
 		[Export ("description")]
-		string Description { get; set; }
+		string DDescription { get; set; }
 
 		// @property NSString * _Nonnull identifier;
 		[Export ("identifier")]
@@ -330,7 +330,7 @@ namespace Shake
 
 		// -(instancetype _Nonnull)initWithTitle:(NSString * _Nonnull)title description:(NSString * _Nonnull)description identifier:(NSString * _Nonnull)identifier timestamp:(NSString * _Nonnull)timestamp;
 		[Export ("initWithTitle:description:identifier:timestamp:")]
-		IntPtr Constructor (string title, string description, string identifier, string timestamp);
+		NativeHandle Constructor (string title, string description, string identifier, string timestamp);
 	}
 
 	// @protocol SHKSessionAuthenticationProtocol <NSObject>
@@ -378,7 +378,7 @@ namespace Shake
 
 		// -(instancetype _Nonnull)initWithOffset:(CGSize)offset opacity:(CGFloat)opacity radius:(CGFloat)radius color:(UIColor * _Nullable)color;
 		[Export ("initWithOffset:opacity:radius:color:")]
-		IntPtr Constructor (CGSize offset, nfloat opacity, nfloat radius, [NullAllowed] UIColor color);
+		NativeHandle Constructor (CGSize offset, nfloat opacity, nfloat radius, [NullAllowed] UIColor color);
 	}
 
 	// @interface SHKTheme : NSObject
@@ -432,7 +432,7 @@ namespace Shake
 
 		// -(instancetype _Nonnull)initWithFontFamilyMedium:(NSString * _Nullable)fontFamilyMedium fontFamilyBold:(NSString * _Nullable)fontFamilyBold background:(UIColor * _Nullable)background secondaryBackground:(UIColor * _Nullable)secondaryBackground textColor:(UIColor * _Nullable)textColor secondaryTextColor:(UIColor * _Nullable)secondaryTextColor brandAccentColor:(UIColor * _Nullable)brandAccentColor brandTextColor:(UIColor * _Nullable)brandTextColor borderRadius:(CGFloat)borderRadius outlineColor:(UIColor * _Nullable)outlineColor shadowInfo:(SHKShadowInfo * _Nullable)shadowInfo;
 		[Export ("initWithFontFamilyMedium:fontFamilyBold:background:secondaryBackground:textColor:secondaryTextColor:brandAccentColor:brandTextColor:borderRadius:outlineColor:shadowInfo:")]
-		IntPtr Constructor ([NullAllowed] string fontFamilyMedium, [NullAllowed] string fontFamilyBold, [NullAllowed] UIColor background, [NullAllowed] UIColor secondaryBackground, [NullAllowed] UIColor textColor, [NullAllowed] UIColor secondaryTextColor, [NullAllowed] UIColor brandAccentColor, [NullAllowed] UIColor brandTextColor, nfloat borderRadius, [NullAllowed] UIColor outlineColor, [NullAllowed] SHKShadowInfo shadowInfo);
+		NativeHandle Constructor ([NullAllowed] string fontFamilyMedium, [NullAllowed] string fontFamilyBold, [NullAllowed] UIColor background, [NullAllowed] UIColor secondaryBackground, [NullAllowed] UIColor textColor, [NullAllowed] UIColor secondaryTextColor, [NullAllowed] UIColor brandAccentColor, [NullAllowed] UIColor brandTextColor, nfloat borderRadius, [NullAllowed] UIColor outlineColor, [NullAllowed] SHKShadowInfo shadowInfo);
 
 		// +(SHKTheme * _Nonnull)defaultTheme;
 		[Static]
@@ -560,15 +560,15 @@ namespace Shake
 
 		// -(instancetype _Nonnull)initWithName:(NSString * _Nonnull)name andData:(NSData * _Nonnull)data __attribute__((swift_name("init(name:data:)")));
 		[Export ("initWithName:andData:")]
-		IntPtr Constructor (string name, NSData data);
+		NativeHandle Constructor (string name, NSData data);
 
 		// -(instancetype _Nullable)initWithName:(NSString * _Nonnull)name andFileURL:(NSUrl * _Nonnull)url __attribute__((swift_name("init(name:fileUrl:)")));
 		[Export ("initWithName:andFileURL:")]
-		IntPtr Constructor (string name, NSUrl url);
+		NativeHandle Constructor (string name, NSUrl url);
 
 		// -(instancetype _Nullable)initWithFileURL:(NSUrl * _Nonnull)url __attribute__((swift_name("init(fileUrl:)")));
 		[Export ("initWithFileURL:")]
-		IntPtr Constructor (NSUrl url);
+		NativeHandle Constructor (NSUrl url);
 	}
 
 	// @interface Equatable (SHKShakeFile)
@@ -622,7 +622,7 @@ namespace Shake
 		// -(instancetype _Nonnull)initWithEndpointURL:(NSUrl * _Nonnull)endpointURL __attribute__((objc_designated_initializer));
 		[Export ("initWithEndpointURL:")]
 		[DesignatedInitializer]
-		IntPtr Constructor (NSUrl endpointURL);
+		NativeHandle Constructor (NSUrl endpointURL);
 
 		// -(void)userDidRegisterWithIdentifierWithIdentifier:(NSString * _Nonnull)identifier token:(NSString * _Nonnull)token;
 		[Export ("userDidRegisterWithIdentifierWithIdentifier:token:")]

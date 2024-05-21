@@ -2,7 +2,7 @@
 
 <Project>
 	<PropertyGroup>
-		<_Shake>16.2.3</_Shake>
+		<_Shake>16.2.5</_Shake>
 		<_NugetSuffix></_NugetSuffix>
 		<_ShakeAssemblyName>Shake.iOS, Version=$(_Shake), Culture=neutral, PublicKeyToken=null </_ShakeAssemblyName>
 		<_ShakeItemsFolder>Shake-$(_Shake)$(_NugetSuffix)</_ShakeItemsFolder>
