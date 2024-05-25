@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Mapbox.Mapboxsdk.MapboxAndroidGestures",
   "name": "mapbox-android-gestures",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "dotnet8": false,
   "versionMappings": []
 }

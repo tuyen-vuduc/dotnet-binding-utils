@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Mapbox.Plugin.MapsLocationcomponent",
   "name": "maps-locationcomponent",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "dotnet8": false,
   "versionMappings": []
 }

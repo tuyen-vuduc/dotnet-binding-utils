@@ -1,11 +1,11 @@
 const fs = require("node:fs");
 
-process_IJsonDeserializer();
+// process_IJsonDeserializer();
 // process_Com_Example_Dsroom_Dao_IBaseDao();
 // process_Com_Google_Android_Material_Circularreveal_ICircularRevealWidget();
 // process_Android_Util_ITypeEvaluator();
 // process_Android_Util_Property();
-// process_downgrade();
+process_downgrade();
 // process_AndroidX_ViewBinding_IViewBinding();
 // process_Com_Stripe_Android_Uicore_Elements_IFormElement();
 // process_JavaX_Inject_IProvider();

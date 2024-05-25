@@ -118,7 +118,6 @@ public class Engine
 
                 projectModel.NuGetDependencies.Add(parentArtifact);
             }
-
         }
 
         if (exceptions.Any())

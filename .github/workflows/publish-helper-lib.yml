@@ -26,10 +26,6 @@ jobs:
         distribution: 'microsoft'
         java-version: '17'
 
-    - name: Install android workload
-      run: |
-        dotnet workload install android
-
     - name: Build
       run: |
         sh build.sh

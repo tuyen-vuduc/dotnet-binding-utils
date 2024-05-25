@@ -207,19 +207,20 @@ public static class ArtifactScanner
 
             foreach (var missingParent in missingParents)
             {
-                var index = existingArtifacts.FindIndex(x => x.Key == missingParent);
-
-                var existingArtifact = index < 0
-                    ? Scan(existingArtifacts, basePath, missingParent, log)[0]
-                    : existingArtifacts[index];
-
-                var missingParentInfo = new KeyValuePair<string, string>(
-                    existingArtifact.Nuget.PackageId, 
-                    "compile");
-                parentArtifactIds.Add(missingParentInfo);
+                var existingArtifact = existingArtifacts
+                    .FirstOrDefault(x => x.GradleImplementation == missingParent);
+                var missingParts = missingParent.Split(':');
+                AddParentArtifact(
+                    existingArtifacts,
+                    missingParts[0],
+                    missingParts[1],
+                    missingParts[2],
+                    existingArtifact, parentArtifactIds, log,
+                    homeFolderPath,
+                    "compile",
+                    basePath, ref artifacts);
             }
         }
-
 
         var fixedVersionJsonPath = Path.Combine(
             basePath,
