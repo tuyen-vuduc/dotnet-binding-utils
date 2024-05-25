@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Mapbox.Plugin.MapsAttribution",
   "name": "maps-attribution",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": false,
   "versionMappings": []
 }
