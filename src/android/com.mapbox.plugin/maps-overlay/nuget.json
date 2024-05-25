@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Mapbox.Plugin.MapsOverlay",
   "name": "maps-overlay",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "dotnet8": false,
   "versionMappings": []
 }
