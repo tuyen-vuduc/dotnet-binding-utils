@@ -17,7 +17,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Cake.Frosting" Version="3.0.0" />
-    <PackageReference Include="Dependencies.Gradle" Version="7.6.1.2" />
+    <PackageReference Include="Dependencies.Gradle" Version="8.6.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Binderator.Gradle\Binderator.Gradle.csproj" />
