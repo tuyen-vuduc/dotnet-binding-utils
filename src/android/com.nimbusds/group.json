@@ -1,3 +1,5 @@
 {
-  "name": "com.nimbusds"
+  "name": "com.nimbusds",
+  "dotnet8": true,
+  "runtimeDependenciesAsCompile": true
 }

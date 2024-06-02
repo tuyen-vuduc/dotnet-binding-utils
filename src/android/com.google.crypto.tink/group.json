@@ -1,3 +1,5 @@
 {
-  "name": "com.google.crypto.tink"
+  "name": "com.google.crypto.tink",
+  "dotnet8": false,
+  "runtimeDependenciesAsCompile": true
 }
