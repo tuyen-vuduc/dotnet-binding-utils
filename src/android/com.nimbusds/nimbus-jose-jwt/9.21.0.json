@@ -1,6 +1,5 @@
 {
-  "revision": 1,
-  "nugetVersion": "9.21.0.1",
+  "revision": 0,
   "withoutPatch": true,
   "runtimeDependenciesAsCompile": true
 }

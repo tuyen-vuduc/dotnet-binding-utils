@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Nimbusds.NimbusJoseJwt",
   "name": "nimbus-jose-jwt",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": false,
   "versionMappings": []
 }

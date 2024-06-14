@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Stripe.PaymentsModel",
   "name": "payments-model",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": false,
   "versionMappings": []
 }

@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Stripe.Paymentsheet",
   "name": "paymentsheet",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }
