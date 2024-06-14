@@ -9,7 +9,7 @@ public record GroupModel
     public string Name { get; set; }
     public string HomePageUrl { get; set; }
     public string GuideUrl { get; set; }
-    public bool Dotnet8 { get; set; } = false;
+    public bool Dotnet8 { get; set; } = true;
     [JsonIgnore]
     public string Icon { get; set; }
     [JsonIgnore]
