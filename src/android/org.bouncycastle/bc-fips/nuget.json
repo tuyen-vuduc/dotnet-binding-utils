@@ -1,0 +1,7 @@
+{
+  "packageId": "Org.Bouncycastle.BcFips",
+  "name": "bc-fips",
+  "dependencyOnly": false,
+  "dotnet8": false,
+  "versionMappings": []
+}

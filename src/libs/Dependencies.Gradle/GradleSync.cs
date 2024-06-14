@@ -173,14 +173,14 @@ android.enableJetifier=true
 
     private void AdjustSdkVersions()
     {
-        var GradleSyncPath = Path.Combine(TempDir, "gradle_util/build.gradle");
+        var GradleSyncPath = Path.Combine(TempDir, "gradle_util/build.gradle.kts");
         var GradleSyncContent = File.ReadAllText(GradleSyncPath);
         LogMessage(GradleSyncContent, MessageImportance.Normal);
 
         if (!string.IsNullOrWhiteSpace(AndroidMinSdkVersion))
         {
             GradleSyncContent = GradleSyncContent.Replace(
-                "minSdk 23",
+                "minSdk 26",
                 $"minSdk {AndroidMinSdkVersion}"
                 );
         }
@@ -188,11 +188,11 @@ android.enableJetifier=true
         if (!string.IsNullOrWhiteSpace(AndroidTargetSdkVersion))
         {
             GradleSyncContent = GradleSyncContent.Replace(
-                "targetSdk 32",
+                "targetSdk 34",
                 $"targetSdk {AndroidTargetSdkVersion}"
                 );
             GradleSyncContent = GradleSyncContent.Replace(
-                "compileSdk 33",
+                "compileSdk 34",
                 $"compileSdk {AndroidTargetSdkVersion}"
                 );
         }
@@ -210,7 +210,7 @@ android.enableJetifier=true
             repositoriesStringBuilder.AppendLine(implementations[i].Implemetation);
         }
 
-        var GradleSyncPath = Path.Combine(TempDir, "gradle_util/build.gradle");
+        var GradleSyncPath = Path.Combine(TempDir, "gradle_util/build.gradle.kts");
         var defaultGradleSyncContent = File.ReadAllText(GradleSyncPath);
         LogMessage(defaultGradleSyncContent);
 
@@ -236,7 +236,7 @@ android.enableJetifier=true
             repositoriesStringBuilder.AppendLine(repositories[i].Repository);
         }
 
-        var settingsGradlePath = Path.Combine(TempDir, "settings.gradle");
+        var settingsGradlePath = Path.Combine(TempDir, "settings.gradle.kts");
         var defaultSettingsGradleContent = File.ReadAllText(settingsGradlePath);
         LogMessage(defaultSettingsGradleContent);
 
@@ -380,7 +380,7 @@ android.enableJetifier=true
             var implementationDeclaration = taskItem.GetMetadata("Implementation");
             if (string.IsNullOrWhiteSpace(implementationDeclaration))
             {
-                implementationDeclaration = $"implementation '{taskItem.ItemSpec}'";
+                implementationDeclaration = $"implementation(\"{taskItem.ItemSpec}\")";
             }
 
             var implementation = new GradleImplementation

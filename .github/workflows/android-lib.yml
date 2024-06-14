@@ -104,11 +104,11 @@ jobs:
       with:
         dotnet-version: '${{ inputs.DOTNET_VERSION }}'
 
-    - name: Setup Java 11
+    - name: Setup Java 17
       uses: actions/setup-java@v3
       with:
         distribution: 'microsoft'
-        java-version: '11'
+        java-version: '17'
 
     - name: Build
       run: |

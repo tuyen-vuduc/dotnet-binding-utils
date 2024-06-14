@@ -2,7 +2,7 @@
   <Import Project="*.props" />
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
     <IsPackable>false</IsPackable>
     <PreserveCompilationContext>true</PreserveCompilationContext>
@@ -17,7 +17,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Cake.Frosting" Version="3.0.0" />
-    <PackageReference Include="Dependencies.Gradle" Version="7.6.1.2" />
+    <PackageReference Include="Dependencies.Gradle" Version="8.6.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Binderator.Gradle\Binderator.Gradle.csproj" />

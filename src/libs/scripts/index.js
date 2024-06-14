@@ -1,6 +1,7 @@
 const fs = require("node:fs");
 
-process_IJsonDeserializer();
+process_field();
+// process_IJsonDeserializer();
 // process_Com_Example_Dsroom_Dao_IBaseDao();
 // process_Com_Google_Android_Material_Circularreveal_ICircularRevealWidget();
 // process_Android_Util_ITypeEvaluator();
@@ -11,6 +12,33 @@ process_IJsonDeserializer();
 // process_JavaX_Inject_IProvider();
 // process_Android_OS_IParcelableCreator();
 // process_Com_Stripe_Android_Model_IStripeIntent();
+
+function process_field() {
+  var input = fs.readFileSync("input.field.txt")
+  .toString()
+  .trim()
+  .split("\n")
+  .filter(x => x.indexOf('<field') > -1);
+
+  var items = input
+    .map(x => /.+ name="([A-Za-z0-9._]+)".+/.exec(x))
+    .map(x => {
+      return x.slice(1, 2);
+    })
+    .map(x => x[0]);
+  
+  items = items
+    .filter(onlyUnique)
+    .map((x) => {
+      var csName = x.toUpperCase() == x
+        ? x : x + '_'
+      return `<attr path=\"//field[@name='${x}']\" name=\"managedName\">${csName}</attr>`
+    })
+    ;
+
+  // console.log(items[0]);
+  fs.writeFileSync("output.field.xml", items.join("\n"));
+}
 
 function process_Com_Example_Dsroom_Dao_IBaseDao() {
   var input = fs.readFileSync("input.Com.Example.Dsroom.Dao.IBaseDao.txt");

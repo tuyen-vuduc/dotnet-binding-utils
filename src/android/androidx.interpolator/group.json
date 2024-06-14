@@ -1,3 +1,5 @@
 {
-  "name": "androidx.interpolator"
+  "name": "androidx.interpolator",
+  "dotnet8": false,
+  "runtimeDependenciesAsCompile": true
 }

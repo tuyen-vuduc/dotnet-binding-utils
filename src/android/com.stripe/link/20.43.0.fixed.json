@@ -1,7 +1,9 @@
 {
-    "Xamarin.AndroidX.Compose.Runtime": "1.6.1.1",
+    "Xamarin.AndroidX.Compose.Runtime": "1.6.6.1",
     "Xamarin.AndroidX.Activity": "1.9.0.1",
     "Xamarin.AndroidX.Activity.Ktx": "1.9.0.1",
     "Xamarin.AndroidX.Lifecycle.ViewModelSavedState": "2.7.0.2",
-    "Xamarin.AndroidX.Lifecycle.Common": "2.7.0.2"
+    "Xamarin.AndroidX.Lifecycle.Common": "2.7.0.2",
+    "Xamarin.Kotlin.StdLib": "1.9.23.1",
+    "Xamarin.Jetbrains.Annotations": "24.1.0.3"
 }

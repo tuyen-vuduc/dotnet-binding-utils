@@ -123,17 +123,18 @@ public static class ArtifactScanner
         var parentArtifactIds = new List<KeyValuePair<string, string>>();
         foreach (XmlNode dependency in dependencies)
         {
+            var xartifactId = dependency.SelectSingleNode("descendant::mvn:artifactId", nsmgr).InnerText;
+
+            // TODO neeed to handle optional dependencies
             var optional = dependency.SelectSingleNode("descendant::mvn:optional", nsmgr)?.InnerText;
             if (!string.IsNullOrWhiteSpace(optional)
-                && bool.TryParse(optional, out var isOptional))
+               && bool.TryParse(optional, out var isOptional))
             {
-                continue;
+               continue;
             }
 
             var scope = dependency.SelectSingleNode("descendant::mvn:scope", nsmgr)?.InnerText;
             if (scope == "test" || scope == "provided") continue;
-
-            var xartifactId = dependency.SelectSingleNode("descendant::mvn:artifactId", nsmgr).InnerText;
 
             // TODO Why artifact adds junit as a compile dependency?
             if (skippedArtifacts.Contains(xartifactId)) continue;
@@ -207,19 +208,20 @@ public static class ArtifactScanner
 
             foreach (var missingParent in missingParents)
             {
-                var index = existingArtifacts.FindIndex(x => x.Key == missingParent);
-
-                var existingArtifact = index < 0
-                    ? Scan(existingArtifacts, basePath, missingParent, log)[0]
-                    : existingArtifacts[index];
-
-                var missingParentInfo = new KeyValuePair<string, string>(
-                    existingArtifact.Nuget.PackageId, 
-                    "compile");
-                parentArtifactIds.Add(missingParentInfo);
+                var existingArtifact = existingArtifacts
+                    .FirstOrDefault(x => x.GradleImplementation == missingParent);
+                var missingParts = missingParent.Split(':');
+                AddParentArtifact(
+                    existingArtifacts,
+                    missingParts[0],
+                    missingParts[1],
+                    missingParts[2],
+                    existingArtifact, parentArtifactIds, log,
+                    homeFolderPath,
+                    "compile",
+                    basePath, ref artifacts);
             }
         }
-
 
         var fixedVersionJsonPath = Path.Combine(
             basePath,

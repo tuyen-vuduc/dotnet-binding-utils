@@ -10,7 +10,7 @@
 
     <PackageId>Dependencies.Gradle</PackageId>
     <Title>Xamarin Build-time Gradle Support for Android</Title>
-    <PackageVersion>7.6.1.2</PackageVersion>
+    <PackageVersion>8.6.0</PackageVersion>
     <Authors>tuyen,tuyen-vuduc</Authors>
     <Owners>tuyen,tuyen-vuduc</Owners>
     <PackageProjectUrl>https://github.com/tuyen-vuduc/xamarin-android-build-gradle</PackageProjectUrl>
@@ -27,6 +27,7 @@
       <None Include="../../../LICENSE" Pack="true" PackagePath="" CopyToOutputDirectory="PreserveNewest" Visible="False" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Dependencies.Gradle.assets" />
     <!-- build -->
     <None Include="Dependencies.Gradle.targets" Pack="True" PackagePath="build\Dependencies.Gradle.targets" CopyToOutputDirectory="PreserveNewest" />
     <None Include="Dependencies.Gradle.props" Pack="True" PackagePath="build\Dependencies.Gradle.props" CopyToOutputDirectory="PreserveNewest" />

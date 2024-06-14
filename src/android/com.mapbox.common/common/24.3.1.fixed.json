@@ -1,8 +1,11 @@
 {
-    "Xamarin.Kotlin.StdLib.Common": "1.9.21.1",
+    "Xamarin.Kotlin.StdLib.Common": "1.9.23.1",
     "Xamarin.GooglePlayServices.Tasks": "118.1.0.1",
     "Xamarin.AndroidX.Annotation": "1.7.1.2",
-    "Xamarin.AndroidX.Core": "1.12.0.3",
-    "Xamarin.Kotlin.StdLib.Jdk8": "1.9.21.1",
-    "Xamarin.KotlinX.Coroutines.Core.Jvm": "1.7.3.3"   
+    "Xamarin.AndroidX.Core": "1.13.0.1",
+    "Xamarin.Kotlin.StdLib.Jdk8": "1.9.23.1",
+    "Xamarin.KotlinX.Coroutines.Core.Jvm": "1.8.0.2",
+    "Xamarin.AndroidX.Lifecycle.Common": "2.7.0.2",
+    "Square.OkIO": "3.5.0.1",
+    "Square.OkHttp3": "4.12.0.3"
 }

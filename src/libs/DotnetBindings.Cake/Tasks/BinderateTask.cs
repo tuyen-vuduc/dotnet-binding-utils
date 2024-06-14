@@ -1,6 +1,4 @@
-﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
-
-namespace DotnetBindings.Cake;
+﻿namespace DotnetBindings.Cake;
 
 [IsDependentOn(typeof(InitializeTask))]
 public sealed class BinderateTask : AsyncFrostingTask<BuildContext>

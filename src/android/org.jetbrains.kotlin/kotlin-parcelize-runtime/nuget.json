@@ -1,7 +1,7 @@
 {
   "packageId": "Org.Jetbrains.Kotlin.KotlinParcelizeRuntime",
   "name": "kotlin-parcelize-runtime",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "dotnet8": false,
   "versionMappings": []
 }

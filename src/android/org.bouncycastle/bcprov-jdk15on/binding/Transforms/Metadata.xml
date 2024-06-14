@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <attr path="//field[@name='bits']"
+        name="managedName">bits_</attr>
+  <attr path="//field[@name='g1']"
+        name="managedName">g1_</attr>
+  <attr path="//field[@name='g2']"
+        name="managedName">g2_</attr>
+  <attr path="//field[@name='v1A']"
+        name="managedName">v1A_</attr>
+  <attr path="//field[@name='v1B']"
+        name="managedName">v1B_</attr>
+  <attr path="//field[@name='v2A']"
+        name="managedName">v2A_</attr>
+  <attr path="//field[@name='v2B']"
+        name="managedName">v2B_</attr>
+  <attr path="//field[@name='targetGroup']"
+        name="managedName">targetGroup_</attr>
+  <attr path="//field[@name='targetName']"
+        name="managedName">targetName_</attr>
+  <attr path="//field[@name='DIGEST_SIZE']"
+        name="managedName">DIGEST_SIZE</attr>
+  <attr path="//field[@name='BLOCK_SIZE']"
+        name="managedName">BLOCK_SIZE</attr>
+  <attr path="//field[@name='MAX_ROUNDS']"
+        name="managedName">MAX_ROUNDS</attr>
+  <attr path="//field[@name='RED_ROUNDS']"
+        name="managedName">RED_ROUNDS</attr>
+  <attr path="//field[@name='_Km']"
+        name="managedName">_Km_</attr>
+  <attr path="//field[@name='_Kr']"
+        name="managedName">_Kr_</attr>
+  <attr path="//field[@name='ROUNDS']"
+        name="managedName">ROUNDS</attr>
+  <attr path="//field[@name='_Tm']"
+        name="managedName">_Tm_</attr>
+  <attr path="//field[@name='_Tr']"
+        name="managedName">_Tr_</attr>
+  <attr path="//field[@name='mac']"
+        name="managedName">mac_</attr>
+  <attr path="//field[@name='signer']"
+        name="managedName">signer_</attr>
+  <attr path="//field[@name='iterationCount']"
+        name="managedName">iterationCount_</attr>
+  <attr path="//field[@name='password']"
+        name="managedName">password_</attr>
+  <attr path="//field[@name='salt']"
+        name="managedName">salt_</attr>
+  <attr path="//field[@name='input']"
+        name="managedName">input_</attr>
+  <attr path="//field[@name='argFilterType']"
+        name="managedName">argFilterType_</attr>
+  <attr path="//field[@name='arguments']"
+        name="managedName">arguments_</attr>
+  <attr path="//field[@name='FILTER']"
+        name="managedName">FILTER</attr>
+  <attr path="//field[@name='filter']"
+        name="managedName">filter_</attr>
+  <attr path="//field[@name='filteredArgs']"
+        name="managedName">filteredArgs_</attr>
+  <attr path="//field[@name='FILTER_URL']"
+        name="managedName">FILTER_URL</attr>
+  <attr path="//field[@name='isLocaleSpecific']"
+        name="managedName">isLocaleSpecific_</attr>
+  <attr path="//field[@name='NO_FILTER']"
+        name="managedName">NO_FILTER</attr>
+  <attr path="//field[@name='unpackedArgs']"
+        name="managedName">unpackedArgs_</attr>
+  <attr path="//field[@name='DEFAULT_ENCODING']"
+        name="managedName">DEFAULT_ENCODING</attr>
+  <attr path="//field[@name='encoding']"
+        name="managedName">encoding_</attr>
+  <attr path="//field[@name='extraArgs']"
+        name="managedName">extraArgs_</attr>
+  <attr path="//field[@name='id']"
+        name="managedName">id_</attr>
+  <attr path="//field[@name='loader']"
+        name="managedName">loader_</attr>
+  <attr path="//field[@name='resource']"
+        name="managedName">resource_</attr>
+  <attr path="//field[@name='digest']"
+        name="managedName">digest_</attr>
+  <attr path="//field[@name='message']"
+        name="managedName">message_</attr>
+  <attr path="//field[@name='key']"
+        name="managedName">key_</attr>
+  <attr path="//field[@name='locale']"
+        name="managedName">locale_</attr>
+  <attr path="//field[@name='algorithmIdentifier']"
+        name="managedName">algorithmIdentifier_</attr>
+  <attr path="//field[@name='attrCarrier']"
+        name="managedName">attrCarrier_</attr>
+  <attr path="//field[@name='modulus']"
+        name="managedName">modulus_</attr>
+  <attr path="//field[@name='privateExponent']"
+        name="managedName">privateExponent_</attr>
+  <attr path="//field[@name='rsaPrivateKey']"
+        name="managedName">rsaPrivateKey_</attr>
+  <attr path="//field[@name='children']"
+        name="managedName">children_</attr>
+  <attr path="//field[@name='critical']"
+        name="managedName">critical_</attr>
+  <attr path="//field[@name='depth']"
+        name="managedName">depth_</attr>
+  <attr path="//field[@name='expectedPolicies']"
+        name="managedName">expectedPolicies_</attr>
+  <attr path="//field[@name='parent']"
+        name="managedName">parent_</attr>
+  <attr path="//field[@name='policyQualifiers']"
+        name="managedName">policyQualifiers_</attr>
+  <attr path="//field[@name='validPolicy']"
+        name="managedName">validPolicy_</attr>
+  <attr path="//field[@name='infinity']"
+        name="managedName">infinity_</attr>
+  <attr path="//field[@name='q']"
+        name="managedName">q_</attr>
+  <attr path="//field[@name='a']"
+        name="managedName">a_</attr>
+  <attr path="//field[@name='b']"
+        name="managedName">b_</attr>
+  <attr path="//field[@name='cofactor']"
+        name="managedName">cofactor_</attr>
+  <attr path="//field[@name='coord']"
+        name="managedName">coord_</attr>
+  <attr path="//field[@name='COORD_AFFINE']"
+        name="managedName">COORD_AFFINE</attr>
+  <attr path="//field[@name='COORD_HOMOGENEOUS']"
+        name="managedName">COORD_HOMOGENEOUS</attr>
+  <attr path="//field[@name='COORD_JACOBIAN']"
+        name="managedName">COORD_JACOBIAN</attr>
+  <attr path="//field[@name='COORD_JACOBIAN_CHUDNOVSKY']"
+        name="managedName">COORD_JACOBIAN_CHUDNOVSKY</attr>
+  <attr path="//field[@name='COORD_JACOBIAN_MODIFIED']"
+        name="managedName">COORD_JACOBIAN_MODIFIED</attr>
+  <attr path="//field[@name='COORD_LAMBDA_AFFINE']"
+        name="managedName">COORD_LAMBDA_AFFINE</attr>
+  <attr path="//field[@name='COORD_LAMBDA_PROJECTIVE']"
+        name="managedName">COORD_LAMBDA_PROJECTIVE</attr>
+  <attr path="//field[@name='COORD_SKEWED']"
+        name="managedName">COORD_SKEWED</attr>
+  <attr path="//field[@name='endomorphism']"
+        name="managedName">endomorphism_</attr>
+  <attr path="//field[@name='field']"
+        name="managedName">field_</attr>
+  <attr path="//field[@name='multiplier']"
+        name="managedName">multiplier_</attr>
+  <attr path="//field[@name='order']"
+        name="managedName">order_</attr>
+  <attr path="//field[@name='parameters']"
+        name="managedName">parameters_</attr>
+  <attr path="//field[@name='pointMap']"
+        name="managedName">pointMap_</attr>
+  <attr path="//field[@name='beta']"
+        name="managedName">beta_</attr>
+  <attr path="//field[@name='lambda']"
+        name="managedName">lambda_</attr>
+  <attr path="//field[@name='splitParams']"
+        name="managedName">splitParams_</attr>
+  <attr path="//field[@name='lookupTable']"
+        name="managedName">lookupTable_</attr>
+  <attr path="//field[@name='offset']"
+        name="managedName">offset_</attr>
+  <attr path="//field[@name='width']"
+        name="managedName">width_</attr>
+  <attr path="//field[@name='confWidth']"
+        name="managedName">confWidth_</attr>
+  <attr path="//field[@name='preComp']"
+        name="managedName">preComp_</attr>
+  <attr path="//field[@name='preCompNeg']"
+        name="managedName">preCompNeg_</attr>
+  <attr path="//field[@name='twice']"
+        name="managedName">twice_</attr>
+  <attr path="//field[@name='MATRIX_TYPE_RANDOM_LT']"
+        name="managedName">MATRIX_TYPE_RANDOM_LT</attr>
+  <attr path="//field[@name='MATRIX_TYPE_RANDOM_REGULAR']"
+        name="managedName">MATRIX_TYPE_RANDOM_REGULAR</attr>
+  <attr path="//field[@name='MATRIX_TYPE_RANDOM_UT']"
+        name="managedName">MATRIX_TYPE_RANDOM_UT</attr>
+  <attr path="//field[@name='MATRIX_TYPE_UNIT']"
+        name="managedName">MATRIX_TYPE_UNIT</attr>
+  <attr path="//field[@name='MATRIX_TYPE_ZERO']"
+        name="managedName">MATRIX_TYPE_ZERO</attr>
+  <attr path="//field[@name='numColumns']"
+        name="managedName">numColumns_</attr>
+  <attr path="//field[@name='numRows']"
+        name="managedName">numRows_</attr>
+  <attr path="//field[@name='length']"
+        name="managedName">length_</attr>
+  <attr path="//field[@name='certPath']"
+        name="managedName">certPath_</attr>
+  <attr path="//field[@name='certs']"
+        name="managedName">certs_</attr>
+  <attr path="//field[@name='currentDate']"
+        name="managedName">currentDate_</attr>
+  <attr path="//field[@name='errors']"
+        name="managedName">errors_</attr>
+  <attr path="//field[@name='n']"
+        name="managedName">n_</attr>
+  <attr path="//field[@name='notifications']"
+        name="managedName">notifications_</attr>
+  <attr path="//field[@name='pkixParams']"
+        name="managedName">pkixParams_</attr>
+  <attr path="//field[@name='policyTree']"
+        name="managedName">policyTree_</attr>
+  <attr path="//field[@name='subjectPublicKey']"
+        name="managedName">subjectPublicKey_</attr>
+  <attr path="//field[@name='trustAnchor']"
+        name="managedName">trustAnchor_</attr>
+  <attr path="//field[@name='validDate']"
+        name="managedName">validDate_</attr>
+  <attr path="//field[@name='curve']"
+        name="managedName">curve_</attr>
+  <attr path="//field[@name='EMPTY_ZS']"
+        name="managedName">EMPTY_ZS</attr>
+  <attr path="//field[@name='preCompTable']"
+        name="managedName">preCompTable_</attr>
+  <attr path="//field[@name='x']"
+        name="managedName">x_</attr>
+  <attr path="//field[@name='y']"
+        name="managedName">y_</attr>
+  <attr path="//field[@name='zs']"
+        name="managedName">zs_</attr>
+  <attr path="//field[@name='mappedPoint']"
+        name="managedName">mappedPoint_</attr>
+  <attr path="//field[@name='fieldPolynomial']"
+        name="managedName">fieldPolynomial_</attr>
+  <attr path="//field[@name='fields']"
+        name="managedName">fields_</attr>
+  <attr path="//field[@name='matrices']"
+        name="managedName">matrices_</attr>
+  <attr path="//field[@name='mDegree']"
+        name="managedName">mDegree_</attr>
+  <attr path="//field[@name='random']"
+        name="managedName">random_</attr>
+  <attr path="//field[@name='BYTES']"
+        name="managedName">BYTES</attr>
+  <attr path="//field[@name='SIZE']"
+        name="managedName">SIZE</attr>
+  
+  <attr path="//class[@name='EC']"
+        name="managedName">EC_</attr>
+  <attr path="//class[@name='DH']"
+        name="managedName">DH_</attr>
+  <attr path="//class[@name='X509']"
+        name="managedName">X509_</attr>
+  <attr path="//class[@name='BC']"
+        name="managedName">BE_</attr>
+  
+  <attr path="//method[parent::class[@extends='java.security.AlgorithmParametersSpi'] and @name='engineGetParameterSpec' and count(parameter)=1 and parameter[1][@type='java.lang.Class']]"
+        name="managedReturn">Java.Lang.Object</attr>
+  <remove-node path="/api/package[@name='org.bouncycastle.pqc.jcajce.provider.util']/class[@name='AsymmetricHybridCipher']/method[@name='doFinal' and count(parameter)=3 and parameter[1][@type='byte[]'] and parameter[2][@type='int'] and parameter[3][@type='int']]"
+               />
+  <remove-node path="/api/package[@name='org.bouncycastle.pqc.jcajce.provider.util']/class[@name='AsymmetricHybridCipher']/method[@name='update' and count(parameter)=3 and parameter[1][@type='byte[]'] and parameter[2][@type='int'] and parameter[3][@type='int']]" />
+  <attr path="//method[parent::class[@extends='java.security.KeyFactorySpi'] and @name='engineGetKeySpec' and count(parameter)=2 and parameter[1][@type='java.security.Key'] and parameter[2][@type='java.lang.Class']]"
+        name="managedReturn">Java.Lang.Object</attr>
+  <attr path="//method[parent::class[@extends='java.security.KeyFactorySpi'] and @name='engineGetKeySpec' and count(parameter)=2 and parameter[1][@type='java.security.Key'] and parameter[2][@type='java.lang.Class']]"
+        name="visibility">protected</attr>
+  <attr path="/api/package[@name='org.bouncycastle.jcajce.provider.digest']/class[@name='BCMessageDigest']/method[@name='engineDigest' and count(parameter)=0]"
+        name="visibility">protected</attr>
+  <attr path="/api/package[@name='org.bouncycastle.jcajce.provider.digest']/class[@name='BCMessageDigest']/method[@name='engineReset' and count(parameter)=0]"
+        name="visibility">protected</attr>
+  <attr path="//method[parent::class[@extends='java.security.MessageDigest'] and @name='engineUpdate' and count(parameter)=3 and parameter[1][@type='byte[]'] and parameter[2][@type='int'] and parameter[3][@type='int']]"
+        name="visibility">protected</attr>
+  <attr path="//method[parent::class[@extends='javax.crypto.CipherSpi'] and @name='engineUpdate' and count(parameter)=5 and parameter[1][@type='byte[]'] and parameter[2][@type='int'] and parameter[3][@type='int'] and parameter[4][@type='byte[]'] and parameter[5][@type='int']]"
+        name="visibility">protected</attr>
+  <attr path="//method[parent::class[@extends='javax.crypto.CipherSpi'] and @name='engineUpdate' and count(parameter)=3 and parameter[1][@type='byte[]'] and parameter[2][@type='int'] and parameter[3][@type='int']]"
+        name="visibility">protected</attr>
+  <attr path="/api/package[@name='org.bouncycastle.jcajce.provider.digest']/class[@name='BCMessageDigest']/method[@name='engineDigest' and count(parameter)=3 and parameter[1][@type='byte[]'] and parameter[2][@type='int'] and parameter[3][@type='int']]"
+        name="visibility">protected</attr>
+
+  <remove-node path="/api/package[@name='org.bouncycastle.pqc.crypto']/interface[@name='ExchangePairGenerator']/method[@name='GenerateExchange' and count(parameter)=1 and parameter[1][@type='org.bouncycastle.crypto.params.AsymmetricKeyParameter']]" />
+</metadata>
