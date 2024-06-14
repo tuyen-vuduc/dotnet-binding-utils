@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Stripe.Hcaptcha",
   "name": "hcaptcha",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": false,
   "versionMappings": []
 }
