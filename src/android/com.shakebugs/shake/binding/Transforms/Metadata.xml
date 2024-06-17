@@ -8,6 +8,7 @@
     <attr path="//field[@name='timestamp']" name="managedName">_timestamp</attr>
     <attr path="//field[@name='TYPE']" name="managedName">TYPE</attr>
     <remove-node path="//implements[@name='com.shakebugs.shake.internal.s4']" />
+    <remove-node path="//implements[@name='com.shakebugs.shake.internal.q4']" />
     <remove-node path="//class[@name='ShakeActivity']/method[string-length(@name) = 1]" />
     <remove-node path="//class[@name='BackgroundObserver']/method[string-length(@name) = 1]" />
     <remove-node path="//class[@name='PaletteView']/method[string-length(@name) = 1]" />
