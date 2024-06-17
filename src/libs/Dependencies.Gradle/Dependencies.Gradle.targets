@@ -31,6 +31,7 @@
 			TempDir="$(GradleSyncTempDir)"
 			GradleAssetsPath="$(GradleSyncAssetsPath)"
 			Repositories="@(GradleRepository)"
+			UsesPermissions="@(UsesPermission)"
 			Implementations="@(GradleImplementation)"
 			GradleProperties="@(GradleProperty)"
 			User7ZipPath="$(GradleSyncUser7ZipPath)"

@@ -28,9 +28,7 @@ public sealed class BinderateTask : AsyncFrostingTask<BuildContext>
     {
         if (!artifact.IsAAR) return;
 
-        var homeFolder = Platform.IsWindows
-                   ? Environment.SpecialFolder.UserProfile
-                   : Environment.SpecialFolder.Personal;
+        var homeFolder = Environment.SpecialFolder.UserProfile;
         var homeFolderPath = Environment.GetFolderPath(homeFolder);
         var artifactAarPath = PathIO.Combine(
             homeFolderPath,

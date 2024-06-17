@@ -1,4 +1,5 @@
 {
   "name": "com.squareup.retrofit2",
-  "dotnet8": false
+  "dotnet8": false,
+  "runtimeDependenciesAsCompile": true
 }

@@ -1,4 +1,5 @@
 {
   "name": "MP4 Parser",
-  "dotnet8": false
+  "dotnet8": false,
+  "runtimeDependenciesAsCompile": true
 }

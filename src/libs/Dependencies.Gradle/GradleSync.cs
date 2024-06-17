@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Security.Cryptography;
 using System.Text;
+using System.Xml;
 using Microsoft.Build.Framework;
 using Xamarin.Build.Download;
 using Xamarin.Components.Ide.Activation;
@@ -17,6 +18,8 @@ public class GradleSync : AsyncTask, Xamarin.Build.Download.ILogger
     public ITaskItem[] Implementations { get; set; }
 
     public ITaskItem[] GradleProperties { get; set; }
+
+    public ITaskItem[] UsesPermissions { get; set; }
 
     public string VsInstallRoot { get; set; }
     public string User7ZipPath { get; set; }
@@ -89,6 +92,8 @@ public class GradleSync : AsyncTask, Xamarin.Build.Download.ILogger
                 AdjustSdkVersions();
 
                 AdjustGradleProperties();
+
+                AddPermissions(UsesPermissions);
 
                 AddDependencies(implementations);
 
@@ -169,6 +174,36 @@ android.enableJetifier=true
 
         File.WriteAllText(gradleSyncPath, gradleSyncContent);
         LogMessage(gradleSyncContent, MessageImportance.Normal);
+    }
+
+    private void AddPermissions(ITaskItem[] usesPermissions)
+    {
+        var permissions = ParsePermissions(usesPermissions);
+
+        if (permissions.Length == 0)
+        {
+            LogMessage("No permissions!");
+        }
+
+        var gradleSyncPath = Path.Combine(TempDir, "gradle_util/src/main/AndroidManifest.xml");
+
+        var xmlDocument = new XmlDocument();
+        var nsManager = new XmlNamespaceManager(xmlDocument.NameTable);
+        var androidNsUri = "http://schemas.android.com/apk/res/android";
+        nsManager.AddNamespace("android", androidNsUri);
+        xmlDocument.Load(gradleSyncPath);
+
+        LogMessage(xmlDocument.OuterXml, MessageImportance.Normal);
+
+        foreach (var permission in permissions)
+        {
+            var usesPermissionNode = xmlDocument.CreateElement("uses-permission");
+            usesPermissionNode.SetAttribute("name", androidNsUri, permission.Permission);
+            xmlDocument.DocumentElement.AppendChild(usesPermissionNode);
+        }
+
+        File.WriteAllText(gradleSyncPath, xmlDocument.OuterXml);
+        LogMessage(xmlDocument.OuterXml, MessageImportance.Normal);
     }
 
     private void AdjustSdkVersions()
@@ -348,7 +383,7 @@ android.enableJetifier=true
 
     private GradleRepository[] ParseRepositories(ITaskItem[] taskItems)
     {
-        if (taskItems == null || taskItems.Length == 0) return new GradleRepository[0];
+        if (taskItems == null || taskItems.Length == 0) return [];
 
         var repositories = new List<GradleRepository>();
 
@@ -364,12 +399,33 @@ android.enableJetifier=true
             repositories.Add(repository);
         }
 
-        return repositories.ToArray();
+        return [.. repositories];
+    }
+
+    private UsesPermission[] ParsePermissions(ITaskItem[] taskItems)
+    {
+        if (taskItems == null || taskItems.Length == 0) return [];
+
+        var permissions = new List<UsesPermission>();
+
+        for (int i = 0; i < taskItems.Length; i++)
+        {
+            var taskItem = taskItems[i];
+            var repository = new UsesPermission
+            {
+                Id = taskItem.ItemSpec,
+                Permission = taskItem.ItemSpec,
+
+            };
+            permissions.Add(repository);
+        }
+
+        return [.. permissions];
     }
 
     private GradleImplementation[] ParseImplementations(ITaskItem[] taskItems)
     {
-        if (taskItems == null || taskItems.Length == 0) return new GradleImplementation[0];
+        if (taskItems == null || taskItems.Length == 0) return [];
 
         var implementations = new List<GradleImplementation>();
 
