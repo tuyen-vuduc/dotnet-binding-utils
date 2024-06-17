@@ -26,9 +26,7 @@ public static class ArtifactScanner
         artifact.Nuget.DependencyOnly = false;
         artifacts.Add(artifact);
 
-        var homeFolder = Platform.IsWindows
-                    ? Environment.SpecialFolder.UserProfile
-                    : Environment.SpecialFolder.Personal;
+        var homeFolder = Environment.SpecialFolder.UserProfile;
         var homeFolderPath = Environment.GetFolderPath(homeFolder);
 
         var (artifactVersionFolderPath, artifactFiles) = GetArtifactFiles(
