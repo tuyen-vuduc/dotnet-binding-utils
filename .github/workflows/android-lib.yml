@@ -20,6 +20,7 @@ on:
         - com.mapbox.maps:base:11.4.1
         - com.mapbox.module:maps-telemetry:11.4.1
         - com.mapbox.extension:maps-style:11.4.1
+        - com.mapbox.extension:maps-localization:11.4.1
 jobs:
   build-then-publish:
     environment: production
