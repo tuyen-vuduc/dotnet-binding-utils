@@ -16,37 +16,7 @@ on:
         required: true
         type: choice
         options: 
-        - org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3
-        - dev.romainguy:kotlin-math:1.5.3
-        - io.coil-kt:coil:2.0.0
-        - org.slf4j:slf4j-api:1.7.24
-        - org.jetbrains.kotlin:kotlin-parcelize-runtime:1.6.10
-        - com.mapbox.mapboxsdk:mapbox-sdk-geojson:6.9.0
-        - com.mapbox.maps:android:11.3.1
-        - io.socket:socket.io-client:2.0.1
-        - org.mp4parser:muxer:1.9.56
-        - com.shakebugs:shake:17.0.0
-        - DriveSmart:DS-Tracker:1.5.83
-        - com.facebook.fresco:imagepipeline-base:3.1.3
-        - com.android.installreferrer:installreferrer:1.0
-        - com.facebook.android:facebook-android-sdk:17.0.0
-        - com.paypal.android:card-payments:1.3.0
-        - com.paypal.android:fraud-protection:1.3.0
-        - com.paypal.android:paypal-native-payments:1.3.0
-        - com.paypal.android:paypal-web-payments:1.3.0
-        - io.github.sceneview:sceneview:2.1.1
-        - io.github.sceneview:arsceneview:2.1.1
-        - com.braintreepayments.api:drop-in:6.16.0
-        - com.github.nguyenhoanglam:ImagePicker:1.6.3
-        - com.google.android.instantapps:instantapps:1.1.0
-        - com.google.pay.button:compose-pay-button:0.1.3
-        - com.stripe:link:20.43.0
-        - dev.drewhamilton.poko:poko-annotations:0.15.2
-        - com.stripe:paymentsheet:20.40.4
-        - com.stripe:stripe-android:20.40.4
-        - com.drivesync.android:devices-wedge:1.21.0
-        - com.intellimec.mobile.android:tripdetectionumbrella:1.21.0
-        - com.intellimec.mobile.android:distracteddriving:3.16.0
+        - com.stripe:stripe-android:20.46.0
         - com.airbnb.android:lottie:6.4.0
 jobs:
   build-then-publish:

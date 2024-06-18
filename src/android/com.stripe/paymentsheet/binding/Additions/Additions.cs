@@ -167,6 +167,10 @@ namespace Com.Stripe.Android.Paymentsheet.Forms
 }
 namespace Com.Stripe.Android.Paymentsheet.Injection
 {
+    partial class PaymentSheetCommonModule_Companion_ProvideCvcRecollectionLauncherFactoryFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
     partial class AddressElementViewModelModule_ProvideEventReporterFactory
     {
         global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
@@ -734,9 +738,6 @@ namespace Com.Stripe.Android.Paymentsheet.Model
                     => this.NewArray(size);
             }
         }
-    }
-    partial class PaymentSelection
-    {
         partial class Link
         {
             partial class Creator
@@ -747,9 +748,6 @@ namespace Com.Stripe.Android.Paymentsheet.Model
                     => this.NewArray(size);
             }
         }
-    }
-    partial class PaymentSelection
-    {
         partial class New
         {
             partial class Card
@@ -762,12 +760,6 @@ namespace Com.Stripe.Android.Paymentsheet.Model
                         => this.NewArray(size);
                 }
             }
-        }
-    }
-    partial class PaymentSelection
-    {
-        partial class New
-        {
             partial class GenericPaymentMethod
             {
                 partial class Creator
@@ -778,12 +770,6 @@ namespace Com.Stripe.Android.Paymentsheet.Model
                         => this.NewArray(size);
                 }
             }
-        }
-    }
-    partial class PaymentSelection
-    {
-        partial class New
-        {
             partial class LinkInline
             {
                 partial class Creator
@@ -794,30 +780,24 @@ namespace Com.Stripe.Android.Paymentsheet.Model
                         => this.NewArray(size);
                 }
             }
-        }
-    }
-    partial class PaymentSelection
-    {
-        partial class New
-        {
             partial class USBankAccount
             {
                 partial class Creator
                 {
                     global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source)
-              => this.CreateFromParcel(source);
+                        => this.CreateFromParcel(source);
                     global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
                         => this.NewArray(size);
                 }
-            }
-        }
-    }
-    partial class PaymentSelection
-    {
-        partial class New
-        {
-            partial class USBankAccount
-            {
+                partial class InstantDebitsInfo {
+                    partial class Creator
+                    {
+                        global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source)
+                            => this.CreateFromParcel(source);
+                        global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
+                            => this.NewArray(size);
+                    }
+                }
                 partial class Input
                 {
                     partial class Creator
@@ -830,11 +810,17 @@ namespace Com.Stripe.Android.Paymentsheet.Model
                 }
             }
         }
-    }
-    partial class PaymentSelection
-    {
         partial class Saved
         {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source)
+              => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
+                    => this.NewArray(size);
+            }
+        }
+        partial class ExternalPaymentMethod {
             partial class Creator
             {
                 global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source)
@@ -895,5 +881,25 @@ namespace Com.Stripe.Android.Paymentsheet.Databinding
     partial class StripeFragmentPaymentSheetPrimaryButtonBinding
     {
         global::Android.Views.View global::AndroidX.ViewBinding.IViewBinding.Root => Root;
+    }
+}
+namespace Com.Stripe.Android.Paymentsheet.Navigation {
+    partial interface IPaymentSheetScreen {
+        partial class SelectSavedPaymentMethods {
+            partial interface ICvcRecollectionState {
+                partial class NotRequired {
+                    // Metadata.xml XPath field reference: path="/api/package[@name='com.stripe.android.paymentsheet.navigation']/class[@name='PaymentSheetScreen.SelectSavedPaymentMethods.CvcRecollectionState.NotRequired']/field[@name='INSTANCE']"
+					[Register ("INSTANCE")]
+					public static global::Com.Stripe.Android.Paymentsheet.Navigation.IPaymentSheetScreen.SelectSavedPaymentMethods.ICvcRecollectionState.NotRequired Instance {
+						get {
+							const string __id = "INSTANCE.Lcom/stripe/android/paymentsheet/navigation/PaymentSheetScreen$SelectSavedPaymentMethods$CvcRecollectionState$NotRequired;";
+
+							var __v = _members.StaticFields.GetObjectValue (__id);
+							return global::Java.Lang.Object.GetObject<global::Com.Stripe.Android.Paymentsheet.Navigation.IPaymentSheetScreen.SelectSavedPaymentMethods.ICvcRecollectionState.NotRequired> (__v.Handle, JniHandleOwnership.TransferLocalRef)!;
+						}
+					}
+                }
+            }
+        }
     }
 }

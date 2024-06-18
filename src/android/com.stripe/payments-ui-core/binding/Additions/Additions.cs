@@ -53,6 +53,45 @@ namespace Com.Stripe.Android.UI.Core.Cbc
 }
 namespace Com.Stripe.Android.UI.Core.Elements
 {
+    partial class IbanConfig
+    {
+        global::Xamarin.KotlinX.Coroutines.Flow.IStateFlow global::Com.Stripe.Android.Uicore.Elements.ITextFieldConfig.TrailingIcon => TrailingIcon;
+        global::Xamarin.KotlinX.Coroutines.Flow.IStateFlow global::Com.Stripe.Android.Uicore.Elements.ITextFieldConfig.Loading => Loading;
+    }
+    partial class AuBecsDebitMandateTextElement
+    {
+        global::Com.Stripe.Android.Uicore.Elements.IController global::Com.Stripe.Android.Uicore.Elements.IFormElement.Controller => Controller;
+    }
+    partial class CardDetailsSectionElement
+    {
+        global::Com.Stripe.Android.Uicore.Elements.IController global::Com.Stripe.Android.Uicore.Elements.IFormElement.Controller => Controller;
+    }
+    partial class MandateTextElement
+    {
+        global::Com.Stripe.Android.Uicore.Elements.IController global::Com.Stripe.Android.Uicore.Elements.IFormElement.Controller => Controller;
+    }
+    partial class SaveForFutureUseElement
+    {
+        global::Com.Stripe.Android.Uicore.Elements.IController global::Com.Stripe.Android.Uicore.Elements.IFormElement.Controller => Controller;
+    }
+    partial class StaticTextElement
+    {
+        global::Com.Stripe.Android.Uicore.Elements.IController global::Com.Stripe.Android.Uicore.Elements.IFormElement.Controller => Controller;
+    }
+    partial class ExternalPaymentMethodsRepository_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class ExternalPaymentMethodSpec
+    {
+        partial class Creator
+        {
+            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel source)
+  => this.CreateFromParcel(source);
+            global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
+                => this.NewArray(size);
+        }
+    }
     partial class AddressSpec
     {
         partial class Creator

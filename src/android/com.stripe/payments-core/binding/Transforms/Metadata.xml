@@ -181,4 +181,7 @@
   <attr path="/api/package[@name='com.stripe.android.model']/class[@name='MandateDataParams.Type.Online']/method[@name='toParamMap' and count(parameter)=0]"
         name="managedName">ToParamMapX</attr>
   <remove-node path="/api/package[@name='com.stripe.android.model']/interface[@name='ConfirmStripeIntentParams']/implements[@name='com.stripe.android.model.StripeParamsModel']"/>
+  <attr path="//field[@name='CARD']" name="managedName">CARD</attr>
+  <attr path="//field[@name='CREATOR']" name="managedName">CREATOR</attr>
+  <attr path="//field[@name='REQUIRE_CVC_RECOLLECTION']" name="managedName">REQUIRE_CVC_RECOLLECTION</attr>
 </metadata>
