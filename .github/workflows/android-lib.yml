@@ -19,6 +19,7 @@ on:
         - com.stripe:stripe-android:20.46.0
         - com.mapbox.maps:base:11.4.1
         - com.mapbox.module:maps-telemetry:11.4.1
+        - com.mapbox.extension:maps-style:11.4.1
 jobs:
   build-then-publish:
     environment: production

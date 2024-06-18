@@ -1562,6 +1562,56 @@ namespace Com.Mapbox.Maps.Extension.Style
 
 namespace Com.Mapbox.Maps.Extension.Style.Layers.Generated
 {
+    partial class SlotLayer
+    {
+        public override unsafe global::Com.Mapbox.Maps.Extension.Style.Layers.Layer Slot(string slot)
+        {
+            return SetSlot(slot);
+        }
+        public override unsafe global::Com.Mapbox.Maps.Extension.Style.Layers.Layer MaxZoom(double maxZoom)
+        {
+            return SetMaxZoom(maxZoom);
+        }
+        public override unsafe global::Com.Mapbox.Maps.Extension.Style.Layers.Layer MinZoom(double minZoom)
+        {
+            return SetMinZoom(minZoom);
+        }
+
+        public override unsafe global::Com.Mapbox.Maps.Extension.Style.Layers.Layer Visibility(global::Com.Mapbox.Maps.Extension.Style.Layers.Properties.Generated.Visibility visibility)
+        {
+            return SetVisibility(visibility);
+        }
+
+        public override unsafe global::Com.Mapbox.Maps.Extension.Style.Layers.Layer Visibility(global::Com.Mapbox.Maps.Extension.Style.Expressions.Generated.Expression visibility)
+        {
+            return SetVisibility(visibility);
+        }
+    }    
+    partial class RasterParticleLayer
+    {
+        public override unsafe global::Com.Mapbox.Maps.Extension.Style.Layers.Layer Slot(string slot)
+        {
+            return SetSlot(slot);
+        }
+        public override unsafe global::Com.Mapbox.Maps.Extension.Style.Layers.Layer MaxZoom(double maxZoom)
+        {
+            return SetMaxZoom(maxZoom);
+        }
+        public override unsafe global::Com.Mapbox.Maps.Extension.Style.Layers.Layer MinZoom(double minZoom)
+        {
+            return SetMinZoom(minZoom);
+        }
+
+        public override unsafe global::Com.Mapbox.Maps.Extension.Style.Layers.Layer Visibility(global::Com.Mapbox.Maps.Extension.Style.Layers.Properties.Generated.Visibility visibility)
+        {
+            return SetVisibility(visibility);
+        }
+
+        public override unsafe global::Com.Mapbox.Maps.Extension.Style.Layers.Layer Visibility(global::Com.Mapbox.Maps.Extension.Style.Expressions.Generated.Expression visibility)
+        {
+            return SetVisibility(visibility);
+        }
+    }    
     partial class BackgroundLayer
     {
         public override unsafe global::Com.Mapbox.Maps.Extension.Style.Layers.Layer Slot(string slot)
