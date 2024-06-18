@@ -17,17 +17,23 @@
   <attr path="/api/package[@name='com.stripe.android.paymentsheet.paymentdatacollection.bacs']/interface[@name='BacsMandateConfirmationLauncher']"
         name="visibility">public</attr>
   <attr path="/api/package[@name='com.stripe.android.paymentsheet']/interface[@name='PrefsRepository']"
-        name="visibility">public</attr>
-  <attr path="/api/package[@name='com.stripe.android.paymentsheet.navigation']/interface[@name='PaymentSheetScreen']"
-        name="visibility">public</attr>        
+        name="visibility">public</attr>     
   <attr path="/api/package[@name='com.stripe.android.paymentsheet.ui']/interface[@name='ModifiableEditPaymentMethodViewInteractor']"
-  name="visibility">public</attr>
+        name="visibility">public</attr>
   <attr path="/api/package[@name='com.stripe.android.paymentsheet.analytics']/interface[@name='EventReporter']"
         name="visibility">public</attr>
   <attr path="/api/package[@name='com.stripe.android.customersheet']/class[@name='CustomerSheetViewState']"
+        name="visibility">public</attr>
+  <attr path="/api/package[@name='com.stripe.android.paymentsheet.paymentdatacollection.cvcrecollection']/interface[@name='CvcRecollectionLauncherFactory']"
+        name="visibility">public</attr>
+  <attr path="/api/package[@name='com.stripe.android.paymentsheet.navigation']/interface[@name='PaymentSheetScreen']"
+        name="visibility">public</attr>
+  <attr path="/api/package[@name='com.stripe.android.paymentsheet.paymentdatacollection.cvcrecollection']/interface[@name='CvcRecollectionLauncher']"
         name="visibility">public</attr>
   <attr path="/api/package[@name='com.stripe.android.paymentsheet.model']/class[@name='PaymentSelection.New.LinkInline']/method[@name='getPaymentMethodExtraParams' and count(parameter)=0]"
         name="managedReturn">Com.Stripe.Android.Model.PaymentMethodExtraParams</attr>
   <attr path="//class[@extends='androidx.activity.result.contract.ActivityResultContract']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]"
         name="managedName">ParseResultX</attr>
+  <remove-node path="/api/package[@name='com.stripe.android.paymentsheet.navigation']/class[@name='PaymentSheetScreen.SelectSavedPaymentMethods.CvcRecollectionState.NotRequired']/field[@name='INSTANCE']" />
+
 </metadata>
