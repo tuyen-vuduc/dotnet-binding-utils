@@ -17,7 +17,7 @@ on:
         type: choice
         options: 
         - com.stripe:stripe-android:20.46.0
-        - com.airbnb.android:lottie:6.4.0
+        - com.mapbox.maps:base:11.4.1
 jobs:
   build-then-publish:
     environment: production
