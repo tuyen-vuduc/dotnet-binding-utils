@@ -330,3 +330,24 @@ namespace Com.Stripe.Android.Core.Injection
         global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
     }
 }
+namespace Com.Stripe.Android.Core.Networking {
+    
+    partial class RealAnalyticsRequestV2Storage_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+}
+namespace Com.Stripe.Android.Core.Model.Serializers {
+    partial class CountryListSerializer : global::KotlinX.Serialization.ISerializationStrategy
+    {
+        Java.Lang.Object? KotlinX.Serialization.IDeserializationStrategy.Deserialize(KotlinX.Serialization.Encoding.IDecoder decoder)
+            => new global::Android.Runtime.JavaList<global::Com.Stripe.Android.Core.Model.Country>(Deserialize(decoder));
+
+        void KotlinX.Serialization.ISerializationStrategy.Serialize(KotlinX.Serialization.Encoding.IEncoder encoder, Java.Lang.Object? value) {
+            var xvalue = global::Android.Runtime.JavaList<global::Com.Stripe.Android.Core.Model.Country>.FromJniHandle(
+                value.Handle, 
+                JniHandleOwnership.TransferLocalRef);
+            Serialize(encoder, xvalue);
+        }
+    }
+}
