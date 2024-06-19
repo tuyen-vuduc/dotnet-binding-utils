@@ -1,25 +1,25 @@
 namespace Com.Mapbox.Maps.Plugins.Annotations.Generated
 {
-    partial class PolygonAnnotationManager
-    {
-        protected override global::Java.Lang.Object CreateLayer() => DoCreateLayer();
-        protected override global::Java.Lang.Object CreateDragLayer() => DoCreateDragLayer();
-    }
-    partial class CircleAnnotationManager
-    {
-        protected override global::Java.Lang.Object CreateLayer() => DoCreateLayer();
-        protected override global::Java.Lang.Object CreateDragLayer() => DoCreateDragLayer();
-    }
-    partial class PointAnnotationManager
-    {
-        protected override global::Java.Lang.Object CreateLayer() => DoCreateLayer();
-        protected override global::Java.Lang.Object CreateDragLayer() => DoCreateDragLayer();
-    }
-    partial class PolylineAnnotationManager
-    {
-        protected override global::Java.Lang.Object CreateLayer() => DoCreateLayer();
-        protected override global::Java.Lang.Object CreateDragLayer() => DoCreateDragLayer();
-    }
+    // partial class PolygonAnnotationManager
+    // {
+    //     protected override global::Java.Lang.Object CreateLayer() => DoCreateLayer();
+    //     protected override global::Java.Lang.Object CreateDragLayer() => DoCreateDragLayer();
+    // }
+    // partial class CircleAnnotationManager
+    // {
+    //     protected override global::Java.Lang.Object CreateLayer() => DoCreateLayer();
+    //     protected override global::Java.Lang.Object CreateDragLayer() => DoCreateDragLayer();
+    // }
+    // partial class PointAnnotationManager
+    // {
+    //     protected override global::Java.Lang.Object CreateLayer() => DoCreateLayer();
+    //     protected override global::Java.Lang.Object CreateDragLayer() => DoCreateDragLayer();
+    // }
+    // partial class PolylineAnnotationManager
+    // {
+    //     protected override global::Java.Lang.Object CreateLayer() => DoCreateLayer();
+    //     protected override global::Java.Lang.Object CreateDragLayer() => DoCreateDragLayer();
+    // }
 }
 namespace Com.Mapbox.Maps.Plugins.Annotations.Generated
 {
