@@ -225,7 +225,7 @@ SWIFT_CLASS("_TtC5Shake16SHKSocketService")
 @interface SHKSocketService : NSObject
 @property (nonatomic, strong) id _Nullable delegate;
 - (nonnull instancetype)initWithEndpointURL:(NSURL * _Nonnull)endpointURL OBJC_DESIGNATED_INITIALIZER;
-- (void)userDidRegisterWithIdentifierWithIdentifier:(NSString * _Nonnull)identifier token:(NSString * _Nonnull)token;
+- (void)userDidRegisterWithIdentifierWithIdentifier:(NSString * _Nonnull)identifier apiKey:(NSString * _Nonnull)apiKey;
 - (void)userDidUnregister;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");

@@ -45,10 +45,10 @@ typedef NS_ENUM(NSUInteger, LogLevel) {
 @property (nonnull, class, readonly) SHKShakeConfiguration* configuration;
 
 /**
- Starts the Shake with the provided client and secret. Also start the tracking and Shake features specified in the "configuration" object.
+ Starts the Shake with the provided api key. Also start the tracking and Shake features specified in the "configuration" object.
  */
-+ (void)startWithClientId:(nonnull NSString *)clientId clientSecret:(nonnull NSString *)clientSecret
-NS_SWIFT_NAME(start(clientId:clientSecret:));
++ (void)startWithApiKey:(nonnull NSString *)apiKey
+NS_SWIFT_NAME(start(apiKey:));
 
 
 /**
