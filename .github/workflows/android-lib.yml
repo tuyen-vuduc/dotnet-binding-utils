@@ -25,6 +25,7 @@ on:
         - com.mapbox.plugin:maps-attribution:11.4.1
         - com.mapbox.plugin:maps-compass:11.4.1
         - com.mapbox.plugin:maps-gestures:11.4.1
+        - com.mapbox.plugin:maps-lifecycle:11.4.1
 jobs:
   build-then-publish:
     environment: production
