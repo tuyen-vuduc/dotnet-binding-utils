@@ -32,6 +32,7 @@ on:
         - com.mapbox.plugin:maps-scalebar:11.4.1
         - com.mapbox.plugin:maps-viewport:11.4.1
         - com.mapbox.plugin:maps-annotation:11.4.1
+        - com.mapbox.maps:android:11.4.1
 jobs:
   build-then-publish:
     environment: production
