@@ -2,6 +2,6 @@
   "packageId": "Com.Mapbox.Plugin.MapsViewport",
   "name": "maps-viewport",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }
