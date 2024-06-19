@@ -2,5 +2,6 @@
   "packageId": "Com.Facebook.Fresco.Nativeimagefilters",
   "name": "nativeimagefilters",
   "dependencyOnly": false,
+  "dotnet8": true,
   "versionMappings": []
 }

@@ -2,5 +2,6 @@
   "packageId": "Com.Facebook.Fresco.MemoryTypeAshmem",
   "name": "memory-type-ashmem",
   "dependencyOnly": false,
+  "dotnet8": true,
   "versionMappings": []
 }

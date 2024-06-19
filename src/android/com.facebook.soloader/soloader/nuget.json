@@ -2,5 +2,6 @@
   "packageId": "Com.Facebook.Soloader.Soloader",
   "name": "soloader",
   "dependencyOnly": false,
+  "dotnet8": true,
   "versionMappings": []
 }

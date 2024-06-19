@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Parse.Bolts.BoltsTasks",
   "name": "bolts-tasks",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "dotnet8": false,
   "versionMappings": []
 }

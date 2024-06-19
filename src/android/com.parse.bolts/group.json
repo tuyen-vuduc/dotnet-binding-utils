@@ -1,3 +1,5 @@
 {
-  "name": "Parse Bolts"
+  "name": "Parse Bolts",
+  "dotnet8": true,
+  "runtimeDependenciesAsCompile": true
 }
