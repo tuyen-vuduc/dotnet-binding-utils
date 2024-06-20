@@ -624,9 +624,9 @@ namespace Shake
 		[DesignatedInitializer]
 		NativeHandle Constructor (NSUrl endpointURL);
 
-		// -(void)userDidRegisterWithIdentifierWithIdentifier:(NSString * _Nonnull)identifier token:(NSString * _Nonnull)token;
-		[Export ("userDidRegisterWithIdentifierWithIdentifier:token:")]
-		void UserDidRegisterWithIdentifierWithIdentifier (string identifier, string token);
+		// - (void)userDidRegisterWithIdentifierWithIdentifier:(NSString * _Nonnull)identifier apiKey:(NSString * _Nonnull)apiKey;
+		[Export ("userDidRegisterWithIdentifierWithIdentifier:apiKey:")]
+		void UserDidRegisterWithIdentifierWithIdentifier (string identifier, string apiKey);
 
 		// -(void)userDidUnregister;
 		[Export ("userDidUnregister")]
@@ -664,11 +664,11 @@ namespace Shake
 		[Static]
 		[Export ("configuration")]
 		SHKShakeConfiguration Configuration { get; }
-
-		// +(void)startWithClientId:(NSString * _Nonnull)clientId clientSecret:(NSString * _Nonnull)clientSecret __attribute__((swift_name("start(clientId:clientSecret:)")));
+		
+		// + (void)startWithApiKey:(nonnull NSString *)apiKey
 		[Static]
-		[Export ("startWithClientId:clientSecret:")]
-		void StartWithClientId (string clientId, string clientSecret);
+		[Export ("startWithApiKey:")]
+		void StartWithApiKey (string apiKey);
 
 		// @property (nonatomic, class) NSArray<SHKShakeFile *> * _Nonnull (^ _Nullable)(void) onPrepareReportData;
 		[Static]
