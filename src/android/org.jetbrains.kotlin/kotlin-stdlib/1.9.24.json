@@ -1,5 +1,3 @@
 {
-  "revision": 0,
-  "nugetVersion": "1.9.24",
-  "runtimeDependenciesAsCompile": true
+  "fallbackVersion": "2.0.0"
 }

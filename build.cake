@@ -41,18 +41,18 @@ Task("Copy group maven.props")
     var groupPropsPath = $"./src/android/{artifactParts[0]}/maven.props";
     if (FileExists(groupPropsPath))
     {
-        Information ($"MAVEN_PROPS            : {groupPropsPath}");
+        Information ($"Maven for group            : {groupPropsPath}");
         CopyFile(groupPropsPath, $"./src/libs/BindingHost/{artifactParts[0]}_maven.props");
     } else {
-        Information("NO CUSTOM maven.props for group");
+        Information ($"Maven for group            : N/A");
     }
     var artifactPropsPath = $"./src/android/{artifactParts[0]}/{artifactParts[1]}/maven.props";
     if (FileExists(artifactPropsPath))
     {
-        Information ($"MAVEN_PROPS            : {artifactPropsPath}");
+        Information ($"Maven for artifact            : {artifactPropsPath}");
         CopyFile(artifactPropsPath, $"./src/libs/BindingHost/{artifactParts[0]})_{artifactParts[1]}_maven.props");
     } else {
-        Information("NO CUSTOM maven.props for artifact");
+        Information ($"Maven for artifact            : N/A");
     }
 });
 
