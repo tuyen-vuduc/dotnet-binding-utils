@@ -2,18 +2,13 @@
 Pods
 build
 
-!Carthage/
-Carthage/*
 
-!Carthage/Build/
-Carthage/Build/*
+!*.xcframework/
+*.xcframework/*
+!*.xcframework/ios-arm64/
 
-!Carthage/Build/*.xcframework/
-Carthage/Build/*.xcframework/*
-!Carthage/Build/*.xcframework/ios-arm64/
+*.xcframework/ios-arm64/*
+!*.xcframework/ios-arm64/*.framework/
 
-Carthage/Build/*.xcframework/ios-arm64/*
-!Carthage/Build/*.xcframework/ios-arm64/*.framework/
-
-Carthage/Build/*.xcframework/ios-arm64/*.framework/*
-!Carthage/Build/*.xcframework/ios-arm64/*.framework/Headers/
+*.xcframework/ios-arm64/*.framework/*
+!*.xcframework/ios-arm64/*.framework/Headers/
