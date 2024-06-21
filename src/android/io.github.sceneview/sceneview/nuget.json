@@ -1,7 +1,7 @@
 {
   "packageId": "Io.Github.Sceneview.Sceneview",
   "name": "sceneview",
-  "dependencyOnly": false,
-  "dotnet8": false,
+  "dependencyOnly": true,
+  "dotnet8": true,
   "versionMappings": []
 }

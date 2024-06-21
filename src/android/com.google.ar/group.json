@@ -1,3 +1,5 @@
 {
-  "name": "com.google.ar"
+  "name": "com.google.ar",
+  "dotnet8": true,
+  "runtimeDependenciesAsCompile": true
 }
