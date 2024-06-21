@@ -1,3 +1,5 @@
 {
-  "name": "androidx.savedstate"
+  "name": "androidx.savedstate",
+  "dotnet8": true,
+  "runtimeDependenciesAsCompile": true
 }

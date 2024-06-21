@@ -1,3 +1,5 @@
 {
-  "name": "AndroidX.Collection"
+  "name": "AndroidX.Collection",
+  "dotnet8": true,
+  "runtimeDependenciesAsCompile": true
 }

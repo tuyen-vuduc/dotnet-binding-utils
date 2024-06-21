@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Collection.Ktx",
+  "name": "collection-ktx",
   "dependencyOnly": true,
   "dotnet8": false,
   "versionMappings": []

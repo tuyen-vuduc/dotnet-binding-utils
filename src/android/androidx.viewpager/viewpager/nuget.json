@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.ViewPager",
+  "name": "viewpager",
   "dependencyOnly": true,
   "dotnet8": false,
   "versionMappings": []

@@ -1,5 +1,5 @@
 {
-  "name": "org.jetbrains",
+  "name": "androidx.loader",
   "dotnet8": true,
   "runtimeDependenciesAsCompile": true
 }

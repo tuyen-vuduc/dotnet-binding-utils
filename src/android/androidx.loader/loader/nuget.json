@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Loader",
+  "name": "loader",
   "dependencyOnly": true,
   "dotnet8": false,
   "versionMappings": []

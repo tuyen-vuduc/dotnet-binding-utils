@@ -1,5 +1,5 @@
 {
-  "name": "org.jetbrains",
+  "name": "androidx.viewpager",
   "dotnet8": true,
   "runtimeDependenciesAsCompile": true
 }
