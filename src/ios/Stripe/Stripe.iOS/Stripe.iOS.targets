@@ -2,7 +2,7 @@
 
 <Project>
 	<PropertyGroup>
-		<_Stripe>23.27.1</_Stripe>
+		<_Stripe>23.27.4</_Stripe>
 		<_NugetSuffix></_NugetSuffix>
 		<_StripeAssemblyName>Stripe.iOS, Version=$(_Stripe), Culture=neutral, PublicKeyToken=null </_StripeAssemblyName>
 		<_StripeItemsFolder>Stripe-$(_Stripe)$(_NugetSuffix)</_StripeItemsFolder>

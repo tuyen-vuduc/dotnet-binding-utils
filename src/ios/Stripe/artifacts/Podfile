@@ -19,9 +19,9 @@ plugin 'cocoapods-rome', { :pre_compile => Proc.new { |installer|
 }
 
 target 'stripeqs' do
-    pod 'Stripe', '23.27.1'
-    pod 'StripeCardScan', '23.27.1'
-    pod 'StripePaymentSheet', '23.27.1'
-    pod 'StripeFinancialConnections', '23.27.1'
-    pod 'StripeIdentity', '23.27.1'
+    pod 'Stripe', '23.27.4'
+    pod 'StripeCardScan', '23.27.4'
+    pod 'StripePaymentSheet', '23.27.4'
+    pod 'StripeFinancialConnections', '23.27.4'
+    pod 'StripeIdentity', '23.27.4'
 end

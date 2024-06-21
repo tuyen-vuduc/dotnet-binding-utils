@@ -15,18 +15,18 @@
     <_NugetVersion>$(_NativeVersion)$(_NugetSuffix)</_NugetVersion>
   </PropertyGroup>
   <PropertyGroup>
-    <RootNamespace>Stripe3DS2.iOS</RootNamespace>
+    <RootNamespace>StripeApplePay.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>Stripe3DS2.iOS</AssemblyName>
+    <AssemblyName>StripeApplePay.iOS</AssemblyName>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <AssemblyVersion>$(_NativeVersion)</AssemblyVersion>
     <FileVersion>$(_NativeVersion)</FileVersion>
   </PropertyGroup>
   <PropertyGroup>
-    <PackageId>Stripe3DS2.iOS</PackageId>
+    <PackageId>StripeApplePay.iOS</PackageId>
     <Title>Stripe SDK library for .NET iOS</Title>
-    <Summary>.NET iOS bindings for Stripe SDK - Stripe3DS2</Summary>
-    <Description>.NET iOS bindings for Stripe SDK - Stripe3DS2</Description>
+    <Summary>.NET iOS bindings for Stripe SDK - StripeApplePay</Summary>
+    <Description>.NET iOS bindings for Stripe SDK - StripeApplePay</Description>
     <Authors>tuyen,tuyen-vuduc</Authors>
     <Owners>tuyen,tuyen-vuduc</Owners>
     <Copyright>© tuyen-vuduc. All rights reserved.</Copyright>
@@ -38,12 +38,12 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Stripe3DS2.iOS.targets" Pack="True" PackagePath="build/Stripe3DS2.iOS.targets" />
-    <None Include="Stripe3DS2.iOS.targets" Pack="True" PackagePath="buildTransitive/Stripe3DS2.iOS.targets" />
+    <None Include="StripeApplePay.iOS.targets" Pack="True" PackagePath="build/StripeApplePay.iOS.targets" />
+    <None Include="StripeApplePay.iOS.targets" Pack="True" PackagePath="buildTransitive/StripeApplePay.iOS.targets" />
   </ItemGroup>
-  <Import Project="Stripe3DS2.iOS.targets" />
+  <Import Project="StripeApplePay.iOS.targets" />
   <ItemGroup>
-    <_NativeReference Include="../artifacts/Stripe3DS2.xcframework">
+    <_NativeReference Include="../artifacts/StripeApplePay.xcframework">
         <_Id>$(_StripeId)</_Id>
     </_NativeReference>
   </ItemGroup>

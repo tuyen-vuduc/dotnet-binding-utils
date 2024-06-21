@@ -332,6 +332,17 @@ SWIFT_CLASS_NAMED("AddressViewController")
 
 
 
+/// For internal SDK use only.
+SWIFT_CLASS_NAMED("DownloadManager")
+@interface STP_Internal_DownloadManager : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+
+
+
 /// <code>LinkPaymentController</code> encapsulates the Link payment flow, allowing you to let your customers pay with their Link account.
 /// This feature is currently invite-only. To accept payments, <a href="https://stripe.com/docs/payments/accept-a-payment?platform=ios&ui=payment-sheet">use the Mobile Payment Element.</a>
 SWIFT_CLASS("_TtC18StripePaymentSheet21LinkPaymentController")
@@ -339,6 +350,10 @@ SWIFT_CLASS("_TtC18StripePaymentSheet21LinkPaymentController")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+
+
+
 
 
 

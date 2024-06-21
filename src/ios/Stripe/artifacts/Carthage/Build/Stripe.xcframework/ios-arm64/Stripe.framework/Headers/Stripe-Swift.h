@@ -1850,7 +1850,6 @@ SWIFT_CLASS("_TtC6Stripe18STPUserInformation")
 
 
 
-
 @interface UINavigationBar (SWIFT_EXTENSION(Stripe))
 /// Sets the navigation bar’s appearance to the desired theme. This will affect the
 /// bar’s <code>tintColor</code> and <code>barTintColor</code> properties, as well as the color of the
@@ -1865,7 +1864,6 @@ SWIFT_CLASS("_TtC6Stripe18STPUserInformation")
 /// STPTheme.h
 @property (nonatomic, strong) STPTheme * _Nullable stp_theme;
 @end
-
 
 
 

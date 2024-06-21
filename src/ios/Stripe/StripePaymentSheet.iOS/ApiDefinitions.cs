@@ -5,29 +5,16 @@ namespace StripePaymentSheet
 {
 	// @interface STPAddressViewController : UIViewController
 	[BaseType (typeof(UIViewController))]
-	interface STPAddressViewController
+	partial interface STPAddressViewController
 	{
-		// -(void)viewDidLoad;
-		[Export ("viewDidLoad")]
-		void ViewDidLoad ();
-
-		// -(void)viewDidAppear:(BOOL)animated;
-		[Export ("viewDidAppear:")]
-		void ViewDidAppear (bool animated);
-
-		// -(void)viewWillDisappear:(BOOL)animated;
-		[Export ("viewWillDisappear:")]
-		void ViewWillDisappear (bool animated);
 	}
 
 	// @interface StripePaymentSheet_Swift_323 (STPAddressViewController) <UIGestureRecognizerDelegate>
-	[Category]
-	[BaseType (typeof(STPAddressViewController))]
-	interface STPAddressViewController_StripePaymentSheet_Swift_323 : IUIGestureRecognizerDelegate
+	partial interface STPAddressViewController : IUIGestureRecognizerDelegate
 	{
 		// -(BOOL)gestureRecognizer:(UIGestureRecognizer * _Nonnull)gestureRecognizer shouldReceiveTouch:(UITouch * _Nonnull)touch __attribute__((warn_unused_result("")));
 		[Export ("gestureRecognizer:shouldReceiveTouch:")]
-		bool GestureRecognizer (UIGestureRecognizer gestureRecognizer, UITouch touch);
+		bool ShouldReceiveTouch(UIGestureRecognizer gestureRecognizer, UITouch touch);
 	}
 
 	// @interface LinkPaymentController : NSObject
@@ -35,18 +22,5 @@ namespace StripePaymentSheet
 	[DisableDefaultCtor]
 	interface LinkPaymentController
 	{
-	}
-
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
-	partial interface Constants
-	{
-		// extern double StripePaymentSheetVersionNumber;
-		[Field ("StripePaymentSheetVersionNumber", "__Internal")]
-		double StripePaymentSheetVersionNumber { get; }
-
-		// extern const unsigned char[] StripePaymentSheetVersionString;
-		[Field ("StripePaymentSheetVersionString", "__Internal")]
-		byte[] StripePaymentSheetVersionString { get; }
 	}
 }

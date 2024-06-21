@@ -302,19 +302,9 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if defined(__OBJC__)
 
 
-/// For internal SDK use only.
-SWIFT_CLASS_NAMED("DownloadManager")
-@interface STP_Internal_DownloadManager : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
 
 
-
-
-
-
-
+@class NSObject;
 
 @interface NSError (SWIFT_EXTENSION(StripeCore))
 /// Creates an NSError object from a given Stripe API json response.
@@ -669,7 +659,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSArray<PKPaymentNetwork
 + (BOOL)handleStripeURLCallbackWithURL:(NSURL * _Nonnull)url;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
-
 
 
 

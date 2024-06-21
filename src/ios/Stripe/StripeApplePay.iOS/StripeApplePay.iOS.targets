@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <Project>
 	<PropertyGroup>
 		<_Stripe>23.27.4</_Stripe>
 		<_NugetSuffix></_NugetSuffix>
-		<_StripePaymentsUIAssemblyName>StripePaymentsUI.iOS, Version=$(_Stripe), Culture=neutral, PublicKeyToken=null </_StripePaymentsUIAssemblyName>
+		<_StripeApplePayAssemblyName>StripeApplePay.iOS, Version=$(_Stripe), Culture=neutral, PublicKeyToken=null </_StripeApplePayAssemblyName>
 		<_StripeItemsFolder>Stripe-$(_Stripe)$(_NugetSuffix)</_StripeItemsFolder>
 		<_StripeSDKBaseFolder>$(XamarinBuildDownloadDir)$(_StripeItemsFolder)\</_StripeSDKBaseFolder>
 	</PropertyGroup>
@@ -12,7 +13,7 @@
       <Url>https://github.com/stripe/stripe-ios/releases/download/$(_Stripe)/Stripe.xcframework.zip</Url>
       <Kind>Zip</Kind>
     </XamarinBuildDownload>
-    <NativeReference Include="$(_StripeSDKBaseFolder)stripe-ios-$(_Stripe)\Stripe.xcframework\StripePaymentsUI.xcframework">
+    <NativeReference Include="$(_StripeSDKBaseFolder)stripe-ios-$(_Stripe)\Stripe.xcframework\StripeApplePay.xcframework">
       <Kind>Framework</Kind>
       <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>

@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1706.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stripe.iOS", "Stripe.iOS\Stripe.iOS.csproj", "{E6EF9027-62C9-457E-AD21-2FCE21DD2134}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StripeCore.iOS", "StripeCore.iOS\StripeCore.iOS.csproj", "{8BFF9BFE-BA23-48B6-874A-32EB2CBC089E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StripePayments.iOS", "StripePayments.iOS\StripePayments.iOS.csproj", "{47CE7323-8AAC-4B1B-9B00-C32CA25C4E2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StripeApplePay.iOS", "StripeApplePay.iOS\StripeApplePay.iOS.csproj", "{2CDC18BE-667C-4177-ACE9-37F69E4959F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StripePaymentsUI.iOS", "StripePaymentsUI.iOS\StripePaymentsUI.iOS.csproj", "{09075971-D5B6-4ACD-9E99-F423C31541F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StripePaymentSheet.iOS", "StripePaymentSheet.iOS\StripePaymentSheet.iOS.csproj", "{28445C2D-A1C8-43F9-9116-CB4DED4ACF28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StripeUICore.iOS", "StripeUICore.iOS\StripeUICore.iOS.csproj", "{62041446-3207-4513-BC91-50A2190E0A2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stripe3DS2.iOS", "Stripe3DS2.iOS\Stripe3DS2.iOS.csproj", "{2EA79DDB-C292-4CC2-BDD1-F7C637D19C6C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6EF9027-62C9-457E-AD21-2FCE21DD2134}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6EF9027-62C9-457E-AD21-2FCE21DD2134}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6EF9027-62C9-457E-AD21-2FCE21DD2134}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6EF9027-62C9-457E-AD21-2FCE21DD2134}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BFF9BFE-BA23-48B6-874A-32EB2CBC089E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BFF9BFE-BA23-48B6-874A-32EB2CBC089E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BFF9BFE-BA23-48B6-874A-32EB2CBC089E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BFF9BFE-BA23-48B6-874A-32EB2CBC089E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47CE7323-8AAC-4B1B-9B00-C32CA25C4E2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47CE7323-8AAC-4B1B-9B00-C32CA25C4E2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47CE7323-8AAC-4B1B-9B00-C32CA25C4E2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47CE7323-8AAC-4B1B-9B00-C32CA25C4E2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CDC18BE-667C-4177-ACE9-37F69E4959F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CDC18BE-667C-4177-ACE9-37F69E4959F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CDC18BE-667C-4177-ACE9-37F69E4959F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CDC18BE-667C-4177-ACE9-37F69E4959F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09075971-D5B6-4ACD-9E99-F423C31541F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09075971-D5B6-4ACD-9E99-F423C31541F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09075971-D5B6-4ACD-9E99-F423C31541F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09075971-D5B6-4ACD-9E99-F423C31541F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28445C2D-A1C8-43F9-9116-CB4DED4ACF28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28445C2D-A1C8-43F9-9116-CB4DED4ACF28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28445C2D-A1C8-43F9-9116-CB4DED4ACF28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28445C2D-A1C8-43F9-9116-CB4DED4ACF28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62041446-3207-4513-BC91-50A2190E0A2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62041446-3207-4513-BC91-50A2190E0A2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62041446-3207-4513-BC91-50A2190E0A2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62041446-3207-4513-BC91-50A2190E0A2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EA79DDB-C292-4CC2-BDD1-F7C637D19C6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EA79DDB-C292-4CC2-BDD1-F7C637D19C6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EA79DDB-C292-4CC2-BDD1-F7C637D19C6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EA79DDB-C292-4CC2-BDD1-F7C637D19C6C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {30D3C65E-FCB8-4DF2-B05E-02A2EEB074EC}
+	EndGlobalSection
+EndGlobal

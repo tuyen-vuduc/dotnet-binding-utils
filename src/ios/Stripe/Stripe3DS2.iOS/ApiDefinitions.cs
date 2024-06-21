@@ -30,20 +30,22 @@ namespace Stripe3DS2
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol]
+*/
+	partial interface ISTDSJSONEncodable { }
+
+    [Protocol, Model]
 	[BaseType (typeof(NSObject))]
 	interface STDSJSONEncodable
 	{
 		// @required +(NSDictionary * _Nonnull)propertyNamesToJSONKeysMapping;
 		[Static, Abstract]
 		[Export ("propertyNamesToJSONKeysMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary PropertyNamesToJSONKeysMapping { get; }
 	}
 
 	// @interface STDSAuthenticationRequestParameters : NSObject <STDSJSONEncodable>
 	[BaseType (typeof(NSObject))]
-	interface STDSAuthenticationRequestParameters : ISTDSJSONEncodable
+	interface STDSAuthenticationRequestParameters : STDSJSONEncodable
 	{
 		// -(instancetype _Nonnull)initWithSDKTransactionIdentifier:(NSString * _Nonnull)sdkTransactionIdentifier deviceData:(NSString * _Nullable)deviceData sdkEphemeralPublicKey:(NSString * _Nonnull)sdkEphemeralPublicKey sdkAppIdentifier:(NSString * _Nonnull)sdkAppIdentifier sdkReferenceNumber:(NSString * _Nonnull)sdkReferenceNumber messageVersion:(NSString * _Nonnull)messageVersion;
 		[Export ("initWithSDKTransactionIdentifier:deviceData:sdkEphemeralPublicKey:sdkAppIdentifier:sdkReferenceNumber:messageVersion:")]
@@ -83,7 +85,8 @@ namespace Stripe3DS2
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol]
+*/
+	[Protocol, Model]
 	[BaseType (typeof(NSObject))]
 	interface STDSJSONDecodable
 	{
@@ -103,7 +106,10 @@ namespace Stripe3DS2
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol]
+*/
+	partial interface ISTDSAuthenticationResponse { }
+
+    [Protocol, Model]
 	[BaseType (typeof(NSObject))]
 	interface STDSAuthenticationResponse
 	{
@@ -224,7 +230,7 @@ namespace Stripe3DS2
 	{
 		// -(instancetype _Nonnull)initWithAuthenticationResponse:(id<STDSAuthenticationResponse> _Nonnull)authResponse;
 		[Export ("initWithAuthenticationResponse:")]
-		NativeHandle Constructor (STDSAuthenticationResponse authResponse);
+		NativeHandle Constructor (ISTDSAuthenticationResponse authResponse);
 
 		// @property (copy, nonatomic) NSString * _Nonnull threeDSServerTransactionID;
 		[Export ("threeDSServerTransactionID")]
@@ -256,7 +262,8 @@ namespace Stripe3DS2
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol]
+*/
+	[Protocol, Model]
 	[BaseType (typeof(NSObject))]
 	interface STDSChallengeStatusReceiver
 	{
@@ -314,7 +321,6 @@ namespace Stripe3DS2
 	}
 
 	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const _Nonnull kSTDSConfigDefaultGroupName;
@@ -357,7 +363,7 @@ namespace Stripe3DS2
 
 	// @interface STDSErrorMessage : NSObject <STDSJSONEncodable, STDSJSONDecodable>
 	[BaseType (typeof(NSObject))]
-	interface STDSErrorMessage : ISTDSJSONEncodable, ISTDSJSONDecodable
+	interface STDSErrorMessage : STDSJSONEncodable, STDSJSONDecodable
 	{
 		// -(instancetype _Nonnull)initWithErrorCode:(NSString * _Nonnull)errorCode errorComponent:(NSString * _Nonnull)errorComponent errorDescription:(NSString * _Nonnull)errorDescription errorDetails:(NSString * _Nullable)errorDetails messageVersion:(NSString * _Nonnull)messageVersion acsTransactionIdentifier:(NSString * _Nullable)acsTransactionIdentifier errorMessageType:(NSString * _Nonnull)errorMessageType;
 		[Export ("initWithErrorCode:errorComponent:errorDescription:errorDetails:messageVersion:acsTransactionIdentifier:errorMessageType:")]
@@ -393,7 +399,6 @@ namespace Stripe3DS2
 
 		// -(NSError * _Nonnull)NSErrorValue;
 		[Export ("NSErrorValue")]
-		[Verify (MethodToProperty)]
 		NSError NSErrorValue { get; }
 	}
 
@@ -511,8 +516,6 @@ namespace Stripe3DS2
 		string SdkTransactionIdentifier { get; }
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const _Nonnull kSTDSRuntimeErrorCodeParsingError;
@@ -544,7 +547,6 @@ namespace Stripe3DS2
 
 		// -(NSError * _Nonnull)NSErrorValue;
 		[Export ("NSErrorValue")]
-		[Verify (MethodToProperty)]
 		NSError NSErrorValue { get; }
 	}
 
@@ -580,8 +582,6 @@ namespace Stripe3DS2
 		UIColor UnselectedBorderColor { get; set; }
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const _Nonnull STDSStripe3DS2ErrorDomain;
@@ -673,8 +673,6 @@ namespace Stripe3DS2
 		STDSTransaction CreateTransactionForDirectoryServer (string directoryServerID, [NullAllowed] string serverKeyID, string certificateString, string[] rootCertificateStrings, [NullAllowed] string protocolVersion);
 	}
 
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
 	partial interface Constants
 	{
 		// extern NSString *const _Nonnull Stripe3DS2ProtocolVersion;
@@ -695,7 +693,6 @@ namespace Stripe3DS2
 
 		// -(STDSAuthenticationRequestParameters * _Nonnull)createAuthenticationRequestParameters;
 		[Export ("createAuthenticationRequestParameters")]
-		[Verify (MethodToProperty)]
 		STDSAuthenticationRequestParameters CreateAuthenticationRequestParameters { get; }
 
 		// -(UIViewController * _Nonnull)createProgressViewControllerWithDidCancel:(STDSTransactionVoidBlock _Nonnull)didCancel;
@@ -708,7 +705,6 @@ namespace Stripe3DS2
 
 		// -(NSString * _Nonnull)sdkVersion;
 		[Export ("sdkVersion")]
-		[Verify (MethodToProperty)]
 		string SdkVersion { get; }
 
 		// -(void)close;
@@ -799,18 +795,5 @@ namespace Stripe3DS2
 		// @property (readonly, nonatomic) STDSWarningSeverity severity;
 		[Export ("severity")]
 		STDSWarningSeverity Severity { get; }
-	}
-
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
-	partial interface Constants
-	{
-		// extern double Stripe3DS2VersionNumber;
-		[Field ("Stripe3DS2VersionNumber", "__Internal")]
-		double Stripe3DS2VersionNumber { get; }
-
-		// extern const unsigned char[] Stripe3DS2VersionString;
-		[Field ("Stripe3DS2VersionString", "__Internal")]
-		byte[] Stripe3DS2VersionString { get; }
 	}
 }

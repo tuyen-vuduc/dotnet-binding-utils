@@ -6,101 +6,89 @@ using StripeCore;
 
 namespace StripeCore
 {
-	// @interface STP_Internal_DownloadManager : NSObject
-	[BaseType (typeof(NSObject))]
-	[DisableDefaultCtor]
-	interface STP_Internal_DownloadManager
-	{
-	}
-
-	// @interface StripeCore_Swift_319 (NSError)
-	[Category]
-	[BaseType (typeof(NSError))]
-	interface NSError_StripeCore_Swift_319
-	{
-		// +(NSError * _Nullable)stp_errorFromStripeResponse:(NSDictionary * _Nullable)jsonDictionary __attribute__((warn_unused_result("")));
-		[Static]
+    // @interface StripeCore_Swift_319 (NSError)
+    [BaseType(typeof(NSObject))]
+    partial interface StripeErrors
+    {
+        // +(NSError * _Nullable)stp_errorFromStripeResponse:(NSDictionary * _Nullable)jsonDictionary __attribute__((warn_unused_result("")));
+        [Static]
 		[Export ("stp_errorFromStripeResponse:")]
 		[return: NullAllowed]
 		NSError Stp_errorFromStripeResponse ([NullAllowed] NSDictionary jsonDictionary);
 	}
 
 	// @interface StripeCore_Swift_332 (NSError)
-	[Category]
-	[BaseType (typeof(NSError))]
-	interface NSError_StripeCore_Swift_332
+	partial interface StripeErrors
 	{
 		// +(NSError * _Nonnull)stp_genericConnectionError __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("stp_genericConnectionError")]
-		[Verify (MethodToProperty)]
-		NSError Stp_genericConnectionError { get; }
+		NSError Stp_genericConnectionError ();
 
 		// +(NSError * _Nonnull)stp_genericFailedToParseResponseError __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("stp_genericFailedToParseResponseError")]
-		[Verify (MethodToProperty)]
-		NSError Stp_genericFailedToParseResponseError { get; }
+		NSError Stp_genericFailedToParseResponseError ();
 
 		// +(NSError * _Nonnull)stp_ephemeralKeyDecodingError __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("stp_ephemeralKeyDecodingError")]
-		[Verify (MethodToProperty)]
-		NSError Stp_ephemeralKeyDecodingError { get; }
+		
+		NSError Stp_ephemeralKeyDecodingError ();
 
 		// +(NSError * _Nonnull)stp_clientSecretError __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("stp_clientSecretError")]
-		[Verify (MethodToProperty)]
-		NSError Stp_clientSecretError { get; }
+		
+		NSError Stp_clientSecretError ();
 
 		// +(NSString * _Nonnull)stp_cardErrorInvalidNumberUserMessage __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("stp_cardErrorInvalidNumberUserMessage")]
-		[Verify (MethodToProperty)]
-		string Stp_cardErrorInvalidNumberUserMessage { get; }
+		
+		string Stp_cardErrorInvalidNumberUserMessage ();
 
 		// +(NSString * _Nonnull)stp_cardInvalidCVCUserMessage __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("stp_cardInvalidCVCUserMessage")]
-		[Verify (MethodToProperty)]
-		string Stp_cardInvalidCVCUserMessage { get; }
+		
+		string Stp_cardInvalidCVCUserMessage ();
 
 		// +(NSString * _Nonnull)stp_cardErrorInvalidExpMonthUserMessage __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("stp_cardErrorInvalidExpMonthUserMessage")]
-		[Verify (MethodToProperty)]
-		string Stp_cardErrorInvalidExpMonthUserMessage { get; }
+		
+		string Stp_cardErrorInvalidExpMonthUserMessage ();
 
 		// +(NSString * _Nonnull)stp_cardErrorInvalidExpYearUserMessage __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("stp_cardErrorInvalidExpYearUserMessage")]
-		[Verify (MethodToProperty)]
-		string Stp_cardErrorInvalidExpYearUserMessage { get; }
+		
+		string Stp_cardErrorInvalidExpYearUserMessage ();
 
 		// +(NSString * _Nonnull)stp_cardErrorExpiredCardUserMessage __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("stp_cardErrorExpiredCardUserMessage")]
-		[Verify (MethodToProperty)]
-		string Stp_cardErrorExpiredCardUserMessage { get; }
+		
+		string Stp_cardErrorExpiredCardUserMessage ();
 
 		// +(NSString * _Nonnull)stp_cardErrorDeclinedUserMessage __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("stp_cardErrorDeclinedUserMessage")]
-		[Verify (MethodToProperty)]
-		string Stp_cardErrorDeclinedUserMessage { get; }
+		
+		string Stp_cardErrorDeclinedUserMessage ();
 
 		// +(NSString * _Nonnull)stp_genericDeclineErrorUserMessage __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("stp_genericDeclineErrorUserMessage")]
-		[Verify (MethodToProperty)]
-		string Stp_genericDeclineErrorUserMessage { get; }
+		
+		string Stp_genericDeclineErrorUserMessage ();
 
 		// +(NSString * _Nonnull)stp_cardErrorProcessingErrorUserMessage __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("stp_cardErrorProcessingErrorUserMessage")]
-		[Verify (MethodToProperty)]
-		string Stp_cardErrorProcessingErrorUserMessage { get; }
+		
+		string Stp_cardErrorProcessingErrorUserMessage ();
 	}
 
 	// @interface STPAPIClient : NSObject
@@ -188,7 +176,7 @@ namespace StripeCore
 
 	// @interface STPError : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC10StripeCore8STPError")]
-	interface STPError
+	partial interface STPError
 	{
 		// @property (readonly, copy, nonatomic, class) NSString * _Nonnull stripeDomain;
 		[Static]
@@ -237,9 +225,7 @@ namespace StripeCore
 	}
 
 	// @interface StripeCore_Swift_482 (STPError)
-	[Category]
-	[BaseType (typeof(STPError))]
-	interface STPError_StripeCore_Swift_482
+	partial interface STPError
 	{
 		// @property (readonly, copy, nonatomic, class) NSString * _Nonnull invalidNumber;
 		[Static]
@@ -312,7 +298,6 @@ namespace StripeCore
 		// +(STPURLCallbackHandler * _Nonnull)shared __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("shared")]
-		[Verify (MethodToProperty)]
 		STPURLCallbackHandler Shared { get; }
 
 		// -(BOOL)handleURLCallback:(NSURL * _Nonnull)url;
@@ -321,11 +306,11 @@ namespace StripeCore
 
 		// -(void)registerListener:(id<STPURLCallbackListener> _Nonnull)listener forURL:(NSURL * _Nonnull)url;
 		[Export ("registerListener:forURL:")]
-		void RegisterListener (STPURLCallbackListener listener, NSUrl url);
+		void RegisterListener (ISTPURLCallbackListener listener, NSUrl url);
 
 		// -(void)unregisterListener:(id<STPURLCallbackListener> _Nonnull)listener;
 		[Export ("unregisterListener:")]
-		void UnregisterListener (STPURLCallbackListener listener);
+		void UnregisterListener (ISTPURLCallbackListener listener);
 	}
 
 	// @protocol STPURLCallbackListener <NSObject>
@@ -337,7 +322,10 @@ namespace StripeCore
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol (Name = "_TtP10StripeCore22STPURLCallbackListener_")]
+*/
+	partial interface ISTPURLCallbackListener { }
+
+    [Protocol, Model]
 	[BaseType (typeof(NSObject), Name = "_TtP10StripeCore22STPURLCallbackListener_")]
 	interface STPURLCallbackListener
 	{
@@ -388,7 +376,6 @@ namespace StripeCore
 		// +(BOOL)deviceSupportsApplePay __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("deviceSupportsApplePay")]
-		[Verify (MethodToProperty)]
 		bool DeviceSupportsApplePay { get; }
 
 		// +(PKPaymentRequest * _Nonnull)paymentRequestWithMerchantIdentifier:(NSString * _Nonnull)merchantIdentifier country:(NSString * _Nonnull)countryCode currency:(NSString * _Nonnull)currencyCode __attribute__((warn_unused_result("")));
@@ -400,18 +387,5 @@ namespace StripeCore
 		[Static]
 		[Export ("handleStripeURLCallbackWithURL:")]
 		bool HandleStripeURLCallbackWithURL (NSUrl url);
-	}
-
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
-	partial interface Constants
-	{
-		// extern double StripeCoreVersionNumber;
-		[Field ("StripeCoreVersionNumber", "__Internal")]
-		double StripeCoreVersionNumber { get; }
-
-		// extern const unsigned char[] StripeCoreVersionString;
-		[Field ("StripeCoreVersionString", "__Internal")]
-		byte[] StripeCoreVersionString { get; }
 	}
 }

@@ -18,15 +18,6 @@ namespace Stripe3DS2
 		InformationalOnly = 8
 	}
 
-	static class CFunctions
-	{
-		// extern id<STDSAuthenticationResponse> _Nullable STDSAuthenticationResponseFromJSON (NSDictionary * _Nonnull json);
-		[DllImport ("__Internal")]
-		[Verify (PlatformInvoke)]
-		[return: NullAllowed]
-		static extern STDSAuthenticationResponse STDSAuthenticationResponseFromJSON (NSDictionary json);
-	}
-
 	[Native]
 	public enum STDSUICustomizationButtonType : long
 	{

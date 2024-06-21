@@ -14,11 +14,6 @@ namespace StripeUICore
 		[Export ("intrinsicContentSize")]
 		CGSize IntrinsicContentSize { get; }
 
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)coder __attribute__((objc_designated_initializer));
-		[Export ("initWithCoder:")]
-		[DesignatedInitializer]
-		NativeHandle Constructor (NSCoder coder);
-
 		// -(void)tintColorDidChange;
 		[Export ("tintColorDidChange")]
 		void TintColorDidChange ();
@@ -83,7 +78,7 @@ namespace StripeUICore
 
 	// @interface STP_Internal_CheckboxButton : UIControl
 	[BaseType (typeof(UIControl))]
-	interface STP_Internal_CheckboxButton
+	partial interface STP_Internal_CheckboxButton
 	{
 		// @property (getter = isSelected, nonatomic) BOOL selected;
 		[Export ("selected")]
@@ -107,13 +102,11 @@ namespace StripeUICore
 	}
 
 	// @interface StripeUICore_Swift_366 (STP_Internal_CheckboxButton) <UITextViewDelegate>
-	[Category]
-	[BaseType (typeof(STP_Internal_CheckboxButton))]
-	interface STP_Internal_CheckboxButton_StripeUICore_Swift_366 : IUITextViewDelegate
+	partial interface STP_Internal_CheckboxButton : IUITextViewDelegate
 	{
 		// -(BOOL)textView:(UITextView * _Nonnull)textView shouldInteractWithURL:(NSURL * _Nonnull)url inRange:(NSRange)characterRange __attribute__((warn_unused_result("")));
 		[Export ("textView:shouldInteractWithURL:inRange:")]
-		bool TextView (UITextView textView, NSUrl url, NSRange characterRange);
+		bool ShouldInteractWithUrl(UITextView textView, NSUrl url, NSRange characterRange);
 	}
 
 	// @interface STP_Internal_DoneButtonToolbar : UIToolbar
@@ -125,37 +118,33 @@ namespace StripeUICore
 	// @interface STP_Internal_DropdownFieldElement : NSObject
 	[BaseType (typeof(NSObject))]
 	[DisableDefaultCtor]
-	interface STP_Internal_DropdownFieldElement
+	partial interface STP_Internal_DropdownFieldElement
 	{
 	}
 
 	// @interface StripeUICore_Swift_392 (STP_Internal_DropdownFieldElement) <UIPickerViewDataSource>
-	[Category]
-	[BaseType (typeof(STP_Internal_DropdownFieldElement))]
-	interface STP_Internal_DropdownFieldElement_StripeUICore_Swift_392 : IUIPickerViewDataSource
+	partial interface STP_Internal_DropdownFieldElement : IUIPickerViewDataSource
 	{
 		// -(NSInteger)numberOfComponentsInPickerView:(UIPickerView * _Nonnull)pickerView __attribute__((warn_unused_result("")));
 		[Export ("numberOfComponentsInPickerView:")]
-		nint NumberOfComponentsInPickerView (UIPickerView pickerView);
+		nint GetComponentCount(UIPickerView pickerView);
 
 		// -(NSInteger)pickerView:(UIPickerView * _Nonnull)pickerView numberOfRowsInComponent:(NSInteger)component __attribute__((warn_unused_result("")));
 		[Export ("pickerView:numberOfRowsInComponent:")]
-		nint PickerView (UIPickerView pickerView, nint component);
+		nint GetRowsInComponent(UIPickerView pickerView, nint component);
 	}
 
 	// @interface StripeUICore_Swift_399 (STP_Internal_DropdownFieldElement) <UIPickerViewDelegate>
-	[Category]
-	[BaseType (typeof(STP_Internal_DropdownFieldElement))]
-	interface STP_Internal_DropdownFieldElement_StripeUICore_Swift_399 : IUIPickerViewDelegate
-	{
+	partial interface STP_Internal_DropdownFieldElement : IUIPickerViewDelegate
+    {
 		// -(NSAttributedString * _Nullable)pickerView:(UIPickerView * _Nonnull)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component __attribute__((warn_unused_result("")));
 		[Export ("pickerView:attributedTitleForRow:forComponent:")]
 		[return: NullAllowed]
-		NSAttributedString PickerView (UIPickerView pickerView, nint row, nint component);
+		NSAttributedString GetAttributedTitle (UIPickerView pickerView, nint row, nint component);
 
 		// -(void)pickerView:(UIPickerView * _Nonnull)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component;
 		[Export ("pickerView:didSelectRow:inComponent:")]
-		void PickerView (UIPickerView pickerView, nint row, nint component);
+		void Selected (UIPickerView pickerView, nint row, nint component);
 	}
 
 	// @interface STP_Internal_DynamicHeightContainerView : UIView
@@ -168,11 +157,6 @@ namespace StripeUICore
 	[BaseType (typeof(UIImageView))]
 	interface STP_Internal_DynamicImageView
 	{
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)coder __attribute__((objc_designated_initializer));
-		[Export ("initWithCoder:")]
-		[DesignatedInitializer]
-		NativeHandle Constructor (NSCoder coder);
-
 		// -(void)traitCollectionDidChange:(UITraitCollection * _Nullable)previousTraitCollection;
 		[Export ("traitCollectionDidChange:")]
 		void TraitCollectionDidChange ([NullAllowed] UITraitCollection previousTraitCollection);
@@ -186,7 +170,7 @@ namespace StripeUICore
 
 	// @interface STP_Internal_OneTimeCodeTextField : UIControl
 	[BaseType (typeof(UIControl))]
-	interface STP_Internal_OneTimeCodeTextField
+	partial interface STP_Internal_OneTimeCodeTextField
 	{
 		// @property (readonly, nonatomic) BOOL canBecomeFirstResponder;
 		[Export ("canBecomeFirstResponder")]
@@ -222,13 +206,11 @@ namespace StripeUICore
 
 		// -(BOOL)becomeFirstResponder;
 		[Export ("becomeFirstResponder")]
-		[Verify (MethodToProperty)]
-		bool BecomeFirstResponder { get; }
+		bool BecomeFirstResponder();
 
 		// -(BOOL)resignFirstResponder;
 		[Export ("resignFirstResponder")]
-		[Verify (MethodToProperty)]
-		bool ResignFirstResponder { get; }
+		bool ResignFirstResponder();
 
 		// -(void)touchesEnded:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
 		[Export ("touchesEnded:withEvent:")]
@@ -236,9 +218,7 @@ namespace StripeUICore
 	}
 
 	// @interface StripeUICore_Swift_468 (STP_Internal_OneTimeCodeTextField)
-	[Category]
-	[BaseType (typeof(STP_Internal_OneTimeCodeTextField))]
-	interface STP_Internal_OneTimeCodeTextField_StripeUICore_Swift_468
+	partial interface STP_Internal_OneTimeCodeTextField
 	{
 		// -(BOOL)canPerformAction:(SEL _Nonnull)action withSender:(id _Nullable)sender __attribute__((warn_unused_result("")));
 		[Export ("canPerformAction:withSender:")]
@@ -250,9 +230,7 @@ namespace StripeUICore
 	}
 
 	// @interface StripeUICore_Swift_475 (STP_Internal_OneTimeCodeTextField) <UIKeyInput>
-	[Category]
-	[BaseType (typeof(STP_Internal_OneTimeCodeTextField))]
-	interface STP_Internal_OneTimeCodeTextField_StripeUICore_Swift_475 : IUIKeyInput
+	partial interface STP_Internal_OneTimeCodeTextField : IUIKeyInput
 	{
 		// @property (readonly, nonatomic) BOOL hasText;
 		[Export ("hasText")]
@@ -268,9 +246,7 @@ namespace StripeUICore
 	}
 
 	// @interface StripeUICore_Swift_485 (STP_Internal_OneTimeCodeTextField) <UITextInput>
-	[Category]
-	[BaseType (typeof(STP_Internal_OneTimeCodeTextField))]
-	interface STP_Internal_OneTimeCodeTextField_StripeUICore_Swift_485 : IUITextInput
+	partial interface STP_Internal_OneTimeCodeTextField : IUITextInput
 	{
 		// @property (readonly, nonatomic, strong) UITextRange * _Nullable markedTextRange;
 		[NullAllowed, Export ("markedTextRange", ArgumentSemantic.Strong)]
@@ -278,7 +254,7 @@ namespace StripeUICore
 
 		// @property (copy, nonatomic) NSDictionary<NSAttributedStringKey,id> * _Nullable markedTextStyle;
 		[NullAllowed, Export ("markedTextStyle", ArgumentSemantic.Copy)]
-		NSDictionary<NSString, NSObject> MarkedTextStyle { get; set; }
+		NSDictionary MarkedTextStyle { get; set; }
 
 		// @property (readonly, nonatomic, strong) UITextPosition * _Nonnull beginningOfDocument;
 		[Export ("beginningOfDocument", ArgumentSemantic.Strong)]
@@ -295,7 +271,7 @@ namespace StripeUICore
 
 		// -(void)replaceRange:(UITextRange * _Nonnull)range withText:(NSString * _Nonnull)text;
 		[Export ("replaceRange:withText:")]
-		void ReplaceRange (UITextRange range, string text);
+		void ReplaceText (UITextRange range, string text);
 
 		// -(void)setMarkedText:(NSString * _Nullable)markedText selectedRange:(NSRange)selectedRange;
 		[Export ("setMarkedText:selectedRange:")]
@@ -336,23 +312,23 @@ namespace StripeUICore
 		// -(UITextRange * _Nullable)characterRangeByExtendingPosition:(UITextPosition * _Nonnull)position inDirection:(UITextLayoutDirection)direction __attribute__((warn_unused_result("")));
 		[Export ("characterRangeByExtendingPosition:inDirection:")]
 		[return: NullAllowed]
-		UITextRange CharacterRangeByExtendingPosition (UITextPosition position, UITextLayoutDirection direction);
+		UITextRange GetCharacterRange (UITextPosition position, UITextLayoutDirection direction);
 
 		// -(NSWritingDirection)baseWritingDirectionForPosition:(UITextPosition * _Nonnull)position inDirection:(UITextStorageDirection)direction __attribute__((warn_unused_result("")));
 		[Export ("baseWritingDirectionForPosition:inDirection:")]
-		NSWritingDirection BaseWritingDirectionForPosition (UITextPosition position, UITextStorageDirection direction);
+		NSWritingDirection GetBaseWritingDirection (UITextPosition position, UITextStorageDirection direction);
 
 		// -(void)setBaseWritingDirection:(NSWritingDirection)writingDirection forRange:(UITextRange * _Nonnull)range;
 		[Export ("setBaseWritingDirection:forRange:")]
-		void SetBaseWritingDirection (NSWritingDirection writingDirection, UITextRange range);
+		void SetBaseWritingDirectionforRange (NSWritingDirection writingDirection, UITextRange range);
 
 		// -(CGRect)firstRectForRange:(UITextRange * _Nonnull)range __attribute__((warn_unused_result("")));
 		[Export ("firstRectForRange:")]
-		CGRect FirstRectForRange (UITextRange range);
+		CGRect GetFirstRectForRange (UITextRange range);
 
 		// -(CGRect)caretRectForPosition:(UITextPosition * _Nonnull)position __attribute__((warn_unused_result("")));
 		[Export ("caretRectForPosition:")]
-		CGRect CaretRectForPosition (UITextPosition position);
+		CGRect GetCaretRectForPosition (UITextPosition position);
 
 		// -(NSArray<UITextSelectionRect *> * _Nonnull)selectionRectsForRange:(UITextRange * _Nonnull)range __attribute__((warn_unused_result("")));
 		[Export ("selectionRectsForRange:")]
@@ -361,17 +337,17 @@ namespace StripeUICore
 		// -(UITextPosition * _Nullable)closestPositionToPoint:(CGPoint)point __attribute__((warn_unused_result("")));
 		[Export ("closestPositionToPoint:")]
 		[return: NullAllowed]
-		UITextPosition ClosestPositionToPoint (CGPoint point);
+		UITextPosition GetClosestPositionToPoint (CGPoint point);
 
 		// -(UITextPosition * _Nullable)closestPositionToPoint:(CGPoint)point withinRange:(UITextRange * _Nonnull)range __attribute__((warn_unused_result("")));
 		[Export ("closestPositionToPoint:withinRange:")]
 		[return: NullAllowed]
-		UITextPosition ClosestPositionToPoint (CGPoint point, UITextRange range);
+		UITextPosition GetClosestPositionToPoint (CGPoint point, UITextRange range);
 
 		// -(UITextRange * _Nullable)characterRangeAtPoint:(CGPoint)point __attribute__((warn_unused_result("")));
 		[Export ("characterRangeAtPoint:")]
 		[return: NullAllowed]
-		UITextRange CharacterRangeAtPoint (CGPoint point);
+		UITextRange GetCharacterRangeAtPoint (CGPoint point);
 	}
 
 	// @interface STPEmailAddressValidator : NSObject
@@ -410,23 +386,5 @@ namespace StripeUICore
 		[Export ("initWithFrame:")]
 		[DesignatedInitializer]
 		NativeHandle Constructor (CGRect frame);
-
-		// -(instancetype _Nonnull)initWithCoder:(NSCoder * _Nonnull)coder __attribute__((objc_designated_initializer));
-		[Export ("initWithCoder:")]
-		[DesignatedInitializer]
-		NativeHandle Constructor (NSCoder coder);
-	}
-
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
-	partial interface Constants
-	{
-		// extern double StripeUICoreVersionNumber;
-		[Field ("StripeUICoreVersionNumber", "__Internal")]
-		double StripeUICoreVersionNumber { get; }
-
-		// extern const unsigned char[] StripeUICoreVersionString;
-		[Field ("StripeUICoreVersionString", "__Internal")]
-		byte[] StripeUICoreVersionString { get; }
 	}
 }

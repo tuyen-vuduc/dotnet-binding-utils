@@ -2,19 +2,47 @@ using System;
 using CoreGraphics;
 using Foundation;
 using ObjCRuntime;
-using ObjectiveC;
+
 using PassKit;
 using Stripe;
 using UIKit;
+using StripePayments;
+using StripePaymentsUI;
+using StripeCore;
+using StripeApplePay;
 
 namespace Stripe
 {
-	// @interface Stripe_Swift_315
+    partial interface ISTPAddCardViewControllerDelegate { }
+
+    partial interface ISTPApplePayContextDelegat { }
+
+    partial interface ISTPPaymentOption { }
+
+    partial interface ISTPBackendAPIAdapter { }
+
+    partial interface ISTPBankSelectionViewControllerDelegate { }
+
+    partial interface ISTPCustomerEphemeralKeyProvider { }
+
+    partial interface ISTPEphemeralKeyProvider { }
+
+    partial interface ISTPIssuingCardEphemeralKeyProvider { }
+
+    partial interface ISTPShippingAddressViewControllerDelegate { }
+
+    partial interface ISTPPaymentOptionsViewControllerDelegate { }
+
+    partial interface ISTPPaymentContextDelegate { }
+
+    // @interface Stripe_Swift_315
+    [Category]
+	[BaseType(typeof(STPAPIClient))]
 	interface Stripe_Swift_315
 	{
 		// @property (nonatomic, strong) STPPaymentConfiguration * _Nonnull configuration;
 		[Export ("configuration", ArgumentSemantic.Strong)]
-		STPPaymentConfiguration Configuration { }
+		STPPaymentConfiguration Configuration();
 	}
 
 	// @interface STPCoreViewController : UIViewController
@@ -30,11 +58,6 @@ namespace Stripe
 		[Export ("initWithNibName:bundle:")]
 		[DesignatedInitializer]
 		NativeHandle Constructor ([NullAllowed] string nibNameOrNil, [NullAllowed] NSBundle nibBundleOrNil);
-
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export ("initWithCoder:")]
-		[DesignatedInitializer]
-		NativeHandle Constructor (NSCoder aDecoder);
 
 		// -(void)viewDidLoad;
 		[Export ("viewDidLoad")]
@@ -78,11 +101,6 @@ namespace Stripe
 		[Export ("initWithNibName:bundle:")]
 		[DesignatedInitializer]
 		NativeHandle Constructor ([NullAllowed] string nibNameOrNil, [NullAllowed] NSBundle nibBundleOrNil);
-
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export ("initWithCoder:")]
-		[DesignatedInitializer]
-		NativeHandle Constructor (NSCoder aDecoder);
 	}
 
 	// @interface STPCoreTableViewController : STPCoreScrollViewController
@@ -97,10 +115,6 @@ namespace Stripe
 		[Export ("viewWillAppear:")]
 		void ViewWillAppear (bool animated);
 
-		// -(CGFloat)tableView:(UITableView * _Nonnull)tableView heightForHeaderInSection:(NSInteger)section __attribute__((warn_unused_result("")));
-		[Export ("tableView:heightForHeaderInSection:")]
-		nfloat TableView (UITableView tableView, nint section);
-
 		// -(instancetype _Nonnull)initWithTheme:(STPTheme * _Nullable)theme __attribute__((objc_designated_initializer));
 		[Export ("initWithTheme:")]
 		[DesignatedInitializer]
@@ -110,11 +124,6 @@ namespace Stripe
 		[Export ("initWithNibName:bundle:")]
 		[DesignatedInitializer]
 		NativeHandle Constructor ([NullAllowed] string nibNameOrNil, [NullAllowed] NSBundle nibBundleOrNil);
-
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder __attribute__((objc_designated_initializer));
-		[Export ("initWithCoder:")]
-		[DesignatedInitializer]
-		NativeHandle Constructor (NSCoder aDecoder);
 	}
 
 	// @interface STPAddCardViewController : STPCoreTableViewController
@@ -144,7 +153,7 @@ namespace Stripe
 
 		// -(CGFloat)tableView:(UITableView * _Nonnull)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath __attribute__((warn_unused_result("")));
 		[Export ("tableView:estimatedHeightForRowAtIndexPath:")]
-		nfloat TableView (UITableView tableView, NSIndexPath indexPath);
+		nfloat EstimatedHeight(UITableView tableView, NSIndexPath indexPath);
 
 		// -(void)viewDidLayoutSubviews;
 		[Export ("viewDidLayoutSubviews")]
@@ -184,45 +193,45 @@ namespace Stripe
 
 		// -(NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView __attribute__((warn_unused_result("")));
 		[Export ("numberOfSectionsInTableView:")]
-		nint NumberOfSectionsInTableView (UITableView tableView);
+		nint NumberOfSections (UITableView tableView);
 
 		// -(NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section __attribute__((warn_unused_result("")));
 		[Export ("tableView:numberOfRowsInSection:")]
-		nint TableView (UITableView tableView, nint section);
+		nint RowsInSection (UITableView tableView, nint section);
 
 		// -(UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath __attribute__((warn_unused_result("")));
 		[Export ("tableView:cellForRowAtIndexPath:")]
-		UITableViewCell TableView (UITableView tableView, NSIndexPath indexPath);
+		UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath);
 
 		// -(void)tableView:(UITableView * _Nonnull)tableView willDisplayCell:(UITableViewCell * _Nonnull)cell forRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 		[Export ("tableView:willDisplayCell:forRowAtIndexPath:")]
-		void TableView (UITableView tableView, UITableViewCell cell, NSIndexPath indexPath);
+		void WillDisplay (UITableView tableView, UITableViewCell cell, NSIndexPath indexPath);
 
 		// -(CGFloat)tableView:(UITableView * _Nonnull)tableView heightForFooterInSection:(NSInteger)section __attribute__((warn_unused_result("")));
 		[Export ("tableView:heightForFooterInSection:")]
-		nfloat TableView (UITableView tableView, nint section);
+		nfloat GetHeightForFooter (UITableView tableView, nint section);
 
 		// -(CGFloat)tableView:(UITableView * _Nonnull)tableView heightForHeaderInSection:(NSInteger)section __attribute__((warn_unused_result("")));
 		[Export ("tableView:heightForHeaderInSection:")]
-		nfloat TableView (UITableView tableView, nint section);
+		nfloat GetHeightForHeader (UITableView tableView, nint section);
 
 		// -(UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger)section __attribute__((warn_unused_result("")));
 		[Export ("tableView:viewForHeaderInSection:")]
 		[return: NullAllowed]
-		UIView TableView (UITableView tableView, nint section);
+		UIView GetViewForHeader (UITableView tableView, nint section);
 
 		// -(UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForFooterInSection:(NSInteger)section __attribute__((warn_unused_result("")));
 		[Export ("tableView:viewForFooterInSection:")]
 		[return: NullAllowed]
-		UIView TableView (UITableView tableView, nint section);
+		UIView GetViewForFooter (UITableView tableView, nint section);
 
 		// -(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator> _Nonnull)coordinator;
 		[Export ("viewWillTransitionToSize:withTransitionCoordinator:")]
-		void ViewWillTransitionToSize (CGSize size, UIViewControllerTransitionCoordinator coordinator);
+		void ViewWillTransitionToSize (CGSize size, IUIViewControllerTransitionCoordinator coordinator);
 	}
 
-	// @protocol STPAddCardViewControllerDelegate <NSObject>
-	[Protocol (Name = "_TtP6Stripe32STPAddCardViewControllerDelegate_"), Model (AutoGeneratedName = true)]
+    // @protocol STPAddCardViewControllerDelegate <NSObject>
+    [Protocol (Name = "_TtP6Stripe32STPAddCardViewControllerDelegate_"), Model]
 	[BaseType (typeof(NSObject), Name = "_TtP6Stripe32STPAddCardViewControllerDelegate_")]
 	interface STPAddCardViewControllerDelegate
 	{
@@ -277,7 +286,8 @@ namespace Stripe
 	}
 
 	// @protocol STPApplePayContextDelegate
-	[Protocol (Name = "_TtP6Stripe26STPApplePayContextDelegate_"), Model (AutoGeneratedName = true)]
+	[Protocol (Name = "_TtP6Stripe26STPApplePayContextDelegate_"), Model]
+	[BaseType (typeof(NSObject), Name = "_TtP6Stripe26STPApplePayContextDelegate_")]
 	interface STPApplePayContextDelegate
 	{
 		// @required -(void)applePayContext:(STPApplePayContext * _Nonnull)context didCreatePaymentMethod:(STPPaymentMethod * _Nonnull)paymentMethod paymentInformation:(PKPayment * _Nonnull)paymentInformation completion:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))completion;
@@ -300,7 +310,8 @@ namespace Stripe
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol (Name = "_TtP6Stripe16STPPaymentOption_")]
+*/	
+	[Protocol (Name = "_TtP6Stripe16STPPaymentOption_"), Model]
 	[BaseType (typeof(NSObject), Name = "_TtP6Stripe16STPPaymentOption_")]
 	interface STPPaymentOption
 	{
@@ -363,7 +374,8 @@ namespace Stripe
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol (Name = "_TtP6Stripe20STPBackendAPIAdapter_")]
+*/
+	[Protocol (Name = "_TtP6Stripe20STPBackendAPIAdapter_"), Model]
 	[BaseType (typeof(NSObject), Name = "_TtP6Stripe20STPBackendAPIAdapter_")]
 	interface STPBackendAPIAdapter
 	{
@@ -418,35 +430,35 @@ namespace Stripe
 
 		// -(NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView __attribute__((warn_unused_result("")));
 		[Export ("numberOfSectionsInTableView:")]
-		nint NumberOfSectionsInTableView (UITableView tableView);
+		nint NumberOfSections (UITableView tableView);
 
 		// -(NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section __attribute__((warn_unused_result("")));
 		[Export ("tableView:numberOfRowsInSection:")]
-		nint TableView (UITableView tableView, nint section);
+		nint RowsInSection(UITableView tableView, nint section);
 
 		// -(UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath __attribute__((warn_unused_result("")));
 		[Export ("tableView:cellForRowAtIndexPath:")]
-		UITableViewCell TableView (UITableView tableView, NSIndexPath indexPath);
+		UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath);
 
 		// -(void)tableView:(UITableView * _Nonnull)tableView willDisplayCell:(UITableViewCell * _Nonnull)cell forRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 		[Export ("tableView:willDisplayCell:forRowAtIndexPath:")]
-		void TableView (UITableView tableView, UITableViewCell cell, NSIndexPath indexPath);
+		void WillDisplay (UITableView tableView, UITableViewCell cell, NSIndexPath indexPath);
 
 		// -(CGFloat)tableView:(UITableView * _Nonnull)tableView heightForFooterInSection:(NSInteger)section __attribute__((warn_unused_result("")));
 		[Export ("tableView:heightForFooterInSection:")]
-		nfloat TableView (UITableView tableView, nint section);
+		nfloat GetHeightForFooter (UITableView tableView, nint section);
 
 		// -(BOOL)tableView:(UITableView * _Nonnull)tableView shouldHighlightRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath __attribute__((warn_unused_result("")));
 		[Export ("tableView:shouldHighlightRowAtIndexPath:")]
-		bool TableView (UITableView tableView, NSIndexPath indexPath);
+		bool ShouldHighlightRow(UITableView tableView, NSIndexPath indexPath);
 
 		// -(void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 		[Export ("tableView:didSelectRowAtIndexPath:")]
-		void TableView (UITableView tableView, NSIndexPath indexPath);
+		void DidSelectRow(UITableView tableView, NSIndexPath indexPath);
 	}
 
 	// @protocol STPBankSelectionViewControllerDelegate <NSObject>
-	[Protocol (Name = "_TtP6Stripe38STPBankSelectionViewControllerDelegate_"), Model (AutoGeneratedName = true)]
+	[Protocol (Name = "_TtP6Stripe38STPBankSelectionViewControllerDelegate_"), Model]
 	[BaseType (typeof(NSObject), Name = "_TtP6Stripe38STPBankSelectionViewControllerDelegate_")]
 	interface STPBankSelectionViewControllerDelegate
 	{
@@ -457,23 +469,25 @@ namespace Stripe
 	}
 
 	// @interface Stripe_Swift_814
+	[Category]
+	[BaseType(typeof(STPCard))]
 	interface Stripe_Swift_814
 	{
 		// @property (readonly, nonatomic, strong) UIImage * _Nonnull image;
 		[Export ("image", ArgumentSemantic.Strong)]
-		UIImage Image { }
+		UIImage Image();
 
 		// @property (readonly, nonatomic, strong) UIImage * _Nonnull templateImage;
 		[Export ("templateImage", ArgumentSemantic.Strong)]
-		UIImage TemplateImage { }
+		UIImage TemplateImage();
 
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull label;
 		[Export ("label")]
-		string Label { }
+		string Label();
 
 		// @property (readonly, nonatomic) BOOL isReusable;
 		[Export ("isReusable")]
-		bool IsReusable { }
+		bool IsReusable();
 	}
 
 	// @interface STPCustomerContext : NSObject <STPBackendAPIAdapter>
@@ -483,11 +497,11 @@ namespace Stripe
 	{
 		// -(instancetype _Nonnull)initWithKeyProvider:(id<STPCustomerEphemeralKeyProvider> _Nonnull)keyProvider;
 		[Export ("initWithKeyProvider:")]
-		NativeHandle Constructor (STPCustomerEphemeralKeyProvider keyProvider);
+		NativeHandle Constructor (ISTPCustomerEphemeralKeyProvider keyProvider);
 
 		// -(instancetype _Nonnull)initWithKeyProvider:(id<STPCustomerEphemeralKeyProvider> _Nullable)keyProvider apiClient:(id)apiClient;
 		[Export ("initWithKeyProvider:apiClient:")]
-		NativeHandle Constructor ([NullAllowed] STPCustomerEphemeralKeyProvider keyProvider, NSObject apiClient);
+		NativeHandle Constructor ([NullAllowed] ISTPCustomerEphemeralKeyProvider keyProvider, STPAPIClient apiClient);
 
 		// -(void)clearCache;
 		[Export ("clearCache")]
@@ -535,7 +549,8 @@ namespace Stripe
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol (Name = "_TtP6Stripe31STPCustomerEphemeralKeyProvider_")]
+*/
+	[Protocol (Name = "_TtP6Stripe31STPCustomerEphemeralKeyProvider_"), Model]
 	[BaseType (typeof(NSObject), Name = "_TtP6Stripe31STPCustomerEphemeralKeyProvider_")]
 	interface STPCustomerEphemeralKeyProvider
 	{
@@ -554,8 +569,10 @@ namespace Stripe
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol (Name = "_TtP6Stripe23STPEphemeralKeyProvider_")]
-	interface STPEphemeralKeyProvider : ISTPCustomerEphemeralKeyProvider
+*/
+	[Protocol (Name = "_TtP6Stripe23STPEphemeralKeyProvider_"), Model]
+	[BaseType (typeof(NSObject), Name = "_TtP6Stripe23STPEphemeralKeyProvider_")]
+	interface STPEphemeralKeyProvider : STPCustomerEphemeralKeyProvider
 	{
 	}
 
@@ -566,13 +583,12 @@ namespace Stripe
 		// +(BOOL)canAddPaymentPass __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("canAddPaymentPass")]
-		[Verify (MethodToProperty)]
 		bool CanAddPaymentPass { get; }
 
 		// -(instancetype _Nullable)initWithRequestConfiguration:(PKAddPaymentPassRequestConfiguration * _Nonnull)configuration delegate:(id<PKAddPaymentPassViewControllerDelegate> _Nullable)delegate __attribute__((objc_designated_initializer));
 		[Export ("initWithRequestConfiguration:delegate:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (PKAddPaymentPassRequestConfiguration configuration, [NullAllowed] PKAddPaymentPassViewControllerDelegate @delegate);
+		NativeHandle Constructor (PKAddPaymentPassRequestConfiguration configuration, [NullAllowed] IPKAddPaymentPassViewControllerDelegate @delegate);
 
 		[Wrap ("WeakDelegate")]
 		[NullAllowed]
@@ -585,10 +601,6 @@ namespace Stripe
 		// -(instancetype _Nonnull)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil;
 		[Export ("initWithNibName:bundle:")]
 		NativeHandle Constructor ([NullAllowed] string nibNameOrNil, [NullAllowed] NSBundle nibBundleOrNil);
-
-		// -(instancetype _Nullable)initWithCoder:(NSCoder * _Nonnull)aDecoder;
-		[Export ("initWithCoder:")]
-		NativeHandle Constructor (NSCoder aDecoder);
 
 		// -(void)viewDidLoad;
 		[Export ("viewDidLoad")]
@@ -604,7 +616,8 @@ namespace Stripe
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol (Name = "_TtP6Stripe34STPIssuingCardEphemeralKeyProvider_")]
+*/
+	[Protocol (Name = "_TtP6Stripe34STPIssuingCardEphemeralKeyProvider_"), Model]
 	[BaseType (typeof(NSObject), Name = "_TtP6Stripe34STPIssuingCardEphemeralKeyProvider_")]
 	interface STPIssuingCardEphemeralKeyProvider
 	{
@@ -710,11 +723,11 @@ namespace Stripe
 
 		// -(id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone __attribute__((warn_unused_result("")));
 		[Export ("copyWithZone:")]
-		unsafe NSObject CopyWithZone ([NullAllowed] _NSZone* zone);
+		unsafe NSObject CopyWithZone ([NullAllowed] NSZone zone);
 	}
 
 	// @protocol STPShippingAddressViewControllerDelegate <NSObject>
-	[Protocol (Name = "_TtP6Stripe40STPShippingAddressViewControllerDelegate_"), Model (AutoGeneratedName = true)]
+	[Protocol (Name = "_TtP6Stripe40STPShippingAddressViewControllerDelegate_"), Model]
 	[BaseType (typeof(NSObject), Name = "_TtP6Stripe40STPShippingAddressViewControllerDelegate_")]
 	interface STPShippingAddressViewControllerDelegate
 	{
@@ -735,7 +748,7 @@ namespace Stripe
 	}
 
 	// @protocol STPPaymentOptionsViewControllerDelegate <NSObject>
-	[Protocol (Name = "_TtP6Stripe39STPPaymentOptionsViewControllerDelegate_"), Model (AutoGeneratedName = true)]
+	[Protocol (Name = "_TtP6Stripe39STPPaymentOptionsViewControllerDelegate_"), Model]
 	[BaseType (typeof(NSObject), Name = "_TtP6Stripe39STPPaymentOptionsViewControllerDelegate_")]
 	interface STPPaymentOptionsViewControllerDelegate
 	{
@@ -756,7 +769,7 @@ namespace Stripe
 
 		// @optional -(void)paymentOptionsViewController:(STPPaymentOptionsViewController * _Nonnull)paymentOptionsViewController didSelectPaymentOption:(id<STPPaymentOption> _Nonnull)paymentOption;
 		[Export ("paymentOptionsViewController:didSelectPaymentOption:")]
-		void PaymentOptionsViewController (STPPaymentOptionsViewController paymentOptionsViewController, STPPaymentOption paymentOption);
+		void PaymentOptionsViewController (STPPaymentOptionsViewController paymentOptionsViewController, ISTPPaymentOption paymentOption);
 	}
 
 	// @interface STPPaymentContext : NSObject
@@ -774,16 +787,16 @@ namespace Stripe
 
 		// -(instancetype _Nonnull)initWithApiAdapter:(id<STPBackendAPIAdapter> _Nonnull)apiAdapter;
 		[Export ("initWithApiAdapter:")]
-		NativeHandle Constructor (STPBackendAPIAdapter apiAdapter);
+		NativeHandle Constructor (ISTPBackendAPIAdapter apiAdapter);
 
 		// -(instancetype _Nonnull)initWithApiAdapter:(id<STPBackendAPIAdapter> _Nonnull)apiAdapter configuration:(STPPaymentConfiguration * _Nonnull)configuration theme:(STPTheme * _Nonnull)theme __attribute__((objc_designated_initializer));
 		[Export ("initWithApiAdapter:configuration:theme:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (STPBackendAPIAdapter apiAdapter, STPPaymentConfiguration configuration, STPTheme theme);
+		NativeHandle Constructor (ISTPBackendAPIAdapter apiAdapter, STPPaymentConfiguration configuration, STPTheme theme);
 
 		// @property (readonly, nonatomic, strong) id<STPBackendAPIAdapter> _Nonnull apiAdapter;
 		[Export ("apiAdapter", ArgumentSemantic.Strong)]
-		STPBackendAPIAdapter ApiAdapter { get; }
+		ISTPBackendAPIAdapter ApiAdapter { get; }
 
 		// @property (readonly, nonatomic, strong) STPPaymentConfiguration * _Nonnull configuration;
 		[Export ("configuration", ArgumentSemantic.Strong)]
@@ -819,11 +832,11 @@ namespace Stripe
 
 		// @property (readonly, nonatomic, strong) id<STPPaymentOption> _Nullable selectedPaymentOption;
 		[NullAllowed, Export ("selectedPaymentOption", ArgumentSemantic.Strong)]
-		STPPaymentOption SelectedPaymentOption { get; }
+		ISTPPaymentOption SelectedPaymentOption { get; }
 
 		// @property (readonly, copy, nonatomic) NSArray<id<STPPaymentOption>> * _Nullable paymentOptions;
 		[NullAllowed, Export ("paymentOptions", ArgumentSemantic.Copy)]
-		STPPaymentOption[] PaymentOptions { get; }
+		ISTPPaymentOption[] PaymentOptions { get; }
 
 		// @property (readonly, nonatomic, strong) PKShippingMethod * _Nullable selectedShippingMethod;
 		[NullAllowed, Export ("selectedShippingMethod", ArgumentSemantic.Strong)]
@@ -835,7 +848,7 @@ namespace Stripe
 
 		// @property (readonly, nonatomic, strong) int * _Nullable shippingAddress;
 		[NullAllowed, Export ("shippingAddress", ArgumentSemantic.Strong)]
-		unsafe int* ShippingAddress { get; }
+		unsafe STPAddress ShippingAddress { get; }
 
 		// @property (nonatomic) NSInteger paymentAmount;
 		[Export ("paymentAmount")]
@@ -854,7 +867,6 @@ namespace Stripe
 		PKPaymentSummaryItem[] PaymentSummaryItems { get; set; }
 
 		// @property (nonatomic) PKApplePayLaterAvailability applePayLaterAvailability __attribute__((availability(ios, introduced=17.0))) __attribute__((availability(macos, introduced=14.0)));
-		[Mac (14, 0), iOS (17, 0)]
 		[Export ("applePayLaterAvailability", ArgumentSemantic.Assign)]
 		PKApplePayLaterAvailability ApplePayLaterAvailability { get; set; }
 
@@ -900,7 +912,7 @@ namespace Stripe
 
 		// -(void)paymentOptionsViewController:(STPPaymentOptionsViewController * _Nonnull)paymentOptionsViewController didSelectPaymentOption:(id<STPPaymentOption> _Nonnull)paymentOption;
 		[Export ("paymentOptionsViewController:didSelectPaymentOption:")]
-		void PaymentOptionsViewController (STPPaymentOptionsViewController paymentOptionsViewController, STPPaymentOption paymentOption);
+		void PaymentOptionsViewController (STPPaymentOptionsViewController paymentOptionsViewController, ISTPPaymentOption paymentOption);
 
 		// -(void)paymentOptionsViewControllerDidFinish:(STPPaymentOptionsViewController * _Nonnull)paymentOptionsViewController;
 		[Export ("paymentOptionsViewControllerDidFinish:")]
@@ -928,7 +940,6 @@ namespace Stripe
 
 		// -(UIViewController * _Nonnull)authenticationPresentingViewController __attribute__((warn_unused_result("")));
 		[Export ("authenticationPresentingViewController")]
-		[Verify (MethodToProperty)]
 		UIViewController AuthenticationPresentingViewController { get; }
 
 		// -(void)prepareAuthenticationContextForPresentation:(void (^ _Nonnull)(void))completion;
@@ -937,7 +948,7 @@ namespace Stripe
 	}
 
 	// @protocol STPPaymentContextDelegate <NSObject>
-	[Protocol (Name = "_TtP6Stripe25STPPaymentContextDelegate_"), Model (AutoGeneratedName = true)]
+	[Protocol (Name = "_TtP6Stripe25STPPaymentContextDelegate_"), Model]
 	[BaseType (typeof(NSObject), Name = "_TtP6Stripe25STPPaymentContextDelegate_")]
 	interface STPPaymentContextDelegate
 	{
@@ -981,19 +992,19 @@ namespace Stripe
 	{
 		// @property (readonly, nonatomic, strong) UIImage * _Nonnull image;
 		[Export ("image", ArgumentSemantic.Strong)]
-		UIImage Image { }
+		UIImage Image();
 
 		// @property (readonly, nonatomic, strong) UIImage * _Nonnull templateImage;
 		[Export ("templateImage", ArgumentSemantic.Strong)]
-		UIImage TemplateImage { }
+		UIImage TemplateImage();
 
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull label;
 		[Export ("label")]
-		string Label { }
+		string Label();
 
 		// @property (readonly, nonatomic) BOOL isReusable;
 		[Export ("isReusable")]
-		bool IsReusable { }
+		bool IsReusable();
 	}
 
 	// @interface Stripe_Swift_1476 (STPPaymentMethodParams)
@@ -1003,20 +1014,20 @@ namespace Stripe
 	{
 		// @property (readonly, nonatomic, strong) UIImage * _Nonnull image;
 		[Export ("image", ArgumentSemantic.Strong)]
-		UIImage Image { }
+		UIImage Image();
 
 		// @property (readonly, nonatomic, strong) UIImage * _Nonnull templateImage;
 		[Export ("templateImage", ArgumentSemantic.Strong)]
-		UIImage TemplateImage { }
+		UIImage TemplateImage();
 
 		// @property (readonly, nonatomic) BOOL isReusable;
 		[Export ("isReusable")]
-		bool IsReusable { }
+		bool IsReusable();
 	}
 
 	// @interface STPPaymentOptionsViewController : STPCoreViewController <STPAddCardViewControllerDelegate>
 	[BaseType (typeof(STPCoreViewController), Name = "_TtC6Stripe31STPPaymentOptionsViewController")]
-	interface STPPaymentOptionsViewController : ISTPAddCardViewControllerDelegate
+	interface STPPaymentOptionsViewController : STPAddCardViewControllerDelegate
 	{
 		// -(instancetype _Nonnull)initWithPaymentContext:(STPPaymentContext * _Nonnull)paymentContext;
 		[Export ("initWithPaymentContext:")]
@@ -1024,12 +1035,12 @@ namespace Stripe
 
 		// -(instancetype _Nonnull)initWithConfiguration:(STPPaymentConfiguration * _Nonnull)configuration theme:(STPTheme * _Nonnull)theme customerContext:(STPCustomerContext * _Nonnull)customerContext delegate:(id<STPPaymentOptionsViewControllerDelegate> _Nonnull)delegate;
 		[Export ("initWithConfiguration:theme:customerContext:delegate:")]
-		NativeHandle Constructor (STPPaymentConfiguration configuration, STPTheme theme, STPCustomerContext customerContext, STPPaymentOptionsViewControllerDelegate @delegate);
+		NativeHandle Constructor (STPPaymentConfiguration configuration, STPTheme theme, STPCustomerContext customerContext, ISTPPaymentOptionsViewControllerDelegate @delegate);
 
 		// -(instancetype _Nonnull)initWithConfiguration:(STPPaymentConfiguration * _Nonnull)configuration theme:(STPTheme * _Nonnull)theme apiAdapter:(id<STPBackendAPIAdapter> _Nonnull)apiAdapter delegate:(id<STPPaymentOptionsViewControllerDelegate> _Nonnull)delegate __attribute__((objc_designated_initializer));
 		[Export ("initWithConfiguration:theme:apiAdapter:delegate:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (STPPaymentConfiguration configuration, STPTheme theme, STPBackendAPIAdapter apiAdapter, STPPaymentOptionsViewControllerDelegate @delegate);
+		NativeHandle Constructor (STPPaymentConfiguration configuration, STPTheme theme, ISTPBackendAPIAdapter apiAdapter, ISTPPaymentOptionsViewControllerDelegate @delegate);
 
 		// @property (nonatomic, strong) STPUserInformation * _Nullable prefilledInformation;
 		[NullAllowed, Export ("prefilledInformation", ArgumentSemantic.Strong)]
@@ -1083,12 +1094,12 @@ namespace Stripe
 
 		// @property (readonly, nonatomic, weak) id<STPPaymentOption> _Nullable paymentOption;
 		[NullAllowed, Export ("paymentOption", ArgumentSemantic.Weak)]
-		STPPaymentOption PaymentOption { get; }
+		ISTPPaymentOption PaymentOption { get; }
 
 		// -(instancetype _Nonnull)initWithPaymentOption:(id<STPPaymentOption> _Nullable)paymentOption __attribute__((objc_designated_initializer));
 		[Export ("initWithPaymentOption:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor ([NullAllowed] STPPaymentOption paymentOption);
+		NativeHandle Constructor ([NullAllowed] ISTPPaymentOption paymentOption);
 	}
 
 	// @interface STPPinManagementService : NSObject
@@ -1100,7 +1111,7 @@ namespace Stripe
 		// -(instancetype _Nonnull)initWithKeyProvider:(id<STPIssuingCardEphemeralKeyProvider> _Nonnull)keyProvider __attribute__((objc_designated_initializer));
 		[Export ("initWithKeyProvider:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (STPIssuingCardEphemeralKeyProvider keyProvider);
+		NativeHandle Constructor (ISTPIssuingCardEphemeralKeyProvider keyProvider);
 
 		// -(void)retrievePin:(NSString * _Nonnull)cardId verificationId:(NSString * _Nonnull)verificationId oneTimeCode:(NSString * _Nonnull)oneTimeCode completion:(void (^ _Nonnull)(STPIssuingCardPin * _Nullable, enum STPPinStatus, NSError * _Nullable))completion;
 		[Export ("retrievePin:verificationId:oneTimeCode:completion:")]
@@ -1129,7 +1140,7 @@ namespace Stripe
 		// -(instancetype _Nonnull)initWithKeyProvider:(id<STPIssuingCardEphemeralKeyProvider> _Nonnull)keyProvider __attribute__((objc_designated_initializer));
 		[Export ("initWithKeyProvider:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (STPIssuingCardEphemeralKeyProvider keyProvider);
+		NativeHandle Constructor (ISTPIssuingCardEphemeralKeyProvider keyProvider);
 
 		// -(void)addPaymentPassViewController:(PKAddPaymentPassViewController * _Nonnull)controller generateRequestWithCertificateChain:(NSArray<NSData *> * _Nonnull)certificates nonce:(NSData * _Nonnull)nonce nonceSignature:(NSData * _Nonnull)nonceSignature completionHandler:(void (^ _Nonnull)(PKAddPaymentPassRequest * _Nonnull))handler;
 		[Export ("addPaymentPassViewController:generateRequestWithCertificateChain:nonce:nonceSignature:completionHandler:")]
@@ -1177,7 +1188,7 @@ namespace Stripe
 
 	// @interface STPShippingAddressViewController : STPCoreTableViewController
 	[BaseType (typeof(STPCoreTableViewController), Name = "_TtC6Stripe32STPShippingAddressViewController")]
-	interface STPShippingAddressViewController
+	partial interface STPShippingAddressViewController
 	{
 		// -(instancetype _Nonnull)initWithPaymentContext:(STPPaymentContext * _Nonnull)paymentContext;
 		[Export ("initWithPaymentContext:")]
@@ -1206,43 +1217,41 @@ namespace Stripe
 
 		// -(CGFloat)tableView:(UITableView * _Nonnull)tableView heightForHeaderInSection:(NSInteger)section __attribute__((warn_unused_result("")));
 		[Export ("tableView:heightForHeaderInSection:")]
-		nfloat TableView (UITableView tableView, nint section);
+		nfloat GetHeightForHeader(UITableView tableView, nint section);
 	}
 
 	// @interface Stripe_Swift_1730 (STPShippingAddressViewController) <UITableViewDataSource, UITableViewDelegate>
-	[Category]
-	[BaseType (typeof(STPShippingAddressViewController))]
-	interface STPShippingAddressViewController_Stripe_Swift_1730 : IUITableViewDataSource, IUITableViewDelegate
+	partial interface STPShippingAddressViewController : IUITableViewDataSource, IUITableViewDelegate
 	{
 		// -(NSInteger)numberOfSectionsInTableView:(UITableView * _Nonnull)tableView __attribute__((warn_unused_result("")));
 		[Export ("numberOfSectionsInTableView:")]
-		nint NumberOfSectionsInTableView (UITableView tableView);
+		nint NumberOfSections (UITableView tableView);
 
 		// -(NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section __attribute__((warn_unused_result("")));
 		[Export ("tableView:numberOfRowsInSection:")]
-		nint TableView (UITableView tableView, nint section);
+		nint RowsInSection(UITableView tableView, nint section);
 
 		// -(UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath __attribute__((warn_unused_result("")));
 		[Export ("tableView:cellForRowAtIndexPath:")]
-		UITableViewCell TableView (UITableView tableView, NSIndexPath indexPath);
+		UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath);
 
 		// -(void)tableView:(UITableView * _Nonnull)tableView willDisplayCell:(UITableViewCell * _Nonnull)cell forRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 		[Export ("tableView:willDisplayCell:forRowAtIndexPath:")]
-		void TableView (UITableView tableView, UITableViewCell cell, NSIndexPath indexPath);
+		void WillDisplay(UITableView tableView, UITableViewCell cell, NSIndexPath indexPath);
 
 		// -(CGFloat)tableView:(UITableView * _Nonnull)tableView heightForFooterInSection:(NSInteger)section __attribute__((warn_unused_result("")));
 		[Export ("tableView:heightForFooterInSection:")]
-		nfloat TableView (UITableView tableView, nint section);
+		nfloat GetHeightForFooter(UITableView tableView, nint section);
 
 		// -(UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForFooterInSection:(NSInteger)section __attribute__((warn_unused_result("")));
 		[Export ("tableView:viewForFooterInSection:")]
 		[return: NullAllowed]
-		UIView TableView (UITableView tableView, nint section);
+		UIView GetViewForFooter(UITableView tableView, nint section);
 
 		// -(UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger)section __attribute__((warn_unused_result("")));
 		[Export ("tableView:viewForHeaderInSection:")]
 		[return: NullAllowed]
-		UIView TableView (UITableView tableView, nint section);
+		UIView GetViewForHeader(UITableView tableView, nint section);
 	}
 
 	// @interface Stripe_Swift_1766 (STPSource)
@@ -1252,24 +1261,24 @@ namespace Stripe
 	{
 		// @property (readonly, nonatomic, strong) UIImage * _Nonnull image;
 		[Export ("image", ArgumentSemantic.Strong)]
-		UIImage Image { }
+		UIImage Image();
 
 		// @property (readonly, nonatomic, strong) UIImage * _Nonnull templateImage;
 		[Export ("templateImage", ArgumentSemantic.Strong)]
-		UIImage TemplateImage { }
+		UIImage TemplateImage();
 
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull label;
 		[Export ("label")]
-		string Label { }
+		string Label();
 
 		// @property (readonly, nonatomic) BOOL isReusable;
 		[Export ("isReusable")]
-		bool IsReusable { }
+		bool IsReusable();
 	}
 
 	// @interface STPTheme : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC6Stripe8STPTheme")]
-	interface STPTheme
+	partial interface STPTheme
 	{
 		// @property (readonly, nonatomic, strong, class) STPTheme * _Nonnull defaultTheme;
 		[Static]
@@ -1338,13 +1347,11 @@ namespace Stripe
 	}
 
 	// @interface Stripe_Swift_1818 (STPTheme) <NSCopying>
-	[Category]
-	[BaseType (typeof(STPTheme))]
-	interface STPTheme_Stripe_Swift_1818 : INSCopying
+	partial interface STPTheme : INSCopying
 	{
 		// -(id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone __attribute__((warn_unused_result("")));
 		[Export ("copyWithZone:")]
-		unsafe NSObject CopyWithZone ([NullAllowed] _NSZone* zone);
+		unsafe NSObject CopyWithZone ([NullAllowed] NSZone zone);
 	}
 
 	// @interface STPUserInformation : NSObject <NSCopying>
@@ -1353,11 +1360,11 @@ namespace Stripe
 	{
 		// @property (nonatomic, strong) int * _Nullable billingAddress;
 		[NullAllowed, Export ("billingAddress", ArgumentSemantic.Strong)]
-		unsafe int* BillingAddress { get; set; }
+		unsafe STPAddress BillingAddress { get; set; }
 
 		// @property (nonatomic, strong) int * _Nullable shippingAddress;
 		[NullAllowed, Export ("shippingAddress", ArgumentSemantic.Strong)]
-		unsafe int* ShippingAddress { get; set; }
+		unsafe STPAddress ShippingAddress { get; set; }
 
 		// -(void)setBillingAddressWithBillingDetails:(STPPaymentMethodBillingDetails * _Nonnull)billingDetails;
 		[Export ("setBillingAddressWithBillingDetails:")]
@@ -1365,7 +1372,7 @@ namespace Stripe
 
 		// -(id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone __attribute__((warn_unused_result("")));
 		[Export ("copyWithZone:")]
-		unsafe NSObject CopyWithZone ([NullAllowed] _NSZone* zone);
+		unsafe NSObject CopyWithZone ([NullAllowed] NSZone zone);
 	}
 
 	// @interface Stripe_Swift_1854 (UINavigationBar)
@@ -1378,7 +1385,9 @@ namespace Stripe
 		void Stp_setTheme (STPTheme theme);
 
 		// @property (nonatomic, strong) STPTheme * _Nullable stp_theme;
-		[NullAllowed, Export ("stp_theme", ArgumentSemantic.Strong)]
-		STPTheme Stp_theme { get; set; }
-	}
+		[NullAllowed, Export("stp_theme", ArgumentSemantic.Strong)]
+		STPTheme Stp_theme();
+        [NullAllowed, Export("stp_theme: ", ArgumentSemantic.Strong)]
+        void Stp_theme(STPTheme theme);
+    }
 }

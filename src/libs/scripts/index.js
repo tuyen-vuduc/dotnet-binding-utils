@@ -1,5 +1,11 @@
 const fs = require("node:fs");
 
+// process_protocol();
+// process_stripe('STPAPIResponseDecodable', `
+//         ISTPAPIResponseDecodable ISTPAPIResponseDecodable.DecodedObjectFromAPIResponse(NSDictionary response)
+//             => DecodedObjectFromAPIResponse(response);
+//     `);
+// process_stripe('STPFormEncodable', '');
 process_field();
 // process_IJsonDeserializer();
 // process_Com_Example_Dsroom_Dao_IBaseDao();
@@ -12,6 +18,61 @@ process_field();
 // process_JavaX_Inject_IProvider();
 // process_Android_OS_IParcelableCreator();
 // process_Com_Stripe_Android_Model_IStripeIntent();
+
+function process_protocol() {
+  var input = fs.readFileSync("input.stripe.txt");
+  var regex = /.+@protocol (\w+).+/;
+
+  var items = input
+    .toString()
+    .trim()
+    .split("\n")
+    .filter(x => regex.test(x))
+    .map(x => regex.exec(x));
+  
+  items = items
+    .map(x => {
+      return x.slice(1, 2);
+    })
+    .map(x => {
+      return x[0];
+    })
+    .filter(onlyUnique)
+    .map((x) => `
+    partial interface I${x} { }
+    `)
+    ;
+
+  // console.log(items[0]);
+  fs.writeFileSync("output.stripe.cs", items.join(""));
+}
+function process_stripe(protocol, additional) {
+  var input = fs.readFileSync("input.stripe.txt");
+  var regex = new RegExp(`interface ([\\w]+)[^<]+${protocol}`);
+
+  var items = input
+    .toString()
+    .trim()
+    .split("\n")
+    .filter(x => regex.test(x))
+    .map(x => regex.exec(x));
+  
+  items = items
+    .map(x => {
+      return x.slice(1, 2);
+    })
+    .map(x => {
+      return x[0];
+    })
+    .filter(onlyUnique)
+    .map((x) => `
+    partial class ${x} : I${protocol} {${additional}}
+    `)
+    ;
+
+  // console.log(items[0]);
+  fs.writeFileSync("output.stripe.cs", items.join(""));
+}
 
 function process_field() {
   var input = fs.readFileSync("input.field.txt")

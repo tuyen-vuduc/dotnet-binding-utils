@@ -277,6 +277,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import AuthenticationServices;
 @import CoreFoundation;
 @import Foundation;
 @import ObjectiveC;
@@ -303,6 +304,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 #if defined(__OBJC__)
+
 
 /// Objects conforming to STPAPIResponseDecodable can be automatically converted
 /// from a JSON dictionary that was returned from the Stripe API.
@@ -352,21 +354,6 @@ SWIFT_CLASS_NAMED("LinkSettings")
 
 
 
-@class STPRadarSession;
-
-@interface STPAPIClient (SWIFT_EXTENSION(StripePayments))
-/// Creates a Radar Session.
-/// note:
-/// See https://stripe.com/docs/radar/radar-session
-/// note:
-/// <code>StripeAPI.advancedFraudSignalsEnabled</code> must be <code>true</code> to use this method.
-/// note:
-/// See <code>STPRadarSession</code>
-/// \param completion The callback to run with the returned <code>STPRadarSession</code> (and any errors that may have occurred).
-///
-- (void)createRadarSessionWithCompletion:(void (^ _Nonnull)(STPRadarSession * _Nullable, NSError * _Nullable))completion;
-@end
-
 
 @class STPBankAccountParams;
 @class STPToken;
@@ -378,6 +365,18 @@ SWIFT_CLASS_NAMED("LinkSettings")
 /// \param completion The callback to run with the returned Stripe token (and any errors that may have occurred).
 ///
 - (void)createTokenWithBankAccount:(STPBankAccountParams * _Nonnull)bankAccount completion:(void (^ _Nonnull)(STPToken * _Nullable, NSError * _Nullable))completion;
+@end
+
+@class STPConnectAccountParams;
+
+@interface STPAPIClient (SWIFT_EXTENSION(StripePayments))
+/// Converts an <code>STPConnectAccountParams</code> object into a Stripe token using the Stripe API.
+/// This allows the connected account to accept the Terms of Service, and/or send Legal Entity information.
+/// \param account The Connect Account parameters. Cannot be nil.
+///
+/// \param completion The callback to run with the returned Stripe token (and any errors that may have occurred).
+///
+- (void)createTokenWithConnectAccount:(STPConnectAccountParams * _Nonnull)account completion:(void (^ _Nullable)(STPToken * _Nullable, NSError * _Nullable))completion;
 @end
 
 @class UIImage;
@@ -404,33 +403,21 @@ enum STPFilePurpose : NSInteger;
 @end
 
 
-@class STPConnectAccountParams;
+@class STPRadarSession;
 
 @interface STPAPIClient (SWIFT_EXTENSION(StripePayments))
-/// Converts an <code>STPConnectAccountParams</code> object into a Stripe token using the Stripe API.
-/// This allows the connected account to accept the Terms of Service, and/or send Legal Entity information.
-/// \param account The Connect Account parameters. Cannot be nil.
+/// Creates a Radar Session.
+/// note:
+/// See https://stripe.com/docs/radar/radar-session
+/// note:
+/// <code>StripeAPI.advancedFraudSignalsEnabled</code> must be <code>true</code> to use this method.
+/// note:
+/// See <code>STPRadarSession</code>
+/// \param completion The callback to run with the returned <code>STPRadarSession</code> (and any errors that may have occurred).
 ///
-/// \param completion The callback to run with the returned Stripe token (and any errors that may have occurred).
-///
-- (void)createTokenWithConnectAccount:(STPConnectAccountParams * _Nonnull)account completion:(void (^ _Nullable)(STPToken * _Nullable, NSError * _Nullable))completion;
+- (void)createRadarSessionWithCompletion:(void (^ _Nonnull)(STPRadarSession * _Nullable, NSError * _Nullable))completion;
 @end
 
-
-@interface STPAPIClient (SWIFT_EXTENSION(StripePayments))
-/// Converts a personal identification number into a Stripe token using the Stripe API.
-/// \param pii The user’s personal identification number. Cannot be nil. - seealso: https://stripe.com/docs/api#create_pii_token
-///
-/// \param completion The callback to run with the returned Stripe token (and any errors that may have occurred).
-///
-- (void)createTokenWithPersonalIDNumber:(NSString * _Nonnull)pii completion:(void (^ _Nullable)(STPToken * _Nullable, NSError * _Nullable))completion;
-/// Converts the last 4 SSN digits into a Stripe token using the Stripe API.
-/// \param ssnLast4 The last 4 digits of the user’s SSN. Cannot be nil.
-///
-/// \param completion The callback to run with the returned Stripe token (and any errors that may have occurred).
-///
-- (void)createTokenWithSSNLast4:(NSString * _Nonnull)ssnLast4 completion:(void (^ _Nonnull)(STPToken * _Nullable, NSError * _Nullable))completion;
-@end
 
 @class STPCardParams;
 
@@ -449,6 +436,21 @@ enum STPFilePurpose : NSInteger;
 - (void)createTokenForCVCUpdate:(NSString * _Nonnull)cvc completion:(void (^ _Nullable)(STPToken * _Nullable, NSError * _Nullable))completion;
 @end
 
+
+@interface STPAPIClient (SWIFT_EXTENSION(StripePayments))
+/// Converts a personal identification number into a Stripe token using the Stripe API.
+/// \param pii The user’s personal identification number. Cannot be nil. - seealso: https://stripe.com/docs/api#create_pii_token
+///
+/// \param completion The callback to run with the returned Stripe token (and any errors that may have occurred).
+///
+- (void)createTokenWithPersonalIDNumber:(NSString * _Nonnull)pii completion:(void (^ _Nullable)(STPToken * _Nullable, NSError * _Nullable))completion;
+/// Converts the last 4 SSN digits into a Stripe token using the Stripe API.
+/// \param ssnLast4 The last 4 digits of the user’s SSN. Cannot be nil.
+///
+/// \param completion The callback to run with the returned Stripe token (and any errors that may have occurred).
+///
+- (void)createTokenWithSSNLast4:(NSString * _Nonnull)ssnLast4 completion:(void (^ _Nonnull)(STPToken * _Nullable, NSError * _Nullable))completion;
+@end
 
 @class STPSourceParams;
 @class STPSource;
@@ -544,50 +546,6 @@ enum STPFilePurpose : NSInteger;
 
 
 
-@class STPPaymentIntent;
-@class STPPaymentIntentParams;
-
-@interface STPAPIClient (SWIFT_EXTENSION(StripePayments))
-/// Retrieves the PaymentIntent object using the given secret. - seealso: https://stripe.com/docs/api#retrieve_payment_intent
-/// \param secret The client secret of the payment intent to be retrieved. Cannot be nil.
-///
-/// \param completion The callback to run with the returned PaymentIntent object, or an error.
-///
-- (void)retrievePaymentIntentWithClientSecret:(NSString * _Nonnull)secret completion:(void (^ _Nonnull)(STPPaymentIntent * _Nullable, NSError * _Nullable))completion;
-/// Retrieves the PaymentIntent object using the given secret. - seealso: https://stripe.com/docs/api#retrieve_payment_intent
-/// \param secret The client secret of the payment intent to be retrieved. Cannot be nil.
-///
-/// \param expand An array of string keys to expand on the returned PaymentIntent object. These strings should match one or more of the parameter names that are marked as expandable. - seealso: https://stripe.com/docs/api/payment_intents/object
-///
-/// \param completion The callback to run with the returned PaymentIntent object, or an error.
-///
-- (void)retrievePaymentIntentWithClientSecret:(NSString * _Nonnull)secret expand:(NSArray<NSString *> * _Nullable)expand completion:(void (^ _Nonnull)(STPPaymentIntent * _Nullable, NSError * _Nullable))completion;
-/// Confirms the PaymentIntent object with the provided params object.
-/// At a minimum, the params object must include the <code>clientSecret</code>.
-/// seealso:
-/// https://stripe.com/docs/api#confirm_payment_intent
-/// @note Use the <code>confirmPayment:withAuthenticationContext:completion:</code> method on <code>STPPaymentHandler</code> instead
-/// of calling this method directly. It handles any authentication necessary for you. - seealso: https://stripe.com/docs/payments/3d-secure
-/// \param paymentIntentParams The <code>STPPaymentIntentParams</code> to pass to <code>/confirm</code>
-///
-/// \param completion The callback to run with the returned PaymentIntent object, or an error.
-///
-- (void)confirmPaymentIntentWithParams:(STPPaymentIntentParams * _Nonnull)paymentIntentParams completion:(void (^ _Nonnull)(STPPaymentIntent * _Nullable, NSError * _Nullable))completion;
-/// Confirms the PaymentIntent object with the provided params object.
-/// At a minimum, the params object must include the <code>clientSecret</code>.
-/// seealso:
-/// https://stripe.com/docs/api#confirm_payment_intent
-/// @note Use the <code>confirmPayment:withAuthenticationContext:completion:</code> method on <code>STPPaymentHandler</code> instead
-/// of calling this method directly. It handles any authentication necessary for you. - seealso: https://stripe.com/docs/payments/3d-secure
-/// \param paymentIntentParams The <code>STPPaymentIntentParams</code> to pass to <code>/confirm</code>
-///
-/// \param expand An array of string keys to expand on the returned PaymentIntent object. These strings should match one or more of the parameter names that are marked as expandable. - seealso: https://stripe.com/docs/api/payment_intents/object
-///
-/// \param completion The callback to run with the returned PaymentIntent object, or an error.
-///
-- (void)confirmPaymentIntentWithParams:(STPPaymentIntentParams * _Nonnull)paymentIntentParams expand:(NSArray<NSString *> * _Nullable)expand completion:(void (^ _Nonnull)(STPPaymentIntent * _Nullable, NSError * _Nullable))completion;
-@end
-
 @class STPSetupIntent;
 @class STPSetupIntentConfirmParams;
 
@@ -630,6 +588,52 @@ enum STPFilePurpose : NSInteger;
 /// \param completion The callback to run with the returned PaymentIntent object, or an error.
 ///
 - (void)confirmSetupIntentWithParams:(STPSetupIntentConfirmParams * _Nonnull)setupIntentParams expand:(NSArray<NSString *> * _Nullable)expand completion:(void (^ _Nonnull)(STPSetupIntent * _Nullable, NSError * _Nullable))completion;
+- (void)refreshSetupIntentWithClientSecret:(NSString * _Nonnull)secret completion:(void (^ _Nonnull)(STPSetupIntent * _Nullable, NSError * _Nullable))completion;
+@end
+
+@class STPPaymentIntent;
+@class STPPaymentIntentParams;
+
+@interface STPAPIClient (SWIFT_EXTENSION(StripePayments))
+/// Retrieves the PaymentIntent object using the given secret. - seealso: https://stripe.com/docs/api#retrieve_payment_intent
+/// \param secret The client secret of the payment intent to be retrieved. Cannot be nil.
+///
+/// \param completion The callback to run with the returned PaymentIntent object, or an error.
+///
+- (void)retrievePaymentIntentWithClientSecret:(NSString * _Nonnull)secret completion:(void (^ _Nonnull)(STPPaymentIntent * _Nullable, NSError * _Nullable))completion;
+/// Retrieves the PaymentIntent object using the given secret. - seealso: https://stripe.com/docs/api#retrieve_payment_intent
+/// \param secret The client secret of the payment intent to be retrieved. Cannot be nil.
+///
+/// \param expand An array of string keys to expand on the returned PaymentIntent object. These strings should match one or more of the parameter names that are marked as expandable. - seealso: https://stripe.com/docs/api/payment_intents/object
+///
+/// \param completion The callback to run with the returned PaymentIntent object, or an error.
+///
+- (void)retrievePaymentIntentWithClientSecret:(NSString * _Nonnull)secret expand:(NSArray<NSString *> * _Nullable)expand completion:(void (^ _Nonnull)(STPPaymentIntent * _Nullable, NSError * _Nullable))completion;
+- (void)refreshPaymentIntentWithClientSecret:(NSString * _Nonnull)secret completion:(void (^ _Nonnull)(STPPaymentIntent * _Nullable, NSError * _Nullable))completion;
+/// Confirms the PaymentIntent object with the provided params object.
+/// At a minimum, the params object must include the <code>clientSecret</code>.
+/// seealso:
+/// https://stripe.com/docs/api#confirm_payment_intent
+/// @note Use the <code>confirmPayment:withAuthenticationContext:completion:</code> method on <code>STPPaymentHandler</code> instead
+/// of calling this method directly. It handles any authentication necessary for you. - seealso: https://stripe.com/docs/payments/3d-secure
+/// \param paymentIntentParams The <code>STPPaymentIntentParams</code> to pass to <code>/confirm</code>
+///
+/// \param completion The callback to run with the returned PaymentIntent object, or an error.
+///
+- (void)confirmPaymentIntentWithParams:(STPPaymentIntentParams * _Nonnull)paymentIntentParams completion:(void (^ _Nonnull)(STPPaymentIntent * _Nullable, NSError * _Nullable))completion;
+/// Confirms the PaymentIntent object with the provided params object.
+/// At a minimum, the params object must include the <code>clientSecret</code>.
+/// seealso:
+/// https://stripe.com/docs/api#confirm_payment_intent
+/// @note Use the <code>confirmPayment:withAuthenticationContext:completion:</code> method on <code>STPPaymentHandler</code> instead
+/// of calling this method directly. It handles any authentication necessary for you. - seealso: https://stripe.com/docs/payments/3d-secure
+/// \param paymentIntentParams The <code>STPPaymentIntentParams</code> to pass to <code>/confirm</code>
+///
+/// \param expand An array of string keys to expand on the returned PaymentIntent object. These strings should match one or more of the parameter names that are marked as expandable. - seealso: https://stripe.com/docs/api/payment_intents/object
+///
+/// \param completion The callback to run with the returned PaymentIntent object, or an error.
+///
+- (void)confirmPaymentIntentWithParams:(STPPaymentIntentParams * _Nonnull)paymentIntentParams expand:(NSArray<NSString *> * _Nullable)expand completion:(void (^ _Nonnull)(STPPaymentIntent * _Nullable, NSError * _Nullable))completion;
 @end
 
 
@@ -1365,6 +1369,10 @@ SWIFT_CLASS("_TtC14StripePayments27STPCollectBankAccountParams")
 /// \param email The customer’s email. If included, can be used to notify the customer of pending micro-deposit verification.
 ///
 + (STPCollectBankAccountParams * _Nonnull)collectUSBankAccountParamsWithName:(NSString * _Nonnull)name email:(NSString * _Nullable)email SWIFT_WARN_UNUSED_RESULT;
+/// Configures and returns an instance of <code>STPCollectBankAccountParams</code> for Instant Debits
+/// \param email The customer’s email.
+///
++ (STPCollectBankAccountParams * _Nonnull)collectInstantDebitsParamsWithEmail:(NSString * _Nullable)email SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -2086,6 +2094,7 @@ enum STPIntentActionType : NSInteger;
 @class STPIntentActionKonbiniDisplayDetails;
 @class STPIntentActionPromptPayDisplayQrCode;
 @class STPIntentActionSwishHandleRedirect;
+@class STPIntentActionMultibancoDisplayDetails;
 
 /// Next action details for <code>STPPaymentIntent</code> and <code>STPSetupIntent</code>.
 /// This is a container for the various types that are available.
@@ -2119,6 +2128,8 @@ SWIFT_CLASS("_TtC14StripePayments15STPIntentAction")
 @property (nonatomic, readonly, strong) STPIntentActionPromptPayDisplayQrCode * _Nullable promptPayDisplayQrCode;
 /// Contains details for redirecting to the Swish app.
 @property (nonatomic, readonly, strong) STPIntentActionSwishHandleRedirect * _Nullable swishHandleRedirect;
+/// The details for displaying Multibanco voucher via URL, when <code>type == .multibanco</code>
+@property (nonatomic, readonly, strong) STPIntentActionMultibancoDisplayDetails * _Nullable multibancoDisplayDetails;
 /// :nodoc:
 @property (nonatomic, readonly, copy) NSDictionary * _Nonnull allResponseFields;
 /// :nodoc:
@@ -2214,6 +2225,27 @@ SWIFT_CLASS("_TtC14StripePayments36STPIntentActionKonbiniDisplayDetails")
 @property (nonatomic, readonly, copy) NSURL * _Nonnull hostedVoucherURL;
 + (nullable instancetype)decodedObjectFromAPIResponse:(NSDictionary * _Nullable)response SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly, copy) NSDictionary * _Nonnull allResponseFields;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// Contains Multibanco details necessary for the customer to complete the payment.
+SWIFT_CLASS("_TtC14StripePayments39STPIntentActionMultibancoDisplayDetails")
+@interface STPIntentActionMultibancoDisplayDetails : NSObject <STPAPIResponseDecodable>
+/// The multibanco entity number
+@property (nonatomic, readonly, copy) NSString * _Nonnull entity;
+/// Multibanco reference number
+@property (nonatomic, readonly, copy) NSString * _Nonnull reference;
+/// The expiry date of the multibanco voucher.
+@property (nonatomic, readonly, copy) NSDate * _Nonnull expiresAt;
+/// The URL to the hosted multibanco voucher page, which allows customers to view the multibanco voucher.
+@property (nonatomic, readonly, copy) NSURL * _Nonnull hostedVoucherURL;
+/// :nodoc:
+@property (nonatomic, readonly, copy) NSDictionary * _Nonnull allResponseFields;
+/// :nodoc:
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
++ (nullable instancetype)decodedObjectFromAPIResponse:(NSDictionary * _Nullable)response SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -2358,6 +2390,8 @@ typedef SWIFT_ENUM(NSInteger, STPIntentActionType, open) {
   STPIntentActionTypePromptpayDisplayQrCode = 13,
 /// Contains details for redirecting to the Swish app.
   STPIntentActionTypeSwishHandleRedirect = 14,
+/// The action type is Multibanco payment. We provide <code>STPPaymentHandler</code> to display the Multibanco voucher.
+  STPIntentActionTypeMultibancoDisplayDetails = 15,
 };
 
 enum STPMicrodepositType : NSInteger;
@@ -2640,15 +2674,15 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) STPPaymentHa
 @end
 
 
-@interface STPPaymentHandler (SWIFT_EXTENSION(StripePayments)) <STPURLCallbackListener>
-/// :nodoc:
-- (BOOL)handleURLCallback:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
 @interface STPPaymentHandler (SWIFT_EXTENSION(StripePayments)) <SFSafariViewControllerDelegate>
 /// :nodoc:
 - (void)safariViewControllerDidFinish:(SFSafariViewController * _Nonnull)controller;
+@end
+
+
+@interface STPPaymentHandler (SWIFT_EXTENSION(StripePayments)) <STPURLCallbackListener>
+/// :nodoc:
+- (BOOL)handleURLCallback:(NSURL * _Nonnull)url SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -2695,9 +2729,11 @@ typedef SWIFT_ENUM(NSInteger, STPPaymentHandlerErrorCode, open) {
   STPPaymentHandlerUnexpectedErrorCode SWIFT_COMPILE_NAME("unexpectedErrorCode") = 12,
 };
 
+@class ASWebAuthenticationSession;
 
 SWIFT_CLASS("_TtC14StripePayments42STPPaymentHandlerPaymentIntentActionParams")
 @interface STPPaymentHandlerPaymentIntentActionParams : NSObject
+- (ASPresentationAnchor _Nonnull)presentationAnchorForWebAuthenticationSession:(ASWebAuthenticationSession * _Nonnull)session SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -3257,6 +3293,8 @@ typedef SWIFT_ENUM(NSInteger, STPPaymentIntentStatus, open) {
 @class STPPaymentMethodSwish;
 @class STPPaymentMethodAmazonPay;
 @class STPPaymentMethodAlma;
+@class STPPaymentMethodMultibanco;
+@class STPPaymentMethodMobilePay;
 
 /// PaymentMethod objects represent your customer’s payment instruments. They can be used with PaymentIntents to collect payments.
 /// seealso:
@@ -3334,6 +3372,10 @@ SWIFT_CLASS("_TtC14StripePayments16STPPaymentMethod")
 @property (nonatomic, readonly, strong) STPPaymentMethodAmazonPay * _Nullable amazonPay;
 /// If this is a Alma PaymentMethod (i.e. <code>self.type == STPPaymentMethodTypeAlma</code>), this contains additional details.
 @property (nonatomic, readonly, strong) STPPaymentMethodAlma * _Nullable alma;
+/// If this is a Multibanco PaymentMethod (i.e. <code>self.type == STPPaymentMethodTypeMultibanco</code>), this contains additional details.
+@property (nonatomic, readonly, strong) STPPaymentMethodMultibanco * _Nullable multibanco;
+/// If this is a MobilePay PaymentMethod (i.e. <code>self.type == STPPaymentMethodTypeMobilePay</code>), this contains additional details.
+@property (nonatomic, readonly, strong) STPPaymentMethodMobilePay * _Nullable mobilePay;
 /// The ID of the Customer to which this PaymentMethod is saved. Nil when the PaymentMethod has not been saved to a Customer.
 @property (nonatomic, readonly, copy) NSString * _Nullable customerId;
 /// Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format.
@@ -3422,7 +3464,7 @@ SWIFT_CLASS("_TtC14StripePayments23STPPaymentMethodAddress")
 
 /// The Affirm Payment Method.
 /// seealso:
-/// <TODO>
+/// https://stripe.com/docs/api/payment_methods/object#payment_method_object-affirm
 SWIFT_CLASS("_TtC14StripePayments22STPPaymentMethodAffirm")
 @interface STPPaymentMethodAffirm : NSObject <STPAPIResponseDecodable>
 /// :nodoc:
@@ -3496,6 +3538,16 @@ SWIFT_CLASS("_TtC14StripePayments28STPPaymentMethodAlipayParams")
 + (NSDictionary<NSString *, NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
+/// Values for STPPaymentMethodAllowRedisplay
+typedef SWIFT_ENUM(NSInteger, STPPaymentMethodAllowRedisplay, open) {
+/// This is the default value for payment methods where allow_redisplay wasn’t set.
+  STPPaymentMethodAllowRedisplayUnspecified = 0,
+/// Use limited to indicate that this payment method can’t always be shown to a customer in a checkout flow. For example, it can only be shown in the context of a specific subscription.
+  STPPaymentMethodAllowRedisplayLimited = 1,
+/// Use always to indicate that this payment method can always be shown to a customer in a checkout flow.
+  STPPaymentMethodAllowRedisplayAlways = 2,
+};
 
 
 /// The Alma Payment Method.
@@ -4149,9 +4201,49 @@ SWIFT_CLASS("_TtC14StripePayments32STPPaymentMethodListDeserializer")
 @end
 
 
+/// The MobilePay Payment Method.
+/// seealso:
+/// https://stripe.com/docs/api/payment_methods/object#payment_method_object-mobilepay
+SWIFT_CLASS("_TtC14StripePayments25STPPaymentMethodMobilePay")
+@interface STPPaymentMethodMobilePay : NSObject <STPAPIResponseDecodable>
+/// :nodoc:
+@property (nonatomic, readonly, copy) NSDictionary * _Nonnull allResponseFields;
+/// :nodoc:
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
++ (nullable instancetype)decodedObjectFromAPIResponse:(NSDictionary * _Nullable)response SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
 /// An object representing parameters used to create a MobilePay Payment Method
 SWIFT_CLASS("_TtC14StripePayments31STPPaymentMethodMobilePayParams")
 @interface STPPaymentMethodMobilePayParams : NSObject <STPFormEncodable>
+@property (nonatomic, copy) NSDictionary * _Nonnull additionalAPIParameters;
++ (NSString * _Nullable)rootObjectName SWIFT_WARN_UNUSED_RESULT;
++ (NSDictionary<NSString *, NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+/// The Multibanco Payment Method.
+/// seealso:
+/// https://stripe.com/docs/api/payment_methods/object#payment_method_object-multibanco
+SWIFT_CLASS("_TtC14StripePayments26STPPaymentMethodMultibanco")
+@interface STPPaymentMethodMultibanco : NSObject <STPAPIResponseDecodable>
+/// :nodoc:
+@property (nonatomic, readonly, copy) NSDictionary * _Nonnull allResponseFields;
+/// :nodoc:
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
++ (nullable instancetype)decodedObjectFromAPIResponse:(NSDictionary * _Nullable)response SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// An object representing parameters used to create a Multibanco Payment Method
+SWIFT_CLASS("_TtC14StripePayments32STPPaymentMethodMultibancoParams")
+@interface STPPaymentMethodMultibancoParams : NSObject <STPFormEncodable>
 @property (nonatomic, copy) NSDictionary * _Nonnull additionalAPIParameters;
 + (NSString * _Nullable)rootObjectName SWIFT_WARN_UNUSED_RESULT;
 + (NSDictionary<NSString *, NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping SWIFT_WARN_UNUSED_RESULT;
@@ -4256,6 +4348,8 @@ SWIFT_CLASS("_TtC14StripePayments22STPPaymentMethodParams")
 @property (nonatomic, copy) NSString * _Nullable rawTypeString;
 /// Billing information associated with the PaymentMethod that may be used or required by particular types of payment methods.
 @property (nonatomic, strong) STPPaymentMethodBillingDetails * _Nullable billingDetails;
+/// This field indicates whether this payment method can be shown again to its customer in a checkout flow
+@property (nonatomic) enum STPPaymentMethodAllowRedisplay allowRedisplay;
 /// If this is a card PaymentMethod, this contains the user’s card details.
 @property (nonatomic, strong) STPPaymentMethodCardParams * _Nullable card;
 /// If this is an Alipay PaymentMethod, this contains additional details.
@@ -4316,6 +4410,8 @@ SWIFT_CLASS("_TtC14StripePayments22STPPaymentMethodParams")
 @property (nonatomic, strong) STPPaymentMethodAmazonPayParams * _Nullable amazonPay;
 /// If this is a Alma PaymentMethod, this contains additional details.
 @property (nonatomic, strong) STPPaymentMethodAlmaParams * _Nullable alma;
+/// If this is a Multibanco PaymentMethod, this contains additional details.
+@property (nonatomic, strong) STPPaymentMethodMultibancoParams * _Nullable multibanco;
 /// Set of key-value pairs that you can attach to the PaymentMethod. This can be useful for storing additional information about the PaymentMethod in a structured format.
 @property (nonatomic, copy) NSDictionary<NSString *, NSString *> * _Nullable metadata;
 /// Creates params for a card PaymentMethod.
@@ -4323,9 +4419,11 @@ SWIFT_CLASS("_TtC14StripePayments22STPPaymentMethodParams")
 ///
 /// \param billingDetails An object containing the user’s billing details.
 ///
+/// \param allowRedisplay An enum defining consent options for redisplay
+///
 /// \param metadata Additional information to attach to the PaymentMethod.
 ///
-- (nonnull instancetype)initWithCard:(STPPaymentMethodCardParams * _Nonnull)card billingDetails:(STPPaymentMethodBillingDetails * _Nullable)billingDetails metadata:(NSDictionary<NSString *, NSString *> * _Nullable)metadata;
+- (nonnull instancetype)initWithCard:(STPPaymentMethodCardParams * _Nonnull)card billingDetails:(STPPaymentMethodBillingDetails * _Nullable)billingDetails allowRedisplay:(enum STPPaymentMethodAllowRedisplay)allowRedisplay metadata:(NSDictionary<NSString *, NSString *> * _Nullable)metadata;
 /// Creates params for an iDEAL PaymentMethod.
 /// \param iDEAL An object containing the user’s iDEAL bank details.
 ///
@@ -4497,9 +4595,11 @@ SWIFT_CLASS("_TtC14StripePayments22STPPaymentMethodParams")
 ///
 /// \param billingDetails An object containing the user’s billing details. Name is required for US Bank Accounts
 ///
+/// \param allowRedisplay An enum defining consent options for redisplay
+///
 /// \param metadata Additional information to attach to the PaymentMethod
 ///
-- (nonnull instancetype)initWithUsBankAccount:(STPPaymentMethodUSBankAccountParams * _Nonnull)usBankAccount billingDetails:(STPPaymentMethodBillingDetails * _Nonnull)billingDetails metadata:(NSDictionary<NSString *, NSString *> * _Nullable)metadata;
+- (nonnull instancetype)initWithUsBankAccount:(STPPaymentMethodUSBankAccountParams * _Nonnull)usBankAccount billingDetails:(STPPaymentMethodBillingDetails * _Nonnull)billingDetails allowRedisplay:(enum STPPaymentMethodAllowRedisplay)allowRedisplay metadata:(NSDictionary<NSString *, NSString *> * _Nullable)metadata;
 /// Creates params for an Cash App PaymentMethod.
 /// \param cashApp An object containing additional Cash App details.
 ///
@@ -4548,6 +4648,14 @@ SWIFT_CLASS("_TtC14StripePayments22STPPaymentMethodParams")
 /// \param metadata Additional information to attach to the PaymentMethod.
 ///
 - (nonnull instancetype)initWithAlma:(STPPaymentMethodAlmaParams * _Nonnull)alma billingDetails:(STPPaymentMethodBillingDetails * _Nullable)billingDetails metadata:(NSDictionary<NSString *, NSString *> * _Nullable)metadata;
+/// Creates params for an Multibanco PaymentMethod.
+/// \param multibanco An object containing additional Multibanco details.
+///
+/// \param billingDetails An object containing the user’s billing details.
+///
+/// \param metadata Additional information to attach to the PaymentMethod.
+///
+- (nonnull instancetype)initWithMultibanco:(STPPaymentMethodMultibancoParams * _Nonnull)multibanco billingDetails:(STPPaymentMethodBillingDetails * _Nullable)billingDetails metadata:(NSDictionary<NSString *, NSString *> * _Nullable)metadata;
 /// Creates params from a single-use PaymentMethod. This is useful for recreating a new payment method
 /// with similar settings. It will return nil if used with a reusable PaymentMethod.
 /// \param paymentMethod An object containing the original single-use PaymentMethod.
@@ -4961,36 +5069,38 @@ typedef SWIFT_ENUM(NSInteger, STPPaymentMethodType, open) {
   STPPaymentMethodTypeLink = 22,
 /// A Klarna payment method.
   STPPaymentMethodTypeKlarna = 23,
-/// A Link Instant Debit payment method
-  STPPaymentMethodTypeLinkInstantDebit = 24,
 /// An Affirm payment method
-  STPPaymentMethodTypeAffirm = 25,
+  STPPaymentMethodTypeAffirm = 24,
 /// A US Bank Account payment method (ACH)
-  STPPaymentMethodTypeUSBankAccount = 26,
+  STPPaymentMethodTypeUSBankAccount = 25,
 /// A CashApp payment method
-  STPPaymentMethodTypeCashApp = 27,
+  STPPaymentMethodTypeCashApp = 26,
 /// A PayNow payment method
-  STPPaymentMethodTypePaynow = 28,
+  STPPaymentMethodTypePaynow = 27,
 /// A Zip payment method
-  STPPaymentMethodTypeZip = 29,
+  STPPaymentMethodTypeZip = 28,
 /// A RevolutPay payment method
-  STPPaymentMethodTypeRevolutPay = 30,
+  STPPaymentMethodTypeRevolutPay = 29,
 /// An AmazonPay payment method
-  STPPaymentMethodTypeAmazonPay = 31,
+  STPPaymentMethodTypeAmazonPay = 30,
 /// An Alma payment method
-  STPPaymentMethodTypeAlma = 32,
+  STPPaymentMethodTypeAlma = 31,
 /// A MobilePay payment method
-  STPPaymentMethodTypeMobilePay = 33,
+  STPPaymentMethodTypeMobilePay = 32,
 /// A Konbini payment method
-  STPPaymentMethodTypeKonbini = 34,
+  STPPaymentMethodTypeKonbini = 33,
 /// A PromptPay payment method
-  STPPaymentMethodTypePromptPay = 35,
+  STPPaymentMethodTypePromptPay = 34,
 /// A Swish payment method
-  STPPaymentMethodTypeSwish = 36,
+  STPPaymentMethodTypeSwish = 35,
 /// A TWINT payment method
-  STPPaymentMethodTypeTwint = 37,
+  STPPaymentMethodTypeTwint = 36,
+/// A Multibanco payment method
+  STPPaymentMethodTypeMultibanco = 37,
+/// A Instant Debits payment method
+  STPPaymentMethodTypeInstantDebits = 38,
 /// An unknown type.
-  STPPaymentMethodTypeUnknown = 38,
+  STPPaymentMethodTypeUnknown = 39,
 };
 
 

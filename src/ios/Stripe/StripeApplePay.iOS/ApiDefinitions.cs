@@ -9,9 +9,8 @@ using UIKit;
 namespace StripeApplePay
 {
 	// @interface StripeApplePay_Swift_307 (STPAPIClient)
-	[Category]
-	[BaseType (typeof(STPAPIClient))]
-	interface STPAPIClient_StripeApplePay_Swift_307
+	[BaseType (typeof(NSObject))]
+	interface StripeErrors
 	{
 		// +(NSError * _Nullable)pkPaymentErrorForStripeError:(NSError * _Nullable)stripeError __attribute__((warn_unused_result("")));
 		[Static]
@@ -28,10 +27,10 @@ namespace StripeApplePay
 		// -(instancetype _Nullable)initWithPaymentRequest:(PKPaymentRequest * _Nonnull)paymentRequest delegate:(id<_stpinternal_STPApplePayContextDelegateBase> _Nullable)delegate __attribute__((objc_designated_initializer));
 		[Export ("initWithPaymentRequest:delegate:")]
 		[DesignatedInitializer]
-		NativeHandle Constructor (PKPaymentRequest paymentRequest, [NullAllowed] _stpinternal_STPApplePayContextDelegateBase @delegate);
+		NativeHandle Constructor (PKPaymentRequest paymentRequest, [NullAllowed] I_stpinternal_STPApplePayContextDelegateBase @delegate);
 
 		// -(void)presentApplePayWithCompletion:(void (^ _Nullable)(void))completion __attribute__((availability(ios_app_extension, unavailable)));
-		[Unavailable (PlatformName.iOSAppExtension)]
+		//[Unavailable (PlatformName.iOSAppExtension)]
 		[Export ("presentApplePayWithCompletion:")]
 		void PresentApplePayWithCompletion ([NullAllowed] Action completion);
 
@@ -87,8 +86,8 @@ namespace StripeApplePay
 	{
 	}
 
-	// @protocol _stpinternal_STPApplePayContextDelegateBase <NSObject>
-	/*
+    // @protocol _stpinternal_STPApplePayContextDelegateBase <NSObject>
+    /*
   Check whether adding [Model] to this declaration is appropriate.
   [Model] is used to generate a C# class that implements this protocol,
   and might be useful for protocols that consumers are supposed to implement,
@@ -96,7 +95,10 @@ namespace StripeApplePay
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol (Name = "_TtP14StripeApplePay43_stpinternal_STPApplePayContextDelegateBase_")]
+*/
+    partial interface I_stpinternal_STPApplePayContextDelegateBase { }
+
+    [Protocol (Name = "_TtP14StripeApplePay43_stpinternal_STPApplePayContextDelegateBase_"), Model]
 	[BaseType (typeof(NSObject), Name = "_TtP14StripeApplePay43_stpinternal_STPApplePayContextDelegateBase_")]
 	interface _stpinternal_STPApplePayContextDelegateBase
 	{
@@ -111,18 +113,5 @@ namespace StripeApplePay
 		// @optional -(void)applePayContext:(STPApplePayContext * _Nonnull)context willCompleteWithResult:(PKPaymentAuthorizationResult * _Nonnull)authorizationResult handler:(void (^ _Nonnull)(PKPaymentAuthorizationResult * _Nonnull))handler;
 		[Export ("applePayContext:willCompleteWithResult:handler:")]
 		void WillCompleteWithResult (STPApplePayContext context, PKPaymentAuthorizationResult authorizationResult, Action<PKPaymentAuthorizationResult> handler);
-	}
-
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
-	partial interface Constants
-	{
-		// extern double StripeApplePayVersionNumber;
-		[Field ("StripeApplePayVersionNumber", "__Internal")]
-		double StripeApplePayVersionNumber { get; }
-
-		// extern const unsigned char[] StripeApplePayVersionString;
-		[Field ("StripeApplePayVersionString", "__Internal")]
-		byte[] StripeApplePayVersionString { get; }
 	}
 }
