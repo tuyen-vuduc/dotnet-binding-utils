@@ -8,16 +8,16 @@ using UIKit;
 
 namespace StripeApplePay
 {
-	// @interface StripeApplePay_Swift_307 (STPAPIClient)
-	[BaseType (typeof(NSObject))]
-	interface StripeErrors
-	{
-		// +(NSError * _Nullable)pkPaymentErrorForStripeError:(NSError * _Nullable)stripeError __attribute__((warn_unused_result("")));
-		[Static]
-		[Export ("pkPaymentErrorForStripeError:")]
-		[return: NullAllowed]
-		NSError PkPaymentErrorForStripeError ([NullAllowed] NSError stripeError);
-	}
+	// // @interface StripeApplePay_Swift_307 (STPAPIClient)
+	// [BaseType (typeof(NSObject))]
+	// interface StripeErrors
+	// {
+	// 	// +(NSError * _Nullable)pkPaymentErrorForStripeError:(NSError * _Nullable)stripeError __attribute__((warn_unused_result("")));
+	// 	[Static]
+	// 	[Export ("pkPaymentErrorForStripeError:")]
+	// 	[return: NullAllowed]
+	// 	NSError PkPaymentErrorForStripeError ([NullAllowed] NSError stripeError);
+	// }
 
 	// @interface STPApplePayContext : NSObject <PKPaymentAuthorizationControllerDelegate>
 	[BaseType (typeof(NSObject))]
@@ -52,19 +52,19 @@ namespace StripeApplePay
 
 		// -(void)paymentAuthorizationController:(PKPaymentAuthorizationController * _Nonnull)controller didAuthorizePayment:(PKPayment * _Nonnull)payment handler:(void (^ _Nonnull)(PKPaymentAuthorizationResult * _Nonnull))completion __attribute__((swift_attr("@UIActor")));
 		[Export ("paymentAuthorizationController:didAuthorizePayment:handler:")]
-		void PaymentAuthorizationController (PKPaymentAuthorizationController controller, PKPayment payment, Action<PKPaymentAuthorizationResult> completion);
+		void DidAuthorizePayment (PKPaymentAuthorizationController controller, PKPayment payment, Action<PKPaymentAuthorizationResult> completion);
 
 		// -(void)paymentAuthorizationController:(PKPaymentAuthorizationController * _Nonnull)controller didSelectShippingMethod:(PKShippingMethod * _Nonnull)shippingMethod handler:(void (^ _Nonnull)(PKPaymentRequestShippingMethodUpdate * _Nonnull))completion __attribute__((swift_attr("@UIActor")));
 		[Export ("paymentAuthorizationController:didSelectShippingMethod:handler:")]
-		void PaymentAuthorizationController (PKPaymentAuthorizationController controller, PKShippingMethod shippingMethod, Action<PKPaymentRequestShippingMethodUpdate> completion);
+		void DidSelectShippingMethod (PKPaymentAuthorizationController controller, PKShippingMethod shippingMethod, Action<PKPaymentRequestShippingMethodUpdate> completion);
 
 		// -(void)paymentAuthorizationController:(PKPaymentAuthorizationController * _Nonnull)controller didSelectShippingContact:(PKContact * _Nonnull)contact handler:(void (^ _Nonnull)(PKPaymentRequestShippingContactUpdate * _Nonnull))completion __attribute__((swift_attr("@UIActor")));
 		[Export ("paymentAuthorizationController:didSelectShippingContact:handler:")]
-		void PaymentAuthorizationController (PKPaymentAuthorizationController controller, PKContact contact, Action<PKPaymentRequestShippingContactUpdate> completion);
+		void DidSelectShippingContact (PKPaymentAuthorizationController controller, PKContact contact, Action<PKPaymentRequestShippingContactUpdate> completion);
 
 		// -(void)paymentAuthorizationControllerDidFinish:(PKPaymentAuthorizationController * _Nonnull)controller __attribute__((swift_attr("@UIActor")));
 		[Export ("paymentAuthorizationControllerDidFinish:")]
-		void PaymentAuthorizationControllerDidFinish (PKPaymentAuthorizationController controller);
+		void DidFinish (PKPaymentAuthorizationController controller);
 
 		// -(UIWindow * _Nullable)presentationWindowForPaymentAuthorizationController:(PKPaymentAuthorizationController * _Nonnull)controller __attribute__((warn_unused_result("")));
 		[Export ("presentationWindowForPaymentAuthorizationController:")]

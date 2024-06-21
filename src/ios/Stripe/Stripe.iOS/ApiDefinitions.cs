@@ -723,7 +723,7 @@ namespace Stripe
 
 		// -(id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone __attribute__((warn_unused_result("")));
 		[Export ("copyWithZone:")]
-		unsafe NSObject CopyWithZone ([NullAllowed] NSZone zone);
+		unsafe NSObject Copy ([NullAllowed] NSZone zone);
 	}
 
 	// @protocol STPShippingAddressViewControllerDelegate <NSObject>
@@ -1351,7 +1351,7 @@ namespace Stripe
 	{
 		// -(id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone __attribute__((warn_unused_result("")));
 		[Export ("copyWithZone:")]
-		unsafe NSObject CopyWithZone ([NullAllowed] NSZone zone);
+		unsafe NSObject Copy ([NullAllowed] NSZone zone);
 	}
 
 	// @interface STPUserInformation : NSObject <NSCopying>
@@ -1372,7 +1372,7 @@ namespace Stripe
 
 		// -(id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone __attribute__((warn_unused_result("")));
 		[Export ("copyWithZone:")]
-		unsafe NSObject CopyWithZone ([NullAllowed] NSZone zone);
+		unsafe NSObject Copy ([NullAllowed] NSZone zone);
 	}
 
 	// @interface Stripe_Swift_1854 (UINavigationBar)

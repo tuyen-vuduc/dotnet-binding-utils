@@ -6,90 +6,90 @@ using StripeCore;
 
 namespace StripeCore
 {
-    // @interface StripeCore_Swift_319 (NSError)
-    [BaseType(typeof(NSObject))]
-    partial interface StripeErrors
-    {
-        // +(NSError * _Nullable)stp_errorFromStripeResponse:(NSDictionary * _Nullable)jsonDictionary __attribute__((warn_unused_result("")));
-        [Static]
-		[Export ("stp_errorFromStripeResponse:")]
-		[return: NullAllowed]
-		NSError Stp_errorFromStripeResponse ([NullAllowed] NSDictionary jsonDictionary);
-	}
+    // // @interface StripeCore_Swift_319 (NSError)
+    // [BaseType(typeof(NSObject))]
+    // partial interface StripeErrors
+    // {
+    //     // +(NSError * _Nullable)stp_errorFromStripeResponse:(NSDictionary * _Nullable)jsonDictionary __attribute__((warn_unused_result("")));
+    //     [Static]
+	// 	[Export ("stp_errorFromStripeResponse:")]
+	// 	[return: NullAllowed]
+	// 	NSError Stp_errorFromStripeResponse ([NullAllowed] NSDictionary jsonDictionary);
+	// }
 
-	// @interface StripeCore_Swift_332 (NSError)
-	partial interface StripeErrors
-	{
-		// +(NSError * _Nonnull)stp_genericConnectionError __attribute__((warn_unused_result("")));
-		[Static]
-		[Export ("stp_genericConnectionError")]
-		NSError Stp_genericConnectionError ();
+	// // @interface StripeCore_Swift_332 (NSError)
+	// partial interface StripeErrors
+	// {
+	// 	// +(NSError * _Nonnull)stp_genericConnectionError __attribute__((warn_unused_result("")));
+	// 	[Static]
+	// 	[Export ("stp_genericConnectionError")]
+	// 	NSError Stp_genericConnectionError ();
 
-		// +(NSError * _Nonnull)stp_genericFailedToParseResponseError __attribute__((warn_unused_result("")));
-		[Static]
-		[Export ("stp_genericFailedToParseResponseError")]
-		NSError Stp_genericFailedToParseResponseError ();
+	// 	// +(NSError * _Nonnull)stp_genericFailedToParseResponseError __attribute__((warn_unused_result("")));
+	// 	[Static]
+	// 	[Export ("stp_genericFailedToParseResponseError")]
+	// 	NSError Stp_genericFailedToParseResponseError ();
 
-		// +(NSError * _Nonnull)stp_ephemeralKeyDecodingError __attribute__((warn_unused_result("")));
-		[Static]
-		[Export ("stp_ephemeralKeyDecodingError")]
+	// 	// +(NSError * _Nonnull)stp_ephemeralKeyDecodingError __attribute__((warn_unused_result("")));
+	// 	[Static]
+	// 	[Export ("stp_ephemeralKeyDecodingError")]
 		
-		NSError Stp_ephemeralKeyDecodingError ();
+	// 	NSError Stp_ephemeralKeyDecodingError ();
 
-		// +(NSError * _Nonnull)stp_clientSecretError __attribute__((warn_unused_result("")));
-		[Static]
-		[Export ("stp_clientSecretError")]
+	// 	// +(NSError * _Nonnull)stp_clientSecretError __attribute__((warn_unused_result("")));
+	// 	[Static]
+	// 	[Export ("stp_clientSecretError")]
 		
-		NSError Stp_clientSecretError ();
+	// 	NSError Stp_clientSecretError ();
 
-		// +(NSString * _Nonnull)stp_cardErrorInvalidNumberUserMessage __attribute__((warn_unused_result("")));
-		[Static]
-		[Export ("stp_cardErrorInvalidNumberUserMessage")]
+	// 	// +(NSString * _Nonnull)stp_cardErrorInvalidNumberUserMessage __attribute__((warn_unused_result("")));
+	// 	[Static]
+	// 	[Export ("stp_cardErrorInvalidNumberUserMessage")]
 		
-		string Stp_cardErrorInvalidNumberUserMessage ();
+	// 	string Stp_cardErrorInvalidNumberUserMessage ();
 
-		// +(NSString * _Nonnull)stp_cardInvalidCVCUserMessage __attribute__((warn_unused_result("")));
-		[Static]
-		[Export ("stp_cardInvalidCVCUserMessage")]
+	// 	// +(NSString * _Nonnull)stp_cardInvalidCVCUserMessage __attribute__((warn_unused_result("")));
+	// 	[Static]
+	// 	[Export ("stp_cardInvalidCVCUserMessage")]
 		
-		string Stp_cardInvalidCVCUserMessage ();
+	// 	string Stp_cardInvalidCVCUserMessage ();
 
-		// +(NSString * _Nonnull)stp_cardErrorInvalidExpMonthUserMessage __attribute__((warn_unused_result("")));
-		[Static]
-		[Export ("stp_cardErrorInvalidExpMonthUserMessage")]
+	// 	// +(NSString * _Nonnull)stp_cardErrorInvalidExpMonthUserMessage __attribute__((warn_unused_result("")));
+	// 	[Static]
+	// 	[Export ("stp_cardErrorInvalidExpMonthUserMessage")]
 		
-		string Stp_cardErrorInvalidExpMonthUserMessage ();
+	// 	string Stp_cardErrorInvalidExpMonthUserMessage ();
 
-		// +(NSString * _Nonnull)stp_cardErrorInvalidExpYearUserMessage __attribute__((warn_unused_result("")));
-		[Static]
-		[Export ("stp_cardErrorInvalidExpYearUserMessage")]
+	// 	// +(NSString * _Nonnull)stp_cardErrorInvalidExpYearUserMessage __attribute__((warn_unused_result("")));
+	// 	[Static]
+	// 	[Export ("stp_cardErrorInvalidExpYearUserMessage")]
 		
-		string Stp_cardErrorInvalidExpYearUserMessage ();
+	// 	string Stp_cardErrorInvalidExpYearUserMessage ();
 
-		// +(NSString * _Nonnull)stp_cardErrorExpiredCardUserMessage __attribute__((warn_unused_result("")));
-		[Static]
-		[Export ("stp_cardErrorExpiredCardUserMessage")]
+	// 	// +(NSString * _Nonnull)stp_cardErrorExpiredCardUserMessage __attribute__((warn_unused_result("")));
+	// 	[Static]
+	// 	[Export ("stp_cardErrorExpiredCardUserMessage")]
 		
-		string Stp_cardErrorExpiredCardUserMessage ();
+	// 	string Stp_cardErrorExpiredCardUserMessage ();
 
-		// +(NSString * _Nonnull)stp_cardErrorDeclinedUserMessage __attribute__((warn_unused_result("")));
-		[Static]
-		[Export ("stp_cardErrorDeclinedUserMessage")]
+	// 	// +(NSString * _Nonnull)stp_cardErrorDeclinedUserMessage __attribute__((warn_unused_result("")));
+	// 	[Static]
+	// 	[Export ("stp_cardErrorDeclinedUserMessage")]
 		
-		string Stp_cardErrorDeclinedUserMessage ();
+	// 	string Stp_cardErrorDeclinedUserMessage ();
 
-		// +(NSString * _Nonnull)stp_genericDeclineErrorUserMessage __attribute__((warn_unused_result("")));
-		[Static]
-		[Export ("stp_genericDeclineErrorUserMessage")]
+	// 	// +(NSString * _Nonnull)stp_genericDeclineErrorUserMessage __attribute__((warn_unused_result("")));
+	// 	[Static]
+	// 	[Export ("stp_genericDeclineErrorUserMessage")]
 		
-		string Stp_genericDeclineErrorUserMessage ();
+	// 	string Stp_genericDeclineErrorUserMessage ();
 
-		// +(NSString * _Nonnull)stp_cardErrorProcessingErrorUserMessage __attribute__((warn_unused_result("")));
-		[Static]
-		[Export ("stp_cardErrorProcessingErrorUserMessage")]
+	// 	// +(NSString * _Nonnull)stp_cardErrorProcessingErrorUserMessage __attribute__((warn_unused_result("")));
+	// 	[Static]
+	// 	[Export ("stp_cardErrorProcessingErrorUserMessage")]
 		
-		string Stp_cardErrorProcessingErrorUserMessage ();
-	}
+	// 	string Stp_cardErrorProcessingErrorUserMessage ();
+	// }
 
 	// @interface STPAPIClient : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC10StripeCore12STPAPIClient")]

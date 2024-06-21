@@ -320,7 +320,7 @@ namespace StripePayments
 	{
 		// -(id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone __attribute__((warn_unused_result("")));
 		[Export ("copyWithZone:")]
-		unsafe NSObject CopyWithZone ([NullAllowed] NSZone zone);
+		unsafe NSObject Copy ([NullAllowed] NSZone zone);
 	}
 
 	// @protocol STPFormEncodable <NSObject>
@@ -796,7 +796,7 @@ namespace StripePayments
 
 		// -(id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone __attribute__((warn_unused_result("")));
 		[Export ("copyWithZone:")]
-		unsafe NSObject CopyWithZone ([NullAllowed] NSZone zone);
+		unsafe NSObject Copy ([NullAllowed] NSZone zone);
 	}
 
 	// @interface STPCardValidator : NSObject
@@ -2687,7 +2687,7 @@ namespace StripePayments
 	{
 		// -(id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone __attribute__((warn_unused_result("")));
 		[Export ("copyWithZone:")]
-		unsafe NSObject CopyWithZone ([NullAllowed] NSZone zone);
+		unsafe NSObject Copy ([NullAllowed] NSZone zone);
 	}
 
 	// @interface StripePayments_Swift_3006 (STPPaymentIntentParams) <STPFormEncodable>
@@ -2848,7 +2848,7 @@ namespace StripePayments
 	{
 		// -(id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone __attribute__((warn_unused_result("")));
 		[Export ("copyWithZone:")]
-		unsafe NSObject CopyWithZone ([NullAllowed] NSZone zone);
+		unsafe NSObject Copy ([NullAllowed] NSZone zone);
 	}
 
 	// @interface StripePayments_Swift_3126 (STPPaymentIntentShippingDetailsAddressParams) <STPFormEncodable>
@@ -2913,7 +2913,7 @@ namespace StripePayments
 	{
 		// -(id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone __attribute__((warn_unused_result("")));
 		[Export ("copyWithZone:")]
-		unsafe NSObject CopyWithZone ([NullAllowed] NSZone zone);
+		unsafe NSObject Copy ([NullAllowed] NSZone zone);
 	}
 
 	// @interface StripePayments_Swift_3165 (STPPaymentIntentShippingDetailsParams) <STPFormEncodable>
@@ -5692,7 +5692,7 @@ namespace StripePayments
 
 		// -(id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone __attribute__((warn_unused_result("")));
 		[Export ("copyWithZone:")]
-		unsafe NSObject CopyWithZone ([NullAllowed] NSZone zone);
+		unsafe NSObject Copy ([NullAllowed] NSZone zone);
 
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
@@ -6155,7 +6155,7 @@ namespace StripePayments
 
 		// -(id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone __attribute__((warn_unused_result("")));
 		[Export ("copyWithZone:")]
-		unsafe NSObject CopyWithZone ([NullAllowed] NSZone zone);
+		unsafe NSObject Copy ([NullAllowed] NSZone zone);
 	}
 
 	// @interface STPSourceReceiver : NSObject <STPAPIResponseDecodable>

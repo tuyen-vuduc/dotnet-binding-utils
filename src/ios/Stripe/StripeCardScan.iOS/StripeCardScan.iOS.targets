@@ -13,7 +13,7 @@
       <Url>https://github.com/stripe/stripe-ios/releases/download/$(_Stripe)/Stripe.xcframework.zip</Url>
       <Kind>Zip</Kind>
     </XamarinBuildDownload>
-    <NativeReference Include="$(_StripeSDKBaseFolder)stripe-ios-$(_Stripe)\Stripe.xcframework\StripeCardScan.xcframework">
+    <NativeReference Include="$(_StripeSDKBaseFolder)stripe-ios-$(_Stripe)\StripeCardScan.xcframework">
       <Kind>Framework</Kind>
       <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>
