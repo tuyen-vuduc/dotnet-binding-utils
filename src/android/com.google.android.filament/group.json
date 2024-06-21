@@ -1,3 +1,5 @@
 {
-  "name": "com.google.android.filament"
+  "name": "com.google.android.filament",
+  "dotnet8": true,
+  "runtimeDependenciesAsCompile": true
 }
