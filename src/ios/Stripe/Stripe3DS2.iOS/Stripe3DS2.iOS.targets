@@ -3,9 +3,9 @@
 <Project>
 	<PropertyGroup>
 		<_Stripe>23.27.5</_Stripe>
-		<_NugetSuffix></_NugetSuffix>
+		<_StripeNugetSuffix></_StripeNugetSuffix>
 		<_Stripe3DS2AssemblyName>Stripe3DS2.iOS, Version=$(_Stripe), Culture=neutral, PublicKeyToken=null </_Stripe3DS2AssemblyName>
-		<_StripeItemsFolder>Stripe-$(_Stripe)$(_NugetSuffix)</_StripeItemsFolder>
+		<_StripeItemsFolder>Stripe-$(_Stripe)$(_StripeNugetSuffix)</_StripeItemsFolder>
 		<_StripeSDKBaseFolder>$(XamarinBuildDownloadDir)$(_StripeItemsFolder)\</_StripeSDKBaseFolder>
 	</PropertyGroup>
   <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">

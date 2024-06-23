@@ -3,17 +3,17 @@
 <Project>
 	<PropertyGroup>
 		<_Stripe>23.27.5</_Stripe>
-		<_NugetSuffix></_NugetSuffix>
+		<_StripeNugetSuffix></_StripeNugetSuffix>
 		<_TVStripePaymentSheetAssemblyName>TVStripePaymentSheet.iOS, Version=$(_Stripe), Culture=neutral, PublicKeyToken=null </_TVStripePaymentSheetAssemblyName>
-		<_TVStripePaymentSheetItemsFolder>tvstripepaymentsheet-$(_Stripe)$(_NugetSuffix)</_TVStripePaymentSheetItemsFolder>
-		<_StripeSDKBaseFolder>$(XamarinBuildDownloadDir)$(_TVStripePaymentSheetItemsFolder)\</_StripeSDKBaseFolder>
+		<_TVStripePaymentSheetItemsFolder>tvstripepaymentsheet-$(_Stripe)$(_StripeNugetSuffix)</_TVStripePaymentSheetItemsFolder>
+		<_TVStripePaymentSheetFolder>$(XamarinBuildDownloadDir)$(_TVStripePaymentSheetItemsFolder)\</_TVStripePaymentSheetFolder>
 	</PropertyGroup>
   <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
     <XamarinBuildDownload Include="$(_TVStripePaymentSheetItemsFolder)">
       <Url>https://drive.google.com/uc?id=19ni4tr11XTkWIh5isBibeR0b4TWpXwMp&amp;export=download</Url>
       <Kind>Zip</Kind>
     </XamarinBuildDownload>
-    <NativeReference Include="$(_StripeSDKBaseFolder)TVStripePaymentSheet.xcframework">
+    <NativeReference Include="$(_TVStripePaymentSheetFolder)TVStripePaymentSheet.xcframework">
       <Kind>Framework</Kind>
       <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>

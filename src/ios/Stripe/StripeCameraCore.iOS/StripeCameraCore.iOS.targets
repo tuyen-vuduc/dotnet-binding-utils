@@ -3,9 +3,9 @@
 <Project>
 	<PropertyGroup>
 		<_Stripe>23.27.5</_Stripe>
-		<_NugetSuffix></_NugetSuffix>
+		<_StripeNugetSuffix></_StripeNugetSuffix>
 		<_StripeCameraCoreAssemblyName>StripeCameraCore.iOS, Version=$(_Stripe), Culture=neutral, PublicKeyToken=null </_StripeCameraCoreAssemblyName>
-		<_StripeItemsFolder>Stripe-$(_Stripe)$(_NugetSuffix)</_StripeItemsFolder>
+		<_StripeItemsFolder>Stripe-$(_Stripe)$(_StripeNugetSuffix)</_StripeItemsFolder>
 		<_StripeSDKBaseFolder>$(XamarinBuildDownloadDir)$(_StripeItemsFolder)\</_StripeSDKBaseFolder>
 	</PropertyGroup>
   <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
