@@ -2,10 +2,10 @@
 
 <Project>
 	<PropertyGroup>
-		<_Stripe>23.27.1</_Stripe>
-		<_NugetSuffix></_NugetSuffix>
+		<_Stripe>23.27.5</_Stripe>
+		<_StripeNugetSuffix></_StripeNugetSuffix>
 		<_StripeIdentityAssemblyName>StripeIdentity.iOS, Version=$(_Stripe), Culture=neutral, PublicKeyToken=null </_StripeIdentityAssemblyName>
-		<_StripeItemsFolder>Stripe-$(_Stripe)$(_NugetSuffix)</_StripeItemsFolder>
+		<_StripeItemsFolder>Stripe-$(_Stripe)$(_StripeNugetSuffix)</_StripeItemsFolder>
 		<_StripeSDKBaseFolder>$(XamarinBuildDownloadDir)$(_StripeItemsFolder)\</_StripeSDKBaseFolder>
 	</PropertyGroup>
   <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
@@ -13,7 +13,7 @@
       <Url>https://github.com/stripe/stripe-ios/releases/download/$(_Stripe)/Stripe.xcframework.zip</Url>
       <Kind>Zip</Kind>
     </XamarinBuildDownload>
-    <NativeReference Include="$(_StripeSDKBaseFolder)stripe-ios-$(_Stripe)\Stripe.xcframework\StripeIdentity.xcframework">
+    <NativeReference Include="$(_StripeSDKBaseFolder)StripeIdentity.xcframework">
       <Kind>Framework</Kind>
       <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>

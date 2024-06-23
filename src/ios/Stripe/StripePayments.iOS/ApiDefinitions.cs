@@ -2,11 +2,12 @@ using System;
 using Contacts;
 using Foundation;
 using ObjCRuntime;
-using ObjectiveC;
+using AuthenticationServices;
 using PassKit;
 using SafariServices;
 using StripePayments;
 using UIKit;
+using StripeCore;
 
 namespace StripePayments
 {
@@ -19,7 +20,11 @@ namespace StripePayments
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol (Name = "_TtP14StripePayments23STPAPIResponseDecodable_")]
+*/
+	partial interface ISTPAPIResponseDecodable { }
+
+
+    [Protocol (Name = "_TtP14StripePayments23STPAPIResponseDecodable_"), Model]
 	[BaseType (typeof(NSObject), Name = "_TtP14StripePayments23STPAPIResponseDecodable_")]
 	interface STPAPIResponseDecodable
 	{
@@ -38,7 +43,7 @@ namespace StripePayments
 	// @interface STP_Internal_LinkAccountSession : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject))]
 	[DisableDefaultCtor]
-	interface STP_Internal_LinkAccountSession : ISTPAPIResponseDecodable
+	interface STP_Internal_LinkAccountSession : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -54,7 +59,7 @@ namespace StripePayments
 	// @interface STP_Internal_LinkSettings : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject))]
 	[DisableDefaultCtor]
-	interface STP_Internal_LinkSettings : ISTPAPIResponseDecodable
+	interface STP_Internal_LinkSettings : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -228,7 +233,7 @@ namespace StripePayments
 
 	// @interface STPAddress : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments10STPAddress")]
-	interface STPAddress
+	partial interface STPAddress
 	{
 		// @property (copy, nonatomic) NSString * _Nullable name;
 		[NullAllowed, Export ("name")]
@@ -288,7 +293,6 @@ namespace StripePayments
 
 		// -(PKContact * _Nonnull)PKContactValue __attribute__((warn_unused_result("")));
 		[Export ("PKContactValue")]
-		[Verify (MethodToProperty)]
 		PKContact PKContactValue { get; }
 
 		// -(instancetype _Nonnull)initWithCNContact:(CNContact * _Nonnull)contact __attribute__((objc_designated_initializer));
@@ -302,9 +306,7 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_708 (STPAddress) <STPAPIResponseDecodable>
-	[Category]
-	[BaseType (typeof(STPAddress))]
-	interface STPAddress_StripePayments_Swift_708 : ISTPAPIResponseDecodable
+	partial interface STPAddress : STPAPIResponseDecodable
 	{
 		// +(instancetype _Nullable)decodedObjectFromAPIResponse:(NSDictionary * _Nullable)response __attribute__((warn_unused_result("")));
 		[Static]
@@ -314,38 +316,35 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_713 (STPAddress) <NSCopying>
-	[Category]
-	[BaseType (typeof(STPAddress))]
-	interface STPAddress_StripePayments_Swift_713 : INSCopying
+	partial interface STPAddress : INSCopying
 	{
 		// -(id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone __attribute__((warn_unused_result("")));
 		[Export ("copyWithZone:")]
-		unsafe NSObject CopyWithZone ([NullAllowed] _NSZone* zone);
+		unsafe NSObject Copy ([NullAllowed] NSZone zone);
 	}
 
 	// @protocol STPFormEncodable <NSObject>
 	/*
-  Check whether adding [Model] to this declaration is appropriate.
-  [Model] is used to generate a C# class that implements this protocol,
-  and might be useful for protocols that consumers are supposed to implement,
-  since consumers can subclass the generated class instead of implementing
-  the generated interface. If consumers are not supposed to implement this
-  protocol, then [Model] is redundant and will generate code that will never
-  be used.
-*/[Protocol (Name = "_TtP14StripePayments16STPFormEncodable_")]
+	Check whether adding [Model] to this declaration is appropriate.
+	[Model] is used to generate a C# class that implements this protocol,
+	and might be useful for protocols that consumers are supposed to implement,
+	since consumers can subclass the generated class instead of implementing
+	the generated interface. If consumers are not supposed to implement this
+	protocol, then [Model] is redundant and will generate code that will never
+	be used.
+*/	
+	[Protocol (Name = "_TtP14StripePayments16STPFormEncodable_"), Model]
 	[BaseType (typeof(NSObject), Name = "_TtP14StripePayments16STPFormEncodable_")]
 	interface STPFormEncodable
 	{
 		// @required +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static, Abstract]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// @required +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static, Abstract]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 
 		// @required @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
@@ -355,20 +354,16 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_735 (STPAddress) <STPFormEncodable>
-	[Category]
-	[BaseType (typeof(STPAddress))]
-	interface STPAddress_StripePayments_Swift_735 : ISTPFormEncodable
+	partial interface STPAddress : STPFormEncodable
 	{
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
@@ -381,14 +376,17 @@ namespace StripePayments
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol (Name = "_TtP14StripePayments24STPAuthenticationContext_")]
+*/
+	partial interface ISTPAuthenticationContext { }
+
+
+    [Protocol (Name = "_TtP14StripePayments24STPAuthenticationContext_"), Model]
 	[BaseType (typeof(NSObject), Name = "_TtP14StripePayments24STPAuthenticationContext_")]
 	interface STPAuthenticationContext
 	{
 		// @required -(UIViewController * _Nonnull)authenticationPresentingViewController __attribute__((warn_unused_result("")));
 		[Abstract]
 		[Export ("authenticationPresentingViewController")]
-		[Verify (MethodToProperty)]
 		UIViewController AuthenticationPresentingViewController { get; }
 
 		// @optional -(void)prepareAuthenticationContextForPresentation:(void (^ _Nonnull)(void))completion;
@@ -413,7 +411,10 @@ namespace StripePayments
   the generated interface. If consumers are not supposed to implement this
   protocol, then [Model] is redundant and will generate code that will never
   be used.
-*/[Protocol (Name = "_TtP14StripePayments17STPSourceProtocol_")]
+*/
+	partial interface ISTPSourceProtocol { }
+
+    [Protocol (Name = "_TtP14StripePayments17STPSourceProtocol_"), Model]
 	[BaseType (typeof(NSObject), Name = "_TtP14StripePayments17STPSourceProtocol_")]
 	interface STPSourceProtocol
 	{
@@ -426,7 +427,7 @@ namespace StripePayments
 	// @interface STPBankAccount : NSObject <STPAPIResponseDecodable, STPSourceProtocol>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments14STPBankAccount")]
 	[DisableDefaultCtor]
-	interface STPBankAccount : ISTPAPIResponseDecodable, ISTPSourceProtocol
+	interface STPBankAccount : STPAPIResponseDecodable, STPSourceProtocol
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nullable routingNumber;
 		[NullAllowed, Export ("routingNumber")]
@@ -518,7 +519,7 @@ namespace StripePayments
 
 	// @interface STPBankAccountParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments20STPBankAccountParams")]
-	interface STPBankAccountParams : ISTPFormEncodable
+	interface STPBankAccountParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSString * _Nullable accountNumber;
 		[NullAllowed, Export ("accountNumber")]
@@ -559,20 +560,18 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPCard : NSObject <STPAPIResponseDecodable, STPSourceProtocol>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments7STPCard")]
 	[DisableDefaultCtor]
-	interface STPCard : ISTPAPIResponseDecodable, ISTPSourceProtocol
+	interface STPCard : STPAPIResponseDecodable, STPSourceProtocol
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull last4;
 		[Export ("last4")]
@@ -715,7 +714,7 @@ namespace StripePayments
 
 	// @interface STPCardParams : NSObject <NSCopying, STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments13STPCardParams")]
-	interface STPCardParams : INSCopying, ISTPFormEncodable
+	interface STPCardParams : INSCopying, STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -731,7 +730,6 @@ namespace StripePayments
 
 		// -(NSString * _Nullable)last4 __attribute__((warn_unused_result("")));
 		[NullAllowed, Export ("last4")]
-		[Verify (MethodToProperty)]
 		string Last4 { get; }
 
 		// @property (nonatomic) NSUInteger expMonth;
@@ -789,18 +787,16 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 
 		// -(id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone __attribute__((warn_unused_result("")));
 		[Export ("copyWithZone:")]
-		unsafe NSObject CopyWithZone ([NullAllowed] _NSZone* zone);
+		unsafe NSObject Copy ([NullAllowed] NSZone zone);
 	}
 
 	// @interface STPCardValidator : NSObject
@@ -882,11 +878,16 @@ namespace StripePayments
 		[Static]
 		[Export ("collectUSBankAccountParamsWithName:email:")]
 		STPCollectBankAccountParams CollectUSBankAccountParamsWithName (string name, [NullAllowed] string email);
+
+		// + (STPCollectBankAccountParams * _Nonnull)collectInstantDebitsParamsWithEmail:(NSString * _Nullable)email SWIFT_WARN_UNUSED_RESULT;
+		[Static]
+		[Export ("collectInstantDebitsParamsWithEmail:")]
+		STPCollectBankAccountParams CollectInstantDebitsParamsWithEmail ([NullAllowed] string email);
 	}
 
 	// @interface STPConfirmAlipayOptions : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments23STPConfirmAlipayOptions")]
-	interface STPConfirmAlipayOptions
+	partial interface STPConfirmAlipayOptions
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull appBundleID;
 		[Export ("appBundleID")]
@@ -906,27 +907,23 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_1389 (STPConfirmAlipayOptions) <STPFormEncodable>
-	[Category]
-	[BaseType (typeof(STPConfirmAlipayOptions))]
-	interface STPConfirmAlipayOptions_StripePayments_Swift_1389 : ISTPFormEncodable
+	partial interface STPConfirmAlipayOptions: STPFormEncodable
 	{
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 	}
 
 	// @interface STPConfirmBLIKOptions : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments21STPConfirmBLIKOptions")]
 	[DisableDefaultCtor]
-	interface STPConfirmBLIKOptions
+	partial interface STPConfirmBLIKOptions
 	{
 		// @property (copy, nonatomic) NSString * _Nonnull code;
 		[Export ("code")]
@@ -947,26 +944,22 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_1414 (STPConfirmBLIKOptions) <STPFormEncodable>
-	[Category]
-	[BaseType (typeof(STPConfirmBLIKOptions))]
-	interface STPConfirmBLIKOptions_StripePayments_Swift_1414 : ISTPFormEncodable
+	partial interface STPConfirmBLIKOptions : STPFormEncodable
 	{
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 	}
 
 	// @interface STPConfirmCardOptions : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments21STPConfirmCardOptions")]
-	interface STPConfirmCardOptions
+	partial interface STPConfirmCardOptions
 	{
 		// @property (copy, nonatomic) NSString * _Nullable cvc;
 		[NullAllowed, Export ("cvc")]
@@ -986,26 +979,22 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_1437 (STPConfirmCardOptions) <STPFormEncodable>
-	[Category]
-	[BaseType (typeof(STPConfirmCardOptions))]
-	interface STPConfirmCardOptions_StripePayments_Swift_1437 : ISTPFormEncodable
+	partial interface STPConfirmCardOptions : STPFormEncodable
 	{
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 	}
 
 	// @interface STPConfirmKonbiniOptions : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments24STPConfirmKonbiniOptions")]
-	interface STPConfirmKonbiniOptions
+	partial interface STPConfirmKonbiniOptions
 	{
 		// @property (copy, nonatomic) NSString * _Nullable confirmationNumber;
 		[NullAllowed, Export ("confirmationNumber")]
@@ -1017,26 +1006,22 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_1458 (STPConfirmKonbiniOptions) <STPFormEncodable>
-	[Category]
-	[BaseType (typeof(STPConfirmKonbiniOptions))]
-	interface STPConfirmKonbiniOptions_StripePayments_Swift_1458 : ISTPFormEncodable
+	partial interface STPConfirmKonbiniOptions : STPFormEncodable
 	{
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPConfirmPaymentMethodOptions : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments30STPConfirmPaymentMethodOptions")]
-	interface STPConfirmPaymentMethodOptions
+	partial interface STPConfirmPaymentMethodOptions
 	{
 		// @property (nonatomic, strong) STPConfirmCardOptions * _Nullable cardOptions;
 		[NullAllowed, Export ("cardOptions", ArgumentSemantic.Strong)]
@@ -1072,27 +1057,23 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_1493 (STPConfirmPaymentMethodOptions) <STPFormEncodable>
-	[Category]
-	[BaseType (typeof(STPConfirmPaymentMethodOptions))]
-	interface STPConfirmPaymentMethodOptions_StripePayments_Swift_1493 : ISTPFormEncodable
+	partial interface STPConfirmPaymentMethodOptions : STPFormEncodable
 	{
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 	}
 
 	// @interface STPConfirmUSBankAccountOptions : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments30STPConfirmUSBankAccountOptions")]
 	[DisableDefaultCtor]
-	interface STPConfirmUSBankAccountOptions
+	partial interface STPConfirmUSBankAccountOptions
 	{
 		// -(instancetype _Nonnull)initWithSetupFutureUsage:(enum STPPaymentIntentSetupFutureUsage)setupFutureUsage __attribute__((objc_designated_initializer));
 		[Export ("initWithSetupFutureUsage:")]
@@ -1109,27 +1090,23 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_1522 (STPConfirmUSBankAccountOptions) <STPFormEncodable>
-	[Category]
-	[BaseType (typeof(STPConfirmUSBankAccountOptions))]
-	interface STPConfirmUSBankAccountOptions_StripePayments_Swift_1522 : ISTPFormEncodable
+	partial interface STPConfirmUSBankAccountOptions: STPFormEncodable
 	{
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPConfirmWeChatPayOptions : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments26STPConfirmWeChatPayOptions")]
 	[DisableDefaultCtor]
-	interface STPConfirmWeChatPayOptions
+	partial interface STPConfirmWeChatPayOptions
 	{
 		// @property (copy, nonatomic) NSString * _Nullable appId;
 		[NullAllowed, Export ("appId")]
@@ -1150,26 +1127,22 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_1549 (STPConfirmWeChatPayOptions) <STPFormEncodable>
-	[Category]
-	[BaseType (typeof(STPConfirmWeChatPayOptions))]
-	interface STPConfirmWeChatPayOptions_StripePayments_Swift_1549 : ISTPFormEncodable
+	partial interface STPConfirmWeChatPayOptions: STPFormEncodable
 	{
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 	}
 
 	// @interface STPConnectAccountAddress : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments24STPConnectAccountAddress")]
-	interface STPConnectAccountAddress
+	partial interface STPConnectAccountAddress
 	{
 		// @property (copy, nonatomic) NSString * _Nullable city;
 		[NullAllowed, Export ("city")]
@@ -1209,26 +1182,22 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_1587 (STPConnectAccountAddress) <STPFormEncodable>
-	[Category]
-	[BaseType (typeof(STPConnectAccountAddress))]
-	interface STPConnectAccountAddress_StripePayments_Swift_1587 : ISTPFormEncodable
+	partial interface STPConnectAccountAddress: STPFormEncodable
 	{
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 	}
 
 	// @interface STPConnectAccountCompanyParams : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments30STPConnectAccountCompanyParams")]
-	interface STPConnectAccountCompanyParams
+	partial interface STPConnectAccountCompanyParams
 	{
 		// @property (nonatomic, strong) STPConnectAccountAddress * _Nullable address;
 		[NullAllowed, Export ("address", ArgumentSemantic.Strong)]
@@ -1288,26 +1257,22 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_1647 (STPConnectAccountCompanyParams) <STPFormEncodable>
-	[Category]
-	[BaseType (typeof(STPConnectAccountCompanyParams))]
-	interface STPConnectAccountCompanyParams_StripePayments_Swift_1647 : ISTPFormEncodable
+	partial interface STPConnectAccountCompanyParam  : STPFormEncodable
 	{
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 	}
 
 	// @interface STPConnectAccountIndividualParams : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments33STPConnectAccountIndividualParams")]
-	interface STPConnectAccountIndividualParams
+	partial interface STPConnectAccountIndividualParams
 	{
 		// @property (nonatomic, strong) STPConnectAccountAddress * _Nullable address;
 		[NullAllowed, Export ("address", ArgumentSemantic.Strong)]
@@ -1391,26 +1356,22 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_1709 (STPConnectAccountIndividualParams) <STPFormEncodable>
-	[Category]
-	[BaseType (typeof(STPConnectAccountIndividualParams))]
-	interface STPConnectAccountIndividualParams_StripePayments_Swift_1709 : ISTPFormEncodable
+	partial interface STPConnectAccountIndividualParams : STPFormEncodable
 	{
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 	}
 
 	// @interface STPConnectAccountIndividualVerification : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments39STPConnectAccountIndividualVerification")]
-	interface STPConnectAccountIndividualVerification
+	partial interface STPConnectAccountIndividualVerification
 	{
 		// @property (nonatomic, strong) STPConnectAccountVerificationDocument * _Nullable document;
 		[NullAllowed, Export ("document", ArgumentSemantic.Strong)]
@@ -1426,26 +1387,22 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_1728 (STPConnectAccountIndividualVerification) <STPFormEncodable>
-	[Category]
-	[BaseType (typeof(STPConnectAccountIndividualVerification))]
-	interface STPConnectAccountIndividualVerification_StripePayments_Swift_1728 : ISTPFormEncodable
+	partial interface STPConnectAccountIndividualVerification : STPFormEncodable
 	{
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 	}
 
 	// @interface STPConnectAccountParams : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments23STPConnectAccountParams")]
-	interface STPConnectAccountParams
+	partial interface STPConnectAccountParams
 	{
 		// @property (nonatomic, strong) NSNumber * _Nullable tosShownAndAccepted;
 		[NullAllowed, Export ("tosShownAndAccepted", ArgumentSemantic.Strong)]
@@ -1493,26 +1450,22 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_1785 (STPConnectAccountParams) <STPFormEncodable>
-	[Category]
-	[BaseType (typeof(STPConnectAccountParams))]
-	interface STPConnectAccountParams_StripePayments_Swift_1785 : ISTPFormEncodable
+	partial interface STPConnectAccountParams: STPFormEncodable
 	{
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPConnectAccountVerificationDocument : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments37STPConnectAccountVerificationDocument")]
-	interface STPConnectAccountVerificationDocument
+	partial interface STPConnectAccountVerificationDocument
 	{
 		// @property (copy, nonatomic) NSString * _Nullable back;
 		[NullAllowed, Export ("back")]
@@ -1528,20 +1481,16 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_1807 (STPConnectAccountVerificationDocument) <STPFormEncodable>
-	[Category]
-	[BaseType (typeof(STPConnectAccountVerificationDocument))]
-	interface STPConnectAccountVerificationDocument_StripePayments_Swift_1807 : ISTPFormEncodable
+	partial interface STPConnectAccountVerificationDocument: STPFormEncodable
 	{
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 	}
 
@@ -1574,7 +1523,7 @@ namespace StripePayments
 	// @interface STPCustomer : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments11STPCustomer")]
 	[DisableDefaultCtor]
-	interface STPCustomer
+	partial interface STPCustomer
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull stripeID;
 		[Export ("stripeID")]
@@ -1582,11 +1531,11 @@ namespace StripePayments
 
 		// @property (readonly, nonatomic, strong) id<STPSourceProtocol> _Nullable defaultSource;
 		[NullAllowed, Export ("defaultSource", ArgumentSemantic.Strong)]
-		STPSourceProtocol DefaultSource { get; }
+		ISTPSourceProtocol DefaultSource { get; }
 
 		// @property (readonly, copy, nonatomic) NSArray<id<STPSourceProtocol>> * _Nonnull sources;
 		[Export ("sources", ArgumentSemantic.Copy)]
-		STPSourceProtocol[] Sources { get; }
+		ISTPSourceProtocol[] Sources { get; }
 
 		// @property (readonly, copy, nonatomic) NSString * _Nullable email;
 		[NullAllowed, Export ("email")]
@@ -1602,7 +1551,7 @@ namespace StripePayments
 
 		// -(instancetype _Nonnull)initWithStripeID:(NSString * _Nonnull)stripeID defaultSource:(id<STPSourceProtocol> _Nullable)defaultSource sources:(NSArray<id<STPSourceProtocol>> * _Nonnull)sources;
 		[Export ("initWithStripeID:defaultSource:sources:")]
-		NativeHandle Constructor (string stripeID, [NullAllowed] STPSourceProtocol defaultSource, STPSourceProtocol[] sources);
+		NativeHandle Constructor (string stripeID, [NullAllowed] ISTPSourceProtocol defaultSource, ISTPSourceProtocol[] sources);
 
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull description;
 		[Export ("description")]
@@ -1614,9 +1563,7 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_1872 (STPCustomer) <STPAPIResponseDecodable>
-	[Category]
-	[BaseType (typeof(STPCustomer))]
-	interface STPCustomer_StripePayments_Swift_1872 : ISTPAPIResponseDecodable
+	partial interface STPCustomer : STPAPIResponseDecodable
 	{
 		// +(instancetype _Nullable)decodedObjectFromAPIResponse:(NSDictionary * _Nullable)response __attribute__((warn_unused_result("")));
 		[Static]
@@ -1649,7 +1596,7 @@ namespace StripePayments
 
 	// @interface STPDateOfBirth : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments14STPDateOfBirth")]
-	interface STPDateOfBirth
+	partial interface STPDateOfBirth
 	{
 		// @property (nonatomic) NSInteger day;
 		[Export ("day")]
@@ -1669,27 +1616,23 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_1926 (STPDateOfBirth) <STPFormEncodable>
-	[Category]
-	[BaseType (typeof(STPDateOfBirth))]
-	interface STPDateOfBirth_StripePayments_Swift_1926 : ISTPFormEncodable
+	partial interface STPDateOfBirth: STPFormEncodable
 	{
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 	}
 
 	// @interface STPEmptyStripeResponse : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments22STPEmptyStripeResponse")]
 	[DisableDefaultCtor]
-	interface STPEmptyStripeResponse : ISTPAPIResponseDecodable
+	interface STPEmptyStripeResponse : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -1733,7 +1676,7 @@ namespace StripePayments
 	// @interface STPFile : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments7STPFile")]
 	[DisableDefaultCtor]
-	interface STPFile : ISTPAPIResponseDecodable
+	interface STPFile : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nullable fileId;
 		[NullAllowed, Export ("fileId")]
@@ -1793,7 +1736,7 @@ namespace StripePayments
 	// @interface STPIntentAction : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments15STPIntentAction")]
 	[DisableDefaultCtor]
-	interface STPIntentAction
+	partial interface STPIntentAction
 	{
 		// @property (readonly, nonatomic) enum STPIntentActionType type;
 		[Export ("type")]
@@ -1843,6 +1786,10 @@ namespace StripePayments
 		[NullAllowed, Export ("swishHandleRedirect", ArgumentSemantic.Strong)]
 		STPIntentActionSwishHandleRedirect SwishHandleRedirect { get; }
 
+		// @property (nonatomic, readonly, strong) STPIntentActionMultibancoDisplayDetails * _Nullable multibancoDisplayDetails;
+		[NullAllowed, Export ("multibancoDisplayDetails", ArgumentSemantic.Strong)]
+		STPIntentActionMultibancoDisplayDetails MultibancoDisplayDetails { get; }
+
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
 		NSDictionary AllResponseFields { get; }
@@ -1853,9 +1800,7 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_2131 (STPIntentAction) <STPAPIResponseDecodable>
-	[Category]
-	[BaseType (typeof(STPIntentAction))]
-	interface STPIntentAction_StripePayments_Swift_2131 : ISTPAPIResponseDecodable
+	partial interface STPIntentAction : STPAPIResponseDecodable
 	{
 		// +(instancetype _Nullable)decodedObjectFromAPIResponse:(NSDictionary * _Nullable)response __attribute__((warn_unused_result("")));
 		[Static]
@@ -1865,9 +1810,7 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_2136 (STPIntentAction)
-	[Category]
-	[BaseType (typeof(STPIntentAction))]
-	interface STPIntentAction_StripePayments_Swift_2136
+	partial interface STPIntentAction
 	{
 		// @property (readonly, nonatomic, strong) SWIFT_DEPRECATED_MSG("Use `redirectToURL` instead.", "redirectToURL") STPIntentActionRedirectToURL * authorizeWithURL __attribute__((deprecated("Use `redirectToURL` instead.", "redirectToURL")));
 		[Export ("authorizeWithURL", ArgumentSemantic.Strong)]
@@ -1877,7 +1820,7 @@ namespace StripePayments
 	// @interface STPIntentActionAlipayHandleRedirect : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments35STPIntentActionAlipayHandleRedirect")]
 	[DisableDefaultCtor]
-	interface STPIntentActionAlipayHandleRedirect
+	partial interface STPIntentActionAlipayHandleRedirect
 	{
 		// @property (readonly, copy, nonatomic) NSURL * _Nullable nativeURL;
 		[NullAllowed, Export ("nativeURL", ArgumentSemantic.Copy)]
@@ -1901,9 +1844,7 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_2163 (STPIntentActionAlipayHandleRedirect) <STPAPIResponseDecodable>
-	[Category]
-	[BaseType (typeof(STPIntentActionAlipayHandleRedirect))]
-	interface STPIntentActionAlipayHandleRedirect_StripePayments_Swift_2163 : ISTPAPIResponseDecodable
+	partial interface STPIntentActionAlipayHandleRedirect: STPAPIResponseDecodable
 	{
 		// +(instancetype _Nullable)decodedObjectFromAPIResponse:(NSDictionary * _Nullable)response __attribute__((warn_unused_result("")));
 		[Static]
@@ -1915,7 +1856,7 @@ namespace StripePayments
 	// @interface STPIntentActionBoletoDisplayDetails : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments35STPIntentActionBoletoDisplayDetails")]
 	[DisableDefaultCtor]
-	interface STPIntentActionBoletoDisplayDetails : ISTPAPIResponseDecodable
+	interface STPIntentActionBoletoDisplayDetails : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull number;
 		[Export ("number")]
@@ -1947,7 +1888,7 @@ namespace StripePayments
 	// @interface STPIntentActionCashAppRedirectToApp : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments35STPIntentActionCashAppRedirectToApp")]
 	[DisableDefaultCtor]
-	interface STPIntentActionCashAppRedirectToApp
+	partial interface STPIntentActionCashAppRedirectToApp
 	{
 		// @property (readonly, copy, nonatomic) NSURL * _Nullable mobileAuthURL;
 		[NullAllowed, Export ("mobileAuthURL", ArgumentSemantic.Copy)]
@@ -1963,9 +1904,7 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_2203 (STPIntentActionCashAppRedirectToApp) <STPAPIResponseDecodable>
-	[Category]
-	[BaseType (typeof(STPIntentActionCashAppRedirectToApp))]
-	interface STPIntentActionCashAppRedirectToApp_StripePayments_Swift_2203 : ISTPAPIResponseDecodable
+	partial interface STPIntentActionCashAppRedirectToApp : STPAPIResponseDecodable
 	{
 		// +(instancetype _Nullable)decodedObjectFromAPIResponse:(NSDictionary * _Nullable)response __attribute__((warn_unused_result("")));
 		[Static]
@@ -1974,10 +1913,53 @@ namespace StripePayments
 		STPIntentActionCashAppRedirectToApp DecodedObjectFromAPIResponse ([NullAllowed] NSDictionary response);
 	}
 
+	// SWIFT_CLASS("_TtC14StripePayments39STPIntentActionMultibancoDisplayDetails")
+	// @interface STPIntentActionMultibancoDisplayDetails : NSObject <STPAPIResponseDecodable>
+	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments39STPIntentActionMultibancoDisplayDetails")]
+	[DisableDefaultCtor]
+	interface STPIntentActionMultibancoDisplayDetails : STPAPIResponseDecodable
+	{
+		// /// The multibanco entity number
+		// @property (nonatomic, readonly, copy) NSString * _Nonnull entity;
+		[Export ("entity", ArgumentSemantic.Copy)]
+		string Entity { get; }
+
+		// /// Multibanco reference number
+		// @property (nonatomic, readonly, copy) NSString * _Nonnull reference;
+		[Export ("reference", ArgumentSemantic.Copy)]
+		string Reference { get; }
+
+		// /// The expiry date of the multibanco voucher.
+		// @property (nonatomic, readonly, copy) NSDate * _Nonnull expiresAt;
+		[Export ("expiresAt", ArgumentSemantic.Copy)]
+		NSDate ExpiresAt { get; }
+
+		// /// The URL to the hosted multibanco voucher page, which allows customers to view the multibanco voucher.
+		// @property (nonatomic, readonly, copy) NSURL * _Nonnull hostedVoucherURL;
+		[Export ("hostedVoucherURL", ArgumentSemantic.Copy)]
+		NSUrl HostedVoucherURL { get; }
+
+		// /// :nodoc:
+		// @property (nonatomic, readonly, copy) NSDictionary * _Nonnull allResponseFields;
+		[Export ("allResponseFields", ArgumentSemantic.Copy)]
+		NSDictionary AllResponseFields { get; }
+
+		// /// :nodoc:
+		// @property (nonatomic, readonly, copy) NSString * _Nonnull description;
+		[Export ("description", ArgumentSemantic.Copy)]
+		string Description { get; }
+
+		// + (nullable instancetype)decodedObjectFromAPIResponse:(NSDictionary * _Nullable)response SWIFT_WARN_UNUSED_RESULT;
+		[Static]
+		[Export ("decodedObjectFromAPIResponse:")]
+		[return: NullAllowed]
+		STPIntentActionMultibancoDisplayDetails DecodedObjectFromAPIResponse ([NullAllowed] NSDictionary response);
+	}
+
 	// @interface STPIntentActionKonbiniDisplayDetails : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments36STPIntentActionKonbiniDisplayDetails")]
 	[DisableDefaultCtor]
-	interface STPIntentActionKonbiniDisplayDetails : ISTPAPIResponseDecodable
+	interface STPIntentActionKonbiniDisplayDetails : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDate * _Nonnull expiresAt;
 		[Export ("expiresAt", ArgumentSemantic.Copy)]
@@ -2001,7 +1983,7 @@ namespace StripePayments
 	// @interface STPIntentActionOXXODisplayDetails : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments33STPIntentActionOXXODisplayDetails")]
 	[DisableDefaultCtor]
-	interface STPIntentActionOXXODisplayDetails : ISTPAPIResponseDecodable
+	interface STPIntentActionOXXODisplayDetails : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDate * _Nonnull expiresAfter;
 		[Export ("expiresAfter", ArgumentSemantic.Copy)]
@@ -2033,7 +2015,7 @@ namespace StripePayments
 	// @interface STPIntentActionPayNowDisplayQrCode : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments34STPIntentActionPayNowDisplayQrCode")]
 	[DisableDefaultCtor]
-	interface STPIntentActionPayNowDisplayQrCode
+	partial interface STPIntentActionPayNowDisplayQrCode
 	{
 		// @property (readonly, copy, nonatomic) NSURL * _Nullable hostedInstructionsURL;
 		[NullAllowed, Export ("hostedInstructionsURL", ArgumentSemantic.Copy)]
@@ -2049,9 +2031,7 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_2255 (STPIntentActionPayNowDisplayQrCode) <STPAPIResponseDecodable>
-	[Category]
-	[BaseType (typeof(STPIntentActionPayNowDisplayQrCode))]
-	interface STPIntentActionPayNowDisplayQrCode_StripePayments_Swift_2255 : ISTPAPIResponseDecodable
+	partial interface STPIntentActionPayNowDisplayQrCode: STPAPIResponseDecodable
 	{
 		// +(instancetype _Nullable)decodedObjectFromAPIResponse:(NSDictionary * _Nullable)response __attribute__((warn_unused_result("")));
 		[Static]
@@ -2063,7 +2043,7 @@ namespace StripePayments
 	// @interface STPIntentActionPromptPayDisplayQrCode : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments37STPIntentActionPromptPayDisplayQrCode")]
 	[DisableDefaultCtor]
-	interface STPIntentActionPromptPayDisplayQrCode
+	partial interface STPIntentActionPromptPayDisplayQrCode
 	{
 		// @property (readonly, copy, nonatomic) NSURL * _Nullable hostedInstructionsURL;
 		[NullAllowed, Export ("hostedInstructionsURL", ArgumentSemantic.Copy)]
@@ -2079,9 +2059,7 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_2275 (STPIntentActionPromptPayDisplayQrCode) <STPAPIResponseDecodable>
-	[Category]
-	[BaseType (typeof(STPIntentActionPromptPayDisplayQrCode))]
-	interface STPIntentActionPromptPayDisplayQrCode_StripePayments_Swift_2275 : ISTPAPIResponseDecodable
+	partial interface STPIntentActionPromptPayDisplayQrCode: STPAPIResponseDecodable
 	{
 		// +(instancetype _Nullable)decodedObjectFromAPIResponse:(NSDictionary * _Nullable)response __attribute__((warn_unused_result("")));
 		[Static]
@@ -2093,7 +2071,7 @@ namespace StripePayments
 	// @interface STPIntentActionRedirectToURL : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments28STPIntentActionRedirectToURL")]
 	[DisableDefaultCtor]
-	interface STPIntentActionRedirectToURL
+	partial interface STPIntentActionRedirectToURL
 	{
 		// @property (readonly, copy, nonatomic) NSURL * _Nonnull url;
 		[Export ("url", ArgumentSemantic.Copy)]
@@ -2113,9 +2091,7 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_2299 (STPIntentActionRedirectToURL) <STPAPIResponseDecodable>
-	[Category]
-	[BaseType (typeof(STPIntentActionRedirectToURL))]
-	interface STPIntentActionRedirectToURL_StripePayments_Swift_2299 : ISTPAPIResponseDecodable
+	partial interface STPIntentActionRedirectToURL: STPAPIResponseDecodable
 	{
 		// +(instancetype _Nullable)decodedObjectFromAPIResponse:(NSDictionary * _Nullable)response __attribute__((warn_unused_result("")));
 		[Static]
@@ -2127,7 +2103,7 @@ namespace StripePayments
 	// @interface STPIntentActionSwishHandleRedirect : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments34STPIntentActionSwishHandleRedirect")]
 	[DisableDefaultCtor]
-	interface STPIntentActionSwishHandleRedirect
+	partial interface STPIntentActionSwishHandleRedirect
 	{
 		// @property (readonly, copy, nonatomic) NSURL * _Nonnull mobileAuthURL;
 		[Export ("mobileAuthURL", ArgumentSemantic.Copy)]
@@ -2143,9 +2119,7 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_2319 (STPIntentActionSwishHandleRedirect) <STPAPIResponseDecodable>
-	[Category]
-	[BaseType (typeof(STPIntentActionSwishHandleRedirect))]
-	interface STPIntentActionSwishHandleRedirect_StripePayments_Swift_2319 : ISTPAPIResponseDecodable
+	partial interface STPIntentActionSwishHandleRedirect: STPAPIResponseDecodable
 	{
 		// +(instancetype _Nullable)decodedObjectFromAPIResponse:(NSDictionary * _Nullable)response __attribute__((warn_unused_result("")));
 		[Static]
@@ -2157,7 +2131,7 @@ namespace StripePayments
 	// @interface STPIntentActionVerifyWithMicrodeposits : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments38STPIntentActionVerifyWithMicrodeposits")]
 	[DisableDefaultCtor]
-	interface STPIntentActionVerifyWithMicrodeposits
+	partial interface STPIntentActionVerifyWithMicrodeposits
 	{
 		// @property (readonly, copy, nonatomic) NSDate * _Nonnull arrivalDate;
 		[Export ("arrivalDate", ArgumentSemantic.Copy)]
@@ -2177,9 +2151,7 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_2381 (STPIntentActionVerifyWithMicrodeposits) <STPAPIResponseDecodable>
-	[Category]
-	[BaseType (typeof(STPIntentActionVerifyWithMicrodeposits))]
-	interface STPIntentActionVerifyWithMicrodeposits_StripePayments_Swift_2381 : ISTPAPIResponseDecodable
+	partial interface STPIntentActionVerifyWithMicrodeposits: STPAPIResponseDecodable
 	{
 		// +(instancetype _Nullable)decodedObjectFromAPIResponse:(NSDictionary * _Nullable)response __attribute__((warn_unused_result("")));
 		[Static]
@@ -2191,7 +2163,7 @@ namespace StripePayments
 	// @interface STPIntentActionWechatPayRedirectToApp : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments37STPIntentActionWechatPayRedirectToApp")]
 	[DisableDefaultCtor]
-	interface STPIntentActionWechatPayRedirectToApp
+	partial interface STPIntentActionWechatPayRedirectToApp
 	{
 		// @property (readonly, copy, nonatomic) NSURL * _Nullable nativeURL;
 		[NullAllowed, Export ("nativeURL", ArgumentSemantic.Copy)]
@@ -2207,9 +2179,7 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_2401 (STPIntentActionWechatPayRedirectToApp) <STPAPIResponseDecodable>
-	[Category]
-	[BaseType (typeof(STPIntentActionWechatPayRedirectToApp))]
-	interface STPIntentActionWechatPayRedirectToApp_StripePayments_Swift_2401 : ISTPAPIResponseDecodable
+	partial interface STPIntentActionWechatPayRedirectToApp: STPAPIResponseDecodable
 	{
 		// +(instancetype _Nullable)decodedObjectFromAPIResponse:(NSDictionary * _Nullable)response __attribute__((warn_unused_result("")));
 		[Static]
@@ -2221,7 +2191,7 @@ namespace StripePayments
 	// @interface STPIssuingCardPin : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments17STPIssuingCardPin")]
 	[DisableDefaultCtor]
-	interface STPIssuingCardPin
+	partial interface STPIssuingCardPin
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nullable pin;
 		[NullAllowed, Export ("pin")]
@@ -2237,9 +2207,7 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_2419 (STPIssuingCardPin) <STPAPIResponseDecodable>
-	[Category]
-	[BaseType (typeof(STPIssuingCardPin))]
-	interface STPIssuingCardPin_StripePayments_Swift_2419 : ISTPAPIResponseDecodable
+	partial interface STPIssuingCardPin: STPAPIResponseDecodable
 	{
 		// +(instancetype _Nullable)decodedObjectFromAPIResponse:(NSDictionary * _Nullable)response __attribute__((warn_unused_result("")));
 		[Static]
@@ -2277,7 +2245,7 @@ namespace StripePayments
 
 	// @interface STPMandateCustomerAcceptanceParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments34STPMandateCustomerAcceptanceParams")]
-	interface STPMandateCustomerAcceptanceParams : ISTPFormEncodable
+	interface STPMandateCustomerAcceptanceParams : STPFormEncodable
 	{
 		// @property (nonatomic) enum STPMandateCustomerAcceptanceType type;
 		[Export ("type", ArgumentSemantic.Assign)]
@@ -2294,20 +2262,18 @@ namespace StripePayments
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 	}
 
 	// @interface STPMandateDataParams : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments20STPMandateDataParams")]
 	[DisableDefaultCtor]
-	interface STPMandateDataParams
+	partial interface STPMandateDataParams
 	{
 		// @property (readonly, nonatomic, strong) STPMandateCustomerAcceptanceParams * _Nonnull customerAcceptance;
 		[Export ("customerAcceptance", ArgumentSemantic.Strong)]
@@ -2324,27 +2290,23 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_2519 (STPMandateDataParams) <STPFormEncodable>
-	[Category]
-	[BaseType (typeof(STPMandateDataParams))]
-	interface STPMandateDataParams_StripePayments_Swift_2519 : ISTPFormEncodable
+	partial interface STPMandateDataParams : STPFormEncodable
 	{
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 	}
 
 	// @interface STPMandateOnlineParams : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments22STPMandateOnlineParams")]
 	[DisableDefaultCtor]
-	interface STPMandateOnlineParams
+	partial interface STPMandateOnlineParams
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull ipAddress;
 		[Export ("ipAddress")]
@@ -2369,27 +2331,23 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_2548 (STPMandateOnlineParams) <STPFormEncodable>
-	[Category]
-	[BaseType (typeof(STPMandateOnlineParams))]
-	interface STPMandateOnlineParams_StripePayments_Swift_2548 : ISTPFormEncodable
+	partial interface STPMandateOnlineParams : STPFormEncodable
 	{
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 	}
 
 	// @interface STPPaymentHandler : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments17STPPaymentHandler")]
 	[DisableDefaultCtor]
-	interface STPPaymentHandler
+	partial interface STPPaymentHandler
 	{
 		// @property (readonly, copy, nonatomic, class) NSString * _Nonnull errorDomain;
 		[Static]
@@ -2404,12 +2362,11 @@ namespace StripePayments
 		// +(STPPaymentHandler * _Nonnull)shared __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("shared")]
-		[Verify (MethodToProperty)]
 		STPPaymentHandler Shared { get; }
 
 		// @property (nonatomic, strong) int * _Nonnull apiClient;
 		[Export ("apiClient", ArgumentSemantic.Strong)]
-		unsafe int* ApiClient { get; set; }
+		unsafe STPAPIClient ApiClient { get; set; }
 
 		// @property (nonatomic, strong) STPThreeDSCustomizationSettings * _Nonnull threeDSCustomizationSettings;
 		[Export ("threeDSCustomizationSettings", ArgumentSemantic.Strong)]
@@ -2421,25 +2378,23 @@ namespace StripePayments
 
 		// -(void)confirmPayment:(STPPaymentIntentParams * _Nonnull)paymentParams withAuthenticationContext:(id<STPAuthenticationContext> _Nonnull)authenticationContext completion:(void (^ _Nonnull)(enum STPPaymentHandlerActionStatus, STPPaymentIntent * _Nullable, NSError * _Nullable))completion;
 		[Export ("confirmPayment:withAuthenticationContext:completion:")]
-		void ConfirmPayment (STPPaymentIntentParams paymentParams, STPAuthenticationContext authenticationContext, Action<STPPaymentHandlerActionStatus, STPPaymentIntent, NSError> completion);
+		void ConfirmPayment (STPPaymentIntentParams paymentParams, ISTPAuthenticationContext authenticationContext, Action<STPPaymentHandlerActionStatus, STPPaymentIntent, NSError> completion);
 
 		// -(void)handleNextActionForPayment:(NSString * _Nonnull)paymentIntentClientSecret withAuthenticationContext:(id<STPAuthenticationContext> _Nonnull)authenticationContext returnURL:(NSString * _Nullable)returnURL completion:(void (^ _Nonnull)(enum STPPaymentHandlerActionStatus, STPPaymentIntent * _Nullable, NSError * _Nullable))completion;
 		[Export ("handleNextActionForPayment:withAuthenticationContext:returnURL:completion:")]
-		void HandleNextActionForPayment (string paymentIntentClientSecret, STPAuthenticationContext authenticationContext, [NullAllowed] string returnURL, Action<STPPaymentHandlerActionStatus, STPPaymentIntent, NSError> completion);
+		void HandleNextActionForPayment (string paymentIntentClientSecret, ISTPAuthenticationContext authenticationContext, [NullAllowed] string returnURL, Action<STPPaymentHandlerActionStatus, STPPaymentIntent, NSError> completion);
 
 		// -(void)confirmSetupIntent:(STPSetupIntentConfirmParams * _Nonnull)setupIntentConfirmParams withAuthenticationContext:(id<STPAuthenticationContext> _Nonnull)authenticationContext completion:(void (^ _Nonnull)(enum STPPaymentHandlerActionStatus, STPSetupIntent * _Nullable, NSError * _Nullable))completion;
 		[Export ("confirmSetupIntent:withAuthenticationContext:completion:")]
-		void ConfirmSetupIntent (STPSetupIntentConfirmParams setupIntentConfirmParams, STPAuthenticationContext authenticationContext, Action<STPPaymentHandlerActionStatus, STPSetupIntent, NSError> completion);
+		void ConfirmSetupIntent (STPSetupIntentConfirmParams setupIntentConfirmParams, ISTPAuthenticationContext authenticationContext, Action<STPPaymentHandlerActionStatus, STPSetupIntent, NSError> completion);
 
 		// -(void)handleNextActionForSetupIntent:(NSString * _Nonnull)setupIntentClientSecret withAuthenticationContext:(id<STPAuthenticationContext> _Nonnull)authenticationContext returnURL:(NSString * _Nullable)returnURL completion:(void (^ _Nonnull)(enum STPPaymentHandlerActionStatus, STPSetupIntent * _Nullable, NSError * _Nullable))completion;
 		[Export ("handleNextActionForSetupIntent:withAuthenticationContext:returnURL:completion:")]
-		void HandleNextActionForSetupIntent (string setupIntentClientSecret, STPAuthenticationContext authenticationContext, [NullAllowed] string returnURL, Action<STPPaymentHandlerActionStatus, STPSetupIntent, NSError> completion);
+		void HandleNextActionForSetupIntent (string setupIntentClientSecret, ISTPAuthenticationContext authenticationContext, [NullAllowed] string returnURL, Action<STPPaymentHandlerActionStatus, STPSetupIntent, NSError> completion);
 	}
 
 	// @interface StripePayments_Swift_2643 (STPPaymentHandler)
-	[Category]
-	[BaseType (typeof(STPPaymentHandler))]
-	interface STPPaymentHandler_StripePayments_Swift_2643
+	partial interface STPPaymentHandler
 	{
 		// -(BOOL)handleURLCallback:(NSURL * _Nonnull)url __attribute__((warn_unused_result("")));
 		[Export ("handleURLCallback:")]
@@ -2447,9 +2402,7 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_2649 (STPPaymentHandler) <SFSafariViewControllerDelegate>
-	[Category]
-	[BaseType (typeof(STPPaymentHandler))]
-	interface STPPaymentHandler_StripePayments_Swift_2649 : ISFSafariViewControllerDelegate
+	partial interface STPPaymentHandler: ISFSafariViewControllerDelegate
 	{
 		// -(void)safariViewControllerDidFinish:(SFSafariViewController * _Nonnull)controller;
 		[Export ("safariViewControllerDidFinish:")]
@@ -2461,12 +2414,15 @@ namespace StripePayments
 	[DisableDefaultCtor]
 	interface STPPaymentHandlerPaymentIntentActionParams
 	{
+		// - (ASPresentationAnchor _Nonnull)presentationAnchorForWebAuthenticationSession:(ASWebAuthenticationSession * _Nonnull)session SWIFT_WARN_UNUSED_RESULT;
+		[Export ("presentationAnchorForWebAuthenticationSession:")]
+        UIWindow PresentationAnchorForWebAuthenticationSession (ASWebAuthenticationSession session);
 	}
 
 	// @interface STPPaymentIntent : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments16STPPaymentIntent")]
 	[DisableDefaultCtor]
-	interface STPPaymentIntent
+	partial interface STPPaymentIntent
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull stripeId;
 		[Export ("stripeId")]
@@ -2558,9 +2514,7 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_2770 (STPPaymentIntent) <STPAPIResponseDecodable>
-	[Category]
-	[BaseType (typeof(STPPaymentIntent))]
-	interface STPPaymentIntent_StripePayments_Swift_2770 : ISTPAPIResponseDecodable
+	partial interface STPPaymentIntent: STPAPIResponseDecodable
 	{
 		// +(instancetype _Nullable)decodedObjectFromAPIResponse:(NSDictionary * _Nullable)response __attribute__((warn_unused_result("")));
 		[Static]
@@ -2570,9 +2524,7 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_2775 (STPPaymentIntent)
-	[Category]
-	[BaseType (typeof(STPPaymentIntent))]
-	interface STPPaymentIntent_StripePayments_Swift_2775
+	partial interface STPPaymentIntent
 	{
 		// @property (readonly, nonatomic, strong) SWIFT_DEPRECATED_MSG("Use nextAction instead", "nextAction") STPIntentAction * nextSourceAction __attribute__((deprecated("Use nextAction instead", "nextAction")));
 		[Export ("nextSourceAction", ArgumentSemantic.Strong)]
@@ -2588,7 +2540,7 @@ namespace StripePayments
 	// @interface STPPaymentIntentLastPaymentError : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments32STPPaymentIntentLastPaymentError")]
 	[DisableDefaultCtor]
-	interface STPPaymentIntentLastPaymentError
+	partial interface STPPaymentIntentLastPaymentError
 	{
 		// @property (readonly, copy, nonatomic, class) NSString * _Nonnull ErrorCodeAuthenticationFailure;
 		[Static]
@@ -2633,9 +2585,7 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_2874 (STPPaymentIntentLastPaymentError) <STPAPIResponseDecodable>
-	[Category]
-	[BaseType (typeof(STPPaymentIntentLastPaymentError))]
-	interface STPPaymentIntentLastPaymentError_StripePayments_Swift_2874 : ISTPAPIResponseDecodable
+	partial interface STPPaymentIntentLastPaymentError: STPAPIResponseDecodable
 	{
 		// +(instancetype _Nullable)decodedObjectFromAPIResponse:(NSDictionary * _Nullable)response __attribute__((warn_unused_result("")));
 		[Static]
@@ -2647,7 +2597,7 @@ namespace StripePayments
 	// @interface STPPaymentIntentParams : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments22STPPaymentIntentParams")]
 	[DisableDefaultCtor]
-	interface STPPaymentIntentParams
+	partial interface STPPaymentIntentParams
 	{
 		// -(instancetype _Nonnull)initWithClientSecret:(NSString * _Nonnull)clientSecret __attribute__((objc_designated_initializer));
 		[Export ("initWithClientSecret:")]
@@ -2733,37 +2683,31 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_3000 (STPPaymentIntentParams) <NSCopying>
-	[Category]
-	[BaseType (typeof(STPPaymentIntentParams))]
-	interface STPPaymentIntentParams_StripePayments_Swift_3000 : INSCopying
+	partial interface STPPaymentIntentParams: INSCopying
 	{
 		// -(id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone __attribute__((warn_unused_result("")));
 		[Export ("copyWithZone:")]
-		unsafe NSObject CopyWithZone ([NullAllowed] _NSZone* zone);
+		unsafe NSObject Copy ([NullAllowed] NSZone zone);
 	}
 
 	// @interface StripePayments_Swift_3006 (STPPaymentIntentParams) <STPFormEncodable>
-	[Category]
-	[BaseType (typeof(STPPaymentIntentParams))]
-	interface STPPaymentIntentParams_StripePayments_Swift_3006 : ISTPFormEncodable
+	partial interface STPPaymentIntentParams: STPFormEncodable
 	{
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentIntentShippingDetails : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments31STPPaymentIntentShippingDetails")]
 	[DisableDefaultCtor]
-	interface STPPaymentIntentShippingDetails
+	partial interface STPPaymentIntentShippingDetails
 	{
 		// @property (readonly, nonatomic, strong) STPPaymentIntentShippingDetailsAddress * _Nullable address;
 		[NullAllowed, Export ("address", ArgumentSemantic.Strong)]
@@ -2795,9 +2739,7 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_3054 (STPPaymentIntentShippingDetails) <STPAPIResponseDecodable>
-	[Category]
-	[BaseType (typeof(STPPaymentIntentShippingDetails))]
-	interface STPPaymentIntentShippingDetails_StripePayments_Swift_3054 : ISTPAPIResponseDecodable
+	partial interface STPPaymentIntentShippingDetails: STPAPIResponseDecodable
 	{
 		// +(instancetype _Nullable)decodedObjectFromAPIResponse:(NSDictionary * _Nullable)response __attribute__((warn_unused_result("")));
 		[Static]
@@ -2809,7 +2751,7 @@ namespace StripePayments
 	// @interface STPPaymentIntentShippingDetailsAddress : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments38STPPaymentIntentShippingDetailsAddress")]
 	[DisableDefaultCtor]
-	interface STPPaymentIntentShippingDetailsAddress
+	partial interface STPPaymentIntentShippingDetailsAddress
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nullable city;
 		[NullAllowed, Export ("city")]
@@ -2845,9 +2787,7 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_3087 (STPPaymentIntentShippingDetailsAddress) <STPAPIResponseDecodable>
-	[Category]
-	[BaseType (typeof(STPPaymentIntentShippingDetailsAddress))]
-	interface STPPaymentIntentShippingDetailsAddress_StripePayments_Swift_3087 : ISTPAPIResponseDecodable
+	partial interface STPPaymentIntentShippingDetailsAddress: STPAPIResponseDecodable
 	{
 		// +(instancetype _Nullable)decodedObjectFromAPIResponse:(NSDictionary * _Nullable)response __attribute__((warn_unused_result("")));
 		[Static]
@@ -2859,7 +2799,7 @@ namespace StripePayments
 	// @interface STPPaymentIntentShippingDetailsAddressParams : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments44STPPaymentIntentShippingDetailsAddressParams")]
 	[DisableDefaultCtor]
-	interface STPPaymentIntentShippingDetailsAddressParams
+	partial interface STPPaymentIntentShippingDetailsAddressParams
 	{
 		// @property (copy, nonatomic) NSString * _Nullable city;
 		[NullAllowed, Export ("city")]
@@ -2904,37 +2844,31 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_3120 (STPPaymentIntentShippingDetailsAddressParams) <NSCopying>
-	[Category]
-	[BaseType (typeof(STPPaymentIntentShippingDetailsAddressParams))]
-	interface STPPaymentIntentShippingDetailsAddressParams_StripePayments_Swift_3120 : INSCopying
+	partial interface STPPaymentIntentShippingDetailsAddressParams : INSCopying
 	{
 		// -(id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone __attribute__((warn_unused_result("")));
 		[Export ("copyWithZone:")]
-		unsafe NSObject CopyWithZone ([NullAllowed] _NSZone* zone);
+		unsafe NSObject Copy ([NullAllowed] NSZone zone);
 	}
 
 	// @interface StripePayments_Swift_3126 (STPPaymentIntentShippingDetailsAddressParams) <STPFormEncodable>
-	[Category]
-	[BaseType (typeof(STPPaymentIntentShippingDetailsAddressParams))]
-	interface STPPaymentIntentShippingDetailsAddressParams_StripePayments_Swift_3126 : ISTPFormEncodable
+	partial interface STPPaymentIntentShippingDetailsAddressParams: STPFormEncodable
 	{
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 	}
 
 	// @interface STPPaymentIntentShippingDetailsParams : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments37STPPaymentIntentShippingDetailsParams")]
 	[DisableDefaultCtor]
-	interface STPPaymentIntentShippingDetailsParams
+	partial interface STPPaymentIntentShippingDetailsParams
 	{
 		// @property (nonatomic, strong) STPPaymentIntentShippingDetailsAddressParams * _Nonnull address;
 		[Export ("address", ArgumentSemantic.Strong)]
@@ -2975,37 +2909,54 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_3159 (STPPaymentIntentShippingDetailsParams) <NSCopying>
-	[Category]
-	[BaseType (typeof(STPPaymentIntentShippingDetailsParams))]
-	interface STPPaymentIntentShippingDetailsParams_StripePayments_Swift_3159 : INSCopying
+	partial interface STPPaymentIntentShippingDetailsParams : INSCopying
 	{
 		// -(id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone __attribute__((warn_unused_result("")));
 		[Export ("copyWithZone:")]
-		unsafe NSObject CopyWithZone ([NullAllowed] _NSZone* zone);
+		unsafe NSObject Copy ([NullAllowed] NSZone zone);
 	}
 
 	// @interface StripePayments_Swift_3165 (STPPaymentIntentShippingDetailsParams) <STPFormEncodable>
-	[Category]
-	[BaseType (typeof(STPPaymentIntentShippingDetailsParams))]
-	interface STPPaymentIntentShippingDetailsParams_StripePayments_Swift_3165 : ISTPFormEncodable
+	partial interface STPPaymentIntentShippingDetailsParams: STPFormEncodable
 	{
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
+	}
+
+	// SWIFT_CLASS("_TtC14StripePayments25STPPaymentMethodMobilePay")
+	// @interface STPPaymentMethodMobilePay : NSObject <STPAPIResponseDecodable>
+	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments25STPPaymentMethodMobilePay")]
+	[DisableDefaultCtor]
+	interface STPPaymentMethodMobilePay : STPAPIResponseDecodable
+	{
+		// /// :nodoc:
+		// @property (nonatomic, readonly, copy) NSDictionary * _Nonnull allResponseFields;
+		[Export ("allResponseFields")]
+		NSDictionary AllResponseFields { get; }
+
+		// /// :nodoc:
+		// @property (nonatomic, readonly, copy) NSString * _Nonnull description;
+		[NullAllowed, Export ("description")]
+		string Description { get; }
+
+		// + (nullable instancetype)decodedObjectFromAPIResponse:(NSDictionary * _Nullable)response SWIFT_WARN_UNUSED_RESULT;
+		[Static]
+		[Export ("decodedObjectFromAPIResponse:")]
+		[return: NullAllowed]
+		STPPaymentMethodMobilePay DecodedObjectFromAPIResponse ([NullAllowed] NSDictionary response);
 	}
 
 	// @interface STPPaymentMethod : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments16STPPaymentMethod")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethod : ISTPAPIResponseDecodable
+	interface STPPaymentMethod : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull stripeId;
 		[Export ("stripeId")]
@@ -3147,6 +3098,14 @@ namespace StripePayments
 		[NullAllowed, Export ("alma", ArgumentSemantic.Strong)]
 		STPPaymentMethodAlma Alma { get; }
 
+		// @property (nonatomic, readonly, strong) STPPaymentMethodMultibanco * _Nullable multibanco;
+		[NullAllowed, Export ("multibanco", ArgumentSemantic.Strong)]
+		STPPaymentMethodMultibanco Multibanco { get; }
+
+		// @property (nonatomic, readonly, strong) STPPaymentMethodMobilePay * _Nullable mobilePay;
+		[NullAllowed, Export ("mobilePay", ArgumentSemantic.Strong)]
+		STPPaymentMethodMobilePay MobilePay { get; }
+
 		// @property (readonly, copy, nonatomic) NSString * _Nullable customerId;
 		[NullAllowed, Export ("customerId")]
 		string CustomerId { get; }
@@ -3178,7 +3137,7 @@ namespace StripePayments
 	// @interface STPPaymentMethodAUBECSDebit : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments27STPPaymentMethodAUBECSDebit")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodAUBECSDebit : ISTPAPIResponseDecodable
+	interface STPPaymentMethodAUBECSDebit : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -3209,7 +3168,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodAUBECSDebitParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments33STPPaymentMethodAUBECSDebitParams")]
-	interface STPPaymentMethodAUBECSDebitParams : ISTPFormEncodable
+	interface STPPaymentMethodAUBECSDebitParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -3226,19 +3185,17 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodAddress : NSObject <STPAPIResponseDecodable, STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments23STPPaymentMethodAddress")]
-	interface STPPaymentMethodAddress : ISTPAPIResponseDecodable, ISTPFormEncodable
+	interface STPPaymentMethodAddress : STPAPIResponseDecodable, STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -3284,13 +3241,11 @@ namespace StripePayments
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// -(BOOL)isEqual:(id _Nullable)other __attribute__((warn_unused_result("")));
@@ -3307,7 +3262,7 @@ namespace StripePayments
 	// @interface STPPaymentMethodAffirm : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments22STPPaymentMethodAffirm")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodAffirm : ISTPAPIResponseDecodable
+	interface STPPaymentMethodAffirm : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -3326,7 +3281,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodAffirmParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments28STPPaymentMethodAffirmParams")]
-	interface STPPaymentMethodAffirmParams : ISTPFormEncodable
+	interface STPPaymentMethodAffirmParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -3335,20 +3290,18 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodAfterpayClearpay : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments32STPPaymentMethodAfterpayClearpay")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodAfterpayClearpay : ISTPAPIResponseDecodable
+	interface STPPaymentMethodAfterpayClearpay : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -3367,7 +3320,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodAfterpayClearpayParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments38STPPaymentMethodAfterpayClearpayParams")]
-	interface STPPaymentMethodAfterpayClearpayParams : ISTPFormEncodable
+	interface STPPaymentMethodAfterpayClearpayParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -3376,20 +3329,18 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodAlipay : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments22STPPaymentMethodAlipay")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodAlipay : ISTPAPIResponseDecodable
+	interface STPPaymentMethodAlipay : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -3408,7 +3359,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodAlipayParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments28STPPaymentMethodAlipayParams")]
-	interface STPPaymentMethodAlipayParams : ISTPFormEncodable
+	interface STPPaymentMethodAlipayParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -3417,13 +3368,11 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
@@ -3449,7 +3398,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodAlmaParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments26STPPaymentMethodAlmaParams")]
-	interface STPPaymentMethodAlmaParams : ISTPFormEncodable
+	interface STPPaymentMethodAlmaParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -3458,13 +3407,11 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
@@ -3490,7 +3437,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodAmazonPayParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments31STPPaymentMethodAmazonPayParams")]
-	interface STPPaymentMethodAmazonPayParams : ISTPFormEncodable
+	interface STPPaymentMethodAmazonPayParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -3499,20 +3446,18 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodBLIK : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments20STPPaymentMethodBLIK")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodBLIK : ISTPAPIResponseDecodable
+	interface STPPaymentMethodBLIK : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -3531,7 +3476,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodBLIKParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments26STPPaymentMethodBLIKParams")]
-	interface STPPaymentMethodBLIKParams : ISTPFormEncodable
+	interface STPPaymentMethodBLIKParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -3540,20 +3485,18 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodBacsDebit : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments25STPPaymentMethodBacsDebit")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodBacsDebit : ISTPAPIResponseDecodable
+	interface STPPaymentMethodBacsDebit : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -3584,7 +3527,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodBacsDebitParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments31STPPaymentMethodBacsDebitParams")]
-	interface STPPaymentMethodBacsDebitParams : ISTPFormEncodable
+	interface STPPaymentMethodBacsDebitParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -3601,20 +3544,18 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodBancontact : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments26STPPaymentMethodBancontact")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodBancontact : ISTPAPIResponseDecodable
+	interface STPPaymentMethodBancontact : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -3633,7 +3574,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodBancontactParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments32STPPaymentMethodBancontactParams")]
-	interface STPPaymentMethodBancontactParams : ISTPFormEncodable
+	interface STPPaymentMethodBancontactParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -3642,19 +3583,17 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodBillingDetails : NSObject <STPAPIResponseDecodable, STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments30STPPaymentMethodBillingDetails")]
-	interface STPPaymentMethodBillingDetails : ISTPAPIResponseDecodable, ISTPFormEncodable
+	interface STPPaymentMethodBillingDetails : STPAPIResponseDecodable, STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -3687,13 +3626,11 @@ namespace StripePayments
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// -(BOOL)isEqual:(id _Nullable)other __attribute__((warn_unused_result("")));
@@ -3710,7 +3647,7 @@ namespace StripePayments
 	// @interface STPPaymentMethodBoleto : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments22STPPaymentMethodBoleto")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodBoleto : ISTPAPIResponseDecodable
+	interface STPPaymentMethodBoleto : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull taxID;
 		[Export ("taxID")]
@@ -3733,7 +3670,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodBoletoParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments28STPPaymentMethodBoletoParams")]
-	interface STPPaymentMethodBoletoParams : ISTPFormEncodable
+	interface STPPaymentMethodBoletoParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSString * _Nullable taxID;
 		[NullAllowed, Export ("taxID")]
@@ -3750,20 +3687,18 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodCard : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments20STPPaymentMethodCard")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodCard : ISTPAPIResponseDecodable
+	interface STPPaymentMethodCard : STPAPIResponseDecodable
 	{
 		// @property (readonly, nonatomic) enum STPCardBrand brand;
 		[Export ("brand")]
@@ -3836,7 +3771,7 @@ namespace StripePayments
 	// @interface STPPaymentMethodCardChecks : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments26STPPaymentMethodCardChecks")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodCardChecks : ISTPAPIResponseDecodable
+	interface STPPaymentMethodCardChecks : STPAPIResponseDecodable
 	{
 		// @property (readonly, nonatomic) enum STPPaymentMethodCardCheckResult addressLine1Check __attribute__((deprecated("Card check values are no longer returned to clients using publishable keys. Retrieve them on your server using your secret key instead.")));
 		[Export ("addressLine1Check")]
@@ -3868,7 +3803,7 @@ namespace StripePayments
 	// @interface STPPaymentMethodCardNetworks : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments28STPPaymentMethodCardNetworks")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodCardNetworks : ISTPAPIResponseDecodable
+	interface STPPaymentMethodCardNetworks : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -3895,7 +3830,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodCardNetworksParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments34STPPaymentMethodCardNetworksParams")]
-	interface STPPaymentMethodCardNetworksParams : ISTPFormEncodable
+	interface STPPaymentMethodCardNetworksParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -3916,19 +3851,17 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodCardParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments26STPPaymentMethodCardParams")]
-	interface STPPaymentMethodCardParams : ISTPFormEncodable
+	interface STPPaymentMethodCardParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -3973,13 +3906,11 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 
 		// -(BOOL)isEqual:(id _Nullable)other __attribute__((warn_unused_result("")));
@@ -3990,7 +3921,7 @@ namespace StripePayments
 	// @interface STPPaymentMethodCardPresent : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments27STPPaymentMethodCardPresent")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodCardPresent : ISTPAPIResponseDecodable
+	interface STPPaymentMethodCardPresent : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -4010,7 +3941,7 @@ namespace StripePayments
 	// @interface STPPaymentMethodCardWallet : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments26STPPaymentMethodCardWallet")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodCardWallet : ISTPAPIResponseDecodable
+	interface STPPaymentMethodCardWallet : STPAPIResponseDecodable
 	{
 		// @property (readonly, nonatomic) enum STPPaymentMethodCardWalletType type;
 		[Export ("type")]
@@ -4042,7 +3973,7 @@ namespace StripePayments
 	// @interface STPPaymentMethodCardWalletMasterpass : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments36STPPaymentMethodCardWalletMasterpass")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodCardWalletMasterpass : ISTPAPIResponseDecodable
+	interface STPPaymentMethodCardWalletMasterpass : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nullable email;
 		[NullAllowed, Export ("email")]
@@ -4078,7 +4009,7 @@ namespace StripePayments
 	// @interface STPPaymentMethodCardWalletVisaCheckout : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments38STPPaymentMethodCardWalletVisaCheckout")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodCardWalletVisaCheckout : ISTPAPIResponseDecodable
+	interface STPPaymentMethodCardWalletVisaCheckout : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nullable email;
 		[NullAllowed, Export ("email")]
@@ -4129,7 +4060,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodCashAppParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments29STPPaymentMethodCashAppParams")]
-	interface STPPaymentMethodCashAppParams : ISTPFormEncodable
+	interface STPPaymentMethodCashAppParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -4138,20 +4069,18 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodEPS : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments19STPPaymentMethodEPS")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodEPS : ISTPAPIResponseDecodable
+	interface STPPaymentMethodEPS : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -4170,7 +4099,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodEPSParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments25STPPaymentMethodEPSParams")]
-	interface STPPaymentMethodEPSParams : ISTPFormEncodable
+	interface STPPaymentMethodEPSParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -4179,20 +4108,18 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodFPX : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments19STPPaymentMethodFPX")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodFPX : ISTPAPIResponseDecodable
+	interface STPPaymentMethodFPX : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nullable bankIdentifierCode;
 		[NullAllowed, Export ("bankIdentifierCode")]
@@ -4215,7 +4142,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodFPXParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments25STPPaymentMethodFPXParams")]
-	interface STPPaymentMethodFPXParams : ISTPFormEncodable
+	interface STPPaymentMethodFPXParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -4232,20 +4159,18 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodGiropay : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments23STPPaymentMethodGiropay")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodGiropay : ISTPAPIResponseDecodable
+	interface STPPaymentMethodGiropay : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -4264,7 +4189,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodGiropayParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments29STPPaymentMethodGiropayParams")]
-	interface STPPaymentMethodGiropayParams : ISTPFormEncodable
+	interface STPPaymentMethodGiropayParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -4273,20 +4198,18 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodGrabPay : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments23STPPaymentMethodGrabPay")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodGrabPay : ISTPAPIResponseDecodable
+	interface STPPaymentMethodGrabPay : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -4305,7 +4228,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodGrabPayParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments29STPPaymentMethodGrabPayParams")]
-	interface STPPaymentMethodGrabPayParams : ISTPFormEncodable
+	interface STPPaymentMethodGrabPayParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -4314,20 +4237,18 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodKlarna : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments22STPPaymentMethodKlarna")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodKlarna : ISTPAPIResponseDecodable
+	interface STPPaymentMethodKlarna : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -4346,7 +4267,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodKlarnaParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments28STPPaymentMethodKlarnaParams")]
-	interface STPPaymentMethodKlarnaParams : ISTPFormEncodable
+	interface STPPaymentMethodKlarnaParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -4355,20 +4276,18 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodLink : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments20STPPaymentMethodLink")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodLink : ISTPAPIResponseDecodable
+	interface STPPaymentMethodLink : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -4387,7 +4306,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodLinkParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments26STPPaymentMethodLinkParams")]
-	interface STPPaymentMethodLinkParams : ISTPFormEncodable
+	interface STPPaymentMethodLinkParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSString * _Nullable paymentDetailsID;
 		[NullAllowed, Export ("paymentDetailsID")]
@@ -4404,20 +4323,18 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodListDeserializer : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments32STPPaymentMethodListDeserializer")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodListDeserializer : ISTPAPIResponseDecodable
+	interface STPPaymentMethodListDeserializer : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -4432,7 +4349,8 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodMobilePayParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments31STPPaymentMethodMobilePayParams")]
-	interface STPPaymentMethodMobilePayParams : ISTPFormEncodable
+	[DisableDefaultCtor]
+	interface STPPaymentMethodMobilePayParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -4441,20 +4359,64 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
+		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
+	}
+
+	// SWIFT_CLASS("_TtC14StripePayments26STPPaymentMethodMultibanco")
+	// @interface STPPaymentMethodMultibanco : NSObject <STPAPIResponseDecodable>
+	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments26STPPaymentMethodMultibanco")]
+	[DisableDefaultCtor]
+	interface STPPaymentMethodMultibanco : STPFormEncodable
+	{
+		// /// :nodoc:
+		// @property (nonatomic, readonly, copy) NSDictionary * _Nonnull allResponseFields;
+		[Export ("allResponseFields", ArgumentSemantic.Copy)]
+		NSDictionary AllResponseFields { get; set; }
+
+		// /// :nodoc:
+		// @property (nonatomic, readonly, copy) NSString * _Nonnull description;
+		[Export ("description", ArgumentSemantic.Copy)]
+		string description { get; set; }
+
+		// + (nullable instancetype)decodedObjectFromAPIResponse:(NSDictionary * _Nullable)response SWIFT_WARN_UNUSED_RESULT;
+		[Static]
+		[Export ("decodedObjectFromAPIResponse:")]
+		[return: NullAllowed]
+		STPPaymentMethodMultibanco DecodedObjectFromAPIResponse ([NullAllowed] NSDictionary response);
+	}
+
+
+	// /// An object representing parameters used to create a Multibanco Payment Method
+	// SWIFT_CLASS("_TtC14StripePayments32STPPaymentMethodMultibancoParams")
+	// @interface STPPaymentMethodMultibancoParams : NSObject <STPFormEncodable>
+	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments32STPPaymentMethodMultibancoParams")]
+	[DisableDefaultCtor]
+	interface STPPaymentMethodMultibancoParams : STPFormEncodable
+	{
+		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
+		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
+		NSDictionary AdditionalAPIParameters { get; set; }
+
+		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
+		[Static]
+		[NullAllowed, Export ("rootObjectName")]
+		string RootObjectName { get; }
+
+		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
+		[Static]
+		[Export ("propertyNamesToFormFieldNamesMapping")]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodNetBanking : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments26STPPaymentMethodNetBanking")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodNetBanking : ISTPAPIResponseDecodable
+	interface STPPaymentMethodNetBanking : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -4477,7 +4439,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodNetBankingParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments32STPPaymentMethodNetBankingParams")]
-	interface STPPaymentMethodNetBankingParams : ISTPFormEncodable
+	interface STPPaymentMethodNetBankingParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -4490,20 +4452,18 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodOXXO : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments20STPPaymentMethodOXXO")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodOXXO : ISTPAPIResponseDecodable
+	interface STPPaymentMethodOXXO : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -4522,7 +4482,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodOXXOParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments26STPPaymentMethodOXXOParams")]
-	interface STPPaymentMethodOXXOParams : ISTPFormEncodable
+	interface STPPaymentMethodOXXOParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -4531,20 +4491,18 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodOptions : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments23STPPaymentMethodOptions")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodOptions : ISTPAPIResponseDecodable
+	partial interface STPPaymentMethodOptions : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -4558,22 +4516,18 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_4223 (STPPaymentMethodOptions)
-	[Category]
-	[BaseType (typeof(STPPaymentMethodOptions))]
-	interface STPPaymentMethodOptions_StripePayments_Swift_4223
+	partial interface STPPaymentMethodOptions
 	{
 	}
 
 	// @interface StripePayments_Swift_4227 (STPPaymentMethodOptions)
-	[Category]
-	[BaseType (typeof(STPPaymentMethodOptions))]
-	interface STPPaymentMethodOptions_StripePayments_Swift_4227
+	partial interface STPPaymentMethodOptions
 	{
 	}
 
 	// @interface STPPaymentMethodParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments22STPPaymentMethodParams")]
-	interface STPPaymentMethodParams : ISTPFormEncodable
+	partial interface STPPaymentMethodParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -4590,6 +4544,10 @@ namespace StripePayments
 		// @property (nonatomic, strong) STPPaymentMethodBillingDetails * _Nullable billingDetails;
 		[NullAllowed, Export ("billingDetails", ArgumentSemantic.Strong)]
 		STPPaymentMethodBillingDetails BillingDetails { get; set; }
+
+		// @property (nonatomic) enum STPPaymentMethodAllowRedisplay allowRedisplay;
+		[NullAllowed, Export ("allowRedisplay", ArgumentSemantic.Strong)]
+		STPPaymentMethodAllowRedisplay AllowRedisplay { get; set; }
 
 		// @property (nonatomic, strong) STPPaymentMethodCardParams * _Nullable card;
 		[NullAllowed, Export ("card", ArgumentSemantic.Strong)]
@@ -4711,13 +4669,17 @@ namespace StripePayments
 		[NullAllowed, Export ("alma", ArgumentSemantic.Strong)]
 		STPPaymentMethodAlmaParams Alma { get; set; }
 
+		// @property (nonatomic, strong) STPPaymentMethodMultibancoParams * _Nullable multibanco;
+		[NullAllowed, Export ("multibanco", ArgumentSemantic.Strong)]
+		STPPaymentMethodMultibancoParams Multibanco { get; set; }
+
 		// @property (copy, nonatomic) NSDictionary<NSString *,NSString *> * _Nullable metadata;
 		[NullAllowed, Export ("metadata", ArgumentSemantic.Copy)]
 		NSDictionary<NSString, NSString> Metadata { get; set; }
 
-		// -(instancetype _Nonnull)initWithCard:(STPPaymentMethodCardParams * _Nonnull)card billingDetails:(STPPaymentMethodBillingDetails * _Nullable)billingDetails metadata:(NSDictionary<NSString *,NSString *> * _Nullable)metadata;
-		[Export ("initWithCard:billingDetails:metadata:")]
-		NativeHandle Constructor (STPPaymentMethodCardParams card, [NullAllowed] STPPaymentMethodBillingDetails billingDetails, [NullAllowed] NSDictionary<NSString, NSString> metadata);
+		// - (nonnull instancetype)initWithCard:(STPPaymentMethodCardParams * _Nonnull)card billingDetails:(STPPaymentMethodBillingDetails * _Nullable)billingDetails allowRedisplay:(enum STPPaymentMethodAllowRedisplay)allowRedisplay metadata:(NSDictionary<NSString *, NSString *> * _Nullable)metadata;
+		[Export ("initWithCard:billingDetails:allowRedisplay:metadata:")]
+		NativeHandle Constructor (STPPaymentMethodCardParams card, [NullAllowed] STPPaymentMethodBillingDetails billingDetails, STPPaymentMethodAllowRedisplay allowRedisplay, [NullAllowed] NSDictionary<NSString, NSString> metadata);
 
 		// -(instancetype _Nonnull)initWithIDEAL:(STPPaymentMethodiDEALParams * _Nonnull)iDEAL billingDetails:(STPPaymentMethodBillingDetails * _Nullable)billingDetails metadata:(NSDictionary<NSString *,NSString *> * _Nullable)metadata;
 		[Export ("initWithIDEAL:billingDetails:metadata:")]
@@ -4831,6 +4793,10 @@ namespace StripePayments
 		[Export ("initWithAlma:billingDetails:metadata:")]
 		NativeHandle Constructor (STPPaymentMethodAlmaParams alma, [NullAllowed] STPPaymentMethodBillingDetails billingDetails, [NullAllowed] NSDictionary<NSString, NSString> metadata);
 
+		// - (nonnull instancetype)initWithMultibanco:(STPPaymentMethodMultibancoParams * _Nonnull)multibanco billingDetails:(STPPaymentMethodBillingDetails * _Nullable)billingDetails metadata:(NSDictionary<NSString *, NSString *> * _Nullable)metadata;
+		[Export ("initWithMultibanco:billingDetails:metadata:")]
+		NativeHandle Constructor (STPPaymentMethodMultibancoParams alma, [NullAllowed] STPPaymentMethodBillingDetails billingDetails, [NullAllowed] NSDictionary<NSString, NSString> metadata);
+
 		// -(instancetype _Nullable)initWithSingleUsePaymentMethod:(STPPaymentMethod * _Nonnull)paymentMethod;
 		[Export ("initWithSingleUsePaymentMethod:")]
 		NativeHandle Constructor (STPPaymentMethod paymentMethod);
@@ -4838,20 +4804,16 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface StripePayments_Swift_4563 (STPPaymentMethodParams)
-	[Category]
-	[BaseType (typeof(STPPaymentMethodParams))]
-	interface STPPaymentMethodParams_StripePayments_Swift_4563
+	partial interface STPPaymentMethodParams
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull label;
 		[Export ("label")]
@@ -4859,9 +4821,7 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_4568 (STPPaymentMethodParams)
-	[Category]
-	[BaseType (typeof(STPPaymentMethodParams))]
-	interface STPPaymentMethodParams_StripePayments_Swift_4568
+	partial interface STPPaymentMethodParams
 	{
 		// +(STPPaymentMethodParams * _Nonnull)paramsWithCard:(STPPaymentMethodCardParams * _Nonnull)card billingDetails:(STPPaymentMethodBillingDetails * _Nullable)billingDetails metadata:(NSDictionary<NSString *,NSString *> * _Nullable)metadata __attribute__((warn_unused_result("")));
 		[Static]
@@ -4972,7 +4932,7 @@ namespace StripePayments
 	// @interface STPPaymentMethodPayPal : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments22STPPaymentMethodPayPal")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodPayPal : ISTPAPIResponseDecodable
+	interface STPPaymentMethodPayPal : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -4991,7 +4951,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodPayPalParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments28STPPaymentMethodPayPalParams")]
-	interface STPPaymentMethodPayPalParams : ISTPFormEncodable
+	interface STPPaymentMethodPayPalParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -5000,20 +4960,18 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodPrzelewy24 : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments26STPPaymentMethodPrzelewy24")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodPrzelewy24 : ISTPAPIResponseDecodable
+	interface STPPaymentMethodPrzelewy24 : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -5032,7 +4990,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodPrzelewy24Params : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments32STPPaymentMethodPrzelewy24Params")]
-	interface STPPaymentMethodPrzelewy24Params : ISTPFormEncodable
+	interface STPPaymentMethodPrzelewy24Params : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -5041,13 +4999,11 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
@@ -5073,7 +5029,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodRevolutPayParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments32STPPaymentMethodRevolutPayParams")]
-	interface STPPaymentMethodRevolutPayParams : ISTPFormEncodable
+	interface STPPaymentMethodRevolutPayParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -5082,20 +5038,18 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodSEPADebit : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments25STPPaymentMethodSEPADebit")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodSEPADebit : ISTPAPIResponseDecodable
+	interface STPPaymentMethodSEPADebit : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -5138,7 +5092,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodSEPADebitParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments31STPPaymentMethodSEPADebitParams")]
-	interface STPPaymentMethodSEPADebitParams : ISTPFormEncodable
+	interface STPPaymentMethodSEPADebitParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -5151,20 +5105,18 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodSofort : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments22STPPaymentMethodSofort")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodSofort : ISTPAPIResponseDecodable
+	interface STPPaymentMethodSofort : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -5187,7 +5139,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodSofortParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments28STPPaymentMethodSofortParams")]
-	interface STPPaymentMethodSofortParams : ISTPFormEncodable
+	interface STPPaymentMethodSofortParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -5200,20 +5152,18 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodSwish : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments21STPPaymentMethodSwish")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodSwish : ISTPAPIResponseDecodable
+	interface STPPaymentMethodSwish : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -5232,7 +5182,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodSwishParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments27STPPaymentMethodSwishParams")]
-	interface STPPaymentMethodSwishParams : ISTPFormEncodable
+	interface STPPaymentMethodSwishParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -5241,20 +5191,18 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodThreeDSecureUsage : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments33STPPaymentMethodThreeDSecureUsage")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodThreeDSecureUsage : ISTPAPIResponseDecodable
+	interface STPPaymentMethodThreeDSecureUsage : STPAPIResponseDecodable
 	{
 		// @property (readonly, nonatomic) BOOL supported;
 		[Export ("supported")]
@@ -5278,7 +5226,7 @@ namespace StripePayments
 	// @interface STPPaymentMethodUPI : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments19STPPaymentMethodUPI")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodUPI : ISTPAPIResponseDecodable
+	interface STPPaymentMethodUPI : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSDictionary * _Nonnull allResponseFields;
 		[Export ("allResponseFields", ArgumentSemantic.Copy)]
@@ -5301,7 +5249,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodUPIParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments25STPPaymentMethodUPIParams")]
-	interface STPPaymentMethodUPIParams : ISTPFormEncodable
+	interface STPPaymentMethodUPIParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -5314,20 +5262,18 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodUSBankAccount : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments29STPPaymentMethodUSBankAccount")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodUSBankAccount
+	partial interface STPPaymentMethodUSBankAccount
 	{
 		// @property (readonly, nonatomic) enum STPPaymentMethodUSBankAccountHolderType accountHolderType;
 		[Export ("accountHolderType")]
@@ -5367,9 +5313,7 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_5056 (STPPaymentMethodUSBankAccount) <STPAPIResponseDecodable>
-	[Category]
-	[BaseType (typeof(STPPaymentMethodUSBankAccount))]
-	interface STPPaymentMethodUSBankAccount_StripePayments_Swift_5056 : ISTPAPIResponseDecodable
+	partial interface STPPaymentMethodUSBankAccount : STPAPIResponseDecodable
 	{
 		// +(instancetype _Nullable)decodedObjectFromAPIResponse:(NSDictionary * _Nullable)response __attribute__((warn_unused_result("")));
 		[Static]
@@ -5394,7 +5338,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodUSBankAccountParams : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments35STPPaymentMethodUSBankAccountParams")]
-	interface STPPaymentMethodUSBankAccountParams
+	partial interface STPPaymentMethodUSBankAccountParams
 	{
 		// @property (copy, nonatomic) NSString * _Nullable accountHolderTypeString;
 		[NullAllowed, Export ("accountHolderTypeString")]
@@ -5430,26 +5374,22 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_5117 (STPPaymentMethodUSBankAccountParams) <STPFormEncodable>
-	[Category]
-	[BaseType (typeof(STPPaymentMethodUSBankAccountParams))]
-	interface STPPaymentMethodUSBankAccountParams_StripePayments_Swift_5117 : ISTPFormEncodable
+	partial interface STPPaymentMethodUSBankAccountParams : STPFormEncodable
 	{
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodUpdateParams : NSObject
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments28STPPaymentMethodUpdateParams")]
-	interface STPPaymentMethodUpdateParams
+	partial interface STPPaymentMethodUpdateParams
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -5469,27 +5409,23 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_5153 (STPPaymentMethodUpdateParams) <STPFormEncodable>
-	[Category]
-	[BaseType (typeof(STPPaymentMethodUpdateParams))]
-	interface STPPaymentMethodUpdateParams_StripePayments_Swift_5153 : ISTPFormEncodable
+	partial interface STPPaymentMethodUpdateParams : STPFormEncodable
 	{
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPPaymentMethodiDEAL : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments21STPPaymentMethodiDEAL")]
 	[DisableDefaultCtor]
-	interface STPPaymentMethodiDEAL : ISTPAPIResponseDecodable
+	interface STPPaymentMethodiDEAL : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nullable bankName;
 		[NullAllowed, Export ("bankName")]
@@ -5516,7 +5452,7 @@ namespace StripePayments
 
 	// @interface STPPaymentMethodiDEALParams : NSObject <STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments27STPPaymentMethodiDEALParams")]
-	interface STPPaymentMethodiDEALParams : ISTPFormEncodable
+	interface STPPaymentMethodiDEALParams : STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -5529,20 +5465,18 @@ namespace StripePayments
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPRadarSession : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments15STPRadarSession")]
 	[DisableDefaultCtor]
-	interface STPRadarSession : ISTPAPIResponseDecodable
+	interface STPRadarSession : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull id;
 		[Export ("id")]
@@ -5562,7 +5496,7 @@ namespace StripePayments
 	// @interface STPRedirectContext : NSObject <UIViewControllerTransitioningDelegate>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments18STPRedirectContext")]
 	[DisableDefaultCtor]
-	interface STPRedirectContext : IUIViewControllerTransitioningDelegate
+	partial interface STPRedirectContext : IUIViewControllerTransitioningDelegate
 	{
 		// @property (readonly, copy, nonatomic, class) NSString * _Nonnull STPRedirectContextErrorDomain;
 		[Static]
@@ -5604,9 +5538,7 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_5342 (STPRedirectContext)
-	[Category]
-	[BaseType (typeof(STPRedirectContext))]
-	interface STPRedirectContext_StripePayments_Swift_5342
+	partial interface STPRedirectContext
 	{
 		// -(BOOL)handleURLCallback:(NSURL * _Nonnull)url __attribute__((warn_unused_result("")));
 		[Export ("handleURLCallback:")]
@@ -5614,9 +5546,7 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_5348 (STPRedirectContext) <SFSafariViewControllerDelegate>
-	[Category]
-	[BaseType (typeof(STPRedirectContext))]
-	interface STPRedirectContext_StripePayments_Swift_5348 : ISFSafariViewControllerDelegate
+	partial interface STPRedirectContext : ISFSafariViewControllerDelegate
 	{
 		// -(void)safariViewControllerDidFinish:(SFSafariViewController * _Nonnull)controller;
 		[Export ("safariViewControllerDidFinish:")]
@@ -5634,7 +5564,7 @@ namespace StripePayments
 	// @interface STPSetupIntent : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments14STPSetupIntent")]
 	[DisableDefaultCtor]
-	interface STPSetupIntent : ISTPAPIResponseDecodable
+	interface STPSetupIntent : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull stripeID;
 		[Export ("stripeID")]
@@ -5716,7 +5646,7 @@ namespace StripePayments
 	// @interface STPSetupIntentConfirmParams : NSObject <NSCopying, STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments27STPSetupIntentConfirmParams")]
 	[DisableDefaultCtor]
-	interface STPSetupIntentConfirmParams : INSCopying, ISTPFormEncodable
+	interface STPSetupIntentConfirmParams : INSCopying, STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -5762,25 +5692,23 @@ namespace StripePayments
 
 		// -(id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone __attribute__((warn_unused_result("")));
 		[Export ("copyWithZone:")]
-		unsafe NSObject CopyWithZone ([NullAllowed] _NSZone* zone);
+		unsafe NSObject Copy ([NullAllowed] NSZone zone);
 
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 	}
 
 	// @interface STPSetupIntentLastSetupError : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments28STPSetupIntentLastSetupError")]
 	[DisableDefaultCtor]
-	interface STPSetupIntentLastSetupError : ISTPAPIResponseDecodable
+	partial interface STPSetupIntentLastSetupError : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nullable code;
 		[NullAllowed, Export ("code")]
@@ -5826,9 +5754,7 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_5516 (STPSetupIntentLastSetupError)
-	[Category]
-	[BaseType (typeof(STPSetupIntentLastSetupError))]
-	interface STPSetupIntentLastSetupError_StripePayments_Swift_5516
+	partial interface STPSetupIntentLastSetupError
 	{
 		// @property (readonly, copy, nonatomic, class) NSString * _Nonnull CodeAuthenticationFailure;
 		[Static]
@@ -5839,7 +5765,7 @@ namespace StripePayments
 	// @interface STPSource : NSObject <STPAPIResponseDecodable, STPSourceProtocol>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments9STPSource")]
 	[DisableDefaultCtor]
-	interface STPSource : ISTPAPIResponseDecodable, ISTPSourceProtocol
+	interface STPSource : STPAPIResponseDecodable, STPSourceProtocol
 	{
 		// @property (readonly, nonatomic, strong) NSNumber * _Nullable amount;
 		[NullAllowed, Export ("amount", ArgumentSemantic.Strong)]
@@ -5947,7 +5873,7 @@ namespace StripePayments
 	// @interface STPSourceCardDetails : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments20STPSourceCardDetails")]
 	[DisableDefaultCtor]
-	interface STPSourceCardDetails : ISTPAPIResponseDecodable
+	interface STPSourceCardDetails : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nullable last4;
 		[NullAllowed, Export ("last4")]
@@ -5999,7 +5925,7 @@ namespace StripePayments
 	// @interface STPSourceKlarnaDetails : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments22STPSourceKlarnaDetails")]
 	[DisableDefaultCtor]
-	interface STPSourceKlarnaDetails : ISTPAPIResponseDecodable
+	interface STPSourceKlarnaDetails : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nullable clientToken;
 		[NullAllowed, Export ("clientToken")]
@@ -6027,7 +5953,7 @@ namespace StripePayments
 	// @interface STPSourceOwner : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments14STPSourceOwner")]
 	[DisableDefaultCtor]
-	interface STPSourceOwner : ISTPAPIResponseDecodable
+	interface STPSourceOwner : STPAPIResponseDecodable
 	{
 		// @property (readonly, nonatomic, strong) STPAddress * _Nullable address;
 		[NullAllowed, Export ("address", ArgumentSemantic.Strong)]
@@ -6074,7 +6000,7 @@ namespace StripePayments
 
 	// @interface STPSourceParams : NSObject <NSCopying, STPFormEncodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments15STPSourceParams")]
-	interface STPSourceParams : INSCopying, ISTPFormEncodable
+	partial interface STPSourceParams : INSCopying, STPFormEncodable
 	{
 		// @property (copy, nonatomic) NSDictionary * _Nonnull additionalAPIParameters;
 		[Export ("additionalAPIParameters", ArgumentSemantic.Copy)]
@@ -6122,9 +6048,7 @@ namespace StripePayments
 	}
 
 	// @interface StripePayments_Swift_5812 (STPSourceParams)
-	[Category]
-	[BaseType (typeof(STPSourceParams))]
-	interface STPSourceParams_StripePayments_Swift_5812
+	partial interface STPSourceParams
 	{
 		// +(STPSourceParams * _Nonnull)bancontactParamsWithAmount:(NSInteger)amount name:(NSString * _Nonnull)name returnURL:(NSString * _Nonnull)returnURL statementDescriptor:(NSString * _Nullable)statementDescriptor __attribute__((warn_unused_result("")));
 		[Static]
@@ -6217,30 +6141,27 @@ namespace StripePayments
 
 		// -(NSDictionary * _Nonnull)redirectDictionaryWithMerchantNameIfNecessary __attribute__((warn_unused_result("")));
 		[Export ("redirectDictionaryWithMerchantNameIfNecessary")]
-		[Verify (MethodToProperty)]
 		NSDictionary RedirectDictionaryWithMerchantNameIfNecessary { get; }
 
 		// +(NSString * _Nullable)rootObjectName __attribute__((warn_unused_result("")));
 		[Static]
 		[NullAllowed, Export ("rootObjectName")]
-		[Verify (MethodToProperty)]
 		string RootObjectName { get; }
 
 		// +(NSDictionary<NSString *,NSString *> * _Nonnull)propertyNamesToFormFieldNamesMapping __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("propertyNamesToFormFieldNamesMapping")]
-		[Verify (MethodToProperty)]
 		NSDictionary<NSString, NSString> PropertyNamesToFormFieldNamesMapping { get; }
 
 		// -(id _Nonnull)copyWithZone:(struct _NSZone * _Nullable)zone __attribute__((warn_unused_result("")));
 		[Export ("copyWithZone:")]
-		unsafe NSObject CopyWithZone ([NullAllowed] _NSZone* zone);
+		unsafe NSObject Copy ([NullAllowed] NSZone zone);
 	}
 
 	// @interface STPSourceReceiver : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments17STPSourceReceiver")]
 	[DisableDefaultCtor]
-	interface STPSourceReceiver : ISTPAPIResponseDecodable
+	interface STPSourceReceiver : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nullable address;
 		[NullAllowed, Export ("address")]
@@ -6276,7 +6197,7 @@ namespace StripePayments
 	// @interface STPSourceRedirect : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments17STPSourceRedirect")]
 	[DisableDefaultCtor]
-	interface STPSourceRedirect : ISTPAPIResponseDecodable
+	interface STPSourceRedirect : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSURL * _Nonnull returnURL;
 		[Export ("returnURL", ArgumentSemantic.Copy)]
@@ -6308,7 +6229,7 @@ namespace StripePayments
 	// @interface STPSourceSEPADebitDetails : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments25STPSourceSEPADebitDetails")]
 	[DisableDefaultCtor]
-	interface STPSourceSEPADebitDetails : ISTPAPIResponseDecodable
+	interface STPSourceSEPADebitDetails : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nullable last4;
 		[NullAllowed, Export ("last4")]
@@ -6352,7 +6273,7 @@ namespace StripePayments
 	// @interface STPSourceVerification : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments21STPSourceVerification")]
 	[DisableDefaultCtor]
-	interface STPSourceVerification : ISTPAPIResponseDecodable
+	interface STPSourceVerification : STPAPIResponseDecodable
 	{
 		// @property (readonly, nonatomic, strong) NSNumber * _Nullable attemptsRemaining;
 		[NullAllowed, Export ("attemptsRemaining", ArgumentSemantic.Strong)]
@@ -6380,7 +6301,7 @@ namespace StripePayments
 	// @interface STPSourceWeChatPayDetails : NSObject <STPAPIResponseDecodable>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments25STPSourceWeChatPayDetails")]
 	[DisableDefaultCtor]
-	interface STPSourceWeChatPayDetails : ISTPAPIResponseDecodable
+	interface STPSourceWeChatPayDetails : STPAPIResponseDecodable
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nullable weChatAppURL;
 		[NullAllowed, Export ("weChatAppURL")]
@@ -6450,7 +6371,6 @@ namespace StripePayments
 		// +(STPThreeDSCustomizationSettings * _Nonnull)defaultSettings __attribute__((warn_unused_result(""))) __attribute__((deprecated("Use STPThreeDSCustomizationSettings() instead of STPThreeDSCustomizationSettings.defaultSettings().")));
 		[Static]
 		[Export ("defaultSettings")]
-		[Verify (MethodToProperty)]
 		STPThreeDSCustomizationSettings DefaultSettings { get; }
 
 		// @property (nonatomic, strong) STPThreeDSUICustomization * _Nonnull uiCustomization;
@@ -6469,7 +6389,6 @@ namespace StripePayments
 		// +(STPThreeDSFooterCustomization * _Nonnull)defaultSettings __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("defaultSettings")]
-		[Verify (MethodToProperty)]
 		STPThreeDSFooterCustomization DefaultSettings { get; }
 
 		// @property (nonatomic, strong) UIColor * _Nonnull backgroundColor;
@@ -6504,7 +6423,6 @@ namespace StripePayments
 		// +(STPThreeDSLabelCustomization * _Nonnull)defaultSettings __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("defaultSettings")]
-		[Verify (MethodToProperty)]
 		STPThreeDSLabelCustomization DefaultSettings { get; }
 
 		// @property (nonatomic, strong) UIFont * _Nonnull headingFont;
@@ -6531,7 +6449,6 @@ namespace StripePayments
 		// +(STPThreeDSNavigationBarCustomization * _Nonnull)defaultSettings __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("defaultSettings")]
-		[Verify (MethodToProperty)]
 		STPThreeDSNavigationBarCustomization DefaultSettings { get; }
 
 		// @property (nonatomic, strong) UIColor * _Nullable barTintColor;
@@ -6570,7 +6487,6 @@ namespace StripePayments
 		// +(STPThreeDSSelectionCustomization * _Nonnull)defaultSettings __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("defaultSettings")]
-		[Verify (MethodToProperty)]
 		STPThreeDSSelectionCustomization DefaultSettings { get; }
 
 		// @property (nonatomic, strong) UIColor * _Nonnull primarySelectedColor;
@@ -6597,7 +6513,6 @@ namespace StripePayments
 		// +(STPThreeDSTextFieldCustomization * _Nonnull)defaultSettings __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("defaultSettings")]
-		[Verify (MethodToProperty)]
 		STPThreeDSTextFieldCustomization DefaultSettings { get; }
 
 		// @property (nonatomic) CGFloat borderWidth;
@@ -6636,7 +6551,6 @@ namespace StripePayments
 		// +(STPThreeDSUICustomization * _Nonnull)defaultSettings __attribute__((warn_unused_result("")));
 		[Static]
 		[Export ("defaultSettings")]
-		[Verify (MethodToProperty)]
 		STPThreeDSUICustomization DefaultSettings { get; }
 
 		// @property (nonatomic, strong) STPThreeDSNavigationBarCustomization * _Nonnull navigationBarCustomization;
@@ -6683,7 +6597,7 @@ namespace StripePayments
 	// @interface STPToken : NSObject <STPAPIResponseDecodable, STPSourceProtocol>
 	[BaseType (typeof(NSObject), Name = "_TtC14StripePayments8STPToken")]
 	[DisableDefaultCtor]
-	interface STPToken : ISTPAPIResponseDecodable, ISTPSourceProtocol
+	interface STPToken : STPAPIResponseDecodable, STPSourceProtocol
 	{
 		// @property (readonly, copy, nonatomic) NSString * _Nonnull tokenId;
 		[Export ("tokenId")]
@@ -6747,18 +6661,5 @@ namespace StripePayments
 		[Static]
 		[Export ("paymentRequestWithMerchantIdentifier:")]
 		PKPaymentRequest PaymentRequestWithMerchantIdentifier (string merchantIdentifier);
-	}
-
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
-	partial interface Constants
-	{
-		// extern double StripePaymentsVersionNumber;
-		[Field ("StripePaymentsVersionNumber", "__Internal")]
-		double StripePaymentsVersionNumber { get; }
-
-		// extern const unsigned char[] StripePaymentsVersionString;
-		[Field ("StripePaymentsVersionString", "__Internal")]
-		byte[] StripePaymentsVersionString { get; }
 	}
 }

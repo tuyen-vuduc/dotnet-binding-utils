@@ -1,17 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Xamarin.Legacy.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-      <TargetFrameworks>xamarin.ios10;net6.0-ios;net7.0-ios;</TargetFrameworks>
-      <NoNFloatUsing Condition="'$(TargetFramework)' == 'xamarin.ios10'">true</NoNFloatUsing>
+      <TargetFramework>net8.0-ios</TargetFramework>
       <Nullable>enable</Nullable>
       <ImplicitUsings>true</ImplicitUsings>
       <IsBindingProject>true</IsBindingProject>
       <NoBindingEmbedding>false</NoBindingEmbedding>
-      <SupportedOSPlatformVersion>12.0</SupportedOSPlatformVersion>
+      <SupportedOSPlatformVersion>15.0</SupportedOSPlatformVersion>
       <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
-    <_NativeVersion>23.27.1</_NativeVersion>
+    <_NativeVersion>23.27.5</_NativeVersion>
     <_NugetSuffix></_NugetSuffix>
     <_NugetVersion>$(_NativeVersion)$(_NugetSuffix)</_NugetVersion>
   </PropertyGroup>
@@ -34,6 +33,11 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageVersion>$(_NugetVersion)</PackageVersion>
     <PackageTags>xamarin, ios, Stripe SDK, stripe</PackageTags>
+    <PackageProjectUrl>https://github.com/tuyen-vuduc/dotnet-binding-utils</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/tuyen-vuduc/dotnet-binding-utils</RepositoryUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageIcon>package-icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -41,6 +45,9 @@
   <ItemGroup>
     <None Include="Stripe3DS2.iOS.targets" Pack="True" PackagePath="build/Stripe3DS2.iOS.targets" />
     <None Include="Stripe3DS2.iOS.targets" Pack="True" PackagePath="buildTransitive/Stripe3DS2.iOS.targets" />
+    <None Include="../../../../LICENSE" Pack="True" PackagePath="" />
+    <None Include="../README.md" Pack="True" PackagePath="" />
+    <None Include="../../../../assets/tv-ico.png" Pack="True" PackagePath="package-icon.png" />
   </ItemGroup>
   <Import Project="Stripe3DS2.iOS.targets" />
   <ItemGroup>
@@ -58,5 +65,8 @@
   </ItemGroup>
   <ItemGroup>
       <PackageReference Include="Xamarin.Build.Download" Version="0.11.4" PrivateAssets="None" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StripeCore.iOS\StripeCore.iOS.csproj" />
   </ItemGroup>
 </Project>

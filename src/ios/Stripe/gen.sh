@@ -8,10 +8,14 @@ do
     frameworkName=${dirName//$find/$replace}
     echo $dir $frameworkName
 
+    # if [[ "$frameworkName" != "TVStripePaymentSheet" ]]; then
+    #  continue
+    # fi
+
     sharpie bind \
         --output $frameworkName.iOS \
         --namespace $frameworkName \
-        --sdk iphoneos17.4 \
+        --sdk iphoneos \
         -scope $dir/ios-arm64/$frameworkName.framework/Headers \
             $dir/ios-arm64/$frameworkName.framework/Headers/*.h
 done

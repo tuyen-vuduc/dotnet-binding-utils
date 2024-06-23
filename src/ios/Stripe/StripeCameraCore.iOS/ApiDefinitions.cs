@@ -13,17 +13,4 @@ namespace StripeCameraCore
 		[Export ("layerClass")]
 		Class LayerClass { get; }
 	}
-
-	[Static]
-	[Verify (ConstantsInterfaceAssociation)]
-	partial interface Constants
-	{
-		// extern double StripeCameraCoreVersionNumber;
-		[Field ("StripeCameraCoreVersionNumber", "__Internal")]
-		double StripeCameraCoreVersionNumber { get; }
-
-		// extern const unsigned char[] StripeCameraCoreVersionString;
-		[Field ("StripeCameraCoreVersionString", "__Internal")]
-		byte[] StripeCameraCoreVersionString { get; }
-	}
 }

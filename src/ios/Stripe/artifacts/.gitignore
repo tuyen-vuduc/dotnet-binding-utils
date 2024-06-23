@@ -1,19 +1,14 @@
 *.xcframework
 Pods
 build
+*.zip
 
-!Carthage/
-Carthage/*
+!*.xcframework/
+*.xcframework/*
+!*.xcframework/ios-arm64/
 
-!Carthage/Build/
-Carthage/Build/*
+*.xcframework/ios-arm64/*
+!*.xcframework/ios-arm64/*.framework/
 
-!Carthage/Build/*.xcframework/
-Carthage/Build/*.xcframework/*
-!Carthage/Build/*.xcframework/ios-arm64/
-
-Carthage/Build/*.xcframework/ios-arm64/*
-!Carthage/Build/*.xcframework/ios-arm64/*.framework/
-
-Carthage/Build/*.xcframework/ios-arm64/*.framework/*
-!Carthage/Build/*.xcframework/ios-arm64/*.framework/Headers/
+*.xcframework/ios-arm64/*.framework/*
+!*.xcframework/ios-arm64/*.framework/Headers/

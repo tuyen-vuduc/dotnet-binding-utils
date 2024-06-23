@@ -9,6 +9,7 @@ on:
         type: choice
         options: 
         - Shake
+        - Stripe
 jobs:
   build-then-publish:
     environment: production

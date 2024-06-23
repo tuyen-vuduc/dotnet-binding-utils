@@ -115,7 +115,18 @@ namespace StripePayments
 		PayNowDisplayQrCode = 11,
 		KonbiniDisplayDetails = 12,
 		PromptpayDisplayQrCode = 13,
-		SwishHandleRedirect = 14
+		SwishHandleRedirect = 14,
+		MultibancoDisplayDetails = 15,
+	}
+	[Native]
+	public enum STPPaymentMethodAllowRedisplay : long
+	{
+		/// This is the default value for payment methods where allow_redisplay wasn’t set.
+		Unspecified = 0,
+		/// Use limited to indicate that this payment method can’t always be shown to a customer in a checkout flow. For example, it can only be shown in the context of a specific subscription.
+		Limited = 1,
+		/// Use always to indicate that this payment method can always be shown to a customer in a checkout flow.
+		Always = 2,
 	}
 
 	[Native]
@@ -293,21 +304,22 @@ namespace StripePayments
 		Boleto = 21,
 		Link = 22,
 		Klarna = 23,
-		LinkInstantDebit = 24,
-		Affirm = 25,
-		USBankAccount = 26,
-		CashApp = 27,
-		Paynow = 28,
-		Zip = 29,
-		RevolutPay = 30,
-		AmazonPay = 31,
-		Alma = 32,
-		MobilePay = 33,
-		Konbini = 34,
-		PromptPay = 35,
-		Swish = 36,
-		Twint = 37,
-		Unknown = 38
+		Affirm = 24,
+		USBankAccount = 25,
+		CashApp = 26,
+		Paynow = 27,
+		Zip = 28,
+		RevolutPay = 29,
+		AmazonPay = 30,
+		Alma = 31,
+		MobilePay = 32,
+		Konbini = 33,
+		PromptPay = 34,
+		Swish = 35,
+		Twint = 36,
+		Multibanco = 37,
+		InstantDebits = 38,
+		Unknown = 39,
 	}
 
 	[Native]
