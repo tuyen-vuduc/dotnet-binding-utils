@@ -1,7 +1,7 @@
 *.xcframework
 Pods
 build
-
+*.zip
 
 !*.xcframework/
 *.xcframework/*

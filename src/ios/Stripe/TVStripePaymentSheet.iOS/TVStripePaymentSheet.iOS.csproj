@@ -15,18 +15,18 @@
     <_NugetVersion>$(_NativeVersion)$(_NugetSuffix)</_NugetVersion>
   </PropertyGroup>
   <PropertyGroup>
-    <RootNamespace>StripeCameraCore.iOS</RootNamespace>
+    <RootNamespace>TVStripePaymentSheet.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>StripeCameraCore.iOS</AssemblyName>
+    <AssemblyName>TVStripePaymentSheet.iOS</AssemblyName>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
     <AssemblyVersion>$(_NativeVersion)</AssemblyVersion>
     <FileVersion>$(_NativeVersion)</FileVersion>
   </PropertyGroup>
   <PropertyGroup>
-    <PackageId>StripeCameraCore.iOS</PackageId>
+    <PackageId>TVStripePaymentSheet.iOS</PackageId>
     <Title>Stripe SDK library for .NET iOS</Title>
-    <Summary>.NET iOS bindings for Stripe SDK - StripeCameraCore</Summary>
-    <Description>.NET iOS bindings for Stripe SDK - StripeCameraCore</Description>
+    <Summary>.NET iOS bindings for Stripe SDK - TVStripePaymentSheet</Summary>
+    <Description>.NET iOS bindings for Stripe SDK - TVStripePaymentSheet</Description>
     <Authors>tuyen,tuyen-vuduc</Authors>
     <Owners>tuyen,tuyen-vuduc</Owners>
     <Copyright>© tuyen-vuduc. All rights reserved.</Copyright>
@@ -38,12 +38,12 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="StripeCameraCore.iOS.targets" Pack="True" PackagePath="build/StripeCameraCore.iOS.targets" />
-    <None Include="StripeCameraCore.iOS.targets" Pack="True" PackagePath="buildTransitive/StripeCameraCore.iOS.targets" />
+    <None Include="TVStripePaymentSheet.iOS.targets" Pack="True" PackagePath="build/TVStripePaymentSheet.iOS.targets" />
+    <None Include="TVStripePaymentSheet.iOS.targets" Pack="True" PackagePath="buildTransitive/TVStripePaymentSheet.iOS.targets" />
   </ItemGroup>
-  <Import Project="StripeCameraCore.iOS.targets" />
+  <Import Project="TVStripePaymentSheet.iOS.targets" />
   <ItemGroup>
-    <_NativeReference Include="../artifacts/StripeCameraCore.xcframework">
+    <_NativeReference Include="../artifacts/TVStripePaymentSheet.xcframework">
         <_Id>$(_StripeId)</_Id>
     </_NativeReference>
   </ItemGroup>
@@ -57,5 +57,8 @@
   </ItemGroup>
   <ItemGroup>
       <PackageReference Include="Xamarin.Build.Download" Version="0.11.4" PrivateAssets="None" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StripePaymentSheet.iOS\StripePaymentSheet.iOS.csproj" />
   </ItemGroup>
 </Project>

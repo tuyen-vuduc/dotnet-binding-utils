@@ -2,7 +2,7 @@
 
 <Project>
 	<PropertyGroup>
-		<_Stripe>23.27.4</_Stripe>
+		<_Stripe>23.27.5</_Stripe>
 		<_NugetSuffix></_NugetSuffix>
 		<_StripeApplePayAssemblyName>StripeApplePay.iOS, Version=$(_Stripe), Culture=neutral, PublicKeyToken=null </_StripeApplePayAssemblyName>
 		<_StripeItemsFolder>Stripe-$(_Stripe)$(_NugetSuffix)</_StripeItemsFolder>
