@@ -1,5 +1,6 @@
 {
     "Xamarin.AndroidX.Lifecycle.Runtime": "2.8.2.1",
     "Xamarin.AndroidX.Lifecycle.Common": "2.8.2.1",
-    "Xamarin.AndroidX.Lifecycle.Common.Jvm": "2.8.2.1"
+    "Xamarin.AndroidX.Lifecycle.Common.Jvm": "2.8.2.1",
+    "Xamarin.AndroidX.Lifecycle.ViewModel": "2.8.2.1"
 }
