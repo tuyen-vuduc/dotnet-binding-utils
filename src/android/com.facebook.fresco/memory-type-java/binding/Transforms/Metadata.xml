@@ -1,3 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+  <attr path="/api/package[@name='com.facebook.imagepipeline.memory']/class[@name='BufferMemoryChunkPool']/method[@name='alloc' and count(parameter)=1 and parameter[1][@type='int']]"
+        name="managedName">Alloc_</attr>
 </metadata>

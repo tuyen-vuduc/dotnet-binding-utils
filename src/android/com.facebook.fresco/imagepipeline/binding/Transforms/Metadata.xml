@@ -138,8 +138,12 @@
   <attr
     path="/api/package[@name='com.facebook.imagepipeline.datasource']/class[@name='BaseBitmapReferenceDataSubscriber']/method[@name='onNewResultImpl' and count(parameter)=1 and parameter[1][@type='com.facebook.datasource.DataSource&lt;com.facebook.common.references.CloseableReference&lt;com.facebook.imagepipeline.image.CloseableImage&gt;&gt;']]"
     name="visibility">protected</attr>
-  <attr path="//method[@name='alloc' and count(parameter)=1 and parameter[1][@type='int'] and parent::class[@extends='com.facebook.imagepipeline.memory.BasePool']]"
-        name="managedName">AllocX</attr>
+  <attr path="/api/package[@name='com.facebook.imagepipeline.memory']/class[@name='BucketsBitmapPool']/method[@name='alloc' and count(parameter)=1 and parameter[1][@type='int']]"
+        name="managedName">Alloc_</attr>
+  <attr path="/api/package[@name='com.facebook.imagepipeline.memory']/class[@name='GenericByteArrayPool']/method[@name='alloc' and count(parameter)=1 and parameter[1][@type='int']]"
+        name="managedName">Alloc_</attr>
+  <remove-node path="/api/package[@name='com.facebook.imagepipeline.memory']/class[@name='MemoryChunkPool']/method[@name='alloc' and count(parameter)=1 and parameter[1][@type='int']]" />
+        
   <attr
     path="/api/package[@name='com.facebook.imagepipeline.datasource']/class[@name='BaseBitmapDataSubscriber']/method[@name='onNewResultImpl' and count(parameter)=1 and parameter[1][@type='com.facebook.datasource.DataSource&lt;com.facebook.common.references.CloseableReference&lt;com.facebook.imagepipeline.image.CloseableImage&gt;&gt;']]"
     name="visibility">protected</attr>
@@ -168,4 +172,54 @@
                  jni-type="TT;" />
     </method>
   </add-node>
+  <attr path="/api/package[@name='com.facebook.imagepipeline.producers']/class[@name='BitmapMemoryCacheKeyMultiplexProducer']/method[@name='getKey' and count(parameter)=1 and parameter[1][@type='com.facebook.imagepipeline.producers.ProducerContext']]"
+        name="managedName">GetKey_</attr>
+  <attr path="/api/package[@name='com.facebook.imagepipeline.producers']/class[@name='EncodedCacheKeyMultiplexProducer']/method[@name='getKey' and count(parameter)=1 and parameter[1][@type='com.facebook.imagepipeline.producers.ProducerContext']]"
+        name="managedName">GetKey_</attr>
+  <attr path="/api/package[@name='com.facebook.imagepipeline.memory']/class[@name='MemoryPooledByteBufferOutputStream']/method[@name='toByteBuffer' and count(parameter)=0]"
+        name="managedName">ToByteBuffer_</attr>
+  <add-node path="/api/package[@name='com.facebook.imagepipeline.producers']/class[@name='BaseNetworkFetcher']">
+    <method abstract="true"
+            deprecated="not deprecated"
+            final="false"
+            name="createFetchState"
+            jni-signature="(Lcom/facebook/imagepipeline/producers/Consumer;Lcom/facebook/imagepipeline/producers/ProducerContext;)Lcom/facebook/imagepipeline/producers/FetchState;"
+            bridge="false"
+            native="false"
+            return="FETCH_STATE"
+            jni-return="TFETCH_STATE;"
+            static="false"
+            synchronized="false"
+            synthetic="false"
+            visibility="public">
+      <parameter name="p0"
+                 type="com.facebook.imagepipeline.producers.Consumer&lt;com.facebook.imagepipeline.image.EncodedImage&gt;"
+                 jni-type="Lcom/facebook/imagepipeline/producers/Consumer&lt;Lcom/facebook/imagepipeline/image/EncodedImage;&gt;;" />
+      <parameter name="p1"
+                 type="com.facebook.imagepipeline.producers.ProducerContext"
+                 jni-type="Lcom/facebook/imagepipeline/producers/ProducerContext;" />
+    </method>
+    <method abstract="true"
+            deprecated="not deprecated"
+            final="false"
+            name="fetch"
+            jni-signature="(Lcom/facebook/imagepipeline/producers/FetchState;Lcom/facebook/imagepipeline/producers/NetworkFetcher$Callback;)V"
+            bridge="false"
+            native="false"
+            return="void"
+            jni-return="V"
+            static="false"
+            synchronized="false"
+            synthetic="false"
+            visibility="public">
+      <parameter name="p0"
+                 type="FETCH_STATE"
+                 jni-type="TFETCH_STATE;" />
+      <parameter name="p1"
+                 type="com.facebook.imagepipeline.producers.NetworkFetcher.Callback"
+                 jni-type="Lcom/facebook/imagepipeline/producers/NetworkFetcher$Callback;" />
+    </method>
+  </add-node>
+  <attr path="/api/package[@name='com.facebook.imagepipeline.producers']/class[@name='HttpUrlConnectionNetworkFetcher']/method[@name='createFetchState' and count(parameter)=2 and parameter[1][@type='com.facebook.imagepipeline.producers.Consumer&lt;com.facebook.imagepipeline.image.EncodedImage&gt;'] and parameter[2][@type='com.facebook.imagepipeline.producers.ProducerContext']]"
+        name="managedName">CreateFetchState_</attr>
 </metadata>
