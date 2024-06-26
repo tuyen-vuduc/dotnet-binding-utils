@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Android.Runtime;
+using Com.Facebook.Common.Memory;
 using Java.Interop;
 
 namespace Com.Facebook.Imagepipeline.Cache
@@ -17,6 +18,30 @@ namespace Com.Facebook.Imagepipeline.Cache
 
 namespace Com.Facebook.Imagepipeline.Producers
 {
+    partial class HttpUrlConnectionNetworkFetcher
+    {
+        public override Java.Lang.Object? CreateFetchState(IConsumer? p0, IProducerContext? p1)
+            => CreateFetchState_(p0, p1);
+
+        public override void Fetch(Java.Lang.Object? p0, INetworkFetcher.ICallback? p1)
+            => Fetch(p0 as global::Com.Facebook.Imagepipeline.Producers.HttpUrlConnectionNetworkFetcher.HttpUrlConnectionNetworkFetchState, p1);
+    }
+    partial class EncodedCacheKeyMultiplexProducer
+    {
+        protected override Java.Lang.Object? CloneOrNull(Java.Lang.Object? p0)
+            => CloneOrNull(p0 as global::Com.Facebook.Imagepipeline.Image.EncodedImage);
+
+        protected override Java.Lang.Object? GetKey(IProducerContext? p0)
+            => GetKey_(p0);
+    }
+    partial class PostprocessedBitmapMemoryCacheProducer
+    {
+        partial class CachedPostprocessorConsumer
+        {
+            protected override void OnNewResultImpl(Java.Lang.Object? p0, int p1)
+                => OnNewResultImpl(p0 as global::Com.Facebook.Common.References.CloseableReference, p1);
+        }
+    }
     partial class BaseProducerContext
     {
         void global::Com.Facebook.Fresco.Middleware.IHasExtraData.PutExtras(System.Collections.Generic.IDictionary<string, Java.Lang.Object> extras)
@@ -186,11 +211,43 @@ namespace Com.Facebook.Imagepipeline.Producers
     {
         protected override unsafe global::Java.Lang.Object? CloneOrNull(global::Java.Lang.Object? closeableImage)
             => CloneOrNull(closeableImage as global::Com.Facebook.Common.References.CloseableReference);
+        protected override global::Java.Lang.Object? GetKey(global::Com.Facebook.Imagepipeline.Producers.IProducerContext? p0)
+            => GetKey_(p0);
     }
 }
 
 namespace Com.Facebook.Imagepipeline.Memory
 {
+    partial class BitmapPoolBackend
+    {
+        public override int GetSize(Java.Lang.Object? p0)
+            => GetSize(p0 as global::Android.Graphics.Bitmap);
+    }
+    partial class MemoryPooledByteBufferFactory : global::Com.Facebook.Common.Memory.IPooledByteBufferFactory
+    {
+        IPooledByteBuffer? IPooledByteBufferFactory.NewByteBuffer(byte[]? p0)
+            => NewByteBuffer(p0);
+
+        IPooledByteBuffer? IPooledByteBufferFactory.NewByteBuffer(int p0)
+            => NewByteBuffer(p0);
+
+        IPooledByteBuffer? IPooledByteBufferFactory.NewByteBuffer(Stream? p0)
+            => NewByteBuffer(p0);
+
+        IPooledByteBuffer? IPooledByteBufferFactory.NewByteBuffer(Stream? p0, int p1)
+            => NewByteBuffer(p0, p1);
+
+        PooledByteBufferOutputStream? IPooledByteBufferFactory.NewOutputStream()
+            => NewOutputStream();
+
+        PooledByteBufferOutputStream? IPooledByteBufferFactory.NewOutputStream(int p0)
+            => NewOutputStream(p0);
+    }
+    partial class MemoryPooledByteBufferOutputStream
+    {
+        public override IPooledByteBuffer? ToByteBuffer()
+            => ToByteBuffer_();
+    }
     partial class DummyBitmapPool
     {
         unsafe void global::Com.Facebook.Common.References.IResourceReleaser.Release(global::Java.Lang.Object? value)
@@ -199,7 +256,7 @@ namespace Com.Facebook.Imagepipeline.Memory
         global::Java.Lang.Object global::Com.Facebook.Common.Memory.IPool.Get(int index)
             => Get(index);
         void global::Com.Facebook.Common.Memory.IPool.Release(global::Java.Lang.Object obj)
-            => Release(obj as global::Java.Nio.ByteBuffer);
+            => Release(obj as global::Android.Graphics.Bitmap);
     }
     partial class LruBitmapPool
     {
@@ -209,7 +266,7 @@ namespace Com.Facebook.Imagepipeline.Memory
         global::Java.Lang.Object global::Com.Facebook.Common.Memory.IPool.Get(int index)
             => Get(index);
         void global::Com.Facebook.Common.Memory.IPool.Release(global::Java.Lang.Object obj)
-            => Release(obj as global::Java.Nio.ByteBuffer);
+            => Release(obj as global::Android.Graphics.Bitmap);
     }
     partial class DummyTrackingInUseBitmapPool
     {
@@ -219,24 +276,29 @@ namespace Com.Facebook.Imagepipeline.Memory
         global::Java.Lang.Object global::Com.Facebook.Common.Memory.IPool.Get(int index)
             => Get(index);
         void global::Com.Facebook.Common.Memory.IPool.Release(global::Java.Lang.Object obj)
-            => Release(obj as global::Java.Nio.ByteBuffer);
+            => Release(obj as global::Android.Graphics.Bitmap);
     }
 
     partial class BucketsBitmapPool
     {
         protected override unsafe global::Java.Lang.Object? Alloc(int size)
-            => AllocX(size);
+            => Alloc_(size);
 
-        protected override unsafe void Free(global::Android.Graphics.Bitmap? value)
-            => Free(value);
+        protected override int GetBucketedSizeForValue(Java.Lang.Object? p0)
+            => GetBucketedSizeForValue(p0 as global::Android.Graphics.Bitmap);
+
+        protected override void Free(Java.Lang.Object? p0)
+            => Free(p0 as global::Android.Graphics.Bitmap);
     }
 
     partial class GenericByteArrayPool
     {
         protected override unsafe global::Java.Lang.Object? Alloc(int size)
-            => AllocX(size);
+            => Alloc_(size);
+        protected override int GetBucketedSizeForValue(Java.Lang.Object? p0)
+            => GetBucketedSizeForValue(p0 as global::Android.Graphics.Bitmap);
 
-        protected override unsafe void Free(global::Android.Graphics.Bitmap? value)
-            => Free(value);
+        protected override void Free(Java.Lang.Object? p0)
+            => Free(p0 as global::Android.Graphics.Bitmap);
     }
 }

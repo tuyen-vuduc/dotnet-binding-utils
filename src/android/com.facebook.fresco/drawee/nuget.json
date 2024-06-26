@@ -1,6 +1,7 @@
 {
   "packageId": "Com.Facebook.Fresco.Drawee",
   "name": "drawee",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
+  "dotnet8": true,
   "versionMappings": []
 }

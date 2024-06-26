@@ -1,3 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+  <attr path="/api/package[@name='com.facebook.drawee.backends.pipeline']/class[@name='PipelineDraweeControllerBuilder']/method[@name='setUri' and count(parameter)=1 and parameter[1][@type='android.net.Uri']]"
+        name="managedName">SetUri_</attr>
+  <attr path="/api/package[@name='com.facebook.drawee.backends.pipeline']/class[@name='PipelineDraweeControllerBuilder']/method[@name='setUri' and count(parameter)=1 and parameter[1][@type='java.lang.String']]"
+        name="managedName">SetUri_</attr>
+  <attr path="/api/package[@name='com.facebook.drawee.backends.pipeline']/class[@name='PipelineDraweeControllerBuilder']/method[@name='obtainController' and count(parameter)=0]"
+        name="managedName">ObtainController_</attr>
 </metadata>

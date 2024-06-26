@@ -1,6 +1,7 @@
 {
   "packageId": "Com.Facebook.Soloader.Nativeloader",
   "name": "nativeloader",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
+  "dotnet8": true,
   "versionMappings": []
 }

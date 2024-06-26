@@ -1,6 +1,7 @@
 {
   "packageId": "Com.Facebook.Fresco.MemoryTypeNative",
   "name": "memory-type-native",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
+  "dotnet8": true,
   "versionMappings": []
 }

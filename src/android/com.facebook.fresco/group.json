@@ -1,3 +1,5 @@
 {
-  "name": "com.facebook.fresco"
+  "name": "com.facebook.fresco",
+  "dotnet8": true,
+  "runtimeDependenciesAsCompile": true
 }
