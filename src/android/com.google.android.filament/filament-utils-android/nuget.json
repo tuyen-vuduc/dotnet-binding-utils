@@ -2,6 +2,6 @@
   "packageId": "Com.Google.Android.Filament.FilamentUtilsAndroid",
   "name": "filament-utils-android",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }
