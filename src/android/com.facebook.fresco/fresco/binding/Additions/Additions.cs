@@ -62,4 +62,4 @@ namespace Com.Facebook.Drawee.Backends.Pipeline.Info.Internal
         void IOnDrawControllerListener.OnImageDrawn(string id, Java.Lang.Object? imageInfo, DimensionsInfo dimensionsInfo)
             => OnImageDrawn(id, imageInfo as Imagepipeline.Image.IImageInfo, dimensionsInfo);
     }
-}
+}  

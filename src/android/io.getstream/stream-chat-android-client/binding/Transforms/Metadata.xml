@@ -1,3 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+  <attr path="/api/package[@name='io.getstream.chat.android.client.api.models']/interface[@name='ChannelRequest']"
+        name="visibility">public</attr>
+  <attr path="/api/package[@name='io.getstream.chat.android.client.parser2.adapters']/class[@name='DateAdapter']/method[@name='fromJson' and count(parameter)=1 and parameter[1][@type='com.squareup.moshi.JsonReader']]"
+        name="managedName">FromJson_</attr>
 </metadata>
