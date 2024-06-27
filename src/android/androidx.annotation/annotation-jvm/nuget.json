@@ -1,7 +1,7 @@
 {
   "packageId": "Xamarin.AndroidX.Annotation.Jvm",
   "name": "annotation-jvm",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": false,
   "versionMappings": []
 }
