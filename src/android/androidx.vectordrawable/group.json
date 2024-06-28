@@ -1,3 +1,5 @@
 {
-  "name": "androidx.vectordrawable"
+  "name": "androidx.vectordrawable",
+  "dotnet8": false,
+  "runtimeDependenciesAsCompile": true
 }

@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Github.Mrmike.Ok2curl",
+  "name": "ok2curl",
+  "dependencyOnly": true,
+  "dotnet8": false,
+  "versionMappings": []
+}

@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.VectorDrawable.Animated",
+  "name": "vectordrawable-animated",
   "dependencyOnly": true,
   "dotnet8": false,
   "versionMappings": []

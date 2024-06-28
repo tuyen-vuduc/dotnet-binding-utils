@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <attr path="/api/package[@name='io.getstream.android.push.permissions']/class[@name='PushNotificationPermissionRequester']"
+        name="visibility">public</attr>
+</metadata>

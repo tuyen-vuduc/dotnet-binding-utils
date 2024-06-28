@@ -1,0 +1,7 @@
+{
+  "packageId": "Io.Getstream.StreamAndroidPushDelegate",
+  "name": "stream-android-push-delegate",
+  "dependencyOnly": true,
+  "dotnet8": false,
+  "versionMappings": []
+}

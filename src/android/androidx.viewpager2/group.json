@@ -1,3 +1,5 @@
 {
-  "name": "androidx.viewpager2"
+  "name": "androidx.viewpager2",
+  "dotnet8": false,
+  "runtimeDependenciesAsCompile": true
 }

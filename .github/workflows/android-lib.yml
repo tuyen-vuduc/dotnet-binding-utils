@@ -16,6 +16,7 @@ on:
         required: true
         type: choice
         options: 
+        - io.getstream:stream-chat-android-client:6.4.0
         - com.facebook.fresco:fresco:3.2.0
         - io.github.sceneview:sceneview:2.2.1
         - io.github.sceneview:arsceneview:2.2.1

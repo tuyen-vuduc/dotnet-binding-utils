@@ -1,0 +1,7 @@
+{
+  "packageId": "Io.CoilKt.CoilGif",
+  "name": "coil-gif",
+  "dependencyOnly": false,
+  "dotnet8": false,
+  "versionMappings": []
+}

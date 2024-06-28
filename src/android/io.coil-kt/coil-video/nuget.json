@@ -1,0 +1,7 @@
+{
+  "packageId": "Io.CoilKt.CoilVideo",
+  "name": "coil-video",
+  "dependencyOnly": false,
+  "dotnet8": false,
+  "versionMappings": []
+}

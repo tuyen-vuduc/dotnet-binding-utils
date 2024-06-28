@@ -1,0 +1,5 @@
+{
+  "name": "io.getstream",
+  "dotnet8": true,
+  "runtimeDependenciesAsCompile": true
+}

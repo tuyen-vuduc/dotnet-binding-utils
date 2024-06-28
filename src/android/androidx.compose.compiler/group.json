@@ -1,0 +1,5 @@
+{
+  "name": "androidx.compose.compiler",
+  "dotnet8": false,
+  "runtimeDependenciesAsCompile": true
+}

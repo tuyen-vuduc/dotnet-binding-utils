@@ -1,0 +1,7 @@
+{
+  "packageId": "Io.Getstream.StreamChatAndroidUiUtils",
+  "name": "stream-chat-android-ui-utils",
+  "dependencyOnly": false,
+  "dotnet8": false,
+  "versionMappings": []
+}

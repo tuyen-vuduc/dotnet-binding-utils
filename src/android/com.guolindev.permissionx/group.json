@@ -1,0 +1,5 @@
+{
+  "name": "com.guolindev.permissionx",
+  "dotnet8": false,
+  "runtimeDependenciesAsCompile": true
+}

@@ -1,0 +1,7 @@
+{
+  "packageId": "Io.Getstream.StreamAndroidPush",
+  "name": "stream-android-push",
+  "dependencyOnly": true,
+  "dotnet8": false,
+  "versionMappings": []
+}

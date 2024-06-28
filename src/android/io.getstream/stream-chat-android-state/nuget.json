@@ -1,0 +1,7 @@
+{
+  "packageId": "Io.Getstream.StreamChatAndroidState",
+  "name": "stream-chat-android-state",
+  "dependencyOnly": false,
+  "dotnet8": false,
+  "versionMappings": []
+}

@@ -1,0 +1,7 @@
+{
+  "packageId": "Io.Getstream.StreamLog",
+  "name": "stream-log",
+  "dependencyOnly": true,
+  "dotnet8": false,
+  "versionMappings": []
+}
