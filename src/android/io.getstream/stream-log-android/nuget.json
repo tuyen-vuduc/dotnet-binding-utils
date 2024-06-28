@@ -1,7 +1,7 @@
 {
   "packageId": "Io.Getstream.StreamLogAndroid",
   "name": "stream-log-android",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": false,
   "versionMappings": []
 }

@@ -1,7 +1,7 @@
 {
   "packageId": "Io.Getstream.StreamResult",
   "name": "stream-result",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": false,
   "versionMappings": []
 }

@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Squareup.Retrofit2.ConverterMoshi",
   "name": "converter-moshi",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": false,
   "versionMappings": []
 }

@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Ethlo.Time.Itu",
   "name": "itu",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": false,
   "versionMappings": []
 }
