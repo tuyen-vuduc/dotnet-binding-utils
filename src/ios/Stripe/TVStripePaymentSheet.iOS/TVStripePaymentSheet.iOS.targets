@@ -2,7 +2,7 @@
 
 <Project>
 	<PropertyGroup>
-		<_Stripe>23.27.5</_Stripe>
+		<_Stripe>23.27.6</_Stripe>
 		<_StripeNugetSuffix></_StripeNugetSuffix>
 		<_TVStripePaymentSheetAssemblyName>TVStripePaymentSheet.iOS, Version=$(_Stripe), Culture=neutral, PublicKeyToken=null </_TVStripePaymentSheetAssemblyName>
 		<_TVStripePaymentSheetItemsFolder>tvstripepaymentsheet-$(_Stripe)$(_StripeNugetSuffix)</_TVStripePaymentSheetItemsFolder>
@@ -10,7 +10,7 @@
 	</PropertyGroup>
   <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
     <XamarinBuildDownload Include="$(_TVStripePaymentSheetItemsFolder)">
-      <Url>https://drive.google.com/uc?id=19ni4tr11XTkWIh5isBibeR0b4TWpXwMp&amp;export=download</Url>
+      <Url>https://drive.google.com/uc?id=1jkXulTygrQ4JwzhOKmP-ec4jbF4Ng-In&amp;export=download</Url>
       <Kind>Zip</Kind>
     </XamarinBuildDownload>
     <NativeReference Include="$(_TVStripePaymentSheetFolder)TVStripePaymentSheet.xcframework">
