@@ -6,7 +6,7 @@ const fs = require("node:fs");
 //             => DecodedObjectFromAPIResponse(response);
 //     `);
 // process_stripe('STPFormEncodable', '');
-process_field();
+// process_field();
 // process_IJsonDeserializer();
 // process_Com_Example_Dsroom_Dao_IBaseDao();
 // process_Com_Google_Android_Material_Circularreveal_ICircularRevealWidget();

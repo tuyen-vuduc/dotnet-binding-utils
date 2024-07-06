@@ -868,17 +868,18 @@ namespace Com.Stripe.Android.Paymentsheet
         }
     }
 }
+
 namespace Com.Stripe.Android.Paymentsheet.Databinding
 {
     partial class StripeFragmentPrimaryButtonContainerBinding
     {
         global::Android.Views.View global::AndroidX.ViewBinding.IViewBinding.Root => Root;
     }
-    partial class StripeFragmentPaymentOptionsPrimaryButtonBinding
+    partial class StripePrimaryButtonBinding
     {
         global::Android.Views.View global::AndroidX.ViewBinding.IViewBinding.Root => Root;
     }
-    partial class StripeFragmentPaymentSheetPrimaryButtonBinding
+    partial class StripeGooglePayButtonBinding
     {
         global::Android.Views.View global::AndroidX.ViewBinding.IViewBinding.Root => Root;
     }

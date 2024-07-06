@@ -1127,8 +1127,73 @@ namespace Com.Stripe.Android.Model
             }
         }
     }
+    
     partial class ElementsSession
     {
+        partial class Customer
+        {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+            }
+            partial class Components
+            {
+                partial class Creator
+                {
+                    global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                    global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+                }
+                
+                partial interface ICustomerSheet
+                {
+                    partial class Enabled
+                    {
+                        partial class Creator
+                        {
+                            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                            global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+                        }
+                    }
+                    partial class Disabled
+                    {
+                        partial class Creator
+                        {
+                            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                            global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+                        }
+                    }
+                }
+                
+                partial interface IPaymentSheet
+                {
+                    partial class Enabled
+                    {
+                        partial class Creator
+                        {
+                            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                            global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+                        }
+                    }
+                    partial class Disabled
+                    {
+                        partial class Creator
+                        {
+                            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                            global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+                        }
+                    }
+                }
+            }
+            partial class Session
+            {
+                partial class Creator
+                {
+                    global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                    global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+                }
+            }
+        }
         partial class Creator
         {
             global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel source)
@@ -1141,9 +1206,6 @@ namespace Com.Stripe.Android.Model
                 return this.NewArray(size);
             }
         }
-    }
-    partial class ElementsSession
-    {
         partial class LinkSettings
         {
             partial class Creator
@@ -4221,31 +4283,6 @@ namespace Com.Stripe.Android.Payments.Bankaccount.Navigation
 }
 namespace Com.Stripe.Android.Model
 {
-    partial class ElementsSession
-    {
-        partial class Customer
-        {
-            partial class Creator
-            {
-                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
-                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
-            }
-        }
-    }
-    partial class ElementsSession
-    {
-        partial class Customer
-        {
-            partial class Session
-            {
-                partial class Creator
-                {
-                    global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
-                    global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
-                }
-            }
-        }
-    }
     partial interface IStripeIntent
     {
         partial class NextActionData

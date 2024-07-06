@@ -326,6 +326,26 @@ console.log(
 <attr path="//field[@name='Companion']" name="managedName">CompanionField</attr>
 ```
 
+7) Failed to delete `.gradle` folder
+Due to Java process not killed gratefully.
+```
+taskkill -F -im java.exe
+```
+
+8) Xamarin.Build.Download
+Xamarin.Build.Download is a tool to help download artifacts from remote URL to avoid embedding the native artifacts within the NuGet package with advantages
+- Very thin and lightweight NuGet package
+- Avoid any license viloation if the owner of the native lib doesn't want us to redistribute their lib
+
+The downloaded artifact will be located at
+- MacOS: `~/Library/Caches/XamarinBuildDownload`
+- Windows: `%USERPROFILE%/AppData/Local/XamarinBuildDownloadCache`
+
+8) Kill all .NET processes
+```
+taskkill -F -im dotnet.exe
+```
+
 # Maintainer
 This project is maintained by [tuyen-vuduc](https://github.com/tuyen-vuduc) in his spare time and/or when requested.<br>
 
