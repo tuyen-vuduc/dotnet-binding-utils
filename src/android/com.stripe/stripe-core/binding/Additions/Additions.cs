@@ -80,6 +80,10 @@ namespace Com.Stripe.Android.Core
 }
 namespace Com.Stripe.Android.Core.Utils
 {
+    partial class RealUserFacingLogger_Factory
+    {   
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
     partial class RealIsWorkManagerAvailable_Factory
     {
         global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();

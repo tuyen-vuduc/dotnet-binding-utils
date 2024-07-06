@@ -35,5 +35,9 @@
   <attr path="//class[@extends='androidx.activity.result.contract.ActivityResultContract']/method[@name='parseResult' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='android.content.Intent']]"
         name="managedName">ParseResultX</attr>
   <remove-node path="/api/package[@name='com.stripe.android.paymentsheet.navigation']/class[@name='PaymentSheetScreen.SelectSavedPaymentMethods.CvcRecollectionState.NotRequired']/field[@name='INSTANCE']" />
+  <attr path="/api/package[@name='com.stripe.android.paymentsheet.ui']/interface[@name='AddPaymentMethodInteractor']"
+      name="visibility">public</attr>
+   <attr path="/api/package[@name='com.stripe.android.paymentsheet.ui']/interface[@name='SelectSavedPaymentMethodsInteractor']"
+      name="visibility">public</attr>
 
 </metadata>
