@@ -23,6 +23,7 @@ on:
         - com.stripe:payments-core:20.48.0
         - com.stripe:payments-ui-core:20.48.0
         - com.stripe:link:20.48.0
+        - com.stripe:paymentsheet:20.48.0
         - com.stripe:stripe-android:20.46.0
         - com.mapbox.maps:base:11.4.1
         - com.mapbox.module:maps-telemetry:11.4.1
