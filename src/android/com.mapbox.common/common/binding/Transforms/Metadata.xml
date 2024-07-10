@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+  <attr path="//field[@name='webSocket']" name="managedName">webSocket_</attr>
   <remove-node path="/api/package[@name='com.mapbox.common.location']/class[@name='GoogleDeviceLocationProviderKt']/method[@name='getGooglePlayServicesHelper' and count(parameter)=0]" />
 </metadata>

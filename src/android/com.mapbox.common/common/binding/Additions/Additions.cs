@@ -17,3 +17,12 @@ namespace Com.Mapbox.Common
             => Create(context);
     }
 }
+
+namespace Com.Mapbox.Common.Module.Okhttp
+{
+    partial class ResponseReadStream
+    {
+        long global::Com.Mapbox.Common.IReadStream.ReadBytes()
+            => InvokeReadBytes();
+    }
+}
