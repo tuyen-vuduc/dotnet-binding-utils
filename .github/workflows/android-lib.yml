@@ -27,7 +27,7 @@ on:
         - com.stripe:stripe-android:20.48.0
         - com.mapbox.maps:base:11.5.0
         - com.mapbox.module:maps-telemetry:11.5.0
-        - com.mapbox.extension:maps-style:11.4.1
+        - com.mapbox.extension:maps-style:11.5.0
         - com.mapbox.extension:maps-localization:11.4.1
         - com.mapbox.plugin:maps-animation:11.4.1
         - com.mapbox.plugin:maps-attribution:11.4.1
