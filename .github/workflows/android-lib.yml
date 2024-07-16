@@ -25,22 +25,22 @@ on:
         - com.stripe:link:20.48.0
         - com.stripe:paymentsheet:20.48.0
         - com.stripe:stripe-android:20.48.0
-        - com.mapbox.maps:base:11.4.1
-        - com.mapbox.module:maps-telemetry:11.4.1
-        - com.mapbox.extension:maps-style:11.4.1
-        - com.mapbox.extension:maps-localization:11.4.1
-        - com.mapbox.plugin:maps-animation:11.4.1
-        - com.mapbox.plugin:maps-attribution:11.4.1
-        - com.mapbox.plugin:maps-compass:11.4.1
-        - com.mapbox.plugin:maps-gestures:11.4.1
-        - com.mapbox.plugin:maps-lifecycle:11.4.1
-        - com.mapbox.plugin:maps-locationcomponent:11.4.1
-        - com.mapbox.plugin:maps-logo:11.4.1
-        - com.mapbox.plugin:maps-overlay:11.4.1
-        - com.mapbox.plugin:maps-scalebar:11.4.1
-        - com.mapbox.plugin:maps-viewport:11.4.1
-        - com.mapbox.plugin:maps-annotation:11.4.1
-        - com.mapbox.maps:android:11.4.1
+        - com.mapbox.maps:base:11.5.0
+        - com.mapbox.module:maps-telemetry:11.5.0
+        - com.mapbox.extension:maps-style:11.5.0
+        - com.mapbox.extension:maps-localization:11.5.0
+        - com.mapbox.plugin:maps-animation:11.5.0
+        - com.mapbox.plugin:maps-attribution:11.5.0
+        - com.mapbox.plugin:maps-compass:11.5.0
+        - com.mapbox.plugin:maps-gestures:11.5.0
+        - com.mapbox.plugin:maps-lifecycle:11.5.0
+        - com.mapbox.plugin:maps-locationcomponent:11.5.0
+        - com.mapbox.plugin:maps-logo:11.5.0
+        - com.mapbox.plugin:maps-overlay:11.5.0
+        - com.mapbox.plugin:maps-scalebar:11.5.0
+        - com.mapbox.plugin:maps-viewport:11.5.0
+        - com.mapbox.plugin:maps-annotation:11.5.0
+        - com.mapbox.maps:android:11.5.0
 jobs:
   build-then-publish:
     environment: production
