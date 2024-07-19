@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Paypal.Android.PaymentButtons",
+  "name": "payment-buttons",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}
