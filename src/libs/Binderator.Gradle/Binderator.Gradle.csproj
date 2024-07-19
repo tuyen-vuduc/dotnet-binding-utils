@@ -31,6 +31,6 @@
     <ItemGroup>
         <PackageReference Include="RazorLight" Version="2.3.0" />
         <PackageReference Include="NuGet.Versioning" Version="6.4.0" />
-        <PackageReference Include="System.Text.Json" Version="7.0.1" />
+        <PackageReference Include="System.Text.Json" Version="8.0.4" />
     </ItemGroup>
 </Project>
