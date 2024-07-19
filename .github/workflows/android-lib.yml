@@ -16,6 +16,7 @@ on:
         required: true
         type: choice
         options: 
+        - com.paypal.android:paypal-web-payments:1.5.0
         - com.paypal.android:payment-buttons:1.5.0
         - com.paypal.android:card-payments:1.5.0
         - io.getstream:stream-chat-android-client:6.4.0
