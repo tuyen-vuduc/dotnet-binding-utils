@@ -16,6 +16,7 @@ on:
         required: true
         type: choice
         options: 
+        - com.scottyab:rootbeer-lib:0.1.0
         - com.neovisionaries:nv-i18n:1.29
         - com.jaredrummler:android-device-names:1.1.9
         - com.paypal.android:fraud-protection:1.5.0
