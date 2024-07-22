@@ -1,0 +1,5 @@
+{
+  "name": "org.kamranzafar",
+  "dotnet8": true,
+  "runtimeDependenciesAsCompile": true
+}

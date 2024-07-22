@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <attr path="//field[@name='file']" name="managedName">file_</attr>
+    <attr path="//field[@name='header']" name="managedName">header_</attr>
+</metadata>
