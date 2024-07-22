@@ -16,6 +16,7 @@ on:
         required: true
         type: choice
         options: 
+        - dev.zacsweers.redacted:redacted-compiler-plugin-annotations:1.8.0
         - com.squareup.tape2:tape:2.0.0-beta1
         - org.kamranzafar:jtar:2.3
         - com.scottyab:rootbeer-lib:0.1.0
