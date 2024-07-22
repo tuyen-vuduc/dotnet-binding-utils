@@ -1,0 +1,7 @@
+{
+  "packageId": "Xamarin.KotlinX.AtomicFU",
+  "name": "atomicfu",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}

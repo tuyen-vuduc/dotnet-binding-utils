@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.Android.ReactiveStreams",
+  "name": "reactive-streams",
   "dependencyOnly": true,
   "dotnet8": false,
   "versionMappings": []

@@ -1,0 +1,7 @@
+{
+  "packageId": "Xamarin.KotlinX.Coroutines.Reactive",
+  "name": "kotlinx-coroutines-reactive",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}

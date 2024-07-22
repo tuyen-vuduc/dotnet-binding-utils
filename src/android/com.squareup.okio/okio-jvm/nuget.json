@@ -1,0 +1,7 @@
+{
+  "packageId": "Square.OkIO.JVM",
+  "name": "okio-jvm",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}

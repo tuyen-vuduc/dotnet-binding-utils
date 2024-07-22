@@ -1,0 +1,7 @@
+{
+  "packageId": "Xamarin.KotlinX.Coroutines.Rx3",
+  "name": "kotlinx-coroutines-rx3",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}
