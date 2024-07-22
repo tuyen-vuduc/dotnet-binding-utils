@@ -1,5 +1,5 @@
 {
-  "packageId": "Com.Neovisionaries.NvI18n",
+  "packageId": "Neovisionaries.NvI18n.Droid",
   "name": "nv-i18n",
   "dependencyOnly": true,
   "dotnet8": true,
