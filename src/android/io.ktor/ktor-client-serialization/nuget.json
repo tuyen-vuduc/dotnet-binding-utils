@@ -1,0 +1,7 @@
+{
+  "packageId": "Io.Ktor.KtorClientSerialization",
+  "name": "ktor-client-serialization",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

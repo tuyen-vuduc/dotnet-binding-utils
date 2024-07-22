@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Stripe.Stripeterminal",
+  "name": "stripeterminal",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

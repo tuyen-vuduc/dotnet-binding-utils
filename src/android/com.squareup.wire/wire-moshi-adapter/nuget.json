@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Squareup.Wire.WireMoshiAdapter",
+  "name": "wire-moshi-adapter",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

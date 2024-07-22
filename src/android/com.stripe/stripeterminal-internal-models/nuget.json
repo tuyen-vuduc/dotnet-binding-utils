@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Stripe.StripeterminalInternalModels",
+  "name": "stripeterminal-internal-models",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

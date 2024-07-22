@@ -1,0 +1,7 @@
+{
+  "packageId": "Io.Ktor.KtorIo",
+  "name": "ktor-io",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

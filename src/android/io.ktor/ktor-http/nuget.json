@@ -1,0 +1,7 @@
+{
+  "packageId": "Io.Ktor.KtorHttp",
+  "name": "ktor-http",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

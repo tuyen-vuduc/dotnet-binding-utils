@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Stripe.StripeterminalInternalCommon",
+  "name": "stripeterminal-internal-common",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

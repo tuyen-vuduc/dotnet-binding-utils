@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Stripe.StripeterminalExternal",
+  "name": "stripeterminal-external",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

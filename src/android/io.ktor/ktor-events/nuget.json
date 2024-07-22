@@ -1,0 +1,7 @@
+{
+  "packageId": "Io.Ktor.KtorEvents",
+  "name": "ktor-events",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

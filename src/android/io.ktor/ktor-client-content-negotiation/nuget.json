@@ -1,0 +1,7 @@
+{
+  "packageId": "Io.Ktor.KtorClientContentNegotiation",
+  "name": "ktor-client-content-negotiation",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}
