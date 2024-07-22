@@ -1,3 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+    <attr path="/api/package[@name='com.squareup.moshi']/class[@name='Rfc3339DateJsonAdapter']/method[@name='fromJson' and count(parameter)=1 and parameter[1][@type='com.squareup.moshi.JsonReader']]"
+          name="managedName">FromJson_</attr>
+    <attr path="/api/package[@name='com.squareup.moshi.adapters']/class[@name='Rfc3339DateJsonAdapter']/method[@name='fromJson' and count(parameter)=1 and parameter[1][@type='com.squareup.moshi.JsonReader']]"
+        name="managedName">FromJson_</attr>
 </metadata>
