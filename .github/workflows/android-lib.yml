@@ -16,6 +16,7 @@ on:
         required: true
         type: choice
         options: 
+        - com.jaredrummler:android-device-names:1.1.9
         - com.paypal.android:fraud-protection:1.5.0
         - com.paypal.android:paypal-web-payments:1.5.0
         - com.paypal.android:payment-buttons:1.5.0
