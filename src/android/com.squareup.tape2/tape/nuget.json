@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Squareup.Tape2.Tape",
+  "name": "tape",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}
