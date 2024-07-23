@@ -16,6 +16,7 @@ on:
         required: true
         type: choice
         options: 
+        - com.squareup.wire:wire-runtime-jvm:4.9.9
         - com.squareup.wire:wire-runtime:4.9.9
         - org.jetbrains.kotlin:kotlin-parcelize-runtime:1.9.24
         - org.jetbrains.kotlinx:kotlinx-datetime:0.6.0
