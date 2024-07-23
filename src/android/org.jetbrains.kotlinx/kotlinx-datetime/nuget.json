@@ -1,7 +1,7 @@
 {
   "packageId": "Org.Jetbrains.Kotlinx.KotlinxDatetime",
   "name": "kotlinx-datetime",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }
