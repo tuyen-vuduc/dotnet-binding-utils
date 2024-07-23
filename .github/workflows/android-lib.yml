@@ -15,7 +15,8 @@ on:
         description: 'Android library to publish'
         required: true
         type: choice
-        options:         
+        options:     
+        - io.ktor:ktor-websockets:2.3.11    
         - com.squareup.wire:wire-moshi-adapter:4.9.9
         - com.squareup.wire:wire-runtime-jvm:4.9.9
         - com.squareup.wire:wire-runtime:4.9.9
