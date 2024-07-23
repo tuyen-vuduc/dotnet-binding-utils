@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Squareup.Wire.WireRuntime",
   "name": "wire-runtime",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }
