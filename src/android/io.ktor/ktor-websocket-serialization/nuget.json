@@ -1,7 +1,7 @@
 {
   "packageId": "Io.Ktor.KtorWebsocketSerialization",
   "name": "ktor-websocket-serialization",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }
