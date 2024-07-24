@@ -16,6 +16,7 @@ on:
         required: true
         type: choice
         options:     
+        - io.ktor:ktor-client-okhttp:2.3.11
         - io.ktor:ktor-client-serialization:2.3.11
         - io.ktor:ktor-serialization-kotlinx-json:2.3.11
         - org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2
