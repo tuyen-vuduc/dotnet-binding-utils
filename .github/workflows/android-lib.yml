@@ -16,7 +16,7 @@ on:
         required: true
         type: choice
         options:     
-        - org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3
+        - org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2
         - io.ktor:ktor-client-content-negotiation:2.3.11
         - io.ktor:ktor-websocket-serialization:2.3.11
         - io.ktor:ktor-websockets:2.3.11    
