@@ -1,3 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+    <attr path="//field[@name='stateMachine']"
+        name="managedName">stateMachine_</attr>
+    <attr path="/api/package[@name='com.stripe.core.paymentcollection']/class[@name='PaymentCollectionCoordinator.PaymentCollectionContext']"
+        name="visibility">public</attr>
 </metadata>
