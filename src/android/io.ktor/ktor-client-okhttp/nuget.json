@@ -1,7 +1,7 @@
 {
   "packageId": "Io.Ktor.KtorClientOkhttp",
   "name": "ktor-client-okhttp",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }
