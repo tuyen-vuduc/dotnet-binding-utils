@@ -1,12 +1,13 @@
 const fs = require("node:fs");
 
+process_Com_Squareup_Moshi_JsonAdapter();
 // process_protocol();
 // process_stripe('STPAPIResponseDecodable', `
 //         ISTPAPIResponseDecodable ISTPAPIResponseDecodable.DecodedObjectFromAPIResponse(NSDictionary response)
 //             => DecodedObjectFromAPIResponse(response);
 //     `);
 // process_stripe('STPFormEncodable', '');
-process_field();
+// process_field();
 // process_IJsonDeserializer();
 // process_Com_Example_Dsroom_Dao_IBaseDao();
 // process_Com_Google_Android_Material_Circularreveal_ICircularRevealWidget();
@@ -18,6 +19,53 @@ process_field();
 // process_JavaX_Inject_IProvider();
 // process_Android_OS_IParcelableCreator();
 // process_Com_Stripe_Android_Model_IStripeIntent();
+
+function process_Com_Squareup_Moshi_JsonAdapter() {
+  var input = fs.readFileSync("input.Com.Squareup.Moshi.JsonAdapter.txt");
+  var items = input
+    .toString()
+    .trim()
+    .split("\n")
+    .map(x => /.+src\\([^ ]+JsonAdapter)\.cs.+'(\w+(?:_\w+)?JsonAdapter)'.+/.exec(x))
+    .filter(x => !!x && x.length == 3)
+    .map(x => x.slice(1, 3))
+    .map(x => x.join(' '))
+    .filter(onlyUnique)
+    .map((x) => x.split(' '))
+    .map((x) => {
+      var parts = x[1].split('.');
+      var ns = x[0].replace("." + parts[0], '');
+      var cls = parts.reverse().reduce(
+        (result, item) => {
+          return `partial class ${item} {
+          ${result.replace('MODEL_NAME', item.replace('JsonAdapter', ''))}
+        }`;
+        },        
+        `public unsafe override global::Java.Lang.Object? FromJson (global::Com.Squareup.Moshi.JsonReader reader)
+            => this.FromJson_(reader); 
+        public unsafe override void ToJson (global::Com.Squareup.Moshi.JsonWriter writer, global::Java.Lang.Object? obj)
+            => this.ToJson_(writer, obj as ${ns}.MODEL_NAME); `
+      );
+      return [ns, cls];
+    })
+    .reduce((result, item) => {
+      var reduced = result.find((x) => x[0] == item[0]);
+      if (reduced) {
+        reduced.push(item[1]);
+      } else {
+        result.push(item);
+      }
+      return result;
+    }, [])
+    .map((x) => {
+      return `namespace ${x[0]} {
+            ${x.slice(1).join("\n")}
+        }`;
+    });
+
+  // console.log(items[0]);
+  fs.writeFileSync("output.Com.Squareup.Moshi.JsonAdapter.cs", items.join("\n"));
+}
 
 function process_protocol() {
   var input = fs.readFileSync("input.stripe.txt");

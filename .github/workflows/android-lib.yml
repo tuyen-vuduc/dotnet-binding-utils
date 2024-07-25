@@ -16,6 +16,7 @@ on:
         required: true
         type: choice
         options:     
+        - com.stripe:stripeterminal-external:3.7.1
         - io.ktor:ktor-client-okhttp:2.3.11
         - io.ktor:ktor-client-serialization:2.3.11
         - io.ktor:ktor-serialization-kotlinx-json:2.3.11
