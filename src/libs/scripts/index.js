@@ -1,6 +1,6 @@
 const fs = require("node:fs");
 
-process_Com_Squareup_Moshi_JsonAdapter();
+// process_Com_Squareup_Moshi_JsonAdapter();
 // process_protocol();
 // process_stripe('STPAPIResponseDecodable', `
 //         ISTPAPIResponseDecodable ISTPAPIResponseDecodable.DecodedObjectFromAPIResponse(NSDictionary response)
@@ -16,7 +16,7 @@ process_Com_Squareup_Moshi_JsonAdapter();
 // process_downgrade();
 // process_AndroidX_ViewBinding_IViewBinding();
 // process_Com_Stripe_Android_Uicore_Elements_IFormElement();
-// process_JavaX_Inject_IProvider();
+process_JavaX_Inject_IProvider();
 // process_Android_OS_IParcelableCreator();
 // process_Com_Stripe_Android_Model_IStripeIntent();
 
@@ -494,14 +494,15 @@ function process_JavaX_Inject_IProvider() {
     .toString()
     .trim()
     .split("\n")
-    .map(x => /.+'(\w+[^ ]+Factory)'.+src\\([^ ]+Factory)\.cs.+/.exec(x))
+    .map(x => /.+src\\([^ ]+Factory)\.cs.+'(\w+[^ ]+Factory)'.+/.exec(x))
+    .filter(x => !!x)
     .map(x => x.slice(1, 3))
     .map(x => x.join(' '))
     .filter(onlyUnique)
     .map((x) => x.split(" "))
     .map((x) => {
-      var clsName = x[0];
-      var ns = x[1].replace("." + clsName, "");
+      var clsName = x[1];
+      var ns = x[0].replace("." + clsName, "");
       return [ns, `partial class ${clsName} {
           global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object )(object)Get();
         }`];
@@ -537,14 +538,15 @@ function process_Android_OS_IParcelableCreator() {
     .toString()
     .trim()
     .split("\n")
-    .map(x => /.+'(\w+[^ ]+Creator)'.+src\\([^ ]+)\.cs.+/.exec(x))
+    .map(x => /.+src\\([^ ]+)\.cs.+'(\w+[^ ]+Creator)'.+/.exec(x))
+    .filter(x => !!x)
     .map(x => x.slice(1, 3))
     .map(x => x.join(' '))
     .filter(onlyUnique)
     .map((x) => x.split(" "))
     .map((x) => {
-      var parts = x[0].split(".");
-      var ns = x[1].replace("." + parts[0], "");
+      var parts = x[1].split(".");
+      var ns = x[0].replace("." + parts[0], "");
       var cls = parts.reverse().reduce(
         (result, item) => {
           return `partial class ${item} {${result}}`;
