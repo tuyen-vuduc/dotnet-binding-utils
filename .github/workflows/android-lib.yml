@@ -51,6 +51,7 @@ on:
         - com.stripe:link:20.48.0
         - com.stripe:paymentsheet:20.48.0
         - com.stripe:stripe-android:20.48.0
+        - com.mapbox.maps:android-core:11.5.2
         - com.mapbox.maps:base:11.5.0
         - com.mapbox.module:maps-telemetry:11.5.0
         - com.mapbox.extension:maps-style:11.5.0
