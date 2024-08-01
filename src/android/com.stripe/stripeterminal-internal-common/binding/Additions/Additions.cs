@@ -965,6 +965,13 @@ namespace Com.Stripe.Jvmcore.Logging.Terminal.Log
     {
         global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
     }
+    partial class ProxySimpleLogger
+    {
+        void global::Com.Stripe.Jvmcore.Logging.Terminal.Contracts.ILogOperationController.EndOperation(global::Java.Lang.Object obj, string id)
+            => EndOperation(obj as global::Com.Stripe.Jvmcore.Loggingmodels.ApplicationTraceResult, id);
+        void global::Com.Stripe.Jvmcore.Logging.Terminal.Contracts.ILogOperationController.StartOperation(global::Java.Lang.Object obj, string id)
+            => StartOperation(obj as global::Com.Stripe.Jvmcore.Loggingmodels.ApplicationTrace, id);
+    }
 }
 namespace Com.Stripe.Stripeterminal.Internal.Common.Connectandupdate
 {
@@ -1115,6 +1122,69 @@ namespace Com.Stripe.Stripeterminal.Internal.Common.Connectivity.Dagger
 }
 namespace Com.Stripe.Core.Readerupdate
 {
+    partial class UpdatePackage
+    {
+        bool global::Java.Util.IList.Add(global::Java.Lang.Object obj)
+            => Add(obj as global::Com.Stripe.Core.Readerupdate.Update);
+        void global::Java.Util.IList.Add(int index, global::Java.Lang.Object obj)
+            => Add(index, obj as global::Com.Stripe.Core.Readerupdate.Update);
+
+        bool Java.Util.ICollection.Add(Java.Lang.Object? obj)
+            => Add(obj as global::Com.Stripe.Core.Readerupdate.Update);
+
+        bool global::Java.Util.IList.AddAll(global::System.Collections.ICollection items)
+            => AddAll(items.Cast<global::Com.Stripe.Core.Readerupdate.Update>().ToList());
+        bool global::Java.Util.IList.AddAll(int index, global::System.Collections.ICollection items)
+            => AddAll(index, items.Cast<global::Com.Stripe.Core.Readerupdate.Update>().ToList());
+
+        bool Java.Util.ICollection.AddAll(System.Collections.ICollection items)
+            => AddAll(items.Cast<global::Com.Stripe.Core.Readerupdate.Update>().ToList());
+
+        bool Java.Util.IList.Contains(Java.Lang.Object? o)
+            => Contains(o as global::Com.Stripe.Core.Readerupdate.Update);
+
+        bool Java.Util.IList.ContainsAll(System.Collections.ICollection items)
+            => ContainsAll(items.Cast<global::Java.Lang.Object>().ToList());
+
+        bool Java.Util.ICollection.ContainsAll(System.Collections.ICollection items)
+            => ContainsAll(items.Cast<global::Java.Lang.Object>().ToList());
+
+        Java.Lang.Object? Java.Util.IList.Get(int index)
+            => Get(index);
+
+        int Java.Util.IList.IndexOf(Java.Lang.Object? o)
+            => IndexOf(o as global::Com.Stripe.Core.Readerupdate.Update);
+
+        int Java.Util.IList.LastIndexOf(Java.Lang.Object? o)
+            => LastIndexOf(o as global::Com.Stripe.Core.Readerupdate.Update);
+
+        Java.Lang.Object? Java.Util.IList.Remove(int index)
+            => Remove(index);
+        bool Java.Util.IList.Remove(Java.Lang.Object? o)
+            => Remove(o as global::Com.Stripe.Core.Readerupdate.Update);
+
+        bool Java.Util.IList.RemoveAll(System.Collections.ICollection items)
+            => RemoveAll(items.Cast<global::Java.Lang.Object>().ToList());
+        bool Java.Util.ICollection.RemoveAll(System.Collections.ICollection items)
+            => RemoveAll(items.Cast<global::Java.Lang.Object>().ToList());
+
+        bool Java.Util.IList.RetainAll(System.Collections.ICollection items)
+            => RetainAll(items.Cast<global::Java.Lang.Object>().ToList());
+
+        bool Java.Util.ICollection.RetainAll(System.Collections.ICollection items)
+            => RetainAll(items.Cast<global::Java.Lang.Object>().ToList());
+
+        Java.Lang.Object? Java.Util.IList.Set(int index, Java.Lang.Object? element)
+            => Set(index, element as global::Com.Stripe.Core.Readerupdate.Update);
+
+        int Java.Util.IList.Size() => Size;
+
+        int Java.Util.ICollection.Size() => Size;
+
+        System.Collections.IList Java.Util.IList.SubList(int fromIndex, int toIndex)
+            => SubList(fromIndex, toIndex).ToList();
+    }
+
     partial class UpdateClient_Factory
     {
         global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
@@ -1232,7 +1302,7 @@ namespace Com.Stripe.Stripeterminal.Internal.Common.Api
         public unsafe override global::Java.Lang.Object? FromJson(global::Com.Squareup.Moshi.JsonReader reader)
           => this.FromJson_(reader);
         public unsafe override void ToJson(global::Com.Squareup.Moshi.JsonWriter writer, global::Java.Lang.Object? obj)
-            => this.ToJson_(writer, obj as Com.Stripe.Stripeterminal.Internal.Common.Api.DiscoverLocationsResponse_ReaderLocationPair);
+            => this.ToJson_(writer, obj as global::Com.Stripe.Stripeterminal.Internal.Common.Api.DiscoverLocationsResponse.ReaderLocationPair);
     }
     partial class ListAllReadersResponseJsonAdapter
     {
@@ -1311,5 +1381,43 @@ namespace Com.Stripe.Offlinemode.Log
             => EndOperation(obj as global::Com.Stripe.Jvmcore.Loggingmodels.ApplicationTraceResult, id);
         void global::Com.Stripe.Jvmcore.Logging.Terminal.Contracts.ILogOperationController.StartOperation(global::Java.Lang.Object obj, string id)
             => StartOperation(obj as global::Com.Stripe.Offlinemode.Log.OfflineTrace, id);
+    }
+}
+
+namespace Com.Stripe.Jvmcore.Offlinemode.Repositories
+{
+    partial class RemoteOfflineStatusDetailsRepository
+    {
+        global::Xamarin.KotlinX.Coroutines.Flow.IStateFlow global::Com.Stripe.Jvmcore.Offlinemode.Repositories.IOfflineStatusDetailsRepository.OfflineStatusDetailsStateFlow => OfflineStatusDetailsStateFlow;
+    }
+}
+namespace Com.Stripe.Jvmcore.Loggingmodels
+{
+    partial class LogPoint
+    {
+        int global::Java.Lang.IComparable.CompareTo(global::Java.Lang.Object o)
+        {
+            return o is global::Com.Stripe.Jvmcore.Loggingmodels.ISpanPoint s ? CompareTo(s) : -1;
+        }
+    }
+    partial class MeterPoint
+    {
+        int global::Java.Lang.IComparable.CompareTo(global::Java.Lang.Object o)
+        {
+            return o is global::Com.Stripe.Jvmcore.Loggingmodels.ISpanPoint s ? CompareTo(s) : -1;
+        }
+    }
+}
+namespace Com.Stripe.Stripeterminal.Internal.Common.Adapters
+{
+    partial class BbposBluetoothAdapter
+    {
+        protected override global::Com.Stripe.Core.Hardware.Reader? MakeHardwareReader(global::Com.Stripe.Stripeterminal.External.Models.Reader reader)
+            => MakeHardwareReader_(reader);
+    }
+    partial class BbposUsbAdapter
+    {
+        protected override global::Com.Stripe.Core.Hardware.Reader? MakeHardwareReader(global::Com.Stripe.Stripeterminal.External.Models.Reader reader)
+            => MakeHardwareReader_(reader);
     }
 }
