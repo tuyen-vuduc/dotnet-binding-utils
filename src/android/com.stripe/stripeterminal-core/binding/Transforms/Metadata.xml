@@ -1,3 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+    <attr path="//api/package[@name='com.stripe.stripeterminal.dagger']/interface[@name='TerminalCommonComponent']"
+        name="visibility">public</attr>    
+    <attr path="//api/package[@name='com.stripe.stripeterminal']/interface[@name='TerminalComponent']"
+        name="visibility">public</attr>    
+    <ns-replace source="Com.Stripe.Stripeterminal.Internal.Common.Adapter" replacement="Com.Stripe.Stripeterminal.Internal.Common.Adapters" />
 </metadata>

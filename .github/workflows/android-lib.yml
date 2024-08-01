@@ -16,6 +16,7 @@ on:
         required: true
         type: choice
         options:     
+        - com.stripe:stripeterminal-core:3.7.1
         - com.stripe:stripeterminal-internal-common:3.7.1
         - com.stripe:stripeterminal-external:3.7.1        
         - io.ktor:ktor-client-okhttp:2.3.11
