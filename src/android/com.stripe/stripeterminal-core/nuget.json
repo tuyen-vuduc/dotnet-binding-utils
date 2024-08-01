@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Stripe.StripeterminalCore",
   "name": "stripeterminal-core",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }
