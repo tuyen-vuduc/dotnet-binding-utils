@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+	<attr path="/api/package[@name='com.squareup.wire']/class[@name='ProtoAdapter.Companion.UnsupportedTypeProtoAdapter']/method[@name='decode' and count(parameter)=1 and parameter[1][@type='com.squareup.wire.ProtoReader']]"
+		  name="managedName">Decode_</attr>
+	<attr path="/api/package[@name='com.squareup.wire']/class[@name='ProtoAdapter.Companion.UnsupportedTypeProtoAdapter']/method[@name='encode' and count(parameter)=2 and parameter[1][@type='com.squareup.wire.ProtoWriter'] and parameter[2][@type='java.lang.Void']]"
+		  name="managedName">Encode_</attr>
+	<attr path="/api/package[@name='com.squareup.wire']/class[@name='ProtoAdapter.Companion.UnsupportedTypeProtoAdapter']/method[@name='encodedSize' and count(parameter)=1 and parameter[1][@type='java.lang.Void']]"
+		  name="managedName">EncodedSize_</attr>
+	<attr path="/api/package[@name='com.squareup.wire']/class[@name='ProtoAdapter.Companion.UnsupportedTypeProtoAdapter']/method[@name='redact' and count(parameter)=1 and parameter[1][@type='java.lang.Void']]"
+		  name="managedName">Redact_</attr>
+	<add-node path="/api/package[@name='com.squareup.wire']/class[@name='AnyMessage']">
+		<method abstract="false"
+				deprecated="not deprecated"
+				final="false"
+				name="newBuilder"
+				jni-signature="()Ljava/lang/Object;"
+				bridge="false"
+				native="false"
+				return="java.lang.Object"
+				jni-return="Ljava/lang/Object;"
+				static="false"
+				synchronized="false"
+				synthetic="false"
+				visibility="public"
+				return-not-null="true"
+				managedName="NewBuilder_"/>
+	</add-node>
+</metadata>

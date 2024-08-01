@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <attr path="//field[@name='stateMachine']"
+        name="managedName">stateMachine_</attr>
+    <attr path="/api/package[@name='com.stripe.core.paymentcollection']/class[@name='PaymentCollectionCoordinator.PaymentCollectionContext']"
+        name="visibility">public</attr>
+    <attr path="//class[@extends='com.squareup.moshi.JsonAdapter']/method[@name='fromJson' and count(parameter)=1 and parameter[1][@type='com.squareup.moshi.JsonReader']]"
+        name="managedName">FromJson_</attr>
+    <attr path="//class[@extends='com.squareup.moshi.JsonAdapter']/method[@name='toJson' and count(parameter)=2 and parameter[1][@type='com.squareup.moshi.JsonWriter']]"
+        name="managedName">ToJson_</attr>
+    
+    <ns-replace source="Com.Stripe.Stripeterminal.Internal.Common.Adapter" replacement="Com.Stripe.Stripeterminal.Internal.Common.Adapters" />
+    <remove-node path="/api/package[@name='com.stripe.jvmcore.logging.terminal.log']/class[@name='DefaultLogger']/method[@name='log' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.stripe.jvmcore.loggingmodels.LogLevel'] and parameter[3][@type='java.lang.Throwable']]" />
+    <remove-node path="/api/package[@name='com.stripe.jvmcore.logging.terminal.log']/class[@name='Log']/method[@name='log' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.stripe.jvmcore.loggingmodels.LogLevel'] and parameter[3][@type='java.lang.Throwable']]" />
+    <remove-node path="/api/package[@name='com.stripe.jvmcore.logging.terminal.log']/class[@name='Log']/method[@name='endOperation' and count(parameter)=2 and parameter[1][@type='com.stripe.jvmcore.loggingmodels.ApplicationTraceResult'] and parameter[2][@type='java.lang.String']]" />
+    <remove-node path="/api/package[@name='com.stripe.jvmcore.logging.terminal.log']/class[@name='Log']/method[@name='startOperation' and count(parameter)=2 and parameter[1][@type='com.stripe.jvmcore.loggingmodels.ApplicationTrace'] and parameter[2][@type='java.lang.String']]" />
+    <remove-node path="/api/package[@name='com.stripe.stripeterminal.internal.common.adapter']/class[@name='BbposAdapter.DisconnectReaderOperation']/method[@name='execute' and count(parameter)=0 and @return='java.lang.Void']"/>
+    <remove-node path="/api/package[@name='com.stripe.stripeterminal.internal.common.adapter']/class[@name='BbposAdapter.RebootReaderOperation']/method[@name='execute' and count(parameter)=0 and @return='java.lang.Void']"/>
+    <remove-node path="/api/package[@name='com.stripe.stripeterminal.internal.common']/class[@name='Adapter.NullOperation']/method[@name='execute' and count(parameter)=0 and @return='java.lang.Void']"/>
+    <attr path="/api/package[@name='com.stripe.stripeterminal.internal.common.adapter']/class[@name='BaseSimulatedAdapter']/method[@name='getCancelInstallUpdate' and count(parameter)=0]"
+        name="propertyName"></attr>
+    <attr path="/api/package[@name='com.stripe.stripeterminal.internal.common.adapter']/class[@name='BaseSimulatedAdapter']/method[@name='setCancelInstallUpdate' and count(parameter)=1 and parameter[1][@type='com.stripe.stripeterminal.internal.common.adapter.BaseSimulatedAdapter.CancellationState']]"
+        name="propertyName"></attr>
+    <attr path="/api/package[@name='com.stripe.stripeterminal.internal.common.adapter']/class[@name='BbposBluetoothAdapter']/method[@name='makeHardwareReader' and count(parameter)=1 and parameter[1][@type='com.stripe.stripeterminal.external.models.Reader']]"
+        name="managedName">MakeHardwareReader_</attr>
+    <attr path="/api/package[@name='com.stripe.stripeterminal.internal.common.adapter']/class[@name='BbposUsbAdapter']/method[@name='makeHardwareReader' and count(parameter)=1 and parameter[1][@type='com.stripe.stripeterminal.external.models.Reader']]"
+        name="managedName">MakeHardwareReader_</attr>
+</metadata>

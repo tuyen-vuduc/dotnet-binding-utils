@@ -1,0 +1,7 @@
+{
+  "packageId": "Io.Ktor.KtorClientCore",
+  "name": "ktor-client-core",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}

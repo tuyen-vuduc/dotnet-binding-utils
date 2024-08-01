@@ -1,0 +1,7 @@
+{
+  "packageId": "Io.Ktor.KtorClientJson",
+  "name": "ktor-client-json",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}

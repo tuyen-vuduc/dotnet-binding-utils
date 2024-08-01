@@ -1,0 +1,7 @@
+{
+  "packageId": "Org.Kamranzafar.Jtar",
+  "name": "jtar",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}

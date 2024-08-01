@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Scottyab.RootbeerLib",
+  "name": "rootbeer-lib",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}

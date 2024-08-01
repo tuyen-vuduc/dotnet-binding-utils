@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <attr path="//field[@name='WECHAT_PAY_DISPLAY_QR_CODE']"
+        name="managedName">WECHAT_PAY_DISPLAY_QR_CODE</attr>
+    <attr path="//class[@extends='com.squareup.moshi.JsonAdapter']/method[@name='fromJson' and count(parameter)=1 and parameter[1][@type='com.squareup.moshi.JsonReader']]"
+        name="managedName">FromJson_</attr>
+    <attr path="//class[@extends='com.squareup.moshi.JsonAdapter']/method[@name='toJson' and count(parameter)=2 and parameter[1][@type='com.squareup.moshi.JsonWriter']]"
+        name="managedName">ToJson_</attr>
+    <attr path="/api/package[@name='com.stripe.stripeterminal.external.callable']/interface[@name='ReaderReconnectionListener']/method[@name='onReaderReconnectStarted' and count(parameter)=3 and parameter[1][@type='com.stripe.stripeterminal.external.models.Reader'] and parameter[2][@type='com.stripe.stripeterminal.external.callable.Cancelable'] and parameter[3][@type='com.stripe.stripeterminal.external.models.DisconnectReason']]"
+        name="argsType">OnReaderReconnectStartedWithReasonHandler</attr> 
+    <attr path="/api/package[@name='com.stripe.stripeterminal.external.callable']/interface[@name='ReaderReconnectionListener']/method[@name='onReaderReconnectStarted' and count(parameter)=3 and parameter[1][@type='com.stripe.stripeterminal.external.models.Reader'] and parameter[2][@type='com.stripe.stripeterminal.external.callable.Cancelable'] and parameter[3][@type='com.stripe.stripeterminal.external.models.DisconnectReason']]"
+        name="managedName">OnReaderReconnectStartedWithReason</attr> 
+</metadata>

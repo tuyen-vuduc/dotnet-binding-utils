@@ -1,0 +1,7 @@
+{
+  "packageId": "Neovisionaries.NvI18n.Droid",
+  "name": "nv-i18n",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}

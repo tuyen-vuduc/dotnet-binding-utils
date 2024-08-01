@@ -15,6 +15,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <IsBindingProject>true</IsBindingProject>
+    <AndroidUseIntermediateDesignerFile>false</AndroidUseIntermediateDesignerFile>
     <AssemblyName>@(Model.Artifact.Nuget.PackageId)</AssemblyName>
     <RootNamespace>@(Model.Artifact.Nuget.PackageId)</RootNamespace>
   </PropertyGroup>
@@ -51,7 +52,7 @@
     <PackageVersion>@(Model.Artifact.Version.NugetVersion)</PackageVersion>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <!-- Include symbol files (*.pdb) in the built .nupkg -->
-    <AllowedOutputExtensionsInPackageBuildOutputFolder>.dll;.xml;.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
 
   <PropertyGroup>

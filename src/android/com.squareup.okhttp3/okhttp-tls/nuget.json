@@ -1,0 +1,7 @@
+{
+  "packageId": "Square.OkHttp3.OkHttp.TLS",
+  "name": "okhttp-tls",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}

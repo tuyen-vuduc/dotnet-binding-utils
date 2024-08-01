@@ -15,7 +15,29 @@ on:
         description: 'Android library to publish'
         required: true
         type: choice
-        options: 
+        options:     
+        - com.stripe:stripeterminal:3.7.1
+        - com.stripe:stripeterminal-core:3.7.1
+        - com.stripe:stripeterminal-internal-common:3.7.1
+        - com.stripe:stripeterminal-external:3.7.1        
+        - io.ktor:ktor-client-okhttp:2.3.11
+        - io.ktor:ktor-client-serialization:2.3.11
+        - io.ktor:ktor-serialization-kotlinx-json:2.3.11
+        - org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2
+        - io.ktor:ktor-client-content-negotiation:2.3.11
+        - io.ktor:ktor-websocket-serialization:2.3.11
+        - io.ktor:ktor-websockets:2.3.11    
+        - com.squareup.wire:wire-moshi-adapter:4.9.9
+        - com.squareup.wire:wire-runtime-jvm:4.9.9
+        - com.squareup.wire:wire-runtime:4.9.9
+        - org.jetbrains.kotlin:kotlin-parcelize-runtime:1.9.24
+        - org.jetbrains.kotlinx:kotlinx-datetime:0.6.0
+        - dev.zacsweers.redacted:redacted-compiler-plugin-annotations:1.8.0
+        - com.squareup.tape2:tape:2.0.0-beta1
+        - org.kamranzafar:jtar:2.3
+        - com.scottyab:rootbeer-lib:0.1.0
+        - com.neovisionaries:nv-i18n:1.29
+        - com.jaredrummler:android-device-names:1.1.9
         - com.paypal.android:fraud-protection:1.5.0
         - com.paypal.android:paypal-web-payments:1.5.0
         - com.paypal.android:payment-buttons:1.5.0

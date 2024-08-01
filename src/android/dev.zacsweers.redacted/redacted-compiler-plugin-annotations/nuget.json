@@ -1,0 +1,7 @@
+{
+  "packageId": "Dev.Zacsweers.Redacted.RedactedCompilerPluginAnnotations",
+  "name": "redacted-compiler-plugin-annotations",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}

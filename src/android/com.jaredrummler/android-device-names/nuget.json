@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Jaredrummler.AndroidDeviceNames",
+  "name": "android-device-names",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}
