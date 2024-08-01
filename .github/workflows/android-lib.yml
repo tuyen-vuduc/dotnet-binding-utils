@@ -60,7 +60,7 @@ on:
         - com.mapbox.plugin:maps-attribution:11.5.1
         - com.mapbox.plugin:maps-compass:11.5.1
         - com.mapbox.plugin:maps-gestures:11.5.1
-        - com.mapbox.plugin:maps-lifecycle:11.5.0
+        - com.mapbox.plugin:maps-lifecycle:11.5.1
         - com.mapbox.plugin:maps-locationcomponent:11.5.0
         - com.mapbox.plugin:maps-logo:11.5.0
         - com.mapbox.plugin:maps-overlay:11.5.0
