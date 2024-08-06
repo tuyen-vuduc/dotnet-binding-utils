@@ -387,9 +387,9 @@ namespace TVStripePaymentSheet
 		[Export ("initWithPaymentIntentClientSecret:configuration:")]
 		NativeHandle Constructor (string paymentIntentClientSecret, TSPSConfiguration configuration);
 
-		// // -(instancetype _Nonnull)initWithSetupIntentClientSecret:(NSString * _Nonnull)setupIntentClientSecret configuration:(TSPSConfiguration * _Nonnull)configuration;
-		// [Export ("initWithSetupIntentClientSecret:configuration:")]
-		// NativeHandle Constructor (string setupIntentClientSecret, TSPSConfiguration configuration);
+        // -(instancetype _Nonnull)initWithSetupIntentClientSecret:(NSString * _Nonnull)setupIntentClientSecret configuration:(TSPSConfiguration * _Nonnull)configuration differentiator:(NSString * _Nonnull)differentiator;
+        [Export ("initWithSetupIntentClientSecret:configuration:differentiator:")]
+		NativeHandle Constructor (string setupIntentClientSecret, TSPSConfiguration configuration, string differentiator);
 
 		// +(void)resetCustomer;
 		[Static]
