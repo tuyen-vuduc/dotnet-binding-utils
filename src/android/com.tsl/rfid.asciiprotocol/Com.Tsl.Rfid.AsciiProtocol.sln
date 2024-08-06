@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Com.Tsl.Rfid.AsciiProtocol", "binding\Com.Tsl.Rfid.AsciiProtocol.csproj", "{A921B852-620A-431E-B6DA-C03EB67D3B78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.Tsl.Rfid.AsciiProtocolQs", "qs\Com.Tsl.Rfid.AsciiProtocolQs\Com.Tsl.Rfid.AsciiProtocolQs.csproj", "{9D8F5B2D-E7DD-4332-8D13-D0372BF27C1A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A921B852-620A-431E-B6DA-C03EB67D3B78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A921B852-620A-431E-B6DA-C03EB67D3B78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A921B852-620A-431E-B6DA-C03EB67D3B78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A921B852-620A-431E-B6DA-C03EB67D3B78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D8F5B2D-E7DD-4332-8D13-D0372BF27C1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D8F5B2D-E7DD-4332-8D13-D0372BF27C1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D8F5B2D-E7DD-4332-8D13-D0372BF27C1A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9D8F5B2D-E7DD-4332-8D13-D0372BF27C1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D8F5B2D-E7DD-4332-8D13-D0372BF27C1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D8F5B2D-E7DD-4332-8D13-D0372BF27C1A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {55ECF27A-8DAD-4369-9B95-4AF7F0CC1116}
+	EndGlobalSection
+EndGlobal
