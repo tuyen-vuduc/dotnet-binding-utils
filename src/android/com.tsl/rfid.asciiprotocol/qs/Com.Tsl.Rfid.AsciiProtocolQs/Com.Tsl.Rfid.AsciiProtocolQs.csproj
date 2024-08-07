@@ -11,6 +11,16 @@
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Resources\layout\content_tag_finder.xml" />
+    <None Remove="Resources\values\colors.xml" />
+    <None Remove="Resources\values\dimens.xml" />
+    <None Remove="Resources\values\styles.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.7.0.1" />
+    <PackageReference Include="Xamarin.Google.Android.Material" Version="1.11.0.1" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="../../binding/Com.Tsl.Rfid.AsciiProtocol.csproj" />
   </ItemGroup>
   
