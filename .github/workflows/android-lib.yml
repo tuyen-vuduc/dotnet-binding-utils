@@ -16,6 +16,7 @@ on:
         required: true
         type: choice
         options:    
+        - com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0
         - com.pusher:pusher-java-client:2.2.1 
         - org.java-websocket:Java-WebSocket:1.4.0
         - dev.chrisbanes.snapper:snapper:0.2.2

@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Jakewharton.Retrofit.Retrofit2KotlinxSerializationConverter",
+  "name": "retrofit2-kotlinx-serialization-converter",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}

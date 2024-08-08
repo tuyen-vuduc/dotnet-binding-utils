@@ -1,0 +1,5 @@
+{
+  "name": "com.jakewharton.retrofit",
+  "dotnet8": true,
+  "runtimeDependenciesAsCompile": true
+}
