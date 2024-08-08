@@ -15,8 +15,8 @@ public class ModelBase
         ;
 
     // Model busy state changed message
-    public static readonly int BUSY_STATE_CHANGED_NOTIFICATION = 1;
-    public static readonly int MESSAGE_NOTIFICATION = 2;
+    public const int BUSY_STATE_CHANGED_NOTIFICATION = 1;
+    public const int MESSAGE_NOTIFICATION = 2;
 
     // 
     protected Handler mHandler;

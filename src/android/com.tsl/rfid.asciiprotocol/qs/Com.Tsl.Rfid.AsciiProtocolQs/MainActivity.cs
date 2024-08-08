@@ -1,9 +1,21 @@
+using Android;
+using Android.Content;
+using Android.Content.PM;
+using Android.Runtime;
+using Android.Util;
 using Android.Views;
 using Android.Views.InputMethods;
+using AndroidX.Activity;
+using AndroidX.Activity.Result;
+using AndroidX.Activity.Result.Contract;
 using AndroidX.AppCompat.App;
+using AndroidX.Core.Content;
+using AndroidX.LocalBroadcastManager.Content;
+using Com.Tsl.Rfid.DeviceList;
 using Com.UK.Tsl.Rfid.Asciiprotocol;
 using Com.UK.Tsl.Rfid.Asciiprotocol.Device;
 using Com.UK.Tsl.Rfid.Asciiprotocol.Responders;
+using Com.UK.Tsl.Utils;
 
 namespace Com.Tsl.Rfid.AsciiProtocolQs
 {
@@ -75,8 +87,23 @@ namespace Com.Tsl.Rfid.AsciiProtocolQs
 
             // Set up the target EPC EditText
             mTargetTagEditText = (EditText)FindViewById(Resource.Id.targetTagEditText);
-            mTargetTagEditText.addTextChangedListener(mTargetTagEditTextChangedListener);
-            mTargetTagEditText.setOnFocusChangeListener(mTargetTagFocusChangedListener);
+            mTargetTagEditText.AfterTextChanged += (s, e) =>
+            {
+                string value = e.Editable.ToString();
+
+                mModel.setTargetTagEpc(value);
+
+                UpdateUI();
+            };
+            mTargetTagEditText.FocusChange += (s, e) =>
+            {
+                if (!e.HasFocus)
+                {
+                    mModel.setTargetTagEpc(mTargetTagEditText.Text);
+                    mModel.updateTarget();
+                }
+            };
+
             // Dismiss the keyboard
             mTargetTagEditText.EditorAction += (s, e) =>
             {
@@ -151,7 +178,7 @@ namespace Com.Tsl.Rfid.AsciiProtocolQs
                 {
                     mCountTextView.Post(() =>
                     {
-                        mCountTextView.SetText(GetString(Resource.String.count_label_text) + transponderCount);
+                        mCountTextView.Text = GetString(Resource.String.count_label_text) + transponderCount;
                     });
                 }));
 
@@ -221,541 +248,505 @@ namespace Com.Tsl.Rfid.AsciiProtocolQs
                     int index = -1;
                     if (mReader != null)
                     {
-                        index = ReaderManager.sharedInstance().getReaderList().list().indexOf(mReader);
+                        index = ReaderManager.SharedInstance().ReaderList.List().IndexOf(mReader);
                     }
-                    Intent selectIntent = new Intent(this, DeviceListActivity.class);
-if (index >= 0)
-{
-    selectIntent.putExtra(EXTRA_DEVICE_INDEX, index);
-}
-    startActivityForResult(selectIntent, DeviceListActivity.SELECT_DEVICE_REQUEST);
-return true;
+                    Intent selectIntent = new Intent(this, typeof(DeviceListActivity));
+                    if (index >= 0)
+                    {
+                        selectIntent.PutExtra(DeviceListActivity.EXTRA_DEVICE_INDEX, index);
+                    }
+                    StartActivityForResult(selectIntent, DeviceListActivity.SELECT_DEVICE_REQUEST);
+                    return true;
 
-            case Resource.Id.disconnect_reader_menu_item:
-    if (mReader != null)
-    {
-        mReader.disconnect();
-        mReader = null;
-    }
+                case Resource.Id.disconnect_reader_menu_item:
+                    if (mReader != null)
+                    {
+                        mReader.Disconnect();
+                        mReader = null;
+                    }
 
-return true;
-}
+                    return true;
+            }
 
-return super.onOptionsItemSelected(item);
-    }
-
-    //----------------------------------------------------------------------------------------------
-    // Pause & Resume life cycle
-    //----------------------------------------------------------------------------------------------
-
-    @Override
-    public synchronized void onPause()
-{
-    super.onPause();
-
-    mModel.setEnabled(false);
-
-    // Register to receive notifications from the AsciiCommander
-    LocalBroadcastManager.getInstance(this).unregisterReceiver(mCommanderMessageReceiver);
-
-    // Disconnect from the reader to allow other Apps to use it
-    // unless pausing when USB device attached or using the DeviceListActivity to select a Reader
-    if (!mIsSelectingReader && !ReaderManager.sharedInstance().didCauseOnPause() && mReader != null)
-    {
-        mReader.disconnect();
-    }
-
-    ReaderManager.sharedInstance().onPause();
-}
-
-@Override
-    public synchronized void onResume()
-{
-    super.onResume();
-
-    mModel.setEnabled(true);
-
-    // Register to receive notifications from the AsciiCommander
-    LocalBroadcastManager.getInstance(this).registerReceiver(mCommanderMessageReceiver, new IntentFilter(AsciiCommander.STATE_CHANGED_NOTIFICATION));
-
-    // Remember if the pause/resume was caused by ReaderManager - this will be cleared when ReaderManager.onResume() is called
-    bool readerManagerDidCauseOnPause = ReaderManager.sharedInstance().didCauseOnPause();
-
-    // The ReaderManager needs to know about Activity lifecycle changes
-    ReaderManager.sharedInstance().onResume();
-
-    // The Activity may start with a reader already connected (perhaps by another App)
-    // Update the ReaderList which will add any unknown reader, firing events appropriately
-    ReaderManager.sharedInstance().updateList();
-
-    // Locate a Reader to use when necessary
-    AutoSelectReader(!readerManagerDidCauseOnPause);
-
-    mIsSelectingReader = false;
-
-    displayReaderState();
-    UpdateUI();
-}
-
-//
-// Automatically select the Reader to use
-//
-private void AutoSelectReader(bool attemptReconnect)
-{
-    ObservableReaderList readerList = ReaderManager.sharedInstance().getReaderList();
-    Reader usbReader = null;
-    if (readerList.list().size() >= 1)
-    {
-        // Currently only support a single USB connected device so we can safely take the
-        // first CONNECTED reader if there is one
-        for (Reader reader : readerList.list())
-            {
-    if (reader.hasTransportOfType(TransportType.USB))
-    {
-        usbReader = reader;
-        break;
-    }
-}
+            return base.OnOptionsItemSelected(item);
         }
 
-        if (mReader == null)
-{
-    if (usbReader != null)
-    {
-        // Use the Reader found, if any
-        mReader = usbReader;
-        getCommander().setReader(mReader);
-    }
-}
-else
-{
-    // If already connected to a Reader by anything other than USB then
-    // switch to the USB Reader
-    IAsciiTransport activeTransport = mReader.getActiveTransport();
-    if (activeTransport != null && activeTransport.type() != TransportType.USB && usbReader != null)
-    {
-        appendMessage("Disconnecting from: " + mReader.getDisplayName() + "\n");
-        mReader.disconnect();
+        //----------------------------------------------------------------------------------------------
+        // Pause & Resume life cycle
+        //----------------------------------------------------------------------------------------------
 
-        mReader = usbReader;
-
-        // Use the Reader found, if any
-        getCommander().setReader(mReader);
-    }
-}
-
-// Reconnect to the chosen Reader
-if (mReader != null
-        && !mReader.isConnecting()
-        && (mReader.getActiveTransport() == null || mReader.getActiveTransport().connectionStatus().value() == ConnectionState.DISCONNECTED))
-{
-    // Attempt to reconnect on the last used transport unless the ReaderManager is cause of OnPause (USB device connecting)
-    if (attemptReconnect)
-    {
-        if (mReader.allowMultipleTransports() || mReader.getLastTransportType() == null)
+        protected override void OnPause()
         {
-            // Reader allows multiple transports or has not yet been connected so connect to it over any available transport
-            if (mReader.connect())
+            base.OnPause();
+
+            mModel.setEnabled(false);
+
+            // Register to receive notifications from the AsciiCommander
+            LocalBroadcastManager.GetInstance(this).UnregisterReceiver(mCommanderMessageReceiver);
+
+            // Disconnect from the reader to allow other Apps to use it
+            // unless pausing when USB device attached or using the DeviceListActivity to select a Reader
+            if (!mIsSelectingReader && !ReaderManager.SharedInstance().DidCauseOnPause() && mReader != null)
             {
-                appendMessage("Connecting to: " + mReader.getDisplayName() + "\n");
+                mReader.Disconnect();
             }
-            else
-            {
-                appendMessage("Unable to start connecting to: " + mReader.getDisplayName() + "\n");
-            }
+
+            ReaderManager.SharedInstance().OnPause();
         }
-        else
+
+        protected override void OnResume()
         {
-            // Reader supports only a single active transport so connect to it over the transport that was last in use
-            if (mReader.connect(mReader.getLastTransportType()))
-            {
-                appendMessage("Connecting (over last transport) to: " + mReader.getDisplayName() + "\n");
-            }
-            else
-            {
-                appendMessage("Unable to start connecting to: " + mReader.getDisplayName() + "\n");
-            }
+            base.OnResume();
+
+            mModel.setEnabled(true);
+
+            // Register to receive notifications from the AsciiCommander
+            LocalBroadcastManager.GetInstance(this).RegisterReceiver(mCommanderMessageReceiver, new IntentFilter(AsciiCommander.StateChangedNotification));
+
+            // Remember if the pause/resume was caused by ReaderManager - this will be cleared when ReaderManager.onResume() is called
+            bool readerManagerDidCauseOnPause = ReaderManager.SharedInstance().DidCauseOnPause();
+
+            // The ReaderManager needs to know about Activity lifecycle changes
+            ReaderManager.SharedInstance().OnResume();
+
+            // The Activity may start with a reader already connected (perhaps by another App)
+            // Update the ReaderList which will add any unknown reader, firing events appropriately
+            ReaderManager.SharedInstance().UpdateList();
+
+            // Locate a Reader to use when necessary
+            AutoSelectReader(!readerManagerDidCauseOnPause);
+
+            mIsSelectingReader = false;
+
+            displayReaderState();
+            UpdateUI();
         }
-    }
-}
-    }
 
-
-    // ReaderList Observers
-    Observable.Observer<Reader> mAddedObserver = new Observable.Observer<Reader>()
-    {
-        @Override
-        public void update(Observable<? extends Reader> observable, Reader reader)
-{
-    // See if this newly added Reader should be used
-    AutoSelectReader(true);
-}
-    };
-
-Observable.Observer<Reader> mUpdatedObserver = new Observable.Observer<Reader>()
-    {
-        @Override
-        public void update(Observable<? extends Reader> observable, Reader reader)
-{
-}
-    };
-
-Observable.Observer<Reader> mRemovedObserver = new Observable.Observer<Reader>()
-    {
-        @Override
-        public void update(Observable<? extends Reader> observable, Reader reader)
-{
-    // Was the current Reader removed
-    if (reader == mReader)
-    {
-        mReader = null;
-
-        // Stop using the old Reader
-        getCommander().setReader(mReader);
-    }
-}
-    };
-
-
-//----------------------------------------------------------------------------------------------
-// Model notifications
-//----------------------------------------------------------------------------------------------
-
-private static class GenericHandler extends WeakHandler<TagFinderActivity>
-    {
-        public GenericHandler(TagFinderActivity t)
-{
-    super(t);
-}
-
-@Override
-        public void handleMessage(Message msg, TagFinderActivity t)
-{
-    try
-    {
-        switch (msg.what)
+        //
+        // Automatically select the Reader to use
+        //
+        private void AutoSelectReader(bool attemptReconnect)
         {
-            case ModelBase.BUSY_STATE_CHANGED_NOTIFICATION:
-                if (t.mModel.error() != null)
+            ObservableReaderList readerList = ReaderManager.SharedInstance().ReaderList;
+            Reader usbReader = null;
+            if (readerList.List().Count >= 1)
+            {
+                // Currently only support a single USB connected device so we can safely take the
+                // first CONNECTED reader if there is one
+                foreach (Reader reader in readerList.List())
                 {
-                    t.appendMessage("\n Task failed:\n" + t.mModel.error().getMessage() + "\n\n");
+                    if (reader.HasTransportOfType(TransportType.Usb))
+                    {
+                        usbReader = reader;
+                        break;
+                    }
                 }
-                t.UpdateUI();
-                break;
+            }
 
-            case ModelBase.MESSAGE_NOTIFICATION:
-                string message = (string)msg.obj;
-                t.appendMessage(message);
-                break;
+            if (mReader == null)
+            {
+                if (usbReader != null)
+                {
+                    // Use the Reader found, if any
+                    mReader = usbReader;
+                    getCommander().Reader = mReader;
+                }
+            }
+            else
+            {
+                // If already connected to a Reader by anything other than USB then
+                // switch to the USB Reader
+                IAsciiTransport activeTransport = mReader.ActiveTransport;
+                if (activeTransport != null && activeTransport.Type() != TransportType.Usb && usbReader != null)
+                {
+                    appendMessage("Disconnecting from: " + mReader.DisplayName + "\n");
+                    mReader.Disconnect();
 
-            default:
-                break;
+                    mReader = usbReader;
+
+                    // Use the Reader found, if any
+                    getCommander().Reader = mReader;
+                }
+            }
+
+            // Reconnect to the chosen Reader
+            if (mReader != null
+                    && !mReader.IsConnecting
+                    && (mReader.ActiveTransport == null || mReader.ActiveTransport.ConnectionStatus().Value() == ConnectionState.Disconnected))
+            {
+                // Attempt to reconnect on the last used transport unless the ReaderManager is cause of OnPause (USB device connecting)
+                if (attemptReconnect)
+                {
+                    if (mReader.AllowMultipleTransports() || mReader.LastTransportType == null)
+                    {
+                        // Reader allows multiple transports or has not yet been connected so connect to it over any available transport
+                        if (mReader.Connect())
+                        {
+                            appendMessage("Connecting to: " + mReader.DisplayName + "\n");
+                        }
+                        else
+                        {
+                            appendMessage("Unable to start connecting to: " + mReader.DisplayName + "\n");
+                        }
+                    }
+                    else
+                    {
+                        // Reader supports only a single active transport so connect to it over the transport that was last in use
+                        if (mReader.Connect(mReader.LastTransportType))
+                        {
+                            appendMessage("Connecting (over last transport) to: " + mReader.DisplayName + "\n");
+                        }
+                        else
+                        {
+                            appendMessage("Unable to start connecting to: " + mReader.DisplayName + "\n");
+                        }
+                    }
+                }
+            }
         }
-    }
-    catch (Exception e)
-    {
-    }
 
-}
-    };
 
-// The handler for model messages
-private static GenericHandler mGenericModelHandler;
-
-//----------------------------------------------------------------------------------------------
-// UI state and display update
-//----------------------------------------------------------------------------------------------
-
-// Append the given message to the bottom of the results area
-private void appendMessage(string message)
-{
-    readonly string msg = message;
-    mResultScrollView.post(new Runnable() {
-            @Override
-            public void run()
-    {
-        // Select the last row so it will scroll into view...
-        mResultTextView.append(msg);
-        mResultScrollView.post(new Runnable() { public void run() { mResultScrollView.fullScroll(View.FOCUS_DOWN); }
-    });
-}
+        // ReaderList Observers
+        Observable.IObserver _mAddedObserver;
+        Observable.IObserver mAddedObserver => _mAddedObserver ??= new XObservableObserver((Observable observable, Reader reader) =>
+        {
+            // See if this newly added Reader should be used
+            AutoSelectReader(true);
         });
-    }
 
-    private void displayReaderState()
-{
-
-    string connectionMsg = "Reader: ";
-    switch (getCommander().getConnectionState())
-    {
-        case CONNECTED:
-            connectionMsg += getCommander().getConnectedDeviceName();
-            break;
-        case CONNECTING:
-            connectionMsg += "Connecting...";
-            break;
-        default:
-            connectionMsg += "Disconnected";
-    }
-    setTitle(connectionMsg);
-}
-
-
-//
-// Set the state for the UI controls
-//
-private void UpdateUI()
-{
-    bool isConnected = getCommander().isConnected();
-    bool canIssueCommand = isConnected & !mModel.isBusy();
-
-    mRssiSubtitleTextView.setText(string.format("Using: %s ASCII command", mModel.isFindTagCommandAvailable() ? "\".ft\" - Find Tag" : "\".iv\" - Inventory"));
-    string instructions = "";
-    if (isConnected)
-    {
-        if (StringHelper.isNullOrEmpty(mModel.getTargetTagEpc()))
+        Observable.IObserver mUpdatedObserver = new XObservableObserver((Observable observable, Reader reader) =>
         {
-            instructions = getResources().getString(Resource.String.rssi_instruction_placeholder_text);
-        }
-        else
+        });
+
+        Observable.IObserver _mRemovedObserver;
+        Observable.IObserver mRemovedObserver => _mRemovedObserver ??= new XObservableObserver((Observable observable, Reader reader) =>
         {
-            instructions = "Pull trigger to scan";
-        }
-    }
-    else
-    {
-        instructions = "Connect a TSL Reader";
-    }
-    mRssiInstructionTextView.setText(instructions);
-
-}
-
-
-//----------------------------------------------------------------------------------------------
-// AsciiCommander message handling
-//----------------------------------------------------------------------------------------------
-
-//
-// Handle the messages broadcast from the AsciiCommander
-//
-private BroadcastReceiver mCommanderMessageReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent)
-{
-    string connectionStateMsg = getCommander().getConnectionState().toString();
-    Log.d("", "AsciiCommander state changed - isConnected: " + getCommander().isConnected() + " (" + connectionStateMsg + ")");
-    Log.d("TFA", string.format("IsConnecting: %s", mReader == null ? "No Reader" : mReader.isConnecting()));
-
-    if (getCommander() != null)
-    {
-        displayReaderState();
-
-        if (getCommander().isConnected())
-        {
-            appendMessage("Connected to: " + mReader.getDisplayName() + "\n");
-            mModel.resetDevice();
-            // Use a new converter to reset dynamic range
-            mPercentageConverter = new SignalPercentageConverter();
-        }
-        else if (getCommander().getConnectionState() == ConnectionState.DISCONNECTED)
-        {
-            // A manual disconnect will have cleared mReader
-            if (mReader != null)
+            // Was the current Reader removed
+            if (reader == mReader)
             {
-                // See if this is from a failed connection attempt
-                if (!mReader.wasLastConnectSuccessful())
-                {
-                    // Unable to connect so have to choose reader again
-                    mReader = null;
-                }
+                mReader = null;
+
+                // Stop using the old Reader
+                getCommander().Reader = (mReader);
             }
-        }
-
-        UpdateUI();
-    }
-}
-    };
-
-//----------------------------------------------------------------------------------------------
-// Handler for
-//----------------------------------------------------------------------------------------------
-
-private TextWatcher mTargetTagEditTextChangedListener = new TextWatcher() {
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) { }
-
-@Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-
-@Override
-        public void afterTextChanged(Editable s)
-{
-    string value = s.toString();
-
-    mModel.setTargetTagEpc(value);
-    UpdateUI();
-}
-    };
+        });
 
 
-//----------------------------------------------------------------------------------------------
-// Handler for when editing has finished on the target tag
-//----------------------------------------------------------------------------------------------
+        //----------------------------------------------------------------------------------------------
+        // Model notifications
+        //----------------------------------------------------------------------------------------------
 
-private View.OnFocusChangeListener mTargetTagFocusChangedListener =
-    new View.OnFocusChangeListener()
-    {
-            @Override
-            public void onFocusChange(View v, bool hasFocus)
-{
-    if (!hasFocus)
-    {
-        mModel.setTargetTagEpc(mTargetTagEditText.getText().toString());
-        mModel.updateTarget();
-    }
-}
+        private class GenericHandler : WeakHandler<MainActivity>
+        {
+            public GenericHandler(MainActivity t) : base(t)
+            {
+            }
+
+            public override void handleMessage(Android.OS.Message msg, MainActivity t)
+            {
+                try
+                {
+                    switch (msg.What)
+                    {
+                        case ModelBase.BUSY_STATE_CHANGED_NOTIFICATION:
+                            if (t.mModel.error() != null)
+                            {
+                                t.appendMessage("\n Task failed:\n" + t.mModel.error().Message + "\n\n");
+                            }
+                            t.UpdateUI();
+                            break;
+
+                        case ModelBase.MESSAGE_NOTIFICATION:
+                            string message = (string)msg.Obj;
+                            t.appendMessage(message);
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
+                catch (Exception e)
+                {
+                }
+
+            }
         };
 
-//
-// Handle Intent results
-//
-public void onActivityResult(int requestCode, int resultCode, Intent data)
-{
-    super.onActivityResult(requestCode, resultCode, data);
-    switch (requestCode)
-    {
-        case DeviceListActivity.SELECT_DEVICE_REQUEST:
-            // When DeviceListActivity returns with a device to connect
-            if (resultCode == Activity.RESULT_OK)
+        // The handler for model messages
+        private static GenericHandler mGenericModelHandler;
+
+        //----------------------------------------------------------------------------------------------
+        // UI state and display update
+        //----------------------------------------------------------------------------------------------
+
+        // Append the given message to the bottom of the results area
+        private void appendMessage(string message)
+        {
+            string msg = message;
+            mResultScrollView.Post(() =>
             {
-                int readerIndex = data.getExtras().getInt(EXTRA_DEVICE_INDEX);
-                Reader chosenReader = ReaderManager.sharedInstance().getReaderList().list().get(readerIndex);
+                // Select the last row so it will scroll into view...
+                mResultTextView.Append(msg);
 
-                int action = data.getExtras().getInt(EXTRA_DEVICE_ACTION);
-
-                // If already connected to a different reader then disconnect it
-                if (mReader != null)
+                mResultScrollView.Post(() =>
                 {
-                    if (action == DeviceListActivity.DEVICE_CHANGE || action == DeviceListActivity.DEVICE_DISCONNECT)
+                    mResultScrollView.FullScroll(FocusSearchDirection.Down);
+                });
+            });
+        }
+
+        private void displayReaderState()
+        {
+
+            string connectionMsg = "Reader: ";
+            switch (getCommander().ConnectionState)
+            {
+                case ConnectionState x when x == ConnectionState.Connected:
+                    connectionMsg += getCommander().ConnectedDeviceName;
+                    break;
+                case ConnectionState x when x == ConnectionState.Connecting:
+                    connectionMsg += "Connecting...";
+                    break;
+                default:
+                    connectionMsg += "Disconnected";
+                    break;
+            }
+            Title = connectionMsg;
+        }
+
+        //
+        // Set the state for the UI controls
+        //
+        private void UpdateUI()
+        {
+            bool isConnected = getCommander().IsConnected;
+            bool canIssueCommand = isConnected & !mModel.isBusy();
+
+            mRssiSubtitleTextView.Text = string.Format("Using: {0} ASCII command", mModel.isFindTagCommandAvailable() ? "\".ft\" - Find Tag" : "\".iv\" - Inventory");
+            string instructions = "";
+            if (isConnected)
+            {
+                if (string.IsNullOrEmpty(mModel.getTargetTagEpc()))
+                {
+                    instructions = Resources.GetString(Resource.String.rssi_instruction_placeholder_text);
+                }
+                else
+                {
+                    instructions = "Pull trigger to scan";
+                }
+            }
+            else
+            {
+                instructions = "Connect a TSL Reader";
+            }
+            mRssiInstructionTextView.Text = instructions;
+
+        }
+
+
+        //----------------------------------------------------------------------------------------------
+        // AsciiCommander message handling
+        //----------------------------------------------------------------------------------------------
+
+        //
+        // Handle the messages broadcast from the AsciiCommander
+        //
+        private BroadcastReceiver _mCommanderMessageReceiver;
+        private BroadcastReceiver mCommanderMessageReceiver => _mCommanderMessageReceiver ??= new XBroadcastReceiver((Context context, Intent intent) =>
+        {
+            string connectionStateMsg = getCommander().ConnectionState.ToString();
+            Log.Debug("", "AsciiCommander state changed - isConnected: " + getCommander().IsConnected + " (" + connectionStateMsg + ")");
+            Log.Debug("TFA", string.Format("IsConnecting: {0}", mReader == null ? "No Reader" : mReader.IsConnecting));
+
+            if (getCommander() != null)
+            {
+                displayReaderState();
+
+                if (getCommander().IsConnected)
+                {
+                    appendMessage("Connected to: " + mReader.DisplayName + "\n");
+                    mModel.resetDevice();
+                    // Use a new converter to reset dynamic range
+                    mPercentageConverter = new SignalPercentageConverter();
+                }
+                else if (getCommander().ConnectionState == ConnectionState.Disconnected)
+                {
+                    // A manual disconnect will have cleared mReader
+                    if (mReader != null)
                     {
-                        mReader.disconnect();
-                        if (action == DeviceListActivity.DEVICE_DISCONNECT)
+                        // See if this is from a failed connection attempt
+                        if (!mReader.WasLastConnectSuccessful())
                         {
+                            // Unable to connect so have to choose reader again
                             mReader = null;
                         }
                     }
                 }
 
-                // Use the Reader found
-                if (action == DeviceListActivity.DEVICE_CHANGE || action == DeviceListActivity.DEVICE_CONNECT)
+                UpdateUI();
+            }
+        });
+
+        //----------------------------------------------------------------------------------------------
+        // Handler for
+        //----------------------------------------------------------------------------------------------
+
+        //
+        // Handle Intent results
+        //
+
+        protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent? data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+
+            switch (requestCode)
+            {
+                case DeviceListActivity.SELECT_DEVICE_REQUEST:
+                    // When DeviceListActivity returns with a device to connect
+                    if (resultCode == Result.Ok)
+                    {
+                        int readerIndex = data.Extras.GetInt(DeviceListActivity.EXTRA_DEVICE_INDEX);
+                        Reader chosenReader = ReaderManager.SharedInstance().ReaderList.List()[readerIndex];
+
+                        int action = data.Extras.GetInt(DeviceListActivity.EXTRA_DEVICE_ACTION);
+
+                        // If already connected to a different reader then disconnect it
+                        if (mReader != null)
+                        {
+                            if (action == DeviceListActivity.DEVICE_CHANGE || action == DeviceListActivity.DEVICE_DISCONNECT)
+                            {
+                                mReader.Disconnect();
+                                if (action == DeviceListActivity.DEVICE_DISCONNECT)
+                                {
+                                    mReader = null;
+                                }
+                            }
+                        }
+
+                        // Use the Reader found
+                        if (action == DeviceListActivity.DEVICE_CHANGE || action == DeviceListActivity.DEVICE_CONNECT)
+                        {
+                            mReader = chosenReader;
+                            getCommander().Reader = mReader;
+                        }
+                    }
+                    break;
+            }
+        }
+
+        //----------------------------------------------------------------------------------------------
+        // Bluetooth permissions checking
+        //----------------------------------------------------------------------------------------------
+
+        private TextView mBluetoothPermissionsPrompt;
+
+        private void checkForBluetoothPermission()
+        {
+            // Older permissions are granted at install time
+            if ((int)Android.OS.Build.VERSION.SdkInt < 31) return;
+
+            if (ContextCompat.CheckSelfPermission(this, Manifest.Permission.BluetoothConnect) != Permission.Granted
+                    || ContextCompat.CheckSelfPermission(this, Manifest.Permission.BluetoothScan) != Permission.Granted)
+            {
+                mBluetoothPermissionsPrompt.Visibility = ViewStates.Visible;
+                if (ShouldShowRequestPermissionRationale(Manifest.Permission.BluetoothConnect))
                 {
-                    mReader = chosenReader;
-                    getCommander().setReader(mReader);
+                    // In an educational UI, explain to the user why your app requires this
+                    // permission for a specific feature to behave as expected. In this UI,
+                    // include a "cancel" or "no thanks" button that allows the user to
+                    // continue using your app without granting the permission.
+                    offerBluetoothPermissionRationale();
+                }
+                else
+                {
+                    requestPermissionLauncher.Launch(bluetoothPermissions);
                 }
             }
-            break;
-    }
-}
-
-//----------------------------------------------------------------------------------------------
-// Bluetooth permissions checking
-//----------------------------------------------------------------------------------------------
-
-private TextView mBluetoothPermissionsPrompt;
-
-private void checkForBluetoothPermission()
-{
-    // Older permissions are granted at install time
-    if (Build.VERSION.SDK_INT < 31) return;
-
-    if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED
-            || ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED)
-    {
-        mBluetoothPermissionsPrompt.setVisibility(View.VISIBLE);
-        if (shouldShowRequestPermissionRationale(Manifest.permission.BLUETOOTH_CONNECT))
-        {
-            // In an educational UI, explain to the user why your app requires this
-            // permission for a specific feature to behave as expected. In this UI,
-            // include a "cancel" or "no thanks" button that allows the user to
-            // continue using your app without granting the permission.
-            offerBluetoothPermissionRationale();
-        }
-        else
-        {
-            requestPermissionLauncher.launch(bluetoothPermissions);
-        }
-    }
-    else
-    {
-        mBluetoothPermissionsPrompt.setVisibility(View.GONE);
-    }
-}
-
-private readonly string[] bluetoothPermissions = new string[] { Manifest.permission.BLUETOOTH_CONNECT, Manifest.permission.BLUETOOTH_SCAN };
-
-void offerBluetoothPermissionRationale()
-{
-    // Older permissions are granted at install time
-    if (Build.VERSION.SDK_INT < 31) return;
-
-    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-    builder.setMessage("Permission is required to connect to TSL Readers over Bluetooth")
-           .setTitle("Allow Bluetooth?");
-
-    builder.setPositiveButton("Show Permission Dialog", new DialogInterface.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.S)
-            public void onClick(DialogInterface dialog, int id)
-    {
-        requestPermissionLauncher.launch(new string[] { Manifest.permission.BLUETOOTH_CONNECT, Manifest.permission.BLUETOOTH_SCAN });
-    }
-});
-
-
-AlertDialog dialog = builder.create();
-dialog.show();
-    }
-
-
-    void showBluetoothPermissionDeniedConsequences()
-{
-    // Note: When permissions have been denied, this will be invoked everytime checkForBluetoothPermission() is called
-    // In your app, we suggest you limit the number of times the User is notified.
-    Toast.makeText(this, "This app will not be able to connect to TSL Readers via Bluetooth.", Toast.LENGTH_LONG).show();
-}
-
-
-// Register the permissions callback, which handles the user's response to the
-// system permissions dialog. Save the return value, an instance of
-// ActivityResultLauncher, as an instance variable.
-private readonly ActivityResultLauncher<string[]> requestPermissionLauncher =
-        registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), permissionsGranted->
+            else
             {
-                //bool allGranted = permissionsGranted.values().stream().reduce(true, Boolean::logicalAnd);
-            bool allGranted = true;
-for (bool isGranted : permissionsGranted.values())
-{
-    allGranted = allGranted && isGranted;
-}
+                mBluetoothPermissionsPrompt.Visibility = ViewStates.Gone;
+            }
+        }
 
-if (allGranted)
-{
-    // Permission is granted. Continue the action or workflow in your
-    // app.
+        private readonly string[] bluetoothPermissions = new string[] { Manifest.Permission.BluetoothConnect, Manifest.Permission.BluetoothScan };
 
-    // Update the ReaderList which will add any unknown reader, firing events appropriately
-    ReaderManager.sharedInstance().updateList();
-    mBluetoothPermissionsPrompt.setVisibility(View.GONE);
-}
-else
-{
-    // Explain to the user that the feature is unavailable because the
-    // features requires a permission that the user has denied. At the
-    // same time, respect the user's decision. Don't link to system
-    // settings in an effort to convince the user to change their
-    // decision.
-    showBluetoothPermissionDeniedConsequences();
-}
+        void offerBluetoothPermissionRationale()
+        {
+            // Older permissions are granted at install time
+            if ((int)Android.OS.Build.VERSION.SdkInt < 31) return;
+
+            Android.App.AlertDialog.Builder builder = new Android.App.AlertDialog.Builder(this);
+            builder.SetMessage("Permission is required to connect to TSL Readers over Bluetooth")
+                   .SetTitle("Allow Bluetooth?");
+
+            builder.SetPositiveButton("Show Permission Dialog", (s, e) =>
+            {
+                requestPermissionLauncher.Launch(new string[] { Manifest.Permission.BluetoothConnect, Manifest.Permission.BluetoothScan });
             });
+
+
+            Android.App.AlertDialog dialog = builder.Create();
+            dialog.Show();
+        }
+
+
+        void showBluetoothPermissionDeniedConsequences()
+        {
+            // Note: When permissions have been denied, this will be invoked everytime checkForBluetoothPermission() is called
+            // In your app, we suggest you limit the number of times the User is notified.
+            Toast.MakeText(this, "This app will not be able to connect to TSL Readers via Bluetooth.", ToastLength.Long).Show();
+        }
+
+
+        // Register the permissions callback, which handles the user's response to the
+        // system permissions dialog. Save the return value, an instance of
+        // ActivityResultLauncher, as an instance variable.
+        ActivityResultLauncher? _requestPermissionLauncher;
+        private ActivityResultLauncher requestPermissionLauncher => _requestPermissionLauncher ??= RegisterForActivityResult(
+                new ActivityResultContracts.RequestMultiplePermissions(),
+                new XActivityResultCallback(permissionsGranted =>
+                {
+                    if (permissionsGranted is not Java.Util.IMap map) { return; }
+
+                    bool allGranted = true;
+                    foreach (bool isGranted in map.Values())
+                    {
+                        allGranted = allGranted && isGranted;
+                    }
+
+                    if (allGranted)
+                    {
+                        // Permission is granted. Continue the action or workflow in your
+                        // app.
+
+                        // Update the ReaderList which will add any unknown reader, firing events appropriately
+                        ReaderManager.SharedInstance().UpdateList();
+                        mBluetoothPermissionsPrompt.Visibility = ViewStates.Gone;
+                    }
+                    else
+                    {
+                        // Explain to the user that the feature is unavailable because the
+                        // features requires a permission that the user has denied. At the
+                        // same time, respect the user's decision. Don't link to system
+                        // settings in an effort to convince the user to change their
+                        // decision.
+                        showBluetoothPermissionDeniedConsequences();
+                    }
+                }));
+    }
+
+    class XActivityResultCallback : Java.Lang.Object, IActivityResultCallback
+    {
+        private Action<Java.Lang.Object> callback;
+
+        public XActivityResultCallback(Action<Java.Lang.Object> callback)
+        {
+            this.callback = callback;
+        }
+
+        public void OnActivityResult(Java.Lang.Object? result)
+        {
+            callback?.Invoke(result);
+        }
     }
 }

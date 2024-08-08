@@ -1,5 +1,5 @@
-﻿using Android.OS;
-using Com.UK.Tsl.Utils;
+﻿using Android.Content;
+using Android.OS;
 
 namespace Com.Tsl.Rfid.AsciiProtocolQs;
 
@@ -7,6 +7,21 @@ public class ModelException : Exception
 {
     public ModelException(string? message) : base(message)
     {
+    }
+}
+
+public class XBroadcastReceiver : BroadcastReceiver
+{
+    private Action<Context, Intent> onReceive;
+
+    public XBroadcastReceiver(Action<Context, Intent> onReceive)
+    {
+        this.onReceive = onReceive;
+    }
+
+    public override void OnReceive(Context? context, Intent? intent)
+    {
+        onReceive?.Invoke(context, intent);
     }
 }
 

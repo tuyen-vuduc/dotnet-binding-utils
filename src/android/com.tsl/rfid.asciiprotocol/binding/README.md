@@ -25,7 +25,7 @@ The binding source code can be found [here](https://github.com/tuyen-vuduc/dotne
 ```
 
 4/ Change `YOUR_ABSOLUTE_PATH_TO_THE_AAR_FILE` to your downloaded/extracted AAR file location
-5/ Open `{YOUR_PROJECT_NAME}.csproj` file and add these lines
+5/ Open `{YOUR_PROJECT_NAME}.csproj` file and add these lines at the very beginning
 
 ```
 <Import Condition=" EXISTS('{YOUR_PROJECT_NAME}.props') " Project="{YOUR_PROJECT_NAME}.props" />

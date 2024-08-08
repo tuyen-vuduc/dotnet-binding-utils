@@ -22,6 +22,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../../binding/Com.Tsl.Rfid.AsciiProtocol.csproj" />
+    <ProjectReference Include="..\Com.Tsl.Rfid.DeviceList\Com.Tsl.Rfid.DeviceList.csproj" />
   </ItemGroup>
   
 	<Import Project="../../binding/Com.Tsl.Rfid.AsciiProtocol.targets" />

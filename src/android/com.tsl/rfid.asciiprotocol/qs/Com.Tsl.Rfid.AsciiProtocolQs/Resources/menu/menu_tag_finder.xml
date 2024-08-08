@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.uk.tsl.rfid.samples.tagfinder.TagFinderActivity">
+
+    <item android:id="@+id/connect_reader_menu_item" android:title="@string/connect_reader_menu_item_text"/>
+    <item android:id="@+id/disconnect_reader_menu_item" android:title="@string/disconnect_reader_menu_item_text"/>
+</menu>

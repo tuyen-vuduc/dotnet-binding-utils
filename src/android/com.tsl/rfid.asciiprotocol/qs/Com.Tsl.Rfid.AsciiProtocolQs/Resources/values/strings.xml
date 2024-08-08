@@ -1,23 +1,23 @@
 <resources>
-	<string name="app_name">Tag Finder</string>
-	<string name="action_settings">Settings</string>
+    <string name="app_name">Tag Finder</string>
+    <string name="action_settings">Settings</string>
 
-	<string name="target_epc_label">Tag (Hex)</string>
-	<string name="tag_info_text">Partial EPCs are matched from the start and actions will affect multiple tags. Tag FInder action MUST have at least a partial EPC specified.</string>
+    <string name="target_epc_label">Tag (Hex)</string>
+    <string name="tag_info_text">Partial EPCs are matched from the start and actions will affect multiple tags. Tag FInder action MUST have at least a partial EPC specified.</string>
 
-	<string name="power_level_label_text">---</string>
-	<string name="rssi_label_text">RSSI (%)</string>
-	<string name="count_label_text">Tags detected: </string>
-	<string name="rssi_subtitle_label_text">Using: ???</string>
-	<string name="rssi_instruction_placeholder_text">Enter a full or partial EPC and press Done.</string>
+    <string name="power_level_label_text">---</string>
+    <string name="rssi_label_text">RSSI (%)</string>
+    <string name="count_label_text">Tags detected: </string>
+    <string name="rssi_subtitle_label_text">Using: ???</string>
+    <string name="rssi_instruction_placeholder_text">Enter a full or partial EPC and press Done.</string>
 
-	<string name="write_button_text">Lock</string>
-	<string name="read_button_text">Read</string>
-	<string name="clear_button_text">Clear Results</string>
+    <string name="write_button_text">Lock</string>
+    <string name="read_button_text">Read</string>
+    <string name="clear_button_text">Clear Results</string>
 
-	<string name="connect_reader_menu_item_text">Connect Reader</string>
-	<string name="change_reader_menu_item_text">Change Reader</string>
-	<string name="disconnect_reader_menu_item_text">Disconnect Reader</string>
+    <string name="connect_reader_menu_item_text">Connect Reader</string>
+    <string name="change_reader_menu_item_text">Change Reader</string>
+    <string name="disconnect_reader_menu_item_text">Disconnect Reader</string>
 	
 	<string name="bt_permission">Permissions required for Bluetooth®. See Settings->Apps</string>
 </resources>
