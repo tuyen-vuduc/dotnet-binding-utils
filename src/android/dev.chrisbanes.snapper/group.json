@@ -1,0 +1,5 @@
+{
+  "name": "dev.chrisbanes.snapper",
+  "dotnet8": true,
+  "runtimeDependenciesAsCompile": true
+}
