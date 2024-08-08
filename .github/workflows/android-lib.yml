@@ -15,7 +15,8 @@ on:
         description: 'Android library to publish'
         required: true
         type: choice
-        options:     
+        options:    
+        - com.pusher:pusher-java-client:2.2.1 
         - org.java-websocket:Java-WebSocket:1.4.0
         - dev.chrisbanes.snapper:snapper:0.2.2
         - io.github.aakira:napier:1.4.1
