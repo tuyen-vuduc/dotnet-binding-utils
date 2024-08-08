@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<color name="tsl_blue">#468</color>-->
+    <!--<color name="text_tsl_yellow">#ED3</color>-->
+    <!--<color name="dl_text_label">#888</color>-->
+    <!--<color name="dl_text_value">#000</color>-->
+    <!--<color name="dl_text_invalid">#C00</color>-->
+    <!--<color name="dl_list_text_enabled">#000</color>-->
+    <!--<color name="dl_list_text_disabled">#AAA</color>-->
+    <color name="dl_row_normal">#fefefe</color>
+    <color name="dl_row_selected">#ccddff</color>
+
+    <color name="dl_transport_on">#1361ff</color>
+    <color name="dl_transport_off">#888888</color>
+
+    <color name="dl_reader">#666666</color>
+    <color name="dl_description">#888888</color>
+
+</resources>

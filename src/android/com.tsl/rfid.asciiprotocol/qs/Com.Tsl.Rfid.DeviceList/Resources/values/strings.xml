@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation">
+
+    <string name="select_reader">Select Reader</string>
+
+    <string name="scanning">Scanning for Readers…</string>
+	<string name="none_found">No Readers found</string>
+    <string name="button_add_new">Add New</string>
+    <string name="action_add_new">Add New</string>
+
+    <string name="bt_permission">Permissions required for Bluetooth®. See Settings->Apps</string>
+
+    <string name="transport_bt">BT</string>
+    <string name="transport_ble">BLE</string>
+    <string name="transport_usb">USB</string>
+
+    <string name="description_unknown_device"></string>
+    <string name="description_1128">Bluetooth® UHF RFID Reader</string>
+    <string name="description_1153">Bluetooth® Wearable UHF RFID Reader</string>
+    <string name="description_1119">UHF RFID Reader for Motorola MC55/65/67</string>
+    <string name="description_1126">Desktop UHF RFID Reader</string>
+    <string name="description_1166">Bluetooth® Rugged UHF RFID Reader</string>
+    <string name="description_2166">Bluetooth® Rugged UHF RFID Reader with ePop-Loq</string>
+    <string name="description_2128">Bluetooth® UHF RFID Reader with ePop-Loq</string>
+    <string name="description_ih21">Bluetooth® UHF RFID Reader with ePop-Loq</string>
+    <string name="description_2128l">UHF RFID Reader with Linear Antenna and ePop-Loq</string>
+    <string name="description_ih21l">UHF RFID Reader with Linear Antenna and ePop-Loq</string>
+    <string name="description_2128p">UHF RFID Reader with High Gain Antenna and ePop-Loq</string>
+    <string name="description_2173">Bluetooth® HF/LF RFID Reader</string>
+
+    <string name="description_3066">Prototype Bluetooth® Rugged UHF RFID Reader with ePop-Loq</string>
+    <string name="description_3166">Bluetooth® Rugged UHF RFID Reader with ePop-Loq</string>
+    <string name="description_3128">Bluetooth® UHF RFID Reader with ePop-Loq</string>
+
+</resources>

@@ -1,0 +1,5 @@
+{
+  "name": "com.tsl",
+  "dotnet8": true,
+  "runtimeDependenciesAsCompile": true
+}

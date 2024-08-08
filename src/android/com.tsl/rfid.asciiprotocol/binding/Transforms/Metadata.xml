@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <attr path="//field[@name='mChipStatus']" name="managedName">mChipStatus_</attr>
+    <attr path="//field[@name='mFtDev']" name="managedName">mFtDev_</attr>
+    <attr path="//field[@name='mGpio']" name="managedName">mGpio_</attr>
+    <attr path="//field[@name='mSpiMasterCfg']" name="managedName">mSpiMasterCfg_</attr>
+    <attr path="//field[@name='TAG']" name="managedName">TAG</attr>
+    <attr path="//field[@name='version']" name="managedName">version_</attr>
+</metadata>
