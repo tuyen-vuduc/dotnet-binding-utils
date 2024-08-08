@@ -16,6 +16,7 @@ on:
         required: true
         type: choice
         options:     
+        - org.slf4j:slf4j-api:1.7.25
         - com.stripe:stripeterminal:3.7.1
         - com.stripe:stripeterminal-core:3.7.1
         - com.stripe:stripeterminal-internal-common:3.7.1
