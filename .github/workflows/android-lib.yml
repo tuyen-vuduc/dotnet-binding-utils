@@ -16,6 +16,7 @@ on:
         required: true
         type: choice
         options:     
+        - org.jetbrains.kotlinx:kotlinx-datetime:0.4.0
         - org.slf4j:slf4j-api:1.7.25
         - com.stripe:stripeterminal:3.7.1
         - com.stripe:stripeterminal-core:3.7.1
@@ -32,7 +33,6 @@ on:
         - com.squareup.wire:wire-runtime-jvm:4.9.9
         - com.squareup.wire:wire-runtime:4.9.9
         - org.jetbrains.kotlin:kotlin-parcelize-runtime:1.9.24
-        - org.jetbrains.kotlinx:kotlinx-datetime:0.6.0
         - dev.zacsweers.redacted:redacted-compiler-plugin-annotations:1.8.0
         - com.squareup.tape2:tape:2.0.0-beta1
         - org.kamranzafar:jtar:2.3
