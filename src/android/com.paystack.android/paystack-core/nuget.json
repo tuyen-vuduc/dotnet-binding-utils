@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Paystack.Android.PaystackCore",
+  "name": "paystack-core",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

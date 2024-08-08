@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Paystack.Android.DesignSystemAndroid",
+  "name": "design-system-android",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}
