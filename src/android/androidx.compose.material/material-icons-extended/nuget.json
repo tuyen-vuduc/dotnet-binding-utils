@@ -1,0 +1,7 @@
+{
+  "packageId": "Xamarin.AndroidX.Compose.Material.Icons.Extended",
+  "name": "material-icons-extended",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}
