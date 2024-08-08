@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <attr path="//field[@name='continuousFrameType']" name="managedName">continuousFrameType_</attr>
+    <attr path="//field[@name='role']" name="managedName">role_</attr>
+    <attr path="/api/package[@name='org.java_websocket']/interface[@name='WebSocketListener']/method[@name='onWebsocketMessage' and count(parameter)=2 and parameter[1][@type='org.java_websocket.WebSocket'] and parameter[2][@type='java.nio.ByteBuffer']]"
+        name="managedName">OnWebsocketMessageByteBuffer</attr>
+    <attr path="/api/package[@name='org.java_websocket']/interface[@name='WebSocketListener']/method[@name='onWebsocketMessage' and count(parameter)=2 and parameter[1][@type='org.java_websocket.WebSocket'] and parameter[2][@type='java.nio.ByteBuffer']]"
+        name="eventName">OnWebsocketMessageByteBuffer</attr>
+	<attr path="/api/package[@name='org.java_websocket.client']/class[@name='WebSocketClient']/method[@name='onWebsocketMessage' and count(parameter)=2 and parameter[1][@type='org.java_websocket.WebSocket'] and parameter[2][@type='java.nio.ByteBuffer']]"
+		  name="managedName">OnWebsocketMessageByteBuffer</attr>
+	<attr path="/api/package[@name='org.java_websocket.server']/class[@name='WebSocketServer']/method[@name='onWebsocketMessage' and count(parameter)=2 and parameter[1][@type='org.java_websocket.WebSocket'] and parameter[2][@type='java.nio.ByteBuffer']]"
+	    name="managedName">OnWebsocketMessageByteBuffer</attr>
+	<attr path="/api/package[@name='org.java_websocket.server']/class[@name='WebSocketServer']/method[@name='getConnections' and count(parameter)=0]"
+		  name="visibility">protected</attr>
+	<remove-node path="/api/package[@name='org.java_websocket']/interface[@name='WebSocketServerFactory']/method[@name='createWebSocket' and count(parameter)=2 and parameter[1][@type='org.java_websocket.WebSocketAdapter'] and parameter[2][@type='org.java_websocket.drafts.Draft']]" />
+    <remove-node path="/api/package[@name='org.java_websocket']/interface[@name='WebSocketServerFactory']/method[@name='createWebSocket' and count(parameter)=2 and parameter[1][@type='org.java_websocket.WebSocketAdapter'] and parameter[2][@type='java.util.List&lt;org.java_websocket.drafts.Draft&gt;']]" />
+</metadata>

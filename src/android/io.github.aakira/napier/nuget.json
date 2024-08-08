@@ -1,7 +1,7 @@
 {
   "packageId": "Io.Github.Aakira.Napier",
   "name": "napier",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }

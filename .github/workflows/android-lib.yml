@@ -16,6 +16,7 @@ on:
         required: true
         type: choice
         options:     
+        - org.java-websocket:Java-WebSocket:1.4.0
         - dev.chrisbanes.snapper:snapper:0.2.2
         - io.github.aakira:napier:1.4.1
         - org.jetbrains.kotlinx:kotlinx-datetime:0.4.0
