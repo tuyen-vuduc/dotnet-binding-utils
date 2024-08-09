@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Paystack.Android.PaystackUi",
   "name": "paystack-ui",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }

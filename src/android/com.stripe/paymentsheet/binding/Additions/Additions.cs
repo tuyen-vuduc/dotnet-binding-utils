@@ -15,6 +15,14 @@ namespace Com.Stripe.Android.Customersheet
 }
 namespace Com.Stripe.Android.Customersheet.Injection
 {
+    partial class CustomerSheetViewModelModule_Companion_ProvidesIntentConfirmationHandlerFactoryFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class CustomerSheetViewModelModule_Companion_ProvidesBacsMandateConfirmationLauncherFactoryFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
     partial class CustomerSheetModule_ProvideStripeImageLoaderFactory
     {
         global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
@@ -135,8 +143,62 @@ namespace Com.Stripe.Android.Paymentsheet.Addresselement
         global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
     }
 }
+namespace Com.Stripe.Android.Paymentsheet
+{
+    partial interface IPaymentConfirmationOption
+    {
+        partial class ExternalPaymentMethod
+        {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+            }
+        }
+        partial class GooglePay
+        {
+            partial class Config
+            {
+                partial class Creator
+                {
+                    global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                    global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+                }
+            }
+        }
+        partial class GooglePay
+        {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+            }
+        }
+        partial class New
+        {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+            }
+        }
+        partial class Saved
+        {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+            }
+        }
+    }
+}
+
 namespace Com.Stripe.Android.Paymentsheet.Flowcontroller
 {
+    partial class FlowControllerModule_ProvidesAppContextFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
     partial class FlowControllerModule_ProvideEventReporterModeFactory
     {
         global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
@@ -167,6 +229,10 @@ namespace Com.Stripe.Android.Paymentsheet.Forms
 }
 namespace Com.Stripe.Android.Paymentsheet.Injection
 {
+    partial class PaymentSheetViewModelModule_ProvidesIntentConfirmationHandlerFactoryFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
     partial class PaymentSheetCommonModule_Companion_ProvideCvcRecollectionLauncherFactoryFactory
     {
         global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
@@ -789,7 +855,8 @@ namespace Com.Stripe.Android.Paymentsheet.Model
                     global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
                         => this.NewArray(size);
                 }
-                partial class InstantDebitsInfo {
+                partial class InstantDebitsInfo
+                {
                     partial class Creator
                     {
                         global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source)
@@ -820,7 +887,8 @@ namespace Com.Stripe.Android.Paymentsheet.Model
                     => this.NewArray(size);
             }
         }
-        partial class ExternalPaymentMethod {
+        partial class ExternalPaymentMethod
+        {
             partial class Creator
             {
                 global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source)
@@ -884,21 +952,28 @@ namespace Com.Stripe.Android.Paymentsheet.Databinding
         global::Android.Views.View global::AndroidX.ViewBinding.IViewBinding.Root => Root;
     }
 }
-namespace Com.Stripe.Android.Paymentsheet.Navigation {
-    partial interface IPaymentSheetScreen {
-        partial class SelectSavedPaymentMethods {
-            partial interface ICvcRecollectionState {
-                partial class NotRequired {
+namespace Com.Stripe.Android.Paymentsheet.Navigation
+{
+    partial interface IPaymentSheetScreen
+    {
+        partial class SelectSavedPaymentMethods
+        {
+            partial interface ICvcRecollectionState
+            {
+                partial class NotRequired
+                {
                     // Metadata.xml XPath field reference: path="/api/package[@name='com.stripe.android.paymentsheet.navigation']/class[@name='PaymentSheetScreen.SelectSavedPaymentMethods.CvcRecollectionState.NotRequired']/field[@name='INSTANCE']"
-					[Register ("INSTANCE")]
-					public static global::Com.Stripe.Android.Paymentsheet.Navigation.IPaymentSheetScreen.SelectSavedPaymentMethods.ICvcRecollectionState.NotRequired Instance {
-						get {
-							const string __id = "INSTANCE.Lcom/stripe/android/paymentsheet/navigation/PaymentSheetScreen$SelectSavedPaymentMethods$CvcRecollectionState$NotRequired;";
+                    [Register("INSTANCE")]
+                    public static global::Com.Stripe.Android.Paymentsheet.Navigation.IPaymentSheetScreen.SelectSavedPaymentMethods.ICvcRecollectionState.NotRequired Instance
+                    {
+                        get
+                        {
+                            const string __id = "INSTANCE.Lcom/stripe/android/paymentsheet/navigation/PaymentSheetScreen$SelectSavedPaymentMethods$CvcRecollectionState$NotRequired;";
 
-							var __v = _members.StaticFields.GetObjectValue (__id);
-							return global::Java.Lang.Object.GetObject<global::Com.Stripe.Android.Paymentsheet.Navigation.IPaymentSheetScreen.SelectSavedPaymentMethods.ICvcRecollectionState.NotRequired> (__v.Handle, JniHandleOwnership.TransferLocalRef)!;
-						}
-					}
+                            var __v = _members.StaticFields.GetObjectValue(__id);
+                            return global::Java.Lang.Object.GetObject<global::Com.Stripe.Android.Paymentsheet.Navigation.IPaymentSheetScreen.SelectSavedPaymentMethods.ICvcRecollectionState.NotRequired>(__v.Handle, JniHandleOwnership.TransferLocalRef)!;
+                        }
+                    }
                 }
             }
         }

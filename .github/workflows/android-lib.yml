@@ -16,6 +16,15 @@ on:
         required: true
         type: choice
         options:    
+        - com.stripe:stripe-android:20.48.3
+        - com.stripe:paymentsheet:20.48.3
+        - com.stripe:link:20.48.3
+        - com.stripe:payments-ui-core:20.48.3
+        - com.stripe:payments-core:20.48.3
+        - com.stripe:payments-model:20.48.3
+        - com.stripe:stripe-ui-core:20.48.3
+        - com.stripe:stripe-core:20.48.3
+        - com.stripe:hcaptcha:20.48.3
         - com.paystack.android:paystack-ui:0.0.9
         - com.paystack.android:paystack-core:0.0.9
         - com.paystack.android:design-system-android:0.0.4
@@ -56,11 +65,6 @@ on:
         - com.facebook.fresco:fresco:3.2.0
         - io.github.sceneview:sceneview:2.2.1
         - io.github.sceneview:arsceneview:2.2.1
-        - com.stripe:payments-core:20.48.0
-        - com.stripe:payments-ui-core:20.48.0
-        - com.stripe:link:20.48.0
-        - com.stripe:paymentsheet:20.48.0
-        - com.stripe:stripe-android:20.48.0
         - com.mapbox.maps:android-core:11.5.2
         - com.mapbox.maps:base:11.5.1
         - com.mapbox.module:maps-telemetry:11.5.1

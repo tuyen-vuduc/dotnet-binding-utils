@@ -1,0 +1,15 @@
+{
+    "Xamarin.AndroidX.Activity.Ktx": "1.9.0.1",
+    "Xamarin.AndroidX.Lifecycle.ViewModel":  "2.8.3.1",
+    " Xamarin.AndroidX.Lifecycle.Runtime": "2.8.3.1",
+    "Xamarin.AndroidX.Annotation": "1.8.0.1",
+    "Xamarin.AndroidX.AppCompat": "1.7.0.1",
+    "Xamarin.AndroidX.Compose.UI": "1.6.1.1",
+    "Xamarin.Kotlin.StdLib": "2.0.0.1",
+    "Xamarin.KotlinX.Coroutines.Android": "1.8.1.1",
+    "Xamarin.KotlinX.Coroutines.Core": "1.8.1.1",
+    "Xamarin.AndroidX.Core.Core.Ktx": "1.13.1.3",
+    "Xamarin.AndroidX.Compose.Runtime": "1.6.1.1",
+    "Xamarin.AndroidX.Lifecycle.ViewModelSavedState": "2.8.3.1",
+    "Xamarin.AndroidX.Lifecycle.Common": "2.8.3.1"
+}
