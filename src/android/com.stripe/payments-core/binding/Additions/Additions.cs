@@ -2,7 +2,55 @@ using System;
 using System.Collections.Generic;
 using Android.Runtime;
 using Java.Interop;
-
+namespace Com.Stripe.Android.Payments.Core.Authentication.Threeds2
+{
+    partial class Stripe3DS2NextActionHandler_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+}
+namespace Com.Stripe.Android.Payments.Core.Authentication
+{
+    partial class NoOpIntentNextActionHandler_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class SourceNextActionHandler_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class UnsupportedNextActionHandler_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class VoucherNextActionHandler_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class WebIntentNextActionHandler_Factory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+}
+namespace Com.Stripe.Android.Payments.Core.Injection
+{
+    partial class NextActionHandlerModule_Companion_ProvidePaymentBrowserAuthStarterFactoryFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class NextActionHandlerModule_Companion_ProvidePaymentRelayStarterFactoryFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class PaymentLauncherModule_ProvidePaymentNextActionHandlerRegistryFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+    partial class Stripe3DSNextActionHandlerModule_Companion_ProvidePaymentAuthConfigFactory
+    {
+        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+    }
+}
 namespace Com.Stripe.Android.Databinding
 {
     partial class Stripe3ds2TransactionLayoutBinding
@@ -30,7 +78,20 @@ namespace Com.Stripe.Android.Databinding
     partial class StripeShippingInfoPageBinding { global::Android.Views.View global::AndroidX.ViewBinding.IViewBinding.Root => Root; }
     partial class StripeShippingMethodPageBinding { global::Android.Views.View global::AndroidX.ViewBinding.IViewBinding.Root => Root; }
 }
-
+namespace Com.Stripe.Android.Model
+{
+    partial class PaymentMethod
+    {
+        partial class AllowRedisplay
+        {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+            }
+        }
+    }
+}
 namespace Com.Stripe.Android
 {
     partial class EphemeralKey
@@ -1127,7 +1188,7 @@ namespace Com.Stripe.Android.Model
             }
         }
     }
-    
+
     partial class ElementsSession
     {
         partial class Customer
@@ -1144,7 +1205,7 @@ namespace Com.Stripe.Android.Model
                     global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
                     global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
                 }
-                
+
                 partial interface ICustomerSheet
                 {
                     partial class Enabled
@@ -1164,7 +1225,7 @@ namespace Com.Stripe.Android.Model
                         }
                     }
                 }
-                
+
                 partial interface IPaymentSheet
                 {
                     partial class Enabled
@@ -4075,35 +4136,8 @@ namespace Com.Stripe.Android.Payments.Core.Analytics
         global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
     }
 }
-namespace Com.Stripe.Android.Payments.Core.Authentication
-{
-    partial class VoucherAuthenticator_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class NoOpIntentAuthenticator_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class SourceAuthenticator_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class UnsupportedAuthenticator_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class WebIntentAuthenticator_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-}
 namespace Com.Stripe.Android.Payments.Core.Authentication.Threeds2
 {
-    partial class Stripe3DS2Authenticator_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
     partial class Stripe3ds2TransactionViewModel_Factory
     {
         global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
@@ -4111,19 +4145,7 @@ namespace Com.Stripe.Android.Payments.Core.Authentication.Threeds2
 }
 namespace Com.Stripe.Android.Payments.Core.Injection
 {
-    partial class AuthenticationModule_Companion_ProvidePaymentBrowserAuthStarterFactoryFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class AuthenticationModule_Companion_ProvidePaymentRelayStarterFactoryFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
     partial class PaymentLauncherModule_ProvideIsInstantAppFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class PaymentLauncherModule_ProvidePaymentAuthenticatorRegistryFactory
     {
         global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
     }
@@ -4136,10 +4158,6 @@ namespace Com.Stripe.Android.Payments.Core.Injection
         global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
     }
     partial class Stripe3ds2TransactionModule_Companion_ProvideStripeThreeDs2ServiceFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class Stripe3DSAuthenticatorModule_Companion_ProvidePaymentAuthConfigFactory
     {
         global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
     }
