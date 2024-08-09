@@ -16,6 +16,7 @@ on:
         required: true
         type: choice
         options:    
+        - com.stripe:hcaptcha:20.48.3
         - com.paystack.android:paystack-ui:0.0.9
         - com.paystack.android:paystack-core:0.0.9
         - com.paystack.android:design-system-android:0.0.4
