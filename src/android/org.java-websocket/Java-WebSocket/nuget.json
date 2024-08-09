@@ -1,0 +1,7 @@
+{
+  "packageId": "Org.JavaWebsocket.JavaWebSocket",
+  "name": "Java-WebSocket",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}

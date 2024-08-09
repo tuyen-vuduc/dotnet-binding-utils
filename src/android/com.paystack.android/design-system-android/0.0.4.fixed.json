@@ -1,0 +1,6 @@
+{
+    "Xamarin.Kotlin.StdLib.Jdk8": "1.9.10.1",
+    "Xamarin.AndroidX.Core.Core.Ktx": "1.12.0.1",
+    "Xamarin.AndroidX.Lifecycle.Runtime.Ktx": "2.6.2.1",
+    "Xamarin.AndroidX.Activity.Ktx": "1.7.2.2"
+}

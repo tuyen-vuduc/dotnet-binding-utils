@@ -1,0 +1,7 @@
+{
+  "packageId": "Xamarin.Google.Accompanist.Pager.Indicators",
+  "name": "accompanist-pager-indicators",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}

@@ -1,0 +1,7 @@
+{
+  "packageId": "Dev.Chrisbanes.Snapper.Snapper",
+  "name": "snapper",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}

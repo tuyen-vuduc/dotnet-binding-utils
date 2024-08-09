@@ -7,7 +7,7 @@ const fs = require("node:fs");
 //             => DecodedObjectFromAPIResponse(response);
 //     `);
 // process_stripe('STPFormEncodable', '');
-process_field();
+// process_field();
 // process_IJsonDeserializer();
 // process_Com_Example_Dsroom_Dao_IBaseDao();
 // process_Com_Google_Android_Material_Circularreveal_ICircularRevealWidget();
@@ -17,7 +17,7 @@ process_field();
 // process_AndroidX_ViewBinding_IViewBinding();
 // process_Com_Stripe_Android_Uicore_Elements_IFormElement();
 // process_JavaX_Inject_IProvider();
-// process_Android_OS_IParcelableCreator();
+process_Android_OS_IParcelableCreator();
 // process_Com_Stripe_Android_Model_IStripeIntent();
 
 function process_Com_Squareup_Moshi_JsonAdapter() {
@@ -538,7 +538,7 @@ function process_Android_OS_IParcelableCreator() {
     .toString()
     .trim()
     .split("\n")
-    .map(x => /.+src\\([^ ]+)\.cs.+'(\w+[^ ]+Creator)'.+/.exec(x))
+    .map(x => /.+src\\([^ ]+)\.cs.+'(\w+[^ ]+Creator)'.+IParcelableCreator.+/.exec(x))
     .filter(x => !!x)
     .map(x => x.slice(1, 3))
     .map(x => x.join(' '))

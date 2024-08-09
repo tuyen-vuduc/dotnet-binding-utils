@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Pusher.PusherJavaClient",
+  "name": "pusher-java-client",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}

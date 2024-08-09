@@ -1,0 +1,5 @@
+{
+  "name": "com.pusher",
+  "dotnet8": true,
+  "runtimeDependenciesAsCompile": true
+}

@@ -1,3 +1,5 @@
 {
-  "name": "androidx.compose.material3"
+  "name": "androidx.compose.material3",
+  "dotnet8": true,
+  "runtimeDependenciesAsCompile": true
 }
