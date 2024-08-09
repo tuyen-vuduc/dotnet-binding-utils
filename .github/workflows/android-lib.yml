@@ -16,6 +16,9 @@ on:
         required: true
         type: choice
         options:    
+        - com.paystack.android:paystack-core:0.0.9
+        - com.paystack.android:design-system-android:0.0.4
+        - com.paystack.android:design-system-android:0.0.4
         - com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0
         - com.pusher:pusher-java-client:2.2.1 
         - org.java-websocket:Java-WebSocket:1.4.0
