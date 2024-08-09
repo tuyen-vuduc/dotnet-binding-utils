@@ -16,6 +16,7 @@ on:
         required: true
         type: choice
         options:    
+        - com.stripe:payments-ui-core:20.48.3
         - com.stripe:payments-core:20.48.3
         - com.stripe:payments-model:20.48.3
         - com.stripe:stripe-ui-core:20.48.3
