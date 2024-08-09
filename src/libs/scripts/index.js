@@ -494,7 +494,7 @@ function process_JavaX_Inject_IProvider() {
     .toString()
     .trim()
     .split("\n")
-    .map(x => /.+src\\([^ ]+Factory)\.cs.+'(\w+[^ ]+Factory)'.+/.exec(x))
+    .map(x => /.+src\\([^ ]+Factory)\.cs.+'(\w+[^ ]+Factory)'.+IProvider.+/.exec(x))
     .filter(x => !!x)
     .map(x => x.slice(1, 3))
     .map(x => x.join(' '))
