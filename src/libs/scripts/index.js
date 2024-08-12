@@ -13,11 +13,11 @@ const fs = require("node:fs");
 // process_Com_Google_Android_Material_Circularreveal_ICircularRevealWidget();
 // process_Android_Util_ITypeEvaluator();
 // process_Android_Util_Property();
-// process_downgrade();
+process_downgrade();
 // process_AndroidX_ViewBinding_IViewBinding();
 // process_Com_Stripe_Android_Uicore_Elements_IFormElement();
 // process_JavaX_Inject_IProvider();
-process_Android_OS_IParcelableCreator();
+// process_Android_OS_IParcelableCreator();
 // process_Com_Stripe_Android_Model_IStripeIntent();
 
 function process_Com_Squareup_Moshi_JsonAdapter() {
@@ -494,7 +494,7 @@ function process_JavaX_Inject_IProvider() {
     .toString()
     .trim()
     .split("\n")
-    .map(x => /.+src\\([^ ]+Factory)\.cs.+'(\w+[^ ]+Factory)'.+/.exec(x))
+    .map(x => /.+src\\([^ ]+Factory)\.cs.+'(\w+[^ ]+Factory)'.+IProvider.+/.exec(x))
     .filter(x => !!x)
     .map(x => x.slice(1, 3))
     .map(x => x.join(' '))

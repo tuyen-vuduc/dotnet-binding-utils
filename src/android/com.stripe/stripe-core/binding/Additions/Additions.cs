@@ -3,6 +3,21 @@ using System.Collections.Generic;
 using Android.Runtime;
 using Java.Interop;
 
+namespace Com.Stripe.Android.Core.Strings.Transformations
+{
+    partial class Replace
+    {
+        partial class Creator
+        {
+            unsafe global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel parcel)
+                => CreateFromParcel(parcel);
+
+            unsafe global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
+                => NewArray(size).Cast<global::Java.Lang.Object>().ToArray();
+        }
+    }
+}
+
 namespace Com.Stripe.Android.Core.Model
 {
     partial class StripeFile
@@ -81,7 +96,7 @@ namespace Com.Stripe.Android.Core
 namespace Com.Stripe.Android.Core.Utils
 {
     partial class RealUserFacingLogger_Factory
-    {   
+    {
         global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
     }
     partial class RealIsWorkManagerAvailable_Factory
@@ -334,22 +349,25 @@ namespace Com.Stripe.Android.Core.Injection
         global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
     }
 }
-namespace Com.Stripe.Android.Core.Networking {
-    
+namespace Com.Stripe.Android.Core.Networking
+{
+
     partial class RealAnalyticsRequestV2Storage_Factory
     {
         global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
     }
 }
-namespace Com.Stripe.Android.Core.Model.Serializers {
+namespace Com.Stripe.Android.Core.Model.Serializers
+{
     partial class CountryListSerializer : global::KotlinX.Serialization.ISerializationStrategy
     {
         Java.Lang.Object? KotlinX.Serialization.IDeserializationStrategy.Deserialize(KotlinX.Serialization.Encoding.IDecoder decoder)
             => new global::Android.Runtime.JavaList<global::Com.Stripe.Android.Core.Model.Country>(Deserialize(decoder));
 
-        void KotlinX.Serialization.ISerializationStrategy.Serialize(KotlinX.Serialization.Encoding.IEncoder encoder, Java.Lang.Object? value) {
+        void KotlinX.Serialization.ISerializationStrategy.Serialize(KotlinX.Serialization.Encoding.IEncoder encoder, Java.Lang.Object? value)
+        {
             var xvalue = global::Android.Runtime.JavaList<global::Com.Stripe.Android.Core.Model.Country>.FromJniHandle(
-                value.Handle, 
+                value.Handle,
                 JniHandleOwnership.TransferLocalRef);
             Serialize(encoder, xvalue);
         }
