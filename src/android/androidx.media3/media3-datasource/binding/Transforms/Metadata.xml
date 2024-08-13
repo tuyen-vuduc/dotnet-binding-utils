@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <remove-node path="/api/package[@name='androidx.media3.datasource']/interface[@name='HttpDataSource.Factory']/method[@name='createDataSource' and count(parameter)=0]" />
+    <remove-node path="/api/package[@name='androidx.media3.datasource']/class[@name='HttpDataSource.BaseFactory']/implements[@name='androidx.media3.datasource.HttpDataSource.Factory']" />
+</metadata>

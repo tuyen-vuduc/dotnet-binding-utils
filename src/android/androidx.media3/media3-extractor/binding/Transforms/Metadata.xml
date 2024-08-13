@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <attr path="//field[@name='seekMap']" name="managedName">seekMap_</attr>
+    <attr path="//field[@name='seekOperationParams']" name="managedName">seekOperationParams_</attr>
+    <attr path="//field[@name='timestampSeeker']" name="managedName">timestampSeeker_</attr>
+    <attr path="//field[@name='bitsPerSample']" name="managedName">bitsPerSample_</attr>
+    <attr path="//field[@name='bitsPerSampleLookupKey']" name="managedName">bitsPerSampleLookupKey_</attr>
+    <attr path="//field[@name='channels']" name="managedName">channels_</attr>
+    <attr path="//field[@name='maxBlockSizeSamples']" name="managedName">maxBlockSizeSamples_</attr>
+    <attr path="//field[@name='maxFrameSize']" name="managedName">maxFrameSize_</attr>
+    <attr path="//field[@name='minBlockSizeSamples']" name="managedName">minBlockSizeSamples_</attr>
+    <attr path="//field[@name='minFrameSize']" name="managedName">minFrameSize_</attr>
+    <attr path="//field[@name='NOT_IN_LOOKUP_TABLE']" name="managedName">NOT_IN_LOOKUP_TABLE</attr>
+    <attr path="//field[@name='sampleRate']" name="managedName">sampleRate_</attr>
+    <attr path="//field[@name='sampleRateLookupKey']" name="managedName">sampleRateLookupKey_</attr>
+    <attr path="//field[@name='seekTable']" name="managedName">seekTable_</attr>
+    <attr path="//field[@name='totalSamples']" name="managedName">totalSamples_</attr>
+    <attr path="//field[@name='clutEntries2Bit']" name="managedName">clutEntries2Bit_</attr>
+    <attr path="//field[@name='clutEntries4Bit']" name="managedName">clutEntries4Bit_</attr>
+    <attr path="//field[@name='clutEntries8Bit']" name="managedName">clutEntries8Bit_</attr>
+    <attr path="//field[@name='id']" name="managedName">id_</attr>
+    <attr path="//field[@name='CUE_REPLACEMENT_BEHAVIOR']" name="managedName">CUE_REPLACEMENT_BEHAVIOR</attr>
+    <attr path="/api/package[@name='androidx.media3.extractor']/interface[@name='BinarySearchSeeker.SeekTimestampConverter']" name="visibility">public</attr>
+    <attr path="/api/package[@name='androidx.media3.extractor.text.cea']/class[@name='CeaDecoder']" name="visibility">public</attr>
+    <attr path="/api/package[@name='androidx.media3.extractor.metadata.id3']/class[@name='ApicFrame']/method[@name='populateMediaMetadata' and count(parameter)=1 and parameter[1][@type='androidx.media3.common.MediaMetadata.Builder']]" name="final">true</attr>
+    <attr path="/api/package[@name='androidx.media3.extractor.metadata.id3']/class[@name='TextInformationFrame']/method[@name='populateMediaMetadata' and count(parameter)=1 and parameter[1][@type='androidx.media3.common.MediaMetadata.Builder']]" name="final">true</attr>
+    <remove-node path="/api/package[@name='androidx.media3.extractor.text.cea']/class[@name='CeaDecoder']/implements[@name='androidx.media3.extractor.text.SubtitleDecoder']" />
+</metadata>

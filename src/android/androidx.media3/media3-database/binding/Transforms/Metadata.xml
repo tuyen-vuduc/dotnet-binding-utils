@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <attr path="//field[@name='DATABASE_NAME']" name="managedName">DATABASE_NAME</attr>
+</metadata>

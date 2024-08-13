@@ -1,0 +1,7 @@
+{
+  "packageId": "Androidx.Media3.Media3Datasource",
+  "name": "media3-datasource",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}
