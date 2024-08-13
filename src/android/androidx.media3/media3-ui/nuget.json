@@ -1,7 +1,7 @@
 {
   "packageId": "Androidx.Media3.Media3Ui",
   "name": "media3-ui",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }
