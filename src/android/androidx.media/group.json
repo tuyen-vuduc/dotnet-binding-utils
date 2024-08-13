@@ -1,5 +1,5 @@
 {
-  "name": "com.google.guava",
+  "name": "androidx.media",
   "dotnet8": true,
   "runtimeDependenciesAsCompile": true
 }

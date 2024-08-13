@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <attr path="//field[@name='clippingConfiguration']" name="managedName">clippingConfiguration_</attr>
+    <attr path="//field[@name='clippingProperties']" name="managedName">clippingProperties_</attr>
+    <attr path="//field[@name='DEFAULT_MEDIA_ID']" name="managedName">DEFAULT_MEDIA_ID</attr>
+    <attr path="//field[@name='EMPTY']" name="managedName">EMPTY</attr>
+    <attr path="//field[@name='liveConfiguration']" name="managedName">liveConfiguration_</attr>
+    <attr path="//field[@name='localConfiguration']" name="managedName">localConfiguration_</attr>
+    <attr path="//field[@name='mediaId']" name="managedName">mediaId_</attr>
+    <attr path="//field[@name='mediaMetadata']" name="managedName">mediaMetadata_</attr>
+    <attr path="//field[@name='playbackProperties']" name="managedName">playbackProperties_</attr>
+    <attr path="//field[@name='requestMetadata']" name="managedName">requestMetadata_</attr>
+    <attr path="//field[@name='durationUs']" name="managedName">durationUs_</attr>
+    <attr path="//field[@name='id']" name="managedName">id_</attr>
+    <attr path="//field[@name='isPlaceholder']" name="managedName">isPlaceholder_</attr>
+    <attr path="//field[@name='positionInWindowUs']" name="managedName">positionInWindowUs_</attr>
+    <attr path="//field[@name='uid']" name="managedName">uid_</attr>
+    <attr path="//field[@name='windowIndex']" name="managedName">windowIndex_</attr>
+    <attr path="//field[@name='defaultPositionUs']" name="managedName">defaultPositionUs_</attr>
+    <attr path="//field[@name='durationUs']" name="managedName">durationUs_</attr>
+    <attr path="//field[@name='elapsedRealtimeEpochOffsetMs']" name="managedName">elapsedRealtimeEpochOffsetMs_</attr>
+    <attr path="//field[@name='firstPeriodIndex']" name="managedName">firstPeriodIndex_</attr>
+    <attr path="//field[@name='isDynamic']" name="managedName">isDynamic_</attr>
+    <attr path="//field[@name='isPlaceholder']" name="managedName">isPlaceholder_</attr>
+    <attr path="//field[@name='isSeekable']" name="managedName">isSeekable_</attr>
+    <attr path="//field[@name='lastPeriodIndex']" name="managedName">lastPeriodIndex_</attr>
+    <attr path="//field[@name='liveConfiguration']" name="managedName">liveConfiguration_</attr>
+    <attr path="//field[@name='manifest']" name="managedName">manifest_</attr>
+    <attr path="//field[@name='mediaItem']" name="managedName">mediaItem_</attr>
+    <attr path="//field[@name='positionInFirstPeriodUs']" name="managedName">positionInFirstPeriodUs_</attr>
+    <attr path="//field[@name='presentationStartTimeMs']" name="managedName">presentationStartTimeMs_</attr>
+    <attr path="//field[@name='SINGLE_WINDOW_UID']" name="managedName">SINGLE_WINDOW_UID</attr>
+    <attr path="//field[@name='tag']" name="managedName">tag_</attr>
+    <attr path="//field[@name='uid']" name="managedName">uid_</attr>
+    <attr path="//field[@name='windowStartTimeMs']" name="managedName">windowStartTimeMs_</attr>
+    <attr path="//field[@name='audioOffloadPreferences']" name="managedName">audioOffloadPreferences_</attr>
+    <attr path="//field[@name='DEFAULT']" name="managedName">DEFAULT</attr>
+    <attr path="//field[@name='DEFAULT_WITHOUT_CONTEXT']" name="managedName">DEFAULT_WITHOUT_CONTEXT</attr>
+    <attr path="//field[@name='FIELD_CUSTOM_ID_BASE']" name="managedName">FIELD_CUSTOM_ID_BASE</attr>
+    <attr path="//field[@name='forceHighestSupportedBitrate']" name="managedName">forceHighestSupportedBitrate_</attr>
+    <attr path="//field[@name='forceLowestBitrate']" name="managedName">forceLowestBitrate_</attr>
+    <attr path="//field[@name='ignoredTextSelectionFlags']" name="managedName">ignoredTextSelectionFlags_</attr>
+    <attr path="//field[@name='isPrioritizeImageOverVideoEnabled']" name="managedName">isPrioritizeImageOverVideoEnabled_</attr>
+    <attr path="//field[@name='maxAudioBitrate']" name="managedName">maxAudioBitrate_</attr>
+    <attr path="//field[@name='maxAudioChannelCount']" name="managedName">maxAudioChannelCount_</attr>
+    <attr path="//field[@name='maxVideoBitrate']" name="managedName">maxVideoBitrate_</attr>
+    <attr path="//field[@name='maxVideoFrameRate']" name="managedName">maxVideoFrameRate_</attr>
+    <attr path="//field[@name='maxVideoHeight']" name="managedName">maxVideoHeight_</attr>
+    <attr path="//field[@name='maxVideoWidth']" name="managedName">maxVideoWidth_</attr>
+    <attr path="//field[@name='minVideoBitrate']" name="managedName">minVideoBitrate_</attr>
+    <attr path="//field[@name='minVideoFrameRate']" name="managedName">minVideoFrameRate_</attr>
+    <attr path="//field[@name='minVideoHeight']" name="managedName">minVideoHeight_</attr>
+    <attr path="//field[@name='minVideoWidth']" name="managedName">minVideoWidth_</attr>
+    <attr path="//field[@name='preferredAudioRoleFlags']" name="managedName">preferredAudioRoleFlags_</attr>
+    <attr path="//field[@name='preferredTextRoleFlags']" name="managedName">preferredTextRoleFlags_</attr>
+    <attr path="//field[@name='preferredVideoRoleFlags']" name="managedName">preferredVideoRoleFlags_</attr>
+    <attr path="//field[@name='selectUndeterminedTextLanguage']" name="managedName">selectUndeterminedTextLanguage_</attr>
+    <attr path="//field[@name='viewportHeight']" name="managedName">viewportHeight_</attr>
+    <attr path="//field[@name='viewportOrientationMayChange']" name="managedName">viewportOrientationMayChange_</attr>
+    <attr path="//field[@name='viewportWidth']" name="managedName">viewportWidth_</attr>
+    <attr path="/api/package[@name='androidx.media3.common']/interface[@name='SimpleBasePlayer.PositionSupplier']"
+        name="visibility">public</attr>
+    <attr path="/api/package[@name='androidx.media3.common']/interface[@name='Player.Listener']/method[@name='onCues' and count(parameter)=1 and parameter[1][@type='androidx.media3.common.text.CueGroup']]"
+        name="managedName">OnCueGroup</attr>
+    <attr path="/api/package[@name='androidx.media3.common']/interface[@name='Player.Listener']/method[@name='onPositionDiscontinuity' and count(parameter)=3 and parameter[1][@type='androidx.media3.common.Player.PositionInfo'] and parameter[2][@type='androidx.media3.common.Player.PositionInfo'] and parameter[3][@type='int']]"
+        name="managedName">onPositionDiscontinuity2</attr>
+    <attr path="/api/package[@name='androidx.media3.common.audio']/class[@name='SpeedChangingAudioProcessor']/method[@name='getDurationAfterProcessorApplied' and count(parameter)=1 and parameter[1][@type='long']]"
+        name="final">true</attr>
+</metadata>

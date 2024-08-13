@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.Google.Guava",
+  "name": "guava",
   "dependencyOnly": true,
   "dotnet8": false,
   "versionMappings": []
