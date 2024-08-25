@@ -82,4 +82,12 @@ namespace Androidx.Media3.Datasource.Cache {
             return o is global::Androidx.Media3.Datasource.Cache.CacheSpan s ? CompareTo(s) : -1;
         }
     }
+    partial class CacheDataSource
+    {
+        partial class Factory
+        {
+            unsafe global::Androidx.Media3.Datasource.IDataSource? global::Androidx.Media3.Datasource.IDataSource.IFactory.CreateDataSource()
+                => CreateDataSource();
+        }
+    }
 }
