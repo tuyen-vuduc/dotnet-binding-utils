@@ -19,7 +19,7 @@ on:
         - com.mapbox.common:common:24.6.0
         - com.mapbox.maps:android-core:11.6.0
         - com.mapbox.maps:base:11.6.0
-        - com.mapbox.module:maps-telemetry:11.5.1
+        - com.mapbox.module:maps-telemetry:11.6.0
         - com.mapbox.extension:maps-style:11.5.1
         - com.mapbox.extension:maps-localization:11.5.1
         - com.mapbox.plugin:maps-animation:11.5.1
