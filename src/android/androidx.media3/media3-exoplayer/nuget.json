@@ -1,0 +1,7 @@
+{
+  "packageId": "Xamarin.AndroidX.Media3.ExoPlayer",
+  "name": "media3-exoplayer",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}

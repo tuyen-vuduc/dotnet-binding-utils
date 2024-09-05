@@ -1,0 +1,7 @@
+{
+  "packageId": "Xamarin.AndroidX.Media3.Container",
+  "name": "media3-container",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}

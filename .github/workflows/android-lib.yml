@@ -16,6 +16,7 @@ on:
         required: true
         type: choice
         options:    
+        - androidx.media3:media3-datasource:1.4.0
         - androidx.media3:media3-ui:1.4.0
         - com.stripe:stripe-android:20.48.3
         - com.stripe:paymentsheet:20.48.3

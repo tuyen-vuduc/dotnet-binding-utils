@@ -1,7 +1,7 @@
 {
-  "packageId": "Androidx.Media3.Media3Common",
+  "packageId": "Xamarin.AndroidX.Media3.Common",
   "name": "media3-common",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }

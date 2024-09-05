@@ -1,0 +1,7 @@
+{
+  "packageId": "Xamarin.AndroidX.Media3.Database",
+  "name": "media3-database",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}
