@@ -1,7 +1,7 @@
 {
-  "packageId": "Androidx.Media3.Media3Decoder",
+  "packageId": "Xamarin.AndroidX.Media3.Decoder",
   "name": "media3-decoder",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }

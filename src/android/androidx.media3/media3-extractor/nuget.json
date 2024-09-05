@@ -1,7 +1,7 @@
 {
-  "packageId": "Androidx.Media3.Media3Extractor",
+  "packageId": "Xamarin.AndroidX.Media3.Extractor",
   "name": "media3-extractor",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }

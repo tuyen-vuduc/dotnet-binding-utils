@@ -1,7 +1,7 @@
 {
-  "packageId": "Androidx.Media3.Media3Datasource",
+  "packageId": "Xamarin.AndroidX.Media3.DataSource",
   "name": "media3-datasource",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }

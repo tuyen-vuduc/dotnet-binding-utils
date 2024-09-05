@@ -1,7 +1,7 @@
 {
-  "packageId": "Androidx.Media3.Media3ExoplayerDash",
+  "packageId": "Xamarin.AndroidX.Media3.ExoPlayer.Dash",
   "name": "media3-exoplayer-dash",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }

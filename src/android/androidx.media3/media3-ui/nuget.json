@@ -1,5 +1,5 @@
 {
-  "packageId": "Androidx.Media3.Media3Ui",
+  "packageId": "Xamarin.AndroidX.Media3.Ui",
   "name": "media3-ui",
   "dependencyOnly": true,
   "dotnet8": true,
