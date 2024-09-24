@@ -16,6 +16,7 @@ on:
         required: true
         type: choice
         options:    
+        - org.jetbrains.kotlinx:kotlinx-datetime:0.6.1
         - com.mapbox.common:common:24.6.0
         - com.mapbox.maps:android-core:11.6.0
         - com.mapbox.maps:base:11.6.0
@@ -54,7 +55,6 @@ on:
         - org.java-websocket:Java-WebSocket:1.4.0
         - dev.chrisbanes.snapper:snapper:0.2.2
         - io.github.aakira:napier:1.4.1
-        - org.jetbrains.kotlinx:kotlinx-datetime:0.4.0
         - org.slf4j:slf4j-api:1.7.25
         - com.stripe:stripeterminal:3.7.1
         - com.stripe:stripeterminal-core:3.7.1

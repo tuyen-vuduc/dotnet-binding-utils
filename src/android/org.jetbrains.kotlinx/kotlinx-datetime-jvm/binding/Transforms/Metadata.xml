@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <attr path="/api/package[@name='kotlinx.datetime.format']/class[@extends='kotlinx.datetime.format.AbstractDateTimeFormat']/method[@name='intermediateFromValue' and count(parameter)=1]"
+        name="managedName">IntermediateFromValueX</attr>
+  <attr path="/api/package[@name='kotlinx.datetime.format']/class[@extends='kotlinx.datetime.format.AbstractDateTimeFormat']/method[@name='valueFromIntermediate' and count(parameter)=1]"
+        name="managedName">ValueFromIntermediateX</attr>
+  <attr path="/api/package[@name='kotlinx.datetime.internal.format.parser']/class[@name='ParseResult']/method[@name='equals-impl0' and count(parameter)=2 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.lang.Object']]"
+        name="managedName">Equals0</attr>
+
+  <attr path="/api/package[@name='kotlinx.datetime.internal.format']/class[@extends='kotlinx.datetime.internal.format.AbstractFieldSpec']/method[@name='getSign' and count(parameter)=0]"
+        name="visibility">protected</attr>
+  <attr path="/api/package[@name='kotlinx.datetime.internal.format']/class[@extends='kotlinx.datetime.internal.format.AbstractFieldSpec']/method[@name='getDefaultValue' and count(parameter)=0]"
+        name="visibility">protected</attr>
+  <attr path="/api/package[@name='kotlinx.datetime.internal.format']/class[@extends='kotlinx.datetime.internal.format.AbstractFieldSpec']/method[@name='getAccessor' and count(parameter)=0]"
+        name="visibility">protected</attr>
+  <remove-node path="/api/package[@name='kotlinx.datetime.internal.format']/class[@name='UnsignedFieldSpec']/method[@name='getDefaultValue' and count(parameter)=0]" />
+  
+  <attr path="/api/package[@name='kotlinx.datetime.format']/class[starts-with(@extends, 'kotlinx.datetime.format.UnicodeFormat.Directive')]/method[@name='addToFormat']"
+        name="jni-return">V</attr>
+  <attr path="/api/package[@name='kotlinx.datetime.format']/class[starts-with(@extends, 'kotlinx.datetime.format.UnicodeFormat.Directive')]/method[@name='addToFormat']"
+        name="jni-signature">(Lkotlinx/datetime/format/DateTimeFormatBuilder$WithTime;)V</attr>
+  <attr path="/api/package[@name='kotlinx.datetime.format']/class[starts-with(@extends, 'kotlinx.datetime.format.UnicodeFormat.Directive')]/method[@name='addToFormat']"
+        name="return">void</attr>
+  <attr path="/api/package[@name='kotlinx.datetime']/class[starts-with(@extends, 'kotlinx.datetime.DateTimeUnit')]/method[@name='times' and count(parameter)=1 and parameter[1][@type='int']]"
+        name="managedReturn">Kotlinx.Datetime.DateTimeUnit</attr>
+</metadata>
