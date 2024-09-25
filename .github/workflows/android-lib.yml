@@ -16,10 +16,9 @@ on:
         required: true
         type: choice
         options:    
-        - org.jetbrains.kotlinx:kotlinx-datetime:0.6.1
-        - com.mapbox.common:common:24.6.0
-        - com.mapbox.maps:android-core:11.6.0
-        - com.mapbox.maps:base:11.6.0
+        - com.mapbox.common:common:24.6.1
+        - com.mapbox.maps:android-core:11.6.1
+        - com.mapbox.maps:base:11.6.1
         - com.mapbox.module:maps-telemetry:11.6.0
         - com.mapbox.extension:maps-style:11.6.0
         - com.mapbox.extension:maps-localization:11.6.0
@@ -35,6 +34,7 @@ on:
         - com.mapbox.plugin:maps-viewport:11.6.0
         - com.mapbox.plugin:maps-annotation:11.6.0
         - com.mapbox.maps:android:11.6.0
+        - org.jetbrains.kotlinx:kotlinx-datetime:0.6.1
         - androidx.media3:media3-datasource:1.4.0
         - androidx.media3:media3-ui:1.4.0
         - com.stripe:stripe-android:20.48.3
