@@ -22,7 +22,7 @@ on:
         - com.mapbox.module:maps-telemetry:11.6.1
         - com.mapbox.extension:maps-style:11.6.1
         - com.mapbox.extension:maps-localization:11.6.1
-        - com.mapbox.plugin:maps-animation:11.6.0
+        - com.mapbox.plugin:maps-animation:11.6.1
         - com.mapbox.plugin:maps-attribution:11.6.0
         - com.mapbox.plugin:maps-compass:11.6.0
         - com.mapbox.plugin:maps-gestures:11.6.0
