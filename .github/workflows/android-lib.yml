@@ -24,16 +24,16 @@ on:
         - com.mapbox.extension:maps-localization:11.6.1
         - com.mapbox.plugin:maps-animation:11.6.1
         - com.mapbox.plugin:maps-attribution:11.6.1
-        - com.mapbox.plugin:maps-compass:11.6.0
-        - com.mapbox.plugin:maps-gestures:11.6.0
-        - com.mapbox.plugin:maps-lifecycle:11.6.0
-        - com.mapbox.plugin:maps-locationcomponent:11.6.0
-        - com.mapbox.plugin:maps-logo:11.6.0
-        - com.mapbox.plugin:maps-overlay:11.6.0
-        - com.mapbox.plugin:maps-scalebar:11.6.0
-        - com.mapbox.plugin:maps-viewport:11.6.0
-        - com.mapbox.plugin:maps-annotation:11.6.0
-        - com.mapbox.maps:android:11.6.0
+        - com.mapbox.plugin:maps-compass:11.6.1
+        - com.mapbox.plugin:maps-gestures:11.6.1
+        - com.mapbox.plugin:maps-lifecycle:11.6.1
+        - com.mapbox.plugin:maps-locationcomponent:11.6.1
+        - com.mapbox.plugin:maps-logo:11.6.1
+        - com.mapbox.plugin:maps-overlay:11.6.1
+        - com.mapbox.plugin:maps-scalebar:11.6.1
+        - com.mapbox.plugin:maps-viewport:11.6.1
+        - com.mapbox.plugin:maps-annotation:11.6.1
+        - com.mapbox.maps:android:11.6.1
         - org.jetbrains.kotlinx:kotlinx-datetime:0.6.1
         - androidx.media3:media3-datasource:1.4.0
         - androidx.media3:media3-ui:1.4.0
