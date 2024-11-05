@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Izettle.Android.Sdk.Core",
+  "name": "core",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

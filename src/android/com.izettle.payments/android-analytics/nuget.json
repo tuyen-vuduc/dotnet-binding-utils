@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Izettle.Payments.AndroidAnalytics",
+  "name": "android-analytics",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

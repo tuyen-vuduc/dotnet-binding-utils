@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Izettle.Android.Qrc.PaypalQrcSdk",
+  "name": "paypal-qrc-sdk",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

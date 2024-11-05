@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Izettle.Payments.AndroidSdk",
+  "name": "android-sdk",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

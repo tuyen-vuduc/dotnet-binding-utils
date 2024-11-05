@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Izettle.Android.Qrc.VenmoQrcSdk",
+  "name": "venmo-qrc-sdk",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

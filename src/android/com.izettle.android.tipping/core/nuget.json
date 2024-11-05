@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Izettle.Android.Tipping.Core",
+  "name": "core",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

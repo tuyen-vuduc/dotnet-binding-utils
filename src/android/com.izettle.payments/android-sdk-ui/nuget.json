@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Izettle.Payments.AndroidSdkUi",
+  "name": "android-sdk-ui",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

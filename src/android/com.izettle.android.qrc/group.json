@@ -1,5 +1,5 @@
 {
-  "name": "com.google.zxing",
+  "name": "com.izettle.android.qrc",
   "dotnet8": true,
   "runtimeDependenciesAsCompile": true
 }

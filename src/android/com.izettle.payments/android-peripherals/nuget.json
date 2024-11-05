@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Izettle.Payments.AndroidPeripherals",
+  "name": "android-peripherals",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

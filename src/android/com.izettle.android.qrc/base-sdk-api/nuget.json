@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Izettle.Android.Qrc.BaseSdkApi",
+  "name": "base-sdk-api",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Izettle.Payments.AndroidReadersCore",
+  "name": "android-readers-core",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}
