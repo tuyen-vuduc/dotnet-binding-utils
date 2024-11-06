@@ -8,7 +8,6 @@ on:
         type: choice
         required: true
         options:
-          - '7.0.404'
           - '8.0.204'
         default: '8.0.204'
       LIB_ARTIFACT:
@@ -16,6 +15,7 @@ on:
         required: true
         type: choice
         options:    
+        - com.izettle.android.sdk:core:1.36.8
         - com.mapbox.common:common:24.7.1
         - com.mapbox.maps:android-core:11.7.1
         - com.mapbox.maps:base:11.7.1

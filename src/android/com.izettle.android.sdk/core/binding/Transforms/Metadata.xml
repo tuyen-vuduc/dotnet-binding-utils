@@ -1,3 +1,107 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+  <attr path="//*[@name = 'a']"
+        name="obfuscated">true</attr>
+  <attr path="//*[@name = 'b']"
+        name="obfuscated">true</attr>
+  <attr path="//*[@name = 'c']"
+        name="obfuscated">true</attr>
+  <attr path="//*[@name = 'd']"
+        name="obfuscated">true</attr>
+  <attr path="//*[@name = 'e']"
+        name="obfuscated">true</attr>
+  <attr path="//*[@name = 'f']"
+        name="obfuscated">true</attr>
+  <attr path="//*[@name = 'g']"
+        name="obfuscated">true</attr>
+  <attr path="//*[@name = 'h']"
+        name="obfuscated">true</attr>
+  <attr path="//*[@name = 'i']"
+        name="obfuscated">true</attr>
+  <attr path="//*[@name = 'j']"
+        name="obfuscated">true</attr>
+  <attr path="//*[@name = 'k']"
+        name="obfuscated">true</attr>
+  <attr path="//*[@name = 'l']"
+        name="obfuscated">true</attr>
+  <attr path="//*[@name = 'm']"
+        name="obfuscated">true</attr>
+  <attr path="//*[@name = 'n']"
+        name="obfuscated">true</attr>
+  <attr path="//*[@name = 'o']"
+        name="obfuscated">true</attr>
+  <attr path="//*[@name = 'p']"
+        name="obfuscated">true</attr>
+  <attr path="//*[@name = 'q']"
+        name="obfuscated">true</attr>
+  <attr path="//*[@name = 'r']"
+        name="obfuscated">true</attr>
+  <attr path="//*[@name = 's']"
+        name="obfuscated">true</attr>
+  <attr path="//*[@name = 't']"
+        name="obfuscated">true</attr>
+  <attr path="//*[@name = 'u']"
+        name="obfuscated">true</attr>
+  <attr path="//*[@name = 'v']"
+        name="obfuscated">true</attr>
+  <attr path="//*[@name = 'w']"
+        name="obfuscated">true</attr>
+  <attr path="//*[@name = 'x']"
+        name="obfuscated">true</attr>
+  <attr path="//*[@name = 'y']"
+        name="obfuscated">true</attr>
+  <attr path="//*[@name = 'z']"
+        name="obfuscated">true</attr>
+  <attr path="//*[substring(@name, string-length(@name) - string-length('.a') + 1)]"
+        name="obfuscated">true</attr>
+  <attr path="//*[substring(@name, string-length(@name) - string-length('.b') + 1)]"
+        name="obfuscated">true</attr>
+  <attr path="//*[substring(@name, string-length(@name) - string-length('.c') + 1)]"
+        name="obfuscated">true</attr>
+  <attr path="//*[substring(@name, string-length(@name) - string-length('.d') + 1)]"
+        name="obfuscated">true</attr>
+  <attr path="//*[substring(@name, string-length(@name) - string-length('.e') + 1)]"
+        name="obfuscated">true</attr>
+  <attr path="//*[substring(@name, string-length(@name) - string-length('.f') + 1)]"
+        name="obfuscated">true</attr>
+  <attr path="//*[substring(@name, string-length(@name) - string-length('.g') + 1)]"
+        name="obfuscated">true</attr>
+  <attr path="//*[substring(@name, string-length(@name) - string-length('.h') + 1)]"
+        name="obfuscated">true</attr>
+  <attr path="//*[substring(@name, string-length(@name) - string-length('.i') + 1)]"
+        name="obfuscated">true</attr>
+  <attr path="//*[substring(@name, string-length(@name) - string-length('.j') + 1)]"
+        name="obfuscated">true</attr>
+  <attr path="//*[substring(@name, string-length(@name) - string-length('.k') + 1)]"
+        name="obfuscated">true</attr>
+  <attr path="//*[substring(@name, string-length(@name) - string-length('.l') + 1)]"
+        name="obfuscated">true</attr>
+  <attr path="//*[substring(@name, string-length(@name) - string-length('.m') + 1)]"
+        name="obfuscated">true</attr>
+  <attr path="//*[substring(@name, string-length(@name) - string-length('.n') + 1)]"
+        name="obfuscated">true</attr>
+  <attr path="//*[substring(@name, string-length(@name) - string-length('.o') + 1)]"
+        name="obfuscated">true</attr>
+  <attr path="//*[substring(@name, string-length(@name) - string-length('.p') + 1)]"
+        name="obfuscated">true</attr>
+  <attr path="//*[substring(@name, string-length(@name) - string-length('.q') + 1)]"
+        name="obfuscated">true</attr>
+  <attr path="//*[substring(@name, string-length(@name) - string-length('.r') + 1)]"
+        name="obfuscated">true</attr>
+  <attr path="//*[substring(@name, string-length(@name) - string-length('.s') + 1)]"
+        name="obfuscated">true</attr>
+  <attr path="//*[substring(@name, string-length(@name) - string-length('.t') + 1)]"
+        name="obfuscated">true</attr>
+  <attr path="//*[substring(@name, string-length(@name) - string-length('.u') + 1)]"
+        name="obfuscated">true</attr>
+  <attr path="//*[substring(@name, string-length(@name) - string-length('.v') + 1)]"
+        name="obfuscated">true</attr>
+  <attr path="//*[substring(@name, string-length(@name) - string-length('.w') + 1)]"
+        name="obfuscated">true</attr>
+  <attr path="//*[substring(@name, string-length(@name) - string-length('.x') + 1)]"
+        name="obfuscated">true</attr>
+  <attr path="//*[substring(@name, string-length(@name) - string-length('.y') + 1)]"
+        name="obfuscated">true</attr>
+  <attr path="//*[substring(@name, string-length(@name) - string-length('.z') + 1)]"
+        name="obfuscated">true</attr>
 </metadata>

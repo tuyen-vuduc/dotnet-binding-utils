@@ -346,6 +346,8 @@ The downloaded artifact will be located at
 taskkill -F -im dotnet.exe
 ```
 
+NOTE: https://learn.microsoft.com/en-us/dotnet/android/binding-libs/customizing-bindings/troubleshooting-bindings
+
 # Maintainer
 This project is maintained by [tuyen-vuduc](https://github.com/tuyen-vuduc) in his spare time and/or when requested.<br>
 
