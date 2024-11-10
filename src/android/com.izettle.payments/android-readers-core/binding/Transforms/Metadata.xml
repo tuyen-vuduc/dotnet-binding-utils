@@ -1,3 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+    <attr path="//field[@name='Black']" name="managedName">Black_</attr>
+    <attr path="//field[@name='CREATOR']" name="managedName">CREATOR_</attr>
+    <attr path="//field[@name='Ocean']" name="managedName">Ocean_</attr>
+    <attr path="//field[@name='Unknown']" name="managedName">Unknown_</attr>
+    <attr path="//field[@name='White']" name="managedName">White_</attr>
 </metadata>

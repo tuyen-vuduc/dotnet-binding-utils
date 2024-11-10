@@ -15,6 +15,7 @@ on:
         required: true
         type: choice
         options:    
+        - com.izettle.android.qrc:base-sdk-api:1.36.8
         - com.izettle.android.tipping:core:1.36.8
         - com.izettle.android.sdk:core:1.36.8
         - com.mapbox.common:common:24.7.1

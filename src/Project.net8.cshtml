@@ -173,9 +173,11 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Dependencies.Gradle" Version="8.6.0.1" />
+    <TransformFile Remove="Transforms/Metadata.xml"/>
     <TransformFile Include="..\..\..\..\Metadata.common.xml">
       <Link>Transforms/Metadata.common.xml</Link>
     </TransformFile>
+    <TransformFile Include="Transforms/Metadata.xml"/>
   </ItemGroup>
   <Target Name="_GradleDependencyResolverTrigger" DependsOnTargets="_GradleSync" BeforeTargets="CoreCompile" />
 </Project>

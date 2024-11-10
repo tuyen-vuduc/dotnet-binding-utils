@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <attr path="//field[@name='toolbar']" name="managedName">toolbar_</attr>
+    <attr path="//field[@name='qrCodeView']" name="managedName">qrCodeView_</attr>
+</metadata>
