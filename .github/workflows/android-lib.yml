@@ -100,6 +100,14 @@ jobs:
       shell: bash
       env:
         MAPBOX_DOWNLOADS_TOKEN : ${{secrets.MAPBOX_DOWNLOADS_TOKEN}}
+    
+    - name: Set X_GITHUB_PACKAGES_READ_TOKEN
+      run: |
+        echo "X_GITHUB_PACKAGES_READ_TOKEN=$X_GITHUB_PACKAGES_READ_TOKEN" >> ~/.gradle/gradle.properties
+        cat ~/.gradle/gradle.properties
+      shell: bash
+      env:
+        X_GITHUB_PACKAGES_READ_TOKEN : ${{secrets.X_GITHUB_PACKAGES_READ_TOKEN}}
 
     - name: Set DriveSmart credentials
       if: contains(${{ inputs.LIB_ARTIFACT }}, 'DriveSmart')
