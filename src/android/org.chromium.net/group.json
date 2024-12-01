@@ -1,0 +1,5 @@
+{
+  "name": "org.chromium.net",
+  "dotnet8": true,
+  "runtimeDependenciesAsCompile": true
+}
