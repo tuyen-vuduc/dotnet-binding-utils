@@ -3,17 +3,5 @@
   "name": "cronet-api",
   "dependencyOnly": true,
   "dotnet8": true,
-  "versionMappings": [
-    {
-      "prefix": "1",
-      "method": "Prefix",
-      "fromVersion": "100.0.0"
-    },
-    {
-      "prefix": "1",
-      "method": "CombinedToMinor",
-      "fromVersion": "32.5.0",
-      "toVersion": "72.0.0"
-    }
-  ]
+  "versionMappings": []
 }
