@@ -6,4 +6,6 @@
   <attr
     path="//field[@name='CREATOR']"
     name="managedName">CREATOR</attr>
+  <attr path="//method[@name='getClass' and count(parameter)=0]"
+        name="propertyName"></attr>
 </metadata>
