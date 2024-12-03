@@ -18,7 +18,7 @@ namespace Com.Mapbox.Common
     }
 }
 
-namespace Com.Mapbox.Common.Module.Okhttp
+namespace Com.Mapbox.Common
 {
     partial class ResponseReadStream
     {

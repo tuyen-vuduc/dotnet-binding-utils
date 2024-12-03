@@ -250,3 +250,28 @@ namespace Com.Mapbox.Maps.Plugins.Scalebar.Generated
         }
     }
 }
+
+namespace Com.Mapbox.Maps.Interactions.Standard.Generated
+{
+    partial class StandardBuildings
+    {
+        public override unsafe global::Java.Lang.Object GetFeaturesetFeature(global::Com.Mapbox.Geojson.Feature feature, string? featureNamespace, global::Com.Mapbox.Bindgen.Value rawState)
+            => GetFeaturesetFeature_(feature, featureNamespace, rawState);
+        public override unsafe global::Java.Lang.Object GetFeatureState(global::Com.Mapbox.Bindgen.Value rawState)
+            => GetFeatureState_(rawState);
+    }
+    partial class StandardPoi
+    {
+        public override unsafe global::Java.Lang.Object GetFeaturesetFeature(global::Com.Mapbox.Geojson.Feature feature, string? featureNamespace, global::Com.Mapbox.Bindgen.Value rawState)
+            => GetFeaturesetFeature_(feature, featureNamespace, rawState);
+        public override unsafe global::Java.Lang.Object GetFeatureState(global::Com.Mapbox.Bindgen.Value rawState)
+            => GetFeatureState_(rawState);
+    }
+    partial class StandardPlaceLabels
+    {
+        public override unsafe global::Java.Lang.Object GetFeaturesetFeature(global::Com.Mapbox.Geojson.Feature feature, string? featureNamespace, global::Com.Mapbox.Bindgen.Value rawState)
+            => GetFeaturesetFeature_(feature, featureNamespace, rawState);
+        public override unsafe global::Java.Lang.Object GetFeatureState(global::Com.Mapbox.Bindgen.Value rawState)
+            => GetFeatureState_(rawState);
+    }
+}
