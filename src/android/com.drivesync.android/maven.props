@@ -6,11 +6,11 @@
     <GradleRepository Include="https://maven.pkg.github.com/ims-developers/android-sdk">
       <Repository>
       maven {
-          url 'https://maven.pkg.github.com/ims-developers/android-sdk'
-          credentials {
-            username providers.gradleProperty("ims_github_user").get()
-            password providers.gradleProperty("ims_github_pat").get()
-          }
+        url = uri("https://maven.pkg.github.com/ims-developers/android-sdk")
+        credentials {
+          username = providers.gradleProperty("ims_github_user").get()
+          password = providers.gradleProperty("ims_github_pat").get()
+        }
       }
       </Repository>
     </GradleRepository>

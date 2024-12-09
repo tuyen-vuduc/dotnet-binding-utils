@@ -1,13 +1,13 @@
 <ItemGroup>
     <GradleRepository Include="https://maven.pkg.github.com/ims-developers/android-sdk">
-        <Repository>
-    maven {
-        url 'https://maven.pkg.github.com/ims-developers/android-sdk'
+        <Repository>       
+      maven {
+        url = uri("https://maven.pkg.github.com/ims-developers/android-sdk")
         credentials {
-            username 'YOUR_GITHUB_USERNAME'
-            password 'YOUR_GITHUB_PAT'
+          username = "YOUR_GITHUB_USERNAME"
+          password = "YOUR_GITHUB_PAT"
         }
-    }
+      }
         </Repository>
     </GradleRepository>
 </ItemGroup>
