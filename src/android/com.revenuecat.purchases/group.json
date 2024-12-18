@@ -1,0 +1,5 @@
+{
+  "name": "com.revenuecat.purchases",
+  "dotnet8": true,
+  "runtimeDependenciesAsCompile": true
+}

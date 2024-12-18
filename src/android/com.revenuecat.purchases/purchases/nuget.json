@@ -1,0 +1,7 @@
+{
+  "packageId": "Xamarin.RevenueCat.Android",
+  "name": "purchases",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}
