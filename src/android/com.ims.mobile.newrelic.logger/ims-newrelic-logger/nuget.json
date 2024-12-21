@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Ims.Mobile.Newrelic.Logger.ImsNewrelicLogger",
+  "name": "ims-newrelic-logger",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

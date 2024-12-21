@@ -1,0 +1,7 @@
+{
+  "packageId": "Io.Ktor.KtorSerializationKotlinxJvm",
+  "name": "ktor-serialization-kotlinx-jvm",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

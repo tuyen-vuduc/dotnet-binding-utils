@@ -365,31 +365,17 @@ public static class ArtifactScanner
         string artifactId,
         SemanticVersion version)
     {
-        var artifactVersionFolderPath = Path.Combine(
+        var (artifactVersionFolderPath, exists) = GetArtifactVersionFolderPath(
             homeFolderPath,
-            $".gradle/caches/modules-2/files-2.1/{groupId}/{artifactId}/{version}"
+            groupId,
+            artifactId,
+            version
         );
 
-        if (!Directory.Exists(artifactVersionFolderPath))
-        {
-            if (version.Patch == 0)
-            {
-                artifactVersionFolderPath = Path.Combine(
-                    homeFolderPath,
-                    $".gradle/caches/modules-2/files-2.1/{groupId}/{artifactId}/{version.Major}.{version.Minor}"
-                );
-
-                if (!string.IsNullOrWhiteSpace(version.Release))
-                {
-                    artifactVersionFolderPath += $"-{version.Release}";
-                }
-            }
-
-            if (!Directory.Exists(artifactVersionFolderPath))
-            {
-                return (artifactVersionFolderPath, Array.Empty<string>());
-            }
-        }
+        if (!exists) return (
+            artifactVersionFolderPath,
+            Array.Empty<string>()
+        );
 
         var files = Directory.GetFiles(
             artifactVersionFolderPath,
@@ -403,6 +389,59 @@ public static class ArtifactScanner
                 .Where(x => !x.Contains("/_aar/"))
                 .Select(x => x.Replace(homeFolderPath, string.Empty).Trim('/').Trim('\\'))
                 .ToArray()
+        );
+    }
+
+    private static (string, bool) GetArtifactVersionFolderPath(
+        string homeFolderPath,
+        string groupId,
+        string artifactId,
+        SemanticVersion version)
+    {
+        var artifactVersionFolderPath = Path.Combine(
+            homeFolderPath,
+            $".gradle/caches/modules-2/files-2.1/{groupId}/{artifactId}/{version}"
+        );
+
+        if (Directory.Exists(artifactVersionFolderPath))
+        {
+            return (artifactVersionFolderPath, true);
+        }
+
+        if (version.Patch == 0)
+        {
+            artifactVersionFolderPath = Path.Combine(
+                homeFolderPath,
+                $".gradle/caches/modules-2/files-2.1/{groupId}/{artifactId}/{version.Major}.{version.Minor}"
+            );
+
+            if (!string.IsNullOrWhiteSpace(version.Release))
+            {
+                artifactVersionFolderPath += $"-{version.Release}";
+            }
+        }
+
+        if (Directory.Exists(artifactVersionFolderPath))
+        {
+            return (artifactVersionFolderPath, true);
+        }
+
+        if (version.Minor == 0)
+        {
+            artifactVersionFolderPath = Path.Combine(
+                homeFolderPath,
+                $".gradle/caches/modules-2/files-2.1/{groupId}/{artifactId}/{version.Major}"
+            );
+
+            if (!string.IsNullOrWhiteSpace(version.Release))
+            {
+                artifactVersionFolderPath += $"-{version.Release}";
+            }
+        }
+
+        return (
+            artifactVersionFolderPath,
+            Directory.Exists(artifactVersionFolderPath)
         );
     }
 

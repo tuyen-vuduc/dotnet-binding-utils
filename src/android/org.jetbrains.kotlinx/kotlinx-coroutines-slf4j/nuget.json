@@ -1,0 +1,7 @@
+{
+  "packageId": "Org.Jetbrains.Kotlinx.KotlinxCoroutinesSlf4j",
+  "name": "kotlinx-coroutines-slf4j",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

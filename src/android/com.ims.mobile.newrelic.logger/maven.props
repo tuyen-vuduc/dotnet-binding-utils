@@ -1,0 +1,18 @@
+<Project>    
+  <PropertyGroup>    
+    <AndroidMinSdkVersion>26</AndroidMinSdkVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <GradleRepository Include="https://maven.pkg.github.com/ims-developers/android-sdk">
+      <Repository>
+      maven {
+        url = uri("https://maven.pkg.github.com/ims-developers/android-sdk")
+        credentials {
+          username = providers.gradleProperty("ims_github_user").get()
+          password = providers.gradleProperty("ims_github_pat").get()
+        }
+      }
+      </Repository>
+    </GradleRepository>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,7 @@
+{
+  "packageId": "Io.Ktor.KtorWebsocketsJvm",
+  "name": "ktor-websockets-jvm",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

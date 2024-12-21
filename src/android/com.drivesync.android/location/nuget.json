@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Drivesync.Android.Location",
   "name": "location",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "dotnet8": false,
   "versionMappings": []
 }

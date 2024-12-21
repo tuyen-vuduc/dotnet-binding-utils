@@ -1,0 +1,7 @@
+{
+  "packageId": "Io.Ktor.KtorUtilsJvm",
+  "name": "ktor-utils-jvm",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

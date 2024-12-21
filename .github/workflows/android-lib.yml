@@ -8,7 +8,6 @@ on:
         type: choice
         required: true
         options:
-          - '7.0.404'
           - '8.0.204'
         default: '8.0.204'
       LIB_ARTIFACT:
@@ -16,24 +15,6 @@ on:
         required: true
         type: choice
         options:    
-        - com.mapbox.common:common:24.8.0
-        - com.mapbox.maps:android-core:11.8.0
-        - com.mapbox.maps:base:11.8.0
-        - com.mapbox.module:maps-telemetry:11.8.0
-        - com.mapbox.extension:maps-style:11.8.0
-        - com.mapbox.extension:maps-localization:11.8.0
-        - com.mapbox.plugin:maps-animation:11.8.0
-        - com.mapbox.plugin:maps-attribution:11.8.0
-        - com.mapbox.plugin:maps-compass:11.8.0
-        - com.mapbox.plugin:maps-gestures:11.8.0
-        - com.mapbox.plugin:maps-lifecycle:11.8.0
-        - com.mapbox.plugin:maps-locationcomponent:11.8.0
-        - com.mapbox.plugin:maps-logo:11.8.0
-        - com.mapbox.plugin:maps-overlay:11.8.0
-        - com.mapbox.plugin:maps-scalebar:11.8.0
-        - com.mapbox.plugin:maps-viewport:11.8.0
-        - com.mapbox.plugin:maps-annotation:11.8.0
-        - com.mapbox.maps:android:11.8.0
         - org.jetbrains.kotlinx:kotlinx-datetime:0.6.1
         - androidx.media3:media3-datasource:1.4.0
         - androidx.media3:media3-ui:1.4.0
@@ -55,7 +36,6 @@ on:
         - org.java-websocket:Java-WebSocket:1.4.0
         - dev.chrisbanes.snapper:snapper:0.2.2
         - io.github.aakira:napier:1.4.1
-        - org.slf4j:slf4j-api:1.7.25
         - com.stripe:stripeterminal:3.7.1
         - com.stripe:stripeterminal-core:3.7.1
         - com.stripe:stripeterminal-internal-common:3.7.1
@@ -89,37 +69,7 @@ jobs:
   build-then-publish:
     environment: production
     runs-on: macos-latest
-    steps:
-    - name: Set MAPBOX_DOWNLOADS_TOKEN
-      if: contains(${{ inputs.LIB_ARTIFACT }}, 'com.mapbox.maps')
-      run: |
-        echo "MAPBOX_DOWNLOADS_TOKEN=$MAPBOX_DOWNLOADS_TOKEN" >> ~/.gradle/gradle.properties
-        cat ~/.gradle/gradle.properties
-      shell: bash
-      env:
-        MAPBOX_DOWNLOADS_TOKEN : ${{secrets.MAPBOX_DOWNLOADS_TOKEN}}
-
-    - name: Set DriveSmart credentials
-      if: contains(${{ inputs.LIB_ARTIFACT }}, 'DriveSmart')
-      run: |
-        echo "tfsdrivesmart_user=$TFSDRIVESMART_USER" >> ~/.gradle/gradle.properties
-        echo "tfsdrivesmart_password=$TFSDRIVESMART_PASSWORD" >> ~/.gradle/gradle.properties
-        cat ~/.gradle/gradle.properties
-      shell: bash
-      env:
-        TFSDRIVESMART_USER: ${{secrets.TFSDRIVESMART_USER}}
-        TFSDRIVESMART_PASSWORD: ${{secrets.TFSDRIVESMART_PASSWORD}}
-  
-    - name: Set IMSTech credentials
-      run: |
-        echo "ims_github_user=$ims_github_user" >> ~/.gradle/gradle.properties
-        echo "ims_github_pat=$ims_github_pat" >> ~/.gradle/gradle.properties
-        cat ~/.gradle/gradle.properties
-      shell: bash
-      env:
-        ims_github_user: ${{secrets.ims_github_user}}
-        ims_github_pat: ${{secrets.ims_github_pat}}
-    
+    steps:    
     - uses: actions/checkout@v3
 
     - name: Setup Android SDK
@@ -127,14 +77,6 @@ jobs:
       with:
         cmdline-tools-version: 11076708    
         packages: tools platform-tools platforms;android-33 platforms;android-31 platforms;android-34
-
-    # - name: Set default Xamarin SDK versions
-    #   run: |
-    #     $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --android=13.2
-    
-    - name: Install Xamarin.Android package using Homebrew
-      run: |
-        brew install --cask xamarin-android
 
     - name: Setup .NET Core SDK ${{ inputs.DOTNET_VERSION }}
       uses: actions/setup-dotnet@v3
