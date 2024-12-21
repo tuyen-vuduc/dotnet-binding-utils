@@ -8,7 +8,6 @@ on:
         type: choice
         required: true
         options:
-          - '7.0.404'
           - '8.0.204'
         default: '8.0.204'
       LIB_ARTIFACT:
@@ -55,7 +54,7 @@ on:
         - org.java-websocket:Java-WebSocket:1.4.0
         - dev.chrisbanes.snapper:snapper:0.2.2
         - io.github.aakira:napier:1.4.1
-        - org.slf4j:slf4j-api:1.7.25
+        - org.slf4j:slf4j-api:1.7.32
         - com.stripe:stripeterminal:3.7.1
         - com.stripe:stripeterminal-core:3.7.1
         - com.stripe:stripeterminal-internal-common:3.7.1
