@@ -1,7 +1,0 @@
-{
-  "packageId": "Io.Ktor.KtorClientDarwin",
-  "name": "ktor-client-darwin",
-  "dependencyOnly": false,
-  "dotnet8": true,
-  "versionMappings": []
-}
