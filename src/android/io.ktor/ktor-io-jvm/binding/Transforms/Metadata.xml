@@ -1,3 +1,31 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+  <attr
+    path="/api/package[@name='io.ktor.utils.io.bits']/class[@name='MemoryJvmKt']/method[@name='copyTo-62zg_DM' and count(parameter)=3 and parameter[1][@type='java.nio.ByteBuffer'] and parameter[2][@type='java.nio.ByteBuffer'] and parameter[3][@type='int']]"
+    name="managedName">CopyTo2</attr>
+  <attr
+    path="/api/package[@name='io.ktor.utils.io.core']/class[@name='BufferPrimitivesKt']/method[@name='writeFully-o1GoV1E' and count(parameter)=4 and parameter[1][@type='io.ktor.utils.io.core.Buffer'] and parameter[2][@type='ubyte[]'] and parameter[3][@type='int'] and parameter[4][@type='int']]"
+    name="managedName">WriteFully2</attr>
+  <attr
+    path="/api/package[@name='io.ktor.utils.io.core']/class[@name='BufferPrimitivesKt']/method[@name='readFully-o1GoV1E' and count(parameter)=4 and parameter[1][@type='io.ktor.utils.io.core.Buffer'] and parameter[2][@type='ubyte[]'] and parameter[3][@type='int'] and parameter[4][@type='int']]"
+    name="managedName">ReadFully2</attr>
+  <attr
+    path="/api/package[@name='io.ktor.utils.io.core']/class[@name='BufferPrimitivesKt']/method[@name='readAvailable-o1GoV1E' and count(parameter)=4 and parameter[1][@type='io.ktor.utils.io.core.Buffer'] and parameter[2][@type='ubyte[]'] and parameter[3][@type='int'] and parameter[4][@type='int']]"
+    name="managedName">ReadAvailable2</attr>
+  <attr
+    path="/api/package[@name='io.ktor.utils.io.jvm.javaio']/interface[@name='Parking']"
+    name="visibility">public</attr>
+  <attr
+    path="/api/package[@name='io.ktor.utils.io.pool']/class[@name='DirectByteBufferPool']/method[@name='produceInstance' and count(parameter)=0]"
+    name="managedName">ProduceInstance_</attr>
+  <attr
+    path="/api/package[@name='io.ktor.utils.io.core']/class[@name='DefaultBufferPool']/method[@name='produceInstance' and count(parameter)=0]"
+    name="managedName">ProduceInstance_</attr>
+  <attr
+    path="/api/package[@name='io.ktor.utils.io.pool']/class[@name='ByteBufferPool']/method[@name='produceInstance' and count(parameter)=0]"
+    name="managedName">ProduceInstance_</attr>
+  <remove-node
+    path="/api/package[@name='io.ktor.utils.io']/interface[@name='ByteReadChannel']/method[@name='getClosedCause' and count(parameter)=0]" />
+  <remove-node
+    path="/api/package[@name='io.ktor.utils.io']/interface[@name='ByteReadChannel']/method[@name='isClosedForWrite' and count(parameter)=0]" />
 </metadata>

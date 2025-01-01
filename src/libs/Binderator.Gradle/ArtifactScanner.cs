@@ -52,7 +52,11 @@ public static class ArtifactScanner
             moduleFilePath = Path.Combine(homeFolderPath, moduleFilePath);
             var jsonNode = JsonNode.Parse(File.OpenRead(moduleFilePath));
             var variantsNode = jsonNode["variants"] as JsonArray;
-            var jvmApiElementsPublishedNode = variantsNode.FirstOrDefault(x => x["name"].GetValue<string>() == "jvmApiElements-published");
+            var jvmApiElementsPublishedNode = variantsNode
+                .FirstOrDefault(
+                    x => x["name"].GetValue<string>() == "jvmApiElements-published"
+                        || x["name"].GetValue<string>() == "releaseApiElements-published"
+                );
 
             if (jvmApiElementsPublishedNode != null)
             {
@@ -122,6 +126,11 @@ public static class ArtifactScanner
         {
             var xartifactId = dependency.SelectSingleNode("descendant::mvn:artifactId", nsmgr).InnerText;
 
+            // TODO Why artifact adds junit as a compile dependency?
+            if (skippedArtifacts.Contains(xartifactId)) continue;
+
+            if (xartifactId.EndsWith("-darwin")) continue;
+
             // TODO neeed to handle optional dependencies
             var optional = dependency.SelectSingleNode("descendant::mvn:optional", nsmgr)?.InnerText;
             if (!string.IsNullOrWhiteSpace(optional)
@@ -132,9 +141,6 @@ public static class ArtifactScanner
 
             var scope = dependency.SelectSingleNode("descendant::mvn:scope", nsmgr)?.InnerText;
             if (scope == "test" || scope == "provided") continue;
-
-            // TODO Why artifact adds junit as a compile dependency?
-            if (skippedArtifacts.Contains(xartifactId)) continue;
 
             var xgroupId = dependency.SelectSingleNode("descendant::mvn:groupId", nsmgr).InnerText;
             if (skippedGroups.Contains(xgroupId)) continue;
