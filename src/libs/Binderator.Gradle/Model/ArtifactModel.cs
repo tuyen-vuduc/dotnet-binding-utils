@@ -68,7 +68,7 @@ public class ArtifactModel : IEquatable<ArtifactModel>
         ).Replace("\\", "/")
         : string.Empty;
 
-    private KeyValuePair<string, string>[] parentArtifacts;
+    private KeyValuePair<string, string>[] parentArtifacts = [];
     public KeyValuePair<string, string>[] ParentArtifacts
     {
         get => ShadowArtifact?.ParentArtifacts ?? parentArtifacts;
