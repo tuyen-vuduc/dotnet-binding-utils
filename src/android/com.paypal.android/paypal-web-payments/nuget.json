@@ -2,6 +2,6 @@
   "packageId": "Com.Paypal.Android.PaypalWebPayments",
   "name": "paypal-web-payments",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

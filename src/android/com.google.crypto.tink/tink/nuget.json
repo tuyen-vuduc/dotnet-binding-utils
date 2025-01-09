@@ -2,6 +2,6 @@
   "packageId": "Xamarin.Google.Crypto.Tink.Android",
   "name": "tink",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

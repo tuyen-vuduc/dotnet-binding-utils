@@ -3,6 +3,6 @@
   "name": "work-runtime-ktx",
   "relocated": "androidx.work:work-runtime-ktx",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

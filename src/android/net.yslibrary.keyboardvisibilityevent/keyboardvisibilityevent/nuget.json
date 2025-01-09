@@ -2,6 +2,6 @@
   "packageId": "Net.Yslibrary.Keyboardvisibilityevent.Keyboardvisibilityevent",
   "name": "keyboardvisibilityevent",
   "dependencyOnly": false,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

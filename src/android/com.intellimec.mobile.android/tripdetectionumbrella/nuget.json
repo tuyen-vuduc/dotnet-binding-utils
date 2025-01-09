@@ -2,6 +2,6 @@
   "packageId": "Com.Intellimec.Mobile.Android.Tripdetectionumbrella",
   "name": "tripdetectionumbrella",
   "dependencyOnly": false,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

@@ -2,6 +2,6 @@
   "packageId": "Io.Github.Sceneview.Arsceneview",
   "name": "arsceneview",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

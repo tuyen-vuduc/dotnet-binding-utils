@@ -2,6 +2,6 @@
   "packageId": "Xamarin.AndroidX.Media",
   "name": "media",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

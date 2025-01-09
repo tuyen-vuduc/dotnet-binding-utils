@@ -2,6 +2,6 @@
   "packageId": "Xamarin.Kotlin.StdLib.Jdk7",
   "name": "kotlin-stdlib-jdk7",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

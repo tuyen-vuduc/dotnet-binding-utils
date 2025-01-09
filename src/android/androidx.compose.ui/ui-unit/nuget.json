@@ -1,6 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Compose.UI.Unit",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

@@ -2,6 +2,6 @@
   "packageId": "Com.Braintreepayments.Api.BraintreeCore",
   "name": "braintree-core",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

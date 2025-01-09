@@ -2,6 +2,6 @@
   "packageId": "Org.Bouncycastle.BcutilJdk15on",
   "name": "bcutil-jdk15on",
   "dependencyOnly": false,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

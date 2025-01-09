@@ -2,6 +2,6 @@
   "packageId": "Xamarin.AndroidX.Lifecycle.LiveData.Ktx",
   "name": "lifecycle-livedata-ktx",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

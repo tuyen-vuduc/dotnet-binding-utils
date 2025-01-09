@@ -2,6 +2,6 @@
   "packageId": "Xamarin.KotlinX.Coroutines.Play.Services",
   "name": "kotlinx-coroutines-play-services",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

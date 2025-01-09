@@ -2,6 +2,6 @@
   "packageId": "Com.Android.Installreferrer.Installreferrer",
   "name": "installreferrer",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

@@ -2,6 +2,6 @@
   "packageId": "Xamarin.AndroidX.Annotation",
   "name": "annotation",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

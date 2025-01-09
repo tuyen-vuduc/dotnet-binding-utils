@@ -2,6 +2,6 @@
   "packageId": "Com.Facebook.Fresco.Fbcore",
   "name": "fbcore",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

@@ -2,6 +2,6 @@
   "packageId": "Com.Guolindev.Permissionx.Permissionx",
   "name": "permissionx",
   "dependencyOnly": false,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

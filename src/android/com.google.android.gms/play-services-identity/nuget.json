@@ -2,7 +2,7 @@
   "packageId": "Xamarin.GooglePlayServices.Identity",
   "name": "play-services-identity",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": [
     {
       "prefix": "1",

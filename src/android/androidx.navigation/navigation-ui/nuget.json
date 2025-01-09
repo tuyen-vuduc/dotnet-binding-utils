@@ -2,6 +2,6 @@
   "packageId": "Xamarin.AndroidX.Navigation.UI",
   "name": "navigation-ui",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

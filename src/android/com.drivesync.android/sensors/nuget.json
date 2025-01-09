@@ -2,6 +2,6 @@
   "packageId": "Com.Drivesync.Android.Sensors",
   "name": "sensors",
   "dependencyOnly": false,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

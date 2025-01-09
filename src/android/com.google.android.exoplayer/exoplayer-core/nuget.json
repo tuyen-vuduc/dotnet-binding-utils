@@ -1,6 +1,6 @@
 {
   "packageId": "Xam.Plugins.Android.ExoPlayer.Core",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

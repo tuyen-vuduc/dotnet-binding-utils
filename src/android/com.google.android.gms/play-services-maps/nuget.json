@@ -2,7 +2,7 @@
   "packageId": "Xamarin.GooglePlayServices.Maps",
   "name": "play-services-maps",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": [
     {
       "prefix": "1",

@@ -1,7 +1,7 @@
 {
   "packageId": "Xamarin.Firebase.Annotations",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": [
     {
       "prefix": "1",

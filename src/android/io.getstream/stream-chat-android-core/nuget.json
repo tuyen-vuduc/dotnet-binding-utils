@@ -2,6 +2,6 @@
   "packageId": "Io.Getstream.StreamChatAndroidCore",
   "name": "stream-chat-android-core",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

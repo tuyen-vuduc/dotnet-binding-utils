@@ -1,6 +1,6 @@
 {
   "packageId": "Xamarin.Android.Support.v7.AppCompat",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

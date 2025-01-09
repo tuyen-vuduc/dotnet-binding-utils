@@ -2,6 +2,6 @@
   "packageId": "Com.Braintreepayments.Api.DataCollector",
   "name": "data-collector",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }
