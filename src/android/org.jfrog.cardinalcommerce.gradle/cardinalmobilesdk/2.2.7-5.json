@@ -1,1 +1,6 @@
-{"fallbackVersion": "2.2.7"}
+{
+  "revision": 2,
+  "fallbackVersion": "2.2.7",
+  "nugetVersion": "2.2.7.1502",
+  "runtimeDependenciesAsCompile": true
+}

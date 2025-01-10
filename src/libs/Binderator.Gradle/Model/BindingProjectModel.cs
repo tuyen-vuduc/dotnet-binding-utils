@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Text.RegularExpressions;
-
-namespace Binderator.Gradle;
+﻿namespace Binderator.Gradle;
 
 public class BindingProjectModel
 {
@@ -21,7 +16,34 @@ public class BindingProjectModel
 
 	public List<ArtifactModel> NuGetDependencies { get; set; } = new List<ArtifactModel>();
 
-	public List<string> ProjectReferences { get; set; } = new List<string>();
+    public List<KeyValuePair<string, string>> PackageReferences {
+        get {
+            var nugets = NuGetDependencies
+                .Where(x => x.Nuget.DependencyOnly)
+                .Select(
+                    x => new KeyValuePair<string, string>(
+                        x.Nuget.PackageId,
+                        x.Version.NugetVersion.ToNormalizedString()
+                    )
+                )
+                .Union(Artifact.FixedVersions)
+                .GroupBy(x => x.Key)
+                .Select(
+                    x => new KeyValuePair<string, string>(
+                        x.Key,
+                        x.Select(v => NuGetVersion.Parse(v.Value))
+                            .OrderByDescending(v => v)
+                            .First()
+                            .ToNormalizedString()
+                    )
+                )
+                .ToList();
+
+            return nugets;
+        }
+    }
+
+    public List<string> ProjectReferences { get; set; } = new List<string>();
 
 	public Dictionary<string, string> Metadata { get; set; } = new Dictionary<string, string>();
 

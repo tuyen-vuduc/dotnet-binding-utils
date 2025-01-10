@@ -1,3 +1,5 @@
 {
-  "name": "org.jfrog.cardinalcommerce.gradle"
+  "name": "org.jfrog.cardinalcommerce.gradle",
+  "dotnet8": true,
+  "runtimeDependenciesAsCompile": true
 }

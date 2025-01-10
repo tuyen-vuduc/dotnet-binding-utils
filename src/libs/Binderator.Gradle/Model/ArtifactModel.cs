@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-namespace Binderator.Gradle;
+﻿namespace Binderator.Gradle;
 
 public class ArtifactModel : IEquatable<ArtifactModel>
 {

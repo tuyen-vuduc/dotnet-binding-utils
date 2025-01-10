@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Braintreepayments.Api.GooglePay",
   "name": "google-pay",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "dotnet8": true,
   "versionMappings": []
 }

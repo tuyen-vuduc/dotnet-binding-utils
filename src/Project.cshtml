@@ -207,12 +207,7 @@
     }
   </ItemGroup>
   <ItemGroup>
-    @foreach (var dep in @Model.NuGetDependencies) {
-      if (dep.Nuget.DependencyOnly) {
-      <PackageReference Include="@(dep.Nuget.PackageId)" Version="@(dep.Version.NugetVersion.ToNormalizedString())" PrivateAssets="none" />
-      }
-    }
-    @foreach (var dep in @Model.Artifact.FixedVersions) {
+    @foreach (var dep in @Model.Artifact.PackageReferences) {
       <PackageReference Include="@(dep.Key)" Version="@(dep.Value)" PrivateAssets="none" />
     }
   </ItemGroup>

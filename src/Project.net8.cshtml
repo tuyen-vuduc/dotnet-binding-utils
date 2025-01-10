@@ -98,7 +98,7 @@
       - BG8A04: <attr path="XPath" /> matched no nodes.
       - BG8A00: <remove-node path="XPath" /> matched no nodes.
     -->
-    <NoWarn>08A04;BG8A00;CS0109;CS0108;CS0114</NoWarn>
+    <NoWarn>BG8A04;BG8A00;CS0109;CS0108;CS0114;NU5118;</NoWarn>
 
     <!--
       Harmfull
@@ -158,12 +158,7 @@
     <ProjectReference Include="..\..\..\@(dep.Group.Id)\@(dep.Nuget.ArtifactId)\binding\@(dep.Nuget.PackageId).csproj" PrivateAssets="none" />
       }
     }
-    @foreach (var dep in @Model.NuGetDependencies) {
-      if (dep.Nuget.DependencyOnly) {
-    <PackageReference Include="@(dep.Nuget.PackageId)" Version="@(dep.Version.NugetVersion.ToNormalizedString())" PrivateAssets="none" />
-      }
-    }
-    @foreach (var dep in @Model.Artifact.FixedVersions) {
+    @foreach (var dep in @Model.PackageReferences) {
     <PackageReference Include="@(dep.Key)" Version="@(dep.Value)" PrivateAssets="none" />
     }
   </ItemGroup>
