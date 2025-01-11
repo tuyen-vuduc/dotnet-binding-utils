@@ -2,6 +2,6 @@
   "packageId": "Square.Moshi.Adapters",
   "name": "moshi-adapters",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

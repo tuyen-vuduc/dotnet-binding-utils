@@ -1,6 +1,6 @@
 {
   "packageId": "Xamarin.Android.ReactiveX.RxJava",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

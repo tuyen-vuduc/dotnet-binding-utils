@@ -2,6 +2,6 @@
   "packageId": "Xamarin.AndroidX.Compose.Runtime.LiveData",
   "name": "runtime-livedata",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

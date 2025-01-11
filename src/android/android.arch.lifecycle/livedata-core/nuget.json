@@ -2,6 +2,6 @@
   "packageId": "Xamarin.Android.Arch.Lifecycle.LiveData.Core",
   "name": "livedata-core",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

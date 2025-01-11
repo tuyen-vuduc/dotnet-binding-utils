@@ -2,6 +2,6 @@
   "packageId": "Xamarin.JavaX.Inject",
   "name": "javax.inject",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

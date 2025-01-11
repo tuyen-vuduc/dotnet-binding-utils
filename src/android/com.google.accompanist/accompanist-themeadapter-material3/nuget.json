@@ -2,6 +2,6 @@
   "packageId": "Com.Google.Accompanist.AccompanistThemeadapterMaterial3",
   "name": "accompanist-themeadapter-material3",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

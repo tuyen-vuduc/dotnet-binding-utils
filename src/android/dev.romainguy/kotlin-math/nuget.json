@@ -4,6 +4,6 @@
   "homePageUrl": "https://github.com/romainguy/kotlin-math",
   "guideUrl": "",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

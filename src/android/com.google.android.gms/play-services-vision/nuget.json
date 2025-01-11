@@ -1,7 +1,7 @@
 {
   "packageId": "Xamarin.GooglePlayServices.Vision",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": [
     {
       "prefix": "1",

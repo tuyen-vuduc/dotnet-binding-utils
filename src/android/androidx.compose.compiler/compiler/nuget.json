@@ -2,6 +2,6 @@
   "packageId": "Androidx.Compose.Compiler.Compiler",
   "name": "compiler",
   "dependencyOnly": false,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

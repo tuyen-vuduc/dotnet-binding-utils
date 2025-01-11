@@ -2,6 +2,6 @@
   "packageId": "Com.Facebook.Infer.Annotation.InferAnnotation",
   "name": "infer-annotation",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

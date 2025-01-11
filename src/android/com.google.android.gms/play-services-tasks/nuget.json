@@ -2,7 +2,7 @@
   "packageId": "Xamarin.GooglePlayServices.Tasks",
   "name": "play-services-tasks",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": [
     {
       "prefix": "1",

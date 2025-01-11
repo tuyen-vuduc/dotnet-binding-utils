@@ -2,6 +2,6 @@
   "packageId": "Org.Bouncycastle.BcprovJdk15to18",
   "name": "bcprov-jdk15to18",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

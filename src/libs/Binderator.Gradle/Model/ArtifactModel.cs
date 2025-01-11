@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-namespace Binderator.Gradle;
+﻿namespace Binderator.Gradle;
 
 public class ArtifactModel : IEquatable<ArtifactModel>
 {
@@ -68,7 +66,7 @@ public class ArtifactModel : IEquatable<ArtifactModel>
         ).Replace("\\", "/")
         : string.Empty;
 
-    private KeyValuePair<string, string>[] parentArtifacts;
+    private KeyValuePair<string, string>[] parentArtifacts = [];
     public KeyValuePair<string, string>[] ParentArtifacts
     {
         get => ShadowArtifact?.ParentArtifacts ?? parentArtifacts;

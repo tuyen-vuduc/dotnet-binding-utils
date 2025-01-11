@@ -12,7 +12,7 @@
     <Delete Files="$(_AarOutputPath)" />
   </Target>
   <PropertyGroup>
-    <TargetFramework>net8.0-android</TargetFramework>
+    <TargetFrameworks>net8.0-android;net9.0-android</TargetFrameworks>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <IsBindingProject>true</IsBindingProject>
@@ -23,6 +23,8 @@
   <ItemGroup>
     <_TargetFrameworkNugetBuildFolders Include="build\net8.0-android34.0" />
     <_TargetFrameworkNugetBuildFolders Include="buildTransitive\net8.0-android34.0" />
+    <_TargetFrameworkNugetBuildFolders Include="build\net9.0-android35.0" />
+    <_TargetFrameworkNugetBuildFolders Include="buildTransitive\net9.0-android35.0" />
   </ItemGroup>
   <PropertyGroup>
     <UserHome Condition=" '$(OS)' == 'Unix' ">$(Home)</UserHome>
@@ -96,7 +98,7 @@
       - BG8A04: <attr path="XPath" /> matched no nodes.
       - BG8A00: <remove-node path="XPath" /> matched no nodes.
     -->
-    <NoWarn>08A04;BG8A00;CS0109;CS0108;CS0114</NoWarn>
+    <NoWarn>BG8A04;BG8A00;CS0109;CS0108;CS0114;NU5118;</NoWarn>
 
     <!--
       Harmfull
@@ -156,20 +158,15 @@
     <ProjectReference Include="..\..\..\@(dep.Group.Id)\@(dep.Nuget.ArtifactId)\binding\@(dep.Nuget.PackageId).csproj" PrivateAssets="none" />
       }
     }
-    @foreach (var dep in @Model.NuGetDependencies) {
-      if (dep.Nuget.DependencyOnly) {
-    <PackageReference Include="@(dep.Nuget.PackageId)" Version="@(dep.Version.NugetVersion.ToNormalizedString())" PrivateAssets="none" />
-      }
-    }
-    @foreach (var dep in @Model.Artifact.FixedVersions) {
+    @foreach (var dep in @Model.PackageReferences) {
     <PackageReference Include="@(dep.Key)" Version="@(dep.Value)" PrivateAssets="none" />
     }
   </ItemGroup>
   <PropertyGroup>
-    <AndroidTargetSdkVersion>34</AndroidTargetSdkVersion>
+    @* <AndroidTargetSdkVersion>34</AndroidTargetSdkVersion>
     <_GradleSyncIsAndroid>true</_GradleSyncIsAndroid>
 		<_GradleSyncMasterBeforeTargets>_ResolveLibraryProjectImports</_GradleSyncMasterBeforeTargets>
-		<_GradleSyncMasterDependsOnTargets>_GradleSync</_GradleSyncMasterDependsOnTargets>
+		<_GradleSyncMasterDependsOnTargets>_GradleSync</_GradleSyncMasterDependsOnTargets> *@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Dependencies.Gradle" Version="8.6.0.1" />
@@ -177,5 +174,5 @@
       <Link>Transforms/Metadata.common.xml</Link>
     </TransformFile>
   </ItemGroup>
-  <Target Name="_GradleDependencyResolverTrigger" DependsOnTargets="_GradleSync" BeforeTargets="CoreCompile" />
+  @* <Target Name="_GradleDependencyResolverTrigger" DependsOnTargets="_GradleSync" BeforeTargets="CoreCompile" /> *@
 </Project>

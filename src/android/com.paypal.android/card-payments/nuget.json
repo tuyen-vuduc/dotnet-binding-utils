@@ -2,6 +2,6 @@
   "packageId": "Com.Paypal.Android.CardPayments",
   "name": "card-payments",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

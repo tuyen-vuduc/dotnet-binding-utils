@@ -2,6 +2,6 @@
   "packageId": "Io.Getstream.PhotoviewDialog",
   "name": "photoview-dialog",
   "dependencyOnly": false,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

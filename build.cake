@@ -15,11 +15,11 @@ var TASK = Argument<string>("task", Argument<string>("t", "Default"));
 Task("Setup Global.json")
     .Does(() =>
 {
-    var globalJsonFile = DOTNET_VERSION.StartsWith("8.0")
-        ? "global.8.json"
-        : "global.7.json";
+    // var globalJsonFile = DOTNET_VERSION.StartsWith("8.0")
+    //     ? "global.8.json"
+    //     : "global.7.json";
     
-    CopyFile($"./{globalJsonFile}", $"./global.json");
+    // CopyFile($"./{globalJsonFile}", $"./global.json");
 });
 
 Task("Create BindingHost.props")

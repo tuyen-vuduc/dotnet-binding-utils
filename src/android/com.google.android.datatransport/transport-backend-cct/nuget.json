@@ -1,6 +1,6 @@
 {
   "packageId": "Xamarin.Google.Android.DataTransport.TransportBackendCct",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

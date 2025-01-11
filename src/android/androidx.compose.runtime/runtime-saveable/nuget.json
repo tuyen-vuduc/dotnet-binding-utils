@@ -1,6 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Compose.Runtime.Saveable",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

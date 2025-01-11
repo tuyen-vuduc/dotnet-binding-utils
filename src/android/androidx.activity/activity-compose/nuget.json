@@ -2,6 +2,6 @@
   "packageId": "Xamarin.AndroidX.Activity.Compose",
   "name": "activity-compose",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

@@ -1,6 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.Palette.Palette.Ktx",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

@@ -1,5 +1,5 @@
 {
   "name": "com.squareup.okhttp3",
-  "dotnet8": false,
+  "dotnet8": true,
   "runtimeDependenciesAsCompile": true
 }

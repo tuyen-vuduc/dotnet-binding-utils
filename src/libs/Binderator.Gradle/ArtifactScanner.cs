@@ -1,5 +1,4 @@
 ﻿using System.Text.Json.Nodes;
-using Microsoft.AspNetCore.Http.Features;
 
 namespace Binderator.Gradle;
 
@@ -237,29 +236,7 @@ public static class ArtifactScanner
             var fixedVersions = Util.Deserialize<Dictionary<string, string>>(
                 File.OpenRead(fixedVersionJsonPath)
             );
-
-            foreach (var v in fixedVersions)
-            {
-                var index = artifacts.FindIndex(x => x.Nuget.PackageId == v.Key);
-
-                if (index >= 0 && parentArtifactIds.Any(x => x.Key == v.Key))
-                {
-                    artifacts[index].Version.NugetVersion = NuGetVersion.Parse(v.Value);
-                }
-                else
-                {
-                    index = existingArtifacts.FindIndex(x => x.Nuget.PackageId == v.Key);
-
-                    if (index >= 0 && parentArtifactIds.Any(x => x.Key == v.Key))
-                    {
-                        existingArtifacts[index].Version.NugetVersion = NuGetVersion.Parse(v.Value);
-                    }
-                    else
-                    {
-                        nonExistingFixedVersions.Add(v);
-                    }
-                }
-            }
+            nonExistingFixedVersions = fixedVersions.ToList();
         }
 
         artifact.ParentArtifacts = parentArtifactIds.ToArray();

@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Braintreepayments.Api.Venmo",
   "name": "venmo",
-  "dependencyOnly": true,
-  "dotnet8": false,
+  "dependencyOnly": false,
+  "dotnet8": true,
   "versionMappings": []
 }

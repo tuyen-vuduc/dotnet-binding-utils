@@ -2,6 +2,6 @@
   "packageId": "Org.Bouncycastle.BcpkixJdk15on",
   "name": "bcpkix-jdk15on",
   "dependencyOnly": false,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }

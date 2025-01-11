@@ -3,21 +3,13 @@ run-name: ${{ inputs.LIB_ARTIFACT }} 🚀 NuGet
 on:
   workflow_dispatch:
     inputs:
-      DOTNET_VERSION:
-        description: '.NET Version'
-        type: choice
-        required: true
-        options:
-          - '8.0.204'
-        default: '8.0.204'
       LIB_ARTIFACT:
         description: 'Android library to publish'
         required: true
         type: choice
         options:    
+        - de.hdodenhof:circleimageview:3.1.0
         - org.jetbrains.kotlinx:kotlinx-datetime:0.6.1
-        - androidx.media3:media3-datasource:1.4.0
-        - androidx.media3:media3-ui:1.4.0
         - com.stripe:stripe-android:20.48.3
         - com.stripe:paymentsheet:20.48.3
         - com.stripe:link:20.48.3
@@ -69,13 +61,13 @@ jobs:
     - name: Setup Android SDK
       uses: android-actions/setup-android@v3
       with:
-        cmdline-tools-version: 11076708    
-        packages: tools platform-tools platforms;android-33 platforms;android-31 platforms;android-34
+        cmdline-tools-version: 12266719
+        packages: tools platform-tools platforms;android-34 platforms;android-35
 
-    - name: Setup .NET Core SDK ${{ inputs.DOTNET_VERSION }}
+    - name: Setup .NET Core SDK 9.0
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '${{ inputs.DOTNET_VERSION }}'
+        dotnet-version: '9.0'
 
     - name: Setup Java 17
       uses: actions/setup-java@v3
@@ -86,7 +78,7 @@ jobs:
     - name: Build
       run: |
         echo "PWD: $PWD"
-        sh bind.sh --artifact ${{ inputs.LIB_ARTIFACT }} --dotnet ${{ inputs.DOTNET_VERSION }}
+        sh bind.sh --artifact ${{ inputs.LIB_ARTIFACT }}
   
     # - name: Publish with Dotnet CLI
     #   env:

@@ -2,6 +2,6 @@
   "packageId": "Xamarin.AndroidX.Security.SecurityCrypto",
   "name": "security-crypto",
   "dependencyOnly": true,
-  "dotnet8": false,
+  "dotnet8": true,
   "versionMappings": []
 }
