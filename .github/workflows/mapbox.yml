@@ -49,6 +49,11 @@ jobs:
         cmdline-tools-version: 12266719
         packages: tools platform-tools platforms;android-34 platforms;android-35
 
+    - name: Setup .NET Core SDK 9.0
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '9.0'
+        
     - name: Setup Java 17
       uses: actions/setup-java@v3
       with:
