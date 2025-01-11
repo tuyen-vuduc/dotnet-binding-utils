@@ -1,4 +1,4 @@
-name: Android Binding Libraries
+name: Android Binding Libraries - Fresco
 run-name: ${{ inputs.LIB_ARTIFACT }} 🚀 NuGet
 on:
   workflow_dispatch:
@@ -9,39 +9,6 @@ on:
         type: choice
         options:    
         - com.facebook.fresco:imagepipeline:3.6.0
-        - de.hdodenhof:circleimageview:3.1.0
-        - org.jetbrains.kotlinx:kotlinx-datetime:0.6.1
-        - com.paystack.android:paystack-ui:0.0.9
-        - com.paystack.android:paystack-core:0.0.9
-        - com.paystack.android:design-system-android:0.0.4
-        - com.paystack.android:design-system-android:0.0.4
-        - com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0
-        - com.pusher:pusher-java-client:2.2.1 
-        - org.java-websocket:Java-WebSocket:1.4.0
-        - dev.chrisbanes.snapper:snapper:0.2.2
-        - io.github.aakira:napier:1.4.1
-        - com.stripe:stripeterminal:3.7.1
-        - com.stripe:stripeterminal-core:3.7.1
-        - com.stripe:stripeterminal-internal-common:3.7.1
-        - com.stripe:stripeterminal-external:3.7.1   
-        - org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2
-        - com.squareup.wire:wire-moshi-adapter:4.9.9
-        - com.squareup.wire:wire-runtime-jvm:4.9.9
-        - com.squareup.wire:wire-runtime:4.9.9
-        - org.jetbrains.kotlin:kotlin-parcelize-runtime:1.9.24
-        - dev.zacsweers.redacted:redacted-compiler-plugin-annotations:1.8.0
-        - com.squareup.tape2:tape:2.0.0-beta1
-        - org.kamranzafar:jtar:2.3
-        - com.scottyab:rootbeer-lib:0.1.0
-        - com.neovisionaries:nv-i18n:1.29
-        - com.jaredrummler:android-device-names:1.1.9
-        - com.paypal.android:fraud-protection:1.5.0
-        - com.paypal.android:paypal-web-payments:1.5.0
-        - com.paypal.android:payment-buttons:1.5.0
-        - com.paypal.android:card-payments:1.5.0
-        - io.getstream:stream-chat-android-client:6.4.0
-        - io.github.sceneview:sceneview:2.2.1
-        - io.github.sceneview:arsceneview:2.2.1
 jobs:
   build-then-publish:
     environment: production
@@ -59,7 +26,7 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '9.0'
-
+        
     - name: Setup Java 17
       uses: actions/setup-java@v3
       with:
