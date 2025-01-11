@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Facebook.Android.FacebookShare",
   "name": "facebook-share",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }
