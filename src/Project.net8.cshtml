@@ -163,10 +163,10 @@
     }
   </ItemGroup>
   <PropertyGroup>
-    <AndroidTargetSdkVersion>34</AndroidTargetSdkVersion>
+    @* <AndroidTargetSdkVersion>34</AndroidTargetSdkVersion>
     <_GradleSyncIsAndroid>true</_GradleSyncIsAndroid>
 		<_GradleSyncMasterBeforeTargets>_ResolveLibraryProjectImports</_GradleSyncMasterBeforeTargets>
-		<_GradleSyncMasterDependsOnTargets>_GradleSync</_GradleSyncMasterDependsOnTargets>
+		<_GradleSyncMasterDependsOnTargets>_GradleSync</_GradleSyncMasterDependsOnTargets> *@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Dependencies.Gradle" Version="8.6.0.1" />
@@ -174,5 +174,5 @@
       <Link>Transforms/Metadata.common.xml</Link>
     </TransformFile>
   </ItemGroup>
-  <Target Name="_GradleDependencyResolverTrigger" DependsOnTargets="_GradleSync" BeforeTargets="CoreCompile" />
+  @* <Target Name="_GradleDependencyResolverTrigger" DependsOnTargets="_GradleSync" BeforeTargets="CoreCompile" /> *@
 </Project>
