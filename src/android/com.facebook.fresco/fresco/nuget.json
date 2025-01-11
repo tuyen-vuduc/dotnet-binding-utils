@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Facebook.Fresco.Fresco",
   "name": "fresco",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }

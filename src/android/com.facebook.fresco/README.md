@@ -5,7 +5,9 @@
 sh fetch.sh
 ```
 
-- 2. Bind library of `com.facebook.fresco:imagepipeline:3.6.0` first 
+- 2. Update all packages with changes to not dependency only in `nuget.json`, except `imagepipeline` and `fresco`
+
+- 3. Bind library of `com.facebook.fresco:imagepipeline:3.6.0` first 
 
 ```bash
 sh bind.sh --artifact com.facebook.fresco:imagepipeline:3.6.0
@@ -17,14 +19,14 @@ sh bind.sh --artifact com.facebook.fresco:imagepipeline:3.6.0
 sh bind.sh --artifact com.facebook.fresco:fresco:3.6.0
 ```
 
-**NOTES**: In a revision upgrade, we will need additional stuff to ensure the packages will be updated correctly.
+**NOTES**: In a normal upgrade, we will need additional stuff to ensure the packages will be updated correctly.
 
-- Mark dependencies of `Com.Facebook.Fresco.Imagepipeline` are not dependency only
-- After publishing these packages, mark those dependencies are dependency only again
-- Mark the remaining dependencies of `com.facebook.fresco:fresco` are not dependency only
-- After publishing these packages, mark those dependencies are dependency only again
+- Mark dependencies of `com.facebook.fresco:imagepipeline` (A) are not dependency only
+- After publishing (A), mark (A) are dependency only again
+- Mark the remaining dependencies of `com.facebook.fresco:fresco` (B) are not dependency only
+- After publishing (A), mark (A) are dependency only again
 
-Dependencies of `Com.Facebook.Fresco.Imagepipeline`
+Dependencies of `com.facebook.fresco:imagepipeline`
 
 ```txt
 - Com.Facebook.Fresco.Fbcore
