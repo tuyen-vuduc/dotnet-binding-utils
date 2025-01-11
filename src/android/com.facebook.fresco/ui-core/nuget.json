@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Facebook.Fresco.UiCore",
   "name": "ui-core",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }
