@@ -1,3 +1,5 @@
 {
-  "name": "com.android.installreferrer"
+  "name": "com.android.installreferrer",
+  "dotnet8": true,
+  "runtimeDependenciesAsCompile": true
 }
