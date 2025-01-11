@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Facebook.Fresco.UiCommon",
   "name": "ui-common",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "dotnet8": true,
   "versionMappings": []
 }

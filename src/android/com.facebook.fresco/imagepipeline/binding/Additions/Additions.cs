@@ -4,6 +4,14 @@ using Android.Runtime;
 using Com.Facebook.Common.Memory;
 using Java.Interop;
 
+namespace Com.Facebook.Imagepipeline.Core
+{
+    partial class DiskCachesStoreFactory
+    {
+        global::Java.Lang.Object global::Com.Facebook.Common.Internal.ISupplier.Get() => (global::Java.Lang.Object)Get();
+    }
+}
+
 namespace Com.Facebook.Imagepipeline.Cache
 {
     partial class DefaultEncodedMemoryCacheParamsSupplier
@@ -79,7 +87,7 @@ namespace Com.Facebook.Imagepipeline.Producers
             get
             {
                 if (id_getExtras == IntPtr.Zero)
-                    id_getExtras = JNIEnv.GetMethodID(class_ref, "getExtras", "()Ljava/util/Map;");
+                    id_getExtras = JNIEnv.GetMethodID(java_class_ref, "getExtras", "()Ljava/util/Map;");
                 return global::Android.Runtime.JavaDictionary<global::System.String, global::Java.Lang.Object>.FromJniHandle(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_getExtras), JniHandleOwnership.TransferLocalRef)!;
             }
         }
@@ -106,7 +114,7 @@ namespace Com.Facebook.Imagepipeline.Producers
         public unsafe global::Java.Lang.Object? GetExtra(string key)
         {
             if (id_getExtra_Ljava_lang_String_ == IntPtr.Zero)
-                id_getExtra_Ljava_lang_String_ = JNIEnv.GetMethodID(class_ref, "getExtra", "(Ljava/lang/String;)Ljava/lang/Object;");
+                id_getExtra_Ljava_lang_String_ = JNIEnv.GetMethodID(java_class_ref, "getExtra", "(Ljava/lang/String;)Ljava/lang/Object;");
             IntPtr native_key = JNIEnv.NewString((string?)key);
             JValue* __args = stackalloc JValue[1];
             __args[0] = new JValue(native_key);
@@ -138,7 +146,7 @@ namespace Com.Facebook.Imagepipeline.Producers
         public unsafe global::Java.Lang.Object? GetExtra(string key, global::Java.Lang.Object? valueIfNotFound)
         {
             if (id_getExtra_Ljava_lang_String_Ljava_lang_Object_ == IntPtr.Zero)
-                id_getExtra_Ljava_lang_String_Ljava_lang_Object_ = JNIEnv.GetMethodID(class_ref, "getExtra", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;");
+                id_getExtra_Ljava_lang_String_Ljava_lang_Object_ = JNIEnv.GetMethodID(java_class_ref, "getExtra", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;");
             IntPtr native_key = JNIEnv.NewString((string?)key);
             JValue* __args = stackalloc JValue[2];
             __args[0] = new JValue(native_key);
@@ -170,7 +178,7 @@ namespace Com.Facebook.Imagepipeline.Producers
         public unsafe void PutExtra(string key, global::Java.Lang.Object? value)
         {
             if (id_putExtra_Ljava_lang_String_Ljava_lang_Object_ == IntPtr.Zero)
-                id_putExtra_Ljava_lang_String_Ljava_lang_Object_ = JNIEnv.GetMethodID(class_ref, "putExtra", "(Ljava/lang/String;Ljava/lang/Object;)V");
+                id_putExtra_Ljava_lang_String_Ljava_lang_Object_ = JNIEnv.GetMethodID(java_class_ref, "putExtra", "(Ljava/lang/String;Ljava/lang/Object;)V");
             IntPtr native_key = JNIEnv.NewString((string?)key);
             JValue* __args = stackalloc JValue[2];
             __args[0] = new JValue(native_key);
@@ -200,7 +208,7 @@ namespace Com.Facebook.Imagepipeline.Producers
         public unsafe void PutExtras(global::System.Collections.Generic.IDictionary<global::System.String, global::Java.Lang.Object> extras)
         {
             if (id_putExtras_LSystem_Collections_Generic_IDictionary_2_ == IntPtr.Zero)
-                id_putExtras_LSystem_Collections_Generic_IDictionary_2_ = JNIEnv.GetMethodID(class_ref, "putExtras", "(LSystem/Collections/Generic/IDictionary`2;)V");
+                id_putExtras_LSystem_Collections_Generic_IDictionary_2_ = JNIEnv.GetMethodID(java_class_ref, "putExtras", "(LSystem/Collections/Generic/IDictionary`2;)V");
             JValue* __args = stackalloc JValue[1];
             __args[0] = new JValue((extras == null) ? IntPtr.Zero : ((global::Java.Lang.Object)extras).Handle);
             JNIEnv.CallVoidMethod(((global::Java.Lang.Object)this).Handle, id_putExtras_LSystem_Collections_Generic_IDictionary_2_, __args);

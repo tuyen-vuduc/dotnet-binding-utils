@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Facebook.Fresco.Nativeimagetranscoder",
   "name": "nativeimagetranscoder",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "dotnet8": true,
   "versionMappings": []
 }

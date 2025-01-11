@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Facebook.Fresco.MemoryTypeJava",
   "name": "memory-type-java",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "dotnet8": true,
   "versionMappings": []
 }

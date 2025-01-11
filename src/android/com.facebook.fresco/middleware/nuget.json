@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Facebook.Fresco.Middleware",
   "name": "middleware",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "dotnet8": true,
   "versionMappings": []
 }

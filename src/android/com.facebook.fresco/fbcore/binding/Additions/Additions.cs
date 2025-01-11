@@ -35,7 +35,7 @@ namespace Com.Facebook.Common.Executors
 		public unsafe global::Java.Util.Concurrent.IScheduledFuture? Schedule(global::Java.Lang.IRunnable? command, long delay, global::Java.Util.Concurrent.TimeUnit? unit)
 		{
 			if (id_schedule_Ljava_lang_Runnable_JLjava_util_concurrent_TimeUnit_ == IntPtr.Zero)
-				id_schedule_Ljava_lang_Runnable_JLjava_util_concurrent_TimeUnit_ = JNIEnv.GetMethodID(class_ref, "schedule", "(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;");
+				id_schedule_Ljava_lang_Runnable_JLjava_util_concurrent_TimeUnit_ = JNIEnv.GetMethodID(java_class_ref, "schedule", "(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;");
 			JValue* __args = stackalloc JValue[3];
 			__args[0] = new JValue((command == null) ? IntPtr.Zero : ((global::Java.Lang.Object)command).Handle);
 			__args[1] = new JValue(delay);
@@ -67,7 +67,7 @@ namespace Com.Facebook.Common.Executors
 		public unsafe global::Java.Util.Concurrent.IScheduledFuture? Schedule(global::Java.Util.Concurrent.ICallable? callable, long delay, global::Java.Util.Concurrent.TimeUnit? unit)
 		{
 			if (id_schedule_Ljava_util_concurrent_Callable_JLjava_util_concurrent_TimeUnit_ == IntPtr.Zero)
-				id_schedule_Ljava_util_concurrent_Callable_JLjava_util_concurrent_TimeUnit_ = JNIEnv.GetMethodID(class_ref, "schedule", "(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;");
+				id_schedule_Ljava_util_concurrent_Callable_JLjava_util_concurrent_TimeUnit_ = JNIEnv.GetMethodID(java_class_ref, "schedule", "(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;");
 			JValue* __args = stackalloc JValue[3];
 			__args[0] = new JValue((callable == null) ? IntPtr.Zero : ((global::Java.Lang.Object)callable).Handle);
 			__args[1] = new JValue(delay);
@@ -99,7 +99,7 @@ namespace Com.Facebook.Common.Executors
 		public unsafe global::Java.Util.Concurrent.IScheduledFuture? ScheduleAtFixedRate(global::Java.Lang.IRunnable? command, long initialDelay, long period, global::Java.Util.Concurrent.TimeUnit? unit)
 		{
 			if (id_scheduleAtFixedRate_Ljava_lang_Runnable_JJLjava_util_concurrent_TimeUnit_ == IntPtr.Zero)
-				id_scheduleAtFixedRate_Ljava_lang_Runnable_JJLjava_util_concurrent_TimeUnit_ = JNIEnv.GetMethodID(class_ref, "scheduleAtFixedRate", "(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;");
+				id_scheduleAtFixedRate_Ljava_lang_Runnable_JJLjava_util_concurrent_TimeUnit_ = JNIEnv.GetMethodID(java_class_ref, "scheduleAtFixedRate", "(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;");
 			JValue* __args = stackalloc JValue[4];
 			__args[0] = new JValue((command == null) ? IntPtr.Zero : ((global::Java.Lang.Object)command).Handle);
 			__args[1] = new JValue(initialDelay);
@@ -132,7 +132,7 @@ namespace Com.Facebook.Common.Executors
 		public unsafe global::Java.Util.Concurrent.IScheduledFuture? ScheduleWithFixedDelay(global::Java.Lang.IRunnable? command, long initialDelay, long delay, global::Java.Util.Concurrent.TimeUnit? unit)
 		{
 			if (id_scheduleWithFixedDelay_Ljava_lang_Runnable_JJLjava_util_concurrent_TimeUnit_ == IntPtr.Zero)
-				id_scheduleWithFixedDelay_Ljava_lang_Runnable_JJLjava_util_concurrent_TimeUnit_ = JNIEnv.GetMethodID(class_ref, "scheduleWithFixedDelay", "(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;");
+				id_scheduleWithFixedDelay_Ljava_lang_Runnable_JJLjava_util_concurrent_TimeUnit_ = JNIEnv.GetMethodID(java_class_ref, "scheduleWithFixedDelay", "(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;");
 			JValue* __args = stackalloc JValue[4];
 			__args[0] = new JValue((command == null) ? IntPtr.Zero : ((global::Java.Lang.Object)command).Handle);
 			__args[1] = new JValue(initialDelay);
@@ -164,7 +164,7 @@ namespace Com.Facebook.Common.Executors
 			get
 			{
 				if (id_isShutdown == IntPtr.Zero)
-					id_isShutdown = JNIEnv.GetMethodID(class_ref, "isShutdown", "()Z");
+					id_isShutdown = JNIEnv.GetMethodID(java_class_ref, "isShutdown", "()Z");
 				return JNIEnv.CallBooleanMethod(((global::Java.Lang.Object)this).Handle, id_isShutdown);
 			}
 		}
@@ -191,7 +191,7 @@ namespace Com.Facebook.Common.Executors
 			get
 			{
 				if (id_isTerminated == IntPtr.Zero)
-					id_isTerminated = JNIEnv.GetMethodID(class_ref, "isTerminated", "()Z");
+					id_isTerminated = JNIEnv.GetMethodID(java_class_ref, "isTerminated", "()Z");
 				return JNIEnv.CallBooleanMethod(((global::Java.Lang.Object)this).Handle, id_isTerminated);
 			}
 		}
@@ -218,7 +218,7 @@ namespace Com.Facebook.Common.Executors
 		public unsafe bool AwaitTermination(long timeout, global::Java.Util.Concurrent.TimeUnit? unit)
 		{
 			if (id_awaitTermination_JLjava_util_concurrent_TimeUnit_ == IntPtr.Zero)
-				id_awaitTermination_JLjava_util_concurrent_TimeUnit_ = JNIEnv.GetMethodID(class_ref, "awaitTermination", "(JLjava/util/concurrent/TimeUnit;)Z");
+				id_awaitTermination_JLjava_util_concurrent_TimeUnit_ = JNIEnv.GetMethodID(java_class_ref, "awaitTermination", "(JLjava/util/concurrent/TimeUnit;)Z");
 			JValue* __args = stackalloc JValue[2];
 			__args[0] = new JValue(timeout);
 			__args[1] = new JValue((unit == null) ? IntPtr.Zero : ((global::Java.Lang.Object)unit).Handle);
@@ -248,7 +248,7 @@ namespace Com.Facebook.Common.Executors
 		public unsafe global::System.Collections.IList? InvokeAll(global::System.Collections.ICollection? tasks)
 		{
 			if (id_invokeAll_LSystem_Collections_ICollection_ == IntPtr.Zero)
-				id_invokeAll_LSystem_Collections_ICollection_ = JNIEnv.GetMethodID(class_ref, "invokeAll", "(LSystem/Collections/ICollection;)Ljava/util/List;");
+				id_invokeAll_LSystem_Collections_ICollection_ = JNIEnv.GetMethodID(java_class_ref, "invokeAll", "(LSystem/Collections/ICollection;)Ljava/util/List;");
 			IntPtr native_tasks = global::Android.Runtime.JavaCollection.ToLocalJniHandle(tasks);
 			JValue* __args = stackalloc JValue[1];
 			__args[0] = new JValue(native_tasks);
@@ -280,7 +280,7 @@ namespace Com.Facebook.Common.Executors
 		public unsafe global::System.Collections.IList? InvokeAll(global::System.Collections.ICollection? tasks, long timeout, global::Java.Util.Concurrent.TimeUnit? unit)
 		{
 			if (id_invokeAll_LSystem_Collections_ICollection_JLjava_util_concurrent_TimeUnit_ == IntPtr.Zero)
-				id_invokeAll_LSystem_Collections_ICollection_JLjava_util_concurrent_TimeUnit_ = JNIEnv.GetMethodID(class_ref, "invokeAll", "(LSystem/Collections/ICollection;JLjava/util/concurrent/TimeUnit;)Ljava/util/List;");
+				id_invokeAll_LSystem_Collections_ICollection_JLjava_util_concurrent_TimeUnit_ = JNIEnv.GetMethodID(java_class_ref, "invokeAll", "(LSystem/Collections/ICollection;JLjava/util/concurrent/TimeUnit;)Ljava/util/List;");
 			IntPtr native_tasks = global::Android.Runtime.JavaCollection.ToLocalJniHandle(tasks);
 			JValue* __args = stackalloc JValue[3];
 			__args[0] = new JValue(native_tasks);
@@ -313,7 +313,7 @@ namespace Com.Facebook.Common.Executors
 		public unsafe global::Java.Lang.Object? InvokeAny(global::System.Collections.ICollection? tasks)
 		{
 			if (id_invokeAny_LSystem_Collections_ICollection_ == IntPtr.Zero)
-				id_invokeAny_LSystem_Collections_ICollection_ = JNIEnv.GetMethodID(class_ref, "invokeAny", "(LSystem/Collections/ICollection;)Ljava/lang/Object;");
+				id_invokeAny_LSystem_Collections_ICollection_ = JNIEnv.GetMethodID(java_class_ref, "invokeAny", "(LSystem/Collections/ICollection;)Ljava/lang/Object;");
 			IntPtr native_tasks = global::Android.Runtime.JavaCollection.ToLocalJniHandle(tasks);
 			JValue* __args = stackalloc JValue[1];
 			__args[0] = new JValue(native_tasks);
@@ -345,7 +345,7 @@ namespace Com.Facebook.Common.Executors
 		public unsafe global::Java.Lang.Object? InvokeAny(global::System.Collections.ICollection? tasks, long timeout, global::Java.Util.Concurrent.TimeUnit? unit)
 		{
 			if (id_invokeAny_LSystem_Collections_ICollection_JLjava_util_concurrent_TimeUnit_ == IntPtr.Zero)
-				id_invokeAny_LSystem_Collections_ICollection_JLjava_util_concurrent_TimeUnit_ = JNIEnv.GetMethodID(class_ref, "invokeAny", "(LSystem/Collections/ICollection;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;");
+				id_invokeAny_LSystem_Collections_ICollection_JLjava_util_concurrent_TimeUnit_ = JNIEnv.GetMethodID(java_class_ref, "invokeAny", "(LSystem/Collections/ICollection;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;");
 			IntPtr native_tasks = global::Android.Runtime.JavaCollection.ToLocalJniHandle(tasks);
 			JValue* __args = stackalloc JValue[3];
 			__args[0] = new JValue(native_tasks);
@@ -376,7 +376,7 @@ namespace Com.Facebook.Common.Executors
 		public unsafe void Shutdown()
 		{
 			if (id_shutdown == IntPtr.Zero)
-				id_shutdown = JNIEnv.GetMethodID(class_ref, "shutdown", "()V");
+				id_shutdown = JNIEnv.GetMethodID(java_class_ref, "shutdown", "()V");
 			JNIEnv.CallVoidMethod(((global::Java.Lang.Object)this).Handle, id_shutdown);
 		}
 
@@ -400,7 +400,7 @@ namespace Com.Facebook.Common.Executors
 		public unsafe global::System.Collections.Generic.IList<global::Java.Lang.IRunnable>? ShutdownNow()
 		{
 			if (id_shutdownNow == IntPtr.Zero)
-				id_shutdownNow = JNIEnv.GetMethodID(class_ref, "shutdownNow", "()Ljava/util/List;");
+				id_shutdownNow = JNIEnv.GetMethodID(java_class_ref, "shutdownNow", "()Ljava/util/List;");
 			return global::Android.Runtime.JavaList<global::Java.Lang.IRunnable>.FromJniHandle(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_shutdownNow), JniHandleOwnership.TransferLocalRef);
 		}
 
@@ -426,7 +426,7 @@ namespace Com.Facebook.Common.Executors
 		public unsafe global::Java.Util.Concurrent.IFuture? Submit(global::Java.Lang.IRunnable? task)
 		{
 			if (id_submit_Ljava_lang_Runnable_ == IntPtr.Zero)
-				id_submit_Ljava_lang_Runnable_ = JNIEnv.GetMethodID(class_ref, "submit", "(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;");
+				id_submit_Ljava_lang_Runnable_ = JNIEnv.GetMethodID(java_class_ref, "submit", "(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;");
 			JValue* __args = stackalloc JValue[1];
 			__args[0] = new JValue((task == null) ? IntPtr.Zero : ((global::Java.Lang.Object)task).Handle);
 			var __ret = global::Java.Lang.Object.GetObject<global::Java.Util.Concurrent.IFuture>(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_submit_Ljava_lang_Runnable_, __args), JniHandleOwnership.TransferLocalRef);
@@ -456,7 +456,7 @@ namespace Com.Facebook.Common.Executors
 		public unsafe global::Java.Util.Concurrent.IFuture? Submit(global::Java.Lang.IRunnable? task, global::Java.Lang.Object? result)
 		{
 			if (id_submit_Ljava_lang_Runnable_Ljava_lang_Object_ == IntPtr.Zero)
-				id_submit_Ljava_lang_Runnable_Ljava_lang_Object_ = JNIEnv.GetMethodID(class_ref, "submit", "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;");
+				id_submit_Ljava_lang_Runnable_Ljava_lang_Object_ = JNIEnv.GetMethodID(java_class_ref, "submit", "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;");
 			JValue* __args = stackalloc JValue[2];
 			__args[0] = new JValue((task == null) ? IntPtr.Zero : ((global::Java.Lang.Object)task).Handle);
 			__args[1] = new JValue((result == null) ? IntPtr.Zero : ((global::Java.Lang.Object)result).Handle);
@@ -486,7 +486,7 @@ namespace Com.Facebook.Common.Executors
 		public unsafe global::Java.Util.Concurrent.IFuture? Submit(global::Java.Util.Concurrent.ICallable? task)
 		{
 			if (id_submit_Ljava_util_concurrent_Callable_ == IntPtr.Zero)
-				id_submit_Ljava_util_concurrent_Callable_ = JNIEnv.GetMethodID(class_ref, "submit", "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;");
+				id_submit_Ljava_util_concurrent_Callable_ = JNIEnv.GetMethodID(java_class_ref, "submit", "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;");
 			JValue* __args = stackalloc JValue[1];
 			__args[0] = new JValue((task == null) ? IntPtr.Zero : ((global::Java.Lang.Object)task).Handle);
 			var __ret = global::Java.Lang.Object.GetObject<global::Java.Util.Concurrent.IFuture>(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_submit_Ljava_util_concurrent_Callable_, __args), JniHandleOwnership.TransferLocalRef);
@@ -514,7 +514,7 @@ namespace Com.Facebook.Common.Executors
 		public unsafe void Execute(global::Java.Lang.IRunnable? command)
 		{
 			if (id_execute_Ljava_lang_Runnable_ == IntPtr.Zero)
-				id_execute_Ljava_lang_Runnable_ = JNIEnv.GetMethodID(class_ref, "execute", "(Ljava/lang/Runnable;)V");
+				id_execute_Ljava_lang_Runnable_ = JNIEnv.GetMethodID(java_class_ref, "execute", "(Ljava/lang/Runnable;)V");
 			JValue* __args = stackalloc JValue[1];
 			__args[0] = new JValue((command == null) ? IntPtr.Zero : ((global::Java.Lang.Object)command).Handle);
 			JNIEnv.CallVoidMethod(((global::Java.Lang.Object)this).Handle, id_execute_Ljava_lang_Runnable_, __args);
@@ -554,7 +554,7 @@ namespace Com.Facebook.Common.Executors
 			get
 			{
 				if (id_isShutdown == IntPtr.Zero)
-					id_isShutdown = JNIEnv.GetMethodID(class_ref, "isShutdown", "()Z");
+					id_isShutdown = JNIEnv.GetMethodID(java_class_ref, "isShutdown", "()Z");
 				return JNIEnv.CallBooleanMethod(((global::Java.Lang.Object)this).Handle, id_isShutdown);
 			}
 		}
@@ -581,7 +581,7 @@ namespace Com.Facebook.Common.Executors
 			get
 			{
 				if (id_isTerminated == IntPtr.Zero)
-					id_isTerminated = JNIEnv.GetMethodID(class_ref, "isTerminated", "()Z");
+					id_isTerminated = JNIEnv.GetMethodID(java_class_ref, "isTerminated", "()Z");
 				return JNIEnv.CallBooleanMethod(((global::Java.Lang.Object)this).Handle, id_isTerminated);
 			}
 		}
@@ -608,7 +608,7 @@ namespace Com.Facebook.Common.Executors
 		public unsafe bool AwaitTermination(long timeout, global::Java.Util.Concurrent.TimeUnit? unit)
 		{
 			if (id_awaitTermination_JLjava_util_concurrent_TimeUnit_ == IntPtr.Zero)
-				id_awaitTermination_JLjava_util_concurrent_TimeUnit_ = JNIEnv.GetMethodID(class_ref, "awaitTermination", "(JLjava/util/concurrent/TimeUnit;)Z");
+				id_awaitTermination_JLjava_util_concurrent_TimeUnit_ = JNIEnv.GetMethodID(java_class_ref, "awaitTermination", "(JLjava/util/concurrent/TimeUnit;)Z");
 			JValue* __args = stackalloc JValue[2];
 			__args[0] = new JValue(timeout);
 			__args[1] = new JValue((unit == null) ? IntPtr.Zero : ((global::Java.Lang.Object)unit).Handle);
@@ -638,7 +638,7 @@ namespace Com.Facebook.Common.Executors
 		public unsafe global::System.Collections.IList? InvokeAll(global::System.Collections.ICollection? tasks)
 		{
 			if (id_invokeAll_LSystem_Collections_ICollection_ == IntPtr.Zero)
-				id_invokeAll_LSystem_Collections_ICollection_ = JNIEnv.GetMethodID(class_ref, "invokeAll", "(LSystem/Collections/ICollection;)Ljava/util/List;");
+				id_invokeAll_LSystem_Collections_ICollection_ = JNIEnv.GetMethodID(java_class_ref, "invokeAll", "(LSystem/Collections/ICollection;)Ljava/util/List;");
 			IntPtr native_tasks = global::Android.Runtime.JavaCollection.ToLocalJniHandle(tasks);
 			JValue* __args = stackalloc JValue[1];
 			__args[0] = new JValue(native_tasks);
@@ -670,7 +670,7 @@ namespace Com.Facebook.Common.Executors
 		public unsafe global::System.Collections.IList? InvokeAll(global::System.Collections.ICollection? tasks, long timeout, global::Java.Util.Concurrent.TimeUnit? unit)
 		{
 			if (id_invokeAll_LSystem_Collections_ICollection_JLjava_util_concurrent_TimeUnit_ == IntPtr.Zero)
-				id_invokeAll_LSystem_Collections_ICollection_JLjava_util_concurrent_TimeUnit_ = JNIEnv.GetMethodID(class_ref, "invokeAll", "(LSystem/Collections/ICollection;JLjava/util/concurrent/TimeUnit;)Ljava/util/List;");
+				id_invokeAll_LSystem_Collections_ICollection_JLjava_util_concurrent_TimeUnit_ = JNIEnv.GetMethodID(java_class_ref, "invokeAll", "(LSystem/Collections/ICollection;JLjava/util/concurrent/TimeUnit;)Ljava/util/List;");
 			IntPtr native_tasks = global::Android.Runtime.JavaCollection.ToLocalJniHandle(tasks);
 			JValue* __args = stackalloc JValue[3];
 			__args[0] = new JValue(native_tasks);
@@ -703,7 +703,7 @@ namespace Com.Facebook.Common.Executors
 		public unsafe global::Java.Lang.Object? InvokeAny(global::System.Collections.ICollection? tasks)
 		{
 			if (id_invokeAny_LSystem_Collections_ICollection_ == IntPtr.Zero)
-				id_invokeAny_LSystem_Collections_ICollection_ = JNIEnv.GetMethodID(class_ref, "invokeAny", "(LSystem/Collections/ICollection;)Ljava/lang/Object;");
+				id_invokeAny_LSystem_Collections_ICollection_ = JNIEnv.GetMethodID(java_class_ref, "invokeAny", "(LSystem/Collections/ICollection;)Ljava/lang/Object;");
 			IntPtr native_tasks = global::Android.Runtime.JavaCollection.ToLocalJniHandle(tasks);
 			JValue* __args = stackalloc JValue[1];
 			__args[0] = new JValue(native_tasks);
@@ -735,7 +735,7 @@ namespace Com.Facebook.Common.Executors
 		public unsafe global::Java.Lang.Object? InvokeAny(global::System.Collections.ICollection? tasks, long timeout, global::Java.Util.Concurrent.TimeUnit? unit)
 		{
 			if (id_invokeAny_LSystem_Collections_ICollection_JLjava_util_concurrent_TimeUnit_ == IntPtr.Zero)
-				id_invokeAny_LSystem_Collections_ICollection_JLjava_util_concurrent_TimeUnit_ = JNIEnv.GetMethodID(class_ref, "invokeAny", "(LSystem/Collections/ICollection;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;");
+				id_invokeAny_LSystem_Collections_ICollection_JLjava_util_concurrent_TimeUnit_ = JNIEnv.GetMethodID(java_class_ref, "invokeAny", "(LSystem/Collections/ICollection;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;");
 			IntPtr native_tasks = global::Android.Runtime.JavaCollection.ToLocalJniHandle(tasks);
 			JValue* __args = stackalloc JValue[3];
 			__args[0] = new JValue(native_tasks);
@@ -766,7 +766,7 @@ namespace Com.Facebook.Common.Executors
 		public unsafe void Shutdown()
 		{
 			if (id_shutdown == IntPtr.Zero)
-				id_shutdown = JNIEnv.GetMethodID(class_ref, "shutdown", "()V");
+				id_shutdown = JNIEnv.GetMethodID(java_class_ref, "shutdown", "()V");
 			JNIEnv.CallVoidMethod(((global::Java.Lang.Object)this).Handle, id_shutdown);
 		}
 
@@ -790,7 +790,7 @@ namespace Com.Facebook.Common.Executors
 		public unsafe global::System.Collections.Generic.IList<global::Java.Lang.IRunnable>? ShutdownNow()
 		{
 			if (id_shutdownNow == IntPtr.Zero)
-				id_shutdownNow = JNIEnv.GetMethodID(class_ref, "shutdownNow", "()Ljava/util/List;");
+				id_shutdownNow = JNIEnv.GetMethodID(java_class_ref, "shutdownNow", "()Ljava/util/List;");
 			return global::Android.Runtime.JavaList<global::Java.Lang.IRunnable>.FromJniHandle(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_shutdownNow), JniHandleOwnership.TransferLocalRef);
 		}
 
@@ -816,7 +816,7 @@ namespace Com.Facebook.Common.Executors
 		public unsafe global::Java.Util.Concurrent.IFuture? Submit(global::Java.Lang.IRunnable? task)
 		{
 			if (id_submit_Ljava_lang_Runnable_ == IntPtr.Zero)
-				id_submit_Ljava_lang_Runnable_ = JNIEnv.GetMethodID(class_ref, "submit", "(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;");
+				id_submit_Ljava_lang_Runnable_ = JNIEnv.GetMethodID(java_class_ref, "submit", "(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;");
 			JValue* __args = stackalloc JValue[1];
 			__args[0] = new JValue((task == null) ? IntPtr.Zero : ((global::Java.Lang.Object)task).Handle);
 			var __ret = global::Java.Lang.Object.GetObject<global::Java.Util.Concurrent.IFuture>(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_submit_Ljava_lang_Runnable_, __args), JniHandleOwnership.TransferLocalRef);
@@ -846,7 +846,7 @@ namespace Com.Facebook.Common.Executors
 		public unsafe global::Java.Util.Concurrent.IFuture? Submit(global::Java.Lang.IRunnable? task, global::Java.Lang.Object? result)
 		{
 			if (id_submit_Ljava_lang_Runnable_Ljava_lang_Object_ == IntPtr.Zero)
-				id_submit_Ljava_lang_Runnable_Ljava_lang_Object_ = JNIEnv.GetMethodID(class_ref, "submit", "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;");
+				id_submit_Ljava_lang_Runnable_Ljava_lang_Object_ = JNIEnv.GetMethodID(java_class_ref, "submit", "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;");
 			JValue* __args = stackalloc JValue[2];
 			__args[0] = new JValue((task == null) ? IntPtr.Zero : ((global::Java.Lang.Object)task).Handle);
 			__args[1] = new JValue((result == null) ? IntPtr.Zero : ((global::Java.Lang.Object)result).Handle);
@@ -876,7 +876,7 @@ namespace Com.Facebook.Common.Executors
 		public unsafe global::Java.Util.Concurrent.IFuture? Submit(global::Java.Util.Concurrent.ICallable? task)
 		{
 			if (id_submit_Ljava_util_concurrent_Callable_ == IntPtr.Zero)
-				id_submit_Ljava_util_concurrent_Callable_ = JNIEnv.GetMethodID(class_ref, "submit", "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;");
+				id_submit_Ljava_util_concurrent_Callable_ = JNIEnv.GetMethodID(java_class_ref, "submit", "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;");
 			JValue* __args = stackalloc JValue[1];
 			__args[0] = new JValue((task == null) ? IntPtr.Zero : ((global::Java.Lang.Object)task).Handle);
 			var __ret = global::Java.Lang.Object.GetObject<global::Java.Util.Concurrent.IFuture>(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_submit_Ljava_util_concurrent_Callable_, __args), JniHandleOwnership.TransferLocalRef);
@@ -904,7 +904,7 @@ namespace Com.Facebook.Common.Executors
 		public unsafe void Execute(global::Java.Lang.IRunnable? command)
 		{
 			if (id_execute_Ljava_lang_Runnable_ == IntPtr.Zero)
-				id_execute_Ljava_lang_Runnable_ = JNIEnv.GetMethodID(class_ref, "execute", "(Ljava/lang/Runnable;)V");
+				id_execute_Ljava_lang_Runnable_ = JNIEnv.GetMethodID(java_class_ref, "execute", "(Ljava/lang/Runnable;)V");
 			JValue* __args = stackalloc JValue[1];
 			__args[0] = new JValue((command == null) ? IntPtr.Zero : ((global::Java.Lang.Object)command).Handle);
 			JNIEnv.CallVoidMethod(((global::Java.Lang.Object)this).Handle, id_execute_Ljava_lang_Runnable_, __args);

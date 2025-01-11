@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Facebook.Fresco.Soloader",
   "name": "soloader",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "dotnet8": true,
   "versionMappings": []
 }

@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Facebook.Fresco.Imagepipeline",
   "name": "imagepipeline",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "dotnet8": true,
   "versionMappings": []
 }
