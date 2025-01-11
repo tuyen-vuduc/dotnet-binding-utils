@@ -1,4 +1,4 @@
-name: Android Binding Libraries - PayPal
+name: Android Binding Libraries - PayStack
 run-name: ${{ inputs.LIB_ARTIFACT }} 🚀 NuGet
 on:
   workflow_dispatch:
