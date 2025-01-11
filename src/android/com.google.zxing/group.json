@@ -1,3 +1,5 @@
 {
-  "name": "com.google.zxing"
+  "name": "com.google.zxing",
+  "dotnet8": true,
+  "runtimeDependenciesAsCompile": true
 }
