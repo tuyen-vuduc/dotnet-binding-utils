@@ -52,14 +52,9 @@ namespace Com.Facebook.Drawee.Backends.Pipeline
 
 namespace Com.Facebook.Drawee.Backends.Pipeline.Info.Internal
 {
-    partial class ImagePerfControllerListener2 : global::Com.Facebook.Fresco.UI.Common.IOnDrawControllerListener
+    partial class ImagePerfStateManager
     {
-        void IOnDrawControllerListener.OnImageDrawn(string id, Java.Lang.Object? imageInfo, DimensionsInfo dimensionsInfo)
-            => OnImageDrawn(id, imageInfo as Imagepipeline.Image.IImageInfo, dimensionsInfo);
-    }
-    partial class ImagePerfControllerListener : global::Com.Facebook.Fresco.UI.Common.IOnDrawControllerListener
-    {
-        void IOnDrawControllerListener.OnImageDrawn(string id, Java.Lang.Object? imageInfo, DimensionsInfo dimensionsInfo)
+        void global::Com.Facebook.Fresco.UI.Common.IOnDrawControllerListener.OnImageDrawn(string id, global::Java.Lang.Object? imageInfo, global::Com.Facebook.Fresco.UI.Common.DimensionsInfo dimensionsInfo)
             => OnImageDrawn(id, imageInfo as Imagepipeline.Image.IImageInfo, dimensionsInfo);
     }
 }  

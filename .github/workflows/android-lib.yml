@@ -9,6 +9,7 @@ on:
         type: choice
         options:    
         - com.facebook.fresco:imagepipeline:3.6.0
+        - com.facebook.fresco:fresco:3.6.0
         - de.hdodenhof:circleimageview:3.1.0
         - org.jetbrains.kotlinx:kotlinx-datetime:0.6.1
         - com.paystack.android:paystack-ui:0.0.9

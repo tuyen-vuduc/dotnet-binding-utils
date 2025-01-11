@@ -9,6 +9,7 @@ on:
         type: choice
         options:    
         - com.facebook.fresco:imagepipeline:3.6.0
+        - com.facebook.fresco:fresco:3.6.0
 jobs:
   build-then-publish:
     environment: production
