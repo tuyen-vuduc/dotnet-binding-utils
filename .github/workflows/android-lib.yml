@@ -8,17 +8,10 @@ on:
         required: true
         type: choice
         options:    
+        - com.facebook.fresco:imagepipeline:3.6.0
+        - com.facebook.fresco:fresco:3.6.0
         - de.hdodenhof:circleimageview:3.1.0
         - org.jetbrains.kotlinx:kotlinx-datetime:0.6.1
-        - com.stripe:stripe-android:20.48.3
-        - com.stripe:paymentsheet:20.48.3
-        - com.stripe:link:20.48.3
-        - com.stripe:payments-ui-core:20.48.3
-        - com.stripe:payments-core:20.48.3
-        - com.stripe:payments-model:20.48.3
-        - com.stripe:stripe-ui-core:20.48.3
-        - com.stripe:stripe-core:20.48.3
-        - com.stripe:hcaptcha:20.48.3
         - com.paystack.android:paystack-ui:0.0.9
         - com.paystack.android:paystack-core:0.0.9
         - com.paystack.android:design-system-android:0.0.4
@@ -48,7 +41,6 @@ on:
         - com.paypal.android:payment-buttons:1.5.0
         - com.paypal.android:card-payments:1.5.0
         - io.getstream:stream-chat-android-client:6.4.0
-        - com.facebook.fresco:fresco:3.2.0
         - io.github.sceneview:sceneview:2.2.1
         - io.github.sceneview:arsceneview:2.2.1
 jobs:

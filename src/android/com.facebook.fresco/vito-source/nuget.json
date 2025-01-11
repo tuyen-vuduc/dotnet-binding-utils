@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Facebook.Fresco.VitoSource",
+  "name": "vito-source",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}
