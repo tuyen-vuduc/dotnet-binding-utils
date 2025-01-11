@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Paypal.Android.CorePayments",
   "name": "core-payments",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "dotnet8": true,
   "versionMappings": []
 }
