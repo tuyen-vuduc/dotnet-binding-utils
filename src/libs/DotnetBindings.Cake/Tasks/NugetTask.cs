@@ -17,6 +17,7 @@ public sealed class NugetTask : FrostingTask<BuildContext>
         {
             Configuration = "Release",
             OutputDirectory = nugetsFolderPath,
+            DiagnosticOutput = true,
         };
         context.DotNetPack(
             context.SlnPath,
