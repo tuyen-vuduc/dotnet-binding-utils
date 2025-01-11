@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Braintreepayments.Api.DropIn",
   "name": "drop-in",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }

@@ -1,7 +1,7 @@
 {
   "packageId": "De.Hdodenhof.Circleimageview",
   "name": "circleimageview",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }
