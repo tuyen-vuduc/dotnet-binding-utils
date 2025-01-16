@@ -17,6 +17,10 @@ on:
         - com.stripe:stripe-ui-core:20.48.3
         - com.stripe:stripe-core:20.48.3
         - com.stripe:hcaptcha:20.48.3
+        - com.stripe:stripeterminal:3.7.1
+        - com.stripe:stripeterminal-core:3.7.1
+        - com.stripe:stripeterminal-internal-common:3.7.1
+        - com.stripe:stripeterminal-external:3.7.1   
 jobs:
   build-then-publish:
     environment: production

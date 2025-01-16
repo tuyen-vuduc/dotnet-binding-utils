@@ -1,4 +1,4 @@
-name: Android Binding Libraries - Slf4j
+name: Android Binding Libraries - Braintree
 run-name: ${{ inputs.LIB_ARTIFACT }} 🚀 NuGet
 on:
   workflow_dispatch:
