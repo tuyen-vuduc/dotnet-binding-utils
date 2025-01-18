@@ -36,7 +36,7 @@ namespace Org.Bouncycastle.X509
             get
             {
                 if (id_getCriticalExtensionOIDs == IntPtr.Zero)
-                    id_getCriticalExtensionOIDs = JNIEnv.GetMethodID(class_ref, "getCriticalExtensionOIDs", "()Ljava/util/Set;");
+                    id_getCriticalExtensionOIDs = JNIEnv.GetMethodID(java_class_ref, "getCriticalExtensionOIDs", "()Ljava/util/Set;");
                 return global::Android.Runtime.JavaSet<string>.FromJniHandle(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_getCriticalExtensionOIDs), JniHandleOwnership.TransferLocalRef);
             }
         }
@@ -63,7 +63,7 @@ namespace Org.Bouncycastle.X509
             get
             {
                 if (id_hasUnsupportedCriticalExtension == IntPtr.Zero)
-                    id_hasUnsupportedCriticalExtension = JNIEnv.GetMethodID(class_ref, "hasUnsupportedCriticalExtension", "()Z");
+                    id_hasUnsupportedCriticalExtension = JNIEnv.GetMethodID(java_class_ref, "hasUnsupportedCriticalExtension", "()Z");
                 return JNIEnv.CallBooleanMethod(((global::Java.Lang.Object)this).Handle, id_hasUnsupportedCriticalExtension);
             }
         }
@@ -90,7 +90,7 @@ namespace Org.Bouncycastle.X509
             get
             {
                 if (id_getNonCriticalExtensionOIDs == IntPtr.Zero)
-                    id_getNonCriticalExtensionOIDs = JNIEnv.GetMethodID(class_ref, "getNonCriticalExtensionOIDs", "()Ljava/util/Set;");
+                    id_getNonCriticalExtensionOIDs = JNIEnv.GetMethodID(java_class_ref, "getNonCriticalExtensionOIDs", "()Ljava/util/Set;");
                 return global::Android.Runtime.JavaSet<string>.FromJniHandle(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_getNonCriticalExtensionOIDs), JniHandleOwnership.TransferLocalRef);
             }
         }
@@ -117,7 +117,7 @@ namespace Org.Bouncycastle.X509
         public unsafe global::System.Byte[]? GetExtensionValue(string? oid)
         {
             if (id_getExtensionValue_Ljava_lang_String_ == IntPtr.Zero)
-                id_getExtensionValue_Ljava_lang_String_ = JNIEnv.GetMethodID(class_ref, "getExtensionValue", "(Ljava/lang/String;)[B");
+                id_getExtensionValue_Ljava_lang_String_ = JNIEnv.GetMethodID(java_class_ref, "getExtensionValue", "(Ljava/lang/String;)[B");
             IntPtr native_oid = JNIEnv.NewString((string?)oid);
             JValue* __args = stackalloc JValue[1];
             __args[0] = new JValue(native_oid);
@@ -759,87 +759,170 @@ namespace Org.Bouncycastle.Jcajce
 
 namespace Org.Bouncycastle.Crypto.Modes
 {
-    partial class CFBBlockCipher
+    partial interface ICFBModeCipher : global::Org.Bouncycastle.Crypto.IMultiBlockCipher, global::Org.Bouncycastle.Crypto.IStreamCipher
     {
-        public override int BlockSize => GetBlockSize();
-        public override int ProcessBlock(byte[]? p0, int p1, byte[]? p2, int p3)
-            => DoProcessBlock(p0, p1, p2, p3);
-    }
-    partial class G3413CFBBlockCipher
-    {
-        public override int BlockSize => GetBlockSize();
-        public override int ProcessBlock(byte[]? p0, int p1, byte[]? p2, int p3)
-            => DoProcessBlock(p0, p1, p2, p3);
-    }
-    partial class G3413CTRBlockCipher
-    {
-        public override int BlockSize => GetBlockSize();
-        public override int ProcessBlock(byte[]? p0, int p1, byte[]? p2, int p3)
-            => DoProcessBlock(p0, p1, p2, p3);
-    }
-    partial class G3413OFBBlockCipher
-    {
-        public override int BlockSize => GetBlockSize();
-        public override int ProcessBlock(byte[]? p0, int p1, byte[]? p2, int p3)
-            => DoProcessBlock(p0, p1, p2, p3);
-    }
-    partial class GCFBBlockCipher
-    {
-        public override int BlockSize => GetBlockSize();
-        public override int ProcessBlock(byte[]? p0, int p1, byte[]? p2, int p3)
-            => DoProcessBlock(p0, p1, p2, p3);
-    }
-    partial class GOFBBlockCipher
-    {
-        public override int BlockSize => GetBlockSize();
-        public override int ProcessBlock(byte[]? p0, int p1, byte[]? p2, int p3)
-            => DoProcessBlock(p0, p1, p2, p3);
-    }
-    partial class KCTRBlockCipher
-    {
-        public override int BlockSize => GetBlockSize();
-        public override int ProcessBlock(byte[]? p0, int p1, byte[]? p2, int p3)
-            => DoProcessBlock(p0, p1, p2, p3);
-    }
-    partial class OFBBlockCipher
-    {
-        public override int BlockSize => GetBlockSize();
-        public override int ProcessBlock(byte[]? p0, int p1, byte[]? p2, int p3)
-            => DoProcessBlock(p0, p1, p2, p3);
-    }
-    partial class SICBlockCipher
-    {
-        public override int BlockSize => GetBlockSize();
-        public override int ProcessBlock(byte[]? p0, int p1, byte[]? p2, int p3)
-            => DoProcessBlock(p0, p1, p2, p3);
-    }
-}
 
-namespace Org.Bouncycastle.Crypto
-{
-    partial class StreamBlockCipher : global::Org.Bouncycastle.Crypto.IBlockCipher
+    }
+
+    partial class ICFBModeCipherInvoker
     {
+        static Delegate? cb_getMultiBlockSize;
+#pragma warning disable 0169
+        static Delegate GetGetMultiBlockSizeHandler()
+        {
+            if (cb_getMultiBlockSize == null)
+                cb_getMultiBlockSize = JNINativeWrapper.CreateDelegate(new _JniMarshal_PP_I(n_GetMultiBlockSize));
+            return cb_getMultiBlockSize;
+        }
+
+        static int n_GetMultiBlockSize(IntPtr jnienv, IntPtr native__this)
+        {
+            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.Crypto.Modes.ICFBModeCipher>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+            return __this.MultiBlockSize;
+        }
+#pragma warning restore 0169
+
+        IntPtr id_getMultiBlockSize;
+        public unsafe int MultiBlockSize
+        {
+            get
+            {
+                if (id_getMultiBlockSize == IntPtr.Zero)
+                    id_getMultiBlockSize = JNIEnv.GetMethodID(java_class_ref, "getMultiBlockSize", "()I");
+                return JNIEnv.CallIntMethod(((global::Java.Lang.Object)this).Handle, id_getMultiBlockSize);
+            }
+        }
+
+        static Delegate? cb_processBlocks_arrayBIIarrayBI;
+#pragma warning disable 0169
+        static Delegate GetProcessBlocks_arrayBIIarrayBIHandler()
+        {
+            if (cb_processBlocks_arrayBIIarrayBI == null)
+                cb_processBlocks_arrayBIIarrayBI = JNINativeWrapper.CreateDelegate(new _JniMarshal_PPLIILI_I(n_ProcessBlocks_arrayBIIarrayBI));
+            return cb_processBlocks_arrayBIIarrayBI;
+        }
+
+        static int n_ProcessBlocks_arrayBIIarrayBI(IntPtr jnienv, IntPtr native__this, IntPtr native_p0, int p1, int p2, IntPtr native_p3, int p4)
+        {
+            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.Crypto.Modes.ICFBModeCipher>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+            var p0 = (byte[]?)JNIEnv.GetArray(native_p0, JniHandleOwnership.DoNotTransfer, typeof(byte));
+            var p3 = (byte[]?)JNIEnv.GetArray(native_p3, JniHandleOwnership.DoNotTransfer, typeof(byte));
+            int __ret = __this.ProcessBlocks(p0, p1, p2, p3, p4);
+            if (p0 != null)
+                JNIEnv.CopyArray(p0, native_p0);
+            if (p3 != null)
+                JNIEnv.CopyArray(p3, native_p3);
+            return __ret;
+        }
+#pragma warning restore 0169
+
+        IntPtr id_processBlocks_arrayBIIarrayBI;
+        public unsafe int ProcessBlocks(byte[]? p0, int p1, int p2, byte[]? p3, int p4)
+        {
+            if (id_processBlocks_arrayBIIarrayBI == IntPtr.Zero)
+                id_processBlocks_arrayBIIarrayBI = JNIEnv.GetMethodID(java_class_ref, "processBlocks", "([BII[BI)I");
+            IntPtr native_p0 = JNIEnv.NewArray(p0);
+            IntPtr native_p3 = JNIEnv.NewArray(p3);
+            JValue* __args = stackalloc JValue[5];
+            __args[0] = new JValue(native_p0);
+            __args[1] = new JValue(p1);
+            __args[2] = new JValue(p2);
+            __args[3] = new JValue(native_p3);
+            __args[4] = new JValue(p4);
+            var __ret = JNIEnv.CallIntMethod(((global::Java.Lang.Object)this).Handle, id_processBlocks_arrayBIIarrayBI, __args);
+            if (p0 != null)
+            {
+                JNIEnv.CopyArray(native_p0, p0);
+                JNIEnv.DeleteLocalRef(native_p0);
+            }
+            if (p3 != null)
+            {
+                JNIEnv.CopyArray(native_p3, p3);
+                JNIEnv.DeleteLocalRef(native_p3);
+            }
+            return __ret;
+        }
+
+        static Delegate? cb_getAlgorithmName;
+#pragma warning disable 0169
+        static Delegate GetGetAlgorithmNameHandler()
+        {
+            if (cb_getAlgorithmName == null)
+                cb_getAlgorithmName = JNINativeWrapper.CreateDelegate(new _JniMarshal_PP_L(n_GetAlgorithmName));
+            return cb_getAlgorithmName;
+        }
+
+        static IntPtr n_GetAlgorithmName(IntPtr jnienv, IntPtr native__this)
+        {
+            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.Crypto.IMultiBlockCipher>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+            return JNIEnv.NewString(__this.AlgorithmName);
+        }
+#pragma warning restore 0169
+
+        IntPtr id_getAlgorithmName;
+        public unsafe string? AlgorithmName
+        {
+            get
+            {
+                if (id_getAlgorithmName == IntPtr.Zero)
+                    id_getAlgorithmName = JNIEnv.GetMethodID(java_class_ref, "getAlgorithmName", "()Ljava/lang/String;");
+                return JNIEnv.GetString(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_getAlgorithmName), JniHandleOwnership.TransferLocalRef);
+            }
+        }
+
         static Delegate? cb_getBlockSize;
 #pragma warning disable 0169
         static Delegate GetGetBlockSizeHandler()
         {
             if (cb_getBlockSize == null)
-                cb_getBlockSize = JNINativeWrapper.CreateDelegate((_JniMarshal_PP_I)n_GetBlockSize);
+                cb_getBlockSize = JNINativeWrapper.CreateDelegate(new _JniMarshal_PP_I(n_GetBlockSize));
             return cb_getBlockSize;
         }
 
         static int n_GetBlockSize(IntPtr jnienv, IntPtr native__this)
         {
-            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.Crypto.StreamBlockCipher>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.Crypto.Modes.ICFBModeCipher>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
             return __this.BlockSize;
         }
 #pragma warning restore 0169
 
-        public abstract int BlockSize
+        IntPtr id_getBlockSize;
+        public unsafe int BlockSize
         {
-            // Metadata.xml XPath method reference: path="/api/package[@name='org.bouncycastle.crypto']/class[@name='StreamBlockCipher']/method[@name='getBlockSize' and count(parameter)=0]"
-            [Register("getBlockSize", "()I", "GetGetBlockSizeHandler")]
-            get;
+            get
+            {
+                if (id_getBlockSize == IntPtr.Zero)
+                    id_getBlockSize = JNIEnv.GetMethodID(java_class_ref, "getBlockSize", "()I");
+                return JNIEnv.CallIntMethod(((global::Java.Lang.Object)this).Handle, id_getBlockSize);
+            }
+        }
+
+        static Delegate? cb_init_ZLorg_bouncycastle_crypto_CipherParameters_;
+#pragma warning disable 0169
+        static Delegate GetInit_ZLorg_bouncycastle_crypto_CipherParameters_Handler()
+        {
+            if (cb_init_ZLorg_bouncycastle_crypto_CipherParameters_ == null)
+                cb_init_ZLorg_bouncycastle_crypto_CipherParameters_ = JNINativeWrapper.CreateDelegate(new _JniMarshal_PPZL_V(n_Init_ZLorg_bouncycastle_crypto_CipherParameters_));
+            return cb_init_ZLorg_bouncycastle_crypto_CipherParameters_;
+        }
+
+        static void n_Init_ZLorg_bouncycastle_crypto_CipherParameters_(IntPtr jnienv, IntPtr native__this, bool p0, IntPtr native_p1)
+        {
+            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.Crypto.IMultiBlockCipher>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+            var p1 = (global::Org.Bouncycastle.Crypto.ICipherParameters?)global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.Crypto.ICipherParameters>(native_p1, JniHandleOwnership.DoNotTransfer);
+            __this.Init(p0, p1);
+        }
+#pragma warning restore 0169
+
+        IntPtr id_init_ZLorg_bouncycastle_crypto_CipherParameters_;
+        public unsafe void Init(bool p0, global::Org.Bouncycastle.Crypto.ICipherParameters? p1)
+        {
+            if (id_init_ZLorg_bouncycastle_crypto_CipherParameters_ == IntPtr.Zero)
+                id_init_ZLorg_bouncycastle_crypto_CipherParameters_ = JNIEnv.GetMethodID(java_class_ref, "init", "(ZLorg/bouncycastle/crypto/CipherParameters;)V");
+            JValue* __args = stackalloc JValue[2];
+            __args[0] = new JValue(p0);
+            __args[1] = new JValue((p1 == null) ? IntPtr.Zero : ((global::Java.Lang.Object)p1).Handle);
+            JNIEnv.CallVoidMethod(((global::Java.Lang.Object)this).Handle, id_init_ZLorg_bouncycastle_crypto_CipherParameters_, __args);
         }
 
         static Delegate? cb_processBlock_arrayBIarrayBI;
@@ -847,13 +930,13 @@ namespace Org.Bouncycastle.Crypto
         static Delegate GetProcessBlock_arrayBIarrayBIHandler()
         {
             if (cb_processBlock_arrayBIarrayBI == null)
-                cb_processBlock_arrayBIarrayBI = JNINativeWrapper.CreateDelegate((_JniMarshal_PPLILI_I)n_ProcessBlock_arrayBIarrayBI);
+                cb_processBlock_arrayBIarrayBI = JNINativeWrapper.CreateDelegate(new _JniMarshal_PPLILI_I(n_ProcessBlock_arrayBIarrayBI));
             return cb_processBlock_arrayBIarrayBI;
         }
 
         static int n_ProcessBlock_arrayBIarrayBI(IntPtr jnienv, IntPtr native__this, IntPtr native_p0, int p1, IntPtr native_p2, int p3)
         {
-            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.Crypto.StreamBlockCipher>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.Crypto.Modes.ICFBModeCipher>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
             var p0 = (byte[]?)JNIEnv.GetArray(native_p0, JniHandleOwnership.DoNotTransfer, typeof(byte));
             var p2 = (byte[]?)JNIEnv.GetArray(native_p2, JniHandleOwnership.DoNotTransfer, typeof(byte));
             int __ret = __this.ProcessBlock(p0, p1, p2, p3);
@@ -865,63 +948,527 @@ namespace Org.Bouncycastle.Crypto
         }
 #pragma warning restore 0169
 
-        // Metadata.xml XPath method reference: path="/api/package[@name='org.bouncycastle.crypto']/class[@name='StreamBlockCipher']/method[@name='processBlock' and count(parameter)=4 and parameter[1][@type='byte[]'] and parameter[2][@type='int'] and parameter[3][@type='byte[]'] and parameter[4][@type='int']]"
-        [Register("processBlock", "([BI[BI)I", "GetProcessBlock_arrayBIarrayBIHandler")]
-        public abstract int ProcessBlock(byte[]? p0, int p1, byte[]? p2, int p3);
-    }
-
-    partial class StreamBlockCipherInvoker
-    {
-        public override unsafe int BlockSize
+        IntPtr id_processBlock_arrayBIarrayBI;
+        public unsafe int ProcessBlock(byte[]? p0, int p1, byte[]? p2, int p3)
         {
-            // Metadata.xml XPath method reference: path="/api/package[@name='org.bouncycastle.crypto']/class[@name='StreamBlockCipher']/method[@name='getBlockSize' and count(parameter)=0]"
-            [Register("getBlockSize", "()I", "GetGetBlockSizeHandler")]
-            get
-            {
-                const string __id = "getBlockSize.()I";
-                try
-                {
-                    var __rm = _members.InstanceMethods.InvokeAbstractInt32Method(__id, this, null);
-                    return __rm;
-                }
-                finally
-                {
-                }
-            }
-        }
-
-        // Metadata.xml XPath method reference: path="/api/package[@name='org.bouncycastle.crypto']/class[@name='StreamBlockCipher']/method[@name='processBlock' and count(parameter)=4 and parameter[1][@type='byte[]'] and parameter[2][@type='int'] and parameter[3][@type='byte[]'] and parameter[4][@type='int']]"
-        [Register("processBlock", "([BI[BI)I", "GetProcessBlock_arrayBIarrayBIHandler")]
-        public override unsafe int ProcessBlock(byte[]? p0, int p1, byte[]? p2, int p3)
-        {
-            const string __id = "processBlock.([BI[BI)I";
+            if (id_processBlock_arrayBIarrayBI == IntPtr.Zero)
+                id_processBlock_arrayBIarrayBI = JNIEnv.GetMethodID(java_class_ref, "processBlock", "([BI[BI)I");
             IntPtr native_p0 = JNIEnv.NewArray(p0);
             IntPtr native_p2 = JNIEnv.NewArray(p2);
-            try
+            JValue* __args = stackalloc JValue[4];
+            __args[0] = new JValue(native_p0);
+            __args[1] = new JValue(p1);
+            __args[2] = new JValue(native_p2);
+            __args[3] = new JValue(p3);
+            var __ret = JNIEnv.CallIntMethod(((global::Java.Lang.Object)this).Handle, id_processBlock_arrayBIarrayBI, __args);
+            if (p0 != null)
             {
-                JniArgumentValue* __args = stackalloc JniArgumentValue[4];
-                __args[0] = new JniArgumentValue(native_p0);
-                __args[1] = new JniArgumentValue(p1);
-                __args[2] = new JniArgumentValue(native_p2);
-                __args[3] = new JniArgumentValue(p3);
-                var __rm = _members.InstanceMethods.InvokeAbstractInt32Method(__id, this, __args);
-                return __rm;
+                JNIEnv.CopyArray(native_p0, p0);
+                JNIEnv.DeleteLocalRef(native_p0);
             }
-            finally
+            if (p2 != null)
             {
-                if (p0 != null)
-                {
-                    JNIEnv.CopyArray(native_p0, p0);
-                    JNIEnv.DeleteLocalRef(native_p0);
-                }
-                if (p2 != null)
-                {
-                    JNIEnv.CopyArray(native_p2, p2);
-                    JNIEnv.DeleteLocalRef(native_p2);
-                }
-                global::System.GC.KeepAlive(p0);
-                global::System.GC.KeepAlive(p2);
+                JNIEnv.CopyArray(native_p2, p2);
+                JNIEnv.DeleteLocalRef(native_p2);
+            }
+            return __ret;
+        }
+
+        static Delegate? cb_reset;
+#pragma warning disable 0169
+        static Delegate GetResetHandler()
+        {
+            if (cb_reset == null)
+                cb_reset = JNINativeWrapper.CreateDelegate(new _JniMarshal_PP_V(n_Reset));
+            return cb_reset;
+        }
+
+        static void n_Reset(IntPtr jnienv, IntPtr native__this)
+        {
+            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.Crypto.IMultiBlockCipher>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+            __this.Reset();
+        }
+#pragma warning restore 0169
+
+        IntPtr id_reset;
+        public unsafe void Reset()
+        {
+            if (id_reset == IntPtr.Zero)
+                id_reset = JNIEnv.GetMethodID(java_class_ref, "reset", "()V");
+            JNIEnv.CallVoidMethod(((global::Java.Lang.Object)this).Handle, id_reset);
+        }
+
+        static Delegate? cb_processBytes_arrayBIIarrayBI;
+#pragma warning disable 0169
+        static Delegate GetProcessBytes_arrayBIIarrayBIHandler()
+        {
+            if (cb_processBytes_arrayBIIarrayBI == null)
+                cb_processBytes_arrayBIIarrayBI = JNINativeWrapper.CreateDelegate(new _JniMarshal_PPLIILI_I(n_ProcessBytes_arrayBIIarrayBI));
+            return cb_processBytes_arrayBIIarrayBI;
+        }
+
+        static int n_ProcessBytes_arrayBIIarrayBI(IntPtr jnienv, IntPtr native__this, IntPtr native_p0, int p1, int p2, IntPtr native_p3, int p4)
+        {
+            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.Crypto.Modes.ICFBModeCipher>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+            var p0 = (byte[]?)JNIEnv.GetArray(native_p0, JniHandleOwnership.DoNotTransfer, typeof(byte));
+            var p3 = (byte[]?)JNIEnv.GetArray(native_p3, JniHandleOwnership.DoNotTransfer, typeof(byte));
+            int __ret = __this.ProcessBytes(p0, p1, p2, p3, p4);
+            if (p0 != null)
+                JNIEnv.CopyArray(p0, native_p0);
+            if (p3 != null)
+                JNIEnv.CopyArray(p3, native_p3);
+            return __ret;
+        }
+#pragma warning restore 0169
+
+        IntPtr id_processBytes_arrayBIIarrayBI;
+        public unsafe int ProcessBytes(byte[]? p0, int p1, int p2, byte[]? p3, int p4)
+        {
+            if (id_processBytes_arrayBIIarrayBI == IntPtr.Zero)
+                id_processBytes_arrayBIIarrayBI = JNIEnv.GetMethodID(java_class_ref, "processBytes", "([BII[BI)I");
+            IntPtr native_p0 = JNIEnv.NewArray(p0);
+            IntPtr native_p3 = JNIEnv.NewArray(p3);
+            JValue* __args = stackalloc JValue[5];
+            __args[0] = new JValue(native_p0);
+            __args[1] = new JValue(p1);
+            __args[2] = new JValue(p2);
+            __args[3] = new JValue(native_p3);
+            __args[4] = new JValue(p4);
+            var __ret = JNIEnv.CallIntMethod(((global::Java.Lang.Object)this).Handle, id_processBytes_arrayBIIarrayBI, __args);
+            if (p0 != null)
+            {
+                JNIEnv.CopyArray(native_p0, p0);
+                JNIEnv.DeleteLocalRef(native_p0);
+            }
+            if (p3 != null)
+            {
+                JNIEnv.CopyArray(native_p3, p3);
+                JNIEnv.DeleteLocalRef(native_p3);
+            }
+            return __ret;
+        }
+
+        static Delegate? cb_returnByte_B;
+#pragma warning disable 0169
+        static Delegate GetReturnByte_BHandler()
+        {
+            if (cb_returnByte_B == null)
+                cb_returnByte_B = JNINativeWrapper.CreateDelegate(new _JniMarshal_PPB_B(n_ReturnByte_B));
+            return cb_returnByte_B;
+        }
+
+        static sbyte n_ReturnByte_B(IntPtr jnienv, IntPtr native__this, sbyte p0)
+        {
+            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.Crypto.Modes.ICFBModeCipher>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+            return __this.ReturnByte(p0);
+        }
+#pragma warning restore 0169
+
+        IntPtr id_returnByte_B;
+        public unsafe sbyte ReturnByte(sbyte p0)
+        {
+            if (id_returnByte_B == IntPtr.Zero)
+                id_returnByte_B = JNIEnv.GetMethodID(java_class_ref, "returnByte", "(B)B");
+            JValue* __args = stackalloc JValue[1];
+            __args[0] = new JValue(p0);
+            return JNIEnv.CallByteMethod(((global::Java.Lang.Object)this).Handle, id_returnByte_B, __args);
+        }
+
+    }
+}
+
+namespace Org.Bouncycastle.Crypto.Modes
+{
+    partial interface ICTRModeCipher : global::Org.Bouncycastle.Crypto.IMultiBlockCipher, global::Org.Bouncycastle.Crypto.ISkippingStreamCipher { }
+
+    partial class ICTRModeCipherInvoker
+    {
+        static Delegate? cb_getMultiBlockSize;
+#pragma warning disable 0169
+        static Delegate GetGetMultiBlockSizeHandler()
+        {
+            if (cb_getMultiBlockSize == null)
+                cb_getMultiBlockSize = JNINativeWrapper.CreateDelegate(new _JniMarshal_PP_I(n_GetMultiBlockSize));
+            return cb_getMultiBlockSize;
+        }
+
+        static int n_GetMultiBlockSize(IntPtr jnienv, IntPtr native__this)
+        {
+            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.Crypto.Modes.ICTRModeCipher>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+            return __this.MultiBlockSize;
+        }
+#pragma warning restore 0169
+
+        IntPtr id_getMultiBlockSize;
+        public unsafe int MultiBlockSize
+        {
+            get
+            {
+                if (id_getMultiBlockSize == IntPtr.Zero)
+                    id_getMultiBlockSize = JNIEnv.GetMethodID(java_class_ref, "getMultiBlockSize", "()I");
+                return JNIEnv.CallIntMethod(((global::Java.Lang.Object)this).Handle, id_getMultiBlockSize);
             }
         }
+
+        static Delegate? cb_processBlocks_arrayBIIarrayBI;
+#pragma warning disable 0169
+        static Delegate GetProcessBlocks_arrayBIIarrayBIHandler()
+        {
+            if (cb_processBlocks_arrayBIIarrayBI == null)
+                cb_processBlocks_arrayBIIarrayBI = JNINativeWrapper.CreateDelegate(new _JniMarshal_PPLIILI_I(n_ProcessBlocks_arrayBIIarrayBI));
+            return cb_processBlocks_arrayBIIarrayBI;
+        }
+
+        static int n_ProcessBlocks_arrayBIIarrayBI(IntPtr jnienv, IntPtr native__this, IntPtr native_p0, int p1, int p2, IntPtr native_p3, int p4)
+        {
+            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.Crypto.Modes.ICTRModeCipher>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+            var p0 = (byte[]?)JNIEnv.GetArray(native_p0, JniHandleOwnership.DoNotTransfer, typeof(byte));
+            var p3 = (byte[]?)JNIEnv.GetArray(native_p3, JniHandleOwnership.DoNotTransfer, typeof(byte));
+            int __ret = __this.ProcessBlocks(p0, p1, p2, p3, p4);
+            if (p0 != null)
+                JNIEnv.CopyArray(p0, native_p0);
+            if (p3 != null)
+                JNIEnv.CopyArray(p3, native_p3);
+            return __ret;
+        }
+#pragma warning restore 0169
+
+        IntPtr id_processBlocks_arrayBIIarrayBI;
+        public unsafe int ProcessBlocks(byte[]? p0, int p1, int p2, byte[]? p3, int p4)
+        {
+            if (id_processBlocks_arrayBIIarrayBI == IntPtr.Zero)
+                id_processBlocks_arrayBIIarrayBI = JNIEnv.GetMethodID(java_class_ref, "processBlocks", "([BII[BI)I");
+            IntPtr native_p0 = JNIEnv.NewArray(p0);
+            IntPtr native_p3 = JNIEnv.NewArray(p3);
+            JValue* __args = stackalloc JValue[5];
+            __args[0] = new JValue(native_p0);
+            __args[1] = new JValue(p1);
+            __args[2] = new JValue(p2);
+            __args[3] = new JValue(native_p3);
+            __args[4] = new JValue(p4);
+            var __ret = JNIEnv.CallIntMethod(((global::Java.Lang.Object)this).Handle, id_processBlocks_arrayBIIarrayBI, __args);
+            if (p0 != null)
+            {
+                JNIEnv.CopyArray(native_p0, p0);
+                JNIEnv.DeleteLocalRef(native_p0);
+            }
+            if (p3 != null)
+            {
+                JNIEnv.CopyArray(native_p3, p3);
+                JNIEnv.DeleteLocalRef(native_p3);
+            }
+            return __ret;
+        }
+
+        static Delegate? cb_getAlgorithmName;
+#pragma warning disable 0169
+        static Delegate GetGetAlgorithmNameHandler()
+        {
+            if (cb_getAlgorithmName == null)
+                cb_getAlgorithmName = JNINativeWrapper.CreateDelegate(new _JniMarshal_PP_L(n_GetAlgorithmName));
+            return cb_getAlgorithmName;
+        }
+
+        static IntPtr n_GetAlgorithmName(IntPtr jnienv, IntPtr native__this)
+        {
+            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.Crypto.IMultiBlockCipher>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+            return JNIEnv.NewString(__this.AlgorithmName);
+        }
+#pragma warning restore 0169
+
+        IntPtr id_getAlgorithmName;
+        public unsafe string? AlgorithmName
+        {
+            get
+            {
+                if (id_getAlgorithmName == IntPtr.Zero)
+                    id_getAlgorithmName = JNIEnv.GetMethodID(java_class_ref, "getAlgorithmName", "()Ljava/lang/String;");
+                return JNIEnv.GetString(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_getAlgorithmName), JniHandleOwnership.TransferLocalRef);
+            }
+        }
+
+        static Delegate? cb_getBlockSize;
+#pragma warning disable 0169
+        static Delegate GetGetBlockSizeHandler()
+        {
+            if (cb_getBlockSize == null)
+                cb_getBlockSize = JNINativeWrapper.CreateDelegate(new _JniMarshal_PP_I(n_GetBlockSize));
+            return cb_getBlockSize;
+        }
+
+        static int n_GetBlockSize(IntPtr jnienv, IntPtr native__this)
+        {
+            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.Crypto.Modes.ICTRModeCipher>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+            return __this.BlockSize;
+        }
+#pragma warning restore 0169
+
+        IntPtr id_getBlockSize;
+        public unsafe int BlockSize
+        {
+            get
+            {
+                if (id_getBlockSize == IntPtr.Zero)
+                    id_getBlockSize = JNIEnv.GetMethodID(java_class_ref, "getBlockSize", "()I");
+                return JNIEnv.CallIntMethod(((global::Java.Lang.Object)this).Handle, id_getBlockSize);
+            }
+        }
+
+        static Delegate? cb_init_ZLorg_bouncycastle_crypto_CipherParameters_;
+#pragma warning disable 0169
+        static Delegate GetInit_ZLorg_bouncycastle_crypto_CipherParameters_Handler()
+        {
+            if (cb_init_ZLorg_bouncycastle_crypto_CipherParameters_ == null)
+                cb_init_ZLorg_bouncycastle_crypto_CipherParameters_ = JNINativeWrapper.CreateDelegate(new _JniMarshal_PPZL_V(n_Init_ZLorg_bouncycastle_crypto_CipherParameters_));
+            return cb_init_ZLorg_bouncycastle_crypto_CipherParameters_;
+        }
+
+        static void n_Init_ZLorg_bouncycastle_crypto_CipherParameters_(IntPtr jnienv, IntPtr native__this, bool p0, IntPtr native_p1)
+        {
+            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.Crypto.IMultiBlockCipher>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+            var p1 = (global::Org.Bouncycastle.Crypto.ICipherParameters?)global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.Crypto.ICipherParameters>(native_p1, JniHandleOwnership.DoNotTransfer);
+            __this.Init(p0, p1);
+        }
+#pragma warning restore 0169
+
+        IntPtr id_init_ZLorg_bouncycastle_crypto_CipherParameters_;
+        public unsafe void Init(bool p0, global::Org.Bouncycastle.Crypto.ICipherParameters? p1)
+        {
+            if (id_init_ZLorg_bouncycastle_crypto_CipherParameters_ == IntPtr.Zero)
+                id_init_ZLorg_bouncycastle_crypto_CipherParameters_ = JNIEnv.GetMethodID(java_class_ref, "init", "(ZLorg/bouncycastle/crypto/CipherParameters;)V");
+            JValue* __args = stackalloc JValue[2];
+            __args[0] = new JValue(p0);
+            __args[1] = new JValue((p1 == null) ? IntPtr.Zero : ((global::Java.Lang.Object)p1).Handle);
+            JNIEnv.CallVoidMethod(((global::Java.Lang.Object)this).Handle, id_init_ZLorg_bouncycastle_crypto_CipherParameters_, __args);
+        }
+
+        static Delegate? cb_processBlock_arrayBIarrayBI;
+#pragma warning disable 0169
+        static Delegate GetProcessBlock_arrayBIarrayBIHandler()
+        {
+            if (cb_processBlock_arrayBIarrayBI == null)
+                cb_processBlock_arrayBIarrayBI = JNINativeWrapper.CreateDelegate(new _JniMarshal_PPLILI_I(n_ProcessBlock_arrayBIarrayBI));
+            return cb_processBlock_arrayBIarrayBI;
+        }
+
+        static int n_ProcessBlock_arrayBIarrayBI(IntPtr jnienv, IntPtr native__this, IntPtr native_p0, int p1, IntPtr native_p2, int p3)
+        {
+            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.Crypto.Modes.ICTRModeCipher>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+            var p0 = (byte[]?)JNIEnv.GetArray(native_p0, JniHandleOwnership.DoNotTransfer, typeof(byte));
+            var p2 = (byte[]?)JNIEnv.GetArray(native_p2, JniHandleOwnership.DoNotTransfer, typeof(byte));
+            int __ret = __this.ProcessBlock(p0, p1, p2, p3);
+            if (p0 != null)
+                JNIEnv.CopyArray(p0, native_p0);
+            if (p2 != null)
+                JNIEnv.CopyArray(p2, native_p2);
+            return __ret;
+        }
+#pragma warning restore 0169
+
+        IntPtr id_processBlock_arrayBIarrayBI;
+        public unsafe int ProcessBlock(byte[]? p0, int p1, byte[]? p2, int p3)
+        {
+            if (id_processBlock_arrayBIarrayBI == IntPtr.Zero)
+                id_processBlock_arrayBIarrayBI = JNIEnv.GetMethodID(java_class_ref, "processBlock", "([BI[BI)I");
+            IntPtr native_p0 = JNIEnv.NewArray(p0);
+            IntPtr native_p2 = JNIEnv.NewArray(p2);
+            JValue* __args = stackalloc JValue[4];
+            __args[0] = new JValue(native_p0);
+            __args[1] = new JValue(p1);
+            __args[2] = new JValue(native_p2);
+            __args[3] = new JValue(p3);
+            var __ret = JNIEnv.CallIntMethod(((global::Java.Lang.Object)this).Handle, id_processBlock_arrayBIarrayBI, __args);
+            if (p0 != null)
+            {
+                JNIEnv.CopyArray(native_p0, p0);
+                JNIEnv.DeleteLocalRef(native_p0);
+            }
+            if (p2 != null)
+            {
+                JNIEnv.CopyArray(native_p2, p2);
+                JNIEnv.DeleteLocalRef(native_p2);
+            }
+            return __ret;
+        }
+
+        static Delegate? cb_reset;
+#pragma warning disable 0169
+        static Delegate GetResetHandler()
+        {
+            if (cb_reset == null)
+                cb_reset = JNINativeWrapper.CreateDelegate(new _JniMarshal_PP_V(n_Reset));
+            return cb_reset;
+        }
+
+        static void n_Reset(IntPtr jnienv, IntPtr native__this)
+        {
+            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.Crypto.IMultiBlockCipher>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+            __this.Reset();
+        }
+#pragma warning restore 0169
+
+        IntPtr id_reset;
+        public unsafe void Reset()
+        {
+            if (id_reset == IntPtr.Zero)
+                id_reset = JNIEnv.GetMethodID(java_class_ref, "reset", "()V");
+            JNIEnv.CallVoidMethod(((global::Java.Lang.Object)this).Handle, id_reset);
+        }
+
+        static Delegate? cb_getPosition;
+#pragma warning disable 0169
+        static Delegate GetGetPositionHandler()
+        {
+            if (cb_getPosition == null)
+                cb_getPosition = JNINativeWrapper.CreateDelegate(new _JniMarshal_PP_J(n_GetPosition));
+            return cb_getPosition;
+        }
+
+        static long n_GetPosition(IntPtr jnienv, IntPtr native__this)
+        {
+            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.Crypto.Modes.ICTRModeCipher>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+            return __this.Position;
+        }
+#pragma warning restore 0169
+
+        IntPtr id_getPosition;
+        public unsafe long Position
+        {
+            get
+            {
+                if (id_getPosition == IntPtr.Zero)
+                    id_getPosition = JNIEnv.GetMethodID(java_class_ref, "getPosition", "()J");
+                return JNIEnv.CallLongMethod(((global::Java.Lang.Object)this).Handle, id_getPosition);
+            }
+        }
+
+        static Delegate? cb_seekTo_J;
+#pragma warning disable 0169
+        static Delegate GetSeekTo_JHandler()
+        {
+            if (cb_seekTo_J == null)
+                cb_seekTo_J = JNINativeWrapper.CreateDelegate(new _JniMarshal_PPJ_J(n_SeekTo_J));
+            return cb_seekTo_J;
+        }
+
+        static long n_SeekTo_J(IntPtr jnienv, IntPtr native__this, long p0)
+        {
+            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.Crypto.Modes.ICTRModeCipher>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+            return __this.SeekTo(p0);
+        }
+#pragma warning restore 0169
+
+        IntPtr id_seekTo_J;
+        public unsafe long SeekTo(long p0)
+        {
+            if (id_seekTo_J == IntPtr.Zero)
+                id_seekTo_J = JNIEnv.GetMethodID(java_class_ref, "seekTo", "(J)J");
+            JValue* __args = stackalloc JValue[1];
+            __args[0] = new JValue(p0);
+            return JNIEnv.CallLongMethod(((global::Java.Lang.Object)this).Handle, id_seekTo_J, __args);
+        }
+
+        static Delegate? cb_skip_J;
+#pragma warning disable 0169
+        static Delegate GetSkip_JHandler()
+        {
+            if (cb_skip_J == null)
+                cb_skip_J = JNINativeWrapper.CreateDelegate(new _JniMarshal_PPJ_J(n_Skip_J));
+            return cb_skip_J;
+        }
+
+        static long n_Skip_J(IntPtr jnienv, IntPtr native__this, long p0)
+        {
+            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.Crypto.Modes.ICTRModeCipher>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+            return __this.Skip(p0);
+        }
+#pragma warning restore 0169
+
+        IntPtr id_skip_J;
+        public unsafe long Skip(long p0)
+        {
+            if (id_skip_J == IntPtr.Zero)
+                id_skip_J = JNIEnv.GetMethodID(java_class_ref, "skip", "(J)J");
+            JValue* __args = stackalloc JValue[1];
+            __args[0] = new JValue(p0);
+            return JNIEnv.CallLongMethod(((global::Java.Lang.Object)this).Handle, id_skip_J, __args);
+        }
+
+        static Delegate? cb_processBytes_arrayBIIarrayBI;
+#pragma warning disable 0169
+        static Delegate GetProcessBytes_arrayBIIarrayBIHandler()
+        {
+            if (cb_processBytes_arrayBIIarrayBI == null)
+                cb_processBytes_arrayBIIarrayBI = JNINativeWrapper.CreateDelegate(new _JniMarshal_PPLIILI_I(n_ProcessBytes_arrayBIIarrayBI));
+            return cb_processBytes_arrayBIIarrayBI;
+        }
+
+        static int n_ProcessBytes_arrayBIIarrayBI(IntPtr jnienv, IntPtr native__this, IntPtr native_p0, int p1, int p2, IntPtr native_p3, int p4)
+        {
+            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.Crypto.Modes.ICTRModeCipher>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+            var p0 = (byte[]?)JNIEnv.GetArray(native_p0, JniHandleOwnership.DoNotTransfer, typeof(byte));
+            var p3 = (byte[]?)JNIEnv.GetArray(native_p3, JniHandleOwnership.DoNotTransfer, typeof(byte));
+            int __ret = __this.ProcessBytes(p0, p1, p2, p3, p4);
+            if (p0 != null)
+                JNIEnv.CopyArray(p0, native_p0);
+            if (p3 != null)
+                JNIEnv.CopyArray(p3, native_p3);
+            return __ret;
+        }
+#pragma warning restore 0169
+
+        IntPtr id_processBytes_arrayBIIarrayBI;
+        public unsafe int ProcessBytes(byte[]? p0, int p1, int p2, byte[]? p3, int p4)
+        {
+            if (id_processBytes_arrayBIIarrayBI == IntPtr.Zero)
+                id_processBytes_arrayBIIarrayBI = JNIEnv.GetMethodID(java_class_ref, "processBytes", "([BII[BI)I");
+            IntPtr native_p0 = JNIEnv.NewArray(p0);
+            IntPtr native_p3 = JNIEnv.NewArray(p3);
+            JValue* __args = stackalloc JValue[5];
+            __args[0] = new JValue(native_p0);
+            __args[1] = new JValue(p1);
+            __args[2] = new JValue(p2);
+            __args[3] = new JValue(native_p3);
+            __args[4] = new JValue(p4);
+            var __ret = JNIEnv.CallIntMethod(((global::Java.Lang.Object)this).Handle, id_processBytes_arrayBIIarrayBI, __args);
+            if (p0 != null)
+            {
+                JNIEnv.CopyArray(native_p0, p0);
+                JNIEnv.DeleteLocalRef(native_p0);
+            }
+            if (p3 != null)
+            {
+                JNIEnv.CopyArray(native_p3, p3);
+                JNIEnv.DeleteLocalRef(native_p3);
+            }
+            return __ret;
+        }
+
+        static Delegate? cb_returnByte_B;
+#pragma warning disable 0169
+        static Delegate GetReturnByte_BHandler()
+        {
+            if (cb_returnByte_B == null)
+                cb_returnByte_B = JNINativeWrapper.CreateDelegate(new _JniMarshal_PPB_B(n_ReturnByte_B));
+            return cb_returnByte_B;
+        }
+
+        static sbyte n_ReturnByte_B(IntPtr jnienv, IntPtr native__this, sbyte p0)
+        {
+            var __this = global::Java.Lang.Object.GetObject<global::Org.Bouncycastle.Crypto.Modes.ICTRModeCipher>(jnienv, native__this, JniHandleOwnership.DoNotTransfer)!;
+            return __this.ReturnByte(p0);
+        }
+#pragma warning restore 0169
+
+        IntPtr id_returnByte_B;
+        public unsafe sbyte ReturnByte(sbyte p0)
+        {
+            if (id_returnByte_B == IntPtr.Zero)
+                id_returnByte_B = JNIEnv.GetMethodID(java_class_ref, "returnByte", "(B)B");
+            JValue* __args = stackalloc JValue[1];
+            __args[0] = new JValue(p0);
+            return JNIEnv.CallByteMethod(((global::Java.Lang.Object)this).Handle, id_returnByte_B, __args);
+        }
+
     }
 }
