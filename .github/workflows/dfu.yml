@@ -1,4 +1,4 @@
-name: Android Binding Libraries - Filament
+name: Android Binding Libraries - NordicSemi DFU
 run-name: ${{ inputs.LIB_ARTIFACT }} 🚀 NuGet
 on:
   workflow_dispatch:
