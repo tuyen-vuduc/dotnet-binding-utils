@@ -1,0 +1,5 @@
+<Project>
+    <ItemGroup>
+        <UsesPermission Include="android.permission.POST_NOTIFICATIONS"></UsesPermission>
+    </ItemGroup>
+</Project>
