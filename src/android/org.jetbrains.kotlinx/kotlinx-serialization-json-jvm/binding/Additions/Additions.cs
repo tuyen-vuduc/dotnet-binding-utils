@@ -48,7 +48,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe bool DecodeBooleanElement(global::KotlinX.Serialization.Descriptors.ISerialDescriptor descriptor, int index)
         {
             if (id_decodeBooleanElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I == IntPtr.Zero)
-                id_decodeBooleanElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I = JNIEnv.GetMethodID(class_ref, "decodeBooleanElement", "(Lkotlinx/serialization/descriptors/SerialDescriptor;I)Z");
+                id_decodeBooleanElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I = JNIEnv.GetMethodID(java_class_ref, "decodeBooleanElement", "(Lkotlinx/serialization/descriptors/SerialDescriptor;I)Z");
             JValue* __args = stackalloc JValue[2];
             __args[0] = new JValue((descriptor == null) ? IntPtr.Zero : ((global::Java.Lang.Object)descriptor).Handle);
             __args[1] = new JValue(index);
@@ -78,7 +78,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe sbyte DecodeByteElement(global::KotlinX.Serialization.Descriptors.ISerialDescriptor descriptor, int index)
         {
             if (id_decodeByteElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I == IntPtr.Zero)
-                id_decodeByteElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I = JNIEnv.GetMethodID(class_ref, "decodeByteElement", "(Lkotlinx/serialization/descriptors/SerialDescriptor;I)B");
+                id_decodeByteElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I = JNIEnv.GetMethodID(java_class_ref, "decodeByteElement", "(Lkotlinx/serialization/descriptors/SerialDescriptor;I)B");
             JValue* __args = stackalloc JValue[2];
             __args[0] = new JValue((descriptor == null) ? IntPtr.Zero : ((global::Java.Lang.Object)descriptor).Handle);
             __args[1] = new JValue(index);
@@ -108,7 +108,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe char DecodeCharElement(global::KotlinX.Serialization.Descriptors.ISerialDescriptor descriptor, int index)
         {
             if (id_decodeCharElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I == IntPtr.Zero)
-                id_decodeCharElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I = JNIEnv.GetMethodID(class_ref, "decodeCharElement", "(Lkotlinx/serialization/descriptors/SerialDescriptor;I)C");
+                id_decodeCharElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I = JNIEnv.GetMethodID(java_class_ref, "decodeCharElement", "(Lkotlinx/serialization/descriptors/SerialDescriptor;I)C");
             JValue* __args = stackalloc JValue[2];
             __args[0] = new JValue((descriptor == null) ? IntPtr.Zero : ((global::Java.Lang.Object)descriptor).Handle);
             __args[1] = new JValue(index);
@@ -138,7 +138,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe int DecodeCollectionSize(global::KotlinX.Serialization.Descriptors.ISerialDescriptor descriptor)
         {
             if (id_decodeCollectionSize_Lkotlinx_serialization_descriptors_SerialDescriptor_ == IntPtr.Zero)
-                id_decodeCollectionSize_Lkotlinx_serialization_descriptors_SerialDescriptor_ = JNIEnv.GetMethodID(class_ref, "decodeCollectionSize", "(Lkotlinx/serialization/descriptors/SerialDescriptor;)I");
+                id_decodeCollectionSize_Lkotlinx_serialization_descriptors_SerialDescriptor_ = JNIEnv.GetMethodID(java_class_ref, "decodeCollectionSize", "(Lkotlinx/serialization/descriptors/SerialDescriptor;)I");
             JValue* __args = stackalloc JValue[1];
             __args[0] = new JValue((descriptor == null) ? IntPtr.Zero : ((global::Java.Lang.Object)descriptor).Handle);
             var __ret = JNIEnv.CallIntMethod(((global::Java.Lang.Object)this).Handle, id_decodeCollectionSize_Lkotlinx_serialization_descriptors_SerialDescriptor_, __args)!;
@@ -167,7 +167,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe double DecodeDoubleElement(global::KotlinX.Serialization.Descriptors.ISerialDescriptor descriptor, int index)
         {
             if (id_decodeDoubleElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I == IntPtr.Zero)
-                id_decodeDoubleElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I = JNIEnv.GetMethodID(class_ref, "decodeDoubleElement", "(Lkotlinx/serialization/descriptors/SerialDescriptor;I)D");
+                id_decodeDoubleElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I = JNIEnv.GetMethodID(java_class_ref, "decodeDoubleElement", "(Lkotlinx/serialization/descriptors/SerialDescriptor;I)D");
             JValue* __args = stackalloc JValue[2];
             __args[0] = new JValue((descriptor == null) ? IntPtr.Zero : ((global::Java.Lang.Object)descriptor).Handle);
             __args[1] = new JValue(index);
@@ -197,7 +197,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe int DecodeElementIndex(global::KotlinX.Serialization.Descriptors.ISerialDescriptor descriptor)
         {
             if (id_decodeElementIndex_Lkotlinx_serialization_descriptors_SerialDescriptor_ == IntPtr.Zero)
-                id_decodeElementIndex_Lkotlinx_serialization_descriptors_SerialDescriptor_ = JNIEnv.GetMethodID(class_ref, "decodeElementIndex", "(Lkotlinx/serialization/descriptors/SerialDescriptor;)I");
+                id_decodeElementIndex_Lkotlinx_serialization_descriptors_SerialDescriptor_ = JNIEnv.GetMethodID(java_class_ref, "decodeElementIndex", "(Lkotlinx/serialization/descriptors/SerialDescriptor;)I");
             JValue* __args = stackalloc JValue[1];
             __args[0] = new JValue((descriptor == null) ? IntPtr.Zero : ((global::Java.Lang.Object)descriptor).Handle);
             var __ret = JNIEnv.CallIntMethod(((global::Java.Lang.Object)this).Handle, id_decodeElementIndex_Lkotlinx_serialization_descriptors_SerialDescriptor_, __args)!;
@@ -226,7 +226,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe float DecodeFloatElement(global::KotlinX.Serialization.Descriptors.ISerialDescriptor descriptor, int index)
         {
             if (id_decodeFloatElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I == IntPtr.Zero)
-                id_decodeFloatElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I = JNIEnv.GetMethodID(class_ref, "decodeFloatElement", "(Lkotlinx/serialization/descriptors/SerialDescriptor;I)F");
+                id_decodeFloatElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I = JNIEnv.GetMethodID(java_class_ref, "decodeFloatElement", "(Lkotlinx/serialization/descriptors/SerialDescriptor;I)F");
             JValue* __args = stackalloc JValue[2];
             __args[0] = new JValue((descriptor == null) ? IntPtr.Zero : ((global::Java.Lang.Object)descriptor).Handle);
             __args[1] = new JValue(index);
@@ -256,7 +256,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe global::KotlinX.Serialization.Encoding.IDecoder DecodeInlineElement(global::KotlinX.Serialization.Descriptors.ISerialDescriptor descriptor, int index)
         {
             if (id_decodeInlineElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I == IntPtr.Zero)
-                id_decodeInlineElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I = JNIEnv.GetMethodID(class_ref, "decodeInlineElement", "(Lkotlinx/serialization/descriptors/SerialDescriptor;I)Lkotlinx/serialization/encoding/Decoder;");
+                id_decodeInlineElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I = JNIEnv.GetMethodID(java_class_ref, "decodeInlineElement", "(Lkotlinx/serialization/descriptors/SerialDescriptor;I)Lkotlinx/serialization/encoding/Decoder;");
             JValue* __args = stackalloc JValue[2];
             __args[0] = new JValue((descriptor == null) ? IntPtr.Zero : ((global::Java.Lang.Object)descriptor).Handle);
             __args[1] = new JValue(index);
@@ -286,7 +286,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe int DecodeIntElement(global::KotlinX.Serialization.Descriptors.ISerialDescriptor descriptor, int index)
         {
             if (id_decodeIntElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I == IntPtr.Zero)
-                id_decodeIntElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I = JNIEnv.GetMethodID(class_ref, "decodeIntElement", "(Lkotlinx/serialization/descriptors/SerialDescriptor;I)I");
+                id_decodeIntElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I = JNIEnv.GetMethodID(java_class_ref, "decodeIntElement", "(Lkotlinx/serialization/descriptors/SerialDescriptor;I)I");
             JValue* __args = stackalloc JValue[2];
             __args[0] = new JValue((descriptor == null) ? IntPtr.Zero : ((global::Java.Lang.Object)descriptor).Handle);
             __args[1] = new JValue(index);
@@ -316,7 +316,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe long DecodeLongElement(global::KotlinX.Serialization.Descriptors.ISerialDescriptor descriptor, int index)
         {
             if (id_decodeLongElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I == IntPtr.Zero)
-                id_decodeLongElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I = JNIEnv.GetMethodID(class_ref, "decodeLongElement", "(Lkotlinx/serialization/descriptors/SerialDescriptor;I)J");
+                id_decodeLongElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I = JNIEnv.GetMethodID(java_class_ref, "decodeLongElement", "(Lkotlinx/serialization/descriptors/SerialDescriptor;I)J");
             JValue* __args = stackalloc JValue[2];
             __args[0] = new JValue((descriptor == null) ? IntPtr.Zero : ((global::Java.Lang.Object)descriptor).Handle);
             __args[1] = new JValue(index);
@@ -348,7 +348,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe global::Java.Lang.Object? DecodeNullableSerializableElement(global::KotlinX.Serialization.Descriptors.ISerialDescriptor descriptor, int index, global::KotlinX.Serialization.IDeserializationStrategy deserializer, global::Java.Lang.Object? previousValue)
         {
             if (id_decodeNullableSerializableElement_Lkotlinx_serialization_descriptors_SerialDescriptor_ILkotlinx_serialization_DeserializationStrategy_Ljava_lang_Object_ == IntPtr.Zero)
-                id_decodeNullableSerializableElement_Lkotlinx_serialization_descriptors_SerialDescriptor_ILkotlinx_serialization_DeserializationStrategy_Ljava_lang_Object_ = JNIEnv.GetMethodID(class_ref, "decodeNullableSerializableElement", "(Lkotlinx/serialization/descriptors/SerialDescriptor;ILkotlinx/serialization/DeserializationStrategy;Ljava/lang/Object;)Ljava/lang/Object;");
+                id_decodeNullableSerializableElement_Lkotlinx_serialization_descriptors_SerialDescriptor_ILkotlinx_serialization_DeserializationStrategy_Ljava_lang_Object_ = JNIEnv.GetMethodID(java_class_ref, "decodeNullableSerializableElement", "(Lkotlinx/serialization/descriptors/SerialDescriptor;ILkotlinx/serialization/DeserializationStrategy;Ljava/lang/Object;)Ljava/lang/Object;");
             JValue* __args = stackalloc JValue[4];
             __args[0] = new JValue((descriptor == null) ? IntPtr.Zero : ((global::Java.Lang.Object)descriptor).Handle);
             __args[1] = new JValue(index);
@@ -378,7 +378,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe bool DecodeSequentially()
         {
             if (id_decodeSequentially == IntPtr.Zero)
-                id_decodeSequentially = JNIEnv.GetMethodID(class_ref, "decodeSequentially", "()Z");
+                id_decodeSequentially = JNIEnv.GetMethodID(java_class_ref, "decodeSequentially", "()Z");
             return JNIEnv.CallBooleanMethod(((global::Java.Lang.Object)this).Handle, id_decodeSequentially)!;
         }
 
@@ -406,7 +406,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe global::Java.Lang.Object? DecodeSerializableElement(global::KotlinX.Serialization.Descriptors.ISerialDescriptor descriptor, int index, global::KotlinX.Serialization.IDeserializationStrategy deserializer, global::Java.Lang.Object? previousValue)
         {
             if (id_decodeSerializableElement_Lkotlinx_serialization_descriptors_SerialDescriptor_ILkotlinx_serialization_DeserializationStrategy_Ljava_lang_Object_ == IntPtr.Zero)
-                id_decodeSerializableElement_Lkotlinx_serialization_descriptors_SerialDescriptor_ILkotlinx_serialization_DeserializationStrategy_Ljava_lang_Object_ = JNIEnv.GetMethodID(class_ref, "decodeSerializableElement", "(Lkotlinx/serialization/descriptors/SerialDescriptor;ILkotlinx/serialization/DeserializationStrategy;Ljava/lang/Object;)Ljava/lang/Object;");
+                id_decodeSerializableElement_Lkotlinx_serialization_descriptors_SerialDescriptor_ILkotlinx_serialization_DeserializationStrategy_Ljava_lang_Object_ = JNIEnv.GetMethodID(java_class_ref, "decodeSerializableElement", "(Lkotlinx/serialization/descriptors/SerialDescriptor;ILkotlinx/serialization/DeserializationStrategy;Ljava/lang/Object;)Ljava/lang/Object;");
             JValue* __args = stackalloc JValue[4];
             __args[0] = new JValue((descriptor == null) ? IntPtr.Zero : ((global::Java.Lang.Object)descriptor).Handle);
             __args[1] = new JValue(index);
@@ -438,7 +438,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe short DecodeShortElement(global::KotlinX.Serialization.Descriptors.ISerialDescriptor descriptor, int index)
         {
             if (id_decodeShortElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I == IntPtr.Zero)
-                id_decodeShortElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I = JNIEnv.GetMethodID(class_ref, "decodeShortElement", "(Lkotlinx/serialization/descriptors/SerialDescriptor;I)S");
+                id_decodeShortElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I = JNIEnv.GetMethodID(java_class_ref, "decodeShortElement", "(Lkotlinx/serialization/descriptors/SerialDescriptor;I)S");
             JValue* __args = stackalloc JValue[2];
             __args[0] = new JValue((descriptor == null) ? IntPtr.Zero : ((global::Java.Lang.Object)descriptor).Handle);
             __args[1] = new JValue(index);
@@ -468,7 +468,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe string DecodeStringElement(global::KotlinX.Serialization.Descriptors.ISerialDescriptor descriptor, int index)
         {
             if (id_decodeStringElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I == IntPtr.Zero)
-                id_decodeStringElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I = JNIEnv.GetMethodID(class_ref, "decodeStringElement", "(Lkotlinx/serialization/descriptors/SerialDescriptor;I)Ljava/lang/String;");
+                id_decodeStringElement_Lkotlinx_serialization_descriptors_SerialDescriptor_I = JNIEnv.GetMethodID(java_class_ref, "decodeStringElement", "(Lkotlinx/serialization/descriptors/SerialDescriptor;I)Ljava/lang/String;");
             JValue* __args = stackalloc JValue[2];
             __args[0] = new JValue((descriptor == null) ? IntPtr.Zero : ((global::Java.Lang.Object)descriptor).Handle);
             __args[1] = new JValue(index);
@@ -497,7 +497,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe void EndStructure(global::KotlinX.Serialization.Descriptors.ISerialDescriptor descriptor)
         {
             if (id_endStructure_Lkotlinx_serialization_descriptors_SerialDescriptor_ == IntPtr.Zero)
-                id_endStructure_Lkotlinx_serialization_descriptors_SerialDescriptor_ = JNIEnv.GetMethodID(class_ref, "endStructure", "(Lkotlinx/serialization/descriptors/SerialDescriptor;)V");
+                id_endStructure_Lkotlinx_serialization_descriptors_SerialDescriptor_ = JNIEnv.GetMethodID(java_class_ref, "endStructure", "(Lkotlinx/serialization/descriptors/SerialDescriptor;)V");
             JValue* __args = stackalloc JValue[1];
             __args[0] = new JValue((descriptor == null) ? IntPtr.Zero : ((global::Java.Lang.Object)descriptor).Handle);
             JNIEnv.CallVoidMethod(((global::Java.Lang.Object)this).Handle, id_endStructure_Lkotlinx_serialization_descriptors_SerialDescriptor_, __args);
@@ -525,7 +525,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe global::KotlinX.Serialization.Encoding.ICompositeDecoder BeginStructure(global::KotlinX.Serialization.Descriptors.ISerialDescriptor descriptor)
         {
             if (id_beginStructure_Lkotlinx_serialization_descriptors_SerialDescriptor_ == IntPtr.Zero)
-                id_beginStructure_Lkotlinx_serialization_descriptors_SerialDescriptor_ = JNIEnv.GetMethodID(class_ref, "beginStructure", "(Lkotlinx/serialization/descriptors/SerialDescriptor;)Lkotlinx/serialization/encoding/CompositeDecoder;");
+                id_beginStructure_Lkotlinx_serialization_descriptors_SerialDescriptor_ = JNIEnv.GetMethodID(java_class_ref, "beginStructure", "(Lkotlinx/serialization/descriptors/SerialDescriptor;)Lkotlinx/serialization/encoding/CompositeDecoder;");
             JValue* __args = stackalloc JValue[1];
             __args[0] = new JValue((descriptor == null) ? IntPtr.Zero : ((global::Java.Lang.Object)descriptor).Handle);
             var __ret = global::Java.Lang.Object.GetObject<global::KotlinX.Serialization.Encoding.ICompositeDecoder>(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_beginStructure_Lkotlinx_serialization_descriptors_SerialDescriptor_, __args), JniHandleOwnership.TransferLocalRef)!;
@@ -552,7 +552,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe bool DecodeBoolean()
         {
             if (id_decodeBoolean == IntPtr.Zero)
-                id_decodeBoolean = JNIEnv.GetMethodID(class_ref, "decodeBoolean", "()Z");
+                id_decodeBoolean = JNIEnv.GetMethodID(java_class_ref, "decodeBoolean", "()Z");
             return JNIEnv.CallBooleanMethod(((global::Java.Lang.Object)this).Handle, id_decodeBoolean)!;
         }
 
@@ -576,7 +576,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe sbyte DecodeByte()
         {
             if (id_decodeByte == IntPtr.Zero)
-                id_decodeByte = JNIEnv.GetMethodID(class_ref, "decodeByte", "()B");
+                id_decodeByte = JNIEnv.GetMethodID(java_class_ref, "decodeByte", "()B");
             return JNIEnv.CallByteMethod(((global::Java.Lang.Object)this).Handle, id_decodeByte)!;
         }
 
@@ -600,7 +600,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe char DecodeChar()
         {
             if (id_decodeChar == IntPtr.Zero)
-                id_decodeChar = JNIEnv.GetMethodID(class_ref, "decodeChar", "()C");
+                id_decodeChar = JNIEnv.GetMethodID(java_class_ref, "decodeChar", "()C");
             return JNIEnv.CallCharMethod(((global::Java.Lang.Object)this).Handle, id_decodeChar)!;
         }
 
@@ -624,7 +624,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe double DecodeDouble()
         {
             if (id_decodeDouble == IntPtr.Zero)
-                id_decodeDouble = JNIEnv.GetMethodID(class_ref, "decodeDouble", "()D");
+                id_decodeDouble = JNIEnv.GetMethodID(java_class_ref, "decodeDouble", "()D");
             return JNIEnv.CallDoubleMethod(((global::Java.Lang.Object)this).Handle, id_decodeDouble)!;
         }
 
@@ -650,7 +650,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe int DecodeEnum(global::KotlinX.Serialization.Descriptors.ISerialDescriptor enumDescriptor)
         {
             if (id_decodeEnum_Lkotlinx_serialization_descriptors_SerialDescriptor_ == IntPtr.Zero)
-                id_decodeEnum_Lkotlinx_serialization_descriptors_SerialDescriptor_ = JNIEnv.GetMethodID(class_ref, "decodeEnum", "(Lkotlinx/serialization/descriptors/SerialDescriptor;)I");
+                id_decodeEnum_Lkotlinx_serialization_descriptors_SerialDescriptor_ = JNIEnv.GetMethodID(java_class_ref, "decodeEnum", "(Lkotlinx/serialization/descriptors/SerialDescriptor;)I");
             JValue* __args = stackalloc JValue[1];
             __args[0] = new JValue((enumDescriptor == null) ? IntPtr.Zero : ((global::Java.Lang.Object)enumDescriptor).Handle);
             var __ret = JNIEnv.CallIntMethod(((global::Java.Lang.Object)this).Handle, id_decodeEnum_Lkotlinx_serialization_descriptors_SerialDescriptor_, __args)!;
@@ -677,7 +677,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe float DecodeFloat()
         {
             if (id_decodeFloat == IntPtr.Zero)
-                id_decodeFloat = JNIEnv.GetMethodID(class_ref, "decodeFloat", "()F");
+                id_decodeFloat = JNIEnv.GetMethodID(java_class_ref, "decodeFloat", "()F");
             return JNIEnv.CallFloatMethod(((global::Java.Lang.Object)this).Handle, id_decodeFloat)!;
         }
 
@@ -703,7 +703,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe global::KotlinX.Serialization.Encoding.IDecoder DecodeInline(global::KotlinX.Serialization.Descriptors.ISerialDescriptor descriptor)
         {
             if (id_decodeInline_Lkotlinx_serialization_descriptors_SerialDescriptor_ == IntPtr.Zero)
-                id_decodeInline_Lkotlinx_serialization_descriptors_SerialDescriptor_ = JNIEnv.GetMethodID(class_ref, "decodeInline", "(Lkotlinx/serialization/descriptors/SerialDescriptor;)Lkotlinx/serialization/encoding/Decoder;");
+                id_decodeInline_Lkotlinx_serialization_descriptors_SerialDescriptor_ = JNIEnv.GetMethodID(java_class_ref, "decodeInline", "(Lkotlinx/serialization/descriptors/SerialDescriptor;)Lkotlinx/serialization/encoding/Decoder;");
             JValue* __args = stackalloc JValue[1];
             __args[0] = new JValue((descriptor == null) ? IntPtr.Zero : ((global::Java.Lang.Object)descriptor).Handle);
             var __ret = global::Java.Lang.Object.GetObject<global::KotlinX.Serialization.Encoding.IDecoder>(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_decodeInline_Lkotlinx_serialization_descriptors_SerialDescriptor_, __args), JniHandleOwnership.TransferLocalRef)!;
@@ -730,7 +730,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe int DecodeInt()
         {
             if (id_decodeInt == IntPtr.Zero)
-                id_decodeInt = JNIEnv.GetMethodID(class_ref, "decodeInt", "()I");
+                id_decodeInt = JNIEnv.GetMethodID(java_class_ref, "decodeInt", "()I");
             return JNIEnv.CallIntMethod(((global::Java.Lang.Object)this).Handle, id_decodeInt)!;
         }
 
@@ -754,7 +754,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe long DecodeLong()
         {
             if (id_decodeLong == IntPtr.Zero)
-                id_decodeLong = JNIEnv.GetMethodID(class_ref, "decodeLong", "()J");
+                id_decodeLong = JNIEnv.GetMethodID(java_class_ref, "decodeLong", "()J");
             return JNIEnv.CallLongMethod(((global::Java.Lang.Object)this).Handle, id_decodeLong)!;
         }
 
@@ -778,7 +778,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe bool DecodeNotNullMark()
         {
             if (id_decodeNotNullMark == IntPtr.Zero)
-                id_decodeNotNullMark = JNIEnv.GetMethodID(class_ref, "decodeNotNullMark", "()Z");
+                id_decodeNotNullMark = JNIEnv.GetMethodID(java_class_ref, "decodeNotNullMark", "()Z");
             return JNIEnv.CallBooleanMethod(((global::Java.Lang.Object)this).Handle, id_decodeNotNullMark)!;
         }
 
@@ -802,7 +802,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe global::Java.Lang.Void? DecodeNull()
         {
             if (id_decodeNull == IntPtr.Zero)
-                id_decodeNull = JNIEnv.GetMethodID(class_ref, "decodeNull", "()Ljava/lang/Void;");
+                id_decodeNull = JNIEnv.GetMethodID(java_class_ref, "decodeNull", "()Ljava/lang/Void;");
             return global::Java.Lang.Object.GetObject<global::Java.Lang.Void>(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_decodeNull), JniHandleOwnership.TransferLocalRef);
         }
 
@@ -828,7 +828,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe global::Java.Lang.Object? DecodeNullableSerializableValue(global::KotlinX.Serialization.IDeserializationStrategy deserializer)
         {
             if (id_decodeNullableSerializableValue_Lkotlinx_serialization_DeserializationStrategy_ == IntPtr.Zero)
-                id_decodeNullableSerializableValue_Lkotlinx_serialization_DeserializationStrategy_ = JNIEnv.GetMethodID(class_ref, "decodeNullableSerializableValue", "(Lkotlinx/serialization/DeserializationStrategy;)Ljava/lang/Object;");
+                id_decodeNullableSerializableValue_Lkotlinx_serialization_DeserializationStrategy_ = JNIEnv.GetMethodID(java_class_ref, "decodeNullableSerializableValue", "(Lkotlinx/serialization/DeserializationStrategy;)Ljava/lang/Object;");
             JValue* __args = stackalloc JValue[1];
             __args[0] = new JValue((deserializer == null) ? IntPtr.Zero : ((global::Java.Lang.Object)deserializer).Handle);
             var __ret = global::Java.Lang.Object.GetObject<global::Java.Lang.Object>(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_decodeNullableSerializableValue_Lkotlinx_serialization_DeserializationStrategy_, __args), JniHandleOwnership.TransferLocalRef);
@@ -857,7 +857,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe global::Java.Lang.Object? DecodeSerializableValue(global::KotlinX.Serialization.IDeserializationStrategy deserializer)
         {
             if (id_decodeSerializableValue_Lkotlinx_serialization_DeserializationStrategy_ == IntPtr.Zero)
-                id_decodeSerializableValue_Lkotlinx_serialization_DeserializationStrategy_ = JNIEnv.GetMethodID(class_ref, "decodeSerializableValue", "(Lkotlinx/serialization/DeserializationStrategy;)Ljava/lang/Object;");
+                id_decodeSerializableValue_Lkotlinx_serialization_DeserializationStrategy_ = JNIEnv.GetMethodID(java_class_ref, "decodeSerializableValue", "(Lkotlinx/serialization/DeserializationStrategy;)Ljava/lang/Object;");
             JValue* __args = stackalloc JValue[1];
             __args[0] = new JValue((deserializer == null) ? IntPtr.Zero : ((global::Java.Lang.Object)deserializer).Handle);
             var __ret = global::Java.Lang.Object.GetObject<global::Java.Lang.Object>(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_decodeSerializableValue_Lkotlinx_serialization_DeserializationStrategy_, __args), JniHandleOwnership.TransferLocalRef);
@@ -884,7 +884,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe short DecodeShort()
         {
             if (id_decodeShort == IntPtr.Zero)
-                id_decodeShort = JNIEnv.GetMethodID(class_ref, "decodeShort", "()S");
+                id_decodeShort = JNIEnv.GetMethodID(java_class_ref, "decodeShort", "()S");
             return JNIEnv.CallShortMethod(((global::Java.Lang.Object)this).Handle, id_decodeShort)!;
         }
 
@@ -908,7 +908,7 @@ namespace Kotlinx.Serialization.Json
         public unsafe string DecodeString()
         {
             if (id_decodeString == IntPtr.Zero)
-                id_decodeString = JNIEnv.GetMethodID(class_ref, "decodeString", "()Ljava/lang/String;");
+                id_decodeString = JNIEnv.GetMethodID(java_class_ref, "decodeString", "()Ljava/lang/String;");
             return JNIEnv.GetString(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_decodeString), JniHandleOwnership.TransferLocalRef)!;
         }
     }
