@@ -8,7 +8,7 @@ on:
         required: true
         type: choice
         options:    
-        - de.hdodenhof:circleimageview:3.1.0
+        - com.shakebugs:shake:17.1.0
         - org.jetbrains.kotlinx:kotlinx-datetime:0.6.1
         - com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0
         - com.pusher:pusher-java-client:2.2.1 
