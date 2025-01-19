@@ -17,7 +17,7 @@ process_downgrade();
 // process_AndroidX_ViewBinding_IViewBinding();
 // process_Com_Stripe_Android_Uicore_Elements_IFormElement();
 // process_JavaX_Inject_IProvider();
-// process_Android_OS_IParcelableCreator();
+process_Android_OS_IParcelableCreator();
 // process_Com_Stripe_Android_Model_IStripeIntent();
 
 function process_Com_Squareup_Moshi_JsonAdapter() {
@@ -446,7 +446,7 @@ function process_Com_Stripe_Android_Model_IStripeIntent() {
   fs.writeFileSync("output.Com.Stripe.Android.Model.IStripeIntent.cs", items.join("\n"));
 }
 
-// process_Com_Stripe_Android_Core_Model_Parsers_IModelJsonParser();
+process_Com_Stripe_Android_Core_Model_Parsers_IModelJsonParser();
 
 function process_Com_Stripe_Android_Core_Model_Parsers_IModelJsonParser() {
   var input = fs.readFileSync("input.Com.Stripe.Android.Core.Model.Parsers.IModelJsonParser.txt");
@@ -455,14 +455,14 @@ function process_Com_Stripe_Android_Core_Model_Parsers_IModelJsonParser() {
     .toString()
     .trim()
     .split("\n")
-    .map(x => /.+'(\w+[^ ]+Parser)'.+src\\([^ ]+Parser)\.cs.+/.exec(x))
+    .map(x => /.+src\\([^ ]+JsonParser)\.cs[^']+'([^ ]+JsonParser).+/.exec(x))
     .map(x => x.slice(1, 3))
     .map(x => x.join(' '))
     .filter(onlyUnique)
     .map((x) => x.split(" "))
     .map((x) => {
-      var clsName = x[0];
-      var ns = x[1].replace("." + clsName, "");
+      var clsName = x[1];
+      var ns = x[0].replace("." + clsName, "");
       return [ns, `partial class ${clsName} {
           global::Java.Lang.Object? global::Com.Stripe.Android.Core.Model.Parsers.IModelJsonParser.Parse(global::Org.Json.JSONObject json) => Parse(json);
         }`];

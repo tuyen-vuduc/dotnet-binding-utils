@@ -5,6 +5,14 @@ using Java.Interop;
 
 namespace Com.Stripe.Android.Uicore.Elements
 {
+    partial class SameAsShippingElement
+    {
+        global::Com.Stripe.Android.Uicore.Elements.IController global::Com.Stripe.Android.Uicore.Elements.IFormElement.Controller => Controller;
+    }
+}
+
+namespace Com.Stripe.Android.Uicore.Elements
+{
     partial class TextFieldStateConstants
     {
         partial class Error

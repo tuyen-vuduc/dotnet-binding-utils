@@ -2,57 +2,106 @@ using System;
 using System.Collections.Generic;
 using Android.Runtime;
 using Java.Interop;
-namespace Com.Stripe.Android.Payments.Core.Authentication.Threeds2
+namespace Com.Stripe.Android
 {
-    partial class Stripe3DS2NextActionHandler_Factory
+    partial class DefaultCardBrandFilter
     {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+        partial class Creator
+        {
+            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+            global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+        }
     }
 }
-namespace Com.Stripe.Android.Payments.Core.Authentication
+namespace Com.Stripe.Android.Model
 {
-    partial class NoOpIntentNextActionHandler_Factory
+    partial class ElementsSession
     {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+        partial class Customer
+        {
+            partial class Components
+            {
+                partial interface IMobilePaymentElement
+                {
+                    partial class Disabled
+                    {
+                        partial class Creator
+                        {
+                            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                            global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+                        }
+                    }
+                }
+            }
+        }
     }
-    partial class SourceNextActionHandler_Factory
+    partial class ElementsSession
     {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class UnsupportedNextActionHandler_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class VoucherNextActionHandler_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class WebIntentNextActionHandler_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+        partial class Customer
+        {
+            partial class Components
+            {
+                partial interface IMobilePaymentElement
+                {
+                    partial class Enabled
+                    {
+                        partial class Creator
+                        {
+                            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                            global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+                        }
+                    }
+                }
+            }
+        }
     }
 }
-namespace Com.Stripe.Android.Payments.Core.Injection
+namespace Com.Stripe.Android.Payments.Bankaccount
 {
-    partial class NextActionHandlerModule_Companion_ProvidePaymentBrowserAuthStarterFactoryFactory
+    partial interface ICollectBankAccountConfiguration
     {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+        partial class USBankAccountInternal
+        {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+            }
+        }
     }
-    partial class NextActionHandlerModule_Companion_ProvidePaymentRelayStarterFactoryFactory
+}
+namespace Com.Stripe.Android.Model
+{
+    partial class Networks
     {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+        partial class Creator
+        {
+            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+            global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+        }
     }
-    partial class PaymentLauncherModule_ProvidePaymentNextActionHandlerRegistryFactory
+    partial class ElementsSession
     {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class Stripe3DSNextActionHandlerModule_Companion_ProvidePaymentAuthConfigFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+        partial class CardBrandChoice
+        {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+            }
+        }
     }
 }
 namespace Com.Stripe.Android.Databinding
 {
+    partial class StripeCardBrandChoiceListViewBinding
+    {
+        global::Android.Views.View global::AndroidX.ViewBinding.IViewBinding.Root => Root;
+    }
+    partial class StripeSelectCardBrandViewBinding
+    {
+        global::Android.Views.View global::AndroidX.ViewBinding.IViewBinding.Root => Root;
+    }
     partial class Stripe3ds2TransactionLayoutBinding
     {
         global::Android.Views.View global::AndroidX.ViewBinding.IViewBinding.Root => Root;
@@ -73,8 +122,6 @@ namespace Com.Stripe.Android.Databinding
     partial class StripeGooglePayRowBinding { global::Android.Views.View global::AndroidX.ViewBinding.IViewBinding.Root => Root; }
     partial class StripeMaskedCardRowBinding { global::Android.Views.View global::AndroidX.ViewBinding.IViewBinding.Root => Root; }
     partial class StripePaymentAuthWebViewActivityBinding { global::Android.Views.View global::AndroidX.ViewBinding.IViewBinding.Root => Root; }
-    partial class StripePaymentFlowActivityBinding { global::Android.Views.View global::AndroidX.ViewBinding.IViewBinding.Root => Root; }
-    partial class StripePaymentMethodsActivityBinding { global::Android.Views.View global::AndroidX.ViewBinding.IViewBinding.Root => Root; }
     partial class StripeShippingInfoPageBinding { global::Android.Views.View global::AndroidX.ViewBinding.IViewBinding.Root => Root; }
     partial class StripeShippingMethodPageBinding { global::Android.Views.View global::AndroidX.ViewBinding.IViewBinding.Root => Root; }
 }
@@ -236,36 +283,6 @@ namespace Com.Stripe.Android
     {
         protected override global::Java.Lang.Object RawIntent => Intent;
 
-        partial class Creator
-        {
-            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source)
-            {
-                return this.CreateFromParcel(source);
-            }
-
-            global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
-            {
-                return this.NewArray(size);
-            }
-        }
-    }
-    partial class PaymentSessionConfig
-    {
-        partial class Creator
-        {
-            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source)
-            {
-                return this.CreateFromParcel(source);
-            }
-
-            global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
-            {
-                return this.NewArray(size);
-            }
-        }
-    }
-    partial class PaymentSessionData
-    {
         partial class Creator
         {
             global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source)
@@ -932,113 +949,8 @@ namespace Com.Stripe.Android.Model
         public unsafe global::System.Collections.Generic.IDictionary<global::System.String, global::Java.Lang.Object> ToParamMap()
         {
             if (id_toParamMap == IntPtr.Zero)
-                id_toParamMap = JNIEnv.GetMethodID(class_ref, "toParamMap", "()Ljava/util/Map;");
+                id_toParamMap = JNIEnv.GetMethodID(java_class_ref, "toParamMap", "()Ljava/util/Map;");
             return global::Android.Runtime.JavaDictionary<global::System.String, global::Java.Lang.Object>.FromJniHandle(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_toParamMap), JniHandleOwnership.TransferLocalRef)!;
-        }
-    }
-    partial class ConsumerPaymentDetails
-    {
-        partial class BankAccount
-        {
-            partial class Creator
-            {
-                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel source)
-                {
-                    return this.CreateFromParcel(source);
-                }
-
-                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
-                {
-                    return this.NewArray(size);
-                }
-            }
-        }
-    }
-    partial class ConsumerPaymentDetails
-    {
-        partial class BillingAddress
-        {
-            partial class Creator
-            {
-                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel source)
-                {
-                    return this.CreateFromParcel(source);
-                }
-
-                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
-                {
-                    return this.NewArray(size);
-                }
-            }
-        }
-    }
-    partial class ConsumerPaymentDetails
-    {
-        partial class Card
-        {
-            partial class Creator
-            {
-                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel source)
-                {
-                    return this.CreateFromParcel(source);
-                }
-
-                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
-                {
-                    return this.NewArray(size);
-                }
-            }
-        }
-    }
-    partial class ConsumerPaymentDetails
-    {
-        partial class Creator
-        {
-            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel source)
-            {
-                return this.CreateFromParcel(source);
-            }
-
-            global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
-            {
-                return this.NewArray(size);
-            }
-        }
-    }
-    partial class ConsumerPaymentDetails
-    {
-        partial class Passthrough
-        {
-            partial class Creator
-            {
-                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel source)
-                {
-                    return this.CreateFromParcel(source);
-                }
-
-                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
-                {
-                    return this.NewArray(size);
-                }
-            }
-        }
-    }
-    partial class ConsumerPaymentDetailsCreateParams
-    {
-        partial class Card
-        {
-            partial class Creator
-            {
-                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel source)
-                {
-                    return this.CreateFromParcel(source);
-                }
-
-                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
-                {
-                    return this.NewArray(size);
-                }
-            }
         }
     }
     partial class Customer
@@ -1207,26 +1119,6 @@ namespace Com.Stripe.Android.Model
                 }
 
                 partial interface ICustomerSheet
-                {
-                    partial class Enabled
-                    {
-                        partial class Creator
-                        {
-                            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
-                            global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
-                        }
-                    }
-                    partial class Disabled
-                    {
-                        partial class Creator
-                        {
-                            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
-                            global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
-                        }
-                    }
-                }
-
-                partial interface IPaymentSheet
                 {
                     partial class Enabled
                     {
@@ -3894,87 +3786,6 @@ namespace Com.Stripe.Android.Payments.Paymentlauncher
 }
 namespace Com.Stripe.Android.View
 {
-    partial class AddPaymentMethodActivityStarter
-    {
-        partial class Args
-        {
-            partial class Creator
-            {
-                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel source)
-                {
-                    return this.CreateFromParcel(source);
-                }
-
-                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
-                {
-                    return this.NewArray(size);
-                }
-            }
-        }
-    }
-    partial class AddPaymentMethodActivityStarter
-    {
-        partial class Result
-        {
-            partial class Canceled
-            {
-                partial class Creator
-                {
-                    global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel source)
-                    {
-                        return this.CreateFromParcel(source);
-                    }
-
-                    global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
-                    {
-                        return this.NewArray(size);
-                    }
-                }
-            }
-        }
-    }
-    partial class AddPaymentMethodActivityStarter
-    {
-        partial class Result
-        {
-            partial class Failure
-            {
-                partial class Creator
-                {
-                    global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel source)
-                    {
-                        return this.CreateFromParcel(source);
-                    }
-
-                    global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
-                    {
-                        return this.NewArray(size);
-                    }
-                }
-            }
-        }
-    }
-    partial class AddPaymentMethodActivityStarter
-    {
-        partial class Result
-        {
-            partial class Success
-            {
-                partial class Creator
-                {
-                    global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel source)
-                    {
-                        return this.CreateFromParcel(source);
-                    }
-
-                    global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
-                    {
-                        return this.NewArray(size);
-                    }
-                }
-            }
-        }
-    }
     partial class BecsDebitBanks
     {
         partial class Bank
@@ -3993,193 +3804,10 @@ namespace Com.Stripe.Android.View
             }
         }
     }
-    partial class PaymentFlowActivityStarter
-    {
-        partial class Args
-        {
-            partial class Creator
-            {
-                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel source)
-                {
-                    return this.CreateFromParcel(source);
-                }
-
-                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
-                {
-                    return this.NewArray(size);
-                }
-            }
-        }
-    }
-    partial class PaymentMethodsActivityStarter
-    {
-        partial class Args
-        {
-            partial class Creator
-            {
-                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel source)
-                {
-                    return this.CreateFromParcel(source);
-                }
-
-                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
-                {
-                    return this.NewArray(size);
-                }
-            }
-        }
-    }
-    partial class PaymentMethodsActivityStarter
-    {
-        partial class Result
-        {
-            partial class Creator
-            {
-                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel source)
-                {
-                    return this.CreateFromParcel(source);
-                }
-
-                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
-                {
-                    return this.NewArray(size);
-                }
-            }
-        }
-    }
-}
-namespace Com.Stripe.Android.Payments.Paymentlauncher
-{
-    partial class PaymentLauncherViewModel_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-}
-namespace Com.Stripe.Android
-{
-    partial class GooglePayJsonFactory_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-}
-namespace Com.Stripe.Android.Googlepaylauncher
-{
-    partial class GooglePayPaymentMethodLauncherViewModel_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-}
-namespace Com.Stripe.Android.Googlepaylauncher.Injection
-{
-    partial class GooglePayLauncherModule_ProvideGooglePayRepositoryFactoryFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class GooglePayPaymentMethodLauncherModule_Companion_ProvidePaymentsClientFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-}
-namespace Com.Stripe.Android.Networking
-{
-    partial class PaymentAnalyticsRequestFactory_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class StripeApiRepository_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-}
-namespace Com.Stripe.Android.Payments.Bankaccount.DI
-{
-    partial class CollectBankAccountModule_ProvidePublishableKeyFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class CollectBankAccountModule_ProvidesAppContextFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class CollectBankAccountModule_ProvidesEnableLoggingFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class CollectBankAccountModule_ProvidesProductUsageFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-}
-namespace Com.Stripe.Android.Payments.Bankaccount.UI
-{
-    partial class CollectBankAccountViewModel_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-}
-namespace Com.Stripe.Android.Payments.Core.Analytics
-{
-    partial class DefaultErrorReporterModule_Companion_ProvideIoContextFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class DefaultErrorReporterModule_Companion_ProvideLoggerFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class DefaultErrorReporterModule_Companion_ProvidePublishableKeyFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class RealErrorReporter_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-}
-namespace Com.Stripe.Android.Payments.Core.Authentication.Threeds2
-{
-    partial class Stripe3ds2TransactionViewModel_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-}
-namespace Com.Stripe.Android.Payments.Core.Injection
-{
-    partial class PaymentLauncherModule_ProvideIsInstantAppFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class PaymentLauncherModule_ProvideThreeDs1IntentReturnUrlMapFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class Stripe3ds2TransactionModule_Companion_ProvideMessageVersionRegistryFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class Stripe3ds2TransactionModule_Companion_ProvideStripeThreeDs2ServiceFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class Stripe3dsTransactionViewModelModule_ProvidesInitChallengeRepositoryFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-}
-namespace Com.Stripe.Android.Polling
-{
-    partial class DefaultIntentStatusPoller_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
 }
 namespace Com.Stripe.Android.Model.Parsers
 {
     partial class AddressJsonParser
-    {
-        global::Java.Lang.Object? global::Com.Stripe.Android.Core.Model.Parsers.IModelJsonParser.Parse(global::Org.Json.JSONObject json) => Parse(json);
-    }
-    partial class ConsumerPaymentDetailsJsonParser
     {
         global::Java.Lang.Object? global::Com.Stripe.Android.Core.Model.Parsers.IModelJsonParser.Parse(global::Org.Json.JSONObject json) => Parse(json);
     }

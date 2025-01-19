@@ -7,20 +7,21 @@ on:
         description: 'Android library to publish'
         required: true
         type: choice
-        options:    
-        - com.stripe:stripe-android:20.48.3
-        - com.stripe:paymentsheet:20.48.3
+        options:   
+        - com.stripe:hcaptcha:21.3.1 
+        - com.stripe:stripe-core:21.3.1
+        - com.stripe:stripe-ui-core:21.3.1
+        - com.stripe:payments-model:21.3.1
+        - com.stripe:stripe-3ds2-android:6.2.0
+        - com.stripe:payments-core:21.3.1
+        - com.stripe:payments-ui-core:21.3.1
         - com.stripe:link:20.48.3
-        - com.stripe:payments-ui-core:20.48.3
-        - com.stripe:payments-core:20.48.3
-        - com.stripe:payments-model:20.48.3
-        - com.stripe:stripe-ui-core:20.48.3
-        - com.stripe:stripe-core:20.48.3
-        - com.stripe:hcaptcha:20.48.3
-        - com.stripe:stripeterminal:3.7.1
-        - com.stripe:stripeterminal-core:3.7.1
-        - com.stripe:stripeterminal-internal-common:3.7.1
-        - com.stripe:stripeterminal-external:3.7.1   
+        - com.stripe:paymentsheet:21.3.1
+        - com.stripe:stripe-android:21.3.1
+        - com.stripe:stripeterminal-external:4.1.0   
+        - com.stripe:stripeterminal-internal-common:4.1.0
+        - com.stripe:stripeterminal-core:4.1.0
+        - com.stripe:stripeterminal:4.1.0
 jobs:
   build-then-publish:
     environment: production

@@ -2,6 +2,165 @@ using System;
 using System.Collections.Generic;
 using Android.Runtime;
 using Java.Interop;
+namespace Com.Stripe.Android.Model.Parsers
+{
+    partial class ConsumerPaymentDetailsJsonParser
+    {
+        global::Java.Lang.Object? global::Com.Stripe.Android.Core.Model.Parsers.IModelJsonParser.Parse(global::Org.Json.JSONObject json) => Parse(json);
+    }
+    partial class LinkConsumerIncentiveJsonParser
+    {
+        global::Java.Lang.Object? global::Com.Stripe.Android.Core.Model.Parsers.IModelJsonParser.Parse(global::Org.Json.JSONObject json) => Parse(json);
+    }
+}
+namespace Com.Stripe.Android.Model
+{
+    partial interface IConsumerPaymentDetailsCreateParams
+    {
+        partial class BankAccount
+        {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+            }
+        }
+    }
+    partial interface IIncentiveEligibilitySession
+    {
+        partial class DeferredIntent
+        {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+            }
+        }
+    }
+    partial interface IConsumerPaymentDetailsCreateParams
+    {
+        partial class Card
+        {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+            }
+        }
+    }
+    partial interface IIncentiveEligibilitySession
+    {
+        partial class PaymentIntent
+        {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+            }
+        }
+    }
+    partial interface IIncentiveEligibilitySession
+    {
+        partial class SetupIntent
+        {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+            }
+        }
+    }
+}
+namespace Com.Stripe.Android.Model
+{
+    partial class ConsumerPaymentDetailsUpdateParams
+    {
+        partial class Creator
+        {
+            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+            global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+        }
+    }
+    partial class LinkConsumerIncentive
+    {
+        partial class Creator
+        {
+            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+            global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+        }
+    }
+    partial class SharePaymentDetails
+    {
+        partial class Creator
+        {
+            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+            global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+        }
+    }
+    partial class LinkConsumerIncentive
+    {
+        partial class IncentiveParams
+        {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+            }
+        }
+    }
+    partial class ConsumerPaymentDetails
+    {
+        partial class BankAccount
+        {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+            }
+        }
+    }
+    partial class ConsumerPaymentDetails
+    {
+        partial class BillingAddress
+        {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+            }
+        }
+    }
+    partial class ConsumerPaymentDetails
+    {
+        partial class Card
+        {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+            }
+        }
+    }
+    partial class ConsumerPaymentDetails
+    {
+        partial class Creator
+        {
+            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+            global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+        }
+    }
+    partial class ConsumerPaymentDetails
+    {
+        partial class Passthrough
+        {
+            partial class Creator
+            {
+                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+            }
+        }
+    }
+}
 
 namespace Com.Stripe.Android.Cards
 {

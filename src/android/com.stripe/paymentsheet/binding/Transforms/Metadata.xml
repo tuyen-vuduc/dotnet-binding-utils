@@ -22,5 +22,5 @@
       <remove-node path="/api/package[@name='com.stripe.android.paymentsheet.navigation']/class[@name='PaymentSheetScreen.SelectSavedPaymentMethods.CvcRecollectionState.NotRequired']/field[@name='INSTANCE']" />
       <attr path="/api/package[@name='com.stripe.android.paymentsheet.ui']/interface[@name='AddPaymentMethodInteractor']" name="visibility">public</attr>
       <attr path="/api/package[@name='com.stripe.android.paymentsheet.ui']/interface[@name='SelectSavedPaymentMethodsInteractor']" name="visibility">public</attr>
-
+      <attr path="//interface[@name='UpdatePaymentMethodInteractor']" name="visibility">public</attr>
 </metadata>

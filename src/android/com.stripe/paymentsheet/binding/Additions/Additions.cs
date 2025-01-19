@@ -2,162 +2,86 @@ using System;
 using System.Collections.Generic;
 using Android.Runtime;
 using Java.Interop;
-namespace Com.Stripe.Android.Customersheet
+namespace Com.Stripe.Android.Paymentelement {
+            partial class EmbeddedPaymentElement {partial class Configuration {partial class Creator {global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);    
+         global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);}}}
+        }
+namespace Com.Stripe.Android.Paymentsheet.Navigation
 {
-    partial class CustomerSheetViewModel_Factory
+    partial interface IPaymentSheetScreen
     {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class CustomerSheet_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-}
-namespace Com.Stripe.Android.Customersheet.Injection
-{
-    partial class CustomerSheetViewModelModule_Companion_ProvidesIntentConfirmationHandlerFactoryFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class CustomerSheetViewModelModule_Companion_ProvidesBacsMandateConfirmationLauncherFactoryFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class CustomerSheetModule_ProvideStripeImageLoaderFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class CustomerSheetViewModelModule_Companion_BackstackFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class CustomerSheetViewModelModule_Companion_ContextFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class CustomerSheetViewModelModule_Companion_IoContextFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class CustomerSheetViewModelModule_Companion_IsLiveModeFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class CustomerSheetViewModelModule_Companion_PaymentConfigurationFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class CustomerSheetViewModelModule_Companion_ProvideCoroutineContextFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class CustomerSheetViewModelModule_Companion_ProvideIsFlowControllerFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class CustomerSheetViewModelModule_Companion_ProvideLocaleFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class CustomerSheetViewModelModule_Companion_ProvideLoggerFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class CustomerSheetViewModelModule_Companion_ProvideProductUsageTokensFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class CustomerSheetViewModelModule_Companion_ProvidePublishableKeyFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class CustomerSheetViewModelModule_Companion_ProvidesEditPaymentMethodViewInteractorFactoryFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class CustomerSheetViewModelModule_Companion_ProvidesEnableLoggingFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class CustomerSheetViewModelModule_Companion_ProvidesIsFinancialConnectionsAvailableFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class CustomerSheetViewModelModule_Companion_ProvideStripeAccountIdFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class CustomerSheetViewModelModule_Companion_ResourcesFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class CustomerSheetViewModelModule_Companion_UiContextFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class StripeCustomerAdapterModule_Companion_ProvideAnalyticsRequestFactoryFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class StripeCustomerAdapterModule_Companion_ProvidePaymentConfigurationFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class StripeCustomerAdapterModule_Companion_ProvidePrefsRepositoryFactoryFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class StripeCustomerAdapterModule_Companion_ProvidePublishableKeyFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class StripeCustomerAdapterModule_Companion_ProvidesEnableLoggingFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class StripeCustomerAdapterModule_Companion_ProvidesProductUsageFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class StripeCustomerAdapterModule_Companion_ProvideStripeAccountIdFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class StripeCustomerAdapterModule_Companion_ProvideTimeProviderFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-}
-namespace Com.Stripe.Android.Paymentsheet.Addresselement
-{
-    partial class AddressElementViewModel_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class AutocompleteViewModel_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class InputAddressViewModel_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+        partial class VerticalModeForm
+        {
+            float IPaymentSheetScreen.WalletsDividerSpacing => WalletsDividerSpacing_D9Ej5fM;
+            float IPaymentSheetScreen.TopContentPadding => TopContentPadding_D9Ej5fM;
+            AnimationStyle IPaymentSheetScreen.GetAnimationStyle() => AnimationStyle;
+            float IPaymentSheetScreen.BottomContentPadding => BottomContentPadding_D9Ej5fM;
+        }
+        partial class VerticalMode
+        {
+            float IPaymentSheetScreen.WalletsDividerSpacing => WalletsDividerSpacing_D9Ej5fM;
+            float IPaymentSheetScreen.TopContentPadding => TopContentPadding_D9Ej5fM;
+            AnimationStyle IPaymentSheetScreen.GetAnimationStyle() => AnimationStyle;
+            float IPaymentSheetScreen.BottomContentPadding => BottomContentPadding_D9Ej5fM;
+        }
+        partial class UpdatePaymentMethod
+        {
+            float IPaymentSheetScreen.WalletsDividerSpacing => WalletsDividerSpacing_D9Ej5fM;
+            float IPaymentSheetScreen.TopContentPadding => TopContentPadding_D9Ej5fM;
+            AnimationStyle IPaymentSheetScreen.GetAnimationStyle() => AnimationStyle;
+            float IPaymentSheetScreen.BottomContentPadding => BottomContentPadding_D9Ej5fM;
+        }
+        partial class SelectSavedPaymentMethods
+        {
+            float IPaymentSheetScreen.WalletsDividerSpacing => WalletsDividerSpacing_D9Ej5fM;
+            float IPaymentSheetScreen.TopContentPadding => TopContentPadding_D9Ej5fM;
+            AnimationStyle IPaymentSheetScreen.GetAnimationStyle() => AnimationStyle;
+            float IPaymentSheetScreen.BottomContentPadding => BottomContentPadding_D9Ej5fM;
+        }
+        partial class ManageSavedPaymentMethods
+        {
+            float IPaymentSheetScreen.WalletsDividerSpacing => WalletsDividerSpacing_D9Ej5fM;
+            float IPaymentSheetScreen.TopContentPadding => TopContentPadding_D9Ej5fM;
+            AnimationStyle IPaymentSheetScreen.GetAnimationStyle() => AnimationStyle;
+            float IPaymentSheetScreen.BottomContentPadding => BottomContentPadding_D9Ej5fM;
+        }
+        partial class AddFirstPaymentMethod
+        {
+            float IPaymentSheetScreen.WalletsDividerSpacing => WalletsDividerSpacing_D9Ej5fM;
+            float IPaymentSheetScreen.TopContentPadding => TopContentPadding_D9Ej5fM;
+            AnimationStyle IPaymentSheetScreen.GetAnimationStyle() => AnimationStyle;
+            float IPaymentSheetScreen.BottomContentPadding => BottomContentPadding_D9Ej5fM;
+        }
+        partial class AddAnotherPaymentMethod
+        {
+            float IPaymentSheetScreen.WalletsDividerSpacing => WalletsDividerSpacing_D9Ej5fM;
+            float IPaymentSheetScreen.TopContentPadding => TopContentPadding_D9Ej5fM;
+            AnimationStyle IPaymentSheetScreen.GetAnimationStyle() => AnimationStyle;
+            float IPaymentSheetScreen.BottomContentPadding => BottomContentPadding_D9Ej5fM;
+        }
+        partial class Loading
+        {
+            float IPaymentSheetScreen.WalletsDividerSpacing => WalletsDividerSpacing_D9Ej5fM;
+            float IPaymentSheetScreen.TopContentPadding => TopContentPadding_D9Ej5fM;
+            AnimationStyle IPaymentSheetScreen.GetAnimationStyle() => AnimationStyle;
+            float IPaymentSheetScreen.BottomContentPadding => BottomContentPadding_D9Ej5fM;
+        }
+        partial class CvcRecollection
+        {
+            float IPaymentSheetScreen.WalletsDividerSpacing => WalletsDividerSpacing_D9Ej5fM;
+            float IPaymentSheetScreen.TopContentPadding => TopContentPadding_D9Ej5fM;
+            AnimationStyle IPaymentSheetScreen.GetAnimationStyle() => AnimationStyle;
+            float IPaymentSheetScreen.BottomContentPadding => BottomContentPadding_D9Ej5fM;
+        }
     }
 }
 namespace Com.Stripe.Android.Paymentsheet
 {
-    partial interface IPaymentConfirmationOption
+    partial class PaymentSheet
     {
-        partial class ExternalPaymentMethod
+        partial class Appearance
         {
-            partial class Creator
-            {
-                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
-                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
-            }
-        }
-        partial class GooglePay
-        {
-            partial class Config
+            partial class Embedded
             {
                 partial class Creator
                 {
@@ -166,223 +90,80 @@ namespace Com.Stripe.Android.Paymentsheet
                 }
             }
         }
-        partial class GooglePay
+    }
+    partial class PaymentSheet
+    {
+        partial class Appearance
         {
-            partial class Creator
+            partial class Embedded
             {
-                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
-                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
-            }
-        }
-        partial class New
-        {
-            partial class Creator
-            {
-                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
-                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
-            }
-        }
-        partial class Saved
-        {
-            partial class Creator
-            {
-                global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
-                global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+                partial class RowStyle
+                {
+                    partial class FlatWithCheckmark
+                    {
+                        partial class Creator
+                        {
+                            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                            global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+                        }
+                    }
+                }
             }
         }
     }
-}
-
-namespace Com.Stripe.Android.Paymentsheet.Flowcontroller
-{
-    partial class FlowControllerModule_ProvidesAppContextFactory
+    partial class PaymentSheet
     {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+        partial class Appearance
+        {
+            partial class Embedded
+            {
+                partial class RowStyle
+                {
+                    partial class FlatWithRadio
+                    {
+                        partial class Creator
+                        {
+                            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                            global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+                        }
+                    }
+                }
+            }
+        }
     }
-    partial class FlowControllerModule_ProvideEventReporterModeFactory
+    partial class PaymentSheet
     {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+        partial class Appearance
+        {
+            partial class Embedded
+            {
+                partial class RowStyle
+                {
+                    partial class FloatingButton
+                    {
+                        partial class Creator
+                        {
+                            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                            global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+                        }
+                    }
+                }
+            }
+        }
     }
-    partial class FlowControllerModule_ProvideIsFlowControllerFactory
+    partial class PaymentSheet
     {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class FlowControllerModule_ProvideProductUsageTokensFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class FlowControllerModule_ProvideStripeImageLoaderFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class FlowControllerModule_ProvideViewModelScopeFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-}
-namespace Com.Stripe.Android.Paymentsheet.Forms
-{
-    partial class FormViewModel_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-}
-namespace Com.Stripe.Android.Paymentsheet.Injection
-{
-    partial class PaymentSheetViewModelModule_ProvidesIntentConfirmationHandlerFactoryFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class PaymentSheetCommonModule_Companion_ProvideCvcRecollectionLauncherFactoryFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class AddressElementViewModelModule_ProvideEventReporterFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class AddressElementViewModelModule_ProvideEventReporterModeFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class AddressElementViewModelModule_ProvidesPublishableKeyFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class PaymentOptionsViewModelModule_ProvideEventReporterModeFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class PaymentSheetCommonModule_Companion_ProvideAnalyticsRequestFactoryFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class PaymentSheetCommonModule_Companion_ProvideBacsMandateConfirmationLauncherFactoryFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class PaymentSheetCommonModule_Companion_ProvideDurationProviderFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class PaymentSheetCommonModule_Companion_ProvideEnabledLoggingFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class PaymentSheetCommonModule_Companion_ProvidePaymentConfigurationFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class PaymentSheetCommonModule_Companion_ProvidePrefsRepositoryFactoryFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class PaymentSheetCommonModule_Companion_ProvidePublishableKeyFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class PaymentSheetCommonModule_Companion_ProvidesEditPaymentMethodViewInteractorFactoryFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class PaymentSheetCommonModule_Companion_ProvideStripeAccountIdFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class PaymentSheetLauncherModule_Companion_ProvideEventReporterModeFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class PaymentSheetLauncherModule_Companion_ProvideIsFlowControllerFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class PaymentSheetLauncherModule_Companion_ProvideProductUsageTokensFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class PaymentSheetViewModelModule_ProvideArgsFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class PaymentSheetViewModelModule_ProvidePrefsRepositoryFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-}
-namespace Com.Stripe.Android.Paymentsheet.Paymentdatacollection.Ach.DI
-{
-    partial class USBankAccountFormViewModelModule_ProvidePaymentConfigurationFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class USBankAccountFormViewModelModule_ProvidePublishableKeyFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class USBankAccountFormViewModelModule_ProvidesAppContextFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class USBankAccountFormViewModelModule_ProvidesEnableLoggingFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class USBankAccountFormViewModelModule_ProvidesProductUsageFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class USBankAccountFormViewModelModule_ProvidesResourcesFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-}
-namespace Com.Stripe.Android.Paymentsheet.Paymentdatacollection.Ach
-{
-    partial class USBankAccountFormViewModel_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-}
-namespace Com.Stripe.Android.Paymentsheet.Paymentdatacollection.Polling.DI
-{
-    partial class PollingViewModelModule_Companion_ProvidePaymentConfigurationFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class PollingViewModelModule_Companion_ProvidePublishableKeyFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class PollingViewModelModule_Companion_ProvidesAppContextFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class PollingViewModelModule_Companion_ProvidesEnableLoggingFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class PollingViewModelModule_Companion_ProvidesProductUsageFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-}
-namespace Com.Stripe.Android.Paymentsheet.Paymentdatacollection.Polling
-{
-    partial class PollingViewModel_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-}
-namespace Com.Stripe.Android.Paymentsheet
-{
-    partial class PaymentOptionsViewModel_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class PaymentSheetViewModel_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
+        partial class CardBrandAcceptance
+        {
+            partial class BrandCategory
+            {
+                partial class Creator
+                {
+                    global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+                    global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
+                }
+            }
+        }
     }
 }
 namespace Com.Stripe.Android.Customersheet

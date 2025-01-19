@@ -78,10 +78,6 @@ namespace Com.Stripe.Android.UI.Core.Elements
     {
         global::Com.Stripe.Android.Uicore.Elements.IController global::Com.Stripe.Android.Uicore.Elements.IFormElement.Controller => Controller;
     }
-    partial class ExternalPaymentMethodsRepository_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
     partial class ExternalPaymentMethodSpec
     {
         partial class Creator
@@ -361,13 +357,6 @@ namespace Com.Stripe.Android.UI.Core.Elements
             global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size)
                 => this.NewArray(size);
         }
-    }
-}
-namespace Com.Stripe.Android.UI.Core.Forms.Resources.Injection
-{
-    partial class ResourceRepositoryModule_ProvideResourcesFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
     }
 }
 namespace Com.Stripe.Android.UI.Core.Databinding

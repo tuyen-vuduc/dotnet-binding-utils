@@ -93,17 +93,6 @@ namespace Com.Stripe.Android.Core
         }
     }
 }
-namespace Com.Stripe.Android.Core.Utils
-{
-    partial class RealUserFacingLogger_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class RealIsWorkManagerAvailable_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-}
 namespace Com.Stripe.Android.Core.Networking
 {
     partial interface IStripeConnection
@@ -295,26 +284,6 @@ namespace Com.Stripe.Android.Core.Networking
             }
         }
     }
-    partial class LinearRetryDelaySupplier_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class ExponentialBackoffRetryDelaySupplier_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class DefaultAnalyticsRequestV2Executor_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class DefaultAnalyticsRequestExecutor_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class ApiRequest_Options_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
     partial class ApiRequest
     {
         partial class Options
@@ -330,33 +299,6 @@ namespace Com.Stripe.Android.Core.Networking
         }
     }
 }
-namespace Com.Stripe.Android.Core.Injection
-{
-    partial class CoreCommonModule_ProvideLocaleFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class CoreCommonModule_ProvideLoggerFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class CoroutineContextModule_ProvideUIContextFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-    partial class CoroutineContextModule_ProvideWorkContextFactory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-}
-namespace Com.Stripe.Android.Core.Networking
-{
-
-    partial class RealAnalyticsRequestV2Storage_Factory
-    {
-        global::Java.Lang.Object global::JavaX.Inject.IProvider.Get() => (global::Java.Lang.Object)(object)Get();
-    }
-}
 namespace Com.Stripe.Android.Core.Model.Serializers
 {
     partial class CountryListSerializer : global::KotlinX.Serialization.ISerializationStrategy
@@ -370,6 +312,17 @@ namespace Com.Stripe.Android.Core.Model.Serializers
                 value.Handle,
                 JniHandleOwnership.TransferLocalRef);
             Serialize(encoder, xvalue);
+        }
+    }
+}
+namespace Com.Stripe.Android.Core.Frauddetection
+{
+    partial class FraudDetectionData
+    {
+        partial class Creator
+        {
+            global::Java.Lang.Object global::Android.OS.IParcelableCreator.CreateFromParcel(global::Android.OS.Parcel? source) => this.CreateFromParcel(source);
+            global::Java.Lang.Object[] global::Android.OS.IParcelableCreator.NewArray(int size) => this.NewArray(size);
         }
     }
 }
