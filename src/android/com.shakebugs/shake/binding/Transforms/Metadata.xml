@@ -16,4 +16,8 @@
     <remove-node path="//method[@return='com.shakebugs.shake.internal.view.PaletteView.i']" />
     <remove-node path="/api/package[@name='com.shakebugs.shake.internal.domain.models']/class[@name='ActivityHistoryEvent']/implements[@name='java.lang.Comparable']" />
     <attr path="//field[@name='timeOccurred']" name="managedName">timeOccurred</attr>
+    <remove-node path="//*[@return='com.shakebugs.shake.internal.k4']" />
+    <remove-node path="//*[@type='com.shakebugs.shake.internal.k4']" />
+    <remove-node path="//*[@extends='com.shakebugs.shake.internal.k4']" />
+    <remove-node path="//implements[@name='com.shakebugs.shake.internal.k4']" />
 </metadata>
