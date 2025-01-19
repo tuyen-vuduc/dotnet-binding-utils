@@ -10,6 +10,7 @@ on:
         options:    
         - org.bouncycastle:bcprov-jdk15to18:1.79
         - dev.drewhamilton.poko:poko-annotations:0.17.2
+        - com.nimbusds:nimbus-jose-jwt:9.46
 jobs:
   build-then-publish:
     environment: production

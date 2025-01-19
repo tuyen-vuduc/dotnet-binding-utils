@@ -228,102 +228,11 @@ namespace Com.Nimbusds.Jose.Crypto.Impl
     }
 
 }
-namespace Com.Nimbusds.Jose.Shaded.Asm
-{
-    partial class ConvertDate
-    {
-        partial class StringCmpNS
-        {
-            unsafe int global::Java.Util.IComparator.Compare(
-                Java.Lang.Object? o1,
-                Java.Lang.Object? o2)
-                => Compare(o1?.ToString(), o2?.ToString());
-        }
-    }
-}
-namespace Com.Nimbusds.Jose.Jwk
-{
-    partial class ECKey
-    {
-        public override global::Com.Nimbusds.Jose.Jwk.JWK? ToPublicJWK()
-            => ToPublicECKey();
-    }
-    partial class RSAKey
-    {
-        public override global::Com.Nimbusds.Jose.Jwk.JWK? ToPublicJWK()
-            => ToPublicRSAKey();
-    }
-    partial class OctetKeyPair
-    {
-        public override global::Com.Nimbusds.Jose.Jwk.JWK? ToPublicJWK()
-            => ToPublicOctetKeyPair();
-    }
-    partial class OctetSequenceKey
-    {
-        public override global::Com.Nimbusds.Jose.Jwk.JWK? ToPublicJWK()
-            => ToPublicOctetSequenceKey();
-    }
-}
 
-namespace Com.Nimbusds.Jose.Jwk.Gen
+namespace Com.Nimbusds.Jose.Shaded.Gson
 {
-    partial class ECKeyGenerator
+    partial class JsonStreamParser
     {
-        public override global::Java.Lang.Object? Generate()
-            => GenerateECKey();
-    }
-    partial class RSAKeyGenerator
-    {
-        public override global::Java.Lang.Object? Generate()
-            => GenerateRSAKey();
-    }
-    partial class OctetKeyPairGenerator
-    {
-        public override global::Java.Lang.Object? Generate()
-            => GenerateOctetKeyPair();
-    }
-    partial class OctetSequenceKeyGenerator
-    {
-        public override global::Java.Lang.Object? Generate()
-            => GenerateOctetSequenceKey();
-    }
-}
-namespace Com.Nimbusds.Jose.Shaded.Json.Reader
-{
-    partial class ArrayWriter : global::Com.Nimbusds.Jose.Shaded.Json.Reader.IJsonWriterI
-    {
-        // This method is explicitly implemented as a member of an instantiated Com.Nimbusds.Jose.Shaded.Json.Reader.IJsonWriterI
-        [global::Java.Interop.JavaTypeParameters(new string[] { "E extends T" })]
-        void global::Com.Nimbusds.Jose.Shaded.Json.Reader.IJsonWriterI.WriteJSONString(global::Java.Lang.Object? p0, global::Java.Lang.IAppendable? p1, global::Com.Nimbusds.Jose.Shaded.Json.JSONStyle? p2)
-        {
-            WriteJSONString(p0, p1, p2);
-        }
-    }
-    partial class BeansWriter : global::Com.Nimbusds.Jose.Shaded.Json.Reader.IJsonWriterI
-    {
-        // This method is explicitly implemented as a member of an instantiated Com.Nimbusds.Jose.Shaded.Json.Reader.IJsonWriterI
-        [global::Java.Interop.JavaTypeParameters(new string[] { "E extends T" })]
-        void global::Com.Nimbusds.Jose.Shaded.Json.Reader.IJsonWriterI.WriteJSONString(global::Java.Lang.Object? p0, global::Java.Lang.IAppendable? p1, global::Com.Nimbusds.Jose.Shaded.Json.JSONStyle? p2)
-        {
-            WriteJSONString(p0, p1, p2);
-        }
-    }
-    partial class BeansWriterASM : global::Com.Nimbusds.Jose.Shaded.Json.Reader.IJsonWriterI
-    {
-        // This method is explicitly implemented as a member of an instantiated Com.Nimbusds.Jose.Shaded.Json.Reader.IJsonWriterI
-        [global::Java.Interop.JavaTypeParameters(new string[] { "E extends T" })]
-        void global::Com.Nimbusds.Jose.Shaded.Json.Reader.IJsonWriterI.WriteJSONString(global::Java.Lang.Object? p0, global::Java.Lang.IAppendable? p1, global::Com.Nimbusds.Jose.Shaded.Json.JSONStyle? p2)
-        {
-            WriteJSONString(p0, p1, p2);
-        }
-    }
-    partial class BeansWriterASMRemap : global::Com.Nimbusds.Jose.Shaded.Json.Reader.IJsonWriterI
-    {
-        // This method is explicitly implemented as a member of an instantiated Com.Nimbusds.Jose.Shaded.Json.Reader.IJsonWriterI
-        [global::Java.Interop.JavaTypeParameters(new string[] { "E extends T" })]
-        void global::Com.Nimbusds.Jose.Shaded.Json.Reader.IJsonWriterI.WriteJSONString(global::Java.Lang.Object? p0, global::Java.Lang.IAppendable? p1, global::Com.Nimbusds.Jose.Shaded.Json.JSONStyle? p2)
-        {
-            WriteJSONString(p0, p1, p2);
-        }
+        global::Java.Lang.Object global::Java.Util.IIterator.Next() => Next();
     }
 }
