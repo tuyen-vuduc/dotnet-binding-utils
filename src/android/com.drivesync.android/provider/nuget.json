@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Drivesync.Android.Provider",
   "name": "provider",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }

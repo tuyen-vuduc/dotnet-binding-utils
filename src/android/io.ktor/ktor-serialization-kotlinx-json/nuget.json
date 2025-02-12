@@ -1,7 +1,7 @@
 {
   "packageId": "Io.Ktor.KtorSerializationKotlinxJson",
   "name": "ktor-serialization-kotlinx-json",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }

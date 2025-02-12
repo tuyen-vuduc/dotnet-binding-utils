@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Google.Android.Filament.GltfioAndroid",
   "name": "gltfio-android",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }
