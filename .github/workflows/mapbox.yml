@@ -7,7 +7,8 @@ on:
         description: 'Android library to publish'
         required: true
         type: choice
-        options:    
+        options:   
+        - com.mapbox.annotation:annotation:0.3.0 
         - com.mapbox.common:common:24.10.0
         - com.mapbox.maps:android-core:11.10.1
         - com.mapbox.maps:base:11.10.1
