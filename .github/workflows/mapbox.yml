@@ -9,23 +9,23 @@ on:
         type: choice
         options:    
         - com.mapbox.common:common:24.10.0
-        - com.mapbox.maps:android-core:11.8.0
-        - com.mapbox.maps:base:11.8.0
-        - com.mapbox.module:maps-telemetry:11.8.0
-        - com.mapbox.extension:maps-style:11.8.0
-        - com.mapbox.extension:maps-localization:11.8.0
-        - com.mapbox.plugin:maps-animation:11.8.0
-        - com.mapbox.plugin:maps-attribution:11.8.0
-        - com.mapbox.plugin:maps-compass:11.8.0
-        - com.mapbox.plugin:maps-gestures:11.8.0
-        - com.mapbox.plugin:maps-lifecycle:11.8.0
-        - com.mapbox.plugin:maps-locationcomponent:11.8.0
-        - com.mapbox.plugin:maps-logo:11.8.0
-        - com.mapbox.plugin:maps-overlay:11.8.0
-        - com.mapbox.plugin:maps-scalebar:11.8.0
-        - com.mapbox.plugin:maps-viewport:11.8.0
-        - com.mapbox.plugin:maps-annotation:11.8.0
-        - com.mapbox.maps:android:11.8.0
+        - com.mapbox.maps:android-core:11.10.1
+        - com.mapbox.maps:base:11.10.1
+        - com.mapbox.module:maps-telemetry:11.10.1
+        - com.mapbox.extension:maps-style:11.10.1
+        - com.mapbox.extension:maps-localization:11.10.1
+        - com.mapbox.plugin:maps-animation:11.10.1
+        - com.mapbox.plugin:maps-attribution:11.10.1
+        - com.mapbox.plugin:maps-compass:11.10.1
+        - com.mapbox.plugin:maps-gestures:11.10.1
+        - com.mapbox.plugin:maps-lifecycle:11.10.1
+        - com.mapbox.plugin:maps-locationcomponent:11.10.1
+        - com.mapbox.plugin:maps-logo:11.10.1
+        - com.mapbox.plugin:maps-overlay:11.10.1
+        - com.mapbox.plugin:maps-scalebar:11.10.1
+        - com.mapbox.plugin:maps-viewport:11.10.1
+        - com.mapbox.plugin:maps-annotation:11.10.1
+        - com.mapbox.maps:android:11.10.1
 
 jobs:
   build-then-publish:
