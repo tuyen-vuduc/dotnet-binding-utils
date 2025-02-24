@@ -8,7 +8,7 @@ on:
         required: true
         type: choice
         options:    
-        - com.mapbox.common:common:24.8.0
+        - com.mapbox.common:common:24.10.0
         - com.mapbox.maps:android-core:11.8.0
         - com.mapbox.maps:base:11.8.0
         - com.mapbox.module:maps-telemetry:11.8.0
