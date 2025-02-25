@@ -1,6 +1,18 @@
 using System;
 using Android.Runtime;
 
+namespace Com.Mapbox.Maps.Extension.Style.Precipitations.Generated
+{
+    // partial class Rain {
+    //     Rain IRainDslReceiver.CenterThinning(
+    //         Com.Mapbox.Maps.Extension.Style.Expressions.Generated.Expression expression)
+    //         => InvokeCenterThinning(expression);
+    //     Rain IRainDslReceiver.CenterThinning(
+    //         double centerThinning)
+    //         => InvokeCenterThinning(centerThinning);
+    // }
+}
+
 namespace Com.Mapbox.Maps.Extension.Style.Projection.Generated
 {
     public static class StyleProjectionUtilsExtensions
@@ -1557,6 +1569,12 @@ namespace Com.Mapbox.Maps.Extension.Style
         public string Style => GetStyle();
 
         public TransitionOptions Transition => GetTransition();
+
+        public ColorTheme ColorTheme => GetColorTheme();
+
+        public IStyleContract.IStyleRainExtension Rain => GetRain();
+
+        public IStyleContract.IStyleSnowExtension Snow => GetSnow();
     }
 }
 
