@@ -7,7 +7,12 @@ public sealed class NugetTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
-        context.DotNetWorkloadRestore(context.SlnPath);
+        context.DotNetWorkloadRestore(
+            context.SlnPath,
+            new DotNetWorkloadRestoreSettings
+            {
+                WorkingDirectory = context.BasePath,
+            });
 
         var nugetsFolderPath = PathIO.Combine(
             context.BasePath,
