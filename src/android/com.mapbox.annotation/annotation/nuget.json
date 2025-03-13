@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Mapbox.Annotation.Annotation",
+  "name": "annotation",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}
