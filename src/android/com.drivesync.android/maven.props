@@ -3,6 +3,9 @@
     <AndroidMinSdkVersion>26</AndroidMinSdkVersion>
   </PropertyGroup>
   <ItemGroup>
+      <UsesPermission Include="android.permission.POST_NOTIFICATIONS" />
+  </ItemGroup>
+  <ItemGroup>
     <GradleRepository Include="https://maven.pkg.github.com/ims-developers/android-sdk">
       <Repository>
       maven {
