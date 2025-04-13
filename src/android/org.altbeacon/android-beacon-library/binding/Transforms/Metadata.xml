@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <attr path="//field[@name='beaconSimulator']" name="managedName">beaconSimulator_</attr>
+    <attr path="//field[@name='dataRequestNotifier']" name="managedName">dataRequestNotifier_</attr>
+    <attr path="//field[@name='DEFAULT_BACKGROUND_BETWEEN_SCAN_PERIOD']" name="managedName">DEFAULT_BACKGROUND_BETWEEN_SCAN_PERIOD</attr>
+    <attr path="//field[@name='DEFAULT_BACKGROUND_SCAN_PERIOD']" name="managedName">DEFAULT_BACKGROUND_SCAN_PERIOD</attr>
+    <attr path="//field[@name='DEFAULT_EXIT_PERIOD']" name="managedName">DEFAULT_EXIT_PERIOD</attr>
+    <attr path="//field[@name='DEFAULT_FOREGROUND_BETWEEN_SCAN_PERIOD']" name="managedName">DEFAULT_FOREGROUND_BETWEEN_SCAN_PERIOD</attr>
+    <attr path="//field[@name='DEFAULT_FOREGROUND_SCAN_PERIOD']" name="managedName">DEFAULT_FOREGROUND_SCAN_PERIOD</attr>
+    <attr path="//field[@name='distanceModelUpdateUrl']" name="managedName">distanceModelUpdateUrl_</attr>
+    <attr path="//field[@name='monitorNotifiers']" name="managedName">monitorNotifiers_</attr>
+    <attr path="//field[@name='rangeNotifiers']" name="managedName">rangeNotifiers_</attr>
+    <attr path="//field[@name='rssiFilterImplClass']" name="managedName">rssiFilterImplClass_</attr>
+    <attr path="//field[@name='sInstance']" name="managedName">sInstance_</attr>
+    <attr path="//field[@name='ALTBEACON_LAYOUT']" name="managedName">ALTBEACON_LAYOUT</attr>
+    <attr path="//field[@name='EDDYSTONE_TLM_LAYOUT']" name="managedName">EDDYSTONE_TLM_LAYOUT</attr>
+    <attr path="//field[@name='EDDYSTONE_UID_LAYOUT']" name="managedName">EDDYSTONE_UID_LAYOUT</attr>
+    <attr path="//field[@name='EDDYSTONE_URL_LAYOUT']" name="managedName">EDDYSTONE_URL_LAYOUT</attr>
+    <attr path="//field[@name='extraParsers']" name="managedName">extraParsers_</attr>
+    <attr path="//field[@name='mAllowPduOverflow']" name="managedName">mAllowPduOverflow_</attr>
+    <attr path="//field[@name='mBeaconLayout']" name="managedName">mBeaconLayout_</attr>
+    <attr path="//field[@name='mDataEndOffsets']" name="managedName">mDataEndOffsets_</attr>
+    <attr path="//field[@name='mDataLittleEndianFlags']" name="managedName">mDataLittleEndianFlags_</attr>
+    <attr path="//field[@name='mDataStartOffsets']" name="managedName">mDataStartOffsets_</attr>
+    <attr path="//field[@name='mDBmCorrection']" name="managedName">mDBmCorrection_</attr>
+    <attr path="//field[@name='mExtraFrame']" name="managedName">mExtraFrame_</attr>
+    <attr path="//field[@name='mHardwareAssistManufacturers']" name="managedName">mHardwareAssistManufacturers_</attr>
+    <attr path="//field[@name='mIdentifier']" name="managedName">mIdentifier_</attr>
+    <attr path="//field[@name='mIdentifierEndOffsets']" name="managedName">mIdentifierEndOffsets_</attr>
+    <attr path="//field[@name='mIdentifierLittleEndianFlags']" name="managedName">mIdentifierLittleEndianFlags_</attr>
+    <attr path="//field[@name='mIdentifierStartOffsets']" name="managedName">mIdentifierStartOffsets_</attr>
+    <attr path="//field[@name='mIdentifierVariableLengthFlags']" name="managedName">mIdentifierVariableLengthFlags_</attr>
+    <attr path="//field[@name='mLayoutSize']" name="managedName">mLayoutSize_</attr>
+    <attr path="//field[@name='mMatchingBeaconTypeCodeEndOffset']" name="managedName">mMatchingBeaconTypeCodeEndOffset_</attr>
+    <attr path="//field[@name='mMatchingBeaconTypeCodeStartOffset']" name="managedName">mMatchingBeaconTypeCodeStartOffset_</attr>
+    <attr path="//field[@name='mPowerEndOffset']" name="managedName">mPowerEndOffset_</attr>
+    <attr path="//field[@name='mPowerStartOffset']" name="managedName">mPowerStartOffset_</attr>
+    <attr path="//field[@name='mServiceUuid']" name="managedName">mServiceUuid_</attr>
+    <attr path="//field[@name='mServiceUuid128Bit']" name="managedName">mServiceUuid128Bit_</attr>
+    <attr path="//field[@name='mServiceUuidEndOffset']" name="managedName">mServiceUuidEndOffset_</attr>
+    <attr path="//field[@name='mServiceUuidStartOffset']" name="managedName">mServiceUuidStartOffset_</attr>
+    <attr path="//field[@name='URI_BEACON_LAYOUT']" name="managedName">URI_BEACON_LAYOUT</attr>
+    <attr path="//field[@name='beacons']" name="managedName">beacons_</attr>
+    <remove-node path="/api/package[@name='org.altbeacon.beacon.service.scanner']/class[@name='ScanFilterUtils']/method[@name='createScanFilterDataForBeaconParser' and count(parameter)=2 and parameter[1][@type='org.altbeacon.beacon.BeaconParser'] and parameter[2][@type='java.util.List&lt;org.altbeacon.beacon.Identifier&gt;']]" />
+    <attr path="/api/package[@name='org.altbeacon.beacon.utils']/class[@name='ChangeAwareCopyOnWriteArrayList']/method[@name='getSize' and count(parameter)=0]" name="propertyName"></attr>
+    <remove-node path="/api/package[@name='org.altbeacon.beacon.utils']/class[@name='ChangeAwareCopyOnWriteArrayList']/method[@name='removeIf' and count(parameter)=1 and parameter[1][@type='java.util.function.Predicate&lt;? super E&gt;']]" />
+</metadata>

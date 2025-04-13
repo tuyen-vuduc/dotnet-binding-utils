@@ -1,0 +1,5 @@
+{
+  "name": "org.altbeacon",
+  "dotnet8": true,
+  "runtimeDependenciesAsCompile": true
+}
