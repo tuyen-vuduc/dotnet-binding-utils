@@ -59,7 +59,7 @@ namespace Com.Drivesync.Android.Provider.Activity
         public unsafe global::Com.Drivesync.Android.Provider.IGenericProviderRequest CreateRequest()
         {
             if (id_createRequest == IntPtr.Zero)
-                id_createRequest = JNIEnv.GetMethodID(class_ref, "createRequest", "()Lcom/drivesync/android/provider/GenericProviderRequest;");
+                id_createRequest = JNIEnv.GetMethodID(java_class_ref, "createRequest", "()Lcom/drivesync/android/provider/GenericProviderRequest;");
             return global::Java.Lang.Object.GetObject<global::Com.Drivesync.Android.Provider.IGenericProviderRequest>(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_createRequest), JniHandleOwnership.TransferLocalRef);
         }
 
@@ -85,7 +85,7 @@ namespace Com.Drivesync.Android.Provider.Activity
             get
             {
                 if (id_getRequiredPermissions == IntPtr.Zero)
-                    id_getRequiredPermissions = JNIEnv.GetMethodID(class_ref, "getRequiredPermissions", "()Ljava/util/List;");
+                    id_getRequiredPermissions = JNIEnv.GetMethodID(java_class_ref, "getRequiredPermissions", "()Ljava/util/List;");
                 return global::Android.Runtime.JavaList<global::Com.Drivesync.Android.Provider.DsProviderPermission>.FromJniHandle(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_getRequiredPermissions), JniHandleOwnership.TransferLocalRef);
             }
         }
@@ -113,7 +113,7 @@ namespace Com.Drivesync.Android.Provider.Activity
         public unsafe global::Com.Drivesync.Android.Provider.IGenericProviderRequest CancelUpdates(global::Android.Content.Context context, string logMessage)
         {
             if (id_cancelUpdates_Landroid_content_Context_Ljava_lang_String_ == IntPtr.Zero)
-                id_cancelUpdates_Landroid_content_Context_Ljava_lang_String_ = JNIEnv.GetMethodID(class_ref, "cancelUpdates", "(Landroid/content/Context;Ljava/lang/String;)Lcom/drivesync/android/provider/GenericProviderRequest;");
+                id_cancelUpdates_Landroid_content_Context_Ljava_lang_String_ = JNIEnv.GetMethodID(java_class_ref, "cancelUpdates", "(Landroid/content/Context;Ljava/lang/String;)Lcom/drivesync/android/provider/GenericProviderRequest;");
             IntPtr native_logMessage = JNIEnv.NewString((string)logMessage);
             JValue* __args = stackalloc JValue[2];
             __args[0] = new JValue((context == null) ? IntPtr.Zero : ((global::Java.Lang.Object)context).Handle);
@@ -147,7 +147,7 @@ namespace Com.Drivesync.Android.Provider.Activity
         public unsafe global::System.Collections.Generic.IList<global::Com.Drivesync.Android.Provider.DsProviderPermission> GetMissingPermissions(global::Android.Content.Context context)
         {
             if (id_getMissingPermissions_Landroid_content_Context_ == IntPtr.Zero)
-                id_getMissingPermissions_Landroid_content_Context_ = JNIEnv.GetMethodID(class_ref, "getMissingPermissions", "(Landroid/content/Context;)Ljava/util/List;");
+                id_getMissingPermissions_Landroid_content_Context_ = JNIEnv.GetMethodID(java_class_ref, "getMissingPermissions", "(Landroid/content/Context;)Ljava/util/List;");
             JValue* __args = stackalloc JValue[1];
             __args[0] = new JValue((context == null) ? IntPtr.Zero : ((global::Java.Lang.Object)context).Handle);
             var __ret = global::Android.Runtime.JavaList<global::Com.Drivesync.Android.Provider.DsProviderPermission>.FromJniHandle(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_getMissingPermissions_Landroid_content_Context_, __args), JniHandleOwnership.TransferLocalRef);
@@ -176,7 +176,7 @@ namespace Com.Drivesync.Android.Provider.Activity
         public unsafe global::Android.App.PendingIntent GetPendingIntent(global::Android.Content.Context context)
         {
             if (id_getPendingIntent_Landroid_content_Context_ == IntPtr.Zero)
-                id_getPendingIntent_Landroid_content_Context_ = JNIEnv.GetMethodID(class_ref, "getPendingIntent", "(Landroid/content/Context;)Landroid/app/PendingIntent;");
+                id_getPendingIntent_Landroid_content_Context_ = JNIEnv.GetMethodID(java_class_ref, "getPendingIntent", "(Landroid/content/Context;)Landroid/app/PendingIntent;");
             JValue* __args = stackalloc JValue[1];
             __args[0] = new JValue((context == null) ? IntPtr.Zero : ((global::Java.Lang.Object)context).Handle);
             var __ret = global::Java.Lang.Object.GetObject<global::Android.App.PendingIntent>(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_getPendingIntent_Landroid_content_Context_, __args), JniHandleOwnership.TransferLocalRef);
@@ -205,7 +205,7 @@ namespace Com.Drivesync.Android.Provider.Activity
         public unsafe bool HasRequiredPermissions(global::Android.Content.Context context)
         {
             if (id_hasRequiredPermissions_Landroid_content_Context_ == IntPtr.Zero)
-                id_hasRequiredPermissions_Landroid_content_Context_ = JNIEnv.GetMethodID(class_ref, "hasRequiredPermissions", "(Landroid/content/Context;)Z");
+                id_hasRequiredPermissions_Landroid_content_Context_ = JNIEnv.GetMethodID(java_class_ref, "hasRequiredPermissions", "(Landroid/content/Context;)Z");
             JValue* __args = stackalloc JValue[1];
             __args[0] = new JValue((context == null) ? IntPtr.Zero : ((global::Java.Lang.Object)context).Handle);
             var __ret = JNIEnv.CallBooleanMethod(((global::Java.Lang.Object)this).Handle, id_hasRequiredPermissions_Landroid_content_Context_, __args);
@@ -234,7 +234,7 @@ namespace Com.Drivesync.Android.Provider.Activity
         public unsafe global::Java.Lang.Object ParseResult(global::Android.Content.Intent intent)
         {
             if (id_parseResult_Landroid_content_Intent_ == IntPtr.Zero)
-                id_parseResult_Landroid_content_Intent_ = JNIEnv.GetMethodID(class_ref, "parseResult", "(Landroid/content/Intent;)Ljava/lang/Object;");
+                id_parseResult_Landroid_content_Intent_ = JNIEnv.GetMethodID(java_class_ref, "parseResult", "(Landroid/content/Intent;)Ljava/lang/Object;");
             JValue* __args = stackalloc JValue[1];
             __args[0] = new JValue((intent == null) ? IntPtr.Zero : ((global::Java.Lang.Object)intent).Handle);
             var __ret = (global::Java.Lang.Object)global::Java.Lang.Object.GetObject<global::Java.Lang.Object>(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_parseResult_Landroid_content_Intent_, __args), JniHandleOwnership.TransferLocalRef);
@@ -264,7 +264,7 @@ namespace Com.Drivesync.Android.Provider.Activity
         public unsafe global::Com.Drivesync.Android.Provider.IGenericProviderRequest RequestUpdates(global::Android.Content.Context context, string logMessage)
         {
             if (id_requestUpdates_Landroid_content_Context_Ljava_lang_String_ == IntPtr.Zero)
-                id_requestUpdates_Landroid_content_Context_Ljava_lang_String_ = JNIEnv.GetMethodID(class_ref, "requestUpdates", "(Landroid/content/Context;Ljava/lang/String;)Lcom/drivesync/android/provider/GenericProviderRequest;");
+                id_requestUpdates_Landroid_content_Context_Ljava_lang_String_ = JNIEnv.GetMethodID(java_class_ref, "requestUpdates", "(Landroid/content/Context;Ljava/lang/String;)Lcom/drivesync/android/provider/GenericProviderRequest;");
             IntPtr native_logMessage = JNIEnv.NewString((string)logMessage);
             JValue* __args = stackalloc JValue[2];
             __args[0] = new JValue((context == null) ? IntPtr.Zero : ((global::Java.Lang.Object)context).Handle);
@@ -296,7 +296,7 @@ namespace Com.Drivesync.Android.Provider.Activity
         public unsafe global::Com.Drivesync.Android.Provider.IGenericProviderRequest SetOnFailureListener(global::Com.Drivesync.Android.Provider.IGenericProviderRequest.IOnFailureListener onFailureListener)
         {
             if (id_setOnFailureListener_Lcom_drivesync_android_provider_GenericProviderRequest_OnFailureListener_ == IntPtr.Zero)
-                id_setOnFailureListener_Lcom_drivesync_android_provider_GenericProviderRequest_OnFailureListener_ = JNIEnv.GetMethodID(class_ref, "setOnFailureListener", "(Lcom/drivesync/android/provider/GenericProviderRequest$OnFailureListener;)Lcom/drivesync/android/provider/GenericProviderRequest;");
+                id_setOnFailureListener_Lcom_drivesync_android_provider_GenericProviderRequest_OnFailureListener_ = JNIEnv.GetMethodID(java_class_ref, "setOnFailureListener", "(Lcom/drivesync/android/provider/GenericProviderRequest$OnFailureListener;)Lcom/drivesync/android/provider/GenericProviderRequest;");
             JValue* __args = stackalloc JValue[1];
             __args[0] = new JValue((onFailureListener == null) ? IntPtr.Zero : ((global::Java.Lang.Object)onFailureListener).Handle);
             var __ret = global::Java.Lang.Object.GetObject<global::Com.Drivesync.Android.Provider.IGenericProviderRequest>(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_setOnFailureListener_Lcom_drivesync_android_provider_GenericProviderRequest_OnFailureListener_, __args), JniHandleOwnership.TransferLocalRef);
@@ -325,7 +325,7 @@ namespace Com.Drivesync.Android.Provider.Activity
         public unsafe global::Com.Drivesync.Android.Provider.IGenericProviderRequest SetOnSuccessListener(global::Com.Drivesync.Android.Provider.IGenericProviderRequest.IOnSuccessListener onSuccessListener)
         {
             if (id_setOnSuccessListener_Lcom_drivesync_android_provider_GenericProviderRequest_OnSuccessListener_ == IntPtr.Zero)
-                id_setOnSuccessListener_Lcom_drivesync_android_provider_GenericProviderRequest_OnSuccessListener_ = JNIEnv.GetMethodID(class_ref, "setOnSuccessListener", "(Lcom/drivesync/android/provider/GenericProviderRequest$OnSuccessListener;)Lcom/drivesync/android/provider/GenericProviderRequest;");
+                id_setOnSuccessListener_Lcom_drivesync_android_provider_GenericProviderRequest_OnSuccessListener_ = JNIEnv.GetMethodID(java_class_ref, "setOnSuccessListener", "(Lcom/drivesync/android/provider/GenericProviderRequest$OnSuccessListener;)Lcom/drivesync/android/provider/GenericProviderRequest;");
             JValue* __args = stackalloc JValue[1];
             __args[0] = new JValue((onSuccessListener == null) ? IntPtr.Zero : ((global::Java.Lang.Object)onSuccessListener).Handle);
             var __ret = global::Java.Lang.Object.GetObject<global::Com.Drivesync.Android.Provider.IGenericProviderRequest>(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_setOnSuccessListener_Lcom_drivesync_android_provider_GenericProviderRequest_OnSuccessListener_, __args), JniHandleOwnership.TransferLocalRef);
@@ -355,7 +355,7 @@ namespace Com.Drivesync.Android.Provider.Activity
         public unsafe global::Com.Drivesync.Android.Provider.IGenericProviderRequest SetUpdateListener(string action, global::Com.Drivesync.Android.Provider.IGenericProviderRequest.IOnUpdateListener updateListener)
         {
             if (id_setUpdateListener_Ljava_lang_String_Lcom_drivesync_android_provider_GenericProviderRequest_OnUpdateListener_ == IntPtr.Zero)
-                id_setUpdateListener_Ljava_lang_String_Lcom_drivesync_android_provider_GenericProviderRequest_OnUpdateListener_ = JNIEnv.GetMethodID(class_ref, "setUpdateListener", "(Ljava/lang/String;Lcom/drivesync/android/provider/GenericProviderRequest$OnUpdateListener;)Lcom/drivesync/android/provider/GenericProviderRequest;");
+                id_setUpdateListener_Ljava_lang_String_Lcom_drivesync_android_provider_GenericProviderRequest_OnUpdateListener_ = JNIEnv.GetMethodID(java_class_ref, "setUpdateListener", "(Ljava/lang/String;Lcom/drivesync/android/provider/GenericProviderRequest$OnUpdateListener;)Lcom/drivesync/android/provider/GenericProviderRequest;");
             IntPtr native_action = JNIEnv.NewString((string)action);
             JValue* __args = stackalloc JValue[2];
             __args[0] = new JValue(native_action);
@@ -388,7 +388,7 @@ namespace Com.Drivesync.Android.Provider.Activity
         public unsafe global::Com.Drivesync.Android.Provider.IGenericProviderRequest SetUpdateListener(string action, global::Java.Lang.Class manifestReceiverClass)
         {
             if (id_setUpdateListener_Ljava_lang_String_Ljava_lang_Class_ == IntPtr.Zero)
-                id_setUpdateListener_Ljava_lang_String_Ljava_lang_Class_ = JNIEnv.GetMethodID(class_ref, "setUpdateListener", "(Ljava/lang/String;Ljava/lang/Class;)Lcom/drivesync/android/provider/GenericProviderRequest;");
+                id_setUpdateListener_Ljava_lang_String_Ljava_lang_Class_ = JNIEnv.GetMethodID(java_class_ref, "setUpdateListener", "(Ljava/lang/String;Ljava/lang/Class;)Lcom/drivesync/android/provider/GenericProviderRequest;");
             IntPtr native_action = JNIEnv.NewString((string)action);
             JValue* __args = stackalloc JValue[2];
             __args[0] = new JValue(native_action);
@@ -424,7 +424,7 @@ namespace Com.Drivesync.Android.Provider.Activity
             get
             {
                 if (id_getRequiredPermissions == IntPtr.Zero)
-                    id_getRequiredPermissions = JNIEnv.GetMethodID(class_ref, "getRequiredPermissions", "()Ljava/util/List;");
+                    id_getRequiredPermissions = JNIEnv.GetMethodID(java_class_ref, "getRequiredPermissions", "()Ljava/util/List;");
                 return global::Android.Runtime.JavaList<global::Com.Drivesync.Android.Provider.DsProviderPermission>.FromJniHandle(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_getRequiredPermissions), JniHandleOwnership.TransferLocalRef);
             }
         }
@@ -452,7 +452,7 @@ namespace Com.Drivesync.Android.Provider.Activity
         public unsafe global::Com.Drivesync.Android.Provider.IGenericProviderRequest CancelUpdates(global::Android.Content.Context context, string logMessage)
         {
             if (id_cancelUpdates_Landroid_content_Context_Ljava_lang_String_ == IntPtr.Zero)
-                id_cancelUpdates_Landroid_content_Context_Ljava_lang_String_ = JNIEnv.GetMethodID(class_ref, "cancelUpdates", "(Landroid/content/Context;Ljava/lang/String;)Lcom/drivesync/android/provider/GenericProviderRequest;");
+                id_cancelUpdates_Landroid_content_Context_Ljava_lang_String_ = JNIEnv.GetMethodID(java_class_ref, "cancelUpdates", "(Landroid/content/Context;Ljava/lang/String;)Lcom/drivesync/android/provider/GenericProviderRequest;");
             IntPtr native_logMessage = JNIEnv.NewString((string)logMessage);
             JValue* __args = stackalloc JValue[2];
             __args[0] = new JValue((context == null) ? IntPtr.Zero : ((global::Java.Lang.Object)context).Handle);
@@ -486,7 +486,7 @@ namespace Com.Drivesync.Android.Provider.Activity
         public unsafe global::System.Collections.Generic.IList<global::Com.Drivesync.Android.Provider.DsProviderPermission> GetMissingPermissions(global::Android.Content.Context context)
         {
             if (id_getMissingPermissions_Landroid_content_Context_ == IntPtr.Zero)
-                id_getMissingPermissions_Landroid_content_Context_ = JNIEnv.GetMethodID(class_ref, "getMissingPermissions", "(Landroid/content/Context;)Ljava/util/List;");
+                id_getMissingPermissions_Landroid_content_Context_ = JNIEnv.GetMethodID(java_class_ref, "getMissingPermissions", "(Landroid/content/Context;)Ljava/util/List;");
             JValue* __args = stackalloc JValue[1];
             __args[0] = new JValue((context == null) ? IntPtr.Zero : ((global::Java.Lang.Object)context).Handle);
             var __ret = global::Android.Runtime.JavaList<global::Com.Drivesync.Android.Provider.DsProviderPermission>.FromJniHandle(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_getMissingPermissions_Landroid_content_Context_, __args), JniHandleOwnership.TransferLocalRef);
@@ -515,7 +515,7 @@ namespace Com.Drivesync.Android.Provider.Activity
         public unsafe global::Android.App.PendingIntent GetPendingIntent(global::Android.Content.Context context)
         {
             if (id_getPendingIntent_Landroid_content_Context_ == IntPtr.Zero)
-                id_getPendingIntent_Landroid_content_Context_ = JNIEnv.GetMethodID(class_ref, "getPendingIntent", "(Landroid/content/Context;)Landroid/app/PendingIntent;");
+                id_getPendingIntent_Landroid_content_Context_ = JNIEnv.GetMethodID(java_class_ref, "getPendingIntent", "(Landroid/content/Context;)Landroid/app/PendingIntent;");
             JValue* __args = stackalloc JValue[1];
             __args[0] = new JValue((context == null) ? IntPtr.Zero : ((global::Java.Lang.Object)context).Handle);
             var __ret = global::Java.Lang.Object.GetObject<global::Android.App.PendingIntent>(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_getPendingIntent_Landroid_content_Context_, __args), JniHandleOwnership.TransferLocalRef);
@@ -544,7 +544,7 @@ namespace Com.Drivesync.Android.Provider.Activity
         public unsafe bool HasRequiredPermissions(global::Android.Content.Context context)
         {
             if (id_hasRequiredPermissions_Landroid_content_Context_ == IntPtr.Zero)
-                id_hasRequiredPermissions_Landroid_content_Context_ = JNIEnv.GetMethodID(class_ref, "hasRequiredPermissions", "(Landroid/content/Context;)Z");
+                id_hasRequiredPermissions_Landroid_content_Context_ = JNIEnv.GetMethodID(java_class_ref, "hasRequiredPermissions", "(Landroid/content/Context;)Z");
             JValue* __args = stackalloc JValue[1];
             __args[0] = new JValue((context == null) ? IntPtr.Zero : ((global::Java.Lang.Object)context).Handle);
             var __ret = JNIEnv.CallBooleanMethod(((global::Java.Lang.Object)this).Handle, id_hasRequiredPermissions_Landroid_content_Context_, __args);
@@ -573,7 +573,7 @@ namespace Com.Drivesync.Android.Provider.Activity
         public unsafe global::Java.Lang.Object ParseResult(global::Android.Content.Intent intent)
         {
             if (id_parseResult_Landroid_content_Intent_ == IntPtr.Zero)
-                id_parseResult_Landroid_content_Intent_ = JNIEnv.GetMethodID(class_ref, "parseResult", "(Landroid/content/Intent;)Ljava/lang/Object;");
+                id_parseResult_Landroid_content_Intent_ = JNIEnv.GetMethodID(java_class_ref, "parseResult", "(Landroid/content/Intent;)Ljava/lang/Object;");
             JValue* __args = stackalloc JValue[1];
             __args[0] = new JValue((intent == null) ? IntPtr.Zero : ((global::Java.Lang.Object)intent).Handle);
             var __ret = (global::Java.Lang.Object)global::Java.Lang.Object.GetObject<global::Java.Lang.Object>(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_parseResult_Landroid_content_Intent_, __args), JniHandleOwnership.TransferLocalRef);
@@ -603,7 +603,7 @@ namespace Com.Drivesync.Android.Provider.Activity
         public unsafe global::Com.Drivesync.Android.Provider.IGenericProviderRequest RequestUpdates(global::Android.Content.Context context, string logMessage)
         {
             if (id_requestUpdates_Landroid_content_Context_Ljava_lang_String_ == IntPtr.Zero)
-                id_requestUpdates_Landroid_content_Context_Ljava_lang_String_ = JNIEnv.GetMethodID(class_ref, "requestUpdates", "(Landroid/content/Context;Ljava/lang/String;)Lcom/drivesync/android/provider/GenericProviderRequest;");
+                id_requestUpdates_Landroid_content_Context_Ljava_lang_String_ = JNIEnv.GetMethodID(java_class_ref, "requestUpdates", "(Landroid/content/Context;Ljava/lang/String;)Lcom/drivesync/android/provider/GenericProviderRequest;");
             IntPtr native_logMessage = JNIEnv.NewString((string)logMessage);
             JValue* __args = stackalloc JValue[2];
             __args[0] = new JValue((context == null) ? IntPtr.Zero : ((global::Java.Lang.Object)context).Handle);
@@ -635,7 +635,7 @@ namespace Com.Drivesync.Android.Provider.Activity
         public unsafe global::Com.Drivesync.Android.Provider.IGenericProviderRequest SetOnFailureListener(global::Com.Drivesync.Android.Provider.IGenericProviderRequest.IOnFailureListener onFailureListener)
         {
             if (id_setOnFailureListener_Lcom_drivesync_android_provider_GenericProviderRequest_OnFailureListener_ == IntPtr.Zero)
-                id_setOnFailureListener_Lcom_drivesync_android_provider_GenericProviderRequest_OnFailureListener_ = JNIEnv.GetMethodID(class_ref, "setOnFailureListener", "(Lcom/drivesync/android/provider/GenericProviderRequest$OnFailureListener;)Lcom/drivesync/android/provider/GenericProviderRequest;");
+                id_setOnFailureListener_Lcom_drivesync_android_provider_GenericProviderRequest_OnFailureListener_ = JNIEnv.GetMethodID(java_class_ref, "setOnFailureListener", "(Lcom/drivesync/android/provider/GenericProviderRequest$OnFailureListener;)Lcom/drivesync/android/provider/GenericProviderRequest;");
             JValue* __args = stackalloc JValue[1];
             __args[0] = new JValue((onFailureListener == null) ? IntPtr.Zero : ((global::Java.Lang.Object)onFailureListener).Handle);
             var __ret = global::Java.Lang.Object.GetObject<global::Com.Drivesync.Android.Provider.IGenericProviderRequest>(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_setOnFailureListener_Lcom_drivesync_android_provider_GenericProviderRequest_OnFailureListener_, __args), JniHandleOwnership.TransferLocalRef);
@@ -664,7 +664,7 @@ namespace Com.Drivesync.Android.Provider.Activity
         public unsafe global::Com.Drivesync.Android.Provider.IGenericProviderRequest SetOnSuccessListener(global::Com.Drivesync.Android.Provider.IGenericProviderRequest.IOnSuccessListener onSuccessListener)
         {
             if (id_setOnSuccessListener_Lcom_drivesync_android_provider_GenericProviderRequest_OnSuccessListener_ == IntPtr.Zero)
-                id_setOnSuccessListener_Lcom_drivesync_android_provider_GenericProviderRequest_OnSuccessListener_ = JNIEnv.GetMethodID(class_ref, "setOnSuccessListener", "(Lcom/drivesync/android/provider/GenericProviderRequest$OnSuccessListener;)Lcom/drivesync/android/provider/GenericProviderRequest;");
+                id_setOnSuccessListener_Lcom_drivesync_android_provider_GenericProviderRequest_OnSuccessListener_ = JNIEnv.GetMethodID(java_class_ref, "setOnSuccessListener", "(Lcom/drivesync/android/provider/GenericProviderRequest$OnSuccessListener;)Lcom/drivesync/android/provider/GenericProviderRequest;");
             JValue* __args = stackalloc JValue[1];
             __args[0] = new JValue((onSuccessListener == null) ? IntPtr.Zero : ((global::Java.Lang.Object)onSuccessListener).Handle);
             var __ret = global::Java.Lang.Object.GetObject<global::Com.Drivesync.Android.Provider.IGenericProviderRequest>(JNIEnv.CallObjectMethod(((global::Java.Lang.Object)this).Handle, id_setOnSuccessListener_Lcom_drivesync_android_provider_GenericProviderRequest_OnSuccessListener_, __args), JniHandleOwnership.TransferLocalRef);
@@ -694,7 +694,7 @@ namespace Com.Drivesync.Android.Provider.Activity
         public unsafe global::Com.Drivesync.Android.Provider.IGenericProviderRequest SetUpdateListener(string action, global::Com.Drivesync.Android.Provider.IGenericProviderRequest.IOnUpdateListener updateListener)
         {
             if (id_setUpdateListener_Ljava_lang_String_Lcom_drivesync_android_provider_GenericProviderRequest_OnUpdateListener_ == IntPtr.Zero)
-                id_setUpdateListener_Ljava_lang_String_Lcom_drivesync_android_provider_GenericProviderRequest_OnUpdateListener_ = JNIEnv.GetMethodID(class_ref, "setUpdateListener", "(Ljava/lang/String;Lcom/drivesync/android/provider/GenericProviderRequest$OnUpdateListener;)Lcom/drivesync/android/provider/GenericProviderRequest;");
+                id_setUpdateListener_Ljava_lang_String_Lcom_drivesync_android_provider_GenericProviderRequest_OnUpdateListener_ = JNIEnv.GetMethodID(java_class_ref, "setUpdateListener", "(Ljava/lang/String;Lcom/drivesync/android/provider/GenericProviderRequest$OnUpdateListener;)Lcom/drivesync/android/provider/GenericProviderRequest;");
             IntPtr native_action = JNIEnv.NewString((string)action);
             JValue* __args = stackalloc JValue[2];
             __args[0] = new JValue(native_action);
@@ -727,7 +727,7 @@ namespace Com.Drivesync.Android.Provider.Activity
         public unsafe global::Com.Drivesync.Android.Provider.IGenericProviderRequest SetUpdateListener(string action, global::Java.Lang.Class manifestReceiverClass)
         {
             if (id_setUpdateListener_Ljava_lang_String_Ljava_lang_Class_ == IntPtr.Zero)
-                id_setUpdateListener_Ljava_lang_String_Ljava_lang_Class_ = JNIEnv.GetMethodID(class_ref, "setUpdateListener", "(Ljava/lang/String;Ljava/lang/Class;)Lcom/drivesync/android/provider/GenericProviderRequest;");
+                id_setUpdateListener_Ljava_lang_String_Ljava_lang_Class_ = JNIEnv.GetMethodID(java_class_ref, "setUpdateListener", "(Ljava/lang/String;Ljava/lang/Class;)Lcom/drivesync/android/provider/GenericProviderRequest;");
             IntPtr native_action = JNIEnv.NewString((string)action);
             JValue* __args = stackalloc JValue[2];
             __args[0] = new JValue(native_action);

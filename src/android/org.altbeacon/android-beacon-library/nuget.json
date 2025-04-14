@@ -1,7 +1,7 @@
 {
   "packageId": "Org.Altbeacon.AndroidBeaconLibrary",
   "name": "android-beacon-library",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }
