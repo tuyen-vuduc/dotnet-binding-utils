@@ -135,7 +135,7 @@ public static class ArtifactScanner
             if (!string.IsNullOrWhiteSpace(optional)
                && bool.TryParse(optional, out var isOptional))
             {
-               continue;
+                continue;
             }
 
             var scope = dependency.SelectSingleNode("descendant::mvn:scope", nsmgr)?.InnerText;
@@ -187,6 +187,10 @@ public static class ArtifactScanner
                 xversion = versionRange.IsMaxInclusive
                     ? versionRange.MaxVersion.ToNormalizedString()
                     : versionRange.MinVersion.ToNormalizedString();
+            }
+            else if (rawVersion.Contains("+"))
+            {
+                continue;
             }
 
             AddParentArtifact(

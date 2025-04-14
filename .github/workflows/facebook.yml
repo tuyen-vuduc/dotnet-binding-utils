@@ -8,7 +8,7 @@ on:
         required: true
         type: choice
         options:    
-        - com.facebook.android:facebook-android-sdk:18.0.0
+        - com.facebook.android:facebook-android-sdk:18.0.2
 jobs:
   build-then-publish:
     environment: production
