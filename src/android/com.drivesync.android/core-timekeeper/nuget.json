@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Drivesync.Android.CoreTimekeeper",
   "name": "core-timekeeper",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "dotnet8": true,
   "versionMappings": []
 }

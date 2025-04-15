@@ -1,5 +1,8 @@
 {
     "Xamarin.Kotlin.StdLib.Jdk8": "1.9.23.3",
-    "Xamarin.Kotlin.StdLib.Common": "1.9.23.3",
-    "Xamarin.Kotlin.StdLib": "1.9.23.3"
+    "Xamarin.Kotlin.StdLib.Common": "2.0.0",
+    "Xamarin.Kotlin.StdLib": "2.0.0",
+    "Io.Ktor.KtorClientCore": "2.3.11",
+    "Io.Ktor.KtorClientContentNegotiation": "2.3.11",
+    "Io.Ktor.KtorSerializationKotlinxJson": "2.3.11"
 }

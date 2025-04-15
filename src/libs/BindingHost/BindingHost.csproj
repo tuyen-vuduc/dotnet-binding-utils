@@ -16,6 +16,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+      <UsesPermission Include="android.permission.POST_NOTIFICATIONS" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Cake.Frosting" Version="5.0.0" />
     <PackageReference Include="Dependencies.Gradle" Version="8.6.0.1" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="9.0.0" />

@@ -1,0 +1,6 @@
+{
+    "Xamarin.AndroidX.Lifecycle.Runtime": "2.7.0.2",
+    "Xamarin.AndroidX.Lifecycle.Common": "2.7.0.2",
+    "NordicSemi.Android.DFU": "2.5.0",
+    "Xamarin.Kotlin.StdLib": "2.0.21.1"
+}

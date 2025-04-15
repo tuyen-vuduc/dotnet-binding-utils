@@ -1,4 +1,7 @@
 {
-    "Xamarin.AndroidX.Lifecycle.Runtime": "2.7.0.1",
-    "Xamarin.AndroidX.Lifecycle.Common": "2.7.0.1"
+    "Xamarin.AndroidX.Lifecycle.Runtime": "2.7.0.2",
+    "Xamarin.AndroidX.Lifecycle.Common": "2.7.0.2",
+    "Xamarin.AndroidX.Annotation": "1.9.1.1",
+    "Xamarin.Kotlin.StdLib": "2.0.21.1",
+    "Square.Moshi.Kotlin": "1.4.0.2"
 }
