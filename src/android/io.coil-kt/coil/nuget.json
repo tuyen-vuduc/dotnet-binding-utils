@@ -1,7 +1,7 @@
 {
   "packageId": "Io.CoilKt.Coil",
   "name": "coil",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "dotnet8": true,
   "versionMappings": []
 }
