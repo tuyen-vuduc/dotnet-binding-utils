@@ -1,6 +1,5 @@
 {
   "revision": 0,
-  "nugetVersion": "20.0.0",
   "withoutPatch": true,
   "runtimeDependenciesAsCompile": true
 }

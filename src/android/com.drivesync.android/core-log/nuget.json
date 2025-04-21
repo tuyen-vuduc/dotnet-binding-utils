@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Drivesync.Android.CoreLog",
   "name": "core-log",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }
