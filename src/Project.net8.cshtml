@@ -20,9 +20,9 @@
     <AssemblyName>@(Model.Artifact.Nuget.PackageId)</AssemblyName>
     <RootNamespace>@(Model.Artifact.Nuget.PackageId)</RootNamespace>
   </PropertyGroup>
-  <ItemGroup>
+  @* <ItemGroup>
       <UsesPermission Include="android.permission.POST_NOTIFICATIONS" />
-  </ItemGroup>
+  </ItemGroup> *@
   <ItemGroup>
     <_TargetFrameworkNugetBuildFolders Include="build\net8.0-android34.0" />
     <_TargetFrameworkNugetBuildFolders Include="buildTransitive\net8.0-android34.0" />

@@ -9,7 +9,7 @@ on:
         type: choice
         options:    
         - org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3
-        - org.jetbrains.kotlin:kotlin-parcelize-runtime:2.0.21
+        - org.jetbrains.kotlin:kotlin-parcelize-runtime:1.9.25
 jobs:
   build-then-publish:
     environment: production
