@@ -30,7 +30,7 @@ public class TSPSPaymentSheet : NSObject {
     /// Initializes a PaymentSheet
     /// - Parameter setupIntentClientSecret: The [client secret](https://stripe.com/docs/api/setup_intents/object#setup_intent_object-client_secret) of a Stripe SetupIntent object
     /// - Parameter configuration: Configuration for the PaymentSheet. e.g. your business name, Customer details, etc.
-    @objc public convenience init(setupIntentClientSecret: String, configuration:TSPSConfiguration) {
+    @objc public convenience init(setupIntentClientSecret: String, configuration:TSPSConfiguration, differentiator: String) {
         self.init()
         
         origin = PaymentSheet(
