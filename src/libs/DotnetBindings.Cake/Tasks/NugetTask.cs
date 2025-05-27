@@ -22,7 +22,7 @@ public sealed class NugetTask : FrostingTask<BuildContext>
         {
             Configuration = "Release",
             OutputDirectory = nugetsFolderPath,
-            DiagnosticOutput = true,
+            DiagnosticOutput = false,
         };
         context.DotNetPack(
             context.SlnPath,

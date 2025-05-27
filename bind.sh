@@ -14,5 +14,9 @@ dotnet workload install android wasi-experimental
 
 dotnet restore ./src/libs/BindingHost/BindingHost.csproj
 dotnet run --project ./src/libs/BindingHost/BindingHost.csproj \
-    --verbosity detailed \
+    --verbosity minimal \
     -- --base-path=$PWD "$@"
+
+# dotnet run --project ./src/libs/BindingHost/BindingHost.csproj \
+#     --verbosity detailed \
+#     -- --base-path=$PWD "$@"

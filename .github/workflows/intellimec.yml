@@ -7,10 +7,11 @@ on:
         description: 'Android library to publish'
         required: true
         type: choice
-        options:    
-          - com.drivesync.android:devices-wedge:1.23.0
-          - com.intellimec.mobile.android:tripdetectionumbrella:1.23.0
-          - com.intellimec.mobile.android:distracteddriving:3.18.0
+        options:  
+          - com.ims.mobile.newrelic.logger:ims-newrelic-logger:20
+          - com.drivesync.android:devices-wedge:1.24.0
+          - com.intellimec.mobile.android:tripdetectionumbrella:1.24.0
+          - com.intellimec.mobile.android:distracteddriving:3.19.0
 jobs:
   build-then-publish:
     environment: production

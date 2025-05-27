@@ -1,4 +1,6 @@
-const fs = require("node:fs");
+const events = require('events');
+const fs = require('fs');
+const readline = require('readline');
 
 // process_Com_Squareup_Moshi_JsonAdapter();
 // process_protocol();
@@ -8,6 +10,7 @@ const fs = require("node:fs");
 //     `);
 // process_stripe('STPFormEncodable', '');
 process_field();
+
 // process_IJsonDeserializer();
 // process_Com_Example_Dsroom_Dao_IBaseDao();
 // process_Com_Google_Android_Material_Circularreveal_ICircularRevealWidget();
@@ -17,7 +20,7 @@ process_field();
 // process_AndroidX_ViewBinding_IViewBinding();
 // process_Com_Stripe_Android_Uicore_Elements_IFormElement();
 // process_JavaX_Inject_IProvider();
-// process_Android_OS_IParcelableCreator();
+process_Android_OS_IParcelableCreator();
 // process_Com_Stripe_Android_Model_IStripeIntent();
 
 function process_Com_Squareup_Moshi_JsonAdapter() {
@@ -123,30 +126,60 @@ function process_stripe(protocol, additional) {
 }
 
 function process_field() {
-  var input = fs.readFileSync("input.field.txt")
-  .toString()
-  .trim()
-  .split("\n")
-  .filter(x => x.indexOf('<field') > -1);
-
-  var items = input
-    .map(x => /.+ name="([A-Za-z0-9._]+)".+/.exec(x))
-    .map(x => {
-      return x.slice(1, 2);
-    })
-    .map(x => x[0]);
+  (async function processLineByLine() {
+    try {
+      const rl = readline.createInterface({
+        input: fs.createReadStream('C:/ws/tv/dotnet-binding-utils/src/android/com.stripe/stripeterminal-internal-common/binding/obj/Release/net9.0-android/api.xml'),
+        crlfDelay: Infinity
+      });
+      fs.writeFileSync("output.field.xml", "");
+      rl.on('line', (line) => {
+        line = line.trim();
+        if (line.indexOf('<field') > -1) {
+          var match = /.+ name="([A-Za-z0-9._]+)".+/.exec(line);
+          if (!match) return;
   
-  items = items
-    .filter(onlyUnique)
-    .map((x) => {
-      var csName = x.toUpperCase() == x
-        ? x : x + '_'
-      return `<attr path=\"//field[@name='${x}']\" name=\"managedName\">${csName}</attr>`
-    })
-    ;
+          var name = match[1];
+          var csName = name.toUpperCase() == name || name.indexOf('_') > -1
+            ? name : name + '_'
+          var xml = `<attr path=\"//field[@name='${name}']\" name=\"managedName\">${csName}</attr>`
+          fs.appendFileSync("output.field.xml", xml);
+        }
+      });
+  
+      await events.once(rl, 'close');
+  
+      console.log('Reading file line by line with readline done.');
+      const used = process.memoryUsage().heapUsed / 1024 / 1024;
+      console.log(`The script uses approximately ${Math.round(used * 100) / 100} MB`);
+    } catch (err) {
+      console.error(err);
+    }
+  })();
+  // var input = fs.readFileSync("input.field.txt")
+  // .toString()
+  // .trim()
+  // .split("\n")
+  // .filter(x => x.indexOf('<field') > -1);
 
-  // console.log(items[0]);
-  fs.writeFileSync("output.field.xml", items.join("\n"));
+  // var items = input
+  //   .map(x => /.+ name="([A-Za-z0-9._]+)".+/.exec(x))
+  //   .map(x => {
+  //     return x.slice(1, 2);
+  //   })
+  //   .map(x => x[0]);
+  
+  // items = items
+  //   .filter(onlyUnique)
+  //   .map((x) => {
+  //     var csName = x.toUpperCase() == x
+  //       ? x : x + '_'
+  //     return `<attr path=\"//field[@name='${x}']\" name=\"managedName\">${csName}</attr>`
+  //   })
+  //   ;
+
+  // // console.log(items[0]);
+  // fs.writeFileSync("output.field.xml", items.join("\n"));
 }
 
 function process_Com_Example_Dsroom_Dao_IBaseDao() {
