@@ -51,3 +51,4 @@ binderator
 models.json
 *.g.sln
 global.json
+*.g.txt
