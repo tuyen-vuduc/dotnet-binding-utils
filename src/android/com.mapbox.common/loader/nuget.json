@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Mapbox.Common.Loader",
   "name": "loader",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "dotnet8": true,
   "versionMappings": []
 }

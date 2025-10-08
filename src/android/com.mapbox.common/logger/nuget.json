@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Mapbox.Common.Logger",
   "name": "logger",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "dotnet8": true,
   "versionMappings": []
 }

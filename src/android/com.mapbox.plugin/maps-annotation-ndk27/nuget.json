@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Mapbox.Plugin.MapsAnnotationNdk27",
+  "name": "maps-annotation-ndk27",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}
