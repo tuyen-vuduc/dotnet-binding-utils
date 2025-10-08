@@ -10,7 +10,7 @@
 
     <PackageId>Dependencies.Gradle</PackageId>
     <Title>Xamarin Build-time Gradle Support for Android</Title>
-    <PackageVersion>8.6.0.1</PackageVersion>
+    <PackageVersion>8.6.0.2</PackageVersion>
     <Authors>tuyen,tuyen-vuduc</Authors>
     <Owners>tuyen,tuyen-vuduc</Owners>
     <PackageProjectUrl>https://github.com/tuyen-vuduc/xamarin-android-build-gradle</PackageProjectUrl>
@@ -19,7 +19,7 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Description>To resolve Android dependencies using Gradle when building an Android app project</Description>
     <Copyright>© tuyen-vuduc. All rights reserved.</Copyright>
-    <RepositoryUrl>https://github.com/tuyen-vuduc/xamarin-android-build-gradle.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/tuyen-vuduc/dotnet-binding-utils.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
   <ItemGroup>
@@ -44,6 +44,20 @@
     <PackageReference Include="Microsoft.Build.Framework" Version="17.12.6" PrivateAssets="all" />
     <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.12.6" PrivateAssets="all" />
     <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" PrivateAssets="all" GeneratePathProperty="true" />
+    <!-- Use SharpCompress to extract archives on Windows without relying on external 7z binary -->
+    <!-- SharpCompress is used for in-process archive extraction when external 7z is not available -->
+    <PackageReference Include="SharpCompress" Version="0.32.0" GeneratePathProperty="true" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Pack SharpCompress.dll alongside the task assembly so MSBuild can resolve dependencies when loading the task via AssemblyFile -->
+    <None Include="$(PkgSharpCompress)\lib\netstandard2.0\SharpCompress.dll" Visible="False" Pack="True" PackagePath="build\SharpCompress.dll" />
+    <!-- Also include possible dependency DLLs from the package folder if present (wildcard) -->
+    <None Include="$(PkgSharpCompress)\lib\netstandard2.0\*.dll" Visible="False" Pack="True" PackagePath="build\" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Also include SharpCompress in buildTransitive so transitive consumers get the dependency available to MSBuild tasks -->
+    <None Include="$(PkgSharpCompress)\lib\netstandard2.0\SharpCompress.dll" Visible="False" Pack="True" PackagePath="buildTransitive\SharpCompress.dll" />
+    <None Include="$(PkgSharpCompress)\lib\netstandard2.0\*.dll" Visible="False" Pack="True" PackagePath="buildTransitive\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
