@@ -1,3 +1,81 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.atmosphere.generated']/class[@name='Atmosphere']/method[starts-with(@name, 'get')]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style']/class[@name='StyleExtensionImpl']/method[starts-with(@name, 'get')]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style']/interface[@name='StyleContract.StyleExtension']/method[starts-with(@name, 'get')]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.light']/class[@name='Light']/method[starts-with(@name, 'get')]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.light.generated']/class[substring(@name, string-length(@name) - string-length('Light') + 1)]/method[starts-with(@name, 'get')]" name="propertyName"></attr>
+	<attr path="/api/package[starts-with(@name, 'com.mapbox.maps.extension.style.layers')]/class[substring(@name, string-length(@name) - string-length('Layer') + 1)]/method[starts-with(@name, 'get')]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.sources']/class[@name='TileSet']/method[starts-with(@name, 'get')]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.types']/class[@name='Formatted']/method[starts-with(@name, 'get')]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.terrain.generated']/class[@name='Terrain']/method[starts-with(@name, 'get')]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.layers.generated']/class[substring(@name, string-length(@name) - string-length('Layer') + 1)]/method[@name='maxZoom' and count(parameter)=1]" name="managedName">SetMaxZoom</attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.layers.generated']/class[substring(@name, string-length(@name) - string-length('Layer') + 1)]/method[@name='minZoom' and count(parameter)=1]" name="managedName">SetMinZoom</attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.layers.generated']/class[substring(@name, string-length(@name) - string-length('Layer') + 1)]/method[@name='visibility' and count(parameter)=1]" name="managedName">SetVisibility</attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.layers.generated']/class[substring(@name, string-length(@name) - string-length('Layer') + 1)]/method[@name='slot' and count(parameter)=1]" name="managedName">SetSlot</attr>
+	<attr path="//interface[substring(@name, string-length(@name) - string-length('LayerDsl') + 1)]/method[@name='visibility' and count(parameter)=1]" name="managedName">SetVisibility</attr>
+	<attr path="//interface[substring(@name, string-length(@name) - string-length('LayerDsl') + 1)]/method[@name='maxZoom' and count(parameter)=1]" name="managedName">SetMaxZoom</attr>
+	<attr path="//interface[substring(@name, string-length(@name) - string-length('LayerDsl') + 1)]/method[@name='minZoom' and count(parameter)=1]" name="managedName">SetMinZoom</attr>
+	<attr path="//interface[substring(@name, string-length(@name) - string-length('LayerDsl') + 1)]/method[@name='slot' and count(parameter)=1]" name="managedName">SetSlot</attr>
+
+
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.layers']/class[@name='CustomLayer']/method[@name='maxZoom' and count(parameter)=1]" name="managedName">SetMaxZoom</attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.layers']/class[@name='CustomLayer']/method[@name='minZoom' and count(parameter)=1]" name="managedName">SetMinZoom</attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.layers']/class[@name='CustomLayer']/method[@name='visibility' and count(parameter)=1]" name="managedName">SetVisibility</attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.layers']/class[@name='CustomLayer']/method[@name='slot' and count(parameter)=1]" name="managedName">SetSlot</attr>
+
+	<remove-node path="/api/package[@name='com.mapbox.maps.extension.style.sources']/class[@name='TileSet']/method[@name='entrySet' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='com.mapbox.maps.extension.style.sources']/class[@name='TileSet']/method[@name='keySet' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='com.mapbox.maps.extension.style.sources']/class[@name='TileSet']/method[@name='values' and count(parameter)=0]" />
+	<remove-node path="/api/package[@name='com.mapbox.maps.extension.style.layers.properties']/class[@name='PropertyValue']/method[@name='getValue' and count(parameter)=0]" />
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Rain']/method[@name='getCenterThinning' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Rain']/method[@name='getCenterThinningTransition' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Rain']/method[@name='getColor' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Rain']/method[@name='getColorTransition' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Rain']/method[@name='getDensity' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Rain']/method[@name='getDensityTransition' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Rain']/method[@name='getDirection' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Rain']/method[@name='getDirectionTransition' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Rain']/method[@name='getDistortionStrength' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Rain']/method[@name='getDistortionStrengthTransition' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Rain']/method[@name='getDropletSize' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Rain']/method[@name='getDropletSizeTransition' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Rain']/method[@name='getIntensity' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Rain']/method[@name='getIntensityTransition' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Rain']/method[@name='getOpacity' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Rain']/method[@name='getOpacityTransition' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Rain']/method[@name='getVignette' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Rain']/method[@name='getVignetteColor' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Rain']/method[@name='getVignetteColorTransition' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Rain']/method[@name='getVignetteTransition' and count(parameter)=0]" name="propertyName"></attr>
+	
+
+	<!-- Use getter-based entries so names start with 'get...' as requested -->
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Rain']/method[@name='getColorUseTheme' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Rain']/method[@name='getColorUseThemeAsExpression' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Rain']/method[@name='getVignetteColorUseTheme' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Rain']/method[@name='getVignetteColorUseThemeAsExpression' and count(parameter)=0]" name="propertyName"></attr>
+
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Snow']/method[@name='getColorUseTheme' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Snow']/method[@name='getColorUseThemeAsExpression' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Snow']/method[@name='getVignetteColorUseTheme' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Snow']/method[@name='getVignetteColorUseThemeAsExpression' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Snow']/method[@name='getCenterThinning' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Snow']/method[@name='getCenterThinningTransition' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Snow']/method[@name='getColor' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Snow']/method[@name='getColorTransition' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Snow']/method[@name='getDensity' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Snow']/method[@name='getDensityTransition' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Snow']/method[@name='getDirection' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Snow']/method[@name='getDirectionTransition' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Snow']/method[@name='getFlakeSize' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Snow']/method[@name='getFlakeSizeTransition' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Snow']/method[@name='getIntensity' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Snow']/method[@name='getIntensityTransition' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Snow']/method[@name='getOpacity' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Snow']/method[@name='getOpacityTransition' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Snow']/method[@name='getVignette' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Snow']/method[@name='getVignetteColor' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Snow']/method[@name='getVignetteColorTransition' and count(parameter)=0]" name="propertyName"></attr>
+	<attr path="/api/package[@name='com.mapbox.maps.extension.style.precipitations.generated']/class[@name='Snow']/method[@name='getVignetteTransition' and count(parameter)=0]" name="propertyName"></attr>
 </metadata>

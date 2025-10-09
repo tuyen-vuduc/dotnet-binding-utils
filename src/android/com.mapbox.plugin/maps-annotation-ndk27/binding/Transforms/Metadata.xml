@@ -1,3 +1,36 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+	<attr
+		path="/api/package[@name='com.mapbox.maps.plugin.annotation.generated']/class[substring(@name, string-length(@name) - string-length('AnnotationOptions') + 1)]/method[@name='build' and count(parameter)=2]"
+		name="managedName">DoBuild</attr>
+	<attr
+		path="/api/package[@name='com.mapbox.maps.plugin.annotation.generated']/class[substring(@name, string-length(@name) - string-length('Annotation') + 1)]/method[@name='getOffsetGeometry' and count(parameter)=2 and parameter[1][@type='com.mapbox.maps.plugin.delegates.MapCameraManagerDelegate'] and parameter[2][@type='com.mapbox.android.gestures.MoveDistancesObject']]"
+		name="managedName">DoGetOffsetGeometry</attr>
+	<attr
+		path="/api/package[@name='com.mapbox.maps.plugin.annotation.generated']/class[substring(@name, string-length(@name) - string-length('AnnotationManager') + 1)]/method[@name='createLayer' and count(parameter)=0]"
+		name="managedName">DoCreateLayer</attr>
+	<attr
+		path="/api/package[@name='com.mapbox.maps.plugin.annotation.generated']/class[substring(@name, string-length(@name) - string-length('AnnotationManager') + 1)]/method[@name='createDragLayer' and count(parameter)=0]"
+		name="managedName">DoCreateDragLayer</attr>
+	<remove-node path="//implements[@name='com.mapbox.maps.plugin.annotation.OnAnnotationClickListener']" />
+	<add-node path="/api/package[@name='com.mapbox.maps.plugin.annotation.generated']/interface[@name='OnCircleAnnotationClickListener']">
+		<method abstract="true" deprecated="not deprecated" final="false" name="onAnnotationClick" jni-signature="(LLcom/mapbox/maps/plugin/annotation/generated/CircleAnnotation;)Z" bridge="false" native="false" return="boolean" jni-return="Z" static="false" synchronized="false" synthetic="false" visibility="public">
+			<parameter name="annotation" type="com.mapbox.maps.plugin.annotation.generated.CircleAnnotation" jni-type="Lcom/mapbox/maps/plugin/annotation/generated/CircleAnnotation;" not-null="true" />
+		</method>
+	</add-node>
+	<add-node path="/api/package[@name='com.mapbox.maps.plugin.annotation.generated']/interface[@name='OnPointAnnotationClickListener']">
+		<method abstract="true" deprecated="not deprecated" final="false" name="onAnnotationClick" jni-signature="(Lcom/mapbox/maps/plugin/annotation/generated/PointAnnotation;)Z" bridge="false" native="false" return="boolean" jni-return="Z" static="false" synchronized="false" synthetic="false" visibility="public">
+			<parameter name="annotation" type="com.mapbox.maps.plugin.annotation.generated.PointAnnotation" jni-type="Lcom/mapbox/maps/plugin/annotation/generated/PointAnnotation;" not-null="true" />
+		</method>
+	</add-node>
+	<add-node path="/api/package[@name='com.mapbox.maps.plugin.annotation.generated']/interface[@name='OnPolygonAnnotationClickListener']">
+		<method abstract="true" deprecated="not deprecated" final="false" name="onAnnotationClick" jni-signature="(Lcom/mapbox/maps/plugin/annotation/generated/PolygonAnnotation;)Z" bridge="false" native="false" return="boolean" jni-return="Z" static="false" synchronized="false" synthetic="false" visibility="public">
+			<parameter name="annotation" type="com.mapbox.maps.plugin.annotation.generated.PolygonAnnotation" jni-type="Lcom/mapbox/maps/plugin/annotation/generated/PolygonAnnotation;" not-null="true" />
+		</method>
+	</add-node>
+	<add-node path="/api/package[@name='com.mapbox.maps.plugin.annotation.generated']/interface[@name='OnPolylineAnnotationClickListener']">
+		<method abstract="true" deprecated="not deprecated" final="false" name="onAnnotationClick" jni-signature="(Lcom/mapbox/maps/plugin/annotation/generated/PolylineAnnotation;)Z" bridge="false" native="false" return="boolean" jni-return="Z" static="false" synchronized="false" synthetic="false" visibility="public">
+			<parameter name="annotation" type="com.mapbox.maps.plugin.annotation.generated.PolylineAnnotation" jni-type="Lcom/mapbox/maps/plugin/annotation/generated/PolylineAnnotation;" not-null="true" />
+		</method>
+	</add-node>
 </metadata>

@@ -2,8 +2,16 @@ const events = require('events');
 const fs = require('fs');
 const readline = require('readline');
 
-// process_Com_Squareup_Moshi_JsonAdapter();
-// process_protocol();
+function readFileSafe(path) {
+  if (!fs.existsSync(path)) {
+    console.log(`Skipping ${path}: file not found.`);
+    return null;
+  }
+  return fs.readFileSync(path);
+}
+
+process_Com_Squareup_Moshi_JsonAdapter();
+process_protocol();
 // process_stripe('STPAPIResponseDecodable', `
 //         ISTPAPIResponseDecodable ISTPAPIResponseDecodable.DecodedObjectFromAPIResponse(NSDictionary response)
 //             => DecodedObjectFromAPIResponse(response);
@@ -11,20 +19,21 @@ const readline = require('readline');
 // process_stripe('STPFormEncodable', '');
 process_field();
 
-// process_IJsonDeserializer();
-// process_Com_Example_Dsroom_Dao_IBaseDao();
-// process_Com_Google_Android_Material_Circularreveal_ICircularRevealWidget();
-// process_Android_Util_ITypeEvaluator();
-// process_Android_Util_Property();
-// process_downgrade();
-// process_AndroidX_ViewBinding_IViewBinding();
-// process_Com_Stripe_Android_Uicore_Elements_IFormElement();
-// process_JavaX_Inject_IProvider();
+process_IJsonDeserializer();
+process_Com_Example_Dsroom_Dao_IBaseDao();
+process_Com_Google_Android_Material_Circularreveal_ICircularRevealWidget();
+process_Android_Util_ITypeEvaluator();
+process_Android_Util_Property();
+process_downgrade();
+process_AndroidX_ViewBinding_IViewBinding();
+process_Com_Stripe_Android_Uicore_Elements_IFormElement();
+process_JavaX_Inject_IProvider();
 process_Android_OS_IParcelableCreator();
-// process_Com_Stripe_Android_Model_IStripeIntent();
+process_Com_Stripe_Android_Model_IStripeIntent();
 
 function process_Com_Squareup_Moshi_JsonAdapter() {
-  var input = fs.readFileSync("input.Com.Squareup.Moshi.JsonAdapter.txt");
+  var input = readFileSafe("input.Com.Squareup.Moshi.JsonAdapter.txt");
+  if (!input) return;
   var items = input
     .toString()
     .trim()
@@ -71,7 +80,8 @@ function process_Com_Squareup_Moshi_JsonAdapter() {
 }
 
 function process_protocol() {
-  var input = fs.readFileSync("input.stripe.txt");
+  var input = readFileSafe("input.stripe.txt");
+  if (!input) return;
   var regex = /.+@protocol (\w+).+/;
 
   var items = input
@@ -98,7 +108,8 @@ function process_protocol() {
   fs.writeFileSync("output.stripe.cs", items.join(""));
 }
 function process_stripe(protocol, additional) {
-  var input = fs.readFileSync("input.stripe.txt");
+  var input = readFileSafe("input.stripe.txt");
+  if (!input) return;
   var regex = new RegExp(`interface ([\\w]+)[^<]+${protocol}`);
 
   var items = input
@@ -128,8 +139,13 @@ function process_stripe(protocol, additional) {
 function process_field() {
   (async function processLineByLine() {
     try {
+      const apiPath = 'C:/ws/tv/dotnet-binding-utils/src/android/com.stripe/stripeterminal-internal-common/binding/obj/Release/net9.0-android/api.xml';
+      if (!fs.existsSync(apiPath)) {
+        console.log(`Skipping ${apiPath}: file not found.`);
+        return;
+      }
       const rl = readline.createInterface({
-        input: fs.createReadStream('C:/ws/tv/dotnet-binding-utils/src/android/com.stripe/stripeterminal-internal-common/binding/obj/Release/net9.0-android/api.xml'),
+        input: fs.createReadStream(apiPath),
         crlfDelay: Infinity
       });
       fs.writeFileSync("output.field.xml", "");
@@ -183,7 +199,8 @@ function process_field() {
 }
 
 function process_Com_Example_Dsroom_Dao_IBaseDao() {
-  var input = fs.readFileSync("input.Com.Example.Dsroom.Dao.IBaseDao.txt");
+  var input = readFileSafe("input.Com.Example.Dsroom.Dao.IBaseDao.txt");
+  if (!input) return;
 
   var items = input
     .toString()
@@ -239,7 +256,8 @@ function process_Com_Example_Dsroom_Dao_IBaseDao() {
 }
 
 function process_IJsonDeserializer() {
-  var input = fs.readFileSync("input.Com.Example.Dsroom.Dao.IBaseDao.txt");
+  var input = readFileSafe("input.Com.Example.Dsroom.Dao.IBaseDao.txt");
+  if (!input) return;
 
   var items = input
     .toString()
@@ -295,7 +313,8 @@ function process_IJsonDeserializer() {
 }
 
 function process_Com_Google_Android_Material_Circularreveal_ICircularRevealWidget() {
-  var input = fs.readFileSync("input.Com.Google.Android.Material.Circularreveal.ICircularRevealWidget.txt");
+  var input = readFileSafe("input.Com.Google.Android.Material.Circularreveal.ICircularRevealWidget.txt");
+  if (!input) return;
 
   var items = input
     .toString()
@@ -337,7 +356,8 @@ function process_Com_Google_Android_Material_Circularreveal_ICircularRevealWidge
 }
 
 function process_downgrade() {
-  var input = fs.readFileSync("input.downgrade.txt");
+  var input = readFileSafe("input.downgrade.txt");
+  if (!input) return;
 
   var items = input
     .toString()
@@ -361,7 +381,8 @@ function process_downgrade() {
 }
 
 function process_AndroidX_ViewBinding_IViewBinding() {
-  var input = fs.readFileSync("input.AndroidX.ViewBinding.IViewBinding.txt");
+  var input = readFileSafe("input.AndroidX.ViewBinding.IViewBinding.txt");
+  if (!input) return;
 
   var items = input
     .toString()
@@ -400,7 +421,8 @@ function process_AndroidX_ViewBinding_IViewBinding() {
 }
 
 function process_Com_Stripe_Android_Uicore_Elements_IFormElement() {
-  var input = fs.readFileSync("input.Com.Stripe.Android.Uicore.Elements.IFormElement.txt");
+  var input = readFileSafe("input.Com.Stripe.Android.Uicore.Elements.IFormElement.txt");
+  if (!input) return;
 
   var items = input
     .toString()
@@ -439,7 +461,8 @@ function process_Com_Stripe_Android_Uicore_Elements_IFormElement() {
 }
 
 function process_Com_Stripe_Android_Model_IStripeIntent() {
-  var input = fs.readFileSync("input.Com.Stripe.Android.Model.IStripeIntent.txt");
+  var input = readFileSafe("input.Com.Stripe.Android.Model.IStripeIntent.txt");
+  if (!input) return;
 
   var items = input
     .toString()
@@ -482,7 +505,8 @@ function process_Com_Stripe_Android_Model_IStripeIntent() {
 process_Com_Stripe_Android_Core_Model_Parsers_IModelJsonParser();
 
 function process_Com_Stripe_Android_Core_Model_Parsers_IModelJsonParser() {
-  var input = fs.readFileSync("input.Com.Stripe.Android.Core.Model.Parsers.IModelJsonParser.txt");
+  var input = readFileSafe("input.Com.Stripe.Android.Core.Model.Parsers.IModelJsonParser.txt");
+  if (!input) return;
 
   var items = input
     .toString()
@@ -521,7 +545,8 @@ function process_Com_Stripe_Android_Core_Model_Parsers_IModelJsonParser() {
 }
 
 function process_JavaX_Inject_IProvider() {
-  var input = fs.readFileSync("input.JavaX.Inject.IProvider.txt");
+  var input = readFileSafe("input.JavaX.Inject.IProvider.txt");
+  if (!input) return;
 
   var items = input
     .toString()
@@ -565,7 +590,8 @@ function onlyUnique(value, index, array) {
 }
 
 function process_Android_OS_IParcelableCreator() {
-  var input = fs.readFileSync("input.Android.OS.IParcelableCreator.txt");
+  var input = readFileSafe("input.Android.OS.IParcelableCreator.txt");
+  if (!input) return;
 
   var items = input
     .toString()
@@ -609,7 +635,8 @@ function process_Android_OS_IParcelableCreator() {
 }
 
 function process_Android_Util_Property() {
-  var input = fs.readFileSync("input.Android.Util.Property.txt");
+  var input = readFileSafe("input.Android.Util.Property.txt");
+  if (!input) return;
 
   var items = input
     .toString()
@@ -652,7 +679,8 @@ function process_Android_Util_Property() {
 }
 
 function process_Android_Util_ITypeEvaluator() {
-  var input = fs.readFileSync("input.Android.Animation.ITypeEvaluator.txt");
+  var input = readFileSafe("input.Android.Animation.ITypeEvaluator.txt");
+  if (!input) return;
 
   var items = input
     .toString()

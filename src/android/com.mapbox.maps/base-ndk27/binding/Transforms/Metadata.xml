@@ -1,3 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+    <!-- When a class extends com.mapbox.maps.interactions.TypedFeaturesetDescriptor,
+		 rename its getFeatureState method to append an 'X' to the managed name -->
+    <attr
+        path="//method[@name='getFeatureState' and ancestor::class[starts-with(@name, 'Standard') and @extends='com.mapbox.maps.interactions.TypedFeaturesetDescriptor']]"
+        name="managedName">GetFeatureStateX</attr>
+    <attr
+        path="//method[@name='getFeaturesetFeature' and ancestor::class[starts-with(@name, 'Standard') and @extends='com.mapbox.maps.interactions.TypedFeaturesetDescriptor']]"
+        name="managedName">GetFeaturesetFeatureX</attr>
 </metadata>

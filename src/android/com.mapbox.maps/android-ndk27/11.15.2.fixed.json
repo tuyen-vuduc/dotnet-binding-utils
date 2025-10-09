@@ -1,0 +1,7 @@
+{
+  "Xamarin.AndroidX.Annotation": "1.9.1.5",
+  "Xamarin.AndroidX.Core.Core.Ktx": "1.16.0.3",
+  "Xamarin.Kotlin.StdLib.Jdk8": "1.9.10.2",
+  "Xamarin.KotlinX.Coroutines.Core": "1.10.2.1",
+  "Xamarin.KotlinX.Coroutines.Android": "1.10.2.1"
+}
