@@ -2,7 +2,7 @@
 
 Your task is to create the binding library for a given Gradle artifact based on the provided information.
 
-DO AS SPECIFIED. DON'T DEVIATE.
+DO AS SPECIFIED. DON'T DEVIATE. STOP IF UNSURE.
 
 ## Inputs
 
@@ -88,9 +88,11 @@ Then re-run the bind command.
 
 2.b/ Otherwise, stop the task entirely here (no retry)
 
-3/ Fix any NU1605 warnings following [fix nu1605 prompt](fix-NU1605.prompt.md) guidelines only if there are NU1605 warnings.
+3/ Keep the field names in upper case following [keep constants field names prompt](keep-constanst-field-names.prompt.md) guidelines
 
-4/ Fix issue of BG8401 following [fix BG8401 prompt](fix-BG8401.prompt.md) guidelines only if there are BG8401 errors.
+4/ Fix any NU1605 warnings following [fix nu1605 prompt](fix-NU1605.prompt.md) guidelines only if there are NU1605 warnings.
+
+5/ Fix issue of BG8401 following [fix BG8401 prompt](fix-BG8401.prompt.md) guidelines only if there are BG8401 errors.
 
 Otherwise, stop and suggest next steps.
 

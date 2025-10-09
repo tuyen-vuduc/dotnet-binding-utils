@@ -4,7 +4,7 @@ You're the expert in creating .NET bindings for Android libraries. Given the rec
 
 The user will give us the input artifact name, and we need to provide the exact steps to fix the dependencies.
 
-DO AS SPECIFIED. DON'T DEVIATE.
+DO AS SPECIFIED. DON'T DEVIATE. STOP IF UNSURE.
 
 ## Context
 

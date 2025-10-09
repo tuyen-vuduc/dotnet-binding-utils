@@ -11,12 +11,12 @@ obj\Release\net9.0-android\api.xml(6946,8): error BG8401: Skipping 'Com.Izettl
 
 Goal: edit or remove the problematic node(s) in the generated XML so the binding build no longer emits BG8401 for that Java type, while keeping the binding behavior correct.
 
-DO AS SPECIFIED. DON'T DEVIATE.
+DO AS SPECIFIED. DON'T DEVIATE. STOP IF UNSURE.
 
 ## Why this happens
 
 1/ When generating C# bindings for Java/Kotlin libraries, a field with proper wrapper methods will be generated as a property in C#. If the field is private, it won't be generated a field in C#, but when the field is public or protected, it will be generated as a field in C#. For this case, the name in C# will be the same as the mapped property name -> causes conflict.
-2/ Java constants are usually all uppercase (e.g. `CREATOR`, `MAX_VALUE`) and are fields, but when generating C# bindings, they are generated as C# fields in PascalCase (e.g. `Creator`, `MaxValue`), it will lead to the confusion when reading Java/Kotlin docs to convert to C# code. The other case is that the constant fields are in uppercase, so they won't conflict with other members in Java, but when generating C# bindings, the managed name may conflicts, e.g. `CREATOR` field and `Creater` class will be generated with the same name in C#.
+2/ Java constants are usually all uppercase (e.g. `CREATOR`, `MAX_VALUE`) and are fields, but when generating C# bindings, they are generated as C# fields in PascalCase (e.g. `Creator`, `MaxValue`), it will lead to the confusion when reading Java/Kotlin docs to convert to C# code. The other case is that the constant fields are in uppercase, so they won't conflict with other members in Java, but when generating C# bindings, the managed name may conflicts, e.g. `CREATOR` field and `Creator` class will be generated with the same name in C#.
 
 When either of these happens, we will get error of BG8401: The nested type 'X' was skipped because a member with the same name already exists in the enclosing type 'Y'. Consider renaming one of the members to avoid the conflict.
 
