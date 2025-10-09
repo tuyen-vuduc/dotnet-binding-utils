@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Facebook.Android.FacebookMessenger",
   "name": "facebook-messenger",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "dotnet8": true,
   "versionMappings": []
 }
