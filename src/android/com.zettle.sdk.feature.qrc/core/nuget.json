@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Zettle.Sdk.Feature.Qrc.Core",
+  "name": "core",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

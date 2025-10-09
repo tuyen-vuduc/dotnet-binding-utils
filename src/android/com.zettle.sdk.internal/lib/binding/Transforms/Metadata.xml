@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <!-- Fix BG8401 warnings by renaming CREATOR fields to avoid conflicts with nested CREATOR classes -->
+  <attr path="//field[@name='CREATOR']" name="managedName">CREATOR_</attr>
+  
+  <!-- Fix BG8401 warnings for view fields that conflict with nested classes -->
+  <attr path="//field[@name='cancelBtnView']" name="managedName">cancelBtnView_</attr>
+  <attr path="//field[@name='optionsView']" name="managedName">optionsView_</attr>
+  <attr path="//field[@name='titleView']" name="managedName">titleView_</attr>
+</metadata>

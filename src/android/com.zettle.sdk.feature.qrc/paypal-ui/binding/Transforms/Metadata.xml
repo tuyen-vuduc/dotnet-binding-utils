@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+	<!-- Exclude PayPal Magnes SDK internal/obfuscated types that cause unknown parameter errors -->
+	<remove-node path="//package[@name='lib.android.paypal.com.magnessdk']/class[@name='c.h.b']" />
+	<remove-node path="//package[@name='lib.android.paypal.com.magnessdk']/class[@name='c.h']" />
+	<remove-node path="//package[@name='lib.android.paypal.com.magnessdk']/class[@name='c']" />
+
+	<!-- Exclude the Magnes networking factory interface and implementation if they reference obfuscated types -->
+	<remove-node path="//package[@name='lib.android.paypal.com.magnessdk.network.base']/class[@name='MagnesNetworkingFactory']" />
+	<remove-node path="//package[@name='lib.android.paypal.com.magnessdk.network.base']/class[@name='MagnesNetworkingFactoryImpl']" />
+
+	<!-- Ignore duplicate CREATOR nested types produced by some libraries -->
+	<attr path="//class[@name='com.izettle.android.auth.model.OAuthTokens']/field[@name='CREATOR']" name="managedName">_CREATOR_ignored</attr>
+	<attr path="//class[@name='com.izettle.ui.components.actionpanel.OttoActionPanelComponentClickListeners']/field[@name='CREATOR']" name="managedName">_CREATOR_ignored</attr>
+
+	<!-- If further issues appear, refine these rules or exclude entire packages as needed -->
+</metadata>
