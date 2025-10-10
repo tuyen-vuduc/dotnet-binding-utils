@@ -1,0 +1,18 @@
+<Project>
+  <ItemGroup>
+    <GradleRepository Include="https://maven.pkg.github.com/iZettle/sdk-android">
+      <Repository>
+maven {
+            url = uri("https://maven.pkg.github.com/iZettle/sdk-android")
+            credentials(HttpHeaderCredentials::class.java) {
+              name = "Authorization"
+              value = "Bearer " + providers.gradleProperty("X_GITHUB_PACKAGES_READ_TOKEN").get() // More about auth tokens https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
+            }
+            authentication {
+                register("header", HttpHeaderAuthentication::class)
+            }
+        }
+      </Repository>
+    </GradleRepository>
+  </ItemGroup>
+</Project>

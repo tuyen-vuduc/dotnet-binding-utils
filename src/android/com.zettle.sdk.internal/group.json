@@ -1,5 +1,5 @@
 {
-  "name": "androidx.transition",
+  "name": "com.zettle.sdk.internal",
   "dotnet8": true,
   "runtimeDependenciesAsCompile": true
 }

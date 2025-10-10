@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Zettle.Sdk.Internal.Lib",
+  "name": "lib",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

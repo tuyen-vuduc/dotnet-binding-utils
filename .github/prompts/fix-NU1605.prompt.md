@@ -4,6 +4,8 @@ You're the expert in creating .NET bindings for Android libraries. Given the rec
 
 The user will give us the input artifact name, and we need to provide the exact steps to fix the dependencies.
 
+DO AS SPECIFIED. DON'T DEVIATE. STOP IF UNSURE.
+
 ## Context
 
 When generating the bindings for the given artifact, we might encounter NU1605 warnings indicating package downgrades when executing `NugetTask`. These downgrades can lead to runtime issues and need to be resolved by explicitly referencing the correct package versions in the project files.

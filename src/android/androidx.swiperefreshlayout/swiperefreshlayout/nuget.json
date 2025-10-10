@@ -1,5 +1,6 @@
 {
   "packageId": "Xamarin.AndroidX.SwipeRefreshLayout",
+  "name": "swiperefreshlayout",
   "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []

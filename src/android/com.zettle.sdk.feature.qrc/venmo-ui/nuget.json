@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Zettle.Sdk.Feature.Qrc.VenmoUi",
+  "name": "venmo-ui",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}
