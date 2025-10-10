@@ -1,0 +1,7 @@
+{
+  "packageId": "Xamarin.Android.Volley",
+  "name": "volley",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}
