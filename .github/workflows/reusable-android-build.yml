@@ -41,6 +41,8 @@ on:
         required: false
       TFSDRIVESMART_PASSWORD:
         required: false
+      NVD_API_KEY:
+        required: false
 
 jobs:
   build-and-publish:
@@ -165,6 +167,7 @@ jobs:
           DOTNET_ROOT: /Users/runner/.dotnet
           JAVA_HOME: /Users/runner/hostedtoolcache/Java_Microsoft_jdk/21.0.2/arm64/Contents/Home
           JAVA_HOME_21_ARM64: /Users/runner/hostedtoolcache/Java_Microsoft_jdk/21.0.2/arm64/Contents/Home
+          NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
         run: |
           set -e
           mkdir -p reports
@@ -175,7 +178,14 @@ jobs:
           unzip -q dependency-check.zip -d dependency-check
           chmod +x dependency-check/dependency-check/bin/dependency-check.sh
           echo "Running dependency-check (this may take several minutes)..."
-          ./dependency-check/dependency-check/bin/dependency-check.sh --project 'dotnet-binding-utils' --scan . --format JSON --out reports || true
+          # If an NVD API key is not provided, run with --noupdate to avoid fatal failures when NVD blocks access
+          if [ -z "${NVD_API_KEY:-}" ]; then
+            echo "No NVD API key provided; running with --noupdate (results may be stale)."
+            ./dependency-check/dependency-check/bin/dependency-check.sh --project 'dotnet-binding-utils' --scan . --format JSON --out reports --noupdate || true
+          else
+            echo "Using provided NVD API key to update feeds."
+            ./dependency-check/dependency-check/bin/dependency-check.sh --project 'dotnet-binding-utils' --scan . --format JSON --out reports || true
+          fi
         shell: bash
         continue-on-error: true
 
