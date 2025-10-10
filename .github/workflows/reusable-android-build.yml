@@ -186,6 +186,16 @@ jobs:
         shell: bash
         continue-on-error: true
 
+      - name: Upload dependency-scan reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dependency-scan-reports-${{ github.run_id }}
+          path: reports/**
+          if-no-files-found: warn
+          retention-days: 30
+        continue-on-error: true
+
       - name: Publish NuGet packages
         id: nuget-push
         uses: edumserrano/nuget-push@v1.2.2
