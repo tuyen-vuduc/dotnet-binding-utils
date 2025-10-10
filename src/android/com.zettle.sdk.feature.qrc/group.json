@@ -1,0 +1,5 @@
+{
+  "name": "com.zettle.sdk.feature.qrc",
+  "dotnet8": true,
+  "runtimeDependenciesAsCompile": true
+}

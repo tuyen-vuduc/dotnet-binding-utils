@@ -1,5 +1,6 @@
 name: Publish Helper Library
 run-name: ${{ github.actor }} is publishing NuGet 🚀
+
 on:
   workflow_dispatch:
     inputs:
@@ -7,49 +8,116 @@ on:
         description: 'True to run'
         required: true
         type: boolean
+
 jobs:
   build-then-publish:
     environment: production
     runs-on: macos-latest
-    if:  ${{ inputs.SHOULD_RUN }} 
-    steps:
-    - uses: actions/checkout@v3
+    timeout-minutes: 30
+    if: ${{ inputs.SHOULD_RUN }} 
     
-    - name: Setup .NET Core SDK 8.0
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: '8.0'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Cache NuGet packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-helper-${{ hashFiles('**/*.csproj', '**/*.props') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-helper-
+            ${{ runner.os }}-nuget-
+      
+      - name: Setup .NET Core SDK 9.0
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0'
 
-    - name: Setup Java 17
-      uses: actions/setup-java@v3
-      with:
-        distribution: 'microsoft'
-        java-version: '17'
+      - name: Setup Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'microsoft'
+          java-version: '21'
 
-    - name: Build
-      run: |
-        sh build.sh
+      - name: Build with retry
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 20
+          max_attempts: 2
+          retry_on: error
+          command: sh build.sh
 
-    - name: Publish NuGet and symbols
-      id: nuget-push
-      uses: edumserrano/nuget-push@v1.2.0
-      with:
-        api-key: '${{ secrets.NUGET_PUSH_API_KEY }}' # this example is using GitHub secrets to pass the API key
-        working-directory: 'nugets'
-    # The next step is using powershell to parse the action's output but you can use whatever you prefer.
-    # Note that in order to read the step outputs the action step must have an id.
-    - name: Log output
-      if: steps.nuget-push.conclusion != 'skipped' && always() # run regardless if the previous step failed or not, just as long as it wasn't skipped
-      shell: pwsh
-      run: |
-        $pushResult = '${{ steps.nuget-push.outputs.push-result }}' | ConvertFrom-Json
-        $pushResultAsJsonIndented = ConvertTo-Json $pushResult
-        Write-Output $pushResultAsJsonIndented  # outputs the result of the nuget push operation as an indented JSON string
-        Write-Output '${{ steps.nuget-push.outputs.status }}' # outputs the overall status of the nuget push action
+      - name: Validate NuGet packages
+        run: |
+          if [ ! -d "nugets" ] || [ -z "$(ls -A nugets 2>/dev/null)" ]; then
+            echo "Error: No NuGet packages found in nugets directory"
+            exit 1
+          fi
+          
+          echo "Found NuGet packages:"
+          ls -la nugets/
+        shell: bash
 
-        # iterates over all list of packages and outputs the data from the nuget push operation for each
-        foreach($package in $pushResult.packages) {
-            Write-Output "$($package.status)"  # outputs the status of the nuget push operation
-            Write-Output "$($package.package)" # outputs the NuGet package name that was pushed
-            Write-Output "$($package.symbols)" # outputs the symbols package name that was pushed
-        }
+      - name: Publish NuGet and symbols
+        id: nuget-push
+        uses: edumserrano/nuget-push@v1.2.2
+        with:
+          api-key: '${{ secrets.NUGET_PUSH_API_KEY }}'
+          working-directory: 'nugets'
+
+      - name: Log NuGet push results
+        if: steps.nuget-push.conclusion != 'skipped' && always()
+        shell: pwsh
+        run: |
+          try {
+            $pushResult = '${{ steps.nuget-push.outputs.push-result }}' | ConvertFrom-Json
+            $pushResultAsJsonIndented = ConvertTo-Json $pushResult -Depth 10
+            Write-Output "=== Helper Library NuGet Push Results ==="
+            Write-Output $pushResultAsJsonIndented
+            Write-Output "=== Overall Status: ${{ steps.nuget-push.outputs.status }} ==="
+
+            foreach($package in $pushResult.packages) {
+                Write-Output "Package: $($package.package)"
+                Write-Output "Status: $($package.status)"
+                Write-Output "Symbols: $($package.symbols)"
+                Write-Output "---"
+            }
+          }
+          catch {
+            Write-Output "Error parsing NuGet push results: $_"
+            Write-Output "Raw output: ${{ steps.nuget-push.outputs.push-result }}"
+          }
+
+      - name: Upload build logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: helper-build-logs-${{ github.run_id }}
+          path: |
+            *.log
+            src/**/*.log
+            **/*.binlog
+          retention-days: 7
+        continue-on-error: true
+
+      - name: Generate build summary
+        if: always()
+        run: |
+          echo "## Helper Library Build Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- **Status**: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Triggered by**: ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Runner**: ${{ runner.os }}" >> $GITHUB_STEP_SUMMARY
+          
+          if [ -d "nugets" ]; then
+            echo "- **Packages Created**:" >> $GITHUB_STEP_SUMMARY
+            for package in nugets/*.nupkg; do
+              if [ -f "$package" ]; then
+                package_name=$(basename "$package")
+                echo "  - $package_name" >> $GITHUB_STEP_SUMMARY
+              fi
+            done
+          fi
+        shell: bash

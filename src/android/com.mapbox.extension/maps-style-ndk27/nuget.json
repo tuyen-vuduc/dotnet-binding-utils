@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Mapbox.Extension.MapsStyleNdk27",
+  "name": "maps-style-ndk27",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

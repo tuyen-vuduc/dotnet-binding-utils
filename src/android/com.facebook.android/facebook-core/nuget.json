@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Facebook.Android.FacebookCore",
   "name": "facebook-core",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "dotnet8": true,
   "versionMappings": []
 }

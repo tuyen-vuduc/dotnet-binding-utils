@@ -1,0 +1,278 @@
+name: Reusable Android Build
+
+on:
+  workflow_call:
+    inputs:
+      artifact:
+        required: true
+        type: string
+        description: 'Android library artifact to build'
+      dotnet-version:
+        required: false
+        type: string
+        default: '9.0'
+        description: '.NET version to use'
+      java-version:
+        required: false
+        type: string
+        default: '21'
+        description: 'Java version to use'
+      requires-mapbox-token:
+        required: false
+        type: boolean
+        default: false
+        description: 'Whether Mapbox token is required'
+      requires-drivesmart-credentials:
+        required: false
+        type: boolean
+        default: false
+        description: 'Whether DriveSmart credentials are required'
+      runner-os:
+        required: false
+        type: string
+        default: 'macos-latest'
+        description: 'Runner OS to use'
+    secrets:
+      NUGET_PUSH_API_KEY:
+        required: true
+      MAPBOX_DOWNLOADS_TOKEN:
+        required: false
+      TFSDRIVESMART_USER:
+        required: false
+      TFSDRIVESMART_PASSWORD:
+        required: false
+
+jobs:
+  build-and-publish:
+    environment: production
+    runs-on: ${{ inputs.runner-os }}
+    timeout-minutes: 60
+    
+    steps:
+      - name: Configure Mapbox token
+        if: ${{ inputs.requires-mapbox-token }}
+        run: |
+          mkdir -p ~/.gradle
+          echo "MAPBOX_DOWNLOADS_TOKEN=${{ secrets.MAPBOX_DOWNLOADS_TOKEN }}" >> ~/.gradle/gradle.properties
+          echo "Mapbox token configured"
+        shell: bash
+
+      - name: Configure DriveSmart credentials
+        if: ${{ inputs.requires-drivesmart-credentials }}
+        run: |
+          mkdir -p ~/.gradle
+          echo "tfsdrivesmart_user=${{ secrets.TFSDRIVESMART_USER }}" >> ~/.gradle/gradle.properties
+          echo "tfsdrivesmart_password=${{ secrets.TFSDRIVESMART_PASSWORD }}" >> ~/.gradle/gradle.properties
+          echo "DriveSmart credentials configured"
+        shell: bash
+        
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Cache NuGet packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj', '**/*.props') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
+      - name: Cache Gradle dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+      
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3.2.1
+        with:
+          cmdline-tools-version: 12266719
+          packages: tools platform-tools platforms;android-34 platforms;android-35
+          
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ inputs.dotnet-version }}
+          
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'microsoft'
+          java-version: ${{ inputs.java-version }}
+
+      - name: Validate input artifact
+        run: |
+          if [[ -z "${{ inputs.artifact }}" ]]; then
+            echo "Error: artifact input is required"
+            exit 1
+          fi
+          echo "Building artifact: ${{ inputs.artifact }}"
+        shell: bash
+          
+      - name: Build with retry
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 45
+          max_attempts: 2
+          retry_on: error
+          command: |
+            echo "PWD: $PWD"
+            echo "Building artifact: ${{ inputs.artifact }}"
+            sh bind.sh --artifact "${{ inputs.artifact }}"
+
+      - name: Validate NuGet packages
+        run: |
+          if [ ! -d "nugets" ] || [ -z "$(ls -A nugets 2>/dev/null)" ]; then
+            echo "Error: No NuGet packages found in nugets directory"
+            exit 1
+          fi
+          
+          echo "Found NuGet packages:"
+          ls -la nugets/
+          
+          # Validate package structure
+          for package in nugets/*.nupkg; do
+            if [ -f "$package" ]; then
+              echo "Validating $package"
+              file_size=$(stat -c%s "$package" 2>/dev/null || stat -f%z "$package" 2>/dev/null || echo "0")
+              if [ "$file_size" -gt 52428800 ]; then  # 50MB
+                echo "Warning: Large package $package (${file_size} bytes)"
+              fi
+            fi
+          done
+        shell: bash
+
+      - name: Run dependency security scan (Linux)
+        if: runner.os == 'Linux'
+        uses: dependency-check/Dependency-Check_Action@main
+        with:
+          project: 'dotnet-binding-utils'
+          path: '.'
+          format: 'JSON'
+        continue-on-error: true
+
+      - name: Run dependency security scan (macOS)
+        if: runner.os == 'macOS'
+        env:
+          ANDROID_HOME: /Users/runner/Library/Android/sdk
+          ANDROID_SDK_ROOT: /Users/runner/Library/Android/sdk
+          DOTNET_ROOT: /Users/runner/.dotnet
+          JAVA_HOME: /Users/runner/hostedtoolcache/Java_Microsoft_jdk/21.0.2/arm64/Contents/Home
+          JAVA_HOME_21_ARM64: /Users/runner/hostedtoolcache/Java_Microsoft_jdk/21.0.2/arm64/Contents/Home
+        run: |
+          set -e
+          mkdir -p reports
+          # Pick a stable Dependency-Check release (bump if you want newer)
+          DC_VERSION=8.2.1
+          echo "Downloading OWASP Dependency-Check ${DC_VERSION}"
+          curl -sL -o dependency-check.zip "https://github.com/jeremylong/DependencyCheck/releases/download/v${DC_VERSION}/dependency-check-${DC_VERSION}-release.zip"
+          unzip -q dependency-check.zip -d dependency-check
+          chmod +x dependency-check/dependency-check/bin/dependency-check.sh
+          echo "Running dependency-check (this may take several minutes)..."
+          ./dependency-check/dependency-check/bin/dependency-check.sh --project 'dotnet-binding-utils' --scan . --format JSON --out reports || true
+        shell: bash
+        continue-on-error: true
+
+      - name: Skip dependency security scan on Windows
+        if: runner.os == 'Windows'
+        run: |
+          echo "OWASP Dependency-Check Action requires Linux. Skipping dependency scan on Windows runner."
+        shell: bash
+        continue-on-error: true
+
+      - name: Upload dependency-scan reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dependency-scan-reports-${{ github.run_id }}
+          path: reports/**
+          if-no-files-found: warn
+          retention-days: 30
+        continue-on-error: true
+
+      - name: Publish NuGet packages
+        id: nuget-push
+        uses: edumserrano/nuget-push@v1.2.2
+        with:
+          api-key: '${{ secrets.NUGET_PUSH_API_KEY }}'
+          working-directory: 'nugets'
+
+      - name: Generate SBOM
+        uses: anchore/sbom-action@v0
+        with:
+          path: ./nugets
+          format: spdx-json
+          output-file: ./sbom.spdx.json
+        continue-on-error: true
+
+      - name: Upload SBOM artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sbom-${{ github.run_id }}
+          path: ./sbom.spdx.json
+          retention-days: 30
+        continue-on-error: true
+
+      - name: Log NuGet push results
+        if: steps.nuget-push.conclusion != 'skipped' && always()
+        shell: pwsh
+        run: |
+          try {
+            $pushResult = '${{ steps.nuget-push.outputs.push-result }}' | ConvertFrom-Json
+            $pushResultAsJsonIndented = ConvertTo-Json $pushResult -Depth 10
+            Write-Output "=== NuGet Push Results ==="
+            Write-Output $pushResultAsJsonIndented
+            Write-Output "=== Overall Status: ${{ steps.nuget-push.outputs.status }} ==="
+
+            # Log details for each package
+            foreach($package in $pushResult.packages) {
+                Write-Output "Package: $($package.package)"
+                Write-Output "Status: $($package.status)"
+                Write-Output "Symbols: $($package.symbols)"
+                Write-Output "---"
+            }
+          }
+          catch {
+            Write-Output "Error parsing NuGet push results: $_"
+            Write-Output "Raw output: ${{ steps.nuget-push.outputs.push-result }}"
+          }
+
+      - name: Upload build logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-logs-${{ github.run_id }}
+          path: |
+            *.log
+            src/**/*.log
+            **/*.binlog
+          retention-days: 7
+        continue-on-error: true
+
+      - name: Generate build summary
+        if: always()
+        run: |
+          echo "## Build Summary for ${{ inputs.artifact }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Artifact**: ${{ inputs.artifact }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Status**: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Runner**: ${{ runner.os }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **.NET Version**: ${{ inputs.dotnet-version }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Java Version**: ${{ inputs.java-version }}" >> $GITHUB_STEP_SUMMARY
+          
+          if [ -d "nugets" ]; then
+            echo "- **Packages Created**:" >> $GITHUB_STEP_SUMMARY
+            for package in nugets/*.nupkg; do
+              if [ -f "$package" ]; then
+                package_name=$(basename "$package")
+                echo "  - $package_name" >> $GITHUB_STEP_SUMMARY
+              fi
+            done
+          fi
+        shell: bash

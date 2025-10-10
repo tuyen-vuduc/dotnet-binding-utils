@@ -2,6 +2,11 @@
 using System.Security.Cryptography;
 using System.Text;
 using System.Xml;
+using SharpCompress.Archives;
+using SharpCompress.Archives.Tar;
+using SharpCompress.Common;
+using SharpCompress.Readers;
+using SharpCompress.Archives.Zip;
 using Microsoft.Build.Framework;
 using Xamarin.Build.Download;
 using Xamarin.Components.Ide.Activation;
@@ -61,7 +66,7 @@ public class GradleSync : AsyncTask, Xamarin.Build.Download.ILogger
                 LogMessage("GradleSyncTempDir: " + TempDir);
                 try
                 {
-                    if(Directory.Exists(TempDir))
+                    if (Directory.Exists(TempDir))
                     {
                         Directory.Delete(TempDir, true);
                     }
@@ -125,11 +130,11 @@ public class GradleSync : AsyncTask, Xamarin.Build.Download.ILogger
         args.Add("build");
 
         ProcessStartInfo psi = new ProcessStartInfo(args.ProcessPath, args.ToString())
-            {
-                WorkingDirectory = TempDir,
-                CreateNoWindow = true,
-                UseShellExecute = false
-            };
+        {
+            WorkingDirectory = TempDir,
+            CreateNoWindow = true,
+            UseShellExecute = false
+        };
 
         try
         {
@@ -453,17 +458,35 @@ android.enableJetifier=true
 
     async Task<bool> ExtractArchive(string flagFile, CancellationToken token)
     {
-        ProcessStartInfo psi = CreateExtractionArgs(GradleAssetsPath, TempDir, VsInstallRoot);
-
         try
         {
             LogMessage("Extracting {0} to {1}", GradleAssetsPath, TempDir);
-            var output = new StringWriter();
-            int returnCode = await ProcessUtils.StartProcess(psi, output, output, token);
-            if (returnCode == 0)
+
+            bool ok = false;
+            if (Platform.IsWindows)
             {
-                return true;
+                // Use in-process extraction via SharpCompress on Windows
+                ok = ExtractArchiveInProcess(GradleAssetsPath, TempDir);
             }
+            else
+            {
+                // Use native unzip/tar on non-Windows
+                Directory.CreateDirectory(TempDir);
+                var args = BuildExtractionArgs(GradleAssetsPath, TempDir);
+                var psi = new ProcessStartInfo(args.ProcessPath, args.ToString())
+                {
+                    WorkingDirectory = TempDir,
+                    CreateNoWindow = true,
+                    UseShellExecute = false
+                };
+                using (var proc = Process.Start(psi))
+                {
+                    proc.WaitForExit();
+                    ok = proc.ExitCode == 0;
+                }
+            }
+            if (ok)
+                return true;
 
             LogCodedError(
                 ErrorCodes.ExtractionFailed,
@@ -471,8 +494,6 @@ android.enableJetifier=true
                     "Unpacking failed. Please download '{0}' and extract it to the '{1}' directory " +
                     "and create an empty file called '{2}'.", GradleAssetsPath, TempDir, flagFile)
             );
-
-            LogMessage("Unpacking failure reason: " + output.ToString(), MessageImportance.High);
         }
         catch (Exception ex)
         {
@@ -489,68 +510,94 @@ android.enableJetifier=true
             LogCodedError(ErrorCodes.DirectoryDeleteFailed, "Failed to delete directory '{0}'.", TempDir);
             LogErrorFromException(ex);
         }
+
         return false;
     }
-
-    ProcessStartInfo CreateExtractionArgs(string file, string contentDir, string vsInstallRoot, bool ignoreTarSymLinks = false)
+    static ProcessArgumentBuilder BuildExtractionArgs(string file, string contentDir)
     {
-        ProcessArgumentBuilder args = Platform.IsWindows
-            ? Build7ZipExtractionArgs(file, contentDir, User7ZipPath, false, vsInstallRoot)
-            : BuildZipExtractionArgs(file, contentDir);
-
-        ProcessStartInfo psi = Platform.IsWindows
-            ? new ProcessStartInfo(args.ProcessPath, args.ToString())
-            {
-                WorkingDirectory = null,
-                CreateNoWindow = true
-            }
-            : new ProcessStartInfo(args.ProcessPath, args.ToString())
-            {
-                WorkingDirectory = contentDir,
-                CreateNoWindow = true
-            };
-
-        return psi;
-    }
-
-    static string Get7ZipPath(string user7ZipPath, string vsInstallRoot)
-    {
-        if (!string.IsNullOrEmpty(user7ZipPath) && File.Exists(user7ZipPath))
-            return user7ZipPath;
-
-        var path7z = VS7ZipLocator.Locate7Zip(vsInstallRoot);
-
-        if (string.IsNullOrEmpty(path7z))
-            throw new Exception("Could not find 7zip.exe in Xamarin installation");
-
-        return path7z;
-    }
-
-    static ProcessArgumentBuilder Build7ZipExtractionArgs(string file, string contentDir, string user7ZipPath, bool ignoreTarSymLinks, string vsInstallRoot)
-    {
-        var args = new ProcessArgumentBuilder(Get7ZipPath(user7ZipPath, vsInstallRoot));
-        //if it's a tgz, we have a two-step extraction. for the gzipped layer, extract without paths
-        if (file.EndsWith(".gz", StringComparison.OrdinalIgnoreCase) || file.EndsWith(".tgz", StringComparison.OrdinalIgnoreCase))
-            args.Add("e");
+        var ext = Path.GetExtension(file).ToLowerInvariant();
+        ProcessArgumentBuilder args;
+        if (ext == ".zip")
+        {
+            args = new ProcessArgumentBuilder("/usr/bin/unzip");
+            args.Add("-o", "-q");
+            args.AddQuoted(file);
+            args.Add("-d");
+            args.AddQuoted(contentDir);
+        }
+        else if (ext == ".tar" || ext == ".tgz" || ext == ".tar.gz")
+        {
+            args = new ProcessArgumentBuilder("tar");
+            args.Add("-xf");
+            args.AddQuoted(file);
+            args.Add("-C");
+            args.AddQuoted(contentDir);
+        }
         else
-            args.Add("x");
-
-        // Symbolic Links give us problems.  You need to run as admin to extract them.
-        // Adding this flag will ignore links
-        if (ignoreTarSymLinks)
-            args.Add("-snl-");
-
-        args.AddQuoted("-o" + contentDir);
-        args.AddQuoted(file);
+        {
+            throw new NotSupportedException($"Unsupported archive extension: {ext}");
+        }
         return args;
     }
+    // External extraction helpers removed. Extraction is handled in-process via SharpCompress.
 
-    static ProcessArgumentBuilder BuildZipExtractionArgs(string file, string contentDir)
+    // In-process extraction using SharpCompress. Supports .zip, .tar, .tgz, .gz
+    static bool ExtractArchiveInProcess(string archivePath, string destination)
     {
-        var args = new ProcessArgumentBuilder("/usr/bin/unzip");
-        args.Add("-o", "-q");
-        args.AddQuoted(file);
-        return args;
+        if (!File.Exists(archivePath))
+            throw new FileNotFoundException("Archive not found", archivePath);
+
+        Directory.CreateDirectory(destination);
+
+        var extension = Path.GetExtension(archivePath).ToLowerInvariant();
+
+        // Handle zip archives directly
+        if (extension == ".zip")
+        {
+            using (var archive = ZipArchive.Open(archivePath))
+            {
+                foreach (var entry in archive.Entries)
+                {
+                    if (entry.IsDirectory)
+                        continue;
+
+                    var outPath = Path.Combine(destination, entry.Key.Replace('/', Path.DirectorySeparatorChar));
+                    var outDir = Path.GetDirectoryName(outPath);
+                    if (!string.IsNullOrEmpty(outDir) && !Directory.Exists(outDir))
+                        Directory.CreateDirectory(outDir);
+
+                    entry.WriteToFile(outPath, new ExtractionOptions() { ExtractFullPath = true, Overwrite = true });
+                }
+            }
+            return true;
+        }
+        // For tar/tgz/gz use a generic reader
+        try
+        {
+            var readerOptions = new ReaderOptions { LeaveStreamOpen = false };
+            using (var stream = File.OpenRead(archivePath))
+            using (var reader = ReaderFactory.Open(stream, readerOptions))
+            {
+                while (reader.MoveToNextEntry())
+                {
+                    var entry = reader.Entry;
+                    if (entry.IsDirectory)
+                        continue;
+
+                    var outPath = Path.Combine(destination, entry.Key.Replace('/', Path.DirectorySeparatorChar));
+                    var outDir = Path.GetDirectoryName(outPath);
+                    if (!string.IsNullOrEmpty(outDir) && !Directory.Exists(outDir))
+                        Directory.CreateDirectory(outDir);
+
+                    reader.WriteEntryToFile(outPath, new ExtractionOptions() { ExtractFullPath = true, Overwrite = true });
+                }
+            }
+            return true;
+        }
+        catch (Exception)
+        {
+            return false;
+        }
     }
 
     static string MD5Hash(string input)

@@ -1,0 +1,163 @@
+name: Reusable iOS Build
+
+on:
+  workflow_call:
+    inputs:
+      artifact:
+        required: true
+        type: string
+        description: 'iOS library artifact to build'
+      dotnet-version:
+        required: false
+        type: string
+        default: '8.0'
+        description: '.NET version to use'
+      runner-os:
+        required: false
+        type: string
+        default: 'macos-latest'
+        description: 'Runner OS to use'
+    secrets:
+      NUGET_PUSH_API_KEY:
+        required: true
+
+jobs:
+  build-and-publish:
+    environment: production
+    runs-on: ${{ inputs.runner-os }}
+    timeout-minutes: 60
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Cache NuGet packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-ios-${{ hashFiles('**/*.csproj', '**/*.props') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-ios-
+            ${{ runner.os }}-nuget-
+      
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ inputs.dotnet-version }}
+
+      - name: Install iOS workload
+        run: |
+          dotnet workload install ios
+        shell: bash
+
+      - name: Validate input artifact
+        run: |
+          if [[ -z "${{ inputs.artifact }}" ]]; then
+            echo "Error: artifact input is required"
+            exit 1
+          fi
+          echo "Building iOS artifact: ${{ inputs.artifact }}"
+        shell: bash
+          
+      - name: Build with retry
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 45
+          max_attempts: 2
+          retry_on: error
+          command: |
+            echo "PWD: $PWD"
+            echo "Building iOS artifact: ${{ inputs.artifact }}"
+            sh bind.sh --artifact "${{ inputs.artifact }}.iOS"
+
+      - name: Validate NuGet packages
+        run: |
+          if [ ! -d "nugets" ] || [ -z "$(ls -A nugets 2>/dev/null)" ]; then
+            echo "Error: No NuGet packages found in nugets directory"
+            exit 1
+          fi
+          
+          echo "Found NuGet packages:"
+          ls -la nugets/
+        shell: bash
+
+      - name: Publish NuGet packages
+        id: nuget-push
+        uses: edumserrano/nuget-push@v1.2.2
+        with:
+          api-key: '${{ secrets.NUGET_PUSH_API_KEY }}'
+          working-directory: 'nugets'
+
+      - name: Generate SBOM
+        uses: anchore/sbom-action@v0
+        with:
+          path: ./nugets
+          format: spdx-json
+          output-file: ./sbom-ios.spdx.json
+        continue-on-error: true
+
+      - name: Upload SBOM artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sbom-ios-${{ github.run_id }}
+          path: ./sbom-ios.spdx.json
+          retention-days: 30
+        continue-on-error: true
+
+      - name: Log NuGet push results
+        if: steps.nuget-push.conclusion != 'skipped' && always()
+        shell: pwsh
+        run: |
+          try {
+            $pushResult = '${{ steps.nuget-push.outputs.push-result }}' | ConvertFrom-Json
+            $pushResultAsJsonIndented = ConvertTo-Json $pushResult -Depth 10
+            Write-Output "=== NuGet Push Results ==="
+            Write-Output $pushResultAsJsonIndented
+            Write-Output "=== Overall Status: ${{ steps.nuget-push.outputs.status }} ==="
+
+            foreach($package in $pushResult.packages) {
+                Write-Output "Package: $($package.package)"
+                Write-Output "Status: $($package.status)"
+                Write-Output "Symbols: $($package.symbols)"
+                Write-Output "---"
+            }
+          }
+          catch {
+            Write-Output "Error parsing NuGet push results: $_"
+            Write-Output "Raw output: ${{ steps.nuget-push.outputs.push-result }}"
+          }
+
+      - name: Upload build logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-logs-ios-${{ github.run_id }}
+          path: |
+            *.log
+            src/**/*.log
+            **/*.binlog
+          retention-days: 7
+        continue-on-error: true
+
+      - name: Generate build summary
+        if: always()
+        run: |
+          echo "## iOS Build Summary for ${{ inputs.artifact }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Artifact**: ${{ inputs.artifact }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Status**: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Runner**: ${{ runner.os }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **.NET Version**: ${{ inputs.dotnet-version }}" >> $GITHUB_STEP_SUMMARY
+          
+          if [ -d "nugets" ]; then
+            echo "- **Packages Created**:" >> $GITHUB_STEP_SUMMARY
+            for package in nugets/*.nupkg; do
+              if [ -f "$package" ]; then
+                package_name=$(basename "$package")
+                echo "  - $package_name" >> $GITHUB_STEP_SUMMARY
+              fi
+            done
+          fi
+        shell: bash

@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Mapbox.Maps.BaseNdk27",
+  "name": "base-ndk27",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

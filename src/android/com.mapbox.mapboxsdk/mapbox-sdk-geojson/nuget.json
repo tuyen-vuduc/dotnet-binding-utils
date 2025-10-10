@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Mapbox.Mapboxsdk.MapboxSdkGeojson",
   "name": "mapbox-sdk-geojson",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "dotnet8": true,
   "versionMappings": []
 }

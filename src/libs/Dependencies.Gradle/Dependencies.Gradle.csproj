@@ -10,7 +10,7 @@
 
     <PackageId>Dependencies.Gradle</PackageId>
     <Title>Xamarin Build-time Gradle Support for Android</Title>
-    <PackageVersion>8.6.0.1</PackageVersion>
+    <PackageVersion>8.6.0.3</PackageVersion>
     <Authors>tuyen,tuyen-vuduc</Authors>
     <Owners>tuyen,tuyen-vuduc</Owners>
     <PackageProjectUrl>https://github.com/tuyen-vuduc/xamarin-android-build-gradle</PackageProjectUrl>
@@ -19,7 +19,7 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Description>To resolve Android dependencies using Gradle when building an Android app project</Description>
     <Copyright>© tuyen-vuduc. All rights reserved.</Copyright>
-    <RepositoryUrl>https://github.com/tuyen-vuduc/xamarin-android-build-gradle.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/tuyen-vuduc/dotnet-binding-utils.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
   <ItemGroup>
@@ -44,6 +44,65 @@
     <PackageReference Include="Microsoft.Build.Framework" Version="17.12.6" PrivateAssets="all" />
     <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.12.6" PrivateAssets="all" />
     <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" PrivateAssets="all" GeneratePathProperty="true" />
+    <!-- Use SharpCompress to extract archives on Windows without relying on external 7z binary -->
+    <!-- SharpCompress is used for in-process archive extraction when external 7z is not available -->
+    <PackageReference Include="SharpCompress" Version="0.40.0" GeneratePathProperty="true" />
+    <!-- SharpCompress dependencies for netstandard2.0 (version 0.40.0) -->
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" PrivateAssets="all" GeneratePathProperty="true" />
+    <PackageReference Include="System.Buffers" Version="4.6.0" PrivateAssets="all" GeneratePathProperty="true" />
+    <PackageReference Include="System.Memory" Version="4.6.0" PrivateAssets="all" GeneratePathProperty="true" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="8.0.0" PrivateAssets="all" GeneratePathProperty="true" />
+    <PackageReference Include="ZstdSharp.Port" Version="0.8.5" PrivateAssets="all" GeneratePathProperty="true" />
+    <!-- Transitive dependencies with runtime DLLs that need to be included -->
+    <PackageReference Include="Microsoft.NET.StringTools" Version="17.12.6" PrivateAssets="all" GeneratePathProperty="true" />
+    <PackageReference Include="System.Collections.Immutable" Version="8.0.0" PrivateAssets="all" GeneratePathProperty="true" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" PrivateAssets="all" GeneratePathProperty="true" />
+    <PackageReference Include="System.Numerics.Vectors" Version="4.6.0" PrivateAssets="all" GeneratePathProperty="true" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.1.0" PrivateAssets="all" GeneratePathProperty="true" />
+    <PackageReference Include="System.Security.AccessControl" Version="5.0.0" PrivateAssets="all" GeneratePathProperty="true" />
+    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="8.0.0" PrivateAssets="all" GeneratePathProperty="true" />
+    <PackageReference Include="System.Security.Principal.Windows" Version="5.0.0" PrivateAssets="all" GeneratePathProperty="true" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" PrivateAssets="all" GeneratePathProperty="true" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Pack SharpCompress.dll alongside the task assembly so MSBuild can resolve dependencies when loading the task via AssemblyFile -->
+    <None Include="$(PkgSharpCompress)\lib\netstandard2.0\SharpCompress.dll" Visible="False" Pack="True" PackagePath="build\SharpCompress.dll" />
+    <!-- Include SharpCompress dependencies for version 0.40.0 -->
+    <None Include="$(PkgMicrosoft_Bcl_AsyncInterfaces)\lib\netstandard2.0\Microsoft.Bcl.AsyncInterfaces.dll" Visible="False" Pack="True" PackagePath="build\Microsoft.Bcl.AsyncInterfaces.dll" />
+    <None Include="$(PkgSystem_Buffers)\lib\netstandard2.0\System.Buffers.dll" Visible="False" Pack="True" PackagePath="build\System.Buffers.dll" />
+    <None Include="$(PkgSystem_Memory)\lib\netstandard2.0\System.Memory.dll" Visible="False" Pack="True" PackagePath="build\System.Memory.dll" />
+    <None Include="$(PkgSystem_Text_Encoding_CodePages)\lib\netstandard2.0\System.Text.Encoding.CodePages.dll" Visible="False" Pack="True" PackagePath="build\System.Text.Encoding.CodePages.dll" />
+    <None Include="$(PkgZstdSharp_Port)\lib\netstandard2.0\ZstdSharp.dll" Visible="False" Pack="True" PackagePath="build\ZstdSharp.dll" />
+    <!-- Include all transitive dependencies with runtime DLLs -->
+    <None Include="$(PkgMicrosoft_NET_StringTools)\lib\netstandard2.0\Microsoft.NET.StringTools.dll" Visible="False" Pack="True" PackagePath="build\Microsoft.NET.StringTools.dll" />
+    <None Include="$(PkgSystem_Collections_Immutable)\lib\netstandard2.0\System.Collections.Immutable.dll" Visible="False" Pack="True" PackagePath="build\System.Collections.Immutable.dll" />
+    <None Include="$(PkgSystem_Configuration_ConfigurationManager)\lib\netstandard2.0\System.Configuration.ConfigurationManager.dll" Visible="False" Pack="True" PackagePath="build\System.Configuration.ConfigurationManager.dll" />
+    <None Include="$(PkgSystem_Numerics_Vectors)\lib\netstandard2.0\System.Numerics.Vectors.dll" Visible="False" Pack="True" PackagePath="build\System.Numerics.Vectors.dll" />
+    <None Include="$(PkgSystem_Runtime_CompilerServices_Unsafe)\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll" Visible="False" Pack="True" PackagePath="build\System.Runtime.CompilerServices.Unsafe.dll" />
+    <None Include="$(PkgSystem_Security_AccessControl)\lib\netstandard2.0\System.Security.AccessControl.dll" Visible="False" Pack="True" PackagePath="build\System.Security.AccessControl.dll" />
+    <None Include="$(PkgSystem_Security_Cryptography_ProtectedData)\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll" Visible="False" Pack="True" PackagePath="build\System.Security.Cryptography.ProtectedData.dll" />
+    <None Include="$(PkgSystem_Security_Principal_Windows)\lib\netstandard2.0\System.Security.Principal.Windows.dll" Visible="False" Pack="True" PackagePath="build\System.Security.Principal.Windows.dll" />
+    <None Include="$(PkgSystem_Threading_Tasks_Extensions)\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll" Visible="False" Pack="True" PackagePath="build\System.Threading.Tasks.Extensions.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Also include SharpCompress in buildTransitive so transitive consumers get the dependency available to MSBuild tasks -->
+    <None Include="$(PkgSharpCompress)\lib\netstandard2.0\SharpCompress.dll" Visible="False" Pack="True" PackagePath="buildTransitive\SharpCompress.dll" />
+    <!-- Include SharpCompress dependencies in buildTransitive for version 0.40.0 -->
+    <None Include="$(PkgMicrosoft_Bcl_AsyncInterfaces)\lib\netstandard2.0\Microsoft.Bcl.AsyncInterfaces.dll" Visible="False" Pack="True" PackagePath="buildTransitive\Microsoft.Bcl.AsyncInterfaces.dll" />
+    <None Include="$(PkgSystem_Buffers)\lib\netstandard2.0\System.Buffers.dll" Visible="False" Pack="True" PackagePath="buildTransitive\System.Buffers.dll" />
+    <None Include="$(PkgSystem_Memory)\lib\netstandard2.0\System.Memory.dll" Visible="False" Pack="True" PackagePath="buildTransitive\System.Memory.dll" />
+    <None Include="$(PkgSystem_Text_Encoding_CodePages)\lib\netstandard2.0\System.Text.Encoding.CodePages.dll" Visible="False" Pack="True" PackagePath="buildTransitive\System.Text.Encoding.CodePages.dll" />
+    <None Include="$(PkgZstdSharp_Port)\lib\netstandard2.0\ZstdSharp.dll" Visible="False" Pack="True" PackagePath="buildTransitive\ZstdSharp.dll" />
+    <!-- Include all transitive dependencies with runtime DLLs in buildTransitive -->
+    <None Include="$(PkgMicrosoft_NET_StringTools)\lib\netstandard2.0\Microsoft.NET.StringTools.dll" Visible="False" Pack="True" PackagePath="buildTransitive\Microsoft.NET.StringTools.dll" />
+    <None Include="$(PkgSystem_Collections_Immutable)\lib\netstandard2.0\System.Collections.Immutable.dll" Visible="False" Pack="True" PackagePath="buildTransitive\System.Collections.Immutable.dll" />
+    <None Include="$(PkgSystem_Configuration_ConfigurationManager)\lib\netstandard2.0\System.Configuration.ConfigurationManager.dll" Visible="False" Pack="True" PackagePath="buildTransitive\System.Configuration.ConfigurationManager.dll" />
+    <None Include="$(PkgSystem_Numerics_Vectors)\lib\netstandard2.0\System.Numerics.Vectors.dll" Visible="False" Pack="True" PackagePath="buildTransitive\System.Numerics.Vectors.dll" />
+    <None Include="$(PkgSystem_Runtime_CompilerServices_Unsafe)\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll" Visible="False" Pack="True" PackagePath="buildTransitive\System.Runtime.CompilerServices.Unsafe.dll" />
+    <None Include="$(PkgSystem_Security_AccessControl)\lib\netstandard2.0\System.Security.AccessControl.dll" Visible="False" Pack="True" PackagePath="buildTransitive\System.Security.AccessControl.dll" />
+    <None Include="$(PkgSystem_Security_Cryptography_ProtectedData)\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll" Visible="False" Pack="True" PackagePath="buildTransitive\System.Security.Cryptography.ProtectedData.dll" />
+    <None Include="$(PkgSystem_Security_Principal_Windows)\lib\netstandard2.0\System.Security.Principal.Windows.dll" Visible="False" Pack="True" PackagePath="buildTransitive\System.Security.Principal.Windows.dll" />
+    <None Include="$(PkgSystem_Threading_Tasks_Extensions)\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll" Visible="False" Pack="True" PackagePath="buildTransitive\System.Threading.Tasks.Extensions.dll" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
