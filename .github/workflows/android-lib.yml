@@ -9,6 +9,7 @@ on:
         required: true
         type: choice
         options:    
+        - com.akexorcist:localization:1.2.9
         - com.airbnb.android:lottie:3.6.0
         - org.jetbrains.kotlinx:kotlinx-datetime:0.6.1
         - com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0
