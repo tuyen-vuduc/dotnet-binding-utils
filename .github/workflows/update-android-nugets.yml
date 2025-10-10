@@ -45,17 +45,39 @@ jobs:
           fi
           git commit -m "chore(deps): update Android nuget packages (automated)"
           echo "no_changes=false" >> $GITHUB_OUTPUT
+          echo "commit_sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
 
       - name: Push branch and create/update PR
         if: steps.commit.outputs.no_changes == 'false'
         env:
           PR_BRANCH: auto/update-android-nugets
+          COMMIT_SHA: ${{ steps.commit.outputs.commit_sha }}
         run: |
-          # Create or reset local branch from main and move commits there
+          set -e
+          echo "Preparing branch $PR_BRANCH with commit $COMMIT_SHA"
+          # Ensure we have the latest origin/main
           git fetch origin main:main
-          git checkout -B "$PR_BRANCH"
-          # Move commits on current HEAD into the branch (they're already present)
-          git push --set-upstream origin "$PR_BRANCH" --force-with-lease
+
+          # Create a new branch from origin/main
+          git checkout -B "$PR_BRANCH" origin/main
+
+          # Try to cherry-pick the generated commit onto the branch
+          if git cherry-pick --keep-redundant-commits -x "$COMMIT_SHA"; then
+            echo "Cherry-pick succeeded"
+            git push --set-upstream origin "$PR_BRANCH" --force-with-lease
+          else
+            echo "Cherry-pick failed with conflicts. Aborting cherry-pick and recreating branch from main."
+            git cherry-pick --abort || true
+            # Delete remote branch if it exists to ensure a fresh branch
+            git push origin --delete "$PR_BRANCH" || true
+            # Recreate branch from origin/main
+            git checkout -B "$PR_BRANCH" origin/main
+            # Copy only the working tree contents from the generated commit into the branch (overwrite)
+            git checkout "$COMMIT_SHA" -- .
+            git add -A
+            git commit -m "chore(deps): update Android nuget packages (automated) — apply latest changes on top of main"
+            git push --set-upstream origin "$PR_BRANCH" --force
+          fi
 
       - name: Create or update pull request
         if: steps.commit.outputs.no_changes == 'false'
