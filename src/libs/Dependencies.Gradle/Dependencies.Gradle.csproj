@@ -10,7 +10,7 @@
 
     <PackageId>Dependencies.Gradle</PackageId>
     <Title>Xamarin Build-time Gradle Support for Android</Title>
-    <PackageVersion>8.6.0.2</PackageVersion>
+    <PackageVersion>8.6.0.3</PackageVersion>
     <Authors>tuyen,tuyen-vuduc</Authors>
     <Owners>tuyen,tuyen-vuduc</Owners>
     <PackageProjectUrl>https://github.com/tuyen-vuduc/xamarin-android-build-gradle</PackageProjectUrl>

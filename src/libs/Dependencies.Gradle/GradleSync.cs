@@ -66,7 +66,7 @@ public class GradleSync : AsyncTask, Xamarin.Build.Download.ILogger
                 LogMessage("GradleSyncTempDir: " + TempDir);
                 try
                 {
-                    if(Directory.Exists(TempDir))
+                    if (Directory.Exists(TempDir))
                     {
                         Directory.Delete(TempDir, true);
                     }
@@ -130,11 +130,11 @@ public class GradleSync : AsyncTask, Xamarin.Build.Download.ILogger
         args.Add("build");
 
         ProcessStartInfo psi = new ProcessStartInfo(args.ProcessPath, args.ToString())
-            {
-                WorkingDirectory = TempDir,
-                CreateNoWindow = true,
-                UseShellExecute = false
-            };
+        {
+            WorkingDirectory = TempDir,
+            CreateNoWindow = true,
+            UseShellExecute = false
+        };
 
         try
         {
@@ -462,8 +462,29 @@ android.enableJetifier=true
         {
             LogMessage("Extracting {0} to {1}", GradleAssetsPath, TempDir);
 
-            // Use in-process extraction via SharpCompress only. This removes any dependency on external 7z/unzip binaries.
-            var ok = ExtractArchiveInProcess(GradleAssetsPath, TempDir);
+            bool ok = false;
+            if (Platform.IsWindows)
+            {
+                // Use in-process extraction via SharpCompress on Windows
+                ok = ExtractArchiveInProcess(GradleAssetsPath, TempDir);
+            }
+            else
+            {
+                // Use native unzip/tar on non-Windows
+                Directory.CreateDirectory(TempDir);
+                var args = BuildExtractionArgs(GradleAssetsPath, TempDir);
+                var psi = new ProcessStartInfo(args.ProcessPath, args.ToString())
+                {
+                    WorkingDirectory = TempDir,
+                    CreateNoWindow = true,
+                    UseShellExecute = false
+                };
+                using (var proc = Process.Start(psi))
+                {
+                    proc.WaitForExit();
+                    ok = proc.ExitCode == 0;
+                }
+            }
             if (ok)
                 return true;
 
@@ -492,7 +513,32 @@ android.enableJetifier=true
 
         return false;
     }
-
+    static ProcessArgumentBuilder BuildExtractionArgs(string file, string contentDir)
+    {
+        var ext = Path.GetExtension(file).ToLowerInvariant();
+        ProcessArgumentBuilder args;
+        if (ext == ".zip")
+        {
+            args = new ProcessArgumentBuilder("/usr/bin/unzip");
+            args.Add("-o", "-q");
+            args.AddQuoted(file);
+            args.Add("-d");
+            args.AddQuoted(contentDir);
+        }
+        else if (ext == ".tar" || ext == ".tgz" || ext == ".tar.gz")
+        {
+            args = new ProcessArgumentBuilder("tar");
+            args.Add("-xf");
+            args.AddQuoted(file);
+            args.Add("-C");
+            args.AddQuoted(contentDir);
+        }
+        else
+        {
+            throw new NotSupportedException($"Unsupported archive extension: {ext}");
+        }
+        return args;
+    }
     // External extraction helpers removed. Extraction is handled in-process via SharpCompress.
 
     // In-process extraction using SharpCompress. Supports .zip, .tar, .tgz, .gz
@@ -523,10 +569,8 @@ android.enableJetifier=true
                     entry.WriteToFile(outPath, new ExtractionOptions() { ExtractFullPath = true, Overwrite = true });
                 }
             }
-
             return true;
         }
-
         // For tar/tgz/gz use a generic reader
         try
         {
@@ -548,7 +592,6 @@ android.enableJetifier=true
                     reader.WriteEntryToFile(outPath, new ExtractionOptions() { ExtractFullPath = true, Overwrite = true });
                 }
             }
-
             return true;
         }
         catch (Exception)
