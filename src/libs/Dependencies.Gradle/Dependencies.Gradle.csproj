@@ -83,8 +83,6 @@
     <None Include="$(PkgSystem_Security_Cryptography_ProtectedData)\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll" Visible="False" Pack="True" PackagePath="build\System.Security.Cryptography.ProtectedData.dll" />
     <None Include="$(PkgSystem_Security_Principal_Windows)\lib\netstandard2.0\System.Security.Principal.Windows.dll" Visible="False" Pack="True" PackagePath="build\System.Security.Principal.Windows.dll" />
     <None Include="$(PkgSystem_Threading_Tasks_Extensions)\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll" Visible="False" Pack="True" PackagePath="build\System.Threading.Tasks.Extensions.dll" />
-    <!-- Also include possible dependency DLLs from the package folder if present (wildcard) -->
-    <None Include="$(PkgSharpCompress)\lib\netstandard2.0\*.dll" Visible="False" Pack="True" PackagePath="build\" />
   </ItemGroup>
   <ItemGroup>
     <!-- Also include SharpCompress in buildTransitive so transitive consumers get the dependency available to MSBuild tasks -->
@@ -105,7 +103,6 @@
     <None Include="$(PkgSystem_Security_Cryptography_ProtectedData)\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll" Visible="False" Pack="True" PackagePath="buildTransitive\System.Security.Cryptography.ProtectedData.dll" />
     <None Include="$(PkgSystem_Security_Principal_Windows)\lib\netstandard2.0\System.Security.Principal.Windows.dll" Visible="False" Pack="True" PackagePath="buildTransitive\System.Security.Principal.Windows.dll" />
     <None Include="$(PkgSystem_Threading_Tasks_Extensions)\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll" Visible="False" Pack="True" PackagePath="buildTransitive\System.Threading.Tasks.Extensions.dll" />
-    <None Include="$(PkgSharpCompress)\lib\netstandard2.0\*.dll" Visible="False" Pack="True" PackagePath="buildTransitive\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
