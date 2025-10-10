@@ -148,12 +148,42 @@ jobs:
           done
         shell: bash
 
-      - name: Run dependency security scan
+      - name: Run dependency security scan (Linux)
+        if: runner.os == 'Linux'
         uses: dependency-check/Dependency-Check_Action@main
         with:
           project: 'dotnet-binding-utils'
           path: '.'
           format: 'JSON'
+        continue-on-error: true
+
+      - name: Run dependency security scan (macOS)
+        if: runner.os == 'macOS'
+        env:
+          ANDROID_HOME: /Users/runner/Library/Android/sdk
+          ANDROID_SDK_ROOT: /Users/runner/Library/Android/sdk
+          DOTNET_ROOT: /Users/runner/.dotnet
+          JAVA_HOME: /Users/runner/hostedtoolcache/Java_Microsoft_jdk/21.0.2/arm64/Contents/Home
+          JAVA_HOME_21_ARM64: /Users/runner/hostedtoolcache/Java_Microsoft_jdk/21.0.2/arm64/Contents/Home
+        run: |
+          set -e
+          mkdir -p reports
+          # Pick a stable Dependency-Check release (bump if you want newer)
+          DC_VERSION=8.2.1
+          echo "Downloading OWASP Dependency-Check ${DC_VERSION}"
+          curl -sL -o dependency-check.zip "https://github.com/jeremylong/DependencyCheck/releases/download/v${DC_VERSION}/dependency-check-${DC_VERSION}-release.zip"
+          unzip -q dependency-check.zip -d dependency-check
+          chmod +x dependency-check/dependency-check/bin/dependency-check.sh
+          echo "Running dependency-check (this may take several minutes)..."
+          ./dependency-check/dependency-check/bin/dependency-check.sh --project 'dotnet-binding-utils' --scan . --format JSON --out reports || true
+        shell: bash
+        continue-on-error: true
+
+      - name: Skip dependency security scan on Windows
+        if: runner.os == 'Windows'
+        run: |
+          echo "OWASP Dependency-Check Action requires Linux. Skipping dependency scan on Windows runner."
+        shell: bash
         continue-on-error: true
 
       - name: Publish NuGet packages
