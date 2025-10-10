@@ -1,5 +1,6 @@
 name: iOS Binding Libraries
 run-name: ${{ inputs.LIB_ARTIFACT }}.iOS 🚀 NuGet
+
 on:
   workflow_dispatch:
     inputs:
@@ -10,77 +11,12 @@ on:
         options: 
         - Shake
         - Stripe
+
 jobs:
   build-then-publish:
-    environment: production
-    runs-on: macos-latest
-    steps:
-    - name: Set MAPBOX_DOWNLOADS_TOKEN
-      if: contains(${{ inputs.LIB_ARTIFACT }}, 'com.mapbox.maps')
-      run: |
-        echo "MAPBOX_DOWNLOADS_TOKEN=$MAPBOX_DOWNLOADS_TOKEN" >> ~/.gradle/gradle.properties
-        cat ~/.gradle/gradle.properties
-      shell: bash
-      env:
-        MAPBOX_DOWNLOADS_TOKEN : ${{secrets.MAPBOX_DOWNLOADS_TOKEN}}
-
-    - name: Set DriveSmart credentials
-      if: contains(${{ inputs.LIB_ARTIFACT }}, 'DriveSmart')
-      run: |
-        echo "tfsdrivesmart_user=$TFSDRIVESMART_USER" >> ~/.gradle/gradle.properties
-        echo "tfsdrivesmart_password=$TFSDRIVESMART_PASSWORD" >> ~/.gradle/gradle.properties
-        cat ~/.gradle/gradle.properties
-      shell: bash
-      env:
-        TFSDRIVESMART_USER: ${{secrets.TFSDRIVESMART_USER}}
-        TFSDRIVESMART_PASSWORD: ${{secrets.TFSDRIVESMART_PASSWORD}}
-  
-    - uses: actions/checkout@v3
-    
-    - name: Setup .NET Core SDK 8.x
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: '8.0'
-
-    - name: Install ios workload
-      run: |
-        dotnet workload install ios
-
-    - name: Build
-      run: |
-        echo "PWD: $PWD"
-        cd "./src/ios/${{ inputs.LIB_ARTIFACT }}"
-        echo "PWD: $PWD"
-        sh pack.sh
-  
-    # - name: Publish with Dotnet CLI
-    #   env:
-    #     NUGET_PUSH_API_KEY: ${{ secrets.NUGET_PUSH_API_KEY }}
-    #   shell: bash
-    #   run: |
-    #     dotnet nuget push ./nugets/*.nupkg --api-key "$NUGET_PUSH_API_KEY" --source https://api.nuget.org/v3/index.json --skip-duplicate
-
-    - name: Publish NuGet and symbols
-      id: nuget-push
-      uses: edumserrano/nuget-push@v1.2.2
-      with:
-        api-key: '${{ secrets.NUGET_PUSH_API_KEY }}' # this example is using GitHub secrets to pass the API key
-        working-directory: 'nugets'
-
-    # The next step is using powershell to parse the action's output but you can use whatever you prefer.
-    # Note that in order to read the step outputs the action step must have an id.
-    - name: Log output
-      if: steps.nuget-push.conclusion != 'skipped' && always() # run regardless if the previous step failed or not, just as long as it wasn't skipped
-      shell: pwsh
-      run: |
-        $pushResult = '${{ steps.nuget-push.outputs.push-result }}' | ConvertFrom-Json
-        $pushResultAsJsonIndented = ConvertTo-Json $pushResult
-        Write-Output $pushResultAsJsonIndented  # outputs the result of the nuget push operation as an indented JSON string
-        Write-Output '${{ steps.nuget-push.outputs.status }}' # outputs the overall status of the nuget push action
-
-        # iterates over all list of packages and outputs the data from the nuget push operation for each
-        foreach($package in $pushResult.packages) {
-            Write-Output "$($package.status)"  # outputs the status of the nuget push operation
-            Write-Output "$($package.package)" # outputs the NuGet package name that was pushed
-            Write-Output "$($package.symbols)" # outputs the symbols package name that was pushed
-        }
+    uses: ./.github/workflows/reusable-ios-build.yml
+    with:
+      artifact: ${{ inputs.LIB_ARTIFACT }}
+      dotnet-version: '8.0'
+    secrets:
+      NUGET_PUSH_API_KEY: ${{ secrets.NUGET_PUSH_API_KEY }}

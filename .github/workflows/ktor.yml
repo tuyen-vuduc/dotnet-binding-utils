@@ -1,5 +1,6 @@
 name: Android Binding Libraries - Ktor
 run-name: ${{ inputs.LIB_ARTIFACT }} 🚀 NuGet
+
 on:
   workflow_dispatch:
     inputs:
@@ -16,63 +17,15 @@ on:
         - io.ktor:ktor-client-content-negotiation:2.3.11
         - io.ktor:ktor-websocket-serialization:2.3.11
         - io.ktor:ktor-websockets:2.3.11
+
 jobs:
   build-then-publish:
-    environment: production
-    runs-on: macos-latest
-    steps:    
-    - uses: actions/checkout@v3
-
-    - name: Setup Android SDK
-      uses: android-actions/setup-android@v3
-      with:
-        cmdline-tools-version: 12266719
-        packages: tools platform-tools platforms;android-34 platforms;android-35
-
-    - name: Setup .NET Core SDK 9.0
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: '9.0'
-        
-    - name: Setup Java 17
-      uses: actions/setup-java@v3
-      with:
-        distribution: 'microsoft'
-        java-version: '17'
-
-    - name: Build
-      run: |
-        echo "PWD: $PWD"
-        sh bind.sh --artifact ${{ inputs.LIB_ARTIFACT }}
-  
-    # - name: Publish with Dotnet CLI
-    #   env:
-    #     NUGET_PUSH_API_KEY: ${{ secrets.NUGET_PUSH_API_KEY }}
-    #   shell: bash
-    #   run: |
-    #     dotnet nuget push ./nugets/*.nupkg --api-key "$NUGET_PUSH_API_KEY" --source https://api.nuget.org/v3/index.json --skip-duplicate
-
-    - name: Publish NuGet and symbols
-      id: nuget-push
-      uses: edumserrano/nuget-push@v1.2.2
-      with:
-        api-key: '${{ secrets.NUGET_PUSH_API_KEY }}' # this example is using GitHub secrets to pass the API key
-        working-directory: 'nugets'
-
-    # The next step is using powershell to parse the action's output but you can use whatever you prefer.
-    # Note that in order to read the step outputs the action step must have an id.
-    - name: Log output
-      if: steps.nuget-push.conclusion != 'skipped' && always() # run regardless if the previous step failed or not, just as long as it wasn't skipped
-      shell: pwsh
-      run: |
-        $pushResult = '${{ steps.nuget-push.outputs.push-result }}' | ConvertFrom-Json
-        $pushResultAsJsonIndented = ConvertTo-Json $pushResult
-        Write-Output $pushResultAsJsonIndented  # outputs the result of the nuget push operation as an indented JSON string
-        Write-Output '${{ steps.nuget-push.outputs.status }}' # outputs the overall status of the nuget push action
-
-        # iterates over all list of packages and outputs the data from the nuget push operation for each
-        foreach($package in $pushResult.packages) {
-            Write-Output "$($package.status)"  # outputs the status of the nuget push operation
-            Write-Output "$($package.package)" # outputs the NuGet package name that was pushed
-            Write-Output "$($package.symbols)" # outputs the symbols package name that was pushed
-        }
+    uses: ./.github/workflows/reusable-android-build.yml
+    with:
+      artifact: ${{ inputs.LIB_ARTIFACT }}
+      dotnet-version: '9.0'
+      java-version: '21'
+      requires-mapbox-token: false
+      requires-drivesmart-credentials: false
+    secrets:
+      NUGET_PUSH_API_KEY: ${{ secrets.NUGET_PUSH_API_KEY }}

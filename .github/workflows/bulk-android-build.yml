@@ -1,0 +1,88 @@
+name: Bulk Android Library Build
+run-name: Building multiple Android libraries 🚀
+
+on:
+  workflow_dispatch:
+    inputs:
+      artifacts:
+        description: 'Comma-separated list of Android artifacts to build'
+        required: true
+        type: string
+        default: 'com.google.accompanist:accompanist-themeadapter-core:0.34.0,com.stripe:stripe-core:21.3.1'
+      dotnet-version:
+        description: '.NET version to use'
+        required: false
+        type: string
+        default: '9.0'
+      java-version:
+        description: 'Java version to use'
+        required: false
+        type: string
+        default: '21'
+      parallel-jobs:
+        description: 'Maximum parallel jobs'
+        required: false
+        type: number
+        default: 3
+
+jobs:
+  prepare-matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: Prepare build matrix
+        id: set-matrix
+        run: |
+          # Convert comma-separated artifacts to JSON array
+          artifacts="${{ inputs.artifacts }}"
+          # Remove spaces and split by comma
+          artifacts=$(echo "$artifacts" | tr -d ' ')
+          IFS=',' read -ra ARTIFACT_ARRAY <<< "$artifacts"
+          
+          # Create JSON array
+          matrix_json="["
+          for i in "${ARTIFACT_ARRAY[@]}"; do
+            if [ ${#matrix_json} -gt 1 ]; then
+              matrix_json+=","
+            fi
+            matrix_json+="\"$i\""
+          done
+          matrix_json+="]"
+          
+          echo "matrix=$matrix_json" >> $GITHUB_OUTPUT
+          echo "Generated matrix: $matrix_json"
+
+  build-libraries:
+    needs: prepare-matrix
+    strategy:
+      matrix:
+        artifact: ${{ fromJson(needs.prepare-matrix.outputs.matrix) }}
+      fail-fast: false
+      max-parallel: ${{ fromJson(inputs.parallel-jobs) }}
+    
+    uses: ./.github/workflows/reusable-android-build.yml
+    with:
+      artifact: ${{ matrix.artifact }}
+      dotnet-version: ${{ inputs.dotnet-version }}
+      java-version: ${{ inputs.java-version }}
+      requires-mapbox-token: ${{ contains(matrix.artifact, 'com.mapbox') }}
+      requires-drivesmart-credentials: ${{ contains(matrix.artifact, 'DriveSmart') }}
+    secrets:
+      NUGET_PUSH_API_KEY: ${{ secrets.NUGET_PUSH_API_KEY }}
+      MAPBOX_DOWNLOADS_TOKEN: ${{ secrets.MAPBOX_DOWNLOADS_TOKEN }}
+      TFSDRIVESMART_USER: ${{ secrets.TFSDRIVESMART_USER }}
+      TFSDRIVESMART_PASSWORD: ${{ secrets.TFSDRIVESMART_PASSWORD }}
+
+  build-summary:
+    needs: [prepare-matrix, build-libraries]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Generate bulk build summary
+        run: |
+          echo "## Bulk Android Library Build Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- **.NET Version**: ${{ inputs.dotnet-version }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Java Version**: ${{ inputs.java-version }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Max Parallel Jobs**: ${{ inputs.parallel-jobs }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Overall Status**: ${{ needs.build-libraries.result }}" >> $GITHUB_STEP_SUMMARY
