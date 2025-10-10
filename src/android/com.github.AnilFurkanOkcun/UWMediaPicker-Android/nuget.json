@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Github.AnilFurkanOkcun.UWMediaPickerAndroid",
+  "name": "UWMediaPicker-Android",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

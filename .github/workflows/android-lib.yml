@@ -9,6 +9,7 @@ on:
         required: true
         type: choice
         options:    
+        - com.github.AnilFurkanOkcun:UWMediaPicker-Android:1.3.3
         - com.akexorcist:localization:1.2.9
         - com.airbnb.android:lottie:3.6.0
         - org.jetbrains.kotlinx:kotlinx-datetime:0.6.1

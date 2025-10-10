@@ -25,7 +25,7 @@ Folder structure:
 ```
 
 - Only create maven.props file if $MAVEN is provided. 
-- Ensure $MAVEN is a valid Kotlin DSL when written in the maven.props file.
+- Rewrite $MAVEN configuration in Kotlin DSL as needed.
 
 Example of `maven.props` content:
 
@@ -46,7 +46,7 @@ Example of `maven.props` content:
 sh bind.sh --artifact $ARTIFACT
 ```
 
-### 3/ Fix GDL001 error if any
+### 3/ Fix GDL001/GDL004 error if any
 
 #### 3.1/ Kill any hanging java processes then rerun the bind command:
 
@@ -113,11 +113,33 @@ Then re-run the bind command.
 
 ##### Otherwise, stop the task entirely here (no retry)
 
-## 4/ Keep the field names in upper case following [keep constants field names prompt](keep-constanst-field-names.prompt.md) guidelines
+### 4/ Keep the field names in upper case following [keep constants field names prompt](keep-constanst-field-names.prompt.md) guidelines
 
-5/ Fix any NU1605 warnings following [fix nu1605 prompt](fix-NU1605.prompt.md) guidelines only if there are NU1605 warnings.
+### 5/ Fix any NU1605 warnings following [fix nu1605 prompt](fix-NU1605.prompt.md) guidelines only if there are NU1605 warnings.
 
-6/ Fix issue of BG8401 following [fix BG8401 prompt](fix-BG8401.prompt.md) guidelines only if there are BG8401 errors.
+### 6/ Fix issue of BG8401 following [fix BG8401 prompt](fix-BG8401.prompt.md) guidelines only if there are BG8401 errors.
 
-Otherwise, stop and suggest next steps.
+### 7/ Fix error XDCDJ7028
+
+If you see error like:
+
+```
+C:\Program Files\dotnet\packs\Microsoft.Android.Sdk.Windows\34.0.154\tools\Xamarin.Android.Common.targets(893,3): error XACDJ7028:
+      System.IO.FileNotFoundException: Could not find file '~\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-android-extensions-runtime\1.6.10\4a6b6e4fb87c54c5d2
+      a7eb51a497ac23dd200d62\kotlin-android-extensions-runtime-1.6.10.jar'.
+      File name: '~\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-android-extensions-runtime\1.6.10\4a6b6e4fb87c54c5d2a7eb51a497ac23dd200d62\kotlin-android-exte
+      nsions-runtime-1.6.10.jar'
+```
+
+Then we will add one item to `maven.props` file (create if not exists) in the artifact group folder with the missing dependency.
+
+```
+<Project>
+  <ItemGroup>
+    <GradleImplementation Include="org.jetbrains.kotlin:kotlin-android-extensions-runtime:1.6.10"></GradleImplementation>
+  </ItemGroup>
+</Project>
+```
+
+### Otherwise, stop and suggest next steps.
 
