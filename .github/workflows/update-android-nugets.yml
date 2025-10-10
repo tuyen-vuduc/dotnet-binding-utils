@@ -1,0 +1,72 @@
+name: Update Android NuGet packages
+
+on:
+  schedule:
+    # Runs at 00:00 UTC every Sunday
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-android-nugets
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Configure Git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Run fetch.sh to update Android nugets
+        run: |
+          chmod +x ./fetch.sh || true
+          sh ./fetch.sh
+
+      - name: Commit changes
+        id: commit
+        run: |
+          git add -A
+          # If there's nothing to commit, exit successfully
+          if git diff --cached --quiet; then
+            echo "no_changes=true" >> $GITHUB_OUTPUT
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "chore(deps): update Android nuget packages (automated)"
+          echo "no_changes=false" >> $GITHUB_OUTPUT
+
+      - name: Push branch and create/update PR
+        if: steps.commit.outputs.no_changes == 'false'
+        env:
+          PR_BRANCH: auto/update-android-nugets
+        run: |
+          # Create or reset local branch from main and move commits there
+          git fetch origin main:main
+          git checkout -B "$PR_BRANCH"
+          # Move commits on current HEAD into the branch (they're already present)
+          git push --set-upstream origin "$PR_BRANCH" --force-with-lease
+
+      - name: Create or update pull request
+        if: steps.commit.outputs.no_changes == 'false'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore(deps): update Android nuget packages (automated)"
+          branch: auto/update-android-nugets
+          base: main
+          title: "chore(deps): update Android nuget packages (automated)"
+          body: |
+            This PR updates Android nuget packages to their latest versions.
+            Generated automatically by workflow.
+          labels: automated, dependencies
