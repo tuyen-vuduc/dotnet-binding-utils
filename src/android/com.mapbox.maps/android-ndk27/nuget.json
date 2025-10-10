@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Mapbox.Maps.AndroidNdk27",
   "name": "android-ndk27",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }

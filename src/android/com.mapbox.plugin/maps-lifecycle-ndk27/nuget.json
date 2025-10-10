@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Mapbox.Plugin.MapsLifecycleNdk27",
   "name": "maps-lifecycle-ndk27",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }

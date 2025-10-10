@@ -1,7 +1,7 @@
 {
   "packageId": "Com.Facebook.Android.FacebookLogin",
   "name": "facebook-login",
-  "dependencyOnly": false,
+  "dependencyOnly": true,
   "dotnet8": true,
   "versionMappings": []
 }

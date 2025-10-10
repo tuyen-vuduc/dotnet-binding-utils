@@ -9,9 +9,9 @@ DO AS SPECIFIED. DON'T DEVIATE. STOP IF UNSURE.
 - $ARTIFACT: fully qualified artifact name (e.g., `com.example:my-artifact:1.0.0`)
 - $MAVEN: Custom maven configuration for gradle (optional)
 
-## Outputs
+## Steps
 
-1/ Creates the necessary folder structure for the artifact in the Gradle repository.
+### 1/ Creates the necessary folder structure for the artifact in the Gradle repository.
 
 Folder structure:
 
@@ -23,6 +23,9 @@ Folder structure:
             |-- {ARTIFACT_NAME} (folder)
 
 ```
+
+- Only create maven.props file if $MAVEN is provided. 
+- Ensure $MAVEN is a valid Kotlin DSL when written in the maven.props file.
 
 Example of `maven.props` content:
 
@@ -36,27 +39,27 @@ Example of `maven.props` content:
   </ItemGroup>
 </Project>
 
-2/ Execute `bind.sh` script to bind the artifact.
+### 2/ Execute `bind.sh` script to bind the artifact.
 
 (ALWAYS RUN THIS COMMAND IN THE REPO ROOT FOLDER)
 ```
 sh bind.sh --artifact $ARTIFACT
 ```
 
-## GDL001 Troubleshooting
+### 3/ Fix GDL001 error if any
 
-1/ Kill any hanging java processes then rerun the bind command:
+#### 3.1/ Kill any hanging java processes then rerun the bind command:
 
 ```
 sh kill-jd.sh
 ```
 
-2/ Check gradle build status then re-run the bind command.
+#### 3.2/ Check gradle build status then re-run the bind command.
 
 - navigate to `xgradle` folder
 - run `./gradlew.bat build` (Windows) or `./gradlew build` (Linux/Mac)
 
-2.a/ Missing reference to Google material design library
+##### 3.2.a/ Missing reference to Google material design library
 if you see error like:
 
 ```
@@ -86,13 +89,35 @@ Example of `maven.props` content:
 
 Then re-run the bind command.
 
-2.b/ Otherwise, stop the task entirely here (no retry)
+##### 3.2.b/ Need to enable Jetifier
 
-3/ Keep the field names in upper case following [keep constants field names prompt](keep-constanst-field-names.prompt.md) guidelines
+if you see error like:
 
-4/ Fix any NU1605 warnings following [fix nu1605 prompt](fix-NU1605.prompt.md) guidelines only if there are NU1605 warnings.
+```
+A failure occurred while executing com.android.build.gradle.internal.tasks.CheckDuplicatesRunnable
+   > Duplicate class android.support.v4.app.INotificationSideChannel found in modules core-1.9.0.aar -> core-1.9.0-runtime (androidx.core:core:1.9.0) and support-compat-26.1.0.aar -> support-compat-26.1.0-runtime (com.android.support:support-compat:26.1.0)
+     Duplicate class android.support.v4.app.INotificationSideChannel$Stub found in modules core-1.9.0.aar
+```
 
-5/ Fix issue of BG8401 following [fix BG8401 prompt](fix-BG8401.prompt.md) guidelines only if there are BG8401 errors.
+We will add one item to `maven.props` file (create if not exists) in the artifact group folder with the missing dependency.
+
+Example of `maven.props` content:
+```
+<Project>
+  <PropertyGroup>
+    <GradleSyncEnableJetifier>true</GradleSyncEnableJetifier>
+  </PropertyGroup>
+</Project>
+```
+Then re-run the bind command.
+
+##### Otherwise, stop the task entirely here (no retry)
+
+## 4/ Keep the field names in upper case following [keep constants field names prompt](keep-constanst-field-names.prompt.md) guidelines
+
+5/ Fix any NU1605 warnings following [fix nu1605 prompt](fix-NU1605.prompt.md) guidelines only if there are NU1605 warnings.
+
+6/ Fix issue of BG8401 following [fix BG8401 prompt](fix-BG8401.prompt.md) guidelines only if there are BG8401 errors.
 
 Otherwise, stop and suggest next steps.
 

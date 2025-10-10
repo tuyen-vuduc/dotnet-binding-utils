@@ -1,0 +1,7 @@
+{
+  "packageId": "Xamarin.AndroidX.Lifecycle.Common.Java8",
+  "name": "common-java8",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}
