@@ -1,0 +1,7 @@
+{
+  "packageId": "Org.Apache.Commons.CommonsLang3",
+  "name": "commons-lang3",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

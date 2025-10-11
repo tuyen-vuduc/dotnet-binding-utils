@@ -5,6 +5,17 @@
   var packageIconPath = Model.Artifact.Icon ?? "../../../../../assets/tv-ico.png";
   var licensePath = "LICENSE";
   var assemblyVersion = Model.Artifact.AssemblyVersion;
+  // Windows-friendly copies of relative paths (backslash separators)
+  var winSourcesJarRelativeFilePath = string.IsNullOrEmpty(Model.Artifact.SourcesJarRelativeFilePath) ? null :
+  Model.Artifact.SourcesJarRelativeFilePath.Replace('/', '\\');
+  var winJavadocJarRelativeFilePath = string.IsNullOrEmpty(Model.Artifact.JavadocJarRelativeFilePath) ? null :
+  Model.Artifact.JavadocJarRelativeFilePath.Replace('/', '\\');
+  var winLibFolderPath = string.IsNullOrEmpty(Model.Artifact.LibFolderPath) ? null :
+  Model.Artifact.LibFolderPath.Replace('/', '\\');
+  var winLibRelativePath = string.IsNullOrEmpty(Model.Artifact.LibRelativePath) ? null :
+  Model.Artifact.LibRelativePath.Replace('/', '\\');
+  var winProguardFileRelativePath = string.IsNullOrEmpty(Model.Artifact.ProguardFileRelativePath) ? null :
+  Model.Artifact.ProguardFileRelativePath.Replace('/', '\\');
 }
 <Project Sdk="Microsoft.NET.Sdk">
   <Import Condition=" EXISTS('../../maven.props') " Project="../../maven.props" />
@@ -32,15 +43,17 @@
   <PropertyGroup>
     <UserHome Condition=" '$(OS)' == 'Unix' ">$(Home)</UserHome>
     <UserHome Condition=" '$(OS)' != 'Unix' ">$(UserProfile)</UserHome>
+    <!-- Android SDK directory for Unix -->
     <AndroidSdkDirectory Condition=" '$(OS)' == 'Unix' ">$(UserHome)/Library/Android/sdk</AndroidSdkDirectory>
-    <AndroidSdkDirectory Condition=" '$(OS)' != 'Unix' ">$(UserHome)/AppData/Local/Android/sdk</AndroidSdkDirectory>
-  </PropertyGroup>  
+    <!-- Android SDK directory for non-Unix (Windows) -->
+    <AndroidSdkDirectory Condition=" '$(OS)' != 'Unix' ">$(UserHome)\AppData\Local\Android\sdk</AndroidSdkDirectory>
+  </PropertyGroup>
   <PropertyGroup>
     <PackageId>@(Model.Artifact.Nuget.PackageId)</PackageId>
     <Title>@(Model.GroupName) - @(Model.Artifact.Name)</Title>
     <Summary>.NET Android binding library for @(Model.Artifact.GradleImplementation)</Summary>
     <Description>
-        .NET Android binding library for @(Model.Artifact.GradleImplementation)
+      .NET Android binding library for @(Model.Artifact.GradleImplementation)
     </Description>
     <PackageTags> xamarin, android, @(Model.Artifact.Group.Id), @(Model.Artifact.Nuget.ArtifactId)</PackageTags>
     <Authors>tuyen,tuyen-vuduc</Authors>
@@ -58,7 +71,8 @@
     <PackageVersion>@(Model.Artifact.Version.NugetVersion)</PackageVersion>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <!-- Include symbol files (*.pdb) in the built .nupkg -->
-    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb
+    </AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -67,10 +81,14 @@
     <AndroidFragmentType>AndroidX.Fragment.App.Fragment</AndroidFragmentType>
   </PropertyGroup>
   <ItemGroup>
-    <AndroidNamespaceReplacement Include='Com.Mapbox.Maps.Plugin' Replacement='Com.Mapbox.Maps.Plugins' Visible="false" />
-    <AndroidNamespaceReplacement Include='Com.Mapbox.Maps.Plugins.Attribution' Replacement='Com.Mapbox.Maps.Plugins.Attributions' Visible="false" />
-    <AndroidNamespaceReplacement Include='Com.Mapbox.Maps.Annotation' Replacement='Com.Mapbox.Maps.Annotations' Visible="false" />
-    <AndroidNamespaceReplacement Include='Com.Mapbox.Maps.Plugins.Annotation' Replacement='Com.Mapbox.Maps.Plugins.Annotations' Visible="false" />
+    <AndroidNamespaceReplacement Include='Com.Mapbox.Maps.Plugin' Replacement='Com.Mapbox.Maps.Plugins'
+      Visible="false" />
+    <AndroidNamespaceReplacement Include='Com.Mapbox.Maps.Plugins.Attribution'
+      Replacement='Com.Mapbox.Maps.Plugins.Attributions' Visible="false" />
+    <AndroidNamespaceReplacement Include='Com.Mapbox.Maps.Annotation' Replacement='Com.Mapbox.Maps.Annotations'
+      Visible="false" />
+    <AndroidNamespaceReplacement Include='Com.Mapbox.Maps.Plugins.Annotation'
+      Replacement='Com.Mapbox.Maps.Plugins.Annotations' Visible="false" />
   </ItemGroup>
   <PropertyGroup>
     <!--
@@ -101,7 +119,9 @@
       - BG8A04: <attr path="XPath" /> matched no nodes.
       - BG8A00: <remove-node path="XPath" /> matched no nodes.
     -->
-    <NoWarn>$(NoWarn);BG8A04;BG8A00;CS0109;CS0108;CS0114;NU5118;BG8102;BG8103;BG8400;XAOBS001;CS8604;CS8603;CS8767;CS8766;CS8764;CS0618;BG8605;CS8632;CS8618;CS8769;</NoWarn>
+    <NoWarn>
+      $(NoWarn);BG8A04;BG8A00;CS0109;CS0108;CS0114;NU5118;BG8102;BG8103;BG8400;XAOBS001;CS8604;CS8603;CS8767;CS8766;CS8764;CS0618;BG8605;CS8632;CS8618;CS8769;
+    </NoWarn>
 
     <!--
       Harmfull
@@ -118,51 +138,74 @@
     -->
   </PropertyGroup>
   <ItemGroup>
-    <None Include="@(Model.Artifact.Nuget.PackageId).targets" Pack="True" PackagePath="@@(_TargetFrameworkNugetBuildFolders)" />
-    <None Include="@(Model.Artifact.Nuget.PackageId).targets" Pack="True" PackagePath="@@(_TargetFrameworkNugetBuildFolders)" />   
+    <None Include="@(Model.Artifact.Nuget.PackageId).targets" Pack="True"
+      PackagePath="@@(_TargetFrameworkNugetBuildFolders)" />
+    <None Include="@(Model.Artifact.Nuget.PackageId).targets" Pack="True"
+      PackagePath="@@(_TargetFrameworkNugetBuildFolders)" />
     <None Include="@(packageIconPath)" Pack="True" PackagePath="package-icon.png" />
     <None Include="LICENSE" Pack="True" PackagePath="" />
     <None Include="README.md" Pack="True" PackagePath="" />
   </ItemGroup>
 
   <ItemGroup>
-  @if (!string.IsNullOrEmpty(Model.Artifact.SourcesJarRelativeFilePath)) {
-    <JavaSourceJar
-      Include="$(UserHome)/@(Model.Artifact.SourcesJarRelativeFilePath)"
-      Condition="Exists('$(UserHome)/@(Model.Artifact.SourcesJarRelativeFilePath)')"
-      />
-  }
-@{
-  var homeFolder = Xamarin.Build.Download.Platform.IsWindows
-                  ? System.Environment.SpecialFolder.LocalApplicationData
-                  : System.Environment.SpecialFolder.Personal;
-  var homeFolderPath = System.Environment.GetFolderPath(homeFolder);  
-  var proguardFilePath = System.IO.Path.Combine(
-    homeFolderPath,
-    Model.Artifact.ProguardFileRelativePath
-  );
-}
-@if (!string.IsNullOrEmpty(Model.Artifact.ProguardFileRelativePath)
-  && System.IO.File.Exists(proguardFilePath)) {
-    <None Include="@(proguardFilePath)" Pack="True" PackagePath="proguard" />
-}
-@if (Model.Artifact.IsAAR) {
-    <InputJar Include="$(UserHome)/@(Model.Artifact.LibFolderPath)/_aar/classes.jar" />
-    <!-- For those artifacts with lib/ folder -->
-    <InputJar
-      Condition="Exists('$(UserHome)/@(Model.Artifact.LibFolderPath)/_aar/libs/')"
-      Include="$(UserHome)/@(Model.Artifact.LibFolderPath)/_aar/libs/*.jar"
-      />
-      } else if (!string.IsNullOrEmpty(Model.Artifact.LibRelativePath)) {
-    <InputJar Include="$(UserHome)/@(Model.Artifact.LibRelativePath)" />
-      }
-    @foreach (var dep in @Model.NuGetDependencies) {
-      if (!dep.Nuget.DependencyOnly) {
-    <ProjectReference Include="..\..\..\@(dep.Group.Id)\@(dep.Nuget.ArtifactId)\binding\@(dep.Nuget.PackageId).csproj" PrivateAssets="none" />
+    @if (!string.IsNullOrEmpty(Model.Artifact.SourcesJarRelativeFilePath))
+    {
+      <!-- Unix variant -->
+      <JavaSourceJar Include="$(UserHome)/@(Model.Artifact.SourcesJarRelativeFilePath)"
+        Condition=" '$(OS)' == 'Unix' And Exists('$(UserHome)/@(Model.Artifact.SourcesJarRelativeFilePath)')" />
+      <!-- Windows variant -->
+      <JavaSourceJar Include="$(UserHome)\@(winSourcesJarRelativeFilePath)"
+        Condition=" '$(OS)' != 'Unix' And Exists('$(UserHome)\@(winSourcesJarRelativeFilePath)')" />
+    }
+    @{
+      var homeFolder = Xamarin.Build.Download.Platform.IsWindows
+      ? System.Environment.SpecialFolder.LocalApplicationData
+      : System.Environment.SpecialFolder.Personal;
+      var homeFolderPath = System.Environment.GetFolderPath(homeFolder);
+      var proguardFilePath = System.IO.Path.Combine(
+      homeFolderPath,
+      Model.Artifact.ProguardFileRelativePath
+      );
+    }
+    @if (!string.IsNullOrEmpty(Model.Artifact.ProguardFileRelativePath)
+        && System.IO.File.Exists(proguardFilePath))
+    {
+      <None Include="@(proguardFilePath)" Pack="True" PackagePath="proguard" />
+    }
+    @if (Model.Artifact.IsAAR)
+    {
+      <!-- classes.jar: Unix -->
+      <InputJar Include="$(UserHome)/@(Model.Artifact.LibFolderPath)/_aar/classes.jar"
+        Condition=" '$(OS)' == 'Unix' And Exists('$(UserHome)/@(Model.Artifact.LibFolderPath)/_aar/classes.jar')" />
+      <!-- classes.jar: Windows -->
+      <InputJar Include="$(UserHome)\@(winLibFolderPath)\_aar\classes.jar"
+        Condition=" '$(OS)' != 'Unix' And Exists('$(UserHome)\@(winLibFolderPath)\_aar\classes.jar')" />
+      <!-- For those artifacts with lib/ folder -->
+      <InputJar Condition=" '$(OS)' == 'Unix' And Exists('$(UserHome)/@(Model.Artifact.LibFolderPath)/_aar/libs/')"
+        Include="$(UserHome)/@(Model.Artifact.LibFolderPath)/_aar/libs/*.jar" />
+      <InputJar Condition=" '$(OS)' != 'Unix' And Exists('$(UserHome)\@(winLibFolderPath)\_aar\libs\')"
+        Include="$(UserHome)\@(winLibFolderPath)\_aar\libs\*.jar" />
+    }
+    else if (!string.IsNullOrEmpty(Model.Artifact.LibRelativePath))
+    {
+      <!-- LibRelativePath: Unix -->
+      <InputJar Include="$(UserHome)/@(Model.Artifact.LibRelativePath)"
+        Condition=" '$(OS)' == 'Unix' And Exists('$(UserHome)/@(Model.Artifact.LibRelativePath)')" />
+      <!-- LibRelativePath: Windows -->
+      <InputJar Include="$(UserHome)\@(winLibRelativePath)"
+        Condition=" '$(OS)' != 'Unix' And Exists('$(UserHome)\@(winLibRelativePath)')" />
+    }
+    @foreach (var dep in @Model.NuGetDependencies)
+    {
+      if (!dep.Nuget.DependencyOnly)
+      {
+        <ProjectReference Include="..\..\..\@(dep.Group.Id)\@(dep.Nuget.ArtifactId)\binding\@(dep.Nuget.PackageId).csproj"
+          PrivateAssets="none" />
       }
     }
-    @foreach (var dep in @Model.PackageReferences) {
-    <PackageReference Include="@(dep.Key)" Version="@(dep.Value)" PrivateAssets="none" />
+    @foreach (var dep in @Model.PackageReferences)
+    {
+      <PackageReference Include="@(dep.Key)" Version="@(dep.Value)" PrivateAssets="none" />
     }
   </ItemGroup>
   <PropertyGroup>

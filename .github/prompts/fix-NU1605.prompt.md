@@ -6,6 +6,13 @@ The user will give us the input artifact name, and we need to provide the exact 
 
 DO AS SPECIFIED. DON'T DEVIATE. STOP IF UNSURE.
 
+Execution contract (must be followed exactly)
+
+- Scope: Only analyze and prepare fixes for NU1605 when explicitly asked. Do not modify project files, run `dotnet` commands, or update JSON files without the user's approval.
+- Edit policy: When proposing a `{ARTIFACT_VERSION}.fixed.json`, provide the exact JSON content and then apply changes to the file.
+- Version selection rule: Use the highest version observed among conflicting references in the build output. If unsure, present options and ask.
+- Reporting: For each proposed fix, show (1) projects affected, (2) package coordinates and suggested version, (3) the `{ARTIFACT_VERSION}.fixed.json` content, and (4) next steps to apply and verify.
+
 ## Context
 
 When generating the bindings for the given artifact, we might encounter NU1605 warnings indicating package downgrades when executing `NugetTask`. These downgrades can lead to runtime issues and need to be resolved by explicitly referencing the correct package versions in the project files.

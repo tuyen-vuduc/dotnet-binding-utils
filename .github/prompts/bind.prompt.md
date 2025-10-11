@@ -2,7 +2,18 @@
 
 Your task is to create the binding library for a given Gradle artifact based on the provided information.
 
-DO AS SPECIFIED. DON'T DEVIATE. STOP IF UNSURE.
+DO EXACTLY AS SPECIFIED AND IN EXACT ORDER. DON'T DEVIATE. STOP IF UNSURE.
+
+ALWAYWS LIST ALL TASKS AND SUBTASKS IN ORDER.
+
+## Execution contract (must be followed exactly)
+
+- Scope: Only perform the exact steps the user requests. If there is a reference to an external guidance, follow that guidance. If there is any uncertainty, stop and ask for clarification.
+- Edit policy: Prefer edits only to artifact-specific `Transforms/Metadata.xml`; otherwise approvals required. Do not modify generated code unless explicitly asked; temporary generated-file edits must be reverted and not committed.
+- Branch & commit policy: Don't create branches or commits without explicit user approval.
+- Reporting: After any run or edit, return a short structured report: (1) exact command(s) run, (2) files changed with one-line reason, (3) build/test/lint summary, (4) next recommended steps.
+- Always run commands in bash terminal unless explicitly instructed otherwise.
+- Do step by step, no skipping.
 
 ## Inputs
 
@@ -113,7 +124,7 @@ Then re-run the bind command.
 
 ##### Otherwise, stop the task entirely here (no retry)
 
-### 4/ Keep the field names in upper case following [keep constants field names prompt](keep-constanst-field-names.prompt.md) guidelines
+### 4/ Keep the field names in upper case following [keep constant field names prompt](keep-constanst-field-names.prompt.md) guidelines
 
 ### 5/ Fix any NU1605 warnings following [fix nu1605 prompt](fix-NU1605.prompt.md) guidelines only if there are NU1605 warnings.
 

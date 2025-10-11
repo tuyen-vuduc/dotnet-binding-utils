@@ -13,6 +13,13 @@ Goal: edit or remove the problematic node(s) in the generated XML so the binding
 
 DO AS SPECIFIED. DON'T DEVIATE. STOP IF UNSURE.
 
+Execution contract (must be followed exactly)
+
+- Scope: Only perform actions explicitly requested by the user. If there is a reference to an external guidance, follow that guidance. If there is any uncertainty, stop and ask for clarification.
+- Metadata-first policy: Always prefer adding `managedName` attributes to `Transforms/Metadata.xml` in the artifact folder. Editing generated `api.xml` or generated C# is only allowed for diagnostics with explicit approval and must be reverted.
+- Approval workflow: For any edit, present (a) the api.xml fragment causing BG8401, (b) the metadata patch as a unified diff, and (c) apply changes except if you change files other than `Transforms/Metadata.xml`.
+- Reporting: After applying a change, provide a 4-line report: what change, why, files edited, and verification results (BG8401 cleared or new errors).
+
 ## Why this happens
 
 1/ When generating C# bindings for Java/Kotlin libraries, a field with proper wrapper methods will be generated as a property in C#. If the field is private, it won't be generated a field in C#, but when the field is public or protected, it will be generated as a field in C#. For this case, the name in C# will be the same as the mapped property name -> causes conflict.
@@ -49,41 +56,72 @@ Run the binding command you normally use (example):
 sh bind.sh --artifact $INPUT
 ```
 
-Capture the BG8401 errors and copy the Java-type string from the error: e.g. `com.izettle.ui.components.modal.OttoDialogComponent.DialogComponentClickListeners`.
+2) Group the errors by csproj file for the next steps.
+
+The build log will look like this:
+
+```
+ProjectNameA net9.0-android failed with 189 error(s) and 24 warning(s) (7.1s)
+    obj\Release\net9.0-android\api.xml(12721,8): warning BG8701: Invalid return type 'java.util.List<org.apache.commons.lang3.time.FastDatePrinter.Rule>' for member 'Org.Apache.Commons.Lang3.Time.FastDatePrinter.ParsePattern ()'.
+    C:\Program Files\dotnet\packs\Microsoft.Android.Sdk.Windows\35.0.101\tools\Xamarin.Android.Bindings.Core.targets(97,5): obj\Release\net9.0-android\api.xml(12721,8) warning BG8701: Invalid return type 'java.util.List<org.apache.commons.lang3.time.FastDatePrinter.Rule>' for member 'Org.Apache.Commons.Lang3.Time.FastDatePrinter.ParsePattern ()'.
+    obj\Release\net9.0-android\api.xml(12726,8): error BG8700: Unknown return type 'org.apache.commons.lang3.time.FastDatePrinter.NumberRule' for member 'Org.Apache.Commons.Lang3.Time.FastDatePrinter.SelectNumberRule (int, int)'.
+ProjectNameB net9.0-android failed with 189 error(s) and 24 warning(s) (7.1s)
+    obj\Release\net9.0-android\api.xml(12721,8): warning BG8701: Invalid return type 'java.util.List<org.apache.commons.lang3.time.FastDatePrinter.Rule>' for member 'Org.Apache.Commons.Lang3.Time.FastDatePrinter.ParsePattern ()'.
+    C:\Program Files\dotnet\packs\Microsoft.Android.Sdk.Windows\35.0.101\tools\Xamarin.Android.Bindings.Core.targets(97,5): obj\Release\net9.0-android\api.xml(12721,8) warning BG8701: Invalid return type 'java.util.List<org.apache.commons.lang3.time.FastDatePrinter.Rule>' for member 'Org.Apache.Commons.Lang3.Time.FastDatePrinter.ParsePattern ()'.
+    obj\Release\net9.0-android\api.xml(12726,8): error BG8700: Unknown return type 'org.apache.commons.lang3.time.FastDatePrinter.NumberRule' for member 'Org.Apache.Commons.Lang3.Time.FastDatePrinter.SelectNumberRule (int, int)'.
+```
+
+Based on the above, we have two csproj files to inspect: `ProjectNameA.csproj` and `ProjectNameB.csproj`. Each project name is composed of `{ARTIFACT_GROUP}.{ARTIFACT_NAME}`, so you can locate the project file in the folder structure above.
+
+E.g. for `Org.Apache.Commons.CommonsLang3`, the csproj file is located at: `src/android/org.apache.commons/commons-lang3/binding/org.apache.commons.commonslang3.csproj`
+
+Errors/warnings/messages are indented under the project name line. Group them by project file for the next steps.
 
 2) Locate the generated api.xml
 
-Open the file reported in the error. Example path relative to the project root:
+Each csproject has its own `obj/Release/net9.0-android/api.xml` file. You must identify the correct one for the error you're fixing based on the file structure above.
 
-```
-obj/Release/net9.0-android/api.xml
-```
+E.g. for `Org.Apache.Commons.CommonsLang3`, the api.xml file is located at: `src/android/org.apache.commons/commons-lang3/binding/obj/Release/net9.0-android/api.xml`
 
-Search the file for the Java type (case-insensitive): the fully-qualified nested type string or just the nested simple name `DialogComponentClickListeners`.
+NOTE: 
+- Target framework may vary (e.g. `net8.0-android` or `net9.0-android`, or other), so adjust accordingly.
+- If project is built in Debug configuration, the path will be `obj/Debug/net9.0-android/api.xml`.
+- If project is built in Release configuration, the path will be `obj/Release/net9.0-android/api.xml`.
+- If project supports multiple target frameworks, you may have multiple folders under `obj/Release` (e.g. `net8.0-android`, `net9.0-android`), so inspect the correct single target framework folder is OK.
 
 3) Inspect the XML around each match
 
-You're looking for field nodes matching the field mentioned in the error (e.g. `CREATOR`):
+Given that we have this error:
+
+```
+obj\Release\net8.0-android\api.xml(13242,8): error BG8401: Skipping 'Org.Apache.Commons.Lang3.Tuple.MutableTriple.Left' due to a duplicate field or property name. (Java type: 'org.apache.commons.lang3.tuple.MutableTriple')
+```
+
+- Search the file for the Java type (case-insensitive): the fully-qualified nested type string or just the nested simple name `MutableTriple`.
+- Look for field nodes matching the field mentioned in the error (e.g. `Left`):
 
 Examples (not exact schema — inspect your file):
 
 ```xml
-<class name="com.izettle.ui.components.modal.OttoDialogComponent.DialogComponentClickListeners">
-	<field name="CREATOR" type="..."/>
+<class name="MutableTriple">
+	<field name="left" type="..."/>
 </class>
 ```
+
+Take all the names of the matching field nodes for the next steps.
 
 If no field node is found, STOP HERE and ask for help.
 
 4) Amend `Metadata.xml` within artifact folder only to avoid the conflict
 
 For each field that needs renaming, add an `<attr>` entry that 
-- targets the field by XPath: `//field[@name='FIELD_NAME']`
+- targets the field by XPath: `//field[@name='FIELD_NAME']` <-- use the exact name from the XML
 - and sets the `managedName` by suffixing an underscore (`_`) to the original name.
 
 Example fix:
 ```xml
-<attr path="//field[@name='CREATOR']" name="managedName">CREATOR_</attr>
+<attr path="//field[@name='left']" name="managedName">left_</attr>
+<attr path="//field[@name='MAX_COUNT']" name="managedName">MAX_COUNT_</attr>
 ```
 
 5) Re-run the binding and verify
