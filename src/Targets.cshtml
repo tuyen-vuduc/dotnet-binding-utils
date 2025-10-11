@@ -3,6 +3,8 @@
 @using System.Xml.Linq
 @{
   var conditionName = "_" + Model.Artifact.Nuget.PackageId.Replace(".", string.Empty);
+  // Windows-friendly copy of LibRelativePath (backslash separators)
+  var winLibRelativePath = string.IsNullOrEmpty(Model.Artifact.LibRelativePath) ? null : Model.Artifact.LibRelativePath.Replace('/', '\\');
 }
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -36,7 +38,7 @@
       </AndroidLibrary>
       <AndroidLibrary       
         Condition=" '$(OS)' != 'Unix' "
-        Include="$(UserProfile)/@(Model.Artifact.LibRelativePath)" 
+        Include="$(UserProfile)\@(winLibRelativePath)" 
         Pack="False"
         Bind="False"
         Visible="False">
