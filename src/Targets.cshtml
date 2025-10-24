@@ -25,6 +25,7 @@
     </ProguardConfiguration>
   </ItemGroup>
 }
+@if (!string.IsNullOrEmpty(Model.Artifact.LibRelativePath)) {
     <ItemGroup  Condition=" '$(AndroidApplication)' == 'true' ">
       <AndroidLibrary
         Condition=" '$(OS)' == 'Unix' "
@@ -34,15 +35,16 @@
         Include="$(Home)/@(Model.Artifact.LibRelativePath)" >
         <AndroidXSkipAndroidXMigration>true</AndroidXSkipAndroidXMigration>
       </AndroidLibrary>
-      <AndroidLibrary       
+      <AndroidLibrary
         Condition=" '$(OS)' != 'Unix' "
-        Include="$(UserProfile)/@(Model.Artifact.LibRelativePath)" 
+        Include="$(UserProfile)/@(Model.Artifact.LibRelativePath)"
         Pack="False"
         Bind="False"
         Visible="False">
         <AndroidXSkipAndroidXMigration>true</AndroidXSkipAndroidXMigration>
       </AndroidLibrary>
     </ItemGroup>
+}
   @* </Target> *@
   <ItemGroup>
     <GradleImplementation 
