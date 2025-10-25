@@ -18,6 +18,6 @@ jobs:
     uses: ./.github/workflows/reusable-ios-build.yml
     with:
       artifact: ${{ inputs.LIB_ARTIFACT }}
-      dotnet-version: '9.0'
+      dotnet-version: '8.0'
     secrets:
       NUGET_PUSH_API_KEY: ${{ secrets.NUGET_PUSH_API_KEY }}
