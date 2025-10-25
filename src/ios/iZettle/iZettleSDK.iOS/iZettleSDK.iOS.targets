@@ -10,10 +10,15 @@
 	</PropertyGroup>
   <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
     <XamarinBuildDownload Include="$(_iZettleSDKItemsFolder)">
-      <Url>https://github.com/iZettle/sdk-ios/releases/download/$(_iZettleSDK)/iZettleSDK.xcframework.zip</Url>
+      <Url>https://github.com/iZettle/sdk-ios/releases/download/$(_iZettleSDK)/iZettleSDK.zip</Url>
       <Kind>Zip</Kind>
     </XamarinBuildDownload>
-    <NativeReference Include="$(_iZettleSDKSDKBaseFolder)iZettlePayments.xcframework">
+    <NativeReference Include="$(_iZettleSDKSDKBaseFolder)iZettleSDK\iZettleSDK.xcframework">
+      <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+    <NativeReference Include="$(_iZettleSDKSDKBaseFolder)iZettleSDK\iZettlePayments.xcframework">
       <Kind>Framework</Kind>
       <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>

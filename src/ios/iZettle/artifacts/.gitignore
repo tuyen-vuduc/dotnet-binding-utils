@@ -13,3 +13,5 @@
 
 *.framework/*
 !*.framework/Headers/
+
+*.framework.dSYM/*

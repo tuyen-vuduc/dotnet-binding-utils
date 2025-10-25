@@ -42,7 +42,10 @@
   <Import Project="iZettleSDK.iOS.targets" />
   <ItemGroup>
     <_NativeReference Include="../artifacts/iZettleSDK.xcframework">
-        <_Id>$(_iZettleId)</_Id>
+        <_Id>$(_iZettleSDKId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="../artifacts/iZettlePayments.xcframework">
+        <_Id>$(_iZettlePaymentsId)</_Id>
     </_NativeReference>
   </ItemGroup>
   <ItemGroup>
