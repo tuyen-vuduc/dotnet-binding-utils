@@ -1,0 +1,6 @@
+{
+  "packageId": "Xamarin.Google.Android.Play.App.Update.Ktx",
+  "dependencyOnly": true,
+  "dotnet8": false,
+  "versionMappings": []
+}

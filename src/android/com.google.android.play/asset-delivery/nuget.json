@@ -1,0 +1,6 @@
+{
+  "packageId": "Xamarin.Google.Android.Play.Asset.Delivery",
+  "dependencyOnly": true,
+  "dotnet8": false,
+  "versionMappings": []
+}
