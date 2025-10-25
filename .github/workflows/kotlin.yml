@@ -9,8 +9,7 @@ on:
         required: true
         type: choice
         options:    
-        - org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2
-        - org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3
+        - org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3
         - org.jetbrains.kotlin:kotlin-parcelize-runtime:1.9.25
 
 jobs:
