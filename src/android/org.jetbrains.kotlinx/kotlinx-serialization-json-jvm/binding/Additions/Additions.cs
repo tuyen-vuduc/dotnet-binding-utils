@@ -970,10 +970,10 @@ namespace KotlinX.Serialization.Json
             => Contains(o as global::KotlinX.Serialization.Json.JsonElement);
 
         bool Java.Util.IList.ContainsAll(System.Collections.ICollection items)
-            => ContainsAll(items.Cast<global::Java.Lang.Object>().ToList());
+            => ContainsAll(items.ToCollection());
 
         bool Java.Util.ICollection.ContainsAll(System.Collections.ICollection items)
-            => ContainsAll(items.Cast<global::Java.Lang.Object>().ToList());
+            => ContainsAll(items.ToCollection());
 
         Java.Lang.Object? Java.Util.IList.Get(int index)
             => Get(index);
@@ -990,15 +990,15 @@ namespace KotlinX.Serialization.Json
             => Remove(o as global::KotlinX.Serialization.Json.JsonElement);
 
         bool Java.Util.IList.RemoveAll(System.Collections.ICollection items)
-            => RemoveAll(items.Cast<global::Java.Lang.Object>().ToList());
+            => RemoveAll(items.ToCollection());
         bool Java.Util.ICollection.RemoveAll(System.Collections.ICollection items)
-            => RemoveAll(items.Cast<global::Java.Lang.Object>().ToList());
+            => RemoveAll(items.ToCollection());
 
         bool Java.Util.IList.RetainAll(System.Collections.ICollection items)
-            => RetainAll(items.Cast<global::Java.Lang.Object>().ToList());
+            => RetainAll(items.ToCollection());
 
         bool Java.Util.ICollection.RetainAll(System.Collections.ICollection items)
-            => RetainAll(items.Cast<global::Java.Lang.Object>().ToList());
+            => RetainAll(items.ToCollection());
 
         Java.Lang.Object? Java.Util.IList.Set(int index, Java.Lang.Object? element)
             => Set(index, element as global::KotlinX.Serialization.Json.JsonElement);
@@ -1009,5 +1009,13 @@ namespace KotlinX.Serialization.Json
 
         System.Collections.IList Java.Util.IList.SubList(int fromIndex, int toIndex)
             => SubList(fromIndex, toIndex).ToList();
+    }
+}
+
+static class X
+{
+    public static System.Collections.Generic.ICollection<object> ToCollection(this System.Collections.ICollection collection)
+    {
+        return collection.Cast<object>().ToList();
     }
 }
