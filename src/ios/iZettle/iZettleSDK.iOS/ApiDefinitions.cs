@@ -61,7 +61,7 @@ namespace iZettleSDK
 
     //@interface iZettleSDKAuthorization : NSObject <iZettleSDKAuthorizationProvider>
     [BaseType(typeof(NSObject), Name = "_TtC10iZettleSDK23iZettleSDKAuthorization"), DisableDefaultCtor]
-    interface iZettleSDKAuthorization : IiZettleSDKAuthorizationProvider
+    interface iZettleSDKAuthorization : iZettleSDKAuthorizationProvider
     {
         ///// Required information to perform authorization.
         ///// \param clientID Client identifier.
@@ -174,13 +174,7 @@ namespace iZettleSDK
         [Export("applicationDidOpenWithURL:")]
         // [Deprecated(PlatformName.iOS, 12, 0, PlatformArchitecture.All, "Not needed on newer iOS versions.")]
         void ApplicationDidOpenWithURL(NSUrl url);
-    }
-
-    // @interface Operations (iZettleSDK)
-    [Category]
-    [BaseType(typeof(iZettleSDK))]
-    interface iZettleSDK_Operations
-    {
+        
         //- (void) logout;
         [Export("logout")]
         void Logout();
