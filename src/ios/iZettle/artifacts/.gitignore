@@ -1,0 +1,15 @@
+!*.xcframework/
+
+*.xcframework/*
+!*.xcframework/ios-arm64/
+
+*.xcframework/ios-arm64/*
+!*.xcframework/ios-arm64/*.framework/
+
+*.xcframework/ios-arm64/*.framework/*
+!*.xcframework/ios-arm64/*.framework/Headers/
+
+!*.framework/
+
+*.framework/*
+!*.framework/Headers/
