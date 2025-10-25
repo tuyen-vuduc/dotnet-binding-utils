@@ -1,26 +1,42 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-  <attr path="/api/package[@name='kotlinx.datetime.format']/class[@extends='kotlinx.datetime.format.AbstractDateTimeFormat']/method[@name='intermediateFromValue' and count(parameter)=1]"
-        name="managedName">IntermediateFromValueX</attr>
-  <attr path="/api/package[@name='kotlinx.datetime.format']/class[@extends='kotlinx.datetime.format.AbstractDateTimeFormat']/method[@name='valueFromIntermediate' and count(parameter)=1]"
-        name="managedName">ValueFromIntermediateX</attr>
-  <attr path="/api/package[@name='kotlinx.datetime.internal.format.parser']/class[@name='ParseResult']/method[@name='equals-impl0' and count(parameter)=2 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.lang.Object']]"
-        name="managedName">Equals0</attr>
+  <!--
+  Detailed Pseudocode / Plan:
+  1. Iterate all method nodes under the metadata.
+  2. For each method node, check two places:
+     a) The child element <return> and its @type attribute.
+     b) All child <parameter> elements and their @type attributes.
+  3. If the <return>@type starts with the prefix "kotlinx.datetime.internal", mark the method node for removal.
+  4. If any <parameter>@type starts with the prefix "kotlinx.datetime.internal", mark the method node for removal.
+  5. Implement this in a single XPath expression that:
+     - selects method nodes where starts-with(return/@type,'kotlinx.datetime.internal')
+       OR there exists a parameter child with starts-with(@type,'kotlinx.datetime.internal').
+     - Example XPath:
+       //method[starts-with(return/@type,'kotlinx.datetime.internal') or parameter[starts-with(@type,'kotlinx.datetime.internal')]]
+  6. Keep the existing remove-node for the internal package root to remove whole packages when present.
+  7. Place the final XPath-based remove-node into the transforms metadata so methods matching either condition are removed.
+  -->
 
-  <attr path="/api/package[@name='kotlinx.datetime.internal.format']/class[@extends='kotlinx.datetime.internal.format.AbstractFieldSpec']/method[@name='getSign' and count(parameter)=0]"
-        name="visibility">protected</attr>
-  <attr path="/api/package[@name='kotlinx.datetime.internal.format']/class[@extends='kotlinx.datetime.internal.format.AbstractFieldSpec']/method[@name='getDefaultValue' and count(parameter)=0]"
-        name="visibility">protected</attr>
-  <attr path="/api/package[@name='kotlinx.datetime.internal.format']/class[@extends='kotlinx.datetime.internal.format.AbstractFieldSpec']/method[@name='getAccessor' and count(parameter)=0]"
-        name="visibility">protected</attr>
-  <remove-node path="/api/package[@name='kotlinx.datetime.internal.format']/class[@name='UnsignedFieldSpec']/method[@name='getDefaultValue' and count(parameter)=0]" />
-  
-  <attr path="/api/package[@name='kotlinx.datetime.format']/class[starts-with(@extends, 'kotlinx.datetime.format.UnicodeFormat.Directive')]/method[@name='addToFormat']"
-        name="jni-return">V</attr>
-  <attr path="/api/package[@name='kotlinx.datetime.format']/class[starts-with(@extends, 'kotlinx.datetime.format.UnicodeFormat.Directive')]/method[@name='addToFormat']"
-        name="jni-signature">(Lkotlinx/datetime/format/DateTimeFormatBuilder$WithTime;)V</attr>
-  <attr path="/api/package[@name='kotlinx.datetime.format']/class[starts-with(@extends, 'kotlinx.datetime.format.UnicodeFormat.Directive')]/method[@name='addToFormat']"
-        name="return">void</attr>
-  <attr path="/api/package[@name='kotlinx.datetime']/class[starts-with(@extends, 'kotlinx.datetime.DateTimeUnit')]/method[@name='times' and count(parameter)=1 and parameter[1][@type='int']]"
-        name="managedReturn">Kotlinx.Datetime.DateTimeUnit</attr>
+  <remove-node path="//package[@name='kotlinx.datetime.internal' or @name='kotlinx.datetime.internal.format']" />
+  <remove-node path="//method[starts-with(@return,'kotlinx.datetime.internal') or parameter[starts-with(@type,'kotlinx.datetime.internal')]]" />
+  <remove-node path="//constructor[parameter[starts-with(@type,'kotlinx.datetime.internal')]]" />
+  <attr path="/api/package[@name='kotlinx.datetime']/class[@name='DateTimeUnit.DayBased']/method[@name='times' and count(parameter)=1 and parameter[1][@type='int']]"
+      name="managedName">Times_</attr>
+  <attr path="/api/package[@name='kotlinx.datetime']/class[@name='DateTimeUnit.MonthBased']/method[@name='times' and count(parameter)=1 and parameter[1][@type='int']]"
+      name="managedName">Times_</attr>
+  <attr path="/api/package[@name='kotlinx.datetime']/class[@name='DateTimeUnit.TimeBased']/method[@name='times' and count(parameter)=1 and parameter[1][@type='int']]"
+      name="managedName">Times_</attr>
+  <attr path="//method[@name='getEmptyIntermediate']" name="propertyName"></attr>
+  <attr path="//class[@extends='kotlinx.datetime.format.AbstractDateTimeFormat']/method[@name='getEmptyIntermediate']"
+	name="managedName">GetEmptyIntermediate_</attr>	
+  <attr path="//class[@extends='kotlinx.datetime.format.UnicodeFormat.Directive.DateBased']/method[@name='addToFormat']"
+	name="return">void</attr>
+	<attr path="//class[@extends='kotlinx.datetime.format.UnicodeFormat.Directive.OffsetBased']/method[@name='addToFormat']"
+	  name="return">void</attr>
+	<attr path="//class[starts-with(@extends, 'kotlinx.datetime.format.UnicodeFormat.Directive.TimeBased')]/method[@name='addToFormat']"
+	  name="return">void</attr>
+	<attr path="//class[starts-with(@extends, 'kotlinx.datetime.format.UnicodeFormat.Directive.ZoneBased')]/method[@name='addToFormat']"
+	  name="return">void</attr>
+	<attr path="/api/package[@name='kotlinx.datetime.internal.format.parser']/class[@name='ParseResult']/method[@name='equals-impl0' and count(parameter)=2 and parameter[1][@type='java.lang.Object'] and parameter[2][@type='java.lang.Object']]"
+		  name="managedName">Equals0</attr>
 </metadata>
