@@ -1,34 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<?xml version="1.0" encoding="utf-8"?>
+
+<Project>
 	<PropertyGroup>
-		<_iZettleSDKAssemblyName>iZettleSDK.iOS, Version=3.7.0, Culture=neutral, PublicKeyToken=null</_iZettleSDKAssemblyName>
-		<_iZettleSDKItemsFolder>iZettleSDK-3.7.0</_iZettleSDKItemsFolder>
+		<_iZettleSDK>3.7.0</_iZettleSDK>
+		<_NugetSuffix>.1</_NugetSuffix>
+		<_iZettleSDKAssemblyName>iZettleSDK.iOS, Version=$(_iZettleSDK), Culture=neutral, PublicKeyToken=null </_iZettleSDKAssemblyName>
+		<_iZettleSDKItemsFolder>iZettleSDK-$(_iZettleSDK)$(_NugetSuffix)</_iZettleSDKItemsFolder>
 		<_iZettleSDKSDKBaseFolder>$(XamarinBuildDownloadDir)$(_iZettleSDKItemsFolder)\</_iZettleSDKSDKBaseFolder>
 	</PropertyGroup>
-	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
-		<XamarinBuildDownload Include="$(_iZettleSDKItemsFolder)">      
-			<Url>https://github.com/iZettle/sdk-ios/releases/download/3.7.0/iZettleSDK.xcframework.zip</Url>
-			<Kind>Zip</Kind>
-		</XamarinBuildDownload>
-		<NativeReference Include="$(_iZettleSDKSDKBaseFolder)iZettleSDK.xcframework">
-			<Kind>Framework</Kind>
-			<SmartLink>True</SmartLink>
-			<ForceLoad>True</ForceLoad>
-		</NativeReference>
-	</ItemGroup>
-	<PropertyGroup>
-		<_iZettlePaymentsItemsFolder>iZettlePayments-3.7.0</_iZettlePaymentsItemsFolder>
-		<_iZettlePaymentsSDKBaseFolder>$(XamarinBuildDownloadDir)$(_iZettlePaymentsItemsFolder)\</_iZettlePaymentsSDKBaseFolder>
-	</PropertyGroup>
-	<ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
-		<XamarinBuildDownload Include="$(_iZettlePaymentsItemsFolder)">      
-			<Url>https://github.com/iZettle/sdk-ios/releases/download/3.7.0/iZettlePayments.xcframework.zip</Url>
-			<Kind>Zip</Kind>
-		</XamarinBuildDownload>
-		<NativeReference Include="$(_iZettlePaymentsSDKBaseFolder)iZettlePayments.xcframework">
-			<Kind>Framework</Kind>
-			<SmartLink>True</SmartLink>
-			<ForceLoad>True</ForceLoad>
-		</NativeReference>
-	</ItemGroup>
+  <ItemGroup Condition="('$(OutputType)'!='Library' OR '$(IsAppExtension)'=='True')">
+    <XamarinBuildDownload Include="$(_iZettleSDKItemsFolder)">
+      <Url>https://github.com/iZettle/sdk-ios/releases/download/$(_iZettleSDK)/iZettleSDK.xcframework.zip</Url>
+      <Kind>Zip</Kind>
+    </XamarinBuildDownload>
+    <NativeReference Include="$(_iZettleSDKSDKBaseFolder)iZettlePayments.xcframework">
+      <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+  </ItemGroup>
 </Project>

@@ -69,8 +69,9 @@ jobs:
           retry_on: error
           command: |
             echo "PWD: $PWD"
-            echo "Building iOS artifact: ${{ inputs.artifact }}"
-            sh bind.sh --artifact "${{ inputs.artifact }}.iOS"
+            cd "./src/ios/${{ inputs.LIB_ARTIFACT }}"
+            echo "PWD: $PWD"
+            sh pack.sh
 
       - name: Validate NuGet packages
         run: |
