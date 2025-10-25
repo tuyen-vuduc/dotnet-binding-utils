@@ -3,7 +3,7 @@ using UIKit;
 using ObjCRuntime;
 using System;
 
-namespace iZettle
+namespace iZettleSDK
 {
     //// @interface IZAuthorizationProviderBridge : NSObject
     //[BaseType(typeof(NSObject))]
