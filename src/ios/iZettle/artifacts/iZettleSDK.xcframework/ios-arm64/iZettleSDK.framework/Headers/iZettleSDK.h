@@ -3,77 +3,19 @@
 //
 //  Copyright © 2014 PayPal Inc. All rights reserved.
 
-@import UIKit;
+#import <UIKit/UIKit.h>
+#import <iZettleSDK/IZSDKManualCardEntryPaymentInfo.h>
+#import <iZettleSDK/iZettleSDKPaymentInfo.h>
+#import <iZettleSDK/IZSDKPayPalQRCPaymentInfo.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class iZettleSDKPaymentInfo;
 @class IZSDKPayPalQRCPaymentInfo;
+@class IZSDKManualCardEntryPaymentInfo;
 @protocol iZettleSDKAuthorizationProvider;
 
-/// SDK error domain.
-extern NSErrorDomain const IZSDKErrorDomain;
-
-/// PayPal QRC error domain.
-extern NSErrorDomain const IZSDKPayPalQRCErrorDomain;
-
-/// Defines SDK errors.
-typedef NS_ERROR_ENUM(IZSDKErrorDomain, IZSDKErrorCode) {
-    IZSDKErrorCodeUserNotLoggedIn            = -1,
-    IZSDKErrorCodePaymentNotFound            = -100,
-    IZSDKErrorCodeReferenceTooLong           = -101,
-    IZSDKErrorCodeReferenceIsNil             = -102,
-    IZSDKErrorCodeOperationAlreadyInProgress = -300,
-    IZSDKErrorCodeInvalidAmount              = -400,
-    IZSDKErrorCodeAmountTooLow               = -401,
-    IZSDKErrorCodeAmountTooHigh              = -402
-};
-
-/// Defines PayPal QRC SDK errors.
-typedef NS_ERROR_ENUM(IZSDKPayPalQRCErrorDomain, IZSDKPayPalQRCErrorCode) {
-    
-    // Common errors
-    IZSDKPayPalQRCNetworkError               = -2000,
-    IZSDKPayPalQRCTechnicalError             = -2001,
-    
-    // Payment errors
-    IZSDKPayPalQRCLocationFailed             = -2101,
-    IZSDKPayPalQRCFeatureNotEnabled          = -2102,
-    IZSDKPayPalQRCOnboardingNotCompleted     = -2103,
-    IZSDKPayPalQRCSellerDataError            = -2104,
-    IZSDKPayPalQRCPaymentCancelledByMerchant = -2105,
-    IZSDKPayPalQRCPaymentCancelledByBuyer    = -2106,
-    IZSDKPayPalQRCPaymentTimeout             = -2107,
-    IZSDKPayPalQRCInvalidAmount              = -2108,
-    IZSDKPayPalQRCAmountBelowMinimum         = -2109,
-    IZSDKPayPalQRCAmountAboveMaximum         = -2110,
-    
-    // PaymentInfoErrors
-    IZSDKPayPalQRCNotFound                   = -2201,
-    IZSDKPayPalQRCNotAuthorized              = -2202,
-    IZSDKPayPalQRCRetrievalCancelled         = -2203,
-    
-    // Refund errors
-    IZSDKPayPalQRCRefundAmountTooHigh        = -2301,
-    IZSDKPayPalQRCRefundInsufficientFunds    = -2302,
-    IZSDKPayPalQRCRefundFailed               = -2303,
-    IZSDKPayPalQRCRefundCancelled            = -2304,
-};
-
 typedef void(^iZettleSDKOperationCompletion)(iZettleSDKPaymentInfo * _Nullable paymentInfo, NSError * _Nullable error);
-
-typedef void(^IZSDKPayPalQRCCompletion)(IZSDKPayPalQRCPaymentInfo * _Nullable paymentInfo, NSError * _Nullable error);
-
-/// Used to set up the UI that should be presented in the PayPal payment flow - `PayPal` or `Venmo`.
-typedef NS_ENUM(NSInteger, IZSDKPayPalQRCAppearance) {
-    IZSDKPayPalQRCAppearancePayPal = 0,
-    IZSDKPayPalQRCAppearanceVenmo = 1
-};
-
-typedef NS_ENUM(NSInteger, IZSDKAlternativePaymentMethod) {
-    /// This payment method represents both `PayPal` and `Venmo` since we are considering `Venmo` as a subtype of `PayPal`.
-    IZSDKAlternativePaymentMethodPayPalQRC = 0
-};
 
 /// Defining which tipping style to be used when initiating a payment with tipping.
 ///
@@ -90,13 +32,152 @@ typedef NS_ENUM(NSUInteger, IZSDKTippingStyle) {
     /// An amount based option.
     IZSDKTippingStyleAmount,
     
-    ///A percentage based option.
+    /// A percentage based option.
     IZSDKTippingStylePercentage
 };
+__deprecated_msg("Use IZZettleReaderTippingStyle and IZPayPalReaderTippingStyle instead.");
+
+/// Defining which tipping style to be used when initiating a payment with tipping for Zettle readers.
+///
+/// Read more at [developer portal](https://developer.zettle.com/docs/ios-sdk/concepts/tipping-support) to understand which type(s) your market supports and what the difference between tipping styles are.
+///
+/// **Important:** If your market does not support the selected style then the market default will be used.
+typedef NS_ENUM(NSUInteger, IZZettleReaderTippingStyle) {
+    /// Disable tipping option.
+    IZZettleReaderTippingStyleNone = 0,
+    
+    /// The market default option.
+    IZZettleReaderTippingStyleMarketDefault,
+    
+    /// An amount based option.
+    IZZettleReaderTippingStyleAmount,
+    
+    /// A percentage based option.
+    IZZettleReaderTippingStylePercentage
+};
+
+/// Defining which tipping style to be used when initiating a payment with tipping for PayPal readers.
+///
+/// Read more at [developer portal](https://developer.zettle.com/docs/ios-sdk/concepts/tipping-support) to understand which type(s) your market supports and what the difference between tipping styles are.
+///
+/// **Important:** If your market does not support the selected style then the market default will be used.
+typedef NS_ENUM(NSUInteger, IZPayPalReaderTippingStyle) {
+    /// Disable tipping option.
+    IZPayPalReaderTippingStyleNone = 0,
+    
+    /// The market default option.
+    IZPayPalReaderTippingStyleMarketDefault,
+    
+    /// A custom amount based option.
+    IZPayPalReaderTippingStyleCustomAmount,
+    
+    /// A percentage based option. It can be used together with `IZSDKPredefinedTippingValues` to utilize predefined percentage options.
+    IZPayPalReaderTippingStylePredefinedPercentage,
+    
+    /// Uses the tipping style configured by the merchant in Settings (if configured, otherwise tipping is disabled)
+    ///   - Note: when using this style, ensure the Settings view is configured to display the PayPal Reader tipping Settings section. See `IZSDKSettingsConfiguration`.
+    IZPayPalReaderTippingStyleSDKConfigured
+};
+
+
+@interface IZSDKSettingsConfiguration: NSObject
+
+/// If `true`, the PayPal reader settings are presented and user has an option to switch between tipping styles and change predefined values. For this user configured settings to take an effect, the payment should be triggered with `SDKConfigured` tipping style for PayPal Reader model.
+@property (nonatomic, readonly) BOOL paypalReaderTippingSettingsEnabled;
+
+- (instancetype)initWithPayPalReaderTippingSettingsEnabled:(BOOL)paypalReaderTippingSettingsEnabled
+NS_SWIFT_NAME(init(paypalReaderTippingSettingsEnabled:));
+
+@end
+
+/// A companion type specifying 3 predefined percentage options (provided option values should be between 0 and 100). To be used together with `IZPayPalReaderTippingStylePredefinedPercentage` style as part of `IZSDKTippingConfiguration`.
+@interface IZSDKPredefinedTippingValues: NSObject
+
+@property (nonatomic, readonly) NSUInteger option1;
+@property (nonatomic, readonly) NSUInteger option2;
+@property (nonatomic, readonly) NSUInteger option3;
+
+- (instancetype)initWithOption1:(NSUInteger)option1
+                        option2:(NSUInteger)option2
+                        option3:(NSUInteger)option3;
+
+@end
+
+/// Describes the tipping style preferences for each reader type.
+@interface IZSDKTippingConfiguration: NSObject
+
+/// Tipping style to be used for the Zettle Reader.
+@property (nonatomic, readonly) IZZettleReaderTippingStyle zettleReaderTippingStyle;
+/// Tipping style to be used for the PayPal Reader. When specifying `IZPayPalReaderTippingStylePredefinedPercentage` you can optionally provide a value for `paypalReaderPredefinedTippingValues`.
+@property (nonatomic, readonly) IZPayPalReaderTippingStyle paypalReaderTippingStyle;
+///  Predefined percentages to be displayed on the card reader. Used only when `paypalReaderTippingStyle` is `IZPayPalReaderTippingStylePredefinedPercentage `. If nil, market default values will be used.
+@property (nonatomic, readonly, strong, nullable) IZSDKPredefinedTippingValues *paypalReaderPredefinedTippingValues;
+
+/// Create tipping configuration by providing tipping style only for Zettle Reader.
+/// Tipping will be disabled for PayPal Reader.
+/// - Parameter zettleReaderTippingStyle: The tipping style for Zettle reader tipping
+- (instancetype)initWithZettleReaderTippingStyle:(IZZettleReaderTippingStyle)zettleReaderTippingStyle
+NS_SWIFT_NAME(init(zettleReaderTippingStyle:));
+
+/// Create tipping configuration by providing tipping style only for Zettle Reader.
+/// Tipping will be disabled for Zettle Reader.
+/// - Parameter paypalReaderTippingStyle: The tipping style for PayPal reader tipping
+- (instancetype)initWithPayPalReaderTippingStyle:(IZPayPalReaderTippingStyle)paypalReaderTippingStyle
+NS_SWIFT_NAME(init(paypalReaderTippingStyle:));
+
+/// Create a tipping configuration with provided tipping style and predefined values for PayPal reader.
+/// Pass `None` to disable tipping for this payment for this reader model.
+/// Only `Percentage` tipping style supports predefined tipping values for now.
+/// If `Amount` tipping style is passed alongside with predefined tipping values, the predefined values will be ignored.
+/// Tipping will be disabled for Zettle Reader.
+/// - Parameters:
+///   - paypalReaderTippingStyle: The tipping style for PayPal reader tipping
+///   - paypalReaderPredefinedTippingValues: The predefined tipping values for the PayPal reader
+- (instancetype)initWithPayPalReaderTippingStyle:(IZPayPalReaderTippingStyle)paypalReaderTippingStyle
+             paypalReaderPredefinedTippingValues:(IZSDKPredefinedTippingValues *)paypalReaderPredefinedTippingValues
+NS_SWIFT_NAME(init(paypalReaderTippingStyle:paypalReaderPredefinedTippingValues:));
+
+/// Create a tipping configuration with provided tipping style for PayPal Reader and Zettle Reader.
+/// Pass `None` to disable tipping for this payment for corresponding reader model.
+/// - Parameters:
+///   - zettleReaderTippingStyle: The tipping style for Zettle reader tipping
+///   - paypalReaderTippingStyle: The tipping style for PayPal reader tipping
+- (instancetype)initWithZettleReaderTippingStyle:(IZZettleReaderTippingStyle)zettleReaderTippingStyle
+                        paypalReaderTippingStyle:(IZPayPalReaderTippingStyle)paypalReaderTippingStyle
+NS_SWIFT_NAME(init(zettleReaderTippingStyle:paypalReaderTippingStyle:));
+
+/// Create a tipping configuration with provided tipping style and predefined values for PayPal Reader and provided tipping style for Zettle Reader.
+/// Pass `None` to disable tipping for this payment for corresponding reader model.
+/// Only `Percentage` tipping style supports predefined tipping values for now for PayPal Reader.
+/// If `Amount` tipping style is passed alongside with predefined tipping values for PayPal Reader, the predefined values will be ignored.
+/// - Parameters:
+///   - zettleReaderTippingStyle: The tipping style for Zettle reader tipping
+///   - paypalReaderTippingStyle: The tipping style for PayPal reader tipping
+///   - paypalReaderPredefinedTippingValues: The predefined tipping values for the PayPal reader
+- (instancetype)initWithZettleReaderTippingStyle:(IZZettleReaderTippingStyle)zettleReaderTippingStyle
+                        paypalReaderTippingStyle:(IZPayPalReaderTippingStyle)paypalReaderTippingStyle
+             paypalReaderPredefinedTippingValues:(IZSDKPredefinedTippingValues *)paypalReaderPredefinedTippingValues
+NS_SWIFT_NAME(init(zettleReaderTippingStyle:paypalReaderTippingStyle:paypalReaderPredefinedTippingValues:));
+
+/// Preconfigured tipping configuration.
+/// Zettle Reader: `IZZettleReaderTippingStyleMarketDefault` is used.
+/// PayPal Reader: `IZPayPalReaderTippingStyleSDKConfigured` is used.
++ (instancetype)sdkConfiguredTippingConfiguration;
+
+/// Preconfigured tipping configuration.
+/// Zettle Reader: `IZZettleReaderTippingStyleNone` is used.
+/// PayPal Reader: `IZPayPalReaderTippingStyleNone` is used.
++ (instancetype)disabledTippingConfiguration;
+
+@end
 
 @interface iZettleSDK : NSObject
 
 @property (nonatomic, readonly) NSString *version;
+
+/// Indicates whether a user is currently logged in to the Zettle SDK.
+/// Returns `YES` if a user is authenticated and logged in, otherwise `NO`.
+@property (nonatomic, readonly) BOOL isLoggedIn;
 
 + (iZettleSDK *)shared;
 
@@ -109,77 +190,82 @@ typedef NS_ENUM(NSUInteger, IZSDKTippingStyle) {
 ///
 /// - Parameters:
 ///     - provider: An object conforming to iZettleSDKAuthorizationProtocol to perform authorization.
-///     For default implementation provided by iZettle use `iZettleSDKAuthorizationProvider`.
+///     For default implementation provided by Zettle use `iZettleSDKAuthorizationProvider`.
 ///
 /// - Throws: Raises an exception if any configuration step fails.
 - (void)startWithAuthorizationProvider:(id<iZettleSDKAuthorizationProvider>)provider;
 
-/// Initializes SDK.
+/// Set PayPal partner attribution ID.
 ///
-/// This method performs validation checks.
+/// > Important: Used only for card payments.
 ///
-/// - Parameters:
-///     - provider: An object conforming to iZettleSDKAuthorizationProtocol to perform authorization.
-///     For default implementation provided by iZettle use `iZettleSDKAuthorizationProvider`.
-///     - enableDeveloperMode: Developer mode lets you quickly test the SDK payment and refund responses of sample or production code with minimal preparation. You do not need a card reader, authorisation flow, or have a Zettle merchant account. In developer mode, you will be able to test payment, refund, and errors for card, PayPal QRC, and Venmo QRC.
-///
-/// - Throws: Raises an exception if any configuration step fails.
-- (void)startWithAuthorizationProvider:(id<iZettleSDKAuthorizationProvider>)provider
-                   enableDeveloperMode:(BOOL)enableDeveloperMode;
+///  - Parameters:
+///     - partnerAttributionId: BN (Build Notation) code is a code that is created by Partner managers, SGMs or sales in order to track activity of sellers on a partner platform.  The code provided is sent within the Card payments API calls.
+- (void)setCardPaymentPayPalPartnerAttributionId:(nullable NSString *)partnerAttributionId;
 
-/// Set enabled Alternative payment methods in the SDK.
+/// Returns current PayPal partner attribution ID which was set using the `setCardPaymentPayPalPartnerAttributionId:` method above
 ///
-/// - Parameters:
-///     - enabledAPMs: An array where all values should be cases of the `IZSDKAlternativePaymentMethod` enum.
-- (void)setEnabledAlternativePaymentMethods:(NSArray<NSNumber *> *)enabledAPMs;
+/// > Important: Used only for card payments.
+///
+/// - Returns: PayPal partner attribution ID if present, `nil` otherwise.
+- (nullable NSString *)cardPaymentPayPalPartnerAttributionId;
 
 @end
 
-@interface iZettleSDK (Operations)
-
+@interface iZettleSDK (SharedOperations)
 /// Logout current account.
 - (void)logout;
 
-/// Perform a payment with an amount and a reference.
+/// Attempt aborting the ongoing operation. Only use this if absolutely necessary. The state of the payment will be unknown to the user after this call.
+- (void)abortOperation;
+
+/// Initiates the login flow by presenting Zettle authentication UI.
 ///
-/// > Tip: Deprecated. Use ``chargeAmount:tippingStyle:reference:presentFromViewController:completion:`` instead.
-///
-/// > Important: Enabling tipping does not guarantee that tipping flow will be displayed. Tipping flow will only be displayed for logged in account and active reader supports tipping.
-///
-/// > Note: If developer mode is enabled, taking payments will not trigger real transactions.
+/// This method presents the Zettle login interface from the provided view controller.
+/// After successful authentication, the user will be logged into the Zettle SDK and
+/// can access payment functionality.
+/// This method must be called from the main thread.
 ///
 /// - Parameters:
-///     - amount: The amount to be charged in the logged in users currency.
-///     - enableTipping: Enable tipping flow with IZSDKTippingStyleMarketDefault tipping style.
-///     - reference: The payment reference. Used to identify an Zettle payment, used when retrieving payment information at a later time or performing a refund. Max length 128. (Optional).
+///     - completion: Completion handler that will be called when the login operation finishes.
+///       Returns nil if login is successful, otherwise returns an error object describing the failure.
+- (void)performLoginWithCompletion:(void (^)(NSError * _Nullable))completion;
+
+/// Initiates the login flow by presenting Zettle authentication UI with completion handler.
+///
+/// This method presents the Zettle login interface from the provided view controller.
+/// After authentication attempt completes, the completion handler will be called with the result.
+/// This method must be called from the main thread.
+///
+/// - Parameters:
+///     - viewController: A controller from which Zettle will present its login UI.
+///     - completion: Completion handler that will be called when the login operation finishes.
+///       Returns nil if login is successful, otherwise returns an error object describing the failure.
+- (void)performLoginFromViewController:(UIViewController *)viewController completion:(void (^)(NSError * _Nullable))completion;
+
+@end
+
+@interface iZettleSDK (Refund)
+
+/// Query Zettle for payment information of a payment with a given reference.
+///
+/// - Parameters:
+///     - reference: The payment reference to query.
 ///     - viewController: A controller from which Zettle will present its UI.
 ///     - completion: Completion handler that will be called when the operation finishes.
-- (void)chargeAmount:(NSDecimalNumber *)amount
-       enableTipping:(BOOL)enableTipping
-           reference:(nullable NSString *)reference
-presentFromViewController:(UIViewController *)viewController
-          completion:(iZettleSDKOperationCompletion)completion
-NS_SWIFT_NAME(charge(amount:enableTipping:reference:presentFrom:completion:))
-__deprecated_msg("Use chargeAmount:tippingStyle:reference:presentFromViewController:completion: instead.");
+- (void)retrievePaymentInfoForReference:(NSString *)reference
+              presentFromViewController:(UIViewController *)viewController
+                             completion:(iZettleSDKOperationCompletion)completion
+NS_SWIFT_NAME(retrievePaymentInfo(for:presentFrom:completion:));
 
-/// Perform a payment with an amount, tipping style and a reference.
-///
-/// > Important: Setting a tipping style does not guarantee that tipping flow will be displayed. Tipping flow will only be displayed for logged in account supporting specificed style and  active reader supporting tipping.
-///
-/// > Note: If developer mode is enabled, taking payments will not trigger real transactions.
+/// Query Zettle for payment information of a payment with a given reference.
 ///
 /// - Parameters:
-///     - amount: The amount to be charged in the logged in users currency.
-///     - tippingStyle: Selecting a tipping style or `None` to disable tipping for this payment.
-///     - reference: The payment reference. Used to identify an iZettle payment, used when retrieving payment information at a later time or performing a refund. Max length 128. (Optional).
-///     - viewController: A controller from which iZettle will present its UI.
+///     - reference: The payment reference to query.
 ///     - completion: Completion handler that will be called when the operation finishes.
-- (void)chargeAmount:(NSDecimalNumber *)amount
-        tippingStyle:(IZSDKTippingStyle)tippingStyle
-           reference:(nullable NSString *)reference
-presentFromViewController:(UIViewController *)viewController
-          completion:(iZettleSDKOperationCompletion)completion
-NS_SWIFT_NAME(charge(amount:tippingStyle:reference:presentFrom:completion:));
+- (void)retrievePaymentInfoForReference:(NSString *)reference
+                             completion:(iZettleSDKOperationCompletion)completion
+NS_SWIFT_NAME(retrievePaymentInfo(for:completion:));
 
 /// Refund an amount from a payment with a given reference.
 ///
@@ -189,7 +275,7 @@ NS_SWIFT_NAME(charge(amount:tippingStyle:reference:presentFrom:completion:));
 ///     - amount: The amount to be refunded from the payment (Optional, `nil` will refund full amount of original payment).
 ///     - reference: The reference of the payment that is to be refunded.
 ///     - refundReference: The reference of the refund. Max length 128. (Optional)
-///     - viewController: A controller from which iZettle will present its UI.
+///     - viewController: A controller from which Zettle will present its UI.
 ///     - completion: Completion handler that will be called when the operation finishes.
 - (void)refundAmount:(nullable NSDecimalNumber *)amount
 ofPaymentWithReference:(NSString *)reference
@@ -198,25 +284,78 @@ presentFromViewController:(UIViewController *)viewController
           completion:(iZettleSDKOperationCompletion)completion
 NS_SWIFT_NAME(refund(amount:ofPayment:withRefundReference:presentFrom:completion:));;
 
-/// Query iZettle for payment information of a payment with a given reference.
-///
-/// - Parameters:
-///     - reference: The payment reference to query.
-///     - viewController: A controller from which iZettle will present its UI.
-///     - completion: Completion handler that will be called when the operation finishes.
-- (void)retrievePaymentInfoForReference:(NSString *)reference
-              presentFromViewController:(UIViewController *)viewController
-                             completion:(iZettleSDKOperationCompletion)completion
-NS_SWIFT_NAME(retrievePaymentInfo(for:presentFrom:completion:));
+@end
 
-/// Query iZettle for payment information of a payment with a given reference.
+#if  __has_include(<iZettlePayments/iZettlePayments-Swift.h>)
+@interface iZettleSDK (Operations)
+
+/// Present Zettle settings view. The user can switch account, access the Zettle FAQ, view card reader settings etc.
+/// Does not enable PayPal Reader tipping settings by default - use `presentSettingsFromViewController:configuration:`
+/// to explicitly configure settings instead.
 ///
 /// - Parameters:
-///     - reference: The payment reference to query.
-///     - completion: Completion handler that will be called when the operation finishes.
-- (void)retrievePaymentInfoForReference:(NSString *)reference
-                             completion:(iZettleSDKOperationCompletion)completion
-NS_SWIFT_NAME(retrievePaymentInfo(for:completion:));
+///     - viewController:  A controller from which Zettle will present its UI.
+- (void)presentSettingsFromViewController:(UIViewController *)viewController
+NS_SWIFT_NAME(presentSettings(from:))
+__deprecated_msg("Use presentSettingsFromViewController:configuration: instead.");
+
+/// Present Zettle settings view with an option to display PayPal reader tipping settings.
+/// The user can switch account, access the Zettle FAQ, view card reader settings etc.
+///
+/// - Parameters:
+///     - viewController:  A controller from which Zettle will present its UI.
+///     - configuration: Defines the presentation of additional features on the SDK settings page (e.g. PayPal Reader tipping Settings).
+- (void)presentSettingsFromViewController:(UIViewController *)viewController
+                            configuration:(IZSDKSettingsConfiguration *)configuration
+NS_SWIFT_NAME(presentSettings(from:configuration:));
+
+/// Call from application:openURL:options: in the UIApplicationDelegate as part of the authorization flow.
+///
+/// > Important: Only used for targets supporting iOS 9 and 10, applications targeting newer iOS versions can omit this step.
+///
+/// - Parameters:
+///     - url: from openURL.
+///
+/// - Returns: `true` if the url is handled, `false` otherwise.
+- (BOOL)applicationDidOpenWithURL:(NSURL *)url NS_DEPRECATED_IOS(9_0, 11_0, "Not needed on newer iOS versions.")
+NS_SWIFT_NAME(applicationDidOpen(with:));
+
+/// Initializes SDK.
+///
+/// This method performs validation checks.
+///
+/// - Parameters:
+///     - provider: An object conforming to iZettleSDKAuthorizationProtocol to perform authorization.
+///     For default implementation provided by Zettle use `iZettleSDKAuthorizationProvider`.
+///     - enableDeveloperMode: Developer mode lets you quickly test the SDK payment and refund responses of sample or production code with minimal preparation. You do not need a card reader, authorisation flow, or have a Zettle merchant account. In developer mode, you will be able to test payment, refund, and errors for card, PayPal QRC, and Venmo QRC.
+///
+/// - Throws: Raises an exception if any configuration step fails.
+- (void)startWithAuthorizationProvider:(id<iZettleSDKAuthorizationProvider>)provider
+                   enableDeveloperMode:(BOOL)enableDeveloperMode;
+@end
+
+@interface iZettleSDK(QRC)
+
+typedef void(^IZSDKPayPalQRCCompletion)(IZSDKPayPalQRCPaymentInfo * _Nullable paymentInfo, NSError * _Nullable error);
+
+/// Used to set up the UI that should be presented in the PayPal payment flow - `PayPal` or `Venmo`.
+typedef NS_ENUM(NSInteger, IZSDKPayPalQRCAppearance) {
+    IZSDKPayPalQRCAppearancePayPal = 0,
+    IZSDKPayPalQRCAppearanceVenmo = 1
+};
+
+typedef NS_ENUM(NSInteger, IZSDKAlternativePaymentMethod) {
+    /// This payment method represents both `PayPal` and `Venmo` since we are considering `Venmo` as a subtype of `PayPal`.
+    IZSDKAlternativePaymentMethodPayPalQRC = 0,
+    /// This payment method allows manually entering the customer's card details. Read more about it at [developer portal](https://developer.zettle.com/docs/ios-sdk/)
+    IZSDKAlternativePaymentMethodManualCardEntry = 1
+};
+
+/// Set enabled Alternative payment methods in the SDK.
+///
+/// - Parameters:
+///     - enabledAPMs: An array where all values should be cases of the `IZSDKAlternativePaymentMethod` enum.
+- (void)setEnabledAlternativePaymentMethods:(NSArray<NSNumber *> *)enabledAPMs;
 
 /// Perform a PayPal QRC payment with an amount and a reference.
 ///
@@ -227,7 +366,7 @@ NS_SWIFT_NAME(retrievePaymentInfo(for:completion:));
 /// - Parameters:
 ///     - amount: The amount to be charged in the logged-in user's currency.
 ///     - reference: Non-nullable payment reference. Used to identify a Zettle payment when retrieving payment information at a later time, or performing a refund. Max length 128.
-///     - viewController: A controller from which iZettle will present its UI.
+///     - viewController: A controller from which Zettle will present its UI.
 ///     - completion: Completion handler that will be called when the operation finishes.
 - (void)chargePayPalQRCWithAmount:(NSDecimalNumber *)amount
                         reference:(NSString *)reference
@@ -248,7 +387,7 @@ API_AVAILABLE(ios(13));
 /// - Parameters:
 ///     - amount: The amount to be charged in the logged-in user's currency.
 ///     - reference: Non-nullable payment reference. Used to identify a Zettle payment when retrieving payment information at a later time, or performing a refund. Max length 128.
-///     - viewController: A controller from which iZettle will present its UI.
+///     - viewController: A controller from which Zettle will present its UI.
 ///     - completion: Completion handler that will be called when the operation finishes. Contains information about the payment type chosen by  a buyer to pay for the presented QR-code.
 - (void)chargePayPalQRCWithAmount:(NSDecimalNumber *)amount
                         reference:(NSString *)reference
@@ -301,93 +440,156 @@ API_AVAILABLE(ios(13));
                    completion:(IZSDKPayPalQRCCompletion)completion
 NS_SWIFT_NAME(refundPayPalQRC(amount:ofPayment:withRefundReference:presentFrom:completion:))
 API_AVAILABLE(ios(13));
+@end
 
-/// Present iZettle settings view. The user can switch account, access the iZettle FAQ, view card reader settings etc.
+@interface iZettleSDK(CardReader)
+/// Perform a payment with an amount and a reference.
+///
+/// > Tip: Deprecated. Use ``chargeAmount:tippingStyle:reference:presentFromViewController:completion:`` instead.
+///
+/// > Important: Enabling tipping does not guarantee that tipping flow will be displayed. Tipping flow will only be displayed for logged in account and active reader supports tipping.
+///
+/// > Note: If developer mode is enabled, taking payments will not trigger real transactions.
 ///
 /// - Parameters:
-///     - viewController:  A controller from which iZettle will present its UI.
-- (void)presentSettingsFromViewController:(UIViewController *)viewController
-NS_SWIFT_NAME(presentSettings(from:));
+///     - amount: The amount to be charged in the logged in users currency.
+///     - enableTipping: Enable tipping flow with IZZettleReaderTippingStyleMarketDefault tipping style and IZPayPalReaderTippingStyleMarketDefault.
+///     - reference: The payment reference. Used to identify a Zettle payment, used when retrieving payment information at a later time or performing a refund. Max length 128. (Optional).
+///     - viewController: A controller from which Zettle will present its UI.
+///     - completion: Completion handler that will be called when the operation finishes.
+- (void)chargeAmount:(NSDecimalNumber *)amount
+       enableTipping:(BOOL)enableTipping
+           reference:(nullable NSString *)reference
+presentFromViewController:(UIViewController *)viewController
+          completion:(iZettleSDKOperationCompletion)completion
+NS_SWIFT_NAME(charge(amount:enableTipping:reference:presentFrom:completion:))
+__deprecated_msg("Use chargeAmount:tippingConfiguration:... to specify tipping style preferences for each reader type.");
 
-/// Call from application:openURL:options: in the UIApplicationDelegate as part of the authorization flow.
+/// Perform a payment with an amount, tipping style and a reference.
 ///
-/// > Important: Only used for targets supporting iOS 9 and 10, applications targeting newer iOS versions can omit this step.
+/// > Important: Setting a tipping style does not guarantee that tipping flow will be displayed. Tipping flow will only be displayed for logged in account supporting specificed style and  active reader supporting tipping.
+///
+/// > Note: If developer mode is enabled, taking payments will not trigger real transactions.
 ///
 /// - Parameters:
-///     - url: from openURL.
+///     - amount: The amount to be charged in the logged in users currency.
+///     - tippingStyle: Select a tipping style or `None` to disable tipping for this payment.
+///     - reference: The payment reference. Used to identify an Zettle payment, used when retrieving payment information at a later time or performing a refund. Max length 128. (Optional).
+///     - viewController: A controller from which Zettle will present its UI.
+///     - completion: Completion handler that will be called when the operation finishes.
 ///
-/// - Returns: `true` if the url is handled, `false` otherwise.
-- (BOOL)applicationDidOpenWithURL:(NSURL *)url NS_DEPRECATED_IOS(9_0, 11_0, "Not needed on newer iOS versions.")
-NS_SWIFT_NAME(applicationDidOpen(with:));
+/// - Note: `IZSDKTippingStyle` is deprecated. We will map the provided `tippingStyle` to the closest `IZZettleReaderTippingStyle` and `IZPayPalReaderTippingStyle` but you're strongly encoraged to migrate to providing explicit styles via `IZSDKTippingConfiguration`.
+- (void)chargeAmount:(NSDecimalNumber *)amount
+        tippingStyle:(IZSDKTippingStyle)tippingStyle
+           reference:(nullable NSString *)reference
+presentFromViewController:(UIViewController *)viewController
+          completion:(iZettleSDKOperationCompletion)completion
+NS_SWIFT_NAME(charge(amount:tippingStyle:reference:presentFrom:completion:))
+__deprecated_msg("Use chargeAmount:tippingConfiguration:... to specify tipping style preferences for each reader type.");
 
-/// Attempt aborting the ongoing operation. Only use this if absolutely necessary. The state of the payment will be unknown to the user after this call.
-- (void)abortOperation;
-
-@end
-
-@interface iZettleSDKPaymentInfo : NSObject
-
-/// Dictionary representation of the payment information.
-@property (nonatomic, readonly) NSDictionary<NSString *, id> *dictionary;
-
-/// Paid amount (including gratuityAmount).
-@property (nonatomic, readonly) NSDecimalNumber *amount;
-@property (nonatomic, readonly) NSString *transactionId;
-/// The amount of gratuity paid.
-@property (nonatomic, readonly, nullable) NSDecimalNumber *gratuityAmount;
-
-/// iZettles reference to the payment.
-@property (nonatomic, readonly) NSString *referenceNumber;
-/// EMV, CONTACTLESS_EMV, MAGSTRIPE_CONTACTLESS, MAGSTRIPE etc.
-@property (nonatomic, readonly) NSString *entryMode;
-@property (nonatomic, readonly) NSString *authorizationCode;
-
-/// **** **** **** 1111
-@property (nonatomic, readonly) NSString *obfuscatedPan;
-/// Hash sum of the plain pan.
-@property (nonatomic, readonly) NSString *panHash;
-@property (nonatomic, readonly) NSString *cardBrand;
-
-@property (nonatomic, readonly, nullable) NSString *AID;
-@property (nonatomic, readonly, nullable) NSString *TSI;
-@property (nonatomic, readonly, nullable) NSString *TVR;
-@property (nonatomic, readonly, nullable) NSString *applicationName;
-
-// Only used for certain markets
-@property (nonatomic, readonly, nullable) NSNumber *numberOfInstallments;
-@property (nonatomic, readonly, nullable) NSDecimalNumber *installmentAmount;
-
-// Only used for Mexico
-@property (nonatomic, readonly, nullable) NSString *mxFIID;
-@property (nonatomic, readonly, nullable) NSString *mxCardType;
-
-@end
-
-/// Used in the `IZSDKPayPalQRCPaymentInfo` object to represent what Payment provider customer used to pay.
+/// Perform a payment with an amount, a reference and tipping configuration.
 ///
-/// **Note:** It's possible for customer to pay for Paypal QR-code with Venmo app and vice versa.
-typedef NS_ENUM(NSInteger, IZSDKPayPalQRCType) {
-    IZSDKPayPalQRCTypePayPal = 0,
-    IZSDKPayPalQRCTypeVenmo = 1
-};
+/// > Important: Setting a tipping style does not guarantee that tipping flow will be displayed. Tipping flow will only be displayed for logged in account supporting specificed style and  active reader supporting tipping.
+///
+/// > Note: If developer mode is enabled, taking payments will not trigger real transactions.
+///
+/// - Parameters:
+///     - amount: The amount to be charged in the logged in users currency.
+///     - tippingConfiguration: Provide configuration for different tipping styles used for supported reader models (Zettle Reader and PayPal Reader)
+///     - reference: The payment reference. Used to identify an Zettle payment, used when retrieving payment information at a later time or performing a refund. Max length 128. (Optional).
+///     - partnerPayeePricingTierId: Payee pricing tier code is a code that is created by Partner managers, SGMs or sales in order to set pricing tier.  The code provided is sent within the Card payments API calls. (Optional)
+///     - viewController: A controller from which Zettle will present its UI.
+///     - completion: Completion handler that will be called when the operation finishes.
+- (void)chargeAmount:(NSDecimalNumber *)amount
+tippingConfiguration:(IZSDKTippingConfiguration *)tippingConfiguration
+           reference:(nullable NSString *)reference
+payPalPartnerPayeePricingTierId:(nullable NSString *)pricingTierId
+presentFromViewController:(UIViewController *)viewController
+          completion:(iZettleSDKOperationCompletion)completion
+NS_SWIFT_NAME(charge(amount:tippingConfiguration:reference:payPalPartnerPayeePricingTierId:presentFrom:completion:));
 
-@interface IZSDKPayPalQRCPaymentInfo: NSObject
+/// Perform a payment with an amount, a reference and tipping configuration.
+///
+/// > Important: Setting a tipping style does not guarantee that tipping flow will be displayed. Tipping flow will only be displayed for logged in account supporting specificed style and  active reader supporting tipping.
+///
+/// > Note: If developer mode is enabled, taking payments will not trigger real transactions.
+///
+/// - Parameters:
+///     - amount: The amount to be charged in the logged in users currency.
+///     - tippingConfiguration: Provide configuration for different tipping styles used for supported reader models (Zettle Reader and PayPal Reader)
+///     - reference: The payment reference. Used to identify an Zettle payment, used when retrieving payment information at a later time or performing a refund. Max length 128. (Optional).
+///     - viewController: A controller from which Zettle will present its UI.
+///     - completion: Completion handler that will be called when the operation finishes.
+- (void)chargeAmount:(NSDecimalNumber *)amount
+tippingConfiguration:(IZSDKTippingConfiguration *)tippingConfiguration
+           reference:(nullable NSString *)reference
+presentFromViewController:(UIViewController *)viewController
+          completion:(iZettleSDKOperationCompletion)completion
+NS_SWIFT_NAME(charge(amount:tippingConfiguration:reference:presentFrom:completion:));
+@end
 
-/// Total transaction amount.
-@property (nonatomic, readonly) NSDecimalNumber *amount;
+@interface iZettleSDK(ManualCardEntry)
 
-/// Zettle's reference to the payment that should be displayed on receipts (not to be confused with the reference provided by you during a charge or refund operation).
-@property (nonatomic, readonly) NSString *referenceNumber;
+typedef void(^IZSDKManualCardEntryCompletion)(IZSDKManualCardEntryPaymentInfo * _Nullable paymentInfo, NSError * _Nullable error);
 
-/// Transaction Identifier that should be displayed on receipts and comes from the PayPal service.
-@property (nonatomic, readonly) NSString *paypalTransactionId;
+/// Perform a Manual card entry payment with an amount and a reference.
+///
+/// > Note: If developer mode is enabled, making refunds will not trigger real transactions.
+///
+/// - Parameters:
+///     - amount: The amount to be charged in the logged-in user's currency.
+///     - reference: Non-nullable payment reference. Used to identify a Zettle payment when retrieving payment information at a later time, or performing a refund.
+///     - viewController: A controller from which Zettle will present its UI.
+///     - completion: Completion handler that will be called when the operation finishes.
+- (void)chargeManualCardEntryWithAmount:(NSDecimalNumber *)amount
+                              reference:(NSUUID *)reference
+              presentFromViewController:(UIViewController *)viewController
+                             completion:(IZSDKManualCardEntryCompletion)completion
+NS_SWIFT_NAME(chargeManualCardEntry(amount:reference:presentFrom:completion:));
 
-/// Which QRC type was used to perform the payment PayPal or Venmo (USA Only).
-@property (nonatomic, readonly) IZSDKPayPalQRCType type;
+/// Query Zettle for payment information of a Manual card entry payment and refund with a given reference.
+///
+/// > Note: If developer mode is enabled, making refunds will not trigger real transactions.
+///
+/// - Parameters:
+///     - reference: The payment/refund reference to query. Use the same reference as was used on the payment/refund initialization.
+///     - viewController: A controller from which Zettle will present its UI.
+///     - completion: Completion handler that will be called when the operation finishes.
+- (void)retrieveManualCardEntryInfoForReference:(NSUUID *)reference
+                      presentFromViewController:(UIViewController *)viewController
+                                     completion:(IZSDKManualCardEntryCompletion)completion
+NS_SWIFT_NAME(retrieveManualCardEntryInfo(for:presentFrom:completion:));
 
-/// The Zettle transaction identifier for the transaction itself.
-@property (nonatomic, readonly) NSString *transactionId;
+/// Query Zettle for payment information of a Manual card entry payment and refund with a given reference.
+///
+/// > Note: If developer mode is enabled, making refunds will not trigger real transactions.
+///
+/// - Parameters:
+///     - reference: The payment/refund reference to query. Use the same reference as was used on the payment/refund initialization.
+///     - completion: Completion handler that will be called when the operation finishes.
+- (void)retrieveManualCardEntryInfoForReference:(NSUUID *)reference
+                                     completion:(IZSDKManualCardEntryCompletion)completion
+NS_SWIFT_NAME(retrieveManualCardEntryInfo(for:completion:));
+
+/// Refund an amount from a Manual Card Entry payment with a given reference.
+///
+/// > Note: If developer mode is enabled, making refunds will not trigger real transactions.
+///
+/// - Parameters:
+///     - amount: The nullable amount to be refunded from the payment (passing `nil` will refund the full amount of the original payment).
+///     - reference: The reference of the payment that is to be refunded.
+///     - refundReference: Non-nullable refund reference. Used to identify a Zettle refund when retrieving refund information at a later time. Max length 128.
+///     - viewController:  A controller from which Zettle will present its UI.
+///     - completion: Completion handler that will be called when the operation finishes.
+- (void)refundManualCardEntryAmount:(nullable NSDecimalNumber *)amount
+             ofPaymentWithReference:(NSUUID *)paymentReference
+                    refundReference:(NSUUID *)refundReference
+          presentFromViewController:(UIViewController *)viewController
+                         completion:(IZSDKManualCardEntryCompletion)completion
+NS_SWIFT_NAME(refundManualCardEntry(amount:ofPayment:withRefundReference:presentFrom:completion:));
 
 @end
+#endif
+
 
 NS_ASSUME_NONNULL_END

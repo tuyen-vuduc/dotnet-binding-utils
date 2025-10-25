@@ -2,8 +2,8 @@
 
 <Project>
 	<PropertyGroup>
-		<_iZettleSDK>3.7.0</_iZettleSDK>
-		<_NugetSuffix>.1</_NugetSuffix>
+		<_iZettleSDK>4.53.1</_iZettleSDK>
+		<_NugetSuffix></_NugetSuffix>
 		<_iZettleSDKAssemblyName>iZettleSDK.iOS, Version=$(_iZettleSDK), Culture=neutral, PublicKeyToken=null </_iZettleSDKAssemblyName>
 		<_iZettleSDKItemsFolder>iZettleSDK-$(_iZettleSDK)$(_NugetSuffix)</_iZettleSDKItemsFolder>
 		<_iZettleSDKSDKBaseFolder>$(XamarinBuildDownloadDir)$(_iZettleSDKItemsFolder)\</_iZettleSDKSDKBaseFolder>
@@ -19,6 +19,11 @@
       <ForceLoad>True</ForceLoad>
     </NativeReference>
     <NativeReference Include="$(_iZettleSDKSDKBaseFolder)iZettleSDK\iZettlePayments.xcframework">
+      <Kind>Framework</Kind>
+      <SmartLink>True</SmartLink>
+      <ForceLoad>True</ForceLoad>
+    </NativeReference>
+    <NativeReference Include="$(_iZettleSDKSDKBaseFolder)iZettleSDK\PPRiskMagnes.xcframework">
       <Kind>Framework</Kind>
       <SmartLink>True</SmartLink>
       <ForceLoad>True</ForceLoad>

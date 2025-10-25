@@ -11,8 +11,8 @@
       <CheckEolWorkloads>false</CheckEolWorkloads>
   </PropertyGroup>
   <PropertyGroup>
-    <_NativeVersion>3.7.0</_NativeVersion>
-    <_NugetSuffix>.1</_NugetSuffix>
+    <_NativeVersion>4.53.1</_NativeVersion>
+    <_NugetSuffix></_NugetSuffix>
     <_NugetVersion>$(_NativeVersion)$(_NugetSuffix)</_NugetVersion>
   </PropertyGroup>
   <PropertyGroup>
@@ -46,6 +46,9 @@
     </_NativeReference>
     <_NativeReference Include="../artifacts/iZettlePayments.xcframework">
         <_Id>$(_iZettlePaymentsId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="../artifacts/PPRiskMagnes.xcframework">
+        <_Id>$(_PPRiskMagnesId)</_Id>
     </_NativeReference>
   </ItemGroup>
   <ItemGroup>
