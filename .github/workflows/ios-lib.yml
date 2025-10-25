@@ -9,9 +9,9 @@ on:
         required: true
         type: choice
         options: 
+        - iZettle
         - Shake
         - Stripe
-        - iZettle
 
 jobs:
   build-then-publish:

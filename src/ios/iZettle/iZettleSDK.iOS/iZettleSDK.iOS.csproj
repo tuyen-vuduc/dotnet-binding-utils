@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+      <TargetFrameworks>net8.0-ios;</TargetFrameworks>
+      <Nullable>enable</Nullable>
+      <ImplicitUsings>true</ImplicitUsings>
+      <IsBindingProject>true</IsBindingProject>
+      <NoBindingEmbedding>false</NoBindingEmbedding>
+      <SupportedOSPlatformVersion>15.0</SupportedOSPlatformVersion>
+      <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+      <CheckEolWorkloads>false</CheckEolWorkloads>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_NativeVersion>3.7.0</_NativeVersion>
+    <_NugetSuffix>.1</_NugetSuffix>
+    <_NugetVersion>$(_NativeVersion)$(_NugetSuffix)</_NugetVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>iZettleSDK.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>iZettleSDK.iOS</AssemblyName>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <AssemblyVersion>$(_NativeVersion)</AssemblyVersion>
+    <FileVersion>$(_NativeVersion)</FileVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageId>iZettleSDK.iOS</PackageId>
+    <Title>iZettleSDK library for .NET iOS</Title>
+    <Summary>.NET iOS bindings for iZettleSDK</Summary>
+    <Description>.NET iOS bindings for iZettleSDK</Description>
+    <Authors>tuyen,tuyen-vuduc</Authors>
+    <Owners>tuyen,tuyen-vuduc</Owners>
+    <Copyright>© tuyen-vuduc. All rights reserved.</Copyright>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageVersion>$(_NugetVersion)</PackageVersion>
+    <PackageTags>xamarin, ios, iZettle, iZettle</PackageTags>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="iZettleSDK.iOS.targets" Pack="True" PackagePath="build/iZettleSDK.iOS.targets" />
+    <None Include="iZettleSDK.iOS.targets" Pack="True" PackagePath="buildTransitive/iZettleSDK.iOS.targets" />
+  </ItemGroup>
+  <Import Project="iZettleSDK.iOS.targets" />
+  <ItemGroup>
+    <_NativeReference Include="../artifacts/iZettleSDK.xcframework">
+        <_Id>$(_iZettleSDKId)</_Id>
+    </_NativeReference>
+    <_NativeReference Include="../artifacts/iZettlePayments.xcframework">
+        <_Id>$(_iZettlePaymentsId)</_Id>
+    </_NativeReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinitions.cs" />
+    <ObjcBindingCoreSource Condition=" EXISTS('StructsAndEnums.cs') " Include="StructsAndEnums.cs" />
+  </ItemGroup>
+  <ItemGroup>
+      <PackageReference Include="Xamarin.Build.Download" Version="0.11.4" PrivateAssets="None" />
+  </ItemGroup>
+</Project>
