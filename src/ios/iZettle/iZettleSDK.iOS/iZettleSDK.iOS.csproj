@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-      <TargetFrameworks>net8.0-ios;net9.0-ios</TargetFrameworks>
+      <TargetFrameworks>net8.0-ios;</TargetFrameworks>
       <Nullable>enable</Nullable>
       <ImplicitUsings>true</ImplicitUsings>
       <IsBindingProject>true</IsBindingProject>
       <NoBindingEmbedding>false</NoBindingEmbedding>
-      <TargetPlatformVersion>18.0</TargetPlatformVersion>
+      <SupportedOSPlatformVersion>15.0</SupportedOSPlatformVersion>
       <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
       <CheckEolWorkloads>false</CheckEolWorkloads>
   </PropertyGroup>
