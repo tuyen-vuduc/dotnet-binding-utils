@@ -13,4 +13,6 @@
         name="propertyName"></attr>
   <attr path="/api/package[@name='kotlinx.serialization.json.internal']/class[@name='ArrayAsSequence']/method[@name='setLength' and count(parameter)=1 and parameter[1][@type='int']]"
         name="propertyName"></attr>
+  <remove-node path="/api/package[@name='kotlinx.serialization.json.internal']" />
+  <remove-node path="//method[@return='kotlinx.serialization.json.internal.DescriptorSchemaCache']" />
 </metadata>

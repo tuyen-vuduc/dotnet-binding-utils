@@ -1,7 +1,7 @@
 {
   "packageId": "Org.Jetbrains.Kotlinx.KotlinxSerializationJsonJvm",
   "name": "kotlinx-serialization-json-jvm",
-  "dependencyOnly": true,
+  "dependencyOnly": false,
   "dotnet8": true,
   "versionMappings": []
 }
