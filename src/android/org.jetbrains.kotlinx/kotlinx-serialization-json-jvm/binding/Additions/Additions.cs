@@ -12,6 +12,7 @@ internal delegate float _JniMarshal_PPLI_F(IntPtr jnienv, IntPtr klass, IntPtr p
 internal delegate int _JniMarshal_PPLI_I(IntPtr jnienv, IntPtr klass, IntPtr p0, int p1);
 internal delegate long _JniMarshal_PPLI_J(IntPtr jnienv, IntPtr klass, IntPtr p0, int p1);
 internal delegate short _JniMarshal_PPLI_S(IntPtr jnienv, IntPtr klass, IntPtr p0, int p1);
+internal delegate bool _JniMarshal_PPLI_Z(IntPtr jnienv, IntPtr klass, IntPtr p0, int p1);
 internal delegate double _JniMarshal_PP_D(IntPtr jnienv, IntPtr klass);
 internal delegate char _JniMarshal_PP_C(IntPtr jnienv, IntPtr klass);
 internal delegate float _JniMarshal_PP_F(IntPtr jnienv, IntPtr klass);

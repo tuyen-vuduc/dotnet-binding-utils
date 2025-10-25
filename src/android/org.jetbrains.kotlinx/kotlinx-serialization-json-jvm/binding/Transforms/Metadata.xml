@@ -15,4 +15,5 @@
         name="propertyName"></attr>
   <remove-node path="/api/package[@name='kotlinx.serialization.json.internal']" />
   <remove-node path="//method[@return='kotlinx.serialization.json.internal.DescriptorSchemaCache']" />
+  <remove-node path="/api/package[@name='kotlinx.serialization.json']/class[@name='JsonIgnoreUnknownKeys.Impl']" />
 </metadata>
