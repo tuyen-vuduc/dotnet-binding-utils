@@ -8,6 +8,7 @@
       <NoBindingEmbedding>false</NoBindingEmbedding>
       <SupportedOSPlatformVersion>15.0</SupportedOSPlatformVersion>
       <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+      <CheckEolWorkloads>false</CheckEolWorkloads>
   </PropertyGroup>
   <PropertyGroup>
     <_NativeVersion>3.7.0</_NativeVersion>
