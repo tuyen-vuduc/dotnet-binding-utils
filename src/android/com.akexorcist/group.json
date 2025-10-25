@@ -1,0 +1,5 @@
+{
+  "name": "com.akexorcist",
+  "dotnet8": true,
+  "runtimeDependenciesAsCompile": true
+}

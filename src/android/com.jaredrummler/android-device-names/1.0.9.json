@@ -1,0 +1,6 @@
+{
+  "revision": 0,
+  "fallbackVersion": "1.1.9",
+  "nugetVersion": "1.0.9",
+  "runtimeDependenciesAsCompile": true
+}

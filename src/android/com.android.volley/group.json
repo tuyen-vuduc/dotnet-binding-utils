@@ -1,0 +1,5 @@
+{
+  "name": "com.android.volley",
+  "dotnet8": true,
+  "runtimeDependenciesAsCompile": true
+}

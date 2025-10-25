@@ -1,4 +1,5 @@
 {
   "name": "com.github.bumptech.glide",
-  "dotnet8": false
+  "dotnet8": false,
+  "runtimeDependenciesAsCompile": true
 }

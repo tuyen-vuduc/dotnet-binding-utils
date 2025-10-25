@@ -25,24 +25,28 @@
     </ProguardConfiguration>
   </ItemGroup>
 }
-    <ItemGroup  Condition=" '$(AndroidApplication)' == 'true' ">
-      <AndroidLibrary
-        Condition=" '$(OS)' == 'Unix' "
-        Pack="False"
-        Bind="False"
-        Visible="False"
-        Include="$(Home)/@(Model.Artifact.LibRelativePath)" >
-        <AndroidXSkipAndroidXMigration>true</AndroidXSkipAndroidXMigration>
-      </AndroidLibrary>
-      <AndroidLibrary       
-        Condition=" '$(OS)' != 'Unix' "
-        Include="$(UserProfile)/@(Model.Artifact.LibRelativePath)" 
-        Pack="False"
-        Bind="False"
-        Visible="False">
-        <AndroidXSkipAndroidXMigration>true</AndroidXSkipAndroidXMigration>
-      </AndroidLibrary>
-    </ItemGroup>
+@if (!string.IsNullOrEmpty(Model.Artifact.LibRelativePath)) {
+  // Windows-friendly copy of LibRelativePath (backslash separators)
+  var winLibRelativePath = Model.Artifact.LibRelativePath.Replace('/', '\\');
+  <ItemGroup Condition=" '$(AndroidApplication)' == 'true' ">
+    <AndroidLibrary
+      Condition=" '$(OS)' == 'Unix' "
+      Pack="False"
+      Bind="False"
+      Visible="False"
+      Include="$(Home)/@(Model.Artifact.LibRelativePath)">
+      <AndroidXSkipAndroidXMigration>true</AndroidXSkipAndroidXMigration>
+    </AndroidLibrary>
+    <AndroidLibrary
+      Condition=" '$(OS)' != 'Unix' "
+      Include="$(UserProfile)\@(winLibRelativePath)"
+      Pack="False"
+      Bind="False"
+      Visible="False">
+      <AndroidXSkipAndroidXMigration>true</AndroidXSkipAndroidXMigration>
+    </AndroidLibrary>
+  </ItemGroup>
+}
   @* </Target> *@
   <ItemGroup>
     <GradleImplementation 

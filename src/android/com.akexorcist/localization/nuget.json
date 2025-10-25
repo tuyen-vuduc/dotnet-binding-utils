@@ -1,0 +1,7 @@
+{
+  "packageId": "Com.Akexorcist.Localization",
+  "name": "localization",
+  "dependencyOnly": false,
+  "dotnet8": true,
+  "versionMappings": []
+}

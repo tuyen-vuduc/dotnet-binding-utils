@@ -11,6 +11,7 @@ on:
         options: 
         - Shake
         - Stripe
+        - iZettle
 
 jobs:
   build-then-publish:

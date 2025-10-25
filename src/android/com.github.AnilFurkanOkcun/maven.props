@@ -1,0 +1,12 @@
+<Project>
+  <ItemGroup>
+    <GradleRepository Include="https://jitpack.io">
+      <Repository>
+      maven {
+        url = uri("https://jitpack.io")
+      }
+      </Repository>
+    </GradleRepository>
+    <GradleImplementation Include="org.jetbrains.kotlin:kotlin-android-extensions-runtime:1.6.10"></GradleImplementation>
+  </ItemGroup>
+</Project>
