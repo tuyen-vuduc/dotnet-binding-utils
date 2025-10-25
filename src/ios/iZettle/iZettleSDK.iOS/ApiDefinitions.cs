@@ -61,7 +61,7 @@ namespace iZettleSDK
 
     //@interface iZettleSDKAuthorization : NSObject <iZettleSDKAuthorizationProvider>
     [BaseType(typeof(NSObject), Name = "_TtC10iZettleSDK23iZettleSDKAuthorization"), DisableDefaultCtor]
-    interface iZettleSDKAuthorization : iZettleSDKAuthorizationProvider
+    interface iZettleSDKAuthorization : IiZettleSDKAuthorizationProvider
     {
         ///// Required information to perform authorization.
         ///// \param clientID Client identifier.
