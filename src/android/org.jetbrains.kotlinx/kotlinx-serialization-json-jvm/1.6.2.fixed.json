@@ -1,6 +1,6 @@
 {
     "Xamarin.KotlinX.Serialization.Core": "1.6.3.1",
     "Xamarin.KotlinX.Serialization.Core.Jvm": "1.6.3.1",
-    "Xamarin.Kotlin.StdLib": "1.9.23.1",
-    "Xamarin.Kotlin.StdLib.Common": "1.9.23.1"
+    "Xamarin.Kotlin.StdLib.Common": "1.9.23.3",
+    "Xamarin.Kotlin.StdLib": "1.9.23.3"
 }

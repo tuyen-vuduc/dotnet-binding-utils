@@ -1,3 +1,4 @@
 {
-  "fallbackVersion": "1.6.2"
+  "revision": 0,
+  "runtimeDependenciesAsCompile": true
 }

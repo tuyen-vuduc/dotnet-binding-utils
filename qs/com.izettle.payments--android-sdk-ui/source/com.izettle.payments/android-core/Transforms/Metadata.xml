@@ -1,5 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<metadata>
-	<attr path="//field[@name='Companion']" name="managedName">CompanionField</attr>
-	<attr path="/api/package[@name='com.izettle.payments.android.core']/interface[@name='FileWrapper']/field[@name='Factory']" name="managedName">FactoryField</attr>
-</metadata>
