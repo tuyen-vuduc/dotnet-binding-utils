@@ -7,6 +7,7 @@
       <IsBindingProject>true</IsBindingProject>
       <NoBindingEmbedding>false</NoBindingEmbedding>
       <SupportedOSPlatformVersion>15.0</SupportedOSPlatformVersion>
+      <TargetPlatformVersion>17.2</TargetPlatformVersion>
       <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
       <CheckEolWorkloads>false</CheckEolWorkloads>
   </PropertyGroup>
