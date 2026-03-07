@@ -1,0 +1,7 @@
+{
+  "packageId": "Xamarin.AndroidX.WebKit",
+  "name": "webkit",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}

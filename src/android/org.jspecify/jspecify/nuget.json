@@ -1,0 +1,7 @@
+{
+  "packageId": "Xamarin.JSpecify",
+  "name": "jspecify",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}

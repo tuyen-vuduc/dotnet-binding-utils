@@ -1,0 +1,6 @@
+{
+  "packageId": "Xamarin.Google.Android.Play.App.Update",
+  "dependencyOnly": true,
+  "dotnet8": false,
+  "versionMappings": []
+}

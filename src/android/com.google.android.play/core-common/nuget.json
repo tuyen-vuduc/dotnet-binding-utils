@@ -1,0 +1,7 @@
+{
+  "packageId": "Xamarin.Google.Android.Play.Core.Common",
+  "name": "core-common",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}

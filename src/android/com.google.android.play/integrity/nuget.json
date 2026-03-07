@@ -1,0 +1,7 @@
+{
+  "packageId": "Xamarin.Google.Android.Play.Integrity",
+  "name": "integrity",
+  "dependencyOnly": true,
+  "dotnet8": true,
+  "versionMappings": []
+}
