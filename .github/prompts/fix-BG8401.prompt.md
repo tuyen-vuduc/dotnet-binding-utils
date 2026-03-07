@@ -3,7 +3,7 @@
 This prompt explains how to locate and fix BG8401 errors produced by the Xamarin.Android binding generator when the generated `api.xml` contains duplicate nested-type/class nodes. Example error we want to fix:
 
 ```
-obj\Release\net9.0-android\api.xml(6946,8): error BG8401: Skipping 'Com.Izettl
+obj\Release\net10.0-android\api.xml(6946,8): error BG8401: Skipping 'Com.Izettl
 			e.UI.Components.Modal.OttoDialogComponent.DialogComponentClickListeners.CREATOR'
 			 due to a duplicate nested type name. (Java type: 'com.izettle.ui.components.mod
 			al.OttoDialogComponent.DialogComponentClickListeners')
@@ -38,7 +38,7 @@ When either of these happens, we will get error of BG8401: The nested type 'X' w
                     |-- {ARTIFACT_GROUP}.{ARTIFACT_NAME}.csproj
                     |-- obj
                         |-- Release
-                            |-- net9.0-android <--- your target framework
+                            |-- net10.0-android <--- your target framework
                                 |-- api.xml  <--- Inspect this file to find duplicate nodes
                     |-- Transforms
                         |-- Metadata.xml  <--- Edit this file to fix BG8401
@@ -61,14 +61,14 @@ sh bind.sh --artifact $INPUT
 The build log will look like this:
 
 ```
-ProjectNameA net9.0-android failed with 189 error(s) and 24 warning(s) (7.1s)
-    obj\Release\net9.0-android\api.xml(12721,8): warning BG8701: Invalid return type 'java.util.List<org.apache.commons.lang3.time.FastDatePrinter.Rule>' for member 'Org.Apache.Commons.Lang3.Time.FastDatePrinter.ParsePattern ()'.
-    C:\Program Files\dotnet\packs\Microsoft.Android.Sdk.Windows\35.0.101\tools\Xamarin.Android.Bindings.Core.targets(97,5): obj\Release\net9.0-android\api.xml(12721,8) warning BG8701: Invalid return type 'java.util.List<org.apache.commons.lang3.time.FastDatePrinter.Rule>' for member 'Org.Apache.Commons.Lang3.Time.FastDatePrinter.ParsePattern ()'.
-    obj\Release\net9.0-android\api.xml(12726,8): error BG8700: Unknown return type 'org.apache.commons.lang3.time.FastDatePrinter.NumberRule' for member 'Org.Apache.Commons.Lang3.Time.FastDatePrinter.SelectNumberRule (int, int)'.
-ProjectNameB net9.0-android failed with 189 error(s) and 24 warning(s) (7.1s)
-    obj\Release\net9.0-android\api.xml(12721,8): warning BG8701: Invalid return type 'java.util.List<org.apache.commons.lang3.time.FastDatePrinter.Rule>' for member 'Org.Apache.Commons.Lang3.Time.FastDatePrinter.ParsePattern ()'.
-    C:\Program Files\dotnet\packs\Microsoft.Android.Sdk.Windows\35.0.101\tools\Xamarin.Android.Bindings.Core.targets(97,5): obj\Release\net9.0-android\api.xml(12721,8) warning BG8701: Invalid return type 'java.util.List<org.apache.commons.lang3.time.FastDatePrinter.Rule>' for member 'Org.Apache.Commons.Lang3.Time.FastDatePrinter.ParsePattern ()'.
-    obj\Release\net9.0-android\api.xml(12726,8): error BG8700: Unknown return type 'org.apache.commons.lang3.time.FastDatePrinter.NumberRule' for member 'Org.Apache.Commons.Lang3.Time.FastDatePrinter.SelectNumberRule (int, int)'.
+ProjectNameA net10.0-android failed with 189 error(s) and 24 warning(s) (7.1s)
+    obj\Release\net10.0-android\api.xml(12721,8): warning BG8701: Invalid return type 'java.util.List<org.apache.commons.lang3.time.FastDatePrinter.Rule>' for member 'Org.Apache.Commons.Lang3.Time.FastDatePrinter.ParsePattern ()'.
+    C:\Program Files\dotnet\packs\Microsoft.Android.Sdk.Windows\35.0.101\tools\Xamarin.Android.Bindings.Core.targets(97,5): obj\Release\net10.0-android\api.xml(12721,8) warning BG8701: Invalid return type 'java.util.List<org.apache.commons.lang3.time.FastDatePrinter.Rule>' for member 'Org.Apache.Commons.Lang3.Time.FastDatePrinter.ParsePattern ()'.
+    obj\Release\net10.0-android\api.xml(12726,8): error BG8700: Unknown return type 'org.apache.commons.lang3.time.FastDatePrinter.NumberRule' for member 'Org.Apache.Commons.Lang3.Time.FastDatePrinter.SelectNumberRule (int, int)'.
+ProjectNameB net10.0-android failed with 189 error(s) and 24 warning(s) (7.1s)
+    obj\Release\net10.0-android\api.xml(12721,8): warning BG8701: Invalid return type 'java.util.List<org.apache.commons.lang3.time.FastDatePrinter.Rule>' for member 'Org.Apache.Commons.Lang3.Time.FastDatePrinter.ParsePattern ()'.
+    C:\Program Files\dotnet\packs\Microsoft.Android.Sdk.Windows\35.0.101\tools\Xamarin.Android.Bindings.Core.targets(97,5): obj\Release\net10.0-android\api.xml(12721,8) warning BG8701: Invalid return type 'java.util.List<org.apache.commons.lang3.time.FastDatePrinter.Rule>' for member 'Org.Apache.Commons.Lang3.Time.FastDatePrinter.ParsePattern ()'.
+    obj\Release\net10.0-android\api.xml(12726,8): error BG8700: Unknown return type 'org.apache.commons.lang3.time.FastDatePrinter.NumberRule' for member 'Org.Apache.Commons.Lang3.Time.FastDatePrinter.SelectNumberRule (int, int)'.
 ```
 
 Based on the above, we have two csproj files to inspect: `ProjectNameA.csproj` and `ProjectNameB.csproj`. Each project name is composed of `{ARTIFACT_GROUP}.{ARTIFACT_NAME}`, so you can locate the project file in the folder structure above.
@@ -79,15 +79,15 @@ Errors/warnings/messages are indented under the project name line. Group them by
 
 2) Locate the generated api.xml
 
-Each csproject has its own `obj/Release/net9.0-android/api.xml` file. You must identify the correct one for the error you're fixing based on the file structure above.
+Each csproject has its own `obj/Release/net10.0-android/api.xml` file. You must identify the correct one for the error you're fixing based on the file structure above.
 
-E.g. for `Org.Apache.Commons.CommonsLang3`, the api.xml file is located at: `src/android/org.apache.commons/commons-lang3/binding/obj/Release/net9.0-android/api.xml`
+E.g. for `Org.Apache.Commons.CommonsLang3`, the api.xml file is located at: `src/android/org.apache.commons/commons-lang3/binding/obj/Release/net10.0-android/api.xml`
 
 NOTE: 
-- Target framework may vary (e.g. `net8.0-android` or `net9.0-android`, or other), so adjust accordingly.
-- If project is built in Debug configuration, the path will be `obj/Debug/net9.0-android/api.xml`.
-- If project is built in Release configuration, the path will be `obj/Release/net9.0-android/api.xml`.
-- If project supports multiple target frameworks, you may have multiple folders under `obj/Release` (e.g. `net8.0-android`, `net9.0-android`), so inspect the correct single target framework folder is OK.
+- Target framework may vary (e.g. `net8.0-android` or `net10.0-android`, or other), so adjust accordingly.
+- If project is built in Debug configuration, the path will be `obj/Debug/net10.0-android/api.xml`.
+- If project is built in Release configuration, the path will be `obj/Release/net10.0-android/api.xml`.
+- If project supports multiple target frameworks, you may have multiple folders under `obj/Release` (e.g. `net8.0-android`, `net10.0-android`), so inspect the correct single target framework folder is OK.
 
 3) Inspect the XML around each match
 
@@ -136,7 +136,7 @@ Notes and troubleshooting
 Deliverable: a short, reproducible edit and verification steps that remove the BG8401 error for the specified Java type.
 
 If you'd like, I can now:
-- search the workspace for occurrences of `DialogComponentClickListeners` and open `obj/Release/net9.0-android/api.xml` to show the exact duplicate nodes, or
+- search the workspace for occurrences of `DialogComponentClickListeners` and open `obj/Release/net10.0-android/api.xml` to show the exact duplicate nodes, or
 - prepare a recommended `Metadata.xml` patch to permanently hide/rename the duplicate.
 Pick one and I'll proceed.
 

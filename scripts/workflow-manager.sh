@@ -61,7 +61,7 @@ jobs:
     uses: ./.github/workflows/reusable-android-build.yml
     with:
       artifact: ${{ inputs.LIB_ARTIFACT }}
-      dotnet-version: '9.0'
+      dotnet-version: '10.0'
       java-version: '21'
       requires-mapbox-token: ${mapbox_bool}
       requires-drivesmart-credentials: ${drivesmart_bool}

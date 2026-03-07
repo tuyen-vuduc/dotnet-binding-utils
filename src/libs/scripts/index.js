@@ -139,7 +139,7 @@ function process_stripe(protocol, additional) {
 function process_field() {
   (async function processLineByLine() {
     try {
-      const apiPath = 'C:/ws/tv/dotnet-binding-utils/src/android/com.stripe/stripeterminal-internal-common/binding/obj/Release/net9.0-android/api.xml';
+      const apiPath = 'C:/ws/tv/dotnet-binding-utils/src/android/com.stripe/stripeterminal-internal-common/binding/obj/Release/net10.0-android/api.xml';
       if (!fs.existsSync(apiPath)) {
         console.log(`Skipping ${apiPath}: file not found.`);
         return;

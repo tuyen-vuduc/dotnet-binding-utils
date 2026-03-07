@@ -32,7 +32,7 @@ File structure
                     |-- {ARTIFACT_GROUP}.{ARTIFACT_NAME}.csproj
                     |-- obj
                         |-- Release
-                            |-- net9.0-android <--- or net8.0-android, check your target
+                            |-- net10.0-android <--- or net8.0-android, check your target
                                 |-- generated
                                     |-- src
                                         |-- Kotlinx.Serialization.Json.Internal.PolymorphismValidator.cs  <--- Inspect this file
