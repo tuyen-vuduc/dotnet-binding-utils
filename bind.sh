@@ -1,4 +1,5 @@
 
+export DOTNET_CheckEolWorkloads=false
 rm -rf ./src/libs/BindingHost/*.props
 rm -rf ./src/libs/BindingHost/bin
 rm -rf ./src/libs/BindingHost/obj
