@@ -745,7 +745,7 @@ SWIFT_CLASS_NAMED("TSPSPaymentSheet")
 ///
 /// \param configuration Configuration for the PaymentSheet. e.g. your business name, Customer details, etc.
 ///
-- (nonnull instancetype)initWithSetupIntentClientSecret:(NSString * _Nonnull)setupIntentClientSecret configuration:(TSPSConfiguration * _Nonnull)configuration;
+- (nonnull instancetype)initWithSetupIntentClientSecret:(NSString * _Nonnull)setupIntentClientSecret configuration:(TSPSConfiguration * _Nonnull)configuration differentiator:(NSString * _Nonnull)differentiator;
 + (void)resetCustomer;
 /// Presents a sheet for a customer to complete their payment
 /// \param presentingViewController The view controller to present a payment sheet
